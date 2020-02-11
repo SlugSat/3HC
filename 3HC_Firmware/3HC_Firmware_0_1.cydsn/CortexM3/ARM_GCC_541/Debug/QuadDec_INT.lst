@@ -1,0 +1,586 @@
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvXvxv6.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"QuadDec_INT.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.QuadDec_ISR,"ax",%progbits
+  20              		.align	2
+  21              		.global	QuadDec_ISR
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	QuadDec_ISR, %function
+  25              	QuadDec_ISR:
+  26              	.LFB0:
+  27              		.file 1 "Generated_Source\\PSoC5\\QuadDec_INT.c"
+   1:Generated_Source\PSoC5/QuadDec_INT.c **** /*******************************************************************************
+   2:Generated_Source\PSoC5/QuadDec_INT.c **** * File Name: QuadDec_INT.c
+   3:Generated_Source\PSoC5/QuadDec_INT.c **** * Version 3.0
+   4:Generated_Source\PSoC5/QuadDec_INT.c **** *
+   5:Generated_Source\PSoC5/QuadDec_INT.c **** * Description:
+   6:Generated_Source\PSoC5/QuadDec_INT.c **** *  This file contains the Interrupt Service Routine (ISR) for the Quadrature
+   7:Generated_Source\PSoC5/QuadDec_INT.c **** *  Decoder component.
+   8:Generated_Source\PSoC5/QuadDec_INT.c **** *
+   9:Generated_Source\PSoC5/QuadDec_INT.c **** * Note:
+  10:Generated_Source\PSoC5/QuadDec_INT.c **** *  None.
+  11:Generated_Source\PSoC5/QuadDec_INT.c **** *
+  12:Generated_Source\PSoC5/QuadDec_INT.c **** ********************************************************************************
+  13:Generated_Source\PSoC5/QuadDec_INT.c **** * Copyright 2008-2014, Cypress Semiconductor Corporation.  All rights reserved.
+  14:Generated_Source\PSoC5/QuadDec_INT.c **** * You may use this file only in accordance with the license, terms, conditions, 
+  15:Generated_Source\PSoC5/QuadDec_INT.c **** * disclaimers, and limitations in the end user license agreement accompanying
+  16:Generated_Source\PSoC5/QuadDec_INT.c **** * the software package with which this file was provided.
+  17:Generated_Source\PSoC5/QuadDec_INT.c **** *******************************************************************************/
+  18:Generated_Source\PSoC5/QuadDec_INT.c **** 
+  19:Generated_Source\PSoC5/QuadDec_INT.c **** #include "QuadDec.h"
+  20:Generated_Source\PSoC5/QuadDec_INT.c **** #include "QuadDec_PVT.h"
+  21:Generated_Source\PSoC5/QuadDec_INT.c **** #include "cyapicallbacks.h"
+  22:Generated_Source\PSoC5/QuadDec_INT.c **** 
+  23:Generated_Source\PSoC5/QuadDec_INT.c **** volatile int32 QuadDec_count32SoftPart = 0;
+  24:Generated_Source\PSoC5/QuadDec_INT.c **** 
+  25:Generated_Source\PSoC5/QuadDec_INT.c **** 
+  26:Generated_Source\PSoC5/QuadDec_INT.c **** /*******************************************************************************
+  27:Generated_Source\PSoC5/QuadDec_INT.c **** * FUNCTION NAME: void QuadDec_ISR
+  28:Generated_Source\PSoC5/QuadDec_INT.c **** ********************************************************************************
+  29:Generated_Source\PSoC5/QuadDec_INT.c **** *
+  30:Generated_Source\PSoC5/QuadDec_INT.c **** * Summary:
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvXvxv6.s 			page 2
+
+
+  31:Generated_Source\PSoC5/QuadDec_INT.c **** *  Interrupt Service Routine for Quadrature Decoder Component.
+  32:Generated_Source\PSoC5/QuadDec_INT.c **** *
+  33:Generated_Source\PSoC5/QuadDec_INT.c **** * Parameters:
+  34:Generated_Source\PSoC5/QuadDec_INT.c **** *  None.
+  35:Generated_Source\PSoC5/QuadDec_INT.c **** *
+  36:Generated_Source\PSoC5/QuadDec_INT.c **** * Return:
+  37:Generated_Source\PSoC5/QuadDec_INT.c **** *  None.
+  38:Generated_Source\PSoC5/QuadDec_INT.c **** *
+  39:Generated_Source\PSoC5/QuadDec_INT.c **** * Global variables:
+  40:Generated_Source\PSoC5/QuadDec_INT.c **** *  QuadDec_count32SoftPart - modified to update hi 16 bit for current
+  41:Generated_Source\PSoC5/QuadDec_INT.c **** *  value of the 32-bit counter, when Counter size equal 32-bit.
+  42:Generated_Source\PSoC5/QuadDec_INT.c **** *  QuadDec_swStatus - modified with the updated values of STATUS
+  43:Generated_Source\PSoC5/QuadDec_INT.c **** *  register.
+  44:Generated_Source\PSoC5/QuadDec_INT.c **** *
+  45:Generated_Source\PSoC5/QuadDec_INT.c **** *******************************************************************************/
+  46:Generated_Source\PSoC5/QuadDec_INT.c **** CY_ISR( QuadDec_ISR )
+  47:Generated_Source\PSoC5/QuadDec_INT.c **** {
+  28              		.loc 1 47 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  48:Generated_Source\PSoC5/QuadDec_INT.c ****    uint8 QuadDec_swStatus;
+  49:Generated_Source\PSoC5/QuadDec_INT.c **** 
+  50:Generated_Source\PSoC5/QuadDec_INT.c ****    QuadDec_swStatus = QuadDec_STATUS_REG;
+  33              		.loc 1 50 0
+  34 0000 0D4B     		ldr	r3, .L5
+  35 0002 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+  36 0004 DBB2     		uxtb	r3, r3
+  37              	.LVL0:
+  51:Generated_Source\PSoC5/QuadDec_INT.c **** 
+  52:Generated_Source\PSoC5/QuadDec_INT.c ****     #ifdef QuadDec_ISR_ENTRY_CALLBACK
+  53:Generated_Source\PSoC5/QuadDec_INT.c ****         QuadDec_ISR_EntryCallback();
+  54:Generated_Source\PSoC5/QuadDec_INT.c ****     #endif /* QuadDec_ISR_ENTRY_CALLBACK */
+  55:Generated_Source\PSoC5/QuadDec_INT.c **** 
+  56:Generated_Source\PSoC5/QuadDec_INT.c ****     /* User code required at start of ISR */
+  57:Generated_Source\PSoC5/QuadDec_INT.c ****     /* `#START QuadDec_ISR_START` */
+  58:Generated_Source\PSoC5/QuadDec_INT.c **** 
+  59:Generated_Source\PSoC5/QuadDec_INT.c ****     /* `#END` */
+  60:Generated_Source\PSoC5/QuadDec_INT.c **** 
+  61:Generated_Source\PSoC5/QuadDec_INT.c ****     if (0u != (QuadDec_swStatus & QuadDec_COUNTER_OVERFLOW))
+  38              		.loc 1 61 0
+  39 0006 13F0010F 		tst	r3, #1
+  40 000a 06D0     		beq	.L2
+  62:Generated_Source\PSoC5/QuadDec_INT.c ****     {
+  63:Generated_Source\PSoC5/QuadDec_INT.c ****         QuadDec_count32SoftPart += (int32) QuadDec_COUNTER_MAX_VALUE;
+  41              		.loc 1 63 0
+  42 000c 0B49     		ldr	r1, .L5+4
+  43 000e 0A68     		ldr	r2, [r1]
+  44 0010 02F5FF42 		add	r2, r2, #32640
+  45 0014 7F32     		adds	r2, r2, #127
+  46 0016 0A60     		str	r2, [r1]
+  47 0018 07E0     		b	.L3
+  48              	.L2:
+  64:Generated_Source\PSoC5/QuadDec_INT.c ****     }
+  65:Generated_Source\PSoC5/QuadDec_INT.c ****     else if (0u != (QuadDec_swStatus & QuadDec_COUNTER_UNDERFLOW))
+  49              		.loc 1 65 0
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvXvxv6.s 			page 3
+
+
+  50 001a 13F0020F 		tst	r3, #2
+  51 001e 04D0     		beq	.L3
+  66:Generated_Source\PSoC5/QuadDec_INT.c ****     {
+  67:Generated_Source\PSoC5/QuadDec_INT.c ****         QuadDec_count32SoftPart -= (int32) QuadDec_COUNTER_INIT_VALUE;
+  52              		.loc 1 67 0
+  53 0020 0649     		ldr	r1, .L5+4
+  54 0022 0A68     		ldr	r2, [r1]
+  55 0024 A2F50042 		sub	r2, r2, #32768
+  56 0028 0A60     		str	r2, [r1]
+  57              	.L3:
+  68:Generated_Source\PSoC5/QuadDec_INT.c ****     }
+  69:Generated_Source\PSoC5/QuadDec_INT.c ****     else
+  70:Generated_Source\PSoC5/QuadDec_INT.c ****     {
+  71:Generated_Source\PSoC5/QuadDec_INT.c ****         /* Nothing to do here */
+  72:Generated_Source\PSoC5/QuadDec_INT.c ****     }
+  73:Generated_Source\PSoC5/QuadDec_INT.c ****     
+  74:Generated_Source\PSoC5/QuadDec_INT.c ****     if (0u != (QuadDec_swStatus & QuadDec_COUNTER_RESET))
+  58              		.loc 1 74 0
+  59 002a 13F0040F 		tst	r3, #4
+  60 002e 02D0     		beq	.L1
+  75:Generated_Source\PSoC5/QuadDec_INT.c ****     {
+  76:Generated_Source\PSoC5/QuadDec_INT.c ****         QuadDec_count32SoftPart = 0;
+  61              		.loc 1 76 0
+  62 0030 0022     		movs	r2, #0
+  63 0032 024B     		ldr	r3, .L5+4
+  64              	.LVL1:
+  65 0034 1A60     		str	r2, [r3]
+  66              	.L1:
+  67 0036 7047     		bx	lr
+  68              	.L6:
+  69              		.align	2
+  70              	.L5:
+  71 0038 67650040 		.word	1073767783
+  72 003c 00000000 		.word	.LANCHOR0
+  73              		.cfi_endproc
+  74              	.LFE0:
+  75              		.size	QuadDec_ISR, .-QuadDec_ISR
+  76              		.global	QuadDec_count32SoftPart
+  77              		.bss
+  78              		.align	2
+  79              		.set	.LANCHOR0,. + 0
+  80              		.type	QuadDec_count32SoftPart, %object
+  81              		.size	QuadDec_count32SoftPart, 4
+  82              	QuadDec_count32SoftPart:
+  83 0000 00000000 		.space	4
+  84              		.text
+  85              	.Letext0:
+  86              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
+  87              		.section	.debug_info,"",%progbits
+  88              	.Ldebug_info0:
+  89 0000 EF000000 		.4byte	0xef
+  90 0004 0400     		.2byte	0x4
+  91 0006 00000000 		.4byte	.Ldebug_abbrev0
+  92 000a 04       		.byte	0x4
+  93 000b 01       		.uleb128 0x1
+  94 000c 27000000 		.4byte	.LASF17
+  95 0010 0C       		.byte	0xc
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvXvxv6.s 			page 4
+
+
+  96 0011 A1010000 		.4byte	.LASF18
+  97 0015 0E010000 		.4byte	.LASF19
+  98 0019 00000000 		.4byte	.Ldebug_ranges0+0
+  99 001d 00000000 		.4byte	0
+ 100 0021 00000000 		.4byte	.Ldebug_line0
+ 101 0025 02       		.uleb128 0x2
+ 102 0026 04       		.byte	0x4
+ 103 0027 05       		.byte	0x5
+ 104 0028 696E7400 		.ascii	"int\000"
+ 105 002c 03       		.uleb128 0x3
+ 106 002d 04       		.byte	0x4
+ 107 002e 07       		.byte	0x7
+ 108 002f 0E000000 		.4byte	.LASF0
+ 109 0033 03       		.uleb128 0x3
+ 110 0034 08       		.byte	0x8
+ 111 0035 05       		.byte	0x5
+ 112 0036 00000000 		.4byte	.LASF1
+ 113 003a 03       		.uleb128 0x3
+ 114 003b 08       		.byte	0x8
+ 115 003c 04       		.byte	0x4
+ 116 003d C6010000 		.4byte	.LASF2
+ 117 0041 03       		.uleb128 0x3
+ 118 0042 01       		.byte	0x1
+ 119 0043 06       		.byte	0x6
+ 120 0044 95010000 		.4byte	.LASF3
+ 121 0048 03       		.uleb128 0x3
+ 122 0049 01       		.byte	0x1
+ 123 004a 08       		.byte	0x8
+ 124 004b FB000000 		.4byte	.LASF4
+ 125 004f 03       		.uleb128 0x3
+ 126 0050 02       		.byte	0x2
+ 127 0051 05       		.byte	0x5
+ 128 0052 D2010000 		.4byte	.LASF5
+ 129 0056 03       		.uleb128 0x3
+ 130 0057 02       		.byte	0x2
+ 131 0058 07       		.byte	0x7
+ 132 0059 82010000 		.4byte	.LASF6
+ 133 005d 03       		.uleb128 0x3
+ 134 005e 04       		.byte	0x4
+ 135 005f 05       		.byte	0x5
+ 136 0060 5A010000 		.4byte	.LASF7
+ 137 0064 03       		.uleb128 0x3
+ 138 0065 04       		.byte	0x4
+ 139 0066 07       		.byte	0x7
+ 140 0067 BB000000 		.4byte	.LASF8
+ 141 006b 03       		.uleb128 0x3
+ 142 006c 08       		.byte	0x8
+ 143 006d 07       		.byte	0x7
+ 144 006e CD000000 		.4byte	.LASF9
+ 145 0072 03       		.uleb128 0x3
+ 146 0073 04       		.byte	0x4
+ 147 0074 07       		.byte	0x7
+ 148 0075 E1010000 		.4byte	.LASF10
+ 149 0079 03       		.uleb128 0x3
+ 150 007a 01       		.byte	0x1
+ 151 007b 08       		.byte	0x8
+ 152 007c 09010000 		.4byte	.LASF11
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvXvxv6.s 			page 5
+
+
+ 153 0080 04       		.uleb128 0x4
+ 154 0081 B5000000 		.4byte	.LASF12
+ 155 0085 02       		.byte	0x2
+ 156 0086 E401     		.2byte	0x1e4
+ 157 0088 48000000 		.4byte	0x48
+ 158 008c 04       		.uleb128 0x4
+ 159 008d EA010000 		.4byte	.LASF13
+ 160 0091 02       		.byte	0x2
+ 161 0092 E901     		.2byte	0x1e9
+ 162 0094 5D000000 		.4byte	0x5d
+ 163 0098 03       		.uleb128 0x3
+ 164 0099 04       		.byte	0x4
+ 165 009a 04       		.byte	0x4
+ 166 009b E4000000 		.4byte	.LASF14
+ 167 009f 03       		.uleb128 0x3
+ 168 00a0 08       		.byte	0x8
+ 169 00a1 04       		.byte	0x4
+ 170 00a2 7B010000 		.4byte	.LASF15
+ 171 00a6 04       		.uleb128 0x4
+ 172 00a7 DC010000 		.4byte	.LASF16
+ 173 00ab 02       		.byte	0x2
+ 174 00ac 8E02     		.2byte	0x28e
+ 175 00ae B2000000 		.4byte	0xb2
+ 176 00b2 05       		.uleb128 0x5
+ 177 00b3 80000000 		.4byte	0x80
+ 178 00b7 06       		.uleb128 0x6
+ 179 00b8 1B000000 		.4byte	.LASF20
+ 180 00bc 01       		.byte	0x1
+ 181 00bd 2E       		.byte	0x2e
+ 182 00be 00000000 		.4byte	.LFB0
+ 183 00c2 40000000 		.4byte	.LFE0-.LFB0
+ 184 00c6 01       		.uleb128 0x1
+ 185 00c7 9C       		.byte	0x9c
+ 186 00c8 DC000000 		.4byte	0xdc
+ 187 00cc 07       		.uleb128 0x7
+ 188 00cd EA000000 		.4byte	.LASF21
+ 189 00d1 01       		.byte	0x1
+ 190 00d2 30       		.byte	0x30
+ 191 00d3 80000000 		.4byte	0x80
+ 192 00d7 00000000 		.4byte	.LLST0
+ 193 00db 00       		.byte	0
+ 194 00dc 08       		.uleb128 0x8
+ 195 00dd 63010000 		.4byte	.LASF22
+ 196 00e1 01       		.byte	0x1
+ 197 00e2 17       		.byte	0x17
+ 198 00e3 ED000000 		.4byte	0xed
+ 199 00e7 05       		.uleb128 0x5
+ 200 00e8 03       		.byte	0x3
+ 201 00e9 00000000 		.4byte	QuadDec_count32SoftPart
+ 202 00ed 05       		.uleb128 0x5
+ 203 00ee 8C000000 		.4byte	0x8c
+ 204 00f2 00       		.byte	0
+ 205              		.section	.debug_abbrev,"",%progbits
+ 206              	.Ldebug_abbrev0:
+ 207 0000 01       		.uleb128 0x1
+ 208 0001 11       		.uleb128 0x11
+ 209 0002 01       		.byte	0x1
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvXvxv6.s 			page 6
+
+
+ 210 0003 25       		.uleb128 0x25
+ 211 0004 0E       		.uleb128 0xe
+ 212 0005 13       		.uleb128 0x13
+ 213 0006 0B       		.uleb128 0xb
+ 214 0007 03       		.uleb128 0x3
+ 215 0008 0E       		.uleb128 0xe
+ 216 0009 1B       		.uleb128 0x1b
+ 217 000a 0E       		.uleb128 0xe
+ 218 000b 55       		.uleb128 0x55
+ 219 000c 17       		.uleb128 0x17
+ 220 000d 11       		.uleb128 0x11
+ 221 000e 01       		.uleb128 0x1
+ 222 000f 10       		.uleb128 0x10
+ 223 0010 17       		.uleb128 0x17
+ 224 0011 00       		.byte	0
+ 225 0012 00       		.byte	0
+ 226 0013 02       		.uleb128 0x2
+ 227 0014 24       		.uleb128 0x24
+ 228 0015 00       		.byte	0
+ 229 0016 0B       		.uleb128 0xb
+ 230 0017 0B       		.uleb128 0xb
+ 231 0018 3E       		.uleb128 0x3e
+ 232 0019 0B       		.uleb128 0xb
+ 233 001a 03       		.uleb128 0x3
+ 234 001b 08       		.uleb128 0x8
+ 235 001c 00       		.byte	0
+ 236 001d 00       		.byte	0
+ 237 001e 03       		.uleb128 0x3
+ 238 001f 24       		.uleb128 0x24
+ 239 0020 00       		.byte	0
+ 240 0021 0B       		.uleb128 0xb
+ 241 0022 0B       		.uleb128 0xb
+ 242 0023 3E       		.uleb128 0x3e
+ 243 0024 0B       		.uleb128 0xb
+ 244 0025 03       		.uleb128 0x3
+ 245 0026 0E       		.uleb128 0xe
+ 246 0027 00       		.byte	0
+ 247 0028 00       		.byte	0
+ 248 0029 04       		.uleb128 0x4
+ 249 002a 16       		.uleb128 0x16
+ 250 002b 00       		.byte	0
+ 251 002c 03       		.uleb128 0x3
+ 252 002d 0E       		.uleb128 0xe
+ 253 002e 3A       		.uleb128 0x3a
+ 254 002f 0B       		.uleb128 0xb
+ 255 0030 3B       		.uleb128 0x3b
+ 256 0031 05       		.uleb128 0x5
+ 257 0032 49       		.uleb128 0x49
+ 258 0033 13       		.uleb128 0x13
+ 259 0034 00       		.byte	0
+ 260 0035 00       		.byte	0
+ 261 0036 05       		.uleb128 0x5
+ 262 0037 35       		.uleb128 0x35
+ 263 0038 00       		.byte	0
+ 264 0039 49       		.uleb128 0x49
+ 265 003a 13       		.uleb128 0x13
+ 266 003b 00       		.byte	0
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvXvxv6.s 			page 7
+
+
+ 267 003c 00       		.byte	0
+ 268 003d 06       		.uleb128 0x6
+ 269 003e 2E       		.uleb128 0x2e
+ 270 003f 01       		.byte	0x1
+ 271 0040 3F       		.uleb128 0x3f
+ 272 0041 19       		.uleb128 0x19
+ 273 0042 03       		.uleb128 0x3
+ 274 0043 0E       		.uleb128 0xe
+ 275 0044 3A       		.uleb128 0x3a
+ 276 0045 0B       		.uleb128 0xb
+ 277 0046 3B       		.uleb128 0x3b
+ 278 0047 0B       		.uleb128 0xb
+ 279 0048 27       		.uleb128 0x27
+ 280 0049 19       		.uleb128 0x19
+ 281 004a 11       		.uleb128 0x11
+ 282 004b 01       		.uleb128 0x1
+ 283 004c 12       		.uleb128 0x12
+ 284 004d 06       		.uleb128 0x6
+ 285 004e 40       		.uleb128 0x40
+ 286 004f 18       		.uleb128 0x18
+ 287 0050 9742     		.uleb128 0x2117
+ 288 0052 19       		.uleb128 0x19
+ 289 0053 01       		.uleb128 0x1
+ 290 0054 13       		.uleb128 0x13
+ 291 0055 00       		.byte	0
+ 292 0056 00       		.byte	0
+ 293 0057 07       		.uleb128 0x7
+ 294 0058 34       		.uleb128 0x34
+ 295 0059 00       		.byte	0
+ 296 005a 03       		.uleb128 0x3
+ 297 005b 0E       		.uleb128 0xe
+ 298 005c 3A       		.uleb128 0x3a
+ 299 005d 0B       		.uleb128 0xb
+ 300 005e 3B       		.uleb128 0x3b
+ 301 005f 0B       		.uleb128 0xb
+ 302 0060 49       		.uleb128 0x49
+ 303 0061 13       		.uleb128 0x13
+ 304 0062 02       		.uleb128 0x2
+ 305 0063 17       		.uleb128 0x17
+ 306 0064 00       		.byte	0
+ 307 0065 00       		.byte	0
+ 308 0066 08       		.uleb128 0x8
+ 309 0067 34       		.uleb128 0x34
+ 310 0068 00       		.byte	0
+ 311 0069 03       		.uleb128 0x3
+ 312 006a 0E       		.uleb128 0xe
+ 313 006b 3A       		.uleb128 0x3a
+ 314 006c 0B       		.uleb128 0xb
+ 315 006d 3B       		.uleb128 0x3b
+ 316 006e 0B       		.uleb128 0xb
+ 317 006f 49       		.uleb128 0x49
+ 318 0070 13       		.uleb128 0x13
+ 319 0071 3F       		.uleb128 0x3f
+ 320 0072 19       		.uleb128 0x19
+ 321 0073 02       		.uleb128 0x2
+ 322 0074 18       		.uleb128 0x18
+ 323 0075 00       		.byte	0
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvXvxv6.s 			page 8
+
+
+ 324 0076 00       		.byte	0
+ 325 0077 00       		.byte	0
+ 326              		.section	.debug_loc,"",%progbits
+ 327              	.Ldebug_loc0:
+ 328              	.LLST0:
+ 329 0000 06000000 		.4byte	.LVL0
+ 330 0004 34000000 		.4byte	.LVL1
+ 331 0008 0100     		.2byte	0x1
+ 332 000a 53       		.byte	0x53
+ 333 000b 00000000 		.4byte	0
+ 334 000f 00000000 		.4byte	0
+ 335              		.section	.debug_aranges,"",%progbits
+ 336 0000 1C000000 		.4byte	0x1c
+ 337 0004 0200     		.2byte	0x2
+ 338 0006 00000000 		.4byte	.Ldebug_info0
+ 339 000a 04       		.byte	0x4
+ 340 000b 00       		.byte	0
+ 341 000c 0000     		.2byte	0
+ 342 000e 0000     		.2byte	0
+ 343 0010 00000000 		.4byte	.LFB0
+ 344 0014 40000000 		.4byte	.LFE0-.LFB0
+ 345 0018 00000000 		.4byte	0
+ 346 001c 00000000 		.4byte	0
+ 347              		.section	.debug_ranges,"",%progbits
+ 348              	.Ldebug_ranges0:
+ 349 0000 00000000 		.4byte	.LFB0
+ 350 0004 40000000 		.4byte	.LFE0
+ 351 0008 00000000 		.4byte	0
+ 352 000c 00000000 		.4byte	0
+ 353              		.section	.debug_line,"",%progbits
+ 354              	.Ldebug_line0:
+ 355 0000 66000000 		.section	.debug_str,"MS",%progbits,1
+ 355      02004800 
+ 355      00000201 
+ 355      FB0E0D00 
+ 355      01010101 
+ 356              	.LASF1:
+ 357 0000 6C6F6E67 		.ascii	"long long int\000"
+ 357      206C6F6E 
+ 357      6720696E 
+ 357      7400
+ 358              	.LASF0:
+ 359 000e 756E7369 		.ascii	"unsigned int\000"
+ 359      676E6564 
+ 359      20696E74 
+ 359      00
+ 360              	.LASF20:
+ 361 001b 51756164 		.ascii	"QuadDec_ISR\000"
+ 361      4465635F 
+ 361      49535200 
+ 362              	.LASF17:
+ 363 0027 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 363      43313120 
+ 363      352E342E 
+ 363      31203230 
+ 363      31363036 
+ 364 005a 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvXvxv6.s 			page 9
+
+
+ 364      20726576 
+ 364      6973696F 
+ 364      6E203233 
+ 364      37373135 
+ 365 008d 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 365      66756E63 
+ 365      74696F6E 
+ 365      2D736563 
+ 365      74696F6E 
+ 366              	.LASF12:
+ 367 00b5 75696E74 		.ascii	"uint8\000"
+ 367      3800
+ 368              	.LASF8:
+ 369 00bb 6C6F6E67 		.ascii	"long unsigned int\000"
+ 369      20756E73 
+ 369      69676E65 
+ 369      6420696E 
+ 369      7400
+ 370              	.LASF9:
+ 371 00cd 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 371      206C6F6E 
+ 371      6720756E 
+ 371      7369676E 
+ 371      65642069 
+ 372              	.LASF14:
+ 373 00e4 666C6F61 		.ascii	"float\000"
+ 373      7400
+ 374              	.LASF21:
+ 375 00ea 51756164 		.ascii	"QuadDec_swStatus\000"
+ 375      4465635F 
+ 375      73775374 
+ 375      61747573 
+ 375      00
+ 376              	.LASF4:
+ 377 00fb 756E7369 		.ascii	"unsigned char\000"
+ 377      676E6564 
+ 377      20636861 
+ 377      7200
+ 378              	.LASF11:
+ 379 0109 63686172 		.ascii	"char\000"
+ 379      00
+ 380              	.LASF19:
+ 381 010e 433A5C55 		.ascii	"C:\\Users\\Caleb Cotter\\Desktop\\NitroDoser Develo"
+ 381      73657273 
+ 381      5C43616C 
+ 381      65622043 
+ 381      6F747465 
+ 382 013d 706D656E 		.ascii	"pment\\3HC_Firmware_0_1.cydsn\000"
+ 382      745C3348 
+ 382      435F4669 
+ 382      726D7761 
+ 382      72655F30 
+ 383              	.LASF7:
+ 384 015a 6C6F6E67 		.ascii	"long int\000"
+ 384      20696E74 
+ 384      00
+ 385              	.LASF22:
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvXvxv6.s 			page 10
+
+
+ 386 0163 51756164 		.ascii	"QuadDec_count32SoftPart\000"
+ 386      4465635F 
+ 386      636F756E 
+ 386      74333253 
+ 386      6F667450 
+ 387              	.LASF15:
+ 388 017b 646F7562 		.ascii	"double\000"
+ 388      6C6500
+ 389              	.LASF6:
+ 390 0182 73686F72 		.ascii	"short unsigned int\000"
+ 390      7420756E 
+ 390      7369676E 
+ 390      65642069 
+ 390      6E7400
+ 391              	.LASF3:
+ 392 0195 7369676E 		.ascii	"signed char\000"
+ 392      65642063 
+ 392      68617200 
+ 393              	.LASF18:
+ 394 01a1 47656E65 		.ascii	"Generated_Source\\PSoC5\\QuadDec_INT.c\000"
+ 394      72617465 
+ 394      645F536F 
+ 394      75726365 
+ 394      5C50536F 
+ 395              	.LASF2:
+ 396 01c6 6C6F6E67 		.ascii	"long double\000"
+ 396      20646F75 
+ 396      626C6500 
+ 397              	.LASF5:
+ 398 01d2 73686F72 		.ascii	"short int\000"
+ 398      7420696E 
+ 398      7400
+ 399              	.LASF16:
+ 400 01dc 72656738 		.ascii	"reg8\000"
+ 400      00
+ 401              	.LASF10:
+ 402 01e1 73697A65 		.ascii	"sizetype\000"
+ 402      74797065 
+ 402      00
+ 403              	.LASF13:
+ 404 01ea 696E7433 		.ascii	"int32\000"
+ 404      3200
+ 405              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
