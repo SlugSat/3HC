@@ -1,0 +1,946 @@
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc2tj9yF.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"main.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.UPDATE_UI,"ax",%progbits
+  20              		.align	2
+  21              		.global	UPDATE_UI
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	UPDATE_UI, %function
+  25              	UPDATE_UI:
+  26              	.LFB65:
+  27              		.file 1 "main.c"
+   1:main.c        **** /* ========================================
+   2:main.c        ****  *
+   3:main.c        ****  * Copyright YOUR COMPANY, THE YEAR
+   4:main.c        ****  * All Rights Reserved
+   5:main.c        ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:main.c        ****  *
+   7:main.c        ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:main.c        ****  * WHICH IS THE PROPERTY OF your company.
+   9:main.c        ****  *
+  10:main.c        ****  * ========================================
+  11:main.c        **** */
+  12:main.c        **** #include "project.h"
+  13:main.c        **** #include <stdio.h>
+  14:main.c        **** 
+  15:main.c        **** #define HIGH_PRIORITY       (1u)
+  16:main.c        **** #define DEFAULT_PRIORITY    (3u)
+  17:main.c        **** #define LOW_PRIORITY        (7u)
+  18:main.c        **** 
+  19:main.c        **** // Function Prototypes
+  20:main.c        **** CY_ISR_PROTO(UPDATE_UI);
+  21:main.c        **** 
+  22:main.c        **** // Global Variables
+  23:main.c        **** char LCD_MSG[32];
+  24:main.c        **** unsigned char update = 1;
+  25:main.c        **** 
+  26:main.c        **** int main(void)
+  27:main.c        **** {
+  28:main.c        ****     // Variables
+  29:main.c        ****     int count;
+  30:main.c        ****     
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc2tj9yF.s 			page 2
+
+
+  31:main.c        ****     // Initialize Hardware
+  32:main.c        ****     UpdateTimer_UI_Start();
+  33:main.c        ****     QuadDec_Start();
+  34:main.c        ****     LCD_Start();
+  35:main.c        ****     
+  36:main.c        ****     // Configure Interrupts
+  37:main.c        ****     UPDATE_UI_StartEx(UPDATE_UI);
+  38:main.c        ****     UPDATE_UI_SetPriority(LOW_PRIORITY);
+  39:main.c        ****     CyGlobalIntEnable;
+  40:main.c        ****     
+  41:main.c        ****     // Main Program Loop
+  42:main.c        ****     for(;;)
+  43:main.c        ****     {   
+  44:main.c        ****         count = QuadDec_GetCounter();
+  45:main.c        ****         //sprintf(LCD_MSG,"%i %i", count, Encoder_Button_Read());
+  46:main.c        ****         sprintf(LCD_MSG,"Dammit, that was a missed opportunity");
+  47:main.c        ****         
+  48:main.c        ****         // Update UI if Flag is Set
+  49:main.c        ****         if(update == 1){
+  50:main.c        ****             LCD_ClearDisplay();
+  51:main.c        ****             LCD_PrintString(LCD_MSG);
+  52:main.c        ****             update = 0;
+  53:main.c        ****         }
+  54:main.c        ****         
+  55:main.c        ****     }
+  56:main.c        **** }
+  57:main.c        **** 
+  58:main.c        **** CY_ISR(UPDATE_UI){
+  28              		.loc 1 58 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  59:main.c        ****     update = 1;
+  33              		.loc 1 59 0
+  34 0000 0122     		movs	r2, #1
+  35 0002 014B     		ldr	r3, .L2
+  36 0004 1A70     		strb	r2, [r3]
+  37 0006 7047     		bx	lr
+  38              	.L3:
+  39              		.align	2
+  40              	.L2:
+  41 0008 00000000 		.word	.LANCHOR0
+  42              		.cfi_endproc
+  43              	.LFE65:
+  44              		.size	UPDATE_UI, .-UPDATE_UI
+  45              		.section	.text.main,"ax",%progbits
+  46              		.align	2
+  47              		.global	main
+  48              		.thumb
+  49              		.thumb_func
+  50              		.type	main, %function
+  51              	main:
+  52              	.LFB64:
+  27:main.c        ****     // Variables
+  53              		.loc 1 27 0
+  54              		.cfi_startproc
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc2tj9yF.s 			page 3
+
+
+  55              		@ args = 0, pretend = 0, frame = 0
+  56              		@ frame_needed = 0, uses_anonymous_args = 0
+  57 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+  58              		.cfi_def_cfa_offset 24
+  59              		.cfi_offset 3, -24
+  60              		.cfi_offset 4, -20
+  61              		.cfi_offset 5, -16
+  62              		.cfi_offset 6, -12
+  63              		.cfi_offset 7, -8
+  64              		.cfi_offset 14, -4
+  32:main.c        ****     QuadDec_Start();
+  65              		.loc 1 32 0
+  66 0002 FFF7FEFF 		bl	UpdateTimer_UI_Start
+  67              	.LVL0:
+  33:main.c        ****     LCD_Start();
+  68              		.loc 1 33 0
+  69 0006 FFF7FEFF 		bl	QuadDec_Start
+  70              	.LVL1:
+  34:main.c        ****     
+  71              		.loc 1 34 0
+  72 000a FFF7FEFF 		bl	LCD_Start
+  73              	.LVL2:
+  37:main.c        ****     UPDATE_UI_SetPriority(LOW_PRIORITY);
+  74              		.loc 1 37 0
+  75 000e 1448     		ldr	r0, .L9
+  76 0010 FFF7FEFF 		bl	UPDATE_UI_StartEx
+  77              	.LVL3:
+  38:main.c        ****     CyGlobalIntEnable;
+  78              		.loc 1 38 0
+  79 0014 0720     		movs	r0, #7
+  80 0016 FFF7FEFF 		bl	UPDATE_UI_SetPriority
+  81              	.LVL4:
+  39:main.c        ****     
+  82              		.loc 1 39 0
+  83              		.syntax unified
+  84              	@ 39 "main.c" 1
+  85 001a 62B6     		CPSIE   i
+  86              	@ 0 "" 2
+  87              		.thumb
+  88              		.syntax unified
+  89              	.L6:
+  44:main.c        ****         //sprintf(LCD_MSG,"%i %i", count, Encoder_Button_Read());
+  90              		.loc 1 44 0
+  91 001c FFF7FEFF 		bl	QuadDec_GetCounter
+  92              	.LVL5:
+  46:main.c        ****         
+  93              		.loc 1 46 0
+  94 0020 104E     		ldr	r6, .L9+4
+  95 0022 114C     		ldr	r4, .L9+8
+  96 0024 06F12007 		add	r7, r6, #32
+  97              	.L5:
+  98 0028 3546     		mov	r5, r6
+  99 002a 0FCD     		ldmia	r5!, {r0, r1, r2, r3}
+ 100 002c 2060     		str	r0, [r4]	@ unaligned
+ 101 002e 6160     		str	r1, [r4, #4]	@ unaligned
+ 102 0030 A260     		str	r2, [r4, #8]	@ unaligned
+ 103 0032 E360     		str	r3, [r4, #12]	@ unaligned
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc2tj9yF.s 			page 4
+
+
+ 104 0034 2E46     		mov	r6, r5
+ 105 0036 1034     		adds	r4, r4, #16
+ 106 0038 BD42     		cmp	r5, r7
+ 107 003a F5D1     		bne	.L5
+ 108 003c 2868     		ldr	r0, [r5]	@ unaligned
+ 109 003e 2060     		str	r0, [r4]	@ unaligned
+ 110 0040 AB88     		ldrh	r3, [r5, #4]	@ unaligned
+ 111 0042 A380     		strh	r3, [r4, #4]	@ unaligned
+  49:main.c        ****             LCD_ClearDisplay();
+ 112              		.loc 1 49 0
+ 113 0044 094B     		ldr	r3, .L9+12
+ 114 0046 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 115 0048 012B     		cmp	r3, #1
+ 116 004a E7D1     		bne	.L6
+  50:main.c        ****             LCD_PrintString(LCD_MSG);
+ 117              		.loc 1 50 0
+ 118 004c 0120     		movs	r0, #1
+ 119 004e FFF7FEFF 		bl	LCD_WriteControl
+ 120              	.LVL6:
+  51:main.c        ****             update = 0;
+ 121              		.loc 1 51 0
+ 122 0052 0548     		ldr	r0, .L9+8
+ 123 0054 FFF7FEFF 		bl	LCD_PrintString
+ 124              	.LVL7:
+  52:main.c        ****         }
+ 125              		.loc 1 52 0
+ 126 0058 0022     		movs	r2, #0
+ 127 005a 044B     		ldr	r3, .L9+12
+ 128 005c 1A70     		strb	r2, [r3]
+ 129 005e DDE7     		b	.L6
+ 130              	.L10:
+ 131              		.align	2
+ 132              	.L9:
+ 133 0060 00000000 		.word	UPDATE_UI
+ 134 0064 00000000 		.word	.LC0
+ 135 0068 00000000 		.word	LCD_MSG
+ 136 006c 00000000 		.word	.LANCHOR0
+ 137              		.cfi_endproc
+ 138              	.LFE64:
+ 139              		.size	main, .-main
+ 140              		.global	update
+ 141              		.comm	LCD_MSG,32,4
+ 142              		.data
+ 143              		.set	.LANCHOR0,. + 0
+ 144              		.type	update, %object
+ 145              		.size	update, 1
+ 146              	update:
+ 147 0000 01       		.byte	1
+ 148              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 149              		.align	2
+ 150              	.LC0:
+ 151 0000 44616D6D 		.ascii	"Dammit, that was a missed opportunity\000"
+ 151      69742C20 
+ 151      74686174 
+ 151      20776173 
+ 151      2061206D 
+ 152              		.text
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc2tj9yF.s 			page 5
+
+
+ 153              	.Letext0:
+ 154              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 155              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 156              		.file 4 "Generated_Source\\PSoC5/core_cm3.h"
+ 157              		.file 5 "Generated_Source\\PSoC5/UpdateTimer_UI.h"
+ 158              		.file 6 "Generated_Source\\PSoC5/QuadDec.h"
+ 159              		.file 7 "Generated_Source\\PSoC5/LCD.h"
+ 160              		.file 8 "Generated_Source\\PSoC5/UPDATE_UI.h"
+ 161              		.section	.debug_info,"",%progbits
+ 162              	.Ldebug_info0:
+ 163 0000 E6010000 		.4byte	0x1e6
+ 164 0004 0400     		.2byte	0x4
+ 165 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 166 000a 04       		.byte	0x4
+ 167 000b 01       		.uleb128 0x1
+ 168 000c 64000000 		.4byte	.LASF27
+ 169 0010 0C       		.byte	0xc
+ 170 0011 13020000 		.4byte	.LASF28
+ 171 0015 9E010000 		.4byte	.LASF29
+ 172 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 173 001d 00000000 		.4byte	0
+ 174 0021 00000000 		.4byte	.Ldebug_line0
+ 175 0025 02       		.uleb128 0x2
+ 176 0026 01       		.byte	0x1
+ 177 0027 06       		.byte	0x6
+ 178 0028 4C020000 		.4byte	.LASF0
+ 179 002c 02       		.uleb128 0x2
+ 180 002d 01       		.byte	0x1
+ 181 002e 08       		.byte	0x8
+ 182 002f 56000000 		.4byte	.LASF1
+ 183 0033 02       		.uleb128 0x2
+ 184 0034 02       		.byte	0x2
+ 185 0035 05       		.byte	0x5
+ 186 0036 25020000 		.4byte	.LASF2
+ 187 003a 02       		.uleb128 0x2
+ 188 003b 02       		.byte	0x2
+ 189 003c 07       		.byte	0x7
+ 190 003d 04010000 		.4byte	.LASF3
+ 191 0041 03       		.uleb128 0x3
+ 192 0042 11000000 		.4byte	.LASF9
+ 193 0046 02       		.byte	0x2
+ 194 0047 3F       		.byte	0x3f
+ 195 0048 4C000000 		.4byte	0x4c
+ 196 004c 02       		.uleb128 0x2
+ 197 004d 04       		.byte	0x4
+ 198 004e 05       		.byte	0x5
+ 199 004f 2F020000 		.4byte	.LASF4
+ 200 0053 02       		.uleb128 0x2
+ 201 0054 04       		.byte	0x4
+ 202 0055 07       		.byte	0x7
+ 203 0056 F2000000 		.4byte	.LASF5
+ 204 005a 02       		.uleb128 0x2
+ 205 005b 08       		.byte	0x8
+ 206 005c 05       		.byte	0x5
+ 207 005d 05020000 		.4byte	.LASF6
+ 208 0061 02       		.uleb128 0x2
+ 209 0062 08       		.byte	0x8
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc2tj9yF.s 			page 6
+
+
+ 210 0063 07       		.byte	0x7
+ 211 0064 87010000 		.4byte	.LASF7
+ 212 0068 04       		.uleb128 0x4
+ 213 0069 04       		.byte	0x4
+ 214 006a 05       		.byte	0x5
+ 215 006b 696E7400 		.ascii	"int\000"
+ 216 006f 02       		.uleb128 0x2
+ 217 0070 04       		.byte	0x4
+ 218 0071 07       		.byte	0x7
+ 219 0072 7A010000 		.4byte	.LASF8
+ 220 0076 03       		.uleb128 0x3
+ 221 0077 F4010000 		.4byte	.LASF10
+ 222 007b 03       		.byte	0x3
+ 223 007c 2C       		.byte	0x2c
+ 224 007d 41000000 		.4byte	0x41
+ 225 0081 02       		.uleb128 0x2
+ 226 0082 04       		.byte	0x4
+ 227 0083 04       		.byte	0x4
+ 228 0084 46000000 		.4byte	.LASF11
+ 229 0088 02       		.uleb128 0x2
+ 230 0089 08       		.byte	0x8
+ 231 008a 04       		.byte	0x4
+ 232 008b 39010000 		.4byte	.LASF12
+ 233 008f 02       		.uleb128 0x2
+ 234 0090 01       		.byte	0x1
+ 235 0091 08       		.byte	0x8
+ 236 0092 1A020000 		.4byte	.LASF13
+ 237 0096 02       		.uleb128 0x2
+ 238 0097 08       		.byte	0x8
+ 239 0098 04       		.byte	0x4
+ 240 0099 38020000 		.4byte	.LASF14
+ 241 009d 02       		.uleb128 0x2
+ 242 009e 04       		.byte	0x4
+ 243 009f 07       		.byte	0x7
+ 244 00a0 FC010000 		.4byte	.LASF15
+ 245 00a4 05       		.uleb128 0x5
+ 246 00a5 EA010000 		.4byte	.LASF30
+ 247 00a9 01       		.byte	0x1
+ 248 00aa 3A       		.byte	0x3a
+ 249 00ab 00000000 		.4byte	.LFB65
+ 250 00af 0C000000 		.4byte	.LFE65-.LFB65
+ 251 00b3 01       		.uleb128 0x1
+ 252 00b4 9C       		.byte	0x9c
+ 253 00b5 06       		.uleb128 0x6
+ 254 00b6 40010000 		.4byte	.LASF31
+ 255 00ba 01       		.byte	0x1
+ 256 00bb 1A       		.byte	0x1a
+ 257 00bc 68000000 		.4byte	0x68
+ 258 00c0 00000000 		.4byte	.LFB64
+ 259 00c4 70000000 		.4byte	.LFE64-.LFB64
+ 260 00c8 01       		.uleb128 0x1
+ 261 00c9 9C       		.byte	0x9c
+ 262 00ca 4E010000 		.4byte	0x14e
+ 263 00ce 07       		.uleb128 0x7
+ 264 00cf 1F020000 		.4byte	.LASF32
+ 265 00d3 01       		.byte	0x1
+ 266 00d4 1D       		.byte	0x1d
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc2tj9yF.s 			page 7
+
+
+ 267 00d5 68000000 		.4byte	0x68
+ 268 00d9 08       		.uleb128 0x8
+ 269 00da 06000000 		.4byte	.LVL0
+ 270 00de 91010000 		.4byte	0x191
+ 271 00e2 08       		.uleb128 0x8
+ 272 00e3 0A000000 		.4byte	.LVL1
+ 273 00e7 9C010000 		.4byte	0x19c
+ 274 00eb 08       		.uleb128 0x8
+ 275 00ec 0E000000 		.4byte	.LVL2
+ 276 00f0 A7010000 		.4byte	0x1a7
+ 277 00f4 09       		.uleb128 0x9
+ 278 00f5 14000000 		.4byte	.LVL3
+ 279 00f9 B2010000 		.4byte	0x1b2
+ 280 00fd 0B010000 		.4byte	0x10b
+ 281 0101 0A       		.uleb128 0xa
+ 282 0102 01       		.uleb128 0x1
+ 283 0103 50       		.byte	0x50
+ 284 0104 05       		.uleb128 0x5
+ 285 0105 03       		.byte	0x3
+ 286 0106 00000000 		.4byte	UPDATE_UI
+ 287 010a 00       		.byte	0
+ 288 010b 09       		.uleb128 0x9
+ 289 010c 1A000000 		.4byte	.LVL4
+ 290 0110 BD010000 		.4byte	0x1bd
+ 291 0114 1E010000 		.4byte	0x11e
+ 292 0118 0A       		.uleb128 0xa
+ 293 0119 01       		.uleb128 0x1
+ 294 011a 50       		.byte	0x50
+ 295 011b 01       		.uleb128 0x1
+ 296 011c 37       		.byte	0x37
+ 297 011d 00       		.byte	0
+ 298 011e 08       		.uleb128 0x8
+ 299 011f 20000000 		.4byte	.LVL5
+ 300 0123 C8010000 		.4byte	0x1c8
+ 301 0127 09       		.uleb128 0x9
+ 302 0128 52000000 		.4byte	.LVL6
+ 303 012c D3010000 		.4byte	0x1d3
+ 304 0130 3A010000 		.4byte	0x13a
+ 305 0134 0A       		.uleb128 0xa
+ 306 0135 01       		.uleb128 0x1
+ 307 0136 50       		.byte	0x50
+ 308 0137 01       		.uleb128 0x1
+ 309 0138 31       		.byte	0x31
+ 310 0139 00       		.byte	0
+ 311 013a 0B       		.uleb128 0xb
+ 312 013b 58000000 		.4byte	.LVL7
+ 313 013f DE010000 		.4byte	0x1de
+ 314 0143 0A       		.uleb128 0xa
+ 315 0144 01       		.uleb128 0x1
+ 316 0145 50       		.byte	0x50
+ 317 0146 05       		.uleb128 0x5
+ 318 0147 03       		.byte	0x3
+ 319 0148 00000000 		.4byte	LCD_MSG
+ 320 014c 00       		.byte	0
+ 321 014d 00       		.byte	0
+ 322 014e 0C       		.uleb128 0xc
+ 323 014f 2C010000 		.4byte	.LASF16
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc2tj9yF.s 			page 8
+
+
+ 324 0153 04       		.byte	0x4
+ 325 0154 1207     		.2byte	0x712
+ 326 0156 5A010000 		.4byte	0x15a
+ 327 015a 0D       		.uleb128 0xd
+ 328 015b 76000000 		.4byte	0x76
+ 329 015f 0E       		.uleb128 0xe
+ 330 0160 8F000000 		.4byte	0x8f
+ 331 0164 6F010000 		.4byte	0x16f
+ 332 0168 0F       		.uleb128 0xf
+ 333 0169 9D000000 		.4byte	0x9d
+ 334 016d 1F       		.byte	0x1f
+ 335 016e 00       		.byte	0
+ 336 016f 10       		.uleb128 0x10
+ 337 0170 44020000 		.4byte	.LASF17
+ 338 0174 01       		.byte	0x1
+ 339 0175 17       		.byte	0x17
+ 340 0176 5F010000 		.4byte	0x15f
+ 341 017a 05       		.uleb128 0x5
+ 342 017b 03       		.byte	0x3
+ 343 017c 00000000 		.4byte	LCD_MSG
+ 344 0180 10       		.uleb128 0x10
+ 345 0181 3F000000 		.4byte	.LASF18
+ 346 0185 01       		.byte	0x1
+ 347 0186 18       		.byte	0x18
+ 348 0187 2C000000 		.4byte	0x2c
+ 349 018b 05       		.uleb128 0x5
+ 350 018c 03       		.byte	0x3
+ 351 018d 00000000 		.4byte	update
+ 352 0191 11       		.uleb128 0x11
+ 353 0192 17010000 		.4byte	.LASF19
+ 354 0196 17010000 		.4byte	.LASF19
+ 355 019a 05       		.byte	0x5
+ 356 019b 5A       		.byte	0x5a
+ 357 019c 11       		.uleb128 0x11
+ 358 019d 31000000 		.4byte	.LASF20
+ 359 01a1 31000000 		.4byte	.LASF20
+ 360 01a5 06       		.byte	0x6
+ 361 01a6 48       		.byte	0x48
+ 362 01a7 11       		.uleb128 0x11
+ 363 01a8 4C000000 		.4byte	.LASF21
+ 364 01ac 4C000000 		.4byte	.LASF21
+ 365 01b0 07       		.byte	0x7
+ 366 01b1 38       		.byte	0x38
+ 367 01b2 11       		.uleb128 0x11
+ 368 01b3 68010000 		.4byte	.LASF22
+ 369 01b7 68010000 		.4byte	.LASF22
+ 370 01bb 08       		.byte	0x8
+ 371 01bc 18       		.byte	0x18
+ 372 01bd 11       		.uleb128 0x11
+ 373 01be 1B000000 		.4byte	.LASF23
+ 374 01c2 1B000000 		.4byte	.LASF23
+ 375 01c6 08       		.byte	0x8
+ 376 01c7 20       		.byte	0x20
+ 377 01c8 11       		.uleb128 0x11
+ 378 01c9 55010000 		.4byte	.LASF24
+ 379 01cd 55010000 		.4byte	.LASF24
+ 380 01d1 06       		.byte	0x6
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc2tj9yF.s 			page 9
+
+
+ 381 01d2 4E       		.byte	0x4e
+ 382 01d3 11       		.uleb128 0x11
+ 383 01d4 00000000 		.4byte	.LASF25
+ 384 01d8 00000000 		.4byte	.LASF25
+ 385 01dc 07       		.byte	0x7
+ 386 01dd 3A       		.byte	0x3a
+ 387 01de 11       		.uleb128 0x11
+ 388 01df 45010000 		.4byte	.LASF26
+ 389 01e3 45010000 		.4byte	.LASF26
+ 390 01e7 07       		.byte	0x7
+ 391 01e8 3C       		.byte	0x3c
+ 392 01e9 00       		.byte	0
+ 393              		.section	.debug_abbrev,"",%progbits
+ 394              	.Ldebug_abbrev0:
+ 395 0000 01       		.uleb128 0x1
+ 396 0001 11       		.uleb128 0x11
+ 397 0002 01       		.byte	0x1
+ 398 0003 25       		.uleb128 0x25
+ 399 0004 0E       		.uleb128 0xe
+ 400 0005 13       		.uleb128 0x13
+ 401 0006 0B       		.uleb128 0xb
+ 402 0007 03       		.uleb128 0x3
+ 403 0008 0E       		.uleb128 0xe
+ 404 0009 1B       		.uleb128 0x1b
+ 405 000a 0E       		.uleb128 0xe
+ 406 000b 55       		.uleb128 0x55
+ 407 000c 17       		.uleb128 0x17
+ 408 000d 11       		.uleb128 0x11
+ 409 000e 01       		.uleb128 0x1
+ 410 000f 10       		.uleb128 0x10
+ 411 0010 17       		.uleb128 0x17
+ 412 0011 00       		.byte	0
+ 413 0012 00       		.byte	0
+ 414 0013 02       		.uleb128 0x2
+ 415 0014 24       		.uleb128 0x24
+ 416 0015 00       		.byte	0
+ 417 0016 0B       		.uleb128 0xb
+ 418 0017 0B       		.uleb128 0xb
+ 419 0018 3E       		.uleb128 0x3e
+ 420 0019 0B       		.uleb128 0xb
+ 421 001a 03       		.uleb128 0x3
+ 422 001b 0E       		.uleb128 0xe
+ 423 001c 00       		.byte	0
+ 424 001d 00       		.byte	0
+ 425 001e 03       		.uleb128 0x3
+ 426 001f 16       		.uleb128 0x16
+ 427 0020 00       		.byte	0
+ 428 0021 03       		.uleb128 0x3
+ 429 0022 0E       		.uleb128 0xe
+ 430 0023 3A       		.uleb128 0x3a
+ 431 0024 0B       		.uleb128 0xb
+ 432 0025 3B       		.uleb128 0x3b
+ 433 0026 0B       		.uleb128 0xb
+ 434 0027 49       		.uleb128 0x49
+ 435 0028 13       		.uleb128 0x13
+ 436 0029 00       		.byte	0
+ 437 002a 00       		.byte	0
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc2tj9yF.s 			page 10
+
+
+ 438 002b 04       		.uleb128 0x4
+ 439 002c 24       		.uleb128 0x24
+ 440 002d 00       		.byte	0
+ 441 002e 0B       		.uleb128 0xb
+ 442 002f 0B       		.uleb128 0xb
+ 443 0030 3E       		.uleb128 0x3e
+ 444 0031 0B       		.uleb128 0xb
+ 445 0032 03       		.uleb128 0x3
+ 446 0033 08       		.uleb128 0x8
+ 447 0034 00       		.byte	0
+ 448 0035 00       		.byte	0
+ 449 0036 05       		.uleb128 0x5
+ 450 0037 2E       		.uleb128 0x2e
+ 451 0038 00       		.byte	0
+ 452 0039 3F       		.uleb128 0x3f
+ 453 003a 19       		.uleb128 0x19
+ 454 003b 03       		.uleb128 0x3
+ 455 003c 0E       		.uleb128 0xe
+ 456 003d 3A       		.uleb128 0x3a
+ 457 003e 0B       		.uleb128 0xb
+ 458 003f 3B       		.uleb128 0x3b
+ 459 0040 0B       		.uleb128 0xb
+ 460 0041 27       		.uleb128 0x27
+ 461 0042 19       		.uleb128 0x19
+ 462 0043 11       		.uleb128 0x11
+ 463 0044 01       		.uleb128 0x1
+ 464 0045 12       		.uleb128 0x12
+ 465 0046 06       		.uleb128 0x6
+ 466 0047 40       		.uleb128 0x40
+ 467 0048 18       		.uleb128 0x18
+ 468 0049 9742     		.uleb128 0x2117
+ 469 004b 19       		.uleb128 0x19
+ 470 004c 00       		.byte	0
+ 471 004d 00       		.byte	0
+ 472 004e 06       		.uleb128 0x6
+ 473 004f 2E       		.uleb128 0x2e
+ 474 0050 01       		.byte	0x1
+ 475 0051 3F       		.uleb128 0x3f
+ 476 0052 19       		.uleb128 0x19
+ 477 0053 03       		.uleb128 0x3
+ 478 0054 0E       		.uleb128 0xe
+ 479 0055 3A       		.uleb128 0x3a
+ 480 0056 0B       		.uleb128 0xb
+ 481 0057 3B       		.uleb128 0x3b
+ 482 0058 0B       		.uleb128 0xb
+ 483 0059 27       		.uleb128 0x27
+ 484 005a 19       		.uleb128 0x19
+ 485 005b 49       		.uleb128 0x49
+ 486 005c 13       		.uleb128 0x13
+ 487 005d 8701     		.uleb128 0x87
+ 488 005f 19       		.uleb128 0x19
+ 489 0060 11       		.uleb128 0x11
+ 490 0061 01       		.uleb128 0x1
+ 491 0062 12       		.uleb128 0x12
+ 492 0063 06       		.uleb128 0x6
+ 493 0064 40       		.uleb128 0x40
+ 494 0065 18       		.uleb128 0x18
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc2tj9yF.s 			page 11
+
+
+ 495 0066 9742     		.uleb128 0x2117
+ 496 0068 19       		.uleb128 0x19
+ 497 0069 01       		.uleb128 0x1
+ 498 006a 13       		.uleb128 0x13
+ 499 006b 00       		.byte	0
+ 500 006c 00       		.byte	0
+ 501 006d 07       		.uleb128 0x7
+ 502 006e 34       		.uleb128 0x34
+ 503 006f 00       		.byte	0
+ 504 0070 03       		.uleb128 0x3
+ 505 0071 0E       		.uleb128 0xe
+ 506 0072 3A       		.uleb128 0x3a
+ 507 0073 0B       		.uleb128 0xb
+ 508 0074 3B       		.uleb128 0x3b
+ 509 0075 0B       		.uleb128 0xb
+ 510 0076 49       		.uleb128 0x49
+ 511 0077 13       		.uleb128 0x13
+ 512 0078 00       		.byte	0
+ 513 0079 00       		.byte	0
+ 514 007a 08       		.uleb128 0x8
+ 515 007b 898201   		.uleb128 0x4109
+ 516 007e 00       		.byte	0
+ 517 007f 11       		.uleb128 0x11
+ 518 0080 01       		.uleb128 0x1
+ 519 0081 31       		.uleb128 0x31
+ 520 0082 13       		.uleb128 0x13
+ 521 0083 00       		.byte	0
+ 522 0084 00       		.byte	0
+ 523 0085 09       		.uleb128 0x9
+ 524 0086 898201   		.uleb128 0x4109
+ 525 0089 01       		.byte	0x1
+ 526 008a 11       		.uleb128 0x11
+ 527 008b 01       		.uleb128 0x1
+ 528 008c 31       		.uleb128 0x31
+ 529 008d 13       		.uleb128 0x13
+ 530 008e 01       		.uleb128 0x1
+ 531 008f 13       		.uleb128 0x13
+ 532 0090 00       		.byte	0
+ 533 0091 00       		.byte	0
+ 534 0092 0A       		.uleb128 0xa
+ 535 0093 8A8201   		.uleb128 0x410a
+ 536 0096 00       		.byte	0
+ 537 0097 02       		.uleb128 0x2
+ 538 0098 18       		.uleb128 0x18
+ 539 0099 9142     		.uleb128 0x2111
+ 540 009b 18       		.uleb128 0x18
+ 541 009c 00       		.byte	0
+ 542 009d 00       		.byte	0
+ 543 009e 0B       		.uleb128 0xb
+ 544 009f 898201   		.uleb128 0x4109
+ 545 00a2 01       		.byte	0x1
+ 546 00a3 11       		.uleb128 0x11
+ 547 00a4 01       		.uleb128 0x1
+ 548 00a5 31       		.uleb128 0x31
+ 549 00a6 13       		.uleb128 0x13
+ 550 00a7 00       		.byte	0
+ 551 00a8 00       		.byte	0
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc2tj9yF.s 			page 12
+
+
+ 552 00a9 0C       		.uleb128 0xc
+ 553 00aa 34       		.uleb128 0x34
+ 554 00ab 00       		.byte	0
+ 555 00ac 03       		.uleb128 0x3
+ 556 00ad 0E       		.uleb128 0xe
+ 557 00ae 3A       		.uleb128 0x3a
+ 558 00af 0B       		.uleb128 0xb
+ 559 00b0 3B       		.uleb128 0x3b
+ 560 00b1 05       		.uleb128 0x5
+ 561 00b2 49       		.uleb128 0x49
+ 562 00b3 13       		.uleb128 0x13
+ 563 00b4 3F       		.uleb128 0x3f
+ 564 00b5 19       		.uleb128 0x19
+ 565 00b6 3C       		.uleb128 0x3c
+ 566 00b7 19       		.uleb128 0x19
+ 567 00b8 00       		.byte	0
+ 568 00b9 00       		.byte	0
+ 569 00ba 0D       		.uleb128 0xd
+ 570 00bb 35       		.uleb128 0x35
+ 571 00bc 00       		.byte	0
+ 572 00bd 49       		.uleb128 0x49
+ 573 00be 13       		.uleb128 0x13
+ 574 00bf 00       		.byte	0
+ 575 00c0 00       		.byte	0
+ 576 00c1 0E       		.uleb128 0xe
+ 577 00c2 01       		.uleb128 0x1
+ 578 00c3 01       		.byte	0x1
+ 579 00c4 49       		.uleb128 0x49
+ 580 00c5 13       		.uleb128 0x13
+ 581 00c6 01       		.uleb128 0x1
+ 582 00c7 13       		.uleb128 0x13
+ 583 00c8 00       		.byte	0
+ 584 00c9 00       		.byte	0
+ 585 00ca 0F       		.uleb128 0xf
+ 586 00cb 21       		.uleb128 0x21
+ 587 00cc 00       		.byte	0
+ 588 00cd 49       		.uleb128 0x49
+ 589 00ce 13       		.uleb128 0x13
+ 590 00cf 2F       		.uleb128 0x2f
+ 591 00d0 0B       		.uleb128 0xb
+ 592 00d1 00       		.byte	0
+ 593 00d2 00       		.byte	0
+ 594 00d3 10       		.uleb128 0x10
+ 595 00d4 34       		.uleb128 0x34
+ 596 00d5 00       		.byte	0
+ 597 00d6 03       		.uleb128 0x3
+ 598 00d7 0E       		.uleb128 0xe
+ 599 00d8 3A       		.uleb128 0x3a
+ 600 00d9 0B       		.uleb128 0xb
+ 601 00da 3B       		.uleb128 0x3b
+ 602 00db 0B       		.uleb128 0xb
+ 603 00dc 49       		.uleb128 0x49
+ 604 00dd 13       		.uleb128 0x13
+ 605 00de 3F       		.uleb128 0x3f
+ 606 00df 19       		.uleb128 0x19
+ 607 00e0 02       		.uleb128 0x2
+ 608 00e1 18       		.uleb128 0x18
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc2tj9yF.s 			page 13
+
+
+ 609 00e2 00       		.byte	0
+ 610 00e3 00       		.byte	0
+ 611 00e4 11       		.uleb128 0x11
+ 612 00e5 2E       		.uleb128 0x2e
+ 613 00e6 00       		.byte	0
+ 614 00e7 3F       		.uleb128 0x3f
+ 615 00e8 19       		.uleb128 0x19
+ 616 00e9 3C       		.uleb128 0x3c
+ 617 00ea 19       		.uleb128 0x19
+ 618 00eb 6E       		.uleb128 0x6e
+ 619 00ec 0E       		.uleb128 0xe
+ 620 00ed 03       		.uleb128 0x3
+ 621 00ee 0E       		.uleb128 0xe
+ 622 00ef 3A       		.uleb128 0x3a
+ 623 00f0 0B       		.uleb128 0xb
+ 624 00f1 3B       		.uleb128 0x3b
+ 625 00f2 0B       		.uleb128 0xb
+ 626 00f3 00       		.byte	0
+ 627 00f4 00       		.byte	0
+ 628 00f5 00       		.byte	0
+ 629              		.section	.debug_aranges,"",%progbits
+ 630 0000 24000000 		.4byte	0x24
+ 631 0004 0200     		.2byte	0x2
+ 632 0006 00000000 		.4byte	.Ldebug_info0
+ 633 000a 04       		.byte	0x4
+ 634 000b 00       		.byte	0
+ 635 000c 0000     		.2byte	0
+ 636 000e 0000     		.2byte	0
+ 637 0010 00000000 		.4byte	.LFB65
+ 638 0014 0C000000 		.4byte	.LFE65-.LFB65
+ 639 0018 00000000 		.4byte	.LFB64
+ 640 001c 70000000 		.4byte	.LFE64-.LFB64
+ 641 0020 00000000 		.4byte	0
+ 642 0024 00000000 		.4byte	0
+ 643              		.section	.debug_ranges,"",%progbits
+ 644              	.Ldebug_ranges0:
+ 645 0000 00000000 		.4byte	.LFB65
+ 646 0004 0C000000 		.4byte	.LFE65
+ 647 0008 00000000 		.4byte	.LFB64
+ 648 000c 70000000 		.4byte	.LFE64
+ 649 0010 00000000 		.4byte	0
+ 650 0014 00000000 		.4byte	0
+ 651              		.section	.debug_line,"",%progbits
+ 652              	.Ldebug_line0:
+ 653 0000 AA010000 		.section	.debug_str,"MS",%progbits,1
+ 653      02007801 
+ 653      00000201 
+ 653      FB0E0D00 
+ 653      01010101 
+ 654              	.LASF25:
+ 655 0000 4C43445F 		.ascii	"LCD_WriteControl\000"
+ 655      57726974 
+ 655      65436F6E 
+ 655      74726F6C 
+ 655      00
+ 656              	.LASF9:
+ 657 0011 5F5F696E 		.ascii	"__int32_t\000"
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc2tj9yF.s 			page 14
+
+
+ 657      7433325F 
+ 657      7400
+ 658              	.LASF23:
+ 659 001b 55504441 		.ascii	"UPDATE_UI_SetPriority\000"
+ 659      54455F55 
+ 659      495F5365 
+ 659      74507269 
+ 659      6F726974 
+ 660              	.LASF20:
+ 661 0031 51756164 		.ascii	"QuadDec_Start\000"
+ 661      4465635F 
+ 661      53746172 
+ 661      7400
+ 662              	.LASF18:
+ 663 003f 75706461 		.ascii	"update\000"
+ 663      746500
+ 664              	.LASF11:
+ 665 0046 666C6F61 		.ascii	"float\000"
+ 665      7400
+ 666              	.LASF21:
+ 667 004c 4C43445F 		.ascii	"LCD_Start\000"
+ 667      53746172 
+ 667      7400
+ 668              	.LASF1:
+ 669 0056 756E7369 		.ascii	"unsigned char\000"
+ 669      676E6564 
+ 669      20636861 
+ 669      7200
+ 670              	.LASF27:
+ 671 0064 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 671      43313120 
+ 671      352E342E 
+ 671      31203230 
+ 671      31363036 
+ 672 0097 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 672      20726576 
+ 672      6973696F 
+ 672      6E203233 
+ 672      37373135 
+ 673 00ca 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 673      66756E63 
+ 673      74696F6E 
+ 673      2D736563 
+ 673      74696F6E 
+ 674              	.LASF5:
+ 675 00f2 6C6F6E67 		.ascii	"long unsigned int\000"
+ 675      20756E73 
+ 675      69676E65 
+ 675      6420696E 
+ 675      7400
+ 676              	.LASF3:
+ 677 0104 73686F72 		.ascii	"short unsigned int\000"
+ 677      7420756E 
+ 677      7369676E 
+ 677      65642069 
+ 677      6E7400
+ 678              	.LASF19:
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc2tj9yF.s 			page 15
+
+
+ 679 0117 55706461 		.ascii	"UpdateTimer_UI_Start\000"
+ 679      74655469 
+ 679      6D65725F 
+ 679      55495F53 
+ 679      74617274 
+ 680              	.LASF16:
+ 681 012c 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 681      52784275 
+ 681      66666572 
+ 681      00
+ 682              	.LASF12:
+ 683 0139 646F7562 		.ascii	"double\000"
+ 683      6C6500
+ 684              	.LASF31:
+ 685 0140 6D61696E 		.ascii	"main\000"
+ 685      00
+ 686              	.LASF26:
+ 687 0145 4C43445F 		.ascii	"LCD_PrintString\000"
+ 687      5072696E 
+ 687      74537472 
+ 687      696E6700 
+ 688              	.LASF24:
+ 689 0155 51756164 		.ascii	"QuadDec_GetCounter\000"
+ 689      4465635F 
+ 689      47657443 
+ 689      6F756E74 
+ 689      657200
+ 690              	.LASF22:
+ 691 0168 55504441 		.ascii	"UPDATE_UI_StartEx\000"
+ 691      54455F55 
+ 691      495F5374 
+ 691      61727445 
+ 691      7800
+ 692              	.LASF8:
+ 693 017a 756E7369 		.ascii	"unsigned int\000"
+ 693      676E6564 
+ 693      20696E74 
+ 693      00
+ 694              	.LASF7:
+ 695 0187 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 695      206C6F6E 
+ 695      6720756E 
+ 695      7369676E 
+ 695      65642069 
+ 696              	.LASF29:
+ 697 019e 433A5C55 		.ascii	"C:\\Users\\Caleb Cotter\\Desktop\\NitroDoser Develo"
+ 697      73657273 
+ 697      5C43616C 
+ 697      65622043 
+ 697      6F747465 
+ 698 01cd 706D656E 		.ascii	"pment\\3HC_Firmware_0_1.cydsn\000"
+ 698      745C3348 
+ 698      435F4669 
+ 698      726D7761 
+ 698      72655F30 
+ 699              	.LASF30:
+ 700 01ea 55504441 		.ascii	"UPDATE_UI\000"
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc2tj9yF.s 			page 16
+
+
+ 700      54455F55 
+ 700      4900
+ 701              	.LASF10:
+ 702 01f4 696E7433 		.ascii	"int32_t\000"
+ 702      325F7400 
+ 703              	.LASF15:
+ 704 01fc 73697A65 		.ascii	"sizetype\000"
+ 704      74797065 
+ 704      00
+ 705              	.LASF6:
+ 706 0205 6C6F6E67 		.ascii	"long long int\000"
+ 706      206C6F6E 
+ 706      6720696E 
+ 706      7400
+ 707              	.LASF28:
+ 708 0213 6D61696E 		.ascii	"main.c\000"
+ 708      2E6300
+ 709              	.LASF13:
+ 710 021a 63686172 		.ascii	"char\000"
+ 710      00
+ 711              	.LASF32:
+ 712 021f 636F756E 		.ascii	"count\000"
+ 712      7400
+ 713              	.LASF2:
+ 714 0225 73686F72 		.ascii	"short int\000"
+ 714      7420696E 
+ 714      7400
+ 715              	.LASF4:
+ 716 022f 6C6F6E67 		.ascii	"long int\000"
+ 716      20696E74 
+ 716      00
+ 717              	.LASF14:
+ 718 0238 6C6F6E67 		.ascii	"long double\000"
+ 718      20646F75 
+ 718      626C6500 
+ 719              	.LASF17:
+ 720 0244 4C43445F 		.ascii	"LCD_MSG\000"
+ 720      4D534700 
+ 721              	.LASF0:
+ 722 024c 7369676E 		.ascii	"signed char\000"
+ 722      65642063 
+ 722      68617200 
+ 723              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

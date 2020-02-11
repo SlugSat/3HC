@@ -1,0 +1,6 @@
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|7a56f212-2ac1-48b0-9a0f-a5f84e66c3ed
+C:\Users\Caleb Cotter\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|3aa1c7a4-96eb-4480-9886-76eb1b075827
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|2ec6369b-0658-4cb3-872f-d083b58761fc
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|96008e61-9c3e-48d0-93b2-b6f7a74fa0b3
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|1557df70-86d2-4587-b7d1-7efa3d234a81
+C:\Users\Caleb Cotter\Desktop\NitroDoser Development\3HC_Firmware_0_1.cydsn\3HC_Firmware_0_1.cyprj|bb683055-795d-450f-96da-5f5b436e1ec2

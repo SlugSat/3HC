@@ -1,0 +1,894 @@
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccqCINFb.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"UpdateTimer_UI_PM.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.UpdateTimer_UI_SaveConfig,"ax",%progbits
+  20              		.align	2
+  21              		.global	UpdateTimer_UI_SaveConfig
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	UpdateTimer_UI_SaveConfig, %function
+  25              	UpdateTimer_UI_SaveConfig:
+  26              	.LFB0:
+  27              		.file 1 "Generated_Source\\PSoC5\\UpdateTimer_UI_PM.c"
+   1:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** /*******************************************************************************
+   2:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** * File Name: UpdateTimer_UI_PM.c
+   3:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** * Version 2.80
+   4:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** *
+   5:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** *  Description:
+   6:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** *     This file provides the power management source code to API for the
+   7:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** *     Timer.
+   8:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** *
+   9:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** *   Note:
+  10:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** *     None
+  11:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** *
+  12:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** *******************************************************************************
+  13:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** * Copyright 2008-2017, Cypress Semiconductor Corporation.  All rights reserved.
+  14:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** * You may use this file only in accordance with the license, terms, conditions,
+  15:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** * disclaimers, and limitations in the end user license agreement accompanying
+  16:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** * the software package with which this file was provided.
+  17:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** ********************************************************************************/
+  18:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** 
+  19:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** #include "UpdateTimer_UI.h"
+  20:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** 
+  21:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** static UpdateTimer_UI_backupStruct UpdateTimer_UI_backup;
+  22:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** 
+  23:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** 
+  24:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** /*******************************************************************************
+  25:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** * Function Name: UpdateTimer_UI_SaveConfig
+  26:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** ********************************************************************************
+  27:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** *
+  28:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** * Summary:
+  29:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** *     Save the current user configuration
+  30:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** *
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccqCINFb.s 			page 2
+
+
+  31:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** * Parameters:
+  32:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** *  void
+  33:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** *
+  34:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** * Return:
+  35:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** *  void
+  36:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** *
+  37:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** * Global variables:
+  38:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** *  UpdateTimer_UI_backup:  Variables of this global structure are modified to
+  39:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** *  store the values of non retention configuration registers when Sleep() API is
+  40:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** *  called.
+  41:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** *
+  42:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** *******************************************************************************/
+  43:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** void UpdateTimer_UI_SaveConfig(void) 
+  44:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** {
+  28              		.loc 1 44 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  33 0000 7047     		bx	lr
+  34              		.cfi_endproc
+  35              	.LFE0:
+  36              		.size	UpdateTimer_UI_SaveConfig, .-UpdateTimer_UI_SaveConfig
+  37 0002 00BF     		.section	.text.UpdateTimer_UI_RestoreConfig,"ax",%progbits
+  38              		.align	2
+  39              		.global	UpdateTimer_UI_RestoreConfig
+  40              		.thumb
+  41              		.thumb_func
+  42              		.type	UpdateTimer_UI_RestoreConfig, %function
+  43              	UpdateTimer_UI_RestoreConfig:
+  44              	.LFB1:
+  45:Generated_Source\PSoC5/UpdateTimer_UI_PM.c ****     #if (!UpdateTimer_UI_UsingFixedFunction)
+  46:Generated_Source\PSoC5/UpdateTimer_UI_PM.c ****         UpdateTimer_UI_backup.TimerUdb = UpdateTimer_UI_ReadCounter();
+  47:Generated_Source\PSoC5/UpdateTimer_UI_PM.c ****         UpdateTimer_UI_backup.InterruptMaskValue = UpdateTimer_UI_STATUS_MASK;
+  48:Generated_Source\PSoC5/UpdateTimer_UI_PM.c ****         #if (UpdateTimer_UI_UsingHWCaptureCounter)
+  49:Generated_Source\PSoC5/UpdateTimer_UI_PM.c ****             UpdateTimer_UI_backup.TimerCaptureCounter = UpdateTimer_UI_ReadCaptureCount();
+  50:Generated_Source\PSoC5/UpdateTimer_UI_PM.c ****         #endif /* Back Up capture counter register  */
+  51:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** 
+  52:Generated_Source\PSoC5/UpdateTimer_UI_PM.c ****         #if(!UpdateTimer_UI_UDB_CONTROL_REG_REMOVED)
+  53:Generated_Source\PSoC5/UpdateTimer_UI_PM.c ****             UpdateTimer_UI_backup.TimerControlRegister = UpdateTimer_UI_ReadControlRegister();
+  54:Generated_Source\PSoC5/UpdateTimer_UI_PM.c ****         #endif /* Backup the enable state of the Timer component */
+  55:Generated_Source\PSoC5/UpdateTimer_UI_PM.c ****     #endif /* Backup non retention registers in UDB implementation. All fixed function registers ar
+  56:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** }
+  57:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** 
+  58:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** 
+  59:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** /*******************************************************************************
+  60:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** * Function Name: UpdateTimer_UI_RestoreConfig
+  61:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** ********************************************************************************
+  62:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** *
+  63:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** * Summary:
+  64:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** *  Restores the current user configuration.
+  65:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** *
+  66:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** * Parameters:
+  67:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** *  void
+  68:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** *
+  69:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** * Return:
+  70:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** *  void
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccqCINFb.s 			page 3
+
+
+  71:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** *
+  72:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** * Global variables:
+  73:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** *  UpdateTimer_UI_backup:  Variables of this global structure are used to
+  74:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** *  restore the values of non retention registers on wakeup from sleep mode.
+  75:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** *
+  76:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** *******************************************************************************/
+  77:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** void UpdateTimer_UI_RestoreConfig(void) 
+  78:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** {   
+  45              		.loc 1 78 0
+  46              		.cfi_startproc
+  47              		@ args = 0, pretend = 0, frame = 0
+  48              		@ frame_needed = 0, uses_anonymous_args = 0
+  49              		@ link register save eliminated.
+  50 0000 7047     		bx	lr
+  51              		.cfi_endproc
+  52              	.LFE1:
+  53              		.size	UpdateTimer_UI_RestoreConfig, .-UpdateTimer_UI_RestoreConfig
+  54 0002 00BF     		.section	.text.UpdateTimer_UI_Sleep,"ax",%progbits
+  55              		.align	2
+  56              		.global	UpdateTimer_UI_Sleep
+  57              		.thumb
+  58              		.thumb_func
+  59              		.type	UpdateTimer_UI_Sleep, %function
+  60              	UpdateTimer_UI_Sleep:
+  61              	.LFB2:
+  79:Generated_Source\PSoC5/UpdateTimer_UI_PM.c ****     #if (!UpdateTimer_UI_UsingFixedFunction)
+  80:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** 
+  81:Generated_Source\PSoC5/UpdateTimer_UI_PM.c ****         UpdateTimer_UI_WriteCounter(UpdateTimer_UI_backup.TimerUdb);
+  82:Generated_Source\PSoC5/UpdateTimer_UI_PM.c ****         UpdateTimer_UI_STATUS_MASK =UpdateTimer_UI_backup.InterruptMaskValue;
+  83:Generated_Source\PSoC5/UpdateTimer_UI_PM.c ****         #if (UpdateTimer_UI_UsingHWCaptureCounter)
+  84:Generated_Source\PSoC5/UpdateTimer_UI_PM.c ****             UpdateTimer_UI_SetCaptureCount(UpdateTimer_UI_backup.TimerCaptureCounter);
+  85:Generated_Source\PSoC5/UpdateTimer_UI_PM.c ****         #endif /* Restore Capture counter register*/
+  86:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** 
+  87:Generated_Source\PSoC5/UpdateTimer_UI_PM.c ****         #if(!UpdateTimer_UI_UDB_CONTROL_REG_REMOVED)
+  88:Generated_Source\PSoC5/UpdateTimer_UI_PM.c ****             UpdateTimer_UI_WriteControlRegister(UpdateTimer_UI_backup.TimerControlRegister);
+  89:Generated_Source\PSoC5/UpdateTimer_UI_PM.c ****         #endif /* Restore the enable state of the Timer component */
+  90:Generated_Source\PSoC5/UpdateTimer_UI_PM.c ****     #endif /* Restore non retention registers in the UDB implementation only */
+  91:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** }
+  92:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** 
+  93:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** 
+  94:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** /*******************************************************************************
+  95:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** * Function Name: UpdateTimer_UI_Sleep
+  96:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** ********************************************************************************
+  97:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** *
+  98:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** * Summary:
+  99:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** *     Stop and Save the user configuration
+ 100:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** *
+ 101:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** * Parameters:
+ 102:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** *  void
+ 103:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** *
+ 104:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** * Return:
+ 105:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** *  void
+ 106:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** *
+ 107:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** * Global variables:
+ 108:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** *  UpdateTimer_UI_backup.TimerEnableState:  Is modified depending on the
+ 109:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** *  enable state of the block before entering sleep mode.
+ 110:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** *
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccqCINFb.s 			page 4
+
+
+ 111:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** *******************************************************************************/
+ 112:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** void UpdateTimer_UI_Sleep(void) 
+ 113:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** {
+  62              		.loc 1 113 0
+  63              		.cfi_startproc
+  64              		@ args = 0, pretend = 0, frame = 0
+  65              		@ frame_needed = 0, uses_anonymous_args = 0
+  66              		.loc 1 113 0
+  67 0000 08B5     		push	{r3, lr}
+  68              		.cfi_def_cfa_offset 8
+  69              		.cfi_offset 3, -8
+  70              		.cfi_offset 14, -4
+ 114:Generated_Source\PSoC5/UpdateTimer_UI_PM.c ****     #if(!UpdateTimer_UI_UDB_CONTROL_REG_REMOVED)
+ 115:Generated_Source\PSoC5/UpdateTimer_UI_PM.c ****         /* Save Counter's enable state */
+ 116:Generated_Source\PSoC5/UpdateTimer_UI_PM.c ****         if(UpdateTimer_UI_CTRL_ENABLE == (UpdateTimer_UI_CONTROL & UpdateTimer_UI_CTRL_ENABLE))
+  71              		.loc 1 116 0
+  72 0002 074B     		ldr	r3, .L7
+  73 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+  74 0006 13F0010F 		tst	r3, #1
+  75 000a 03D0     		beq	.L4
+ 117:Generated_Source\PSoC5/UpdateTimer_UI_PM.c ****         {
+ 118:Generated_Source\PSoC5/UpdateTimer_UI_PM.c ****             /* Timer is enabled */
+ 119:Generated_Source\PSoC5/UpdateTimer_UI_PM.c ****             UpdateTimer_UI_backup.TimerEnableState = 1u;
+  76              		.loc 1 119 0
+  77 000c 0122     		movs	r2, #1
+  78 000e 054B     		ldr	r3, .L7+4
+  79 0010 1A70     		strb	r2, [r3]
+  80 0012 02E0     		b	.L5
+  81              	.L4:
+ 120:Generated_Source\PSoC5/UpdateTimer_UI_PM.c ****         }
+ 121:Generated_Source\PSoC5/UpdateTimer_UI_PM.c ****         else
+ 122:Generated_Source\PSoC5/UpdateTimer_UI_PM.c ****         {
+ 123:Generated_Source\PSoC5/UpdateTimer_UI_PM.c ****             /* Timer is disabled */
+ 124:Generated_Source\PSoC5/UpdateTimer_UI_PM.c ****             UpdateTimer_UI_backup.TimerEnableState = 0u;
+  82              		.loc 1 124 0
+  83 0014 0022     		movs	r2, #0
+  84 0016 034B     		ldr	r3, .L7+4
+  85 0018 1A70     		strb	r2, [r3]
+  86              	.L5:
+ 125:Generated_Source\PSoC5/UpdateTimer_UI_PM.c ****         }
+ 126:Generated_Source\PSoC5/UpdateTimer_UI_PM.c ****     #endif /* Back up enable state from the Timer control register */
+ 127:Generated_Source\PSoC5/UpdateTimer_UI_PM.c ****     UpdateTimer_UI_Stop();
+  87              		.loc 1 127 0
+  88 001a FFF7FEFF 		bl	UpdateTimer_UI_Stop
+  89              	.LVL0:
+  90 001e 08BD     		pop	{r3, pc}
+  91              	.L8:
+  92              		.align	2
+  93              	.L7:
+  94 0020 004F0040 		.word	1073762048
+  95 0024 00000000 		.word	.LANCHOR0
+  96              		.cfi_endproc
+  97              	.LFE2:
+  98              		.size	UpdateTimer_UI_Sleep, .-UpdateTimer_UI_Sleep
+  99              		.section	.text.UpdateTimer_UI_Wakeup,"ax",%progbits
+ 100              		.align	2
+ 101              		.global	UpdateTimer_UI_Wakeup
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccqCINFb.s 			page 5
+
+
+ 102              		.thumb
+ 103              		.thumb_func
+ 104              		.type	UpdateTimer_UI_Wakeup, %function
+ 105              	UpdateTimer_UI_Wakeup:
+ 106              	.LFB3:
+ 128:Generated_Source\PSoC5/UpdateTimer_UI_PM.c ****     UpdateTimer_UI_SaveConfig();
+ 129:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** }
+ 130:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** 
+ 131:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** 
+ 132:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** /*******************************************************************************
+ 133:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** * Function Name: UpdateTimer_UI_Wakeup
+ 134:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** ********************************************************************************
+ 135:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** *
+ 136:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** * Summary:
+ 137:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** *  Restores and enables the user configuration
+ 138:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** *
+ 139:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** * Parameters:
+ 140:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** *  void
+ 141:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** *
+ 142:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** * Return:
+ 143:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** *  void
+ 144:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** *
+ 145:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** * Global variables:
+ 146:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** *  UpdateTimer_UI_backup.enableState:  Is used to restore the enable state of
+ 147:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** *  block on wakeup from sleep mode.
+ 148:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** *
+ 149:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** *******************************************************************************/
+ 150:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** void UpdateTimer_UI_Wakeup(void) 
+ 151:Generated_Source\PSoC5/UpdateTimer_UI_PM.c **** {
+ 107              		.loc 1 151 0
+ 108              		.cfi_startproc
+ 109              		@ args = 0, pretend = 0, frame = 0
+ 110              		@ frame_needed = 0, uses_anonymous_args = 0
+ 111 0000 08B5     		push	{r3, lr}
+ 112              		.cfi_def_cfa_offset 8
+ 113              		.cfi_offset 3, -8
+ 114              		.cfi_offset 14, -4
+ 152:Generated_Source\PSoC5/UpdateTimer_UI_PM.c ****     UpdateTimer_UI_RestoreConfig();
+ 153:Generated_Source\PSoC5/UpdateTimer_UI_PM.c ****     #if(!UpdateTimer_UI_UDB_CONTROL_REG_REMOVED)
+ 154:Generated_Source\PSoC5/UpdateTimer_UI_PM.c ****         if(UpdateTimer_UI_backup.TimerEnableState == 1u)
+ 115              		.loc 1 154 0
+ 116 0002 034B     		ldr	r3, .L12
+ 117 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 118 0006 012B     		cmp	r3, #1
+ 119 0008 01D1     		bne	.L9
+ 155:Generated_Source\PSoC5/UpdateTimer_UI_PM.c ****         {     /* Enable Timer's operation */
+ 156:Generated_Source\PSoC5/UpdateTimer_UI_PM.c ****                 UpdateTimer_UI_Enable();
+ 120              		.loc 1 156 0
+ 121 000a FFF7FEFF 		bl	UpdateTimer_UI_Enable
+ 122              	.LVL1:
+ 123              	.L9:
+ 124 000e 08BD     		pop	{r3, pc}
+ 125              	.L13:
+ 126              		.align	2
+ 127              	.L12:
+ 128 0010 00000000 		.word	.LANCHOR0
+ 129              		.cfi_endproc
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccqCINFb.s 			page 6
+
+
+ 130              	.LFE3:
+ 131              		.size	UpdateTimer_UI_Wakeup, .-UpdateTimer_UI_Wakeup
+ 132              		.bss
+ 133              		.align	2
+ 134              		.set	.LANCHOR0,. + 0
+ 135              		.type	UpdateTimer_UI_backup, %object
+ 136              		.size	UpdateTimer_UI_backup, 1
+ 137              	UpdateTimer_UI_backup:
+ 138 0000 00       		.space	1
+ 139              		.text
+ 140              	.Letext0:
+ 141              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
+ 142              		.file 3 "Generated_Source\\PSoC5\\UpdateTimer_UI.h"
+ 143              		.section	.debug_info,"",%progbits
+ 144              	.Ldebug_info0:
+ 145 0000 4F010000 		.4byte	0x14f
+ 146 0004 0400     		.2byte	0x4
+ 147 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 148 000a 04       		.byte	0x4
+ 149 000b 01       		.uleb128 0x1
+ 150 000c A0000000 		.4byte	.LASF23
+ 151 0010 0C       		.byte	0xc
+ 152 0011 45000000 		.4byte	.LASF24
+ 153 0015 C0010000 		.4byte	.LASF25
+ 154 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 155 001d 00000000 		.4byte	0
+ 156 0021 00000000 		.4byte	.Ldebug_line0
+ 157 0025 02       		.uleb128 0x2
+ 158 0026 01       		.byte	0x1
+ 159 0027 06       		.byte	0x6
+ 160 0028 45020000 		.4byte	.LASF0
+ 161 002c 02       		.uleb128 0x2
+ 162 002d 01       		.byte	0x1
+ 163 002e 08       		.byte	0x8
+ 164 002f 37000000 		.4byte	.LASF1
+ 165 0033 02       		.uleb128 0x2
+ 166 0034 02       		.byte	0x2
+ 167 0035 05       		.byte	0x5
+ 168 0036 5D020000 		.4byte	.LASF2
+ 169 003a 02       		.uleb128 0x2
+ 170 003b 02       		.byte	0x2
+ 171 003c 07       		.byte	0x7
+ 172 003d 32020000 		.4byte	.LASF3
+ 173 0041 02       		.uleb128 0x2
+ 174 0042 04       		.byte	0x4
+ 175 0043 05       		.byte	0x5
+ 176 0044 0C020000 		.4byte	.LASF4
+ 177 0048 02       		.uleb128 0x2
+ 178 0049 04       		.byte	0x4
+ 179 004a 07       		.byte	0x7
+ 180 004b 34010000 		.4byte	.LASF5
+ 181 004f 02       		.uleb128 0x2
+ 182 0050 08       		.byte	0x8
+ 183 0051 05       		.byte	0x5
+ 184 0052 00000000 		.4byte	.LASF6
+ 185 0056 02       		.uleb128 0x2
+ 186 0057 08       		.byte	0x8
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccqCINFb.s 			page 7
+
+
+ 187 0058 07       		.byte	0x7
+ 188 0059 46010000 		.4byte	.LASF7
+ 189 005d 03       		.uleb128 0x3
+ 190 005e 04       		.byte	0x4
+ 191 005f 05       		.byte	0x5
+ 192 0060 696E7400 		.ascii	"int\000"
+ 193 0064 02       		.uleb128 0x2
+ 194 0065 04       		.byte	0x4
+ 195 0066 07       		.byte	0x7
+ 196 0067 2A000000 		.4byte	.LASF8
+ 197 006b 04       		.uleb128 0x4
+ 198 006c 2E010000 		.4byte	.LASF12
+ 199 0070 02       		.byte	0x2
+ 200 0071 E401     		.2byte	0x1e4
+ 201 0073 2C000000 		.4byte	0x2c
+ 202 0077 02       		.uleb128 0x2
+ 203 0078 04       		.byte	0x4
+ 204 0079 04       		.byte	0x4
+ 205 007a 5D010000 		.4byte	.LASF9
+ 206 007e 02       		.uleb128 0x2
+ 207 007f 08       		.byte	0x8
+ 208 0080 04       		.byte	0x4
+ 209 0081 15020000 		.4byte	.LASF10
+ 210 0085 02       		.uleb128 0x2
+ 211 0086 01       		.byte	0x1
+ 212 0087 08       		.byte	0x8
+ 213 0088 BB010000 		.4byte	.LASF11
+ 214 008c 04       		.uleb128 0x4
+ 215 008d 67020000 		.4byte	.LASF13
+ 216 0091 02       		.byte	0x2
+ 217 0092 8E02     		.2byte	0x28e
+ 218 0094 98000000 		.4byte	0x98
+ 219 0098 05       		.uleb128 0x5
+ 220 0099 6B000000 		.4byte	0x6b
+ 221 009d 02       		.uleb128 0x2
+ 222 009e 08       		.byte	0x8
+ 223 009f 04       		.byte	0x4
+ 224 00a0 51020000 		.4byte	.LASF14
+ 225 00a4 02       		.uleb128 0x2
+ 226 00a5 04       		.byte	0x4
+ 227 00a6 07       		.byte	0x7
+ 228 00a7 81020000 		.4byte	.LASF15
+ 229 00ab 06       		.uleb128 0x6
+ 230 00ac 01       		.byte	0x1
+ 231 00ad 03       		.byte	0x3
+ 232 00ae 43       		.byte	0x43
+ 233 00af C0000000 		.4byte	0xc0
+ 234 00b3 07       		.uleb128 0x7
+ 235 00b4 79010000 		.4byte	.LASF26
+ 236 00b8 03       		.byte	0x3
+ 237 00b9 45       		.byte	0x45
+ 238 00ba 6B000000 		.4byte	0x6b
+ 239 00be 00       		.byte	0
+ 240 00bf 00       		.byte	0
+ 241 00c0 08       		.uleb128 0x8
+ 242 00c1 0E000000 		.4byte	.LASF16
+ 243 00c5 03       		.byte	0x3
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccqCINFb.s 			page 8
+
+
+ 244 00c6 53       		.byte	0x53
+ 245 00c7 AB000000 		.4byte	0xab
+ 246 00cb 09       		.uleb128 0x9
+ 247 00cc 86000000 		.4byte	.LASF17
+ 248 00d0 01       		.byte	0x1
+ 249 00d1 2B       		.byte	0x2b
+ 250 00d2 00000000 		.4byte	.LFB0
+ 251 00d6 02000000 		.4byte	.LFE0-.LFB0
+ 252 00da 01       		.uleb128 0x1
+ 253 00db 9C       		.byte	0x9c
+ 254 00dc 09       		.uleb128 0x9
+ 255 00dd 9E010000 		.4byte	.LASF18
+ 256 00e1 01       		.byte	0x1
+ 257 00e2 4D       		.byte	0x4d
+ 258 00e3 00000000 		.4byte	.LFB1
+ 259 00e7 02000000 		.4byte	.LFE1-.LFB1
+ 260 00eb 01       		.uleb128 0x1
+ 261 00ec 9C       		.byte	0x9c
+ 262 00ed 0A       		.uleb128 0xa
+ 263 00ee 6C020000 		.4byte	.LASF19
+ 264 00f2 01       		.byte	0x1
+ 265 00f3 70       		.byte	0x70
+ 266 00f4 00000000 		.4byte	.LFB2
+ 267 00f8 28000000 		.4byte	.LFE2-.LFB2
+ 268 00fc 01       		.uleb128 0x1
+ 269 00fd 9C       		.byte	0x9c
+ 270 00fe 0C010000 		.4byte	0x10c
+ 271 0102 0B       		.uleb128 0xb
+ 272 0103 1E000000 		.4byte	.LVL0
+ 273 0107 3C010000 		.4byte	0x13c
+ 274 010b 00       		.byte	0
+ 275 010c 0A       		.uleb128 0xa
+ 276 010d 70000000 		.4byte	.LASF20
+ 277 0111 01       		.byte	0x1
+ 278 0112 96       		.byte	0x96
+ 279 0113 00000000 		.4byte	.LFB3
+ 280 0117 14000000 		.4byte	.LFE3-.LFB3
+ 281 011b 01       		.uleb128 0x1
+ 282 011c 9C       		.byte	0x9c
+ 283 011d 2B010000 		.4byte	0x12b
+ 284 0121 0B       		.uleb128 0xb
+ 285 0122 0E000000 		.4byte	.LVL1
+ 286 0126 47010000 		.4byte	0x147
+ 287 012a 00       		.byte	0
+ 288 012b 0C       		.uleb128 0xc
+ 289 012c 1C020000 		.4byte	.LASF27
+ 290 0130 01       		.byte	0x1
+ 291 0131 15       		.byte	0x15
+ 292 0132 C0000000 		.4byte	0xc0
+ 293 0136 05       		.uleb128 0x5
+ 294 0137 03       		.byte	0x3
+ 295 0138 00000000 		.4byte	UpdateTimer_UI_backup
+ 296 013c 0D       		.uleb128 0xd
+ 297 013d 8A010000 		.4byte	.LASF21
+ 298 0141 8A010000 		.4byte	.LASF21
+ 299 0145 03       		.byte	0x3
+ 300 0146 5B       		.byte	0x5b
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccqCINFb.s 			page 9
+
+
+ 301 0147 0D       		.uleb128 0xd
+ 302 0148 63010000 		.4byte	.LASF22
+ 303 014c 63010000 		.4byte	.LASF22
+ 304 0150 03       		.byte	0x3
+ 305 0151 8B       		.byte	0x8b
+ 306 0152 00       		.byte	0
+ 307              		.section	.debug_abbrev,"",%progbits
+ 308              	.Ldebug_abbrev0:
+ 309 0000 01       		.uleb128 0x1
+ 310 0001 11       		.uleb128 0x11
+ 311 0002 01       		.byte	0x1
+ 312 0003 25       		.uleb128 0x25
+ 313 0004 0E       		.uleb128 0xe
+ 314 0005 13       		.uleb128 0x13
+ 315 0006 0B       		.uleb128 0xb
+ 316 0007 03       		.uleb128 0x3
+ 317 0008 0E       		.uleb128 0xe
+ 318 0009 1B       		.uleb128 0x1b
+ 319 000a 0E       		.uleb128 0xe
+ 320 000b 55       		.uleb128 0x55
+ 321 000c 17       		.uleb128 0x17
+ 322 000d 11       		.uleb128 0x11
+ 323 000e 01       		.uleb128 0x1
+ 324 000f 10       		.uleb128 0x10
+ 325 0010 17       		.uleb128 0x17
+ 326 0011 00       		.byte	0
+ 327 0012 00       		.byte	0
+ 328 0013 02       		.uleb128 0x2
+ 329 0014 24       		.uleb128 0x24
+ 330 0015 00       		.byte	0
+ 331 0016 0B       		.uleb128 0xb
+ 332 0017 0B       		.uleb128 0xb
+ 333 0018 3E       		.uleb128 0x3e
+ 334 0019 0B       		.uleb128 0xb
+ 335 001a 03       		.uleb128 0x3
+ 336 001b 0E       		.uleb128 0xe
+ 337 001c 00       		.byte	0
+ 338 001d 00       		.byte	0
+ 339 001e 03       		.uleb128 0x3
+ 340 001f 24       		.uleb128 0x24
+ 341 0020 00       		.byte	0
+ 342 0021 0B       		.uleb128 0xb
+ 343 0022 0B       		.uleb128 0xb
+ 344 0023 3E       		.uleb128 0x3e
+ 345 0024 0B       		.uleb128 0xb
+ 346 0025 03       		.uleb128 0x3
+ 347 0026 08       		.uleb128 0x8
+ 348 0027 00       		.byte	0
+ 349 0028 00       		.byte	0
+ 350 0029 04       		.uleb128 0x4
+ 351 002a 16       		.uleb128 0x16
+ 352 002b 00       		.byte	0
+ 353 002c 03       		.uleb128 0x3
+ 354 002d 0E       		.uleb128 0xe
+ 355 002e 3A       		.uleb128 0x3a
+ 356 002f 0B       		.uleb128 0xb
+ 357 0030 3B       		.uleb128 0x3b
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccqCINFb.s 			page 10
+
+
+ 358 0031 05       		.uleb128 0x5
+ 359 0032 49       		.uleb128 0x49
+ 360 0033 13       		.uleb128 0x13
+ 361 0034 00       		.byte	0
+ 362 0035 00       		.byte	0
+ 363 0036 05       		.uleb128 0x5
+ 364 0037 35       		.uleb128 0x35
+ 365 0038 00       		.byte	0
+ 366 0039 49       		.uleb128 0x49
+ 367 003a 13       		.uleb128 0x13
+ 368 003b 00       		.byte	0
+ 369 003c 00       		.byte	0
+ 370 003d 06       		.uleb128 0x6
+ 371 003e 13       		.uleb128 0x13
+ 372 003f 01       		.byte	0x1
+ 373 0040 0B       		.uleb128 0xb
+ 374 0041 0B       		.uleb128 0xb
+ 375 0042 3A       		.uleb128 0x3a
+ 376 0043 0B       		.uleb128 0xb
+ 377 0044 3B       		.uleb128 0x3b
+ 378 0045 0B       		.uleb128 0xb
+ 379 0046 01       		.uleb128 0x1
+ 380 0047 13       		.uleb128 0x13
+ 381 0048 00       		.byte	0
+ 382 0049 00       		.byte	0
+ 383 004a 07       		.uleb128 0x7
+ 384 004b 0D       		.uleb128 0xd
+ 385 004c 00       		.byte	0
+ 386 004d 03       		.uleb128 0x3
+ 387 004e 0E       		.uleb128 0xe
+ 388 004f 3A       		.uleb128 0x3a
+ 389 0050 0B       		.uleb128 0xb
+ 390 0051 3B       		.uleb128 0x3b
+ 391 0052 0B       		.uleb128 0xb
+ 392 0053 49       		.uleb128 0x49
+ 393 0054 13       		.uleb128 0x13
+ 394 0055 38       		.uleb128 0x38
+ 395 0056 0B       		.uleb128 0xb
+ 396 0057 00       		.byte	0
+ 397 0058 00       		.byte	0
+ 398 0059 08       		.uleb128 0x8
+ 399 005a 16       		.uleb128 0x16
+ 400 005b 00       		.byte	0
+ 401 005c 03       		.uleb128 0x3
+ 402 005d 0E       		.uleb128 0xe
+ 403 005e 3A       		.uleb128 0x3a
+ 404 005f 0B       		.uleb128 0xb
+ 405 0060 3B       		.uleb128 0x3b
+ 406 0061 0B       		.uleb128 0xb
+ 407 0062 49       		.uleb128 0x49
+ 408 0063 13       		.uleb128 0x13
+ 409 0064 00       		.byte	0
+ 410 0065 00       		.byte	0
+ 411 0066 09       		.uleb128 0x9
+ 412 0067 2E       		.uleb128 0x2e
+ 413 0068 00       		.byte	0
+ 414 0069 3F       		.uleb128 0x3f
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccqCINFb.s 			page 11
+
+
+ 415 006a 19       		.uleb128 0x19
+ 416 006b 03       		.uleb128 0x3
+ 417 006c 0E       		.uleb128 0xe
+ 418 006d 3A       		.uleb128 0x3a
+ 419 006e 0B       		.uleb128 0xb
+ 420 006f 3B       		.uleb128 0x3b
+ 421 0070 0B       		.uleb128 0xb
+ 422 0071 27       		.uleb128 0x27
+ 423 0072 19       		.uleb128 0x19
+ 424 0073 11       		.uleb128 0x11
+ 425 0074 01       		.uleb128 0x1
+ 426 0075 12       		.uleb128 0x12
+ 427 0076 06       		.uleb128 0x6
+ 428 0077 40       		.uleb128 0x40
+ 429 0078 18       		.uleb128 0x18
+ 430 0079 9742     		.uleb128 0x2117
+ 431 007b 19       		.uleb128 0x19
+ 432 007c 00       		.byte	0
+ 433 007d 00       		.byte	0
+ 434 007e 0A       		.uleb128 0xa
+ 435 007f 2E       		.uleb128 0x2e
+ 436 0080 01       		.byte	0x1
+ 437 0081 3F       		.uleb128 0x3f
+ 438 0082 19       		.uleb128 0x19
+ 439 0083 03       		.uleb128 0x3
+ 440 0084 0E       		.uleb128 0xe
+ 441 0085 3A       		.uleb128 0x3a
+ 442 0086 0B       		.uleb128 0xb
+ 443 0087 3B       		.uleb128 0x3b
+ 444 0088 0B       		.uleb128 0xb
+ 445 0089 27       		.uleb128 0x27
+ 446 008a 19       		.uleb128 0x19
+ 447 008b 11       		.uleb128 0x11
+ 448 008c 01       		.uleb128 0x1
+ 449 008d 12       		.uleb128 0x12
+ 450 008e 06       		.uleb128 0x6
+ 451 008f 40       		.uleb128 0x40
+ 452 0090 18       		.uleb128 0x18
+ 453 0091 9742     		.uleb128 0x2117
+ 454 0093 19       		.uleb128 0x19
+ 455 0094 01       		.uleb128 0x1
+ 456 0095 13       		.uleb128 0x13
+ 457 0096 00       		.byte	0
+ 458 0097 00       		.byte	0
+ 459 0098 0B       		.uleb128 0xb
+ 460 0099 898201   		.uleb128 0x4109
+ 461 009c 00       		.byte	0
+ 462 009d 11       		.uleb128 0x11
+ 463 009e 01       		.uleb128 0x1
+ 464 009f 31       		.uleb128 0x31
+ 465 00a0 13       		.uleb128 0x13
+ 466 00a1 00       		.byte	0
+ 467 00a2 00       		.byte	0
+ 468 00a3 0C       		.uleb128 0xc
+ 469 00a4 34       		.uleb128 0x34
+ 470 00a5 00       		.byte	0
+ 471 00a6 03       		.uleb128 0x3
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccqCINFb.s 			page 12
+
+
+ 472 00a7 0E       		.uleb128 0xe
+ 473 00a8 3A       		.uleb128 0x3a
+ 474 00a9 0B       		.uleb128 0xb
+ 475 00aa 3B       		.uleb128 0x3b
+ 476 00ab 0B       		.uleb128 0xb
+ 477 00ac 49       		.uleb128 0x49
+ 478 00ad 13       		.uleb128 0x13
+ 479 00ae 02       		.uleb128 0x2
+ 480 00af 18       		.uleb128 0x18
+ 481 00b0 00       		.byte	0
+ 482 00b1 00       		.byte	0
+ 483 00b2 0D       		.uleb128 0xd
+ 484 00b3 2E       		.uleb128 0x2e
+ 485 00b4 00       		.byte	0
+ 486 00b5 3F       		.uleb128 0x3f
+ 487 00b6 19       		.uleb128 0x19
+ 488 00b7 3C       		.uleb128 0x3c
+ 489 00b8 19       		.uleb128 0x19
+ 490 00b9 6E       		.uleb128 0x6e
+ 491 00ba 0E       		.uleb128 0xe
+ 492 00bb 03       		.uleb128 0x3
+ 493 00bc 0E       		.uleb128 0xe
+ 494 00bd 3A       		.uleb128 0x3a
+ 495 00be 0B       		.uleb128 0xb
+ 496 00bf 3B       		.uleb128 0x3b
+ 497 00c0 0B       		.uleb128 0xb
+ 498 00c1 00       		.byte	0
+ 499 00c2 00       		.byte	0
+ 500 00c3 00       		.byte	0
+ 501              		.section	.debug_aranges,"",%progbits
+ 502 0000 34000000 		.4byte	0x34
+ 503 0004 0200     		.2byte	0x2
+ 504 0006 00000000 		.4byte	.Ldebug_info0
+ 505 000a 04       		.byte	0x4
+ 506 000b 00       		.byte	0
+ 507 000c 0000     		.2byte	0
+ 508 000e 0000     		.2byte	0
+ 509 0010 00000000 		.4byte	.LFB0
+ 510 0014 02000000 		.4byte	.LFE0-.LFB0
+ 511 0018 00000000 		.4byte	.LFB1
+ 512 001c 02000000 		.4byte	.LFE1-.LFB1
+ 513 0020 00000000 		.4byte	.LFB2
+ 514 0024 28000000 		.4byte	.LFE2-.LFB2
+ 515 0028 00000000 		.4byte	.LFB3
+ 516 002c 14000000 		.4byte	.LFE3-.LFB3
+ 517 0030 00000000 		.4byte	0
+ 518 0034 00000000 		.4byte	0
+ 519              		.section	.debug_ranges,"",%progbits
+ 520              	.Ldebug_ranges0:
+ 521 0000 00000000 		.4byte	.LFB0
+ 522 0004 02000000 		.4byte	.LFE0
+ 523 0008 00000000 		.4byte	.LFB1
+ 524 000c 02000000 		.4byte	.LFE1
+ 525 0010 00000000 		.4byte	.LFB2
+ 526 0014 28000000 		.4byte	.LFE2
+ 527 0018 00000000 		.4byte	.LFB3
+ 528 001c 14000000 		.4byte	.LFE3
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccqCINFb.s 			page 13
+
+
+ 529 0020 00000000 		.4byte	0
+ 530 0024 00000000 		.4byte	0
+ 531              		.section	.debug_line,"",%progbits
+ 532              	.Ldebug_line0:
+ 533 0000 AE000000 		.section	.debug_str,"MS",%progbits,1
+ 533      02006200 
+ 533      00000201 
+ 533      FB0E0D00 
+ 533      01010101 
+ 534              	.LASF6:
+ 535 0000 6C6F6E67 		.ascii	"long long int\000"
+ 535      206C6F6E 
+ 535      6720696E 
+ 535      7400
+ 536              	.LASF16:
+ 537 000e 55706461 		.ascii	"UpdateTimer_UI_backupStruct\000"
+ 537      74655469 
+ 537      6D65725F 
+ 537      55495F62 
+ 537      61636B75 
+ 538              	.LASF8:
+ 539 002a 756E7369 		.ascii	"unsigned int\000"
+ 539      676E6564 
+ 539      20696E74 
+ 539      00
+ 540              	.LASF1:
+ 541 0037 756E7369 		.ascii	"unsigned char\000"
+ 541      676E6564 
+ 541      20636861 
+ 541      7200
+ 542              	.LASF24:
+ 543 0045 47656E65 		.ascii	"Generated_Source\\PSoC5\\UpdateTimer_UI_PM.c\000"
+ 543      72617465 
+ 543      645F536F 
+ 543      75726365 
+ 543      5C50536F 
+ 544              	.LASF20:
+ 545 0070 55706461 		.ascii	"UpdateTimer_UI_Wakeup\000"
+ 545      74655469 
+ 545      6D65725F 
+ 545      55495F57 
+ 545      616B6575 
+ 546              	.LASF17:
+ 547 0086 55706461 		.ascii	"UpdateTimer_UI_SaveConfig\000"
+ 547      74655469 
+ 547      6D65725F 
+ 547      55495F53 
+ 547      61766543 
+ 548              	.LASF23:
+ 549 00a0 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 549      43313120 
+ 549      352E342E 
+ 549      31203230 
+ 549      31363036 
+ 550 00d3 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 550      20726576 
+ 550      6973696F 
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccqCINFb.s 			page 14
+
+
+ 550      6E203233 
+ 550      37373135 
+ 551 0106 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 551      66756E63 
+ 551      74696F6E 
+ 551      2D736563 
+ 551      74696F6E 
+ 552              	.LASF12:
+ 553 012e 75696E74 		.ascii	"uint8\000"
+ 553      3800
+ 554              	.LASF5:
+ 555 0134 6C6F6E67 		.ascii	"long unsigned int\000"
+ 555      20756E73 
+ 555      69676E65 
+ 555      6420696E 
+ 555      7400
+ 556              	.LASF7:
+ 557 0146 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 557      206C6F6E 
+ 557      6720756E 
+ 557      7369676E 
+ 557      65642069 
+ 558              	.LASF9:
+ 559 015d 666C6F61 		.ascii	"float\000"
+ 559      7400
+ 560              	.LASF22:
+ 561 0163 55706461 		.ascii	"UpdateTimer_UI_Enable\000"
+ 561      74655469 
+ 561      6D65725F 
+ 561      55495F45 
+ 561      6E61626C 
+ 562              	.LASF26:
+ 563 0179 54696D65 		.ascii	"TimerEnableState\000"
+ 563      72456E61 
+ 563      626C6553 
+ 563      74617465 
+ 563      00
+ 564              	.LASF21:
+ 565 018a 55706461 		.ascii	"UpdateTimer_UI_Stop\000"
+ 565      74655469 
+ 565      6D65725F 
+ 565      55495F53 
+ 565      746F7000 
+ 566              	.LASF18:
+ 567 019e 55706461 		.ascii	"UpdateTimer_UI_RestoreConfig\000"
+ 567      74655469 
+ 567      6D65725F 
+ 567      55495F52 
+ 567      6573746F 
+ 568              	.LASF11:
+ 569 01bb 63686172 		.ascii	"char\000"
+ 569      00
+ 570              	.LASF25:
+ 571 01c0 433A5C55 		.ascii	"C:\\Users\\Caleb Cotter\\Desktop\\NitroDoser Develo"
+ 571      73657273 
+ 571      5C43616C 
+ 571      65622043 
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccqCINFb.s 			page 15
+
+
+ 571      6F747465 
+ 572 01ef 706D656E 		.ascii	"pment\\3HC_Firmware_0_1.cydsn\000"
+ 572      745C3348 
+ 572      435F4669 
+ 572      726D7761 
+ 572      72655F30 
+ 573              	.LASF4:
+ 574 020c 6C6F6E67 		.ascii	"long int\000"
+ 574      20696E74 
+ 574      00
+ 575              	.LASF10:
+ 576 0215 646F7562 		.ascii	"double\000"
+ 576      6C6500
+ 577              	.LASF27:
+ 578 021c 55706461 		.ascii	"UpdateTimer_UI_backup\000"
+ 578      74655469 
+ 578      6D65725F 
+ 578      55495F62 
+ 578      61636B75 
+ 579              	.LASF3:
+ 580 0232 73686F72 		.ascii	"short unsigned int\000"
+ 580      7420756E 
+ 580      7369676E 
+ 580      65642069 
+ 580      6E7400
+ 581              	.LASF0:
+ 582 0245 7369676E 		.ascii	"signed char\000"
+ 582      65642063 
+ 582      68617200 
+ 583              	.LASF14:
+ 584 0251 6C6F6E67 		.ascii	"long double\000"
+ 584      20646F75 
+ 584      626C6500 
+ 585              	.LASF2:
+ 586 025d 73686F72 		.ascii	"short int\000"
+ 586      7420696E 
+ 586      7400
+ 587              	.LASF13:
+ 588 0267 72656738 		.ascii	"reg8\000"
+ 588      00
+ 589              	.LASF19:
+ 590 026c 55706461 		.ascii	"UpdateTimer_UI_Sleep\000"
+ 590      74655469 
+ 590      6D65725F 
+ 590      55495F53 
+ 590      6C656570 
+ 591              	.LASF15:
+ 592 0281 73697A65 		.ascii	"sizetype\000"
+ 592      74797065 
+ 592      00
+ 593              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
