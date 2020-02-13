@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc3jnT9j.s 			page 1
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cco2D7eb.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc3jnT9j.s 			page 1
   28:Generated_Source\PSoC5/QuadDec_Cnt16.c **** *     Initialize to the schematic state
   29:Generated_Source\PSoC5/QuadDec_Cnt16.c **** * 
   30:Generated_Source\PSoC5/QuadDec_Cnt16.c **** * Parameters:  
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc3jnT9j.s 			page 2
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cco2D7eb.s 			page 2
 
 
   31:Generated_Source\PSoC5/QuadDec_Cnt16.c **** *  void  
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc3jnT9j.s 			page 1
   85:Generated_Source\PSoC5/QuadDec_Cnt16.c ****             #if( 0 != QuadDec_Cnt16_CAPTURE_MODE_CONF)
   86:Generated_Source\PSoC5/QuadDec_Cnt16.c ****                 QuadDec_Cnt16_CONTROL = ctrl | QuadDec_Cnt16_DEFAULT_CAPTURE_MODE;
   87:Generated_Source\PSoC5/QuadDec_Cnt16.c ****             #else
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc3jnT9j.s 			page 3
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cco2D7eb.s 			page 3
 
 
   88:Generated_Source\PSoC5/QuadDec_Cnt16.c ****                 QuadDec_Cnt16_CONTROL = ctrl;
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc3jnT9j.s 			page 1
  142:Generated_Source\PSoC5/QuadDec_Cnt16.c **** *******************************************************************************/
  143:Generated_Source\PSoC5/QuadDec_Cnt16.c **** void QuadDec_Cnt16_Enable(void) 
  144:Generated_Source\PSoC5/QuadDec_Cnt16.c **** {
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc3jnT9j.s 			page 4
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cco2D7eb.s 			page 4
 
 
   28              		.loc 1 144 0
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc3jnT9j.s 			page 1
  173:Generated_Source\PSoC5/QuadDec_Cnt16.c **** * Global variables:
  174:Generated_Source\PSoC5/QuadDec_Cnt16.c **** *  QuadDec_Cnt16_initVar: Is modified when this function is called for the  
  175:Generated_Source\PSoC5/QuadDec_Cnt16.c **** *   first time. Is used to ensure that initialization happens only once.
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc3jnT9j.s 			page 5
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cco2D7eb.s 			page 5
 
 
  176:Generated_Source\PSoC5/QuadDec_Cnt16.c **** *
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc3jnT9j.s 			page 1
   71              		.size	QuadDec_Cnt16_Stop, .-QuadDec_Cnt16_Stop
   72              		.section	.text.QuadDec_Cnt16_SetInterruptMode,"ax",%progbits
   73              		.align	2
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc3jnT9j.s 			page 6
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cco2D7eb.s 			page 6
 
 
   74              		.global	QuadDec_Cnt16_SetInterruptMode
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc3jnT9j.s 			page 1
  101              		.thumb_func
  102              		.type	QuadDec_Cnt16_ReadStatusRegister, %function
  103              	QuadDec_Cnt16_ReadStatusRegister:
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc3jnT9j.s 			page 7
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cco2D7eb.s 			page 7
 
 
  104              	.LFB5:
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc3jnT9j.s 			page 1
  268:Generated_Source\PSoC5/QuadDec_Cnt16.c **** /*******************************************************************************
  269:Generated_Source\PSoC5/QuadDec_Cnt16.c **** * Function Name: QuadDec_Cnt16_ReadControlRegister
  270:Generated_Source\PSoC5/QuadDec_Cnt16.c **** ********************************************************************************
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc3jnT9j.s 			page 8
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cco2D7eb.s 			page 8
 
 
  271:Generated_Source\PSoC5/QuadDec_Cnt16.c **** * Summary:
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc3jnT9j.s 			page 1
  300:Generated_Source\PSoC5/QuadDec_Cnt16.c **** * Return: 
  301:Generated_Source\PSoC5/QuadDec_Cnt16.c **** *  (uint8) The contents of the control register
  302:Generated_Source\PSoC5/QuadDec_Cnt16.c **** *
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc3jnT9j.s 			page 9
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cco2D7eb.s 			page 9
 
 
  303:Generated_Source\PSoC5/QuadDec_Cnt16.c **** *******************************************************************************/
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc3jnT9j.s 			page 1
  183              		@ frame_needed = 0, uses_anonymous_args = 0
  184              		@ link register save eliminated.
  185              	.LVL2:
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc3jnT9j.s 			page 10
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cco2D7eb.s 			page 10
 
 
  329:Generated_Source\PSoC5/QuadDec_Cnt16.c ****     #if(QuadDec_Cnt16_UsingFixedFunction)
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc3jnT9j.s 			page 1
  359:Generated_Source\PSoC5/QuadDec_Cnt16.c ****     /* Force capture by reading Accumulator */
  360:Generated_Source\PSoC5/QuadDec_Cnt16.c ****     /* Must first do a software capture to be able to read the counter */
  361:Generated_Source\PSoC5/QuadDec_Cnt16.c ****     /* It is up to the user code to make sure there isn't already captured data in the FIFO */
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc3jnT9j.s 			page 11
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cco2D7eb.s 			page 11
 
 
  362:Generated_Source\PSoC5/QuadDec_Cnt16.c ****     #if(QuadDec_Cnt16_UsingFixedFunction)
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc3jnT9j.s 			page 1
  391:Generated_Source\PSoC5/QuadDec_Cnt16.c **** {
  235              		.loc 1 391 0
  236              		.cfi_startproc
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc3jnT9j.s 			page 12
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cco2D7eb.s 			page 12
 
 
  237              		@ args = 0, pretend = 0, frame = 0
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc3jnT9j.s 			page 1
  266              	.LVL3:
  417:Generated_Source\PSoC5/QuadDec_Cnt16.c ****     #if(QuadDec_Cnt16_UsingFixedFunction)
  418:Generated_Source\PSoC5/QuadDec_Cnt16.c ****         CY_SET_REG16(QuadDec_Cnt16_PERIOD_LSB_PTR,(uint16)period);
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc3jnT9j.s 			page 13
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cco2D7eb.s 			page 13
 
 
  419:Generated_Source\PSoC5/QuadDec_Cnt16.c ****     #else
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc3jnT9j.s 			page 1
  294              		.loc 1 445 0
  295 0004 80B2     		uxth	r0, r0
  296 0006 7047     		bx	lr
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc3jnT9j.s 			page 14
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cco2D7eb.s 			page 14
 
 
  297              	.L33:
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc3jnT9j.s 			page 1
  325 0008 686A0040 		.word	1073769064
  326              		.cfi_endproc
  327              	.LFE13:
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc3jnT9j.s 			page 15
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cco2D7eb.s 			page 15
 
 
  328              		.size	QuadDec_Cnt16_WriteCompare, .-QuadDec_Cnt16_WriteCompare
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc3jnT9j.s 			page 1
  361              	QuadDec_Cnt16_ClearFIFO:
  362              	.LFB15:
  493:Generated_Source\PSoC5/QuadDec_Cnt16.c **** 
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc3jnT9j.s 			page 16
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cco2D7eb.s 			page 16
 
 
  494:Generated_Source\PSoC5/QuadDec_Cnt16.c **** 
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc3jnT9j.s 			page 1
  548:Generated_Source\PSoC5/QuadDec_Cnt16.c **** * Summary:
  549:Generated_Source\PSoC5/QuadDec_Cnt16.c **** *   This function clears all capture data from the capture FIFO
  550:Generated_Source\PSoC5/QuadDec_Cnt16.c **** *
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc3jnT9j.s 			page 17
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cco2D7eb.s 			page 17
 
 
  551:Generated_Source\PSoC5/QuadDec_Cnt16.c **** * Parameters:  
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc3jnT9j.s 			page 1
  399              		@ frame_needed = 0, uses_anonymous_args = 0
  400 0000 08B5     		push	{r3, lr}
  401              		.cfi_def_cfa_offset 8
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc3jnT9j.s 			page 18
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cco2D7eb.s 			page 18
 
 
  402              		.cfi_offset 3, -8
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc3jnT9j.s 			page 1
  444 003e 054A     		ldr	r2, .L46+4
  445 0040 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
  446 0042 43F01003 		orr	r3, r3, #16
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc3jnT9j.s 			page 19
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cco2D7eb.s 			page 19
 
 
  447 0046 1370     		strb	r3, [r2]
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc3jnT9j.s 			page 1
  495 0018 00000000 		.word	.LANCHOR0
  496              		.cfi_endproc
  497              	.LFE2:
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc3jnT9j.s 			page 20
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cco2D7eb.s 			page 20
 
 
  498              		.size	QuadDec_Cnt16_Start, .-QuadDec_Cnt16_Start
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc3jnT9j.s 			page 1
  552 0056 02       		.uleb128 0x2
  553 0057 08       		.byte	0x8
  554 0058 07       		.byte	0x7
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc3jnT9j.s 			page 21
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cco2D7eb.s 			page 21
 
 
  555 0059 48010000 		.4byte	.LASF7
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc3jnT9j.s 			page 1
  609 00c9 96030000 		.4byte	.LASF18
  610 00cd 01       		.byte	0x1
  611 00ce 8F       		.byte	0x8f
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc3jnT9j.s 			page 22
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cco2D7eb.s 			page 22
 
 
  612 00cf 00000000 		.4byte	.LFB1
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc3jnT9j.s 			page 1
  666 014a 9C       		.byte	0x9c
  667 014b 5E010000 		.4byte	0x15e
  668 014f 0B       		.uleb128 0xb
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc3jnT9j.s 			page 23
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cco2D7eb.s 			page 23
 
 
  669 0150 BA010000 		.4byte	.LASF25
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc3jnT9j.s 			page 1
  723 01cb 9F01     		.2byte	0x19f
  724 01cd 77000000 		.4byte	0x77
  725 01d1 01       		.uleb128 0x1
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc3jnT9j.s 			page 24
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cco2D7eb.s 			page 24
 
 
  726 01d2 50       		.byte	0x50
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc3jnT9j.s 			page 1
  780 024f 63030000 		.4byte	.LASF37
  781 0253 01       		.byte	0x1
  782 0254 25       		.byte	0x25
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc3jnT9j.s 			page 25
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cco2D7eb.s 			page 25
 
 
  783 0255 00000000 		.4byte	.LFB0
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc3jnT9j.s 			page 1
  837 02cc 0D010000 		.4byte	0x10d
  838 02d0 0E       		.uleb128 0xe
  839 02d1 3A000000 		.4byte	.LVL15
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc3jnT9j.s 			page 26
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cco2D7eb.s 			page 26
 
 
  840 02d5 EA010000 		.4byte	0x1ea
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc3jnT9j.s 			page 1
  894 0001 11       		.uleb128 0x11
  895 0002 01       		.byte	0x1
  896 0003 25       		.uleb128 0x25
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc3jnT9j.s 			page 27
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cco2D7eb.s 			page 27
 
 
  897 0004 0E       		.uleb128 0xe
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc3jnT9j.s 			page 1
  951 003a 13       		.uleb128 0x13
  952 003b 00       		.byte	0
  953 003c 00       		.byte	0
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc3jnT9j.s 			page 28
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cco2D7eb.s 			page 28
 
 
  954 003d 06       		.uleb128 0x6
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc3jnT9j.s 			page 1
  1008 0075 0B       		.uleb128 0xb
  1009 0076 3B       		.uleb128 0x3b
  1010 0077 0B       		.uleb128 0xb
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc3jnT9j.s 			page 29
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cco2D7eb.s 			page 29
 
 
  1011 0078 49       		.uleb128 0x49
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc3jnT9j.s 			page 1
  1065 00b0 00       		.byte	0
  1066 00b1 00       		.byte	0
  1067 00b2 0B       		.uleb128 0xb
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc3jnT9j.s 			page 30
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cco2D7eb.s 			page 30
 
 
  1068 00b3 05       		.uleb128 0x5
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc3jnT9j.s 			page 1
  1122 00ef 9142     		.uleb128 0x2111
  1123 00f1 18       		.uleb128 0x18
  1124 00f2 00       		.byte	0
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc3jnT9j.s 			page 31
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cco2D7eb.s 			page 31
 
 
  1125 00f3 00       		.byte	0
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc3jnT9j.s 			page 1
  1179              	.LLST1:
  1180 002a 3E000000 		.4byte	.LVL16
  1181 002e 4B000000 		.4byte	.LVL17-1
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc3jnT9j.s 			page 32
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cco2D7eb.s 			page 32
 
 
  1182 0032 0100     		.2byte	0x1
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc3jnT9j.s 			page 1
  1236 0018 00000000 		.4byte	.LFB5
  1237 001c 0C000000 		.4byte	.LFE5
  1238 0020 00000000 		.4byte	.LFB6
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc3jnT9j.s 			page 33
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cco2D7eb.s 			page 33
 
 
  1239 0024 0C000000 		.4byte	.LFE6
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc3jnT9j.s 			page 1
  1275      37373135 
  1276 008b 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
  1276      66756E63 
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc3jnT9j.s 			page 34
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cco2D7eb.s 			page 34
 
 
  1276      74696F6E 
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc3jnT9j.s 			page 1
  1298 016d 51756164 		.ascii	"QuadDec_Cnt16_WriteCounter\000"
  1298      4465635F 
  1298      436E7431 
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc3jnT9j.s 			page 35
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cco2D7eb.s 			page 35
 
 
  1298      365F5772 
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc3jnT9j.s 			page 1
  1322      74657243 
  1322      72697469 
  1322      63616C53 
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc3jnT9j.s 			page 36
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cco2D7eb.s 			page 36
 
 
  1322      65637469 
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc3jnT9j.s 			page 1
  1343 0337 73686F72 		.ascii	"short int\000"
  1343      7420696E 
  1343      7400
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc3jnT9j.s 			page 37
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cco2D7eb.s 			page 37
 
 
  1344              	.LASF32:

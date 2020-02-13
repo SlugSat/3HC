@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="3HC_Firmware\3HC_Firmware_0_1\Header Files">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="3HC_Firmware\3HC_Firmware_0_1\Generated_Source\PSoC5\USBUART\USBUART_cdc.inf">
 <ExpandedNodeIds>
 <v>3HC_Firmware</v>
 <v>3HC_Firmware\3HC_Firmware_0_1</v>
@@ -37,31 +37,43 @@
 <v>3HC_Firmware\3HC_Firmware_0_1\Source Files\main.c</v>
 <v>3HC_Firmware\3HC_Firmware_0_1\Source Files\MPU9250.c</v>
 <v>3HC_Firmware\3HC_Firmware_0_1\Generated_Source</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\Generated_Source\PSoC5</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\Generated_Source\PSoC5\USBUART</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
-<v>3HC_Firmware</v>
-<v>3HC_Firmware\3HC_Firmware_0_1</v>
-<v>3HC_Firmware\3HC_Firmware_0_1\TopDesign</v>
-<v>3HC_Firmware\3HC_Firmware_0_1\3HC_Firmware_0_1.cydwr</v>
-<v>3HC_Firmware\3HC_Firmware_0_1\3HC_Firmware_0_1.cydwr\Pins</v>
-<v>3HC_Firmware\3HC_Firmware_0_1\3HC_Firmware_0_1.cydwr\Analog</v>
-<v>3HC_Firmware\3HC_Firmware_0_1\3HC_Firmware_0_1.cydwr\Clocks</v>
-<v>3HC_Firmware\3HC_Firmware_0_1\3HC_Firmware_0_1.cydwr\Interrupts</v>
-<v>3HC_Firmware\3HC_Firmware_0_1\3HC_Firmware_0_1.cydwr\DMA</v>
-<v>3HC_Firmware\3HC_Firmware_0_1\3HC_Firmware_0_1.cydwr\System</v>
-<v>3HC_Firmware\3HC_Firmware_0_1\3HC_Firmware_0_1.cydwr\Directives</v>
-<v>3HC_Firmware\3HC_Firmware_0_1\3HC_Firmware_0_1.cydwr\Flash Security</v>
-<v>3HC_Firmware\3HC_Firmware_0_1\3HC_Firmware_0_1.cydwr\EEPROM</v>
-<v>3HC_Firmware\3HC_Firmware_0_1\Header Files</v>
-<v>3HC_Firmware\3HC_Firmware_0_1\Header Files\cyapicallbacks.h</v>
-<v>3HC_Firmware\3HC_Firmware_0_1\Header Files\I2C.h</v>
-<v>3HC_Firmware\3HC_Firmware_0_1\Header Files\MPU9250.h</v>
-<v>3HC_Firmware\3HC_Firmware_0_1\Source Files</v>
-<v>3HC_Firmware\3HC_Firmware_0_1\Source Files\I2C.c</v>
-<v>3HC_Firmware\3HC_Firmware_0_1\Source Files\main.c</v>
-<v>3HC_Firmware\3HC_Firmware_0_1\Source Files\MPU9250.c</v>
-<v>3HC_Firmware\3HC_Firmware_0_1\Generated_Source</v>
-<v>3HC_Firmware\3HC_Firmware_0_1\Generated_Source\PSoC5</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\Generated_Source\PSoC5\SDA</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\Generated_Source\PSoC5\timer_clock</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\Generated_Source\PSoC5\UPDATE_UI</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\Generated_Source\PSoC5\UpdateTimer_UI</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\Generated_Source\PSoC5\USBUART</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\Generated_Source\PSoC5\USBUART\USBUART.c</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\Generated_Source\PSoC5\USBUART\USBUART.h</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\Generated_Source\PSoC5\USBUART\USBUART_audio.c</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\Generated_Source\PSoC5\USBUART\USBUART_audio.h</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\Generated_Source\PSoC5\USBUART\USBUART_boot.c</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\Generated_Source\PSoC5\USBUART\USBUART_cdc.c</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\Generated_Source\PSoC5\USBUART\USBUART_cdc.h</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\Generated_Source\PSoC5\USBUART\USBUART_cdc.inf</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\Generated_Source\PSoC5\USBUART\USBUART_cls.c</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\Generated_Source\PSoC5\USBUART\USBUART_cydmac.h</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\Generated_Source\PSoC5\USBUART\USBUART_descr.c</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\Generated_Source\PSoC5\USBUART\USBUART_drv.c</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\Generated_Source\PSoC5\USBUART\USBUART_episr.c</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\Generated_Source\PSoC5\USBUART\USBUART_hid.c</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\Generated_Source\PSoC5\USBUART\USBUART_hid.h</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\Generated_Source\PSoC5\USBUART\USBUART_midi.c</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\Generated_Source\PSoC5\USBUART\USBUART_midi.h</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\Generated_Source\PSoC5\USBUART\USBUART_msc.c</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\Generated_Source\PSoC5\USBUART\USBUART_msc.h</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\Generated_Source\PSoC5\USBUART\USBUART_pm.c</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\Generated_Source\PSoC5\USBUART\USBUART_pvt.h</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\Generated_Source\PSoC5\USBUART\USBUART_std.c</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\Generated_Source\PSoC5\USBUART\USBUART_vnd.c</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\Generated_Source\PSoC5\USBUART_Dm</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\Generated_Source\PSoC5\USBUART_Dp</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\Generated_Source\PSoC5\X_DIR_OUT</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\Generated_Source\PSoC5\X_PWM</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\Generated_Source\PSoC5\X_PWM_OUT</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -109,6 +121,7 @@
 <v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\LCD_LCDPort.lst</v>
 <v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\LCD_PM.lst</v>
 <v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\main.lst</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\MPU9250.lst</v>
 <v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\Output_Enable.lst</v>
 <v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\Output_Enable_PM.lst</v>
 <v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\QUAD_A.lst</v>
@@ -125,6 +138,22 @@
 <v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\UPDATE_UI.lst</v>
 <v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\UpdateTimer_UI.lst</v>
 <v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\UpdateTimer_UI_PM.lst</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\USBUART.lst</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\USBUART_audio.lst</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\USBUART_boot.lst</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\USBUART_cdc.lst</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\USBUART_cls.lst</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\USBUART_descr.lst</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\USBUART_Dm.lst</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\USBUART_Dp.lst</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\USBUART_drv.lst</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\USBUART_episr.lst</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\USBUART_hid.lst</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\USBUART_midi.lst</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\USBUART_msc.lst</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\USBUART_pm.lst</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\USBUART_std.lst</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\USBUART_vnd.lst</v>
 <v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\X_DIR_OUT.lst</v>
 <v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\X_PWM.lst</v>
 <v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\X_PWM_OUT.lst</v>
@@ -149,6 +178,37 @@
 <VisibleNodeIds>
 <v>3HC_Firmware</v>
 <v>3HC_Firmware\3HC_Firmware_0_1</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\Cm3Start.lst</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\CyDmac.lst</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\Encoder_Button.lst</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C.lst</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C_Module.lst</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C_Module_BOOT.lst</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C_Module_INT.lst</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C_Module_MASTER.lst</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C_Module_PM.lst</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C_Module_SLAVE.lst</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\LCD.lst</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\LCD_LCDPort.lst</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\LCD_PM.lst</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\main.lst</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\MPU9250.lst</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\Output_Enable.lst</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\Output_Enable_PM.lst</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\QUAD_A.lst</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
@@ -179,6 +239,7 @@
 <v>3HC_Firmware\3HC_Firmware_0_1\PWM_v3_30\PWM_v3_30.pdf</v>
 <v>3HC_Firmware\3HC_Firmware_0_1\QuadDec_v3_0.pdf</v>
 <v>3HC_Firmware\3HC_Firmware_0_1\Timer_v2_80.pdf</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\USBFS_v3_20.pdf</v>
 <v>3HC_Firmware\3HC_Firmware_0_1\ZeroTerminal.pdf</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
@@ -203,6 +264,7 @@
 <v>3HC_Firmware\3HC_Firmware_0_1\PWM_v3_30\PWM_v3_30.pdf</v>
 <v>3HC_Firmware\3HC_Firmware_0_1\QuadDec_v3_0.pdf</v>
 <v>3HC_Firmware\3HC_Firmware_0_1\Timer_v2_80.pdf</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\USBFS_v3_20.pdf</v>
 <v>3HC_Firmware\3HC_Firmware_0_1\ZeroTerminal.pdf</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>

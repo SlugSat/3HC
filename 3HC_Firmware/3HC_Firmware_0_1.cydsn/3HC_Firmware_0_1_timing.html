@@ -539,7 +539,7 @@ function getElementsByClass(rootNode, elemName, className)
 <tr> <td class="prop"> Project :</td>
 <td class="proptext"> 3HC_Firmware_0_1</td></tr>
 <tr> <td class="prop"> Build Time :</td>
-<td class="proptext"> 02/12/20 21:46:31</td></tr>
+<td class="proptext"> 02/13/20 00:22:02</td></tr>
 <tr> <td class="prop"> Device :</td>
 <td class="proptext"> CY8C5888LTI-LP097</td></tr>
 <tr> <td class="prop"> Temperature :</td>
@@ -615,16 +615,16 @@ Clock Summary Section</span>
 <tr> 
  <td class = "text_info">CyILO</td>
  <td class = "text_info">CyILO</td>
- <td class = "number">1.000&nbsp;kHz</td>
- <td class = "number">1.000&nbsp;kHz</td>
+ <td class = "number">100.000&nbsp;kHz</td>
+ <td class = "number">100.000&nbsp;kHz</td>
  <td class = "number"> N/A </td>
  <td class = "text_info"> </td>
 </tr>
 <tr> 
  <td class = "text_info">CyIMO</td>
  <td class = "text_info">CyIMO</td>
- <td class = "number">3.000&nbsp;MHz</td>
- <td class = "number">3.000&nbsp;MHz</td>
+ <td class = "number">24.000&nbsp;MHz</td>
+ <td class = "number">24.000&nbsp;MHz</td>
  <td class = "number"> N/A </td>
  <td class = "text_info"> </td>
 </tr>
@@ -2641,7 +2641,7 @@ ClockBlock/clk_bus_glb_ff</span>
 <tr> 
  <td class = "text_info">\I2C_Module:I2C_FF\/sda_out</td>
  <td class = "text_info">SDA(0)_PAD:out</td>
- <td class = "number">24.498</td>
+ <td class = "number">24.493</td>
 </tr>
 <tr class="sta_path">
 <td class="sta_path"  colspan="3">
@@ -2674,7 +2674,7 @@ ClockBlock/clk_bus_glb_ff</span>
  <td class = "text_info">\I2C_Module:sda_x_wire\</td>
  <td class = "text_info">\I2C_Module:I2C_FF\/sda_out</td>
  <td class = "text_info">SDA(0)/pin_input</td>
- <td class = "number">7.565</td>
+ <td class = "number">7.560</td>
 </tr>
 <tr> 
  <td class = "text_info">iocell12</td>
@@ -2783,7 +2783,7 @@ CyBUS_CLK</span>
  <td class = "number">6.329</td>
 </tr>
 <tr> 
- <td class = "text_info">iocell13</td>
+ <td class = "text_info">iocell15</td>
  <td class = "text_info">P0[1]</td>
  <td class = "number">1</td>
  <td class = "text_info">X_PWM_OUT(0)</td>
@@ -2798,93 +2798,6 @@ CyBUS_CLK</span>
  <td class = "text_info">X_PWM_OUT(0)_PAD</td>
  <td class = "text_info">X_PWM_OUT(0)/pad_out</td>
  <td class = "text_info">X_PWM_OUT(0)_PAD</td>
- <td class = "number">0.000</td>
-</tr>
-<tr> 
- <td class = "text_info">Clock</td>
- <td class = "text_info"> </td>
- <td class = "text_info"></td>
- <td class = "text_info"></td>
- <td class = "text_info"></td>
- <td class = "text_info">Clock path delay</td>
- <td class = "number">0.000</td>
-</tr>
-</tbody>
- </table> 
-</td>
-</tr>
-<tr> 
- <td class = "text_info">\Output_Enable:Sync:ctrl_reg\/control_0</td>
- <td class = "text_info">Z_PWM_OUT(0)_PAD</td>
- <td class = "number">30.129</td>
-</tr>
-<tr class="sta_path">
-<td class="sta_path"  colspan="3">
-<table class="sta_path">
- <thead> 
-<tr> 
-<th>Type</th>
-<th>Location</th>
-<th>Fanout</th>
-<th>Instance/Net</th>
-<th>Source</th>
-<th>Dest</th>
-<th>Delay (ns)</th>
-</tr>
-</thead> 
-<tbody>
-<tr> 
- <td class = "text_info">controlcell3</td>
- <td class = "text_info">U(3,3)</td>
- <td class = "number">1</td>
- <td class = "text_info">\Output_Enable:Sync:ctrl_reg\</td>
- <td class = "text_info">\Output_Enable:Sync:ctrl_reg\/busclk</td>
- <td class = "text_info">\Output_Enable:Sync:ctrl_reg\/control_0</td>
- <td class = "number">2.050</td>
-</tr>
-<tr> 
- <td class = "text_info">Route</td>
- <td class = "text_info"></td>
- <td class = "number">1</td>
- <td class = "text_info">Net_308</td>
- <td class = "text_info">\Output_Enable:Sync:ctrl_reg\/control_0</td>
- <td class = "text_info">Net_199/main_0</td>
- <td class = "number">3.359</td>
-</tr>
-<tr> 
- <td class = "text_info">macrocell12</td>
- <td class = "text_info">U(3,4)</td>
- <td class = "number">1</td>
- <td class = "text_info">Net_199</td>
- <td class = "text_info">Net_199/main_0</td>
- <td class = "text_info">Net_199/q</td>
- <td class = "number">3.350</td>
-</tr>
-<tr> 
- <td class = "text_info">Route</td>
- <td class = "text_info"></td>
- <td class = "number">1</td>
- <td class = "text_info">Net_199</td>
- <td class = "text_info">Net_199/q</td>
- <td class = "text_info">Z_PWM_OUT(0)/pin_input</td>
- <td class = "number">6.347</td>
-</tr>
-<tr> 
- <td class = "text_info">iocell15</td>
- <td class = "text_info">P0[5]</td>
- <td class = "number">1</td>
- <td class = "text_info">Z_PWM_OUT(0)</td>
- <td class = "text_info">Z_PWM_OUT(0)/pin_input</td>
- <td class = "text_info">Z_PWM_OUT(0)/pad_out</td>
- <td class = "number">15.023</td>
-</tr>
-<tr> 
- <td class = "text_info">Route</td>
- <td class = "text_info"></td>
- <td class = "number">1</td>
- <td class = "text_info">Z_PWM_OUT(0)_PAD</td>
- <td class = "text_info">Z_PWM_OUT(0)/pad_out</td>
- <td class = "text_info">Z_PWM_OUT(0)_PAD</td>
  <td class = "number">0.000</td>
 </tr>
 <tr> 
@@ -2957,7 +2870,7 @@ CyBUS_CLK</span>
  <td class = "number">5.851</td>
 </tr>
 <tr> 
- <td class = "text_info">iocell14</td>
+ <td class = "text_info">iocell16</td>
  <td class = "text_info">P0[3]</td>
  <td class = "number">1</td>
  <td class = "text_info">Y_PWM_OUT(0)</td>
@@ -2988,9 +2901,96 @@ CyBUS_CLK</span>
 </td>
 </tr>
 <tr> 
+ <td class = "text_info">\Output_Enable:Sync:ctrl_reg\/control_0</td>
+ <td class = "text_info">Z_PWM_OUT(0)_PAD</td>
+ <td class = "number">29.294</td>
+</tr>
+<tr class="sta_path">
+<td class="sta_path"  colspan="3">
+<table class="sta_path">
+ <thead> 
+<tr> 
+<th>Type</th>
+<th>Location</th>
+<th>Fanout</th>
+<th>Instance/Net</th>
+<th>Source</th>
+<th>Dest</th>
+<th>Delay (ns)</th>
+</tr>
+</thead> 
+<tbody>
+<tr> 
+ <td class = "text_info">controlcell3</td>
+ <td class = "text_info">U(3,3)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\Output_Enable:Sync:ctrl_reg\</td>
+ <td class = "text_info">\Output_Enable:Sync:ctrl_reg\/busclk</td>
+ <td class = "text_info">\Output_Enable:Sync:ctrl_reg\/control_0</td>
+ <td class = "number">2.050</td>
+</tr>
+<tr> 
+ <td class = "text_info">Route</td>
+ <td class = "text_info"></td>
+ <td class = "number">1</td>
+ <td class = "text_info">Net_308</td>
+ <td class = "text_info">\Output_Enable:Sync:ctrl_reg\/control_0</td>
+ <td class = "text_info">Net_199/main_0</td>
+ <td class = "number">3.359</td>
+</tr>
+<tr> 
+ <td class = "text_info">macrocell12</td>
+ <td class = "text_info">U(3,4)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">Net_199</td>
+ <td class = "text_info">Net_199/main_0</td>
+ <td class = "text_info">Net_199/q</td>
+ <td class = "number">3.350</td>
+</tr>
+<tr> 
+ <td class = "text_info">Route</td>
+ <td class = "text_info"></td>
+ <td class = "number">1</td>
+ <td class = "text_info">Net_199</td>
+ <td class = "text_info">Net_199/q</td>
+ <td class = "text_info">Z_PWM_OUT(0)/pin_input</td>
+ <td class = "number">5.512</td>
+</tr>
+<tr> 
+ <td class = "text_info">iocell17</td>
+ <td class = "text_info">P0[5]</td>
+ <td class = "number">1</td>
+ <td class = "text_info">Z_PWM_OUT(0)</td>
+ <td class = "text_info">Z_PWM_OUT(0)/pin_input</td>
+ <td class = "text_info">Z_PWM_OUT(0)/pad_out</td>
+ <td class = "number">15.023</td>
+</tr>
+<tr> 
+ <td class = "text_info">Route</td>
+ <td class = "text_info"></td>
+ <td class = "number">1</td>
+ <td class = "text_info">Z_PWM_OUT(0)_PAD</td>
+ <td class = "text_info">Z_PWM_OUT(0)/pad_out</td>
+ <td class = "text_info">Z_PWM_OUT(0)_PAD</td>
+ <td class = "number">0.000</td>
+</tr>
+<tr> 
+ <td class = "text_info">Clock</td>
+ <td class = "text_info"> </td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info">Clock path delay</td>
+ <td class = "number">0.000</td>
+</tr>
+</tbody>
+ </table> 
+</td>
+</tr>
+<tr> 
  <td class = "text_info">\XYZ_Direction_Select:Sync:ctrl_reg\/control_2</td>
  <td class = "text_info">Z_DIR_OUT(0)_PAD</td>
- <td class = "number">23.189</td>
+ <td class = "number">23.324</td>
 </tr>
 <tr class="sta_path">
 <td class="sta_path"  colspan="3">
@@ -3023,10 +3023,10 @@ CyBUS_CLK</span>
  <td class = "text_info">Net_312</td>
  <td class = "text_info">\XYZ_Direction_Select:Sync:ctrl_reg\/control_2</td>
  <td class = "text_info">Z_DIR_OUT(0)/pin_input</td>
- <td class = "number">6.259</td>
+ <td class = "number">6.394</td>
 </tr>
 <tr> 
- <td class = "text_info">iocell18</td>
+ <td class = "text_info">iocell20</td>
  <td class = "text_info">P0[4]</td>
  <td class = "number">1</td>
  <td class = "text_info">Z_DIR_OUT(0)</td>
@@ -3059,7 +3059,7 @@ CyBUS_CLK</span>
 <tr> 
  <td class = "text_info">\XYZ_Direction_Select:Sync:ctrl_reg\/control_1</td>
  <td class = "text_info">Y_DIR_OUT(0)_PAD</td>
- <td class = "number">22.979</td>
+ <td class = "number">23.072</td>
 </tr>
 <tr class="sta_path">
 <td class="sta_path"  colspan="3">
@@ -3092,10 +3092,10 @@ CyBUS_CLK</span>
  <td class = "text_info">Net_311</td>
  <td class = "text_info">\XYZ_Direction_Select:Sync:ctrl_reg\/control_1</td>
  <td class = "text_info">Y_DIR_OUT(0)/pin_input</td>
- <td class = "number">5.470</td>
+ <td class = "number">5.563</td>
 </tr>
 <tr> 
- <td class = "text_info">iocell17</td>
+ <td class = "text_info">iocell19</td>
  <td class = "text_info">P0[2]</td>
  <td class = "number">1</td>
  <td class = "text_info">Y_DIR_OUT(0)</td>
@@ -3164,7 +3164,7 @@ CyBUS_CLK</span>
  <td class = "number">5.561</td>
 </tr>
 <tr> 
- <td class = "text_info">iocell16</td>
+ <td class = "text_info">iocell18</td>
  <td class = "text_info">P0[0]</td>
  <td class = "number">1</td>
  <td class = "text_info">X_DIR_OUT(0)</td>

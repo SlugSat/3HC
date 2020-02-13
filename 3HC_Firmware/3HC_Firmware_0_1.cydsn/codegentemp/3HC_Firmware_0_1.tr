@@ -21,8 +21,8 @@
 Number of clocks: 8
 Clock: CyBUS_CLK                    | Frequency: 44.42 MHz  | Target: 24.00 MHz  | 
 Clock: CyBUS_CLK(fixed-function)    | N/A                   | Target: 24.00 MHz  | 
-Clock: CyILO                        | N/A                   | Target: 0.00 MHz   | 
-Clock: CyIMO                        | N/A                   | Target: 3.00 MHz   | 
+Clock: CyILO                        | N/A                   | Target: 0.10 MHz   | 
+Clock: CyIMO                        | N/A                   | Target: 24.00 MHz  | 
 Clock: CyMASTER_CLK                 | N/A                   | Target: 24.00 MHz  | 
 Clock: CyPLL_OUT                    | N/A                   | Target: 24.00 MHz  | 
 Clock: timer_clock                  | N/A                   | Target: 0.00 MHz   | 
@@ -67,13 +67,13 @@ QUAD_B(0)_PAD  15435         CyBUS_CLK:R
 Port Name         Clock to Out  Clock Name:Phase             
 ----------------  ------------  ---------------------------  
 SCL(0)_PAD:out    25374         CyBUS_CLK(fixed-function):R  
-SDA(0)_PAD:out    25198         CyBUS_CLK(fixed-function):R  
+SDA(0)_PAD:out    25192         CyBUS_CLK(fixed-function):R  
 X_DIR_OUT(0)_PAD  23561         CyBUS_CLK:R                  
 X_PWM_OUT(0)_PAD  31597         CyBUS_CLK:R                  
-Y_DIR_OUT(0)_PAD  23680         CyBUS_CLK:R                  
+Y_DIR_OUT(0)_PAD  23767         CyBUS_CLK:R                  
 Y_PWM_OUT(0)_PAD  30015         CyBUS_CLK:R                  
-Z_DIR_OUT(0)_PAD  23880         CyBUS_CLK:R                  
-Z_PWM_OUT(0)_PAD  30825         CyBUS_CLK:R                  
+Z_DIR_OUT(0)_PAD  24016         CyBUS_CLK:R                  
+Z_PWM_OUT(0)_PAD  29990         CyBUS_CLK:R                  
 
 
                          3.3::Pad to Pad

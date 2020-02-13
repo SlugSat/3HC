@@ -1,0 +1,2034 @@
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cchnwacN.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"MPU9250.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.MPU9250_Init,"ax",%progbits
+  20              		.align	2
+  21              		.global	MPU9250_Init
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	MPU9250_Init, %function
+  25              	MPU9250_Init:
+  26              	.LFB0:
+  27              		.file 1 "MPU9250.c"
+   1:MPU9250.c     **** #include "MPU9250.h"
+   2:MPU9250.c     **** #include "I2C.h"
+   3:MPU9250.c     **** 
+   4:MPU9250.c     **** #ifdef MPU9250_TEST
+   5:MPU9250.c     **** #include <stdio.h>
+   6:MPU9250.c     **** #endif
+   7:MPU9250.c     **** 
+   8:MPU9250.c     **** /*******************************************************************************
+   9:MPU9250.c     ****  * PRIVATE #DEFINES                                                            *
+  10:MPU9250.c     ****  ******************************************************************************/
+  11:MPU9250.c     **** 
+  12:MPU9250.c     **** #define TRUE 1
+  13:MPU9250.c     **** #define FALSE 0
+  14:MPU9250.c     **** 
+  15:MPU9250.c     **** //#define DEBUG_MPU_CHANNEL
+  16:MPU9250.c     **** 
+  17:MPU9250.c     **** #ifdef DEBUG_MPU_CHANNEL
+  18:MPU9250.c     **** #define dbprintf(...) printf(__VA_ARGS__)
+  19:MPU9250.c     **** #else
+  20:MPU9250.c     **** #define dbprintf(...)
+  21:MPU9250.c     **** #endif
+  22:MPU9250.c     **** 
+  23:MPU9250.c     **** #define MAG_I2C_ADDRESS 0x0C
+  24:MPU9250.c     **** #define ACCGYR_I2C_ADDRESS 0x68
+  25:MPU9250.c     **** 
+  26:MPU9250.c     **** #define MAG_WHOAMI_VALUE 0x48
+  27:MPU9250.c     **** #define MPU_WHOAMI_VALUE 0x71
+  28:MPU9250.c     **** 
+  29:MPU9250.c     **** /*******************************************************************************
+  30:MPU9250.c     ****  * PRIVATE VARIABLES                                                           *
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cchnwacN.s 			page 2
+
+
+  31:MPU9250.c     ****  ******************************************************************************/
+  32:MPU9250.c     **** 
+  33:MPU9250.c     **** static enum {
+  34:MPU9250.c     ****     AK_WHOAMI_REGISTER,
+  35:MPU9250.c     ****     AK_HXL = 0x03,
+  36:MPU9250.c     ****     AK_HXH,
+  37:MPU9250.c     ****     AK_HYL,
+  38:MPU9250.c     ****     AK_HYH,
+  39:MPU9250.c     ****     AK_HZL,
+  40:MPU9250.c     ****     AK_HZH,
+  41:MPU9250.c     ****     AK_ST2 = 0x9,
+  42:MPU9250.c     ****     AK_CNTL1 = 0xA,
+  43:MPU9250.c     ****     AK_CNTL2
+  44:MPU9250.c     **** } AK8963_REGISTERS;
+  45:MPU9250.c     **** 
+  46:MPU9250.c     **** static enum {
+  47:MPU9250.c     ****     MPU_SMPLRT_DIV = 25,
+  48:MPU9250.c     ****     MPU_CONFIG,
+  49:MPU9250.c     ****     MPU_GYRO_CONFIG,
+  50:MPU9250.c     ****     MPU_ACCEL_CONFIG,
+  51:MPU9250.c     ****     MPU_ACCEL_CONFIG2,
+  52:MPU9250.c     ****     MPU_INT_BYPASS_CONFIG = 55,
+  53:MPU9250.c     ****     MPU_INT_CONFIG,
+  54:MPU9250.c     ****     ACCEL_XOUT_H = 59,
+  55:MPU9250.c     ****     ACCEL_XOUT_L,
+  56:MPU9250.c     ****     ACCEL_YOUT_H,
+  57:MPU9250.c     ****     ACCEL_YOUT_L,
+  58:MPU9250.c     ****     ACCEL_ZOUT_H,
+  59:MPU9250.c     ****     ACCEL_ZOUT_L,
+  60:MPU9250.c     ****     GYRO_XOUT_H = 67,
+  61:MPU9250.c     ****     GYRO_XOUT_L,
+  62:MPU9250.c     ****     GYRO_YOUT_H,
+  63:MPU9250.c     ****     GYRO_YOUT_L,
+  64:MPU9250.c     ****     GYRO_ZOUT_H,
+  65:MPU9250.c     ****     GYRO_ZOUT_L,
+  66:MPU9250.c     ****     MPU_POWER_CTRL1 = 107,
+  67:MPU9250.c     ****     MPU_WHOAMI_REGISTER = 117
+  68:MPU9250.c     **** } MPU9250_REGISTERS;
+  69:MPU9250.c     **** 
+  70:MPU9250.c     **** /*******************************************************************************
+  71:MPU9250.c     ****  * PUBLIC FUNCTIONS                                                           *
+  72:MPU9250.c     ****  ******************************************************************************/
+  73:MPU9250.c     **** 
+  74:MPU9250.c     **** /**
+  75:MPU9250.c     ****  * @Function MPU9250_Init(Rate)
+  76:MPU9250.c     **** 
+  77:MPU9250.c     ****  * @return 0 if error, 1 if succeeded
+  78:MPU9250.c     ****  * @brief  Initializes the MPU 9250 for usage. This will set all sensors to approximately 100HZ
+  79:MPU9250.c     ****  * and Accel: 2g,Gyro:  250dps and Mag: 16-bit for the sensors
+  80:MPU9250.c     ****  * @author Max Dunne */
+  81:MPU9250.c     **** char MPU9250_Init(void) {
+  28              		.loc 1 81 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 08B5     		push	{r3, lr}
+  33              		.cfi_def_cfa_offset 8
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cchnwacN.s 			page 3
+
+
+  34              		.cfi_offset 3, -8
+  35              		.cfi_offset 14, -4
+  82:MPU9250.c     ****     unsigned int intReturn;
+  83:MPU9250.c     ****     unsigned char byteReturn;
+  84:MPU9250.c     **** 
+  85:MPU9250.c     ****     I2C_Init();
+  36              		.loc 1 85 0
+  37 0002 FFF7FEFF 		bl	I2C_Init
+  38              	.LVL0:
+  86:MPU9250.c     **** 
+  87:MPU9250.c     ****     // we have to configure the MPU first due to idiocy with the I2C setup internally
+  88:MPU9250.c     ****     byteReturn = I2C_ReadRegister(ACCGYR_I2C_ADDRESS, MPU_WHOAMI_REGISTER);
+  39              		.loc 1 88 0
+  40 0006 7521     		movs	r1, #117
+  41 0008 6820     		movs	r0, #104
+  42 000a FFF7FEFF 		bl	I2C_ReadRegister
+  43              	.LVL1:
+  89:MPU9250.c     ****     //    printf("\r\n%X", byteReturn);
+  90:MPU9250.c     ****     if (byteReturn != MPU_WHOAMI_VALUE) {
+  44              		.loc 1 90 0
+  45 000e 7128     		cmp	r0, #113
+  46 0010 2FD1     		bne	.L3
+  91:MPU9250.c     ****         return FALSE; // make sure we are talking to the right device first
+  92:MPU9250.c     ****     }
+  93:MPU9250.c     **** 
+  94:MPU9250.c     ****     I2C_WriteReg(ACCGYR_I2C_ADDRESS, MPU_POWER_CTRL1, 0x01); // turn it on and hopefully use pll
+  47              		.loc 1 94 0
+  48 0012 0122     		movs	r2, #1
+  49 0014 6B21     		movs	r1, #107
+  50 0016 6820     		movs	r0, #104
+  51              	.LVL2:
+  52 0018 FFF7FEFF 		bl	I2C_WriteReg
+  53              	.LVL3:
+  95:MPU9250.c     **** 
+  96:MPU9250.c     ****     I2C_WriteReg(ACCGYR_I2C_ADDRESS, MPU_CONFIG, 0x03); // don't really want a dlp but turning it o
+  54              		.loc 1 96 0
+  55 001c 0322     		movs	r2, #3
+  56 001e 1A21     		movs	r1, #26
+  57 0020 6820     		movs	r0, #104
+  58 0022 FFF7FEFF 		bl	I2C_WriteReg
+  59              	.LVL4:
+  97:MPU9250.c     ****     // setting it to fastest bandwidth for the gyro
+  98:MPU9250.c     ****     //byteReturn = I2C_ReadRegister(ACCGYR_I2C_ADDRESS,MPU_GYRO_CONFIG);
+  99:MPU9250.c     ****     //printf("\r\ngyro config: %d",byteReturn);
+ 100:MPU9250.c     ****     I2C_WriteReg(ACCGYR_I2C_ADDRESS, MPU_GYRO_CONFIG, 0x00); //set scale on gyro to 250 degrees /s
+  60              		.loc 1 100 0
+  61 0026 0022     		movs	r2, #0
+  62 0028 1B21     		movs	r1, #27
+  63 002a 6820     		movs	r0, #104
+  64 002c FFF7FEFF 		bl	I2C_WriteReg
+  65              	.LVL5:
+ 101:MPU9250.c     ****     dbprintf("\r\nGYRO CONFIG Set To: 0X%X", I2C_ReadRegister(ACCGYR_I2C_ADDRESS, MPU_GYRO_CONFIG))
+ 102:MPU9250.c     ****     I2C_WriteReg(ACCGYR_I2C_ADDRESS, MPU_SMPLRT_DIV, 5); // set the output data rate to 100Hz
+  66              		.loc 1 102 0
+  67 0030 0522     		movs	r2, #5
+  68 0032 1921     		movs	r1, #25
+  69 0034 6820     		movs	r0, #104
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cchnwacN.s 			page 4
+
+
+  70 0036 FFF7FEFF 		bl	I2C_WriteReg
+  71              	.LVL6:
+ 103:MPU9250.c     ****     dbprintf("\r\nSMART RATE Set To: 0X%X", I2C_ReadRegister(ACCGYR_I2C_ADDRESS, MPU_SMPLRT_DIV));
+ 104:MPU9250.c     **** 
+ 105:MPU9250.c     ****     // we now can configure the accelerometer
+ 106:MPU9250.c     **** 
+ 107:MPU9250.c     ****     I2C_WriteReg(ACCGYR_I2C_ADDRESS, MPU_ACCEL_CONFIG2, 0b1001);
+  72              		.loc 1 107 0
+  73 003a 0922     		movs	r2, #9
+  74 003c 1D21     		movs	r1, #29
+  75 003e 6820     		movs	r0, #104
+  76 0040 FFF7FEFF 		bl	I2C_WriteReg
+  77              	.LVL7:
+ 108:MPU9250.c     ****     //sets the bandwidth to 184 and internal to 1K, actually output controlled by smart divider
+ 109:MPU9250.c     ****     dbprintf("\r\nACCEL CONFIG2 Set To: 0X%X", I2C_ReadRegister(ACCGYR_I2C_ADDRESS, MPU_ACCEL_CONFI
+ 110:MPU9250.c     **** 
+ 111:MPU9250.c     ****     I2C_WriteReg(ACCGYR_I2C_ADDRESS, MPU_ACCEL_CONFIG, 0);
+  78              		.loc 1 111 0
+  79 0044 0022     		movs	r2, #0
+  80 0046 1C21     		movs	r1, #28
+  81 0048 6820     		movs	r0, #104
+  82 004a FFF7FEFF 		bl	I2C_WriteReg
+  83              	.LVL8:
+ 112:MPU9250.c     ****     dbprintf("\r\nACCEL CONFIG Set To: 0X%X", I2C_ReadRegister(ACCGYR_I2C_ADDRESS, MPU_ACCEL_CONFIG
+ 113:MPU9250.c     **** 
+ 114:MPU9250.c     ****     // finally we configure the I2C to allow us to talk to the mag
+ 115:MPU9250.c     ****     I2C_WriteReg(ACCGYR_I2C_ADDRESS, MPU_INT_BYPASS_CONFIG, 0x22);
+  84              		.loc 1 115 0
+  85 004e 2222     		movs	r2, #34
+  86 0050 3721     		movs	r1, #55
+  87 0052 6820     		movs	r0, #104
+  88 0054 FFF7FEFF 		bl	I2C_WriteReg
+  89              	.LVL9:
+ 116:MPU9250.c     ****     dbprintf("\r\nBypass CONFIG Set To: 0X%X", I2C_ReadRegister(ACCGYR_I2C_ADDRESS, MPU_INT_BYPASS_
+ 117:MPU9250.c     **** 
+ 118:MPU9250.c     **** 
+ 119:MPU9250.c     ****     byteReturn = I2C_ReadRegister(MAG_I2C_ADDRESS, AK_WHOAMI_REGISTER);
+  90              		.loc 1 119 0
+  91 0058 0021     		movs	r1, #0
+  92 005a 0C20     		movs	r0, #12
+  93 005c FFF7FEFF 		bl	I2C_ReadRegister
+  94              	.LVL10:
+ 120:MPU9250.c     ****     //    printf("\r\n%X", byteReturn);
+ 121:MPU9250.c     ****     if (byteReturn != MAG_WHOAMI_VALUE) {
+  95              		.loc 1 121 0
+  96 0060 4828     		cmp	r0, #72
+  97 0062 08D1     		bne	.L4
+ 122:MPU9250.c     ****         return FALSE; // make sure we are talking to the right device first
+ 123:MPU9250.c     ****     }
+ 124:MPU9250.c     **** 
+ 125:MPU9250.c     ****     //configure output rate and scale
+ 126:MPU9250.c     ****     //    I2C_WriteReg(MAG_I2C_ADDRESS,AK_CNTL1,0b0);
+ 127:MPU9250.c     ****     //    I2C_WriteReg(MAG_I2C_ADDRESS,AK_CNTL1,0b1111);
+ 128:MPU9250.c     ****     //    I2C_WriteReg(MAG_I2C_ADDRESS,AK_CNTL1,0b0);
+ 129:MPU9250.c     ****     I2C_WriteReg(MAG_I2C_ADDRESS, AK_CNTL1, 0b10110);
+  98              		.loc 1 129 0
+  99 0064 1622     		movs	r2, #22
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cchnwacN.s 			page 5
+
+
+ 100 0066 0A21     		movs	r1, #10
+ 101 0068 0C20     		movs	r0, #12
+ 102              	.LVL11:
+ 103 006a FFF7FEFF 		bl	I2C_WriteReg
+ 104              	.LVL12:
+ 130:MPU9250.c     ****     dbprintf("\r\nMAG CNTL1 CONFIG Set To: 0X%X", I2C_ReadRegister(MAG_I2C_ADDRESS, AK_CNTL1));
+ 131:MPU9250.c     ****     return TRUE;
+ 105              		.loc 1 131 0
+ 106 006e 0120     		movs	r0, #1
+ 107 0070 08BD     		pop	{r3, pc}
+ 108              	.LVL13:
+ 109              	.L3:
+  91:MPU9250.c     ****     }
+ 110              		.loc 1 91 0
+ 111 0072 0020     		movs	r0, #0
+ 112              	.LVL14:
+ 113 0074 08BD     		pop	{r3, pc}
+ 114              	.LVL15:
+ 115              	.L4:
+ 122:MPU9250.c     ****         return FALSE; // make sure we are talking to the right device first
+ 116              		.loc 1 122 0
+ 117 0076 0020     		movs	r0, #0
+ 118              	.LVL16:
+ 132:MPU9250.c     **** }
+ 119              		.loc 1 132 0
+ 120 0078 08BD     		pop	{r3, pc}
+ 121              		.cfi_endproc
+ 122              	.LFE0:
+ 123              		.size	MPU9250_Init, .-MPU9250_Init
+ 124 007a 00BF     		.section	.text.MPU9250_ReadAccelX,"ax",%progbits
+ 125              		.align	2
+ 126              		.global	MPU9250_ReadAccelX
+ 127              		.thumb
+ 128              		.thumb_func
+ 129              		.type	MPU9250_ReadAccelX, %function
+ 130              	MPU9250_ReadAccelX:
+ 131              	.LFB1:
+ 133:MPU9250.c     **** 
+ 134:MPU9250.c     **** /**
+ 135:MPU9250.c     ****  * @Function MPU9250_Read*()
+ 136:MPU9250.c     ****  * @param None
+ 137:MPU9250.c     ****  * @return Returns raw sensor reading
+ 138:MPU9250.c     ****  * @brief reads sensor axis as given by name
+ 139:MPU9250.c     ****  * @author Max Dunne*/
+ 140:MPU9250.c     **** int MPU9250_ReadAccelX(void) {
+ 132              		.loc 1 140 0
+ 133              		.cfi_startproc
+ 134              		@ args = 0, pretend = 0, frame = 0
+ 135              		@ frame_needed = 0, uses_anonymous_args = 0
+ 136 0000 08B5     		push	{r3, lr}
+ 137              		.cfi_def_cfa_offset 8
+ 138              		.cfi_offset 3, -8
+ 139              		.cfi_offset 14, -4
+ 141:MPU9250.c     ****     return I2C_ReadInt(ACCGYR_I2C_ADDRESS, ACCEL_XOUT_H, TRUE);
+ 140              		.loc 1 141 0
+ 141 0002 0122     		movs	r2, #1
+ 142 0004 3B21     		movs	r1, #59
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cchnwacN.s 			page 6
+
+
+ 143 0006 6820     		movs	r0, #104
+ 144 0008 FFF7FEFF 		bl	I2C_ReadInt
+ 145              	.LVL17:
+ 142:MPU9250.c     **** }
+ 146              		.loc 1 142 0
+ 147 000c 08BD     		pop	{r3, pc}
+ 148              		.cfi_endproc
+ 149              	.LFE1:
+ 150              		.size	MPU9250_ReadAccelX, .-MPU9250_ReadAccelX
+ 151 000e 00BF     		.section	.text.MPU9250_ReadAccelY,"ax",%progbits
+ 152              		.align	2
+ 153              		.global	MPU9250_ReadAccelY
+ 154              		.thumb
+ 155              		.thumb_func
+ 156              		.type	MPU9250_ReadAccelY, %function
+ 157              	MPU9250_ReadAccelY:
+ 158              	.LFB2:
+ 143:MPU9250.c     **** 
+ 144:MPU9250.c     **** /**
+ 145:MPU9250.c     ****  * @Function MPU9250_Read*()
+ 146:MPU9250.c     ****  * @param None
+ 147:MPU9250.c     ****  * @return Returns raw sensor reading
+ 148:MPU9250.c     ****  * @brief reads sensor axis as given by name
+ 149:MPU9250.c     ****  * @author Max Dunne*/
+ 150:MPU9250.c     **** int MPU9250_ReadAccelY(void) {
+ 159              		.loc 1 150 0
+ 160              		.cfi_startproc
+ 161              		@ args = 0, pretend = 0, frame = 0
+ 162              		@ frame_needed = 0, uses_anonymous_args = 0
+ 163 0000 08B5     		push	{r3, lr}
+ 164              		.cfi_def_cfa_offset 8
+ 165              		.cfi_offset 3, -8
+ 166              		.cfi_offset 14, -4
+ 151:MPU9250.c     ****     return I2C_ReadInt(ACCGYR_I2C_ADDRESS, ACCEL_YOUT_H, TRUE);
+ 167              		.loc 1 151 0
+ 168 0002 0122     		movs	r2, #1
+ 169 0004 3D21     		movs	r1, #61
+ 170 0006 6820     		movs	r0, #104
+ 171 0008 FFF7FEFF 		bl	I2C_ReadInt
+ 172              	.LVL18:
+ 152:MPU9250.c     **** }
+ 173              		.loc 1 152 0
+ 174 000c 08BD     		pop	{r3, pc}
+ 175              		.cfi_endproc
+ 176              	.LFE2:
+ 177              		.size	MPU9250_ReadAccelY, .-MPU9250_ReadAccelY
+ 178 000e 00BF     		.section	.text.MPU9250_ReadAccelZ,"ax",%progbits
+ 179              		.align	2
+ 180              		.global	MPU9250_ReadAccelZ
+ 181              		.thumb
+ 182              		.thumb_func
+ 183              		.type	MPU9250_ReadAccelZ, %function
+ 184              	MPU9250_ReadAccelZ:
+ 185              	.LFB3:
+ 153:MPU9250.c     **** 
+ 154:MPU9250.c     **** /**
+ 155:MPU9250.c     ****  * @Function MPU9250_Read*()
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cchnwacN.s 			page 7
+
+
+ 156:MPU9250.c     ****  * @param None
+ 157:MPU9250.c     ****  * @return Returns raw sensor reading
+ 158:MPU9250.c     ****  * @brief reads sensor axis as given by name
+ 159:MPU9250.c     ****  * @author Max Dunne*/
+ 160:MPU9250.c     **** int MPU9250_ReadAccelZ(void) {
+ 186              		.loc 1 160 0
+ 187              		.cfi_startproc
+ 188              		@ args = 0, pretend = 0, frame = 0
+ 189              		@ frame_needed = 0, uses_anonymous_args = 0
+ 190 0000 08B5     		push	{r3, lr}
+ 191              		.cfi_def_cfa_offset 8
+ 192              		.cfi_offset 3, -8
+ 193              		.cfi_offset 14, -4
+ 161:MPU9250.c     ****     return I2C_ReadInt(ACCGYR_I2C_ADDRESS, ACCEL_ZOUT_H, TRUE);
+ 194              		.loc 1 161 0
+ 195 0002 0122     		movs	r2, #1
+ 196 0004 3F21     		movs	r1, #63
+ 197 0006 6820     		movs	r0, #104
+ 198 0008 FFF7FEFF 		bl	I2C_ReadInt
+ 199              	.LVL19:
+ 162:MPU9250.c     **** }
+ 200              		.loc 1 162 0
+ 201 000c 08BD     		pop	{r3, pc}
+ 202              		.cfi_endproc
+ 203              	.LFE3:
+ 204              		.size	MPU9250_ReadAccelZ, .-MPU9250_ReadAccelZ
+ 205 000e 00BF     		.section	.text.MPU9250_ReadGyroX,"ax",%progbits
+ 206              		.align	2
+ 207              		.global	MPU9250_ReadGyroX
+ 208              		.thumb
+ 209              		.thumb_func
+ 210              		.type	MPU9250_ReadGyroX, %function
+ 211              	MPU9250_ReadGyroX:
+ 212              	.LFB4:
+ 163:MPU9250.c     **** 
+ 164:MPU9250.c     **** /**
+ 165:MPU9250.c     ****  * @Function MPU9250_Read*()
+ 166:MPU9250.c     ****  * @param None
+ 167:MPU9250.c     ****  * @return Returns raw sensor reading
+ 168:MPU9250.c     ****  * @brief reads sensor axis as given by name
+ 169:MPU9250.c     ****  * @author Max Dunne*/
+ 170:MPU9250.c     **** int MPU9250_ReadGyroX(void) {
+ 213              		.loc 1 170 0
+ 214              		.cfi_startproc
+ 215              		@ args = 0, pretend = 0, frame = 0
+ 216              		@ frame_needed = 0, uses_anonymous_args = 0
+ 217 0000 08B5     		push	{r3, lr}
+ 218              		.cfi_def_cfa_offset 8
+ 219              		.cfi_offset 3, -8
+ 220              		.cfi_offset 14, -4
+ 171:MPU9250.c     ****     return I2C_ReadInt(ACCGYR_I2C_ADDRESS, GYRO_XOUT_H, TRUE);
+ 221              		.loc 1 171 0
+ 222 0002 0122     		movs	r2, #1
+ 223 0004 4321     		movs	r1, #67
+ 224 0006 6820     		movs	r0, #104
+ 225 0008 FFF7FEFF 		bl	I2C_ReadInt
+ 226              	.LVL20:
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cchnwacN.s 			page 8
+
+
+ 172:MPU9250.c     **** }
+ 227              		.loc 1 172 0
+ 228 000c 08BD     		pop	{r3, pc}
+ 229              		.cfi_endproc
+ 230              	.LFE4:
+ 231              		.size	MPU9250_ReadGyroX, .-MPU9250_ReadGyroX
+ 232 000e 00BF     		.section	.text.MPU9250_ReadGyroY,"ax",%progbits
+ 233              		.align	2
+ 234              		.global	MPU9250_ReadGyroY
+ 235              		.thumb
+ 236              		.thumb_func
+ 237              		.type	MPU9250_ReadGyroY, %function
+ 238              	MPU9250_ReadGyroY:
+ 239              	.LFB5:
+ 173:MPU9250.c     **** 
+ 174:MPU9250.c     **** /**
+ 175:MPU9250.c     ****  * @Function MPU9250_Read*()
+ 176:MPU9250.c     ****  * @param None
+ 177:MPU9250.c     ****  * @return Returns raw sensor reading
+ 178:MPU9250.c     ****  * @brief reads sensor axis as given by name
+ 179:MPU9250.c     ****  * @author Max Dunne*/
+ 180:MPU9250.c     **** int MPU9250_ReadGyroY(void) {
+ 240              		.loc 1 180 0
+ 241              		.cfi_startproc
+ 242              		@ args = 0, pretend = 0, frame = 0
+ 243              		@ frame_needed = 0, uses_anonymous_args = 0
+ 244 0000 08B5     		push	{r3, lr}
+ 245              		.cfi_def_cfa_offset 8
+ 246              		.cfi_offset 3, -8
+ 247              		.cfi_offset 14, -4
+ 181:MPU9250.c     ****     return I2C_ReadInt(ACCGYR_I2C_ADDRESS, GYRO_YOUT_H, TRUE);
+ 248              		.loc 1 181 0
+ 249 0002 0122     		movs	r2, #1
+ 250 0004 4521     		movs	r1, #69
+ 251 0006 6820     		movs	r0, #104
+ 252 0008 FFF7FEFF 		bl	I2C_ReadInt
+ 253              	.LVL21:
+ 182:MPU9250.c     **** }
+ 254              		.loc 1 182 0
+ 255 000c 08BD     		pop	{r3, pc}
+ 256              		.cfi_endproc
+ 257              	.LFE5:
+ 258              		.size	MPU9250_ReadGyroY, .-MPU9250_ReadGyroY
+ 259 000e 00BF     		.section	.text.MPU9250_ReadGyroZ,"ax",%progbits
+ 260              		.align	2
+ 261              		.global	MPU9250_ReadGyroZ
+ 262              		.thumb
+ 263              		.thumb_func
+ 264              		.type	MPU9250_ReadGyroZ, %function
+ 265              	MPU9250_ReadGyroZ:
+ 266              	.LFB6:
+ 183:MPU9250.c     **** 
+ 184:MPU9250.c     **** /**
+ 185:MPU9250.c     ****  * @Function MPU9250_Read*()
+ 186:MPU9250.c     ****  * @param None
+ 187:MPU9250.c     ****  * @return Returns raw sensor reading
+ 188:MPU9250.c     ****  * @brief reads sensor axis as given by name
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cchnwacN.s 			page 9
+
+
+ 189:MPU9250.c     ****  * @author Max Dunne*/
+ 190:MPU9250.c     **** int MPU9250_ReadGyroZ(void) {
+ 267              		.loc 1 190 0
+ 268              		.cfi_startproc
+ 269              		@ args = 0, pretend = 0, frame = 0
+ 270              		@ frame_needed = 0, uses_anonymous_args = 0
+ 271 0000 08B5     		push	{r3, lr}
+ 272              		.cfi_def_cfa_offset 8
+ 273              		.cfi_offset 3, -8
+ 274              		.cfi_offset 14, -4
+ 191:MPU9250.c     ****     return I2C_ReadInt(ACCGYR_I2C_ADDRESS, GYRO_ZOUT_H, TRUE);
+ 275              		.loc 1 191 0
+ 276 0002 0122     		movs	r2, #1
+ 277 0004 4721     		movs	r1, #71
+ 278 0006 6820     		movs	r0, #104
+ 279 0008 FFF7FEFF 		bl	I2C_ReadInt
+ 280              	.LVL22:
+ 192:MPU9250.c     **** }
+ 281              		.loc 1 192 0
+ 282 000c 08BD     		pop	{r3, pc}
+ 283              		.cfi_endproc
+ 284              	.LFE6:
+ 285              		.size	MPU9250_ReadGyroZ, .-MPU9250_ReadGyroZ
+ 286 000e 00BF     		.section	.text.MPU9250_ReadMagX,"ax",%progbits
+ 287              		.align	2
+ 288              		.global	MPU9250_ReadMagX
+ 289              		.thumb
+ 290              		.thumb_func
+ 291              		.type	MPU9250_ReadMagX, %function
+ 292              	MPU9250_ReadMagX:
+ 293              	.LFB7:
+ 193:MPU9250.c     **** 
+ 194:MPU9250.c     **** /**
+ 195:MPU9250.c     ****  * @Function MPU9250_Read*()
+ 196:MPU9250.c     ****  * @param None
+ 197:MPU9250.c     ****  * @return Returns raw sensor reading
+ 198:MPU9250.c     ****  * @brief reads sensor axis as given by name
+ 199:MPU9250.c     ****  * @author Max Dunne*/
+ 200:MPU9250.c     **** int MPU9250_ReadMagX(void) {
+ 294              		.loc 1 200 0
+ 295              		.cfi_startproc
+ 296              		@ args = 0, pretend = 0, frame = 0
+ 297              		@ frame_needed = 0, uses_anonymous_args = 0
+ 298 0000 10B5     		push	{r4, lr}
+ 299              		.cfi_def_cfa_offset 8
+ 300              		.cfi_offset 4, -8
+ 301              		.cfi_offset 14, -4
+ 201:MPU9250.c     ****     short SensorValue = I2C_ReadInt(MAG_I2C_ADDRESS, AK_HXL, FALSE);
+ 302              		.loc 1 201 0
+ 303 0002 0022     		movs	r2, #0
+ 304 0004 0321     		movs	r1, #3
+ 305 0006 0C20     		movs	r0, #12
+ 306 0008 FFF7FEFF 		bl	I2C_ReadInt
+ 307              	.LVL23:
+ 308 000c 04B2     		sxth	r4, r0
+ 309              	.LVL24:
+ 202:MPU9250.c     ****     I2C_ReadRegister(MAG_I2C_ADDRESS, AK_ST2);
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cchnwacN.s 			page 10
+
+
+ 310              		.loc 1 202 0
+ 311 000e 0921     		movs	r1, #9
+ 312 0010 0C20     		movs	r0, #12
+ 313 0012 FFF7FEFF 		bl	I2C_ReadRegister
+ 314              	.LVL25:
+ 203:MPU9250.c     ****     return SensorValue;
+ 204:MPU9250.c     **** }
+ 315              		.loc 1 204 0
+ 316 0016 2046     		mov	r0, r4
+ 317 0018 10BD     		pop	{r4, pc}
+ 318              		.cfi_endproc
+ 319              	.LFE7:
+ 320              		.size	MPU9250_ReadMagX, .-MPU9250_ReadMagX
+ 321 001a 00BF     		.section	.text.MPU9250_ReadMagY,"ax",%progbits
+ 322              		.align	2
+ 323              		.global	MPU9250_ReadMagY
+ 324              		.thumb
+ 325              		.thumb_func
+ 326              		.type	MPU9250_ReadMagY, %function
+ 327              	MPU9250_ReadMagY:
+ 328              	.LFB8:
+ 205:MPU9250.c     **** 
+ 206:MPU9250.c     **** /**
+ 207:MPU9250.c     ****  * @Function MPU9250_Read*()
+ 208:MPU9250.c     ****  * @param None
+ 209:MPU9250.c     ****  * @return Returns raw sensor reading
+ 210:MPU9250.c     ****  * @brief reads sensor axis as given by name
+ 211:MPU9250.c     ****  * @author Max Dunne*/
+ 212:MPU9250.c     **** int MPU9250_ReadMagY(void) {
+ 329              		.loc 1 212 0
+ 330              		.cfi_startproc
+ 331              		@ args = 0, pretend = 0, frame = 0
+ 332              		@ frame_needed = 0, uses_anonymous_args = 0
+ 333 0000 10B5     		push	{r4, lr}
+ 334              		.cfi_def_cfa_offset 8
+ 335              		.cfi_offset 4, -8
+ 336              		.cfi_offset 14, -4
+ 213:MPU9250.c     ****     short SensorValue = I2C_ReadInt(MAG_I2C_ADDRESS, AK_HYL, FALSE);
+ 337              		.loc 1 213 0
+ 338 0002 0022     		movs	r2, #0
+ 339 0004 0521     		movs	r1, #5
+ 340 0006 0C20     		movs	r0, #12
+ 341 0008 FFF7FEFF 		bl	I2C_ReadInt
+ 342              	.LVL26:
+ 343 000c 04B2     		sxth	r4, r0
+ 344              	.LVL27:
+ 214:MPU9250.c     ****     I2C_ReadRegister(MAG_I2C_ADDRESS, AK_ST2);
+ 345              		.loc 1 214 0
+ 346 000e 0921     		movs	r1, #9
+ 347 0010 0C20     		movs	r0, #12
+ 348 0012 FFF7FEFF 		bl	I2C_ReadRegister
+ 349              	.LVL28:
+ 215:MPU9250.c     ****     return SensorValue;
+ 216:MPU9250.c     **** }
+ 350              		.loc 1 216 0
+ 351 0016 2046     		mov	r0, r4
+ 352 0018 10BD     		pop	{r4, pc}
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cchnwacN.s 			page 11
+
+
+ 353              		.cfi_endproc
+ 354              	.LFE8:
+ 355              		.size	MPU9250_ReadMagY, .-MPU9250_ReadMagY
+ 356 001a 00BF     		.section	.text.MPU9250_ReadMagZ,"ax",%progbits
+ 357              		.align	2
+ 358              		.global	MPU9250_ReadMagZ
+ 359              		.thumb
+ 360              		.thumb_func
+ 361              		.type	MPU9250_ReadMagZ, %function
+ 362              	MPU9250_ReadMagZ:
+ 363              	.LFB9:
+ 217:MPU9250.c     **** 
+ 218:MPU9250.c     **** /**
+ 219:MPU9250.c     ****  * @Function MPU9250_Read*()
+ 220:MPU9250.c     ****  * @param None
+ 221:MPU9250.c     ****  * @return Returns raw sensor reading
+ 222:MPU9250.c     ****  * @brief reads sensor axis as given by name
+ 223:MPU9250.c     ****  * @author Max Dunne*/
+ 224:MPU9250.c     **** int MPU9250_ReadMagZ(void) {
+ 364              		.loc 1 224 0
+ 365              		.cfi_startproc
+ 366              		@ args = 0, pretend = 0, frame = 0
+ 367              		@ frame_needed = 0, uses_anonymous_args = 0
+ 368 0000 10B5     		push	{r4, lr}
+ 369              		.cfi_def_cfa_offset 8
+ 370              		.cfi_offset 4, -8
+ 371              		.cfi_offset 14, -4
+ 225:MPU9250.c     ****     short SensorValue = I2C_ReadInt(MAG_I2C_ADDRESS, AK_HZL, FALSE);
+ 372              		.loc 1 225 0
+ 373 0002 0022     		movs	r2, #0
+ 374 0004 0721     		movs	r1, #7
+ 375 0006 0C20     		movs	r0, #12
+ 376 0008 FFF7FEFF 		bl	I2C_ReadInt
+ 377              	.LVL29:
+ 378 000c 04B2     		sxth	r4, r0
+ 379              	.LVL30:
+ 226:MPU9250.c     ****     I2C_ReadRegister(MAG_I2C_ADDRESS, AK_ST2);
+ 380              		.loc 1 226 0
+ 381 000e 0921     		movs	r1, #9
+ 382 0010 0C20     		movs	r0, #12
+ 383 0012 FFF7FEFF 		bl	I2C_ReadRegister
+ 384              	.LVL31:
+ 227:MPU9250.c     ****     return SensorValue;
+ 228:MPU9250.c     **** }
+ 385              		.loc 1 228 0
+ 386 0016 2046     		mov	r0, r4
+ 387 0018 10BD     		pop	{r4, pc}
+ 388              		.cfi_endproc
+ 389              	.LFE9:
+ 390              		.size	MPU9250_ReadMagZ, .-MPU9250_ReadMagZ
+ 391 001a 00BF     		.text
+ 392              	.Letext0:
+ 393              		.file 2 "I2C.h"
+ 394              		.section	.debug_info,"",%progbits
+ 395              	.Ldebug_info0:
+ 396 0000 FE040000 		.4byte	0x4fe
+ 397 0004 0400     		.2byte	0x4
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cchnwacN.s 			page 12
+
+
+ 398 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 399 000a 04       		.byte	0x4
+ 400 000b 01       		.uleb128 0x1
+ 401 000c B9000000 		.4byte	.LASF54
+ 402 0010 0C       		.byte	0xc
+ 403 0011 8E000000 		.4byte	.LASF55
+ 404 0015 34020000 		.4byte	.LASF56
+ 405 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 406 001d 00000000 		.4byte	0
+ 407 0021 00000000 		.4byte	.Ldebug_line0
+ 408 0025 02       		.uleb128 0x2
+ 409 0026 01       		.byte	0x1
+ 410 0027 6E000000 		.4byte	0x6e
+ 411 002b 01       		.byte	0x1
+ 412 002c 21       		.byte	0x21
+ 413 002d 6E000000 		.4byte	0x6e
+ 414 0031 03       		.uleb128 0x3
+ 415 0032 B9020000 		.4byte	.LASF0
+ 416 0036 00       		.byte	0
+ 417 0037 03       		.uleb128 0x3
+ 418 0038 74000000 		.4byte	.LASF1
+ 419 003c 03       		.byte	0x3
+ 420 003d 03       		.uleb128 0x3
+ 421 003e 6D000000 		.4byte	.LASF2
+ 422 0042 04       		.byte	0x4
+ 423 0043 03       		.uleb128 0x3
+ 424 0044 CC020000 		.4byte	.LASF3
+ 425 0048 05       		.byte	0x5
+ 426 0049 03       		.uleb128 0x3
+ 427 004a A4000000 		.4byte	.LASF4
+ 428 004e 06       		.byte	0x6
+ 429 004f 03       		.uleb128 0x3
+ 430 0050 88010000 		.4byte	.LASF5
+ 431 0054 07       		.byte	0x7
+ 432 0055 03       		.uleb128 0x3
+ 433 0056 87000000 		.4byte	.LASF6
+ 434 005a 08       		.byte	0x8
+ 435 005b 03       		.uleb128 0x3
+ 436 005c 9C010000 		.4byte	.LASF7
+ 437 0060 09       		.byte	0x9
+ 438 0061 03       		.uleb128 0x3
+ 439 0062 58010000 		.4byte	.LASF8
+ 440 0066 0A       		.byte	0xa
+ 441 0067 03       		.uleb128 0x3
+ 442 0068 61010000 		.4byte	.LASF9
+ 443 006c 0B       		.byte	0xb
+ 444 006d 00       		.byte	0
+ 445 006e 04       		.uleb128 0x4
+ 446 006f 01       		.byte	0x1
+ 447 0070 08       		.byte	0x8
+ 448 0071 AB000000 		.4byte	.LASF31
+ 449 0075 02       		.uleb128 0x2
+ 450 0076 01       		.byte	0x1
+ 451 0077 6E000000 		.4byte	0x6e
+ 452 007b 01       		.byte	0x1
+ 453 007c 2E       		.byte	0x2e
+ 454 007d 00010000 		.4byte	0x100
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cchnwacN.s 			page 13
+
+
+ 455 0081 03       		.uleb128 0x3
+ 456 0082 25000000 		.4byte	.LASF10
+ 457 0086 19       		.byte	0x19
+ 458 0087 03       		.uleb128 0x3
+ 459 0088 00000000 		.4byte	.LASF11
+ 460 008c 1A       		.byte	0x1a
+ 461 008d 03       		.uleb128 0x3
+ 462 008e 3F030000 		.4byte	.LASF12
+ 463 0092 1B       		.byte	0x1b
+ 464 0093 03       		.uleb128 0x3
+ 465 0094 77010000 		.4byte	.LASF13
+ 466 0098 1C       		.byte	0x1c
+ 467 0099 03       		.uleb128 0x3
+ 468 009a F4010000 		.4byte	.LASF14
+ 469 009e 1D       		.byte	0x1d
+ 470 009f 03       		.uleb128 0x3
+ 471 00a0 46000000 		.4byte	.LASF15
+ 472 00a4 37       		.byte	0x37
+ 473 00a5 03       		.uleb128 0x3
+ 474 00a6 79030000 		.4byte	.LASF16
+ 475 00aa 38       		.byte	0x38
+ 476 00ab 03       		.uleb128 0x3
+ 477 00ac 32030000 		.4byte	.LASF17
+ 478 00b0 3B       		.byte	0x3b
+ 479 00b1 03       		.uleb128 0x3
+ 480 00b2 4F030000 		.4byte	.LASF18
+ 481 00b6 3C       		.byte	0x3c
+ 482 00b7 03       		.uleb128 0x3
+ 483 00b8 0B000000 		.4byte	.LASF19
+ 484 00bc 3D       		.byte	0x3d
+ 485 00bd 03       		.uleb128 0x3
+ 486 00be 18000000 		.4byte	.LASF20
+ 487 00c2 3E       		.byte	0x3e
+ 488 00c3 03       		.uleb128 0x3
+ 489 00c4 6A010000 		.4byte	.LASF21
+ 490 00c8 3F       		.byte	0x3f
+ 491 00c9 03       		.uleb128 0x3
+ 492 00ca 8F010000 		.4byte	.LASF22
+ 493 00ce 40       		.byte	0x40
+ 494 00cf 03       		.uleb128 0x3
+ 495 00d0 7B000000 		.4byte	.LASF23
+ 496 00d4 43       		.byte	0x43
+ 497 00d5 03       		.uleb128 0x3
+ 498 00d6 98000000 		.4byte	.LASF24
+ 499 00da 44       		.byte	0x44
+ 500 00db 03       		.uleb128 0x3
+ 501 00dc A3010000 		.4byte	.LASF25
+ 502 00e0 45       		.byte	0x45
+ 503 00e1 03       		.uleb128 0x3
+ 504 00e2 AF010000 		.4byte	.LASF26
+ 505 00e6 46       		.byte	0x46
+ 506 00e7 03       		.uleb128 0x3
+ 507 00e8 0C030000 		.4byte	.LASF27
+ 508 00ec 47       		.byte	0x47
+ 509 00ed 03       		.uleb128 0x3
+ 510 00ee 5C030000 		.4byte	.LASF28
+ 511 00f2 48       		.byte	0x48
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cchnwacN.s 			page 14
+
+
+ 512 00f3 03       		.uleb128 0x3
+ 513 00f4 18030000 		.4byte	.LASF29
+ 514 00f8 6B       		.byte	0x6b
+ 515 00f9 03       		.uleb128 0x3
+ 516 00fa 13020000 		.4byte	.LASF30
+ 517 00fe 75       		.byte	0x75
+ 518 00ff 00       		.byte	0
+ 519 0100 05       		.uleb128 0x5
+ 520 0101 06020000 		.4byte	.LASF34
+ 521 0105 01       		.byte	0x1
+ 522 0106 51       		.byte	0x51
+ 523 0107 5D020000 		.4byte	0x25d
+ 524 010b 00000000 		.4byte	.LFB0
+ 525 010f 7A000000 		.4byte	.LFE0-.LFB0
+ 526 0113 01       		.uleb128 0x1
+ 527 0114 9C       		.byte	0x9c
+ 528 0115 5D020000 		.4byte	0x25d
+ 529 0119 06       		.uleb128 0x6
+ 530 011a E5010000 		.4byte	.LASF47
+ 531 011e 01       		.byte	0x1
+ 532 011f 52       		.byte	0x52
+ 533 0120 64020000 		.4byte	0x264
+ 534 0124 07       		.uleb128 0x7
+ 535 0125 AE030000 		.4byte	.LASF42
+ 536 0129 01       		.byte	0x1
+ 537 012a 53       		.byte	0x53
+ 538 012b 6E000000 		.4byte	0x6e
+ 539 012f 00000000 		.4byte	.LLST0
+ 540 0133 08       		.uleb128 0x8
+ 541 0134 06000000 		.4byte	.LVL0
+ 542 0138 D5040000 		.4byte	0x4d5
+ 543 013c 09       		.uleb128 0x9
+ 544 013d 0E000000 		.4byte	.LVL1
+ 545 0141 E0040000 		.4byte	0x4e0
+ 546 0145 56010000 		.4byte	0x156
+ 547 0149 0A       		.uleb128 0xa
+ 548 014a 01       		.uleb128 0x1
+ 549 014b 50       		.byte	0x50
+ 550 014c 02       		.uleb128 0x2
+ 551 014d 08       		.byte	0x8
+ 552 014e 68       		.byte	0x68
+ 553 014f 0A       		.uleb128 0xa
+ 554 0150 01       		.uleb128 0x1
+ 555 0151 51       		.byte	0x51
+ 556 0152 02       		.uleb128 0x2
+ 557 0153 08       		.byte	0x8
+ 558 0154 75       		.byte	0x75
+ 559 0155 00       		.byte	0
+ 560 0156 09       		.uleb128 0x9
+ 561 0157 1C000000 		.4byte	.LVL3
+ 562 015b EB040000 		.4byte	0x4eb
+ 563 015f 75010000 		.4byte	0x175
+ 564 0163 0A       		.uleb128 0xa
+ 565 0164 01       		.uleb128 0x1
+ 566 0165 50       		.byte	0x50
+ 567 0166 02       		.uleb128 0x2
+ 568 0167 08       		.byte	0x8
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cchnwacN.s 			page 15
+
+
+ 569 0168 68       		.byte	0x68
+ 570 0169 0A       		.uleb128 0xa
+ 571 016a 01       		.uleb128 0x1
+ 572 016b 51       		.byte	0x51
+ 573 016c 02       		.uleb128 0x2
+ 574 016d 08       		.byte	0x8
+ 575 016e 6B       		.byte	0x6b
+ 576 016f 0A       		.uleb128 0xa
+ 577 0170 01       		.uleb128 0x1
+ 578 0171 52       		.byte	0x52
+ 579 0172 01       		.uleb128 0x1
+ 580 0173 31       		.byte	0x31
+ 581 0174 00       		.byte	0
+ 582 0175 09       		.uleb128 0x9
+ 583 0176 26000000 		.4byte	.LVL4
+ 584 017a EB040000 		.4byte	0x4eb
+ 585 017e 93010000 		.4byte	0x193
+ 586 0182 0A       		.uleb128 0xa
+ 587 0183 01       		.uleb128 0x1
+ 588 0184 50       		.byte	0x50
+ 589 0185 02       		.uleb128 0x2
+ 590 0186 08       		.byte	0x8
+ 591 0187 68       		.byte	0x68
+ 592 0188 0A       		.uleb128 0xa
+ 593 0189 01       		.uleb128 0x1
+ 594 018a 51       		.byte	0x51
+ 595 018b 01       		.uleb128 0x1
+ 596 018c 4A       		.byte	0x4a
+ 597 018d 0A       		.uleb128 0xa
+ 598 018e 01       		.uleb128 0x1
+ 599 018f 52       		.byte	0x52
+ 600 0190 01       		.uleb128 0x1
+ 601 0191 33       		.byte	0x33
+ 602 0192 00       		.byte	0
+ 603 0193 09       		.uleb128 0x9
+ 604 0194 30000000 		.4byte	.LVL5
+ 605 0198 EB040000 		.4byte	0x4eb
+ 606 019c B1010000 		.4byte	0x1b1
+ 607 01a0 0A       		.uleb128 0xa
+ 608 01a1 01       		.uleb128 0x1
+ 609 01a2 50       		.byte	0x50
+ 610 01a3 02       		.uleb128 0x2
+ 611 01a4 08       		.byte	0x8
+ 612 01a5 68       		.byte	0x68
+ 613 01a6 0A       		.uleb128 0xa
+ 614 01a7 01       		.uleb128 0x1
+ 615 01a8 51       		.byte	0x51
+ 616 01a9 01       		.uleb128 0x1
+ 617 01aa 4B       		.byte	0x4b
+ 618 01ab 0A       		.uleb128 0xa
+ 619 01ac 01       		.uleb128 0x1
+ 620 01ad 52       		.byte	0x52
+ 621 01ae 01       		.uleb128 0x1
+ 622 01af 30       		.byte	0x30
+ 623 01b0 00       		.byte	0
+ 624 01b1 09       		.uleb128 0x9
+ 625 01b2 3A000000 		.4byte	.LVL6
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cchnwacN.s 			page 16
+
+
+ 626 01b6 EB040000 		.4byte	0x4eb
+ 627 01ba CF010000 		.4byte	0x1cf
+ 628 01be 0A       		.uleb128 0xa
+ 629 01bf 01       		.uleb128 0x1
+ 630 01c0 50       		.byte	0x50
+ 631 01c1 02       		.uleb128 0x2
+ 632 01c2 08       		.byte	0x8
+ 633 01c3 68       		.byte	0x68
+ 634 01c4 0A       		.uleb128 0xa
+ 635 01c5 01       		.uleb128 0x1
+ 636 01c6 51       		.byte	0x51
+ 637 01c7 01       		.uleb128 0x1
+ 638 01c8 49       		.byte	0x49
+ 639 01c9 0A       		.uleb128 0xa
+ 640 01ca 01       		.uleb128 0x1
+ 641 01cb 52       		.byte	0x52
+ 642 01cc 01       		.uleb128 0x1
+ 643 01cd 35       		.byte	0x35
+ 644 01ce 00       		.byte	0
+ 645 01cf 09       		.uleb128 0x9
+ 646 01d0 44000000 		.4byte	.LVL7
+ 647 01d4 EB040000 		.4byte	0x4eb
+ 648 01d8 ED010000 		.4byte	0x1ed
+ 649 01dc 0A       		.uleb128 0xa
+ 650 01dd 01       		.uleb128 0x1
+ 651 01de 50       		.byte	0x50
+ 652 01df 02       		.uleb128 0x2
+ 653 01e0 08       		.byte	0x8
+ 654 01e1 68       		.byte	0x68
+ 655 01e2 0A       		.uleb128 0xa
+ 656 01e3 01       		.uleb128 0x1
+ 657 01e4 51       		.byte	0x51
+ 658 01e5 01       		.uleb128 0x1
+ 659 01e6 4D       		.byte	0x4d
+ 660 01e7 0A       		.uleb128 0xa
+ 661 01e8 01       		.uleb128 0x1
+ 662 01e9 52       		.byte	0x52
+ 663 01ea 01       		.uleb128 0x1
+ 664 01eb 39       		.byte	0x39
+ 665 01ec 00       		.byte	0
+ 666 01ed 09       		.uleb128 0x9
+ 667 01ee 4E000000 		.4byte	.LVL8
+ 668 01f2 EB040000 		.4byte	0x4eb
+ 669 01f6 0B020000 		.4byte	0x20b
+ 670 01fa 0A       		.uleb128 0xa
+ 671 01fb 01       		.uleb128 0x1
+ 672 01fc 50       		.byte	0x50
+ 673 01fd 02       		.uleb128 0x2
+ 674 01fe 08       		.byte	0x8
+ 675 01ff 68       		.byte	0x68
+ 676 0200 0A       		.uleb128 0xa
+ 677 0201 01       		.uleb128 0x1
+ 678 0202 51       		.byte	0x51
+ 679 0203 01       		.uleb128 0x1
+ 680 0204 4C       		.byte	0x4c
+ 681 0205 0A       		.uleb128 0xa
+ 682 0206 01       		.uleb128 0x1
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cchnwacN.s 			page 17
+
+
+ 683 0207 52       		.byte	0x52
+ 684 0208 01       		.uleb128 0x1
+ 685 0209 30       		.byte	0x30
+ 686 020a 00       		.byte	0
+ 687 020b 09       		.uleb128 0x9
+ 688 020c 58000000 		.4byte	.LVL9
+ 689 0210 EB040000 		.4byte	0x4eb
+ 690 0214 2B020000 		.4byte	0x22b
+ 691 0218 0A       		.uleb128 0xa
+ 692 0219 01       		.uleb128 0x1
+ 693 021a 50       		.byte	0x50
+ 694 021b 02       		.uleb128 0x2
+ 695 021c 08       		.byte	0x8
+ 696 021d 68       		.byte	0x68
+ 697 021e 0A       		.uleb128 0xa
+ 698 021f 01       		.uleb128 0x1
+ 699 0220 51       		.byte	0x51
+ 700 0221 02       		.uleb128 0x2
+ 701 0222 08       		.byte	0x8
+ 702 0223 37       		.byte	0x37
+ 703 0224 0A       		.uleb128 0xa
+ 704 0225 01       		.uleb128 0x1
+ 705 0226 52       		.byte	0x52
+ 706 0227 02       		.uleb128 0x2
+ 707 0228 08       		.byte	0x8
+ 708 0229 22       		.byte	0x22
+ 709 022a 00       		.byte	0
+ 710 022b 09       		.uleb128 0x9
+ 711 022c 60000000 		.4byte	.LVL10
+ 712 0230 E0040000 		.4byte	0x4e0
+ 713 0234 43020000 		.4byte	0x243
+ 714 0238 0A       		.uleb128 0xa
+ 715 0239 01       		.uleb128 0x1
+ 716 023a 50       		.byte	0x50
+ 717 023b 01       		.uleb128 0x1
+ 718 023c 3C       		.byte	0x3c
+ 719 023d 0A       		.uleb128 0xa
+ 720 023e 01       		.uleb128 0x1
+ 721 023f 51       		.byte	0x51
+ 722 0240 01       		.uleb128 0x1
+ 723 0241 30       		.byte	0x30
+ 724 0242 00       		.byte	0
+ 725 0243 0B       		.uleb128 0xb
+ 726 0244 6E000000 		.4byte	.LVL12
+ 727 0248 EB040000 		.4byte	0x4eb
+ 728 024c 0A       		.uleb128 0xa
+ 729 024d 01       		.uleb128 0x1
+ 730 024e 50       		.byte	0x50
+ 731 024f 01       		.uleb128 0x1
+ 732 0250 3C       		.byte	0x3c
+ 733 0251 0A       		.uleb128 0xa
+ 734 0252 01       		.uleb128 0x1
+ 735 0253 51       		.byte	0x51
+ 736 0254 01       		.uleb128 0x1
+ 737 0255 3A       		.byte	0x3a
+ 738 0256 0A       		.uleb128 0xa
+ 739 0257 01       		.uleb128 0x1
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cchnwacN.s 			page 18
+
+
+ 740 0258 52       		.byte	0x52
+ 741 0259 01       		.uleb128 0x1
+ 742 025a 46       		.byte	0x46
+ 743 025b 00       		.byte	0
+ 744 025c 00       		.byte	0
+ 745 025d 04       		.uleb128 0x4
+ 746 025e 01       		.byte	0x1
+ 747 025f 08       		.byte	0x8
+ 748 0260 EF010000 		.4byte	.LASF32
+ 749 0264 04       		.uleb128 0x4
+ 750 0265 04       		.byte	0x4
+ 751 0266 07       		.byte	0x7
+ 752 0267 D8010000 		.4byte	.LASF33
+ 753 026b 05       		.uleb128 0x5
+ 754 026c D3020000 		.4byte	.LASF35
+ 755 0270 01       		.byte	0x1
+ 756 0271 8C       		.byte	0x8c
+ 757 0272 A0020000 		.4byte	0x2a0
+ 758 0276 00000000 		.4byte	.LFB1
+ 759 027a 0E000000 		.4byte	.LFE1-.LFB1
+ 760 027e 01       		.uleb128 0x1
+ 761 027f 9C       		.byte	0x9c
+ 762 0280 A0020000 		.4byte	0x2a0
+ 763 0284 0B       		.uleb128 0xb
+ 764 0285 0C000000 		.4byte	.LVL17
+ 765 0289 F6040000 		.4byte	0x4f6
+ 766 028d 0A       		.uleb128 0xa
+ 767 028e 01       		.uleb128 0x1
+ 768 028f 50       		.byte	0x50
+ 769 0290 02       		.uleb128 0x2
+ 770 0291 08       		.byte	0x8
+ 771 0292 68       		.byte	0x68
+ 772 0293 0A       		.uleb128 0xa
+ 773 0294 01       		.uleb128 0x1
+ 774 0295 51       		.byte	0x51
+ 775 0296 02       		.uleb128 0x2
+ 776 0297 08       		.byte	0x8
+ 777 0298 3B       		.byte	0x3b
+ 778 0299 0A       		.uleb128 0xa
+ 779 029a 01       		.uleb128 0x1
+ 780 029b 52       		.byte	0x52
+ 781 029c 01       		.uleb128 0x1
+ 782 029d 31       		.byte	0x31
+ 783 029e 00       		.byte	0
+ 784 029f 00       		.byte	0
+ 785 02a0 0C       		.uleb128 0xc
+ 786 02a1 04       		.byte	0x4
+ 787 02a2 05       		.byte	0x5
+ 788 02a3 696E7400 		.ascii	"int\000"
+ 789 02a7 05       		.uleb128 0x5
+ 790 02a8 E6020000 		.4byte	.LASF36
+ 791 02ac 01       		.byte	0x1
+ 792 02ad 96       		.byte	0x96
+ 793 02ae A0020000 		.4byte	0x2a0
+ 794 02b2 00000000 		.4byte	.LFB2
+ 795 02b6 0E000000 		.4byte	.LFE2-.LFB2
+ 796 02ba 01       		.uleb128 0x1
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cchnwacN.s 			page 19
+
+
+ 797 02bb 9C       		.byte	0x9c
+ 798 02bc DC020000 		.4byte	0x2dc
+ 799 02c0 0B       		.uleb128 0xb
+ 800 02c1 0C000000 		.4byte	.LVL18
+ 801 02c5 F6040000 		.4byte	0x4f6
+ 802 02c9 0A       		.uleb128 0xa
+ 803 02ca 01       		.uleb128 0x1
+ 804 02cb 50       		.byte	0x50
+ 805 02cc 02       		.uleb128 0x2
+ 806 02cd 08       		.byte	0x8
+ 807 02ce 68       		.byte	0x68
+ 808 02cf 0A       		.uleb128 0xa
+ 809 02d0 01       		.uleb128 0x1
+ 810 02d1 51       		.byte	0x51
+ 811 02d2 02       		.uleb128 0x2
+ 812 02d3 08       		.byte	0x8
+ 813 02d4 3D       		.byte	0x3d
+ 814 02d5 0A       		.uleb128 0xa
+ 815 02d6 01       		.uleb128 0x1
+ 816 02d7 52       		.byte	0x52
+ 817 02d8 01       		.uleb128 0x1
+ 818 02d9 31       		.byte	0x31
+ 819 02da 00       		.byte	0
+ 820 02db 00       		.byte	0
+ 821 02dc 05       		.uleb128 0x5
+ 822 02dd F9020000 		.4byte	.LASF37
+ 823 02e1 01       		.byte	0x1
+ 824 02e2 A0       		.byte	0xa0
+ 825 02e3 A0020000 		.4byte	0x2a0
+ 826 02e7 00000000 		.4byte	.LFB3
+ 827 02eb 0E000000 		.4byte	.LFE3-.LFB3
+ 828 02ef 01       		.uleb128 0x1
+ 829 02f0 9C       		.byte	0x9c
+ 830 02f1 11030000 		.4byte	0x311
+ 831 02f5 0B       		.uleb128 0xb
+ 832 02f6 0C000000 		.4byte	.LVL19
+ 833 02fa F6040000 		.4byte	0x4f6
+ 834 02fe 0A       		.uleb128 0xa
+ 835 02ff 01       		.uleb128 0x1
+ 836 0300 50       		.byte	0x50
+ 837 0301 02       		.uleb128 0x2
+ 838 0302 08       		.byte	0x8
+ 839 0303 68       		.byte	0x68
+ 840 0304 0A       		.uleb128 0xa
+ 841 0305 01       		.uleb128 0x1
+ 842 0306 51       		.byte	0x51
+ 843 0307 02       		.uleb128 0x2
+ 844 0308 08       		.byte	0x8
+ 845 0309 3F       		.byte	0x3f
+ 846 030a 0A       		.uleb128 0xa
+ 847 030b 01       		.uleb128 0x1
+ 848 030c 52       		.byte	0x52
+ 849 030d 01       		.uleb128 0x1
+ 850 030e 31       		.byte	0x31
+ 851 030f 00       		.byte	0
+ 852 0310 00       		.byte	0
+ 853 0311 05       		.uleb128 0x5
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cchnwacN.s 			page 20
+
+
+ 854 0312 83020000 		.4byte	.LASF38
+ 855 0316 01       		.byte	0x1
+ 856 0317 AA       		.byte	0xaa
+ 857 0318 A0020000 		.4byte	0x2a0
+ 858 031c 00000000 		.4byte	.LFB4
+ 859 0320 0E000000 		.4byte	.LFE4-.LFB4
+ 860 0324 01       		.uleb128 0x1
+ 861 0325 9C       		.byte	0x9c
+ 862 0326 46030000 		.4byte	0x346
+ 863 032a 0B       		.uleb128 0xb
+ 864 032b 0C000000 		.4byte	.LVL20
+ 865 032f F6040000 		.4byte	0x4f6
+ 866 0333 0A       		.uleb128 0xa
+ 867 0334 01       		.uleb128 0x1
+ 868 0335 50       		.byte	0x50
+ 869 0336 02       		.uleb128 0x2
+ 870 0337 08       		.byte	0x8
+ 871 0338 68       		.byte	0x68
+ 872 0339 0A       		.uleb128 0xa
+ 873 033a 01       		.uleb128 0x1
+ 874 033b 51       		.byte	0x51
+ 875 033c 02       		.uleb128 0x2
+ 876 033d 08       		.byte	0x8
+ 877 033e 43       		.byte	0x43
+ 878 033f 0A       		.uleb128 0xa
+ 879 0340 01       		.uleb128 0x1
+ 880 0341 52       		.byte	0x52
+ 881 0342 01       		.uleb128 0x1
+ 882 0343 31       		.byte	0x31
+ 883 0344 00       		.byte	0
+ 884 0345 00       		.byte	0
+ 885 0346 05       		.uleb128 0x5
+ 886 0347 95020000 		.4byte	.LASF39
+ 887 034b 01       		.byte	0x1
+ 888 034c B4       		.byte	0xb4
+ 889 034d A0020000 		.4byte	0x2a0
+ 890 0351 00000000 		.4byte	.LFB5
+ 891 0355 0E000000 		.4byte	.LFE5-.LFB5
+ 892 0359 01       		.uleb128 0x1
+ 893 035a 9C       		.byte	0x9c
+ 894 035b 7B030000 		.4byte	0x37b
+ 895 035f 0B       		.uleb128 0xb
+ 896 0360 0C000000 		.4byte	.LVL21
+ 897 0364 F6040000 		.4byte	0x4f6
+ 898 0368 0A       		.uleb128 0xa
+ 899 0369 01       		.uleb128 0x1
+ 900 036a 50       		.byte	0x50
+ 901 036b 02       		.uleb128 0x2
+ 902 036c 08       		.byte	0x8
+ 903 036d 68       		.byte	0x68
+ 904 036e 0A       		.uleb128 0xa
+ 905 036f 01       		.uleb128 0x1
+ 906 0370 51       		.byte	0x51
+ 907 0371 02       		.uleb128 0x2
+ 908 0372 08       		.byte	0x8
+ 909 0373 45       		.byte	0x45
+ 910 0374 0A       		.uleb128 0xa
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cchnwacN.s 			page 21
+
+
+ 911 0375 01       		.uleb128 0x1
+ 912 0376 52       		.byte	0x52
+ 913 0377 01       		.uleb128 0x1
+ 914 0378 31       		.byte	0x31
+ 915 0379 00       		.byte	0
+ 916 037a 00       		.byte	0
+ 917 037b 05       		.uleb128 0x5
+ 918 037c A7020000 		.4byte	.LASF40
+ 919 0380 01       		.byte	0x1
+ 920 0381 BE       		.byte	0xbe
+ 921 0382 A0020000 		.4byte	0x2a0
+ 922 0386 00000000 		.4byte	.LFB6
+ 923 038a 0E000000 		.4byte	.LFE6-.LFB6
+ 924 038e 01       		.uleb128 0x1
+ 925 038f 9C       		.byte	0x9c
+ 926 0390 B0030000 		.4byte	0x3b0
+ 927 0394 0B       		.uleb128 0xb
+ 928 0395 0C000000 		.4byte	.LVL22
+ 929 0399 F6040000 		.4byte	0x4f6
+ 930 039d 0A       		.uleb128 0xa
+ 931 039e 01       		.uleb128 0x1
+ 932 039f 50       		.byte	0x50
+ 933 03a0 02       		.uleb128 0x2
+ 934 03a1 08       		.byte	0x8
+ 935 03a2 68       		.byte	0x68
+ 936 03a3 0A       		.uleb128 0xa
+ 937 03a4 01       		.uleb128 0x1
+ 938 03a5 51       		.byte	0x51
+ 939 03a6 02       		.uleb128 0x2
+ 940 03a7 08       		.byte	0x8
+ 941 03a8 47       		.byte	0x47
+ 942 03a9 0A       		.uleb128 0xa
+ 943 03aa 01       		.uleb128 0x1
+ 944 03ab 52       		.byte	0x52
+ 945 03ac 01       		.uleb128 0x1
+ 946 03ad 31       		.byte	0x31
+ 947 03ae 00       		.byte	0
+ 948 03af 00       		.byte	0
+ 949 03b0 05       		.uleb128 0x5
+ 950 03b1 68030000 		.4byte	.LASF41
+ 951 03b5 01       		.byte	0x1
+ 952 03b6 C8       		.byte	0xc8
+ 953 03b7 A0020000 		.4byte	0x2a0
+ 954 03bb 00000000 		.4byte	.LFB7
+ 955 03bf 1A000000 		.4byte	.LFE7-.LFB7
+ 956 03c3 01       		.uleb128 0x1
+ 957 03c4 9C       		.byte	0x9c
+ 958 03c5 08040000 		.4byte	0x408
+ 959 03c9 0D       		.uleb128 0xd
+ 960 03ca BB010000 		.4byte	.LASF43
+ 961 03ce 01       		.byte	0x1
+ 962 03cf C9       		.byte	0xc9
+ 963 03d0 08040000 		.4byte	0x408
+ 964 03d4 01       		.uleb128 0x1
+ 965 03d5 54       		.byte	0x54
+ 966 03d6 09       		.uleb128 0x9
+ 967 03d7 0C000000 		.4byte	.LVL23
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cchnwacN.s 			page 22
+
+
+ 968 03db F6040000 		.4byte	0x4f6
+ 969 03df F3030000 		.4byte	0x3f3
+ 970 03e3 0A       		.uleb128 0xa
+ 971 03e4 01       		.uleb128 0x1
+ 972 03e5 50       		.byte	0x50
+ 973 03e6 01       		.uleb128 0x1
+ 974 03e7 3C       		.byte	0x3c
+ 975 03e8 0A       		.uleb128 0xa
+ 976 03e9 01       		.uleb128 0x1
+ 977 03ea 51       		.byte	0x51
+ 978 03eb 01       		.uleb128 0x1
+ 979 03ec 33       		.byte	0x33
+ 980 03ed 0A       		.uleb128 0xa
+ 981 03ee 01       		.uleb128 0x1
+ 982 03ef 52       		.byte	0x52
+ 983 03f0 01       		.uleb128 0x1
+ 984 03f1 30       		.byte	0x30
+ 985 03f2 00       		.byte	0
+ 986 03f3 0B       		.uleb128 0xb
+ 987 03f4 16000000 		.4byte	.LVL25
+ 988 03f8 E0040000 		.4byte	0x4e0
+ 989 03fc 0A       		.uleb128 0xa
+ 990 03fd 01       		.uleb128 0x1
+ 991 03fe 50       		.byte	0x50
+ 992 03ff 01       		.uleb128 0x1
+ 993 0400 3C       		.byte	0x3c
+ 994 0401 0A       		.uleb128 0xa
+ 995 0402 01       		.uleb128 0x1
+ 996 0403 51       		.byte	0x51
+ 997 0404 01       		.uleb128 0x1
+ 998 0405 39       		.byte	0x39
+ 999 0406 00       		.byte	0
+ 1000 0407 00       		.byte	0
+ 1001 0408 04       		.uleb128 0x4
+ 1002 0409 02       		.byte	0x2
+ 1003 040a 05       		.byte	0x5
+ 1004 040b 28030000 		.4byte	.LASF44
+ 1005 040f 05       		.uleb128 0x5
+ 1006 0410 5C000000 		.4byte	.LASF45
+ 1007 0414 01       		.byte	0x1
+ 1008 0415 D4       		.byte	0xd4
+ 1009 0416 A0020000 		.4byte	0x2a0
+ 1010 041a 00000000 		.4byte	.LFB8
+ 1011 041e 1A000000 		.4byte	.LFE8-.LFB8
+ 1012 0422 01       		.uleb128 0x1
+ 1013 0423 9C       		.byte	0x9c
+ 1014 0424 67040000 		.4byte	0x467
+ 1015 0428 0D       		.uleb128 0xd
+ 1016 0429 BB010000 		.4byte	.LASF43
+ 1017 042d 01       		.byte	0x1
+ 1018 042e D5       		.byte	0xd5
+ 1019 042f 08040000 		.4byte	0x408
+ 1020 0433 01       		.uleb128 0x1
+ 1021 0434 54       		.byte	0x54
+ 1022 0435 09       		.uleb128 0x9
+ 1023 0436 0C000000 		.4byte	.LVL26
+ 1024 043a F6040000 		.4byte	0x4f6
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cchnwacN.s 			page 23
+
+
+ 1025 043e 52040000 		.4byte	0x452
+ 1026 0442 0A       		.uleb128 0xa
+ 1027 0443 01       		.uleb128 0x1
+ 1028 0444 50       		.byte	0x50
+ 1029 0445 01       		.uleb128 0x1
+ 1030 0446 3C       		.byte	0x3c
+ 1031 0447 0A       		.uleb128 0xa
+ 1032 0448 01       		.uleb128 0x1
+ 1033 0449 51       		.byte	0x51
+ 1034 044a 01       		.uleb128 0x1
+ 1035 044b 35       		.byte	0x35
+ 1036 044c 0A       		.uleb128 0xa
+ 1037 044d 01       		.uleb128 0x1
+ 1038 044e 52       		.byte	0x52
+ 1039 044f 01       		.uleb128 0x1
+ 1040 0450 30       		.byte	0x30
+ 1041 0451 00       		.byte	0
+ 1042 0452 0B       		.uleb128 0xb
+ 1043 0453 16000000 		.4byte	.LVL28
+ 1044 0457 E0040000 		.4byte	0x4e0
+ 1045 045b 0A       		.uleb128 0xa
+ 1046 045c 01       		.uleb128 0x1
+ 1047 045d 50       		.byte	0x50
+ 1048 045e 01       		.uleb128 0x1
+ 1049 045f 3C       		.byte	0x3c
+ 1050 0460 0A       		.uleb128 0xa
+ 1051 0461 01       		.uleb128 0x1
+ 1052 0462 51       		.byte	0x51
+ 1053 0463 01       		.uleb128 0x1
+ 1054 0464 39       		.byte	0x39
+ 1055 0465 00       		.byte	0
+ 1056 0466 00       		.byte	0
+ 1057 0467 05       		.uleb128 0x5
+ 1058 0468 88030000 		.4byte	.LASF46
+ 1059 046c 01       		.byte	0x1
+ 1060 046d E0       		.byte	0xe0
+ 1061 046e A0020000 		.4byte	0x2a0
+ 1062 0472 00000000 		.4byte	.LFB9
+ 1063 0476 1A000000 		.4byte	.LFE9-.LFB9
+ 1064 047a 01       		.uleb128 0x1
+ 1065 047b 9C       		.byte	0x9c
+ 1066 047c BF040000 		.4byte	0x4bf
+ 1067 0480 0D       		.uleb128 0xd
+ 1068 0481 BB010000 		.4byte	.LASF43
+ 1069 0485 01       		.byte	0x1
+ 1070 0486 E1       		.byte	0xe1
+ 1071 0487 08040000 		.4byte	0x408
+ 1072 048b 01       		.uleb128 0x1
+ 1073 048c 54       		.byte	0x54
+ 1074 048d 09       		.uleb128 0x9
+ 1075 048e 0C000000 		.4byte	.LVL29
+ 1076 0492 F6040000 		.4byte	0x4f6
+ 1077 0496 AA040000 		.4byte	0x4aa
+ 1078 049a 0A       		.uleb128 0xa
+ 1079 049b 01       		.uleb128 0x1
+ 1080 049c 50       		.byte	0x50
+ 1081 049d 01       		.uleb128 0x1
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cchnwacN.s 			page 24
+
+
+ 1082 049e 3C       		.byte	0x3c
+ 1083 049f 0A       		.uleb128 0xa
+ 1084 04a0 01       		.uleb128 0x1
+ 1085 04a1 51       		.byte	0x51
+ 1086 04a2 01       		.uleb128 0x1
+ 1087 04a3 37       		.byte	0x37
+ 1088 04a4 0A       		.uleb128 0xa
+ 1089 04a5 01       		.uleb128 0x1
+ 1090 04a6 52       		.byte	0x52
+ 1091 04a7 01       		.uleb128 0x1
+ 1092 04a8 30       		.byte	0x30
+ 1093 04a9 00       		.byte	0
+ 1094 04aa 0B       		.uleb128 0xb
+ 1095 04ab 16000000 		.4byte	.LVL31
+ 1096 04af E0040000 		.4byte	0x4e0
+ 1097 04b3 0A       		.uleb128 0xa
+ 1098 04b4 01       		.uleb128 0x1
+ 1099 04b5 50       		.byte	0x50
+ 1100 04b6 01       		.uleb128 0x1
+ 1101 04b7 3C       		.byte	0x3c
+ 1102 04b8 0A       		.uleb128 0xa
+ 1103 04b9 01       		.uleb128 0x1
+ 1104 04ba 51       		.byte	0x51
+ 1105 04bb 01       		.uleb128 0x1
+ 1106 04bc 39       		.byte	0x39
+ 1107 04bd 00       		.byte	0
+ 1108 04be 00       		.byte	0
+ 1109 04bf 06       		.uleb128 0x6
+ 1110 04c0 C7010000 		.4byte	.LASF48
+ 1111 04c4 01       		.byte	0x1
+ 1112 04c5 2C       		.byte	0x2c
+ 1113 04c6 25000000 		.4byte	0x25
+ 1114 04ca 06       		.uleb128 0x6
+ 1115 04cb 34000000 		.4byte	.LASF49
+ 1116 04cf 01       		.byte	0x1
+ 1117 04d0 44       		.byte	0x44
+ 1118 04d1 75000000 		.4byte	0x75
+ 1119 04d5 0E       		.uleb128 0xe
+ 1120 04d6 A5030000 		.4byte	.LASF50
+ 1121 04da A5030000 		.4byte	.LASF50
+ 1122 04de 02       		.byte	0x2
+ 1123 04df 11       		.byte	0x11
+ 1124 04e0 0E       		.uleb128 0xe
+ 1125 04e1 47010000 		.4byte	.LASF51
+ 1126 04e5 47010000 		.4byte	.LASF51
+ 1127 04e9 02       		.byte	0x2
+ 1128 04ea 1A       		.byte	0x1a
+ 1129 04eb 0E       		.uleb128 0xe
+ 1130 04ec 27020000 		.4byte	.LASF52
+ 1131 04f0 27020000 		.4byte	.LASF52
+ 1132 04f4 02       		.byte	0x2
+ 1133 04f5 24       		.byte	0x24
+ 1134 04f6 0E       		.uleb128 0xe
+ 1135 04f7 99030000 		.4byte	.LASF53
+ 1136 04fb 99030000 		.4byte	.LASF53
+ 1137 04ff 02       		.byte	0x2
+ 1138 0500 30       		.byte	0x30
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cchnwacN.s 			page 25
+
+
+ 1139 0501 00       		.byte	0
+ 1140              		.section	.debug_abbrev,"",%progbits
+ 1141              	.Ldebug_abbrev0:
+ 1142 0000 01       		.uleb128 0x1
+ 1143 0001 11       		.uleb128 0x11
+ 1144 0002 01       		.byte	0x1
+ 1145 0003 25       		.uleb128 0x25
+ 1146 0004 0E       		.uleb128 0xe
+ 1147 0005 13       		.uleb128 0x13
+ 1148 0006 0B       		.uleb128 0xb
+ 1149 0007 03       		.uleb128 0x3
+ 1150 0008 0E       		.uleb128 0xe
+ 1151 0009 1B       		.uleb128 0x1b
+ 1152 000a 0E       		.uleb128 0xe
+ 1153 000b 55       		.uleb128 0x55
+ 1154 000c 17       		.uleb128 0x17
+ 1155 000d 11       		.uleb128 0x11
+ 1156 000e 01       		.uleb128 0x1
+ 1157 000f 10       		.uleb128 0x10
+ 1158 0010 17       		.uleb128 0x17
+ 1159 0011 00       		.byte	0
+ 1160 0012 00       		.byte	0
+ 1161 0013 02       		.uleb128 0x2
+ 1162 0014 04       		.uleb128 0x4
+ 1163 0015 01       		.byte	0x1
+ 1164 0016 0B       		.uleb128 0xb
+ 1165 0017 0B       		.uleb128 0xb
+ 1166 0018 49       		.uleb128 0x49
+ 1167 0019 13       		.uleb128 0x13
+ 1168 001a 3A       		.uleb128 0x3a
+ 1169 001b 0B       		.uleb128 0xb
+ 1170 001c 3B       		.uleb128 0x3b
+ 1171 001d 0B       		.uleb128 0xb
+ 1172 001e 01       		.uleb128 0x1
+ 1173 001f 13       		.uleb128 0x13
+ 1174 0020 00       		.byte	0
+ 1175 0021 00       		.byte	0
+ 1176 0022 03       		.uleb128 0x3
+ 1177 0023 28       		.uleb128 0x28
+ 1178 0024 00       		.byte	0
+ 1179 0025 03       		.uleb128 0x3
+ 1180 0026 0E       		.uleb128 0xe
+ 1181 0027 1C       		.uleb128 0x1c
+ 1182 0028 0B       		.uleb128 0xb
+ 1183 0029 00       		.byte	0
+ 1184 002a 00       		.byte	0
+ 1185 002b 04       		.uleb128 0x4
+ 1186 002c 24       		.uleb128 0x24
+ 1187 002d 00       		.byte	0
+ 1188 002e 0B       		.uleb128 0xb
+ 1189 002f 0B       		.uleb128 0xb
+ 1190 0030 3E       		.uleb128 0x3e
+ 1191 0031 0B       		.uleb128 0xb
+ 1192 0032 03       		.uleb128 0x3
+ 1193 0033 0E       		.uleb128 0xe
+ 1194 0034 00       		.byte	0
+ 1195 0035 00       		.byte	0
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cchnwacN.s 			page 26
+
+
+ 1196 0036 05       		.uleb128 0x5
+ 1197 0037 2E       		.uleb128 0x2e
+ 1198 0038 01       		.byte	0x1
+ 1199 0039 3F       		.uleb128 0x3f
+ 1200 003a 19       		.uleb128 0x19
+ 1201 003b 03       		.uleb128 0x3
+ 1202 003c 0E       		.uleb128 0xe
+ 1203 003d 3A       		.uleb128 0x3a
+ 1204 003e 0B       		.uleb128 0xb
+ 1205 003f 3B       		.uleb128 0x3b
+ 1206 0040 0B       		.uleb128 0xb
+ 1207 0041 27       		.uleb128 0x27
+ 1208 0042 19       		.uleb128 0x19
+ 1209 0043 49       		.uleb128 0x49
+ 1210 0044 13       		.uleb128 0x13
+ 1211 0045 11       		.uleb128 0x11
+ 1212 0046 01       		.uleb128 0x1
+ 1213 0047 12       		.uleb128 0x12
+ 1214 0048 06       		.uleb128 0x6
+ 1215 0049 40       		.uleb128 0x40
+ 1216 004a 18       		.uleb128 0x18
+ 1217 004b 9742     		.uleb128 0x2117
+ 1218 004d 19       		.uleb128 0x19
+ 1219 004e 01       		.uleb128 0x1
+ 1220 004f 13       		.uleb128 0x13
+ 1221 0050 00       		.byte	0
+ 1222 0051 00       		.byte	0
+ 1223 0052 06       		.uleb128 0x6
+ 1224 0053 34       		.uleb128 0x34
+ 1225 0054 00       		.byte	0
+ 1226 0055 03       		.uleb128 0x3
+ 1227 0056 0E       		.uleb128 0xe
+ 1228 0057 3A       		.uleb128 0x3a
+ 1229 0058 0B       		.uleb128 0xb
+ 1230 0059 3B       		.uleb128 0x3b
+ 1231 005a 0B       		.uleb128 0xb
+ 1232 005b 49       		.uleb128 0x49
+ 1233 005c 13       		.uleb128 0x13
+ 1234 005d 00       		.byte	0
+ 1235 005e 00       		.byte	0
+ 1236 005f 07       		.uleb128 0x7
+ 1237 0060 34       		.uleb128 0x34
+ 1238 0061 00       		.byte	0
+ 1239 0062 03       		.uleb128 0x3
+ 1240 0063 0E       		.uleb128 0xe
+ 1241 0064 3A       		.uleb128 0x3a
+ 1242 0065 0B       		.uleb128 0xb
+ 1243 0066 3B       		.uleb128 0x3b
+ 1244 0067 0B       		.uleb128 0xb
+ 1245 0068 49       		.uleb128 0x49
+ 1246 0069 13       		.uleb128 0x13
+ 1247 006a 02       		.uleb128 0x2
+ 1248 006b 17       		.uleb128 0x17
+ 1249 006c 00       		.byte	0
+ 1250 006d 00       		.byte	0
+ 1251 006e 08       		.uleb128 0x8
+ 1252 006f 898201   		.uleb128 0x4109
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cchnwacN.s 			page 27
+
+
+ 1253 0072 00       		.byte	0
+ 1254 0073 11       		.uleb128 0x11
+ 1255 0074 01       		.uleb128 0x1
+ 1256 0075 31       		.uleb128 0x31
+ 1257 0076 13       		.uleb128 0x13
+ 1258 0077 00       		.byte	0
+ 1259 0078 00       		.byte	0
+ 1260 0079 09       		.uleb128 0x9
+ 1261 007a 898201   		.uleb128 0x4109
+ 1262 007d 01       		.byte	0x1
+ 1263 007e 11       		.uleb128 0x11
+ 1264 007f 01       		.uleb128 0x1
+ 1265 0080 31       		.uleb128 0x31
+ 1266 0081 13       		.uleb128 0x13
+ 1267 0082 01       		.uleb128 0x1
+ 1268 0083 13       		.uleb128 0x13
+ 1269 0084 00       		.byte	0
+ 1270 0085 00       		.byte	0
+ 1271 0086 0A       		.uleb128 0xa
+ 1272 0087 8A8201   		.uleb128 0x410a
+ 1273 008a 00       		.byte	0
+ 1274 008b 02       		.uleb128 0x2
+ 1275 008c 18       		.uleb128 0x18
+ 1276 008d 9142     		.uleb128 0x2111
+ 1277 008f 18       		.uleb128 0x18
+ 1278 0090 00       		.byte	0
+ 1279 0091 00       		.byte	0
+ 1280 0092 0B       		.uleb128 0xb
+ 1281 0093 898201   		.uleb128 0x4109
+ 1282 0096 01       		.byte	0x1
+ 1283 0097 11       		.uleb128 0x11
+ 1284 0098 01       		.uleb128 0x1
+ 1285 0099 31       		.uleb128 0x31
+ 1286 009a 13       		.uleb128 0x13
+ 1287 009b 00       		.byte	0
+ 1288 009c 00       		.byte	0
+ 1289 009d 0C       		.uleb128 0xc
+ 1290 009e 24       		.uleb128 0x24
+ 1291 009f 00       		.byte	0
+ 1292 00a0 0B       		.uleb128 0xb
+ 1293 00a1 0B       		.uleb128 0xb
+ 1294 00a2 3E       		.uleb128 0x3e
+ 1295 00a3 0B       		.uleb128 0xb
+ 1296 00a4 03       		.uleb128 0x3
+ 1297 00a5 08       		.uleb128 0x8
+ 1298 00a6 00       		.byte	0
+ 1299 00a7 00       		.byte	0
+ 1300 00a8 0D       		.uleb128 0xd
+ 1301 00a9 34       		.uleb128 0x34
+ 1302 00aa 00       		.byte	0
+ 1303 00ab 03       		.uleb128 0x3
+ 1304 00ac 0E       		.uleb128 0xe
+ 1305 00ad 3A       		.uleb128 0x3a
+ 1306 00ae 0B       		.uleb128 0xb
+ 1307 00af 3B       		.uleb128 0x3b
+ 1308 00b0 0B       		.uleb128 0xb
+ 1309 00b1 49       		.uleb128 0x49
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cchnwacN.s 			page 28
+
+
+ 1310 00b2 13       		.uleb128 0x13
+ 1311 00b3 02       		.uleb128 0x2
+ 1312 00b4 18       		.uleb128 0x18
+ 1313 00b5 00       		.byte	0
+ 1314 00b6 00       		.byte	0
+ 1315 00b7 0E       		.uleb128 0xe
+ 1316 00b8 2E       		.uleb128 0x2e
+ 1317 00b9 00       		.byte	0
+ 1318 00ba 3F       		.uleb128 0x3f
+ 1319 00bb 19       		.uleb128 0x19
+ 1320 00bc 3C       		.uleb128 0x3c
+ 1321 00bd 19       		.uleb128 0x19
+ 1322 00be 6E       		.uleb128 0x6e
+ 1323 00bf 0E       		.uleb128 0xe
+ 1324 00c0 03       		.uleb128 0x3
+ 1325 00c1 0E       		.uleb128 0xe
+ 1326 00c2 3A       		.uleb128 0x3a
+ 1327 00c3 0B       		.uleb128 0xb
+ 1328 00c4 3B       		.uleb128 0x3b
+ 1329 00c5 0B       		.uleb128 0xb
+ 1330 00c6 00       		.byte	0
+ 1331 00c7 00       		.byte	0
+ 1332 00c8 00       		.byte	0
+ 1333              		.section	.debug_loc,"",%progbits
+ 1334              	.Ldebug_loc0:
+ 1335              	.LLST0:
+ 1336 0000 0E000000 		.4byte	.LVL1
+ 1337 0004 18000000 		.4byte	.LVL2
+ 1338 0008 0100     		.2byte	0x1
+ 1339 000a 50       		.byte	0x50
+ 1340 000b 60000000 		.4byte	.LVL10
+ 1341 000f 6A000000 		.4byte	.LVL11
+ 1342 0013 0100     		.2byte	0x1
+ 1343 0015 50       		.byte	0x50
+ 1344 0016 72000000 		.4byte	.LVL13
+ 1345 001a 74000000 		.4byte	.LVL14
+ 1346 001e 0100     		.2byte	0x1
+ 1347 0020 50       		.byte	0x50
+ 1348 0021 76000000 		.4byte	.LVL15
+ 1349 0025 78000000 		.4byte	.LVL16
+ 1350 0029 0100     		.2byte	0x1
+ 1351 002b 50       		.byte	0x50
+ 1352 002c 00000000 		.4byte	0
+ 1353 0030 00000000 		.4byte	0
+ 1354              		.section	.debug_aranges,"",%progbits
+ 1355 0000 64000000 		.4byte	0x64
+ 1356 0004 0200     		.2byte	0x2
+ 1357 0006 00000000 		.4byte	.Ldebug_info0
+ 1358 000a 04       		.byte	0x4
+ 1359 000b 00       		.byte	0
+ 1360 000c 0000     		.2byte	0
+ 1361 000e 0000     		.2byte	0
+ 1362 0010 00000000 		.4byte	.LFB0
+ 1363 0014 7A000000 		.4byte	.LFE0-.LFB0
+ 1364 0018 00000000 		.4byte	.LFB1
+ 1365 001c 0E000000 		.4byte	.LFE1-.LFB1
+ 1366 0020 00000000 		.4byte	.LFB2
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cchnwacN.s 			page 29
+
+
+ 1367 0024 0E000000 		.4byte	.LFE2-.LFB2
+ 1368 0028 00000000 		.4byte	.LFB3
+ 1369 002c 0E000000 		.4byte	.LFE3-.LFB3
+ 1370 0030 00000000 		.4byte	.LFB4
+ 1371 0034 0E000000 		.4byte	.LFE4-.LFB4
+ 1372 0038 00000000 		.4byte	.LFB5
+ 1373 003c 0E000000 		.4byte	.LFE5-.LFB5
+ 1374 0040 00000000 		.4byte	.LFB6
+ 1375 0044 0E000000 		.4byte	.LFE6-.LFB6
+ 1376 0048 00000000 		.4byte	.LFB7
+ 1377 004c 1A000000 		.4byte	.LFE7-.LFB7
+ 1378 0050 00000000 		.4byte	.LFB8
+ 1379 0054 1A000000 		.4byte	.LFE8-.LFB8
+ 1380 0058 00000000 		.4byte	.LFB9
+ 1381 005c 1A000000 		.4byte	.LFE9-.LFB9
+ 1382 0060 00000000 		.4byte	0
+ 1383 0064 00000000 		.4byte	0
+ 1384              		.section	.debug_ranges,"",%progbits
+ 1385              	.Ldebug_ranges0:
+ 1386 0000 00000000 		.4byte	.LFB0
+ 1387 0004 7A000000 		.4byte	.LFE0
+ 1388 0008 00000000 		.4byte	.LFB1
+ 1389 000c 0E000000 		.4byte	.LFE1
+ 1390 0010 00000000 		.4byte	.LFB2
+ 1391 0014 0E000000 		.4byte	.LFE2
+ 1392 0018 00000000 		.4byte	.LFB3
+ 1393 001c 0E000000 		.4byte	.LFE3
+ 1394 0020 00000000 		.4byte	.LFB4
+ 1395 0024 0E000000 		.4byte	.LFE4
+ 1396 0028 00000000 		.4byte	.LFB5
+ 1397 002c 0E000000 		.4byte	.LFE5
+ 1398 0030 00000000 		.4byte	.LFB6
+ 1399 0034 0E000000 		.4byte	.LFE6
+ 1400 0038 00000000 		.4byte	.LFB7
+ 1401 003c 1A000000 		.4byte	.LFE7
+ 1402 0040 00000000 		.4byte	.LFB8
+ 1403 0044 1A000000 		.4byte	.LFE8
+ 1404 0048 00000000 		.4byte	.LFB9
+ 1405 004c 1A000000 		.4byte	.LFE9
+ 1406 0050 00000000 		.4byte	0
+ 1407 0054 00000000 		.4byte	0
+ 1408              		.section	.debug_line,"",%progbits
+ 1409              	.Ldebug_line0:
+ 1410 0000 FB000000 		.section	.debug_str,"MS",%progbits,1
+ 1410      02002900 
+ 1410      00000201 
+ 1410      FB0E0D00 
+ 1410      01010101 
+ 1411              	.LASF11:
+ 1412 0000 4D50555F 		.ascii	"MPU_CONFIG\000"
+ 1412      434F4E46 
+ 1412      494700
+ 1413              	.LASF19:
+ 1414 000b 41434345 		.ascii	"ACCEL_YOUT_H\000"
+ 1414      4C5F594F 
+ 1414      55545F48 
+ 1414      00
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cchnwacN.s 			page 30
+
+
+ 1415              	.LASF20:
+ 1416 0018 41434345 		.ascii	"ACCEL_YOUT_L\000"
+ 1416      4C5F594F 
+ 1416      55545F4C 
+ 1416      00
+ 1417              	.LASF10:
+ 1418 0025 4D50555F 		.ascii	"MPU_SMPLRT_DIV\000"
+ 1418      534D504C 
+ 1418      52545F44 
+ 1418      495600
+ 1419              	.LASF49:
+ 1420 0034 4D505539 		.ascii	"MPU9250_REGISTERS\000"
+ 1420      3235305F 
+ 1420      52454749 
+ 1420      53544552 
+ 1420      5300
+ 1421              	.LASF15:
+ 1422 0046 4D50555F 		.ascii	"MPU_INT_BYPASS_CONFIG\000"
+ 1422      494E545F 
+ 1422      42595041 
+ 1422      53535F43 
+ 1422      4F4E4649 
+ 1423              	.LASF45:
+ 1424 005c 4D505539 		.ascii	"MPU9250_ReadMagY\000"
+ 1424      3235305F 
+ 1424      52656164 
+ 1424      4D616759 
+ 1424      00
+ 1425              	.LASF2:
+ 1426 006d 414B5F48 		.ascii	"AK_HXH\000"
+ 1426      584800
+ 1427              	.LASF1:
+ 1428 0074 414B5F48 		.ascii	"AK_HXL\000"
+ 1428      584C00
+ 1429              	.LASF23:
+ 1430 007b 4759524F 		.ascii	"GYRO_XOUT_H\000"
+ 1430      5F584F55 
+ 1430      545F4800 
+ 1431              	.LASF6:
+ 1432 0087 414B5F48 		.ascii	"AK_HZH\000"
+ 1432      5A4800
+ 1433              	.LASF55:
+ 1434 008e 4D505539 		.ascii	"MPU9250.c\000"
+ 1434      3235302E 
+ 1434      6300
+ 1435              	.LASF24:
+ 1436 0098 4759524F 		.ascii	"GYRO_XOUT_L\000"
+ 1436      5F584F55 
+ 1436      545F4C00 
+ 1437              	.LASF4:
+ 1438 00a4 414B5F48 		.ascii	"AK_HYH\000"
+ 1438      594800
+ 1439              	.LASF31:
+ 1440 00ab 756E7369 		.ascii	"unsigned char\000"
+ 1440      676E6564 
+ 1440      20636861 
+ 1440      7200
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cchnwacN.s 			page 31
+
+
+ 1441              	.LASF54:
+ 1442 00b9 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1442      43313120 
+ 1442      352E342E 
+ 1442      31203230 
+ 1442      31363036 
+ 1443 00ec 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 1443      20726576 
+ 1443      6973696F 
+ 1443      6E203233 
+ 1443      37373135 
+ 1444 011f 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1444      66756E63 
+ 1444      74696F6E 
+ 1444      2D736563 
+ 1444      74696F6E 
+ 1445              	.LASF51:
+ 1446 0147 4932435F 		.ascii	"I2C_ReadRegister\000"
+ 1446      52656164 
+ 1446      52656769 
+ 1446      73746572 
+ 1446      00
+ 1447              	.LASF8:
+ 1448 0158 414B5F43 		.ascii	"AK_CNTL1\000"
+ 1448      4E544C31 
+ 1448      00
+ 1449              	.LASF9:
+ 1450 0161 414B5F43 		.ascii	"AK_CNTL2\000"
+ 1450      4E544C32 
+ 1450      00
+ 1451              	.LASF21:
+ 1452 016a 41434345 		.ascii	"ACCEL_ZOUT_H\000"
+ 1452      4C5F5A4F 
+ 1452      55545F48 
+ 1452      00
+ 1453              	.LASF13:
+ 1454 0177 4D50555F 		.ascii	"MPU_ACCEL_CONFIG\000"
+ 1454      41434345 
+ 1454      4C5F434F 
+ 1454      4E464947 
+ 1454      00
+ 1455              	.LASF5:
+ 1456 0188 414B5F48 		.ascii	"AK_HZL\000"
+ 1456      5A4C00
+ 1457              	.LASF22:
+ 1458 018f 41434345 		.ascii	"ACCEL_ZOUT_L\000"
+ 1458      4C5F5A4F 
+ 1458      55545F4C 
+ 1458      00
+ 1459              	.LASF7:
+ 1460 019c 414B5F53 		.ascii	"AK_ST2\000"
+ 1460      543200
+ 1461              	.LASF25:
+ 1462 01a3 4759524F 		.ascii	"GYRO_YOUT_H\000"
+ 1462      5F594F55 
+ 1462      545F4800 
+ 1463              	.LASF26:
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cchnwacN.s 			page 32
+
+
+ 1464 01af 4759524F 		.ascii	"GYRO_YOUT_L\000"
+ 1464      5F594F55 
+ 1464      545F4C00 
+ 1465              	.LASF43:
+ 1466 01bb 53656E73 		.ascii	"SensorValue\000"
+ 1466      6F725661 
+ 1466      6C756500 
+ 1467              	.LASF48:
+ 1468 01c7 414B3839 		.ascii	"AK8963_REGISTERS\000"
+ 1468      36335F52 
+ 1468      45474953 
+ 1468      54455253 
+ 1468      00
+ 1469              	.LASF33:
+ 1470 01d8 756E7369 		.ascii	"unsigned int\000"
+ 1470      676E6564 
+ 1470      20696E74 
+ 1470      00
+ 1471              	.LASF47:
+ 1472 01e5 696E7452 		.ascii	"intReturn\000"
+ 1472      65747572 
+ 1472      6E00
+ 1473              	.LASF32:
+ 1474 01ef 63686172 		.ascii	"char\000"
+ 1474      00
+ 1475              	.LASF14:
+ 1476 01f4 4D50555F 		.ascii	"MPU_ACCEL_CONFIG2\000"
+ 1476      41434345 
+ 1476      4C5F434F 
+ 1476      4E464947 
+ 1476      3200
+ 1477              	.LASF34:
+ 1478 0206 4D505539 		.ascii	"MPU9250_Init\000"
+ 1478      3235305F 
+ 1478      496E6974 
+ 1478      00
+ 1479              	.LASF30:
+ 1480 0213 4D50555F 		.ascii	"MPU_WHOAMI_REGISTER\000"
+ 1480      57484F41 
+ 1480      4D495F52 
+ 1480      45474953 
+ 1480      54455200 
+ 1481              	.LASF52:
+ 1482 0227 4932435F 		.ascii	"I2C_WriteReg\000"
+ 1482      57726974 
+ 1482      65526567 
+ 1482      00
+ 1483              	.LASF56:
+ 1484 0234 433A5C55 		.ascii	"C:\\Users\\Caleb Cotter\\Documents\\GitHub\\3HC\\3H"
+ 1484      73657273 
+ 1484      5C43616C 
+ 1484      65622043 
+ 1484      6F747465 
+ 1485 0261 435F4669 		.ascii	"C_Firmware\\3HC_Firmware_0_1.cydsn\000"
+ 1485      726D7761 
+ 1485      72655C33 
+ 1485      48435F46 
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cchnwacN.s 			page 33
+
+
+ 1485      69726D77 
+ 1486              	.LASF38:
+ 1487 0283 4D505539 		.ascii	"MPU9250_ReadGyroX\000"
+ 1487      3235305F 
+ 1487      52656164 
+ 1487      4779726F 
+ 1487      5800
+ 1488              	.LASF39:
+ 1489 0295 4D505539 		.ascii	"MPU9250_ReadGyroY\000"
+ 1489      3235305F 
+ 1489      52656164 
+ 1489      4779726F 
+ 1489      5900
+ 1490              	.LASF40:
+ 1491 02a7 4D505539 		.ascii	"MPU9250_ReadGyroZ\000"
+ 1491      3235305F 
+ 1491      52656164 
+ 1491      4779726F 
+ 1491      5A00
+ 1492              	.LASF0:
+ 1493 02b9 414B5F57 		.ascii	"AK_WHOAMI_REGISTER\000"
+ 1493      484F414D 
+ 1493      495F5245 
+ 1493      47495354 
+ 1493      455200
+ 1494              	.LASF3:
+ 1495 02cc 414B5F48 		.ascii	"AK_HYL\000"
+ 1495      594C00
+ 1496              	.LASF35:
+ 1497 02d3 4D505539 		.ascii	"MPU9250_ReadAccelX\000"
+ 1497      3235305F 
+ 1497      52656164 
+ 1497      41636365 
+ 1497      6C5800
+ 1498              	.LASF36:
+ 1499 02e6 4D505539 		.ascii	"MPU9250_ReadAccelY\000"
+ 1499      3235305F 
+ 1499      52656164 
+ 1499      41636365 
+ 1499      6C5900
+ 1500              	.LASF37:
+ 1501 02f9 4D505539 		.ascii	"MPU9250_ReadAccelZ\000"
+ 1501      3235305F 
+ 1501      52656164 
+ 1501      41636365 
+ 1501      6C5A00
+ 1502              	.LASF27:
+ 1503 030c 4759524F 		.ascii	"GYRO_ZOUT_H\000"
+ 1503      5F5A4F55 
+ 1503      545F4800 
+ 1504              	.LASF29:
+ 1505 0318 4D50555F 		.ascii	"MPU_POWER_CTRL1\000"
+ 1505      504F5745 
+ 1505      525F4354 
+ 1505      524C3100 
+ 1506              	.LASF44:
+ 1507 0328 73686F72 		.ascii	"short int\000"
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cchnwacN.s 			page 34
+
+
+ 1507      7420696E 
+ 1507      7400
+ 1508              	.LASF17:
+ 1509 0332 41434345 		.ascii	"ACCEL_XOUT_H\000"
+ 1509      4C5F584F 
+ 1509      55545F48 
+ 1509      00
+ 1510              	.LASF12:
+ 1511 033f 4D50555F 		.ascii	"MPU_GYRO_CONFIG\000"
+ 1511      4759524F 
+ 1511      5F434F4E 
+ 1511      46494700 
+ 1512              	.LASF18:
+ 1513 034f 41434345 		.ascii	"ACCEL_XOUT_L\000"
+ 1513      4C5F584F 
+ 1513      55545F4C 
+ 1513      00
+ 1514              	.LASF28:
+ 1515 035c 4759524F 		.ascii	"GYRO_ZOUT_L\000"
+ 1515      5F5A4F55 
+ 1515      545F4C00 
+ 1516              	.LASF41:
+ 1517 0368 4D505539 		.ascii	"MPU9250_ReadMagX\000"
+ 1517      3235305F 
+ 1517      52656164 
+ 1517      4D616758 
+ 1517      00
+ 1518              	.LASF16:
+ 1519 0379 4D50555F 		.ascii	"MPU_INT_CONFIG\000"
+ 1519      494E545F 
+ 1519      434F4E46 
+ 1519      494700
+ 1520              	.LASF46:
+ 1521 0388 4D505539 		.ascii	"MPU9250_ReadMagZ\000"
+ 1521      3235305F 
+ 1521      52656164 
+ 1521      4D61675A 
+ 1521      00
+ 1522              	.LASF53:
+ 1523 0399 4932435F 		.ascii	"I2C_ReadInt\000"
+ 1523      52656164 
+ 1523      496E7400 
+ 1524              	.LASF50:
+ 1525 03a5 4932435F 		.ascii	"I2C_Init\000"
+ 1525      496E6974 
+ 1525      00
+ 1526              	.LASF42:
+ 1527 03ae 62797465 		.ascii	"byteReturn\000"
+ 1527      52657475 
+ 1527      726E00
+ 1528              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
