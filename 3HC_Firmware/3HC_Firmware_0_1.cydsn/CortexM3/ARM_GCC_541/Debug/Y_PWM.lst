@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 1
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccnZ1mF4.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 1
   28:Generated_Source\PSoC5/Y_PWM.c ****     #error PWM_v3_30 detected with a constant 0 for the enable or \
   29:Generated_Source\PSoC5/Y_PWM.c ****          constant 1 for reset. This will prevent the component from operating.
   30:Generated_Source\PSoC5/Y_PWM.c **** #endif /* Y_PWM_PWMUDB_genblk1_ctrlreg__REMOVED */
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 2
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccnZ1mF4.s 			page 2
 
 
   31:Generated_Source\PSoC5/Y_PWM.c **** 
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 1
   85:Generated_Source\PSoC5/Y_PWM.c **** {
   86:Generated_Source\PSoC5/Y_PWM.c ****     #if (Y_PWM_UsingFixedFunction || Y_PWM_UseControl)
   87:Generated_Source\PSoC5/Y_PWM.c ****         uint8 ctrl;
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 3
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccnZ1mF4.s 			page 3
 
 
   88:Generated_Source\PSoC5/Y_PWM.c ****     #endif /* (Y_PWM_UsingFixedFunction || Y_PWM_UseControl) */
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 1
  142:Generated_Source\PSoC5/Y_PWM.c ****             Y_PWM_WriteCompare2(Y_PWM_INIT_COMPARE_VALUE2);
  143:Generated_Source\PSoC5/Y_PWM.c ****         #endif /* (Y_PWM_UseOneCompareMode) */
  144:Generated_Source\PSoC5/Y_PWM.c **** 
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 4
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccnZ1mF4.s 			page 4
 
 
  145:Generated_Source\PSoC5/Y_PWM.c ****         #if (Y_PWM_KillModeMinTime)
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 1
  199:Generated_Source\PSoC5/Y_PWM.c **** void Y_PWM_Enable(void) 
  200:Generated_Source\PSoC5/Y_PWM.c **** {
   28              		.loc 1 200 0
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 5
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccnZ1mF4.s 			page 5
 
 
   29              		.cfi_startproc
@@ -263,7 +263,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 1
   39              	.L3:
   40              		.align	2
   41              	.L2:
-  42 000c 74640040 		.word	1073767540
+  42 000c 77640040 		.word	1073767543
   43              		.cfi_endproc
   44              	.LFE2:
   45              		.size	Y_PWM_Enable, .-Y_PWM_Enable
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 1
  230:Generated_Source\PSoC5/Y_PWM.c **** *  has no effect on the operation of the PWM
  231:Generated_Source\PSoC5/Y_PWM.c **** *
  232:Generated_Source\PSoC5/Y_PWM.c **** *******************************************************************************/
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 6
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccnZ1mF4.s 			page 6
 
 
  233:Generated_Source\PSoC5/Y_PWM.c **** void Y_PWM_Stop(void) 
@@ -319,7 +319,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 1
   65              	.L6:
   66              		.align	2
   67              	.L5:
-  68 000c 74640040 		.word	1073767540
+  68 000c 77640040 		.word	1073767543
   69              		.cfi_endproc
   70              	.LFE3:
   71              		.size	Y_PWM_Stop, .-Y_PWM_Stop
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 1
  261:Generated_Source\PSoC5/Y_PWM.c ****         *
  262:Generated_Source\PSoC5/Y_PWM.c ****         * Return:
  263:Generated_Source\PSoC5/Y_PWM.c ****         *  None
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 7
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccnZ1mF4.s 			page 7
 
 
  264:Generated_Source\PSoC5/Y_PWM.c ****         *
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 1
  318:Generated_Source\PSoC5/Y_PWM.c ****         * Parameters:
  319:Generated_Source\PSoC5/Y_PWM.c ****         *  comparemode:  The new compare mode for the PWM output. Use the compare types
  320:Generated_Source\PSoC5/Y_PWM.c ****         *                defined in the H file as input arguments.
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 8
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccnZ1mF4.s 			page 8
 
 
  321:Generated_Source\PSoC5/Y_PWM.c ****         *
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 1
  375:Generated_Source\PSoC5/Y_PWM.c ****     #endif /*Y_PWM_CompareMode2SW */
  376:Generated_Source\PSoC5/Y_PWM.c **** 
  377:Generated_Source\PSoC5/Y_PWM.c **** #endif /* UseOneCompareMode */
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 9
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccnZ1mF4.s 			page 9
 
 
  378:Generated_Source\PSoC5/Y_PWM.c **** 
@@ -523,7 +523,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 1
   90              	.L9:
   91 0006 00BF     		.align	2
   92              	.L8:
-  93 0008 08680040 		.word	1073768456
+  93 0008 0C680040 		.word	1073768460
   94              		.cfi_endproc
   95              	.LFE4:
   96              		.size	Y_PWM_WriteCounter, .-Y_PWM_WriteCounter
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 1
  407:Generated_Source\PSoC5/Y_PWM.c ****     }
  408:Generated_Source\PSoC5/Y_PWM.c **** 
  409:Generated_Source\PSoC5/Y_PWM.c **** 
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 10
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccnZ1mF4.s 			page 10
 
 
  410:Generated_Source\PSoC5/Y_PWM.c ****     /*******************************************************************************
@@ -583,8 +583,8 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 1
  119              	.L12:
  120              		.align	2
  121              	.L11:
- 122 000c 14640040 		.word	1073767444
- 123 0010 A8680040 		.word	1073768616
+ 122 000c 16640040 		.word	1073767446
+ 123 0010 AC680040 		.word	1073768620
  124              		.cfi_endproc
  125              	.LFE5:
  126              		.size	Y_PWM_ReadCounter, .-Y_PWM_ReadCounter
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 1
  134              	.LFB7:
  435:Generated_Source\PSoC5/Y_PWM.c **** 
  436:Generated_Source\PSoC5/Y_PWM.c ****     #if (Y_PWM_UseStatus)
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 11
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccnZ1mF4.s 			page 11
 
 
  437:Generated_Source\PSoC5/Y_PWM.c **** 
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 1
  485:Generated_Source\PSoC5/Y_PWM.c ****         CY_SET_REG16(Y_PWM_PERIOD_LSB_PTR, (uint16)period);
  486:Generated_Source\PSoC5/Y_PWM.c ****     #else
  487:Generated_Source\PSoC5/Y_PWM.c ****         CY_SET_REG16(Y_PWM_PERIOD_LSB_PTR, period);
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 12
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccnZ1mF4.s 			page 12
 
 
  141              		.loc 1 487 0
@@ -668,7 +668,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 1
  145              	.L15:
  146 0006 00BF     		.align	2
  147              	.L14:
- 148 0008 88680040 		.word	1073768584
+ 148 0008 8C680040 		.word	1073768588
  149              		.cfi_endproc
  150              	.LFE7:
  151              		.size	Y_PWM_WritePeriod, .-Y_PWM_WritePeriod
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 1
  164              		@ link register save eliminated.
  165              	.LVL2:
  519:Generated_Source\PSoC5/Y_PWM.c ****         #if(Y_PWM_UsingFixedFunction)
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 13
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccnZ1mF4.s 			page 13
 
 
  520:Generated_Source\PSoC5/Y_PWM.c ****             CY_SET_REG16(Y_PWM_COMPARE1_LSB_PTR, (uint16)compare);
@@ -731,7 +731,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 1
  170              	.L18:
  171 0006 00BF     		.align	2
  172              	.L17:
- 173 0008 48680040 		.word	1073768520
+ 173 0008 4C680040 		.word	1073768524
  174              		.cfi_endproc
  175              	.LFE8:
  176              		.size	Y_PWM_WriteCompare, .-Y_PWM_WriteCompare
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 1
  555:Generated_Source\PSoC5/Y_PWM.c ****     void Y_PWM_WriteCompare1(uint16 compare) \
  556:Generated_Source\PSoC5/Y_PWM.c ****                                         
  557:Generated_Source\PSoC5/Y_PWM.c ****     {
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 14
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccnZ1mF4.s 			page 14
 
 
  558:Generated_Source\PSoC5/Y_PWM.c ****         #if(Y_PWM_UsingFixedFunction)
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 1
  612:Generated_Source\PSoC5/Y_PWM.c ****     void Y_PWM_WriteDeadTime(uint8 deadtime) 
  613:Generated_Source\PSoC5/Y_PWM.c ****     {
  614:Generated_Source\PSoC5/Y_PWM.c ****         /* If using the Dead Band 1-255 mode then just write the register */
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 15
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccnZ1mF4.s 			page 15
 
 
  615:Generated_Source\PSoC5/Y_PWM.c ****         #if(!Y_PWM_DeadBand2_4)
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 1
  669:Generated_Source\PSoC5/Y_PWM.c ****     /*******************************************************************************
  670:Generated_Source\PSoC5/Y_PWM.c ****     * Function Name: Y_PWM_SetInterruptMode
  671:Generated_Source\PSoC5/Y_PWM.c ****     ********************************************************************************
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 16
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccnZ1mF4.s 			page 16
 
 
  672:Generated_Source\PSoC5/Y_PWM.c ****     *
@@ -929,7 +929,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 1
  195              	.L21:
  196 0006 00BF     		.align	2
  197              	.L20:
- 198 0008 85640040 		.word	1073767557
+ 198 0008 87640040 		.word	1073767559
  199              		.cfi_endproc
  200              	.LFE9:
  201              		.size	Y_PWM_SetInterruptMode, .-Y_PWM_SetInterruptMode
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 1
  701:Generated_Source\PSoC5/Y_PWM.c ****     *  uint8 : Current status register value. The status register bits are:
  702:Generated_Source\PSoC5/Y_PWM.c ****     *  [7:6] : Unused(0)
  703:Generated_Source\PSoC5/Y_PWM.c ****     *  [5]   : Kill event output
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 17
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccnZ1mF4.s 			page 17
 
 
  704:Generated_Source\PSoC5/Y_PWM.c ****     *  [4]   : FIFO not empty
@@ -985,7 +985,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 1
  220              	.L24:
  221 0006 00BF     		.align	2
  222              	.L23:
- 223 0008 65640040 		.word	1073767525
+ 223 0008 67640040 		.word	1073767527
  224              		.cfi_endproc
  225              	.LFE10:
  226              		.size	Y_PWM_ReadStatusRegister, .-Y_PWM_ReadStatusRegister
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 1
  733:Generated_Source\PSoC5/Y_PWM.c ****     * Return:
  734:Generated_Source\PSoC5/Y_PWM.c ****     *  uint8 : Current control register value
  735:Generated_Source\PSoC5/Y_PWM.c ****     *
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 18
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccnZ1mF4.s 			page 18
 
 
  736:Generated_Source\PSoC5/Y_PWM.c ****     *******************************************************************************/
@@ -1043,7 +1043,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 1
  246              	.L27:
  247 0006 00BF     		.align	2
  248              	.L26:
- 249 0008 74640040 		.word	1073767540
+ 249 0008 77640040 		.word	1073767543
  250              		.cfi_endproc
  251              	.LFE11:
  252              		.size	Y_PWM_ReadControlRegister, .-Y_PWM_ReadControlRegister
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 1
  764:Generated_Source\PSoC5/Y_PWM.c ****     *******************************************************************************/
  765:Generated_Source\PSoC5/Y_PWM.c ****     void Y_PWM_WriteControlRegister(uint8 control) 
  766:Generated_Source\PSoC5/Y_PWM.c ****     {
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 19
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccnZ1mF4.s 			page 19
 
 
  261              		.loc 1 766 0
@@ -1095,7 +1095,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 1
  271              	.L30:
  272 0006 00BF     		.align	2
  273              	.L29:
- 274 0008 74640040 		.word	1073767540
+ 274 0008 77640040 		.word	1073767543
  275              		.cfi_endproc
  276              	.LFE12:
  277              		.size	Y_PWM_WriteControlRegister, .-Y_PWM_WriteControlRegister
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 1
  290              		@ link register save eliminated.
  792:Generated_Source\PSoC5/Y_PWM.c ****         return (CY_GET_REG16(Y_PWM_CAPTURE_LSB_PTR));
  291              		.loc 1 792 0
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 20
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccnZ1mF4.s 			page 20
 
 
  292 0000 014B     		ldr	r3, .L32
@@ -1150,7 +1150,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 1
  297              	.L33:
  298              		.align	2
  299              	.L32:
- 300 0008 A8680040 		.word	1073768616
+ 300 0008 AC680040 		.word	1073768620
  301              		.cfi_endproc
  302              	.LFE13:
  303              		.size	Y_PWM_ReadCapture, .-Y_PWM_ReadCapture
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 1
  340              		.thumb
  341              		.thumb_func
  342              		.type	Y_PWM_Init, %function
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 21
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccnZ1mF4.s 			page 21
 
 
  343              	Y_PWM_Init:
@@ -1225,7 +1225,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 1
  361 000e 1370     		strb	r3, [r2]
  129:Generated_Source\PSoC5/Y_PWM.c ****             Y_PWM_AUX_CONTROLDP1 |= (Y_PWM_AUX_CTRL_FIFO0_CLR);
  362              		.loc 1 129 0
- 363 0010 2032     		adds	r2, r2, #32
+ 363 0010 1F32     		adds	r2, r2, #31
  364 0012 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
  365 0014 43F00103 		orr	r3, r3, #1
  366 0018 1370     		strb	r3, [r2]
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 1
  167:Generated_Source\PSoC5/Y_PWM.c ****             /* Use the interrupt output of the status register for IRQ output */
  388              		.loc 1 167 0
  389 0042 FFF7FEFF 		bl	CyEnterCriticalSection
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 22
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccnZ1mF4.s 			page 22
 
 
  390              	.LVL14:
@@ -1279,8 +1279,8 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 1
  402              	.L41:
  403              		.align	2
  404              	.L40:
- 405 0058 74640040 		.word	1073767540
- 406 005c 95640040 		.word	1073767573
+ 405 0058 77640040 		.word	1073767543
+ 406 005c 97640040 		.word	1073767575
  407              		.cfi_endproc
  408              	.LFE1:
  409              		.size	Y_PWM_Init, .-Y_PWM_Init
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 1
  437              	.L43:
   63:Generated_Source\PSoC5/Y_PWM.c **** 
  438              		.loc 1 63 0
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 23
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccnZ1mF4.s 			page 23
 
 
  439 0012 FFF7FEFF 		bl	Y_PWM_Enable
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 1
  822:Generated_Source\PSoC5/Y_PWM.c ****         #endif /* (Y_PWM_UsingFixedFunction) */
  823:Generated_Source\PSoC5/Y_PWM.c ****     }
  465              		.loc 1 823 0
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 24
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccnZ1mF4.s 			page 24
 
 
  466 0004 80B2     		uxth	r0, r0
@@ -1386,7 +1386,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 1
  468              	.L49:
  469              		.align	2
  470              	.L48:
- 471 0008 48680040 		.word	1073768520
+ 471 0008 4C680040 		.word	1073768524
  472              		.cfi_endproc
  473              	.LFE14:
  474              		.size	Y_PWM_ReadCompare, .-Y_PWM_ReadCompare
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 1
  861:Generated_Source\PSoC5/Y_PWM.c ****     *******************************************************************************/
  862:Generated_Source\PSoC5/Y_PWM.c ****     uint16 Y_PWM_ReadCompare2(void) 
  863:Generated_Source\PSoC5/Y_PWM.c ****     {
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 25
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccnZ1mF4.s 			page 25
 
 
  864:Generated_Source\PSoC5/Y_PWM.c ****         return (CY_GET_REG16(Y_PWM_COMPARE2_LSB_PTR));
@@ -1483,7 +1483,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 1
  494              	.L52:
  495              		.align	2
  496              	.L51:
- 497 0008 88680040 		.word	1073768584
+ 497 0008 8C680040 		.word	1073768588
  498              		.cfi_endproc
  499              	.LFE15:
  500              		.size	Y_PWM_ReadPeriod, .-Y_PWM_ReadPeriod
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 1
  509              	.Letext0:
  510              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
  511              		.file 3 "Generated_Source\\PSoC5\\CyLib.h"
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 26
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccnZ1mF4.s 			page 26
 
 
  512              		.section	.debug_info,"",%progbits
@@ -1510,15 +1510,15 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 1
  518 000b 01       		.uleb128 0x1
  519 000c EF000000 		.4byte	.LASF43
  520 0010 0C       		.byte	0xc
- 521 0011 D6010000 		.4byte	.LASF44
- 522 0015 3B020000 		.4byte	.LASF45
+ 521 0011 1C020000 		.4byte	.LASF44
+ 522 0015 65020000 		.4byte	.LASF45
  523 0019 00000000 		.4byte	.Ldebug_ranges0+0
  524 001d 00000000 		.4byte	0
  525 0021 00000000 		.4byte	.Ldebug_line0
  526 0025 02       		.uleb128 0x2
  527 0026 01       		.byte	0x1
  528 0027 06       		.byte	0x6
- 529 0028 27030000 		.4byte	.LASF0
+ 529 0028 2A030000 		.4byte	.LASF0
  530 002c 02       		.uleb128 0x2
  531 002d 01       		.byte	0x1
  532 002e 08       		.byte	0x8
@@ -1526,7 +1526,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 1
  534 0033 02       		.uleb128 0x2
  535 0034 02       		.byte	0x2
  536 0035 05       		.byte	0x5
- 537 0036 DB020000 		.4byte	.LASF2
+ 537 0036 D9020000 		.4byte	.LASF2
  538 003a 02       		.uleb128 0x2
  539 003b 02       		.byte	0x2
  540 003c 07       		.byte	0x7
@@ -1534,7 +1534,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 1
  542 0041 02       		.uleb128 0x2
  543 0042 04       		.byte	0x4
  544 0043 05       		.byte	0x5
- 545 0044 F2020000 		.4byte	.LASF4
+ 545 0044 F5020000 		.4byte	.LASF4
  546 0048 02       		.uleb128 0x2
  547 0049 04       		.byte	0x4
  548 004a 07       		.byte	0x7
@@ -1542,7 +1542,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 1
  550 004f 02       		.uleb128 0x2
  551 0050 08       		.byte	0x8
  552 0051 05       		.byte	0x5
- 553 0052 BF020000 		.4byte	.LASF6
+ 553 0052 BD020000 		.4byte	.LASF6
  554 0056 02       		.uleb128 0x2
  555 0057 08       		.byte	0x8
  556 0058 07       		.byte	0x7
@@ -1554,11 +1554,11 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 1
  562 0064 02       		.uleb128 0x2
  563 0065 04       		.byte	0x4
  564 0066 07       		.byte	0x7
- 565 0067 0C020000 		.4byte	.LASF8
+ 565 0067 ED010000 		.4byte	.LASF8
  566 006b 04       		.uleb128 0x4
  567 006c A7010000 		.4byte	.LASF9
  568 0070 02       		.byte	0x2
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 27
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccnZ1mF4.s 			page 27
 
 
  569 0071 E401     		.2byte	0x1e4
@@ -1579,7 +1579,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 1
  584 0091 02       		.uleb128 0x2
  585 0092 01       		.byte	0x1
  586 0093 08       		.byte	0x8
- 587 0094 FB020000 		.4byte	.LASF13
+ 587 0094 FE020000 		.4byte	.LASF13
  588 0098 04       		.uleb128 0x4
  589 0099 90010000 		.4byte	.LASF14
  590 009d 02       		.byte	0x2
@@ -1597,13 +1597,13 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 1
  602 00ba 02       		.uleb128 0x2
  603 00bb 08       		.byte	0x8
  604 00bc 04       		.byte	0x4
- 605 00bd 00030000 		.4byte	.LASF16
+ 605 00bd 03030000 		.4byte	.LASF16
  606 00c1 02       		.uleb128 0x2
  607 00c2 04       		.byte	0x4
  608 00c3 07       		.byte	0x7
- 609 00c4 B6020000 		.4byte	.LASF17
+ 609 00c4 B4020000 		.4byte	.LASF17
  610 00c8 06       		.uleb128 0x6
- 611 00c9 E5020000 		.4byte	.LASF18
+ 611 00c9 E8020000 		.4byte	.LASF18
  612 00cd 01       		.byte	0x1
  613 00ce C7       		.byte	0xc7
  614 00cf 00000000 		.4byte	.LFB2
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 1
  623 00e4 10000000 		.4byte	.LFE3-.LFB3
  624 00e8 01       		.uleb128 0x1
  625 00e9 9C       		.byte	0x9c
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 28
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccnZ1mF4.s 			page 28
 
 
  626 00ea 07       		.uleb128 0x7
@@ -1639,7 +1639,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 1
  641 010d 50       		.byte	0x50
  642 010e 00       		.byte	0
  643 010f 09       		.uleb128 0x9
- 644 0110 9F020000 		.4byte	.LASF28
+ 644 0110 53020000 		.4byte	.LASF28
  645 0114 01       		.byte	0x1
  646 0115 A901     		.2byte	0x1a9
  647 0117 77000000 		.4byte	0x77
@@ -1665,7 +1665,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 1
  667 0148 50       		.byte	0x50
  668 0149 00       		.byte	0
  669 014a 07       		.uleb128 0x7
- 670 014b 55030000 		.4byte	.LASF24
+ 670 014b 58030000 		.4byte	.LASF24
  671 014f 01       		.byte	0x1
  672 0150 0402     		.2byte	0x204
  673 0152 00000000 		.4byte	.LFB8
@@ -1674,11 +1674,11 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 1
  676 015b 9C       		.byte	0x9c
  677 015c 6F010000 		.4byte	0x16f
  678 0160 08       		.uleb128 0x8
- 679 0161 33030000 		.4byte	.LASF25
+ 679 0161 36030000 		.4byte	.LASF25
  680 0165 01       		.byte	0x1
  681 0166 0402     		.2byte	0x204
  682 0168 77000000 		.4byte	0x77
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 29
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccnZ1mF4.s 			page 29
 
 
  683 016c 01       		.uleb128 0x1
@@ -1694,7 +1694,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 1
  693 0180 9C       		.byte	0x9c
  694 0181 94010000 		.4byte	0x194
  695 0185 08       		.uleb128 0x8
- 696 0186 CD020000 		.4byte	.LASF27
+ 696 0186 CB020000 		.4byte	.LASF27
  697 018a 01       		.byte	0x1
  698 018b AC02     		.2byte	0x2ac
  699 018d 6B000000 		.4byte	0x6b
@@ -1711,7 +1711,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 1
  710 01a8 01       		.uleb128 0x1
  711 01a9 9C       		.byte	0x9c
  712 01aa 0A       		.uleb128 0xa
- 713 01ab 3B030000 		.4byte	.LASF46
+ 713 01ab 3E030000 		.4byte	.LASF46
  714 01af 01       		.byte	0x1
  715 01b0 E102     		.2byte	0x2e1
  716 01b2 6B000000 		.4byte	0x6b
@@ -1721,7 +1721,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 1
  720 01bf 9C       		.byte	0x9c
  721 01c0 D3010000 		.4byte	0x1d3
  722 01c4 0B       		.uleb128 0xb
- 723 01c5 87020000 		.4byte	.LASF35
+ 723 01c5 3B020000 		.4byte	.LASF35
  724 01c9 01       		.byte	0x1
  725 01ca E302     		.2byte	0x2e3
  726 01cc 6B000000 		.4byte	0x6b
@@ -1729,7 +1729,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 1
  728 01d1 50       		.byte	0x50
  729 01d2 00       		.byte	0
  730 01d3 07       		.uleb128 0x7
- 731 01d4 0C030000 		.4byte	.LASF30
+ 731 01d4 0F030000 		.4byte	.LASF30
  732 01d8 01       		.byte	0x1
  733 01d9 FD02     		.2byte	0x2fd
  734 01db 00000000 		.4byte	.LFB12
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 1
  737 01e4 9C       		.byte	0x9c
  738 01e5 F8010000 		.4byte	0x1f8
  739 01e9 08       		.uleb128 0x8
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 30
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccnZ1mF4.s 			page 30
 
 
  740 01ea AD010000 		.4byte	.LASF31
@@ -1783,7 +1783,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 1
  779 0247 9C       		.byte	0x9c
  780 0248 D8020000 		.4byte	0x2d8
  781 024c 0E       		.uleb128 0xe
- 782 024d B1020000 		.4byte	.LASF36
+ 782 024d E3020000 		.4byte	.LASF36
  783 0251 01       		.byte	0x1
  784 0252 57       		.byte	0x57
  785 0253 6B000000 		.4byte	0x6b
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 1
  794 026b 2C000000 		.4byte	.LVL10
  795 026f EA000000 		.4byte	0xea
  796 0273 7F020000 		.4byte	0x27f
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 31
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccnZ1mF4.s 			page 31
 
 
  797 0277 10       		.uleb128 0x10
@@ -1851,14 +1851,14 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 1
  844 02d3 0E020000 		.4byte	0x20e
  845 02d7 00       		.byte	0
  846 02d8 0D       		.uleb128 0xd
- 847 02d9 19020000 		.4byte	.LASF38
+ 847 02d9 FA010000 		.4byte	.LASF38
  848 02dd 01       		.byte	0x1
  849 02de 37       		.byte	0x37
  850 02df 00000000 		.4byte	.LFB0
  851 02e3 1C000000 		.4byte	.LFE0-.LFB0
  852 02e7 01       		.uleb128 0x1
  853 02e8 9C       		.byte	0x9c
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 32
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccnZ1mF4.s 			page 32
 
 
  854 02e9 00030000 		.4byte	0x300
@@ -1879,7 +1879,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 1
  869 0314 01       		.uleb128 0x1
  870 0315 9C       		.byte	0x9c
  871 0316 09       		.uleb128 0x9
- 872 0317 8E020000 		.4byte	.LASF40
+ 872 0317 42020000 		.4byte	.LASF40
  873 031b 01       		.byte	0x1
  874 031c 7403     		.2byte	0x374
  875 031e 77000000 		.4byte	0x77
@@ -1896,13 +1896,13 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 1
  886 0338 03       		.byte	0x3
  887 0339 00000000 		.4byte	Y_PWM_initVar
  888 033d 12       		.uleb128 0x12
- 889 033e F5010000 		.4byte	.LASF41
- 890 0342 F5010000 		.4byte	.LASF41
+ 889 033e D6010000 		.4byte	.LASF41
+ 890 0342 D6010000 		.4byte	.LASF41
  891 0346 03       		.byte	0x3
  892 0347 7D       		.byte	0x7d
  893 0348 12       		.uleb128 0x12
- 894 0349 25020000 		.4byte	.LASF42
- 895 034d 25020000 		.4byte	.LASF42
+ 894 0349 06020000 		.4byte	.LASF42
+ 895 034d 06020000 		.4byte	.LASF42
  896 0351 03       		.byte	0x3
  897 0352 7E       		.byte	0x7e
  898 0353 00       		.byte	0
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 1
  908 0007 03       		.uleb128 0x3
  909 0008 0E       		.uleb128 0xe
  910 0009 1B       		.uleb128 0x1b
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 33
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccnZ1mF4.s 			page 33
 
 
  911 000a 0E       		.uleb128 0xe
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 1
  965 0040 3F       		.uleb128 0x3f
  966 0041 19       		.uleb128 0x19
  967 0042 03       		.uleb128 0x3
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 34
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccnZ1mF4.s 			page 34
 
 
  968 0043 0E       		.uleb128 0xe
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 1
  1022 007b 18       		.uleb128 0x18
  1023 007c 00       		.byte	0
  1024 007d 00       		.byte	0
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 35
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccnZ1mF4.s 			page 35
 
 
  1025 007e 09       		.uleb128 0x9
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 1
  1079 00b6 00       		.byte	0
  1080 00b7 03       		.uleb128 0x3
  1081 00b8 0E       		.uleb128 0xe
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 36
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccnZ1mF4.s 			page 36
 
 
  1082 00b9 3A       		.uleb128 0x3a
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 1
  1136 00f2 13       		.uleb128 0x13
  1137 00f3 02       		.uleb128 0x2
  1138 00f4 17       		.uleb128 0x17
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 37
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccnZ1mF4.s 			page 37
 
 
  1139 00f5 00       		.byte	0
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 1
  1193 0130 00       		.byte	0
  1194 0131 00       		.byte	0
  1195 0132 00       		.byte	0
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 38
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccnZ1mF4.s 			page 38
 
 
  1196              		.section	.debug_loc,"",%progbits
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 1
  1250 0088 00000000 		.4byte	.LFB15
  1251 008c 0C000000 		.4byte	.LFE15-.LFB15
  1252 0090 00000000 		.4byte	0
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 39
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccnZ1mF4.s 			page 39
 
 
  1253 0094 00000000 		.4byte	0
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 1
  1298 001d 595F5057 		.ascii	"Y_PWM_ReadCompare\000"
  1298      4D5F5265 
  1298      6164436F 
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 40
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccnZ1mF4.s 			page 40
 
 
  1298      6D706172 
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 1
  1320 00d1 595F5057 		.ascii	"Y_PWM_ClearFIFO\000"
  1320      4D5F436C 
  1320      65617246 
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 41
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccnZ1mF4.s 			page 41
 
 
  1320      49464F00 
@@ -2457,128 +2457,128 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 1
  1343              	.LASF10:
  1344 01cf 75696E74 		.ascii	"uint16\000"
  1344      313600
- 1345              	.LASF44:
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 42
+ 1345              	.LASF41:
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccnZ1mF4.s 			page 42
 
 
- 1346 01d6 47656E65 		.ascii	"Generated_Source\\PSoC5\\Y_PWM.c\000"
- 1346      72617465 
- 1346      645F536F 
- 1346      75726365 
- 1346      5C50536F 
- 1347              	.LASF41:
- 1348 01f5 4379456E 		.ascii	"CyEnterCriticalSection\000"
- 1348      74657243 
- 1348      72697469 
- 1348      63616C53 
- 1348      65637469 
- 1349              	.LASF8:
- 1350 020c 756E7369 		.ascii	"unsigned int\000"
- 1350      676E6564 
- 1350      20696E74 
- 1350      00
- 1351              	.LASF38:
- 1352 0219 595F5057 		.ascii	"Y_PWM_Start\000"
- 1352      4D5F5374 
- 1352      61727400 
- 1353              	.LASF42:
- 1354 0225 43794578 		.ascii	"CyExitCriticalSection\000"
- 1354      69744372 
- 1354      69746963 
- 1354      616C5365 
- 1354      6374696F 
- 1355              	.LASF45:
- 1356 023b 433A5C55 		.ascii	"C:\\Users\\Caleb Cotter\\Desktop\\NitroDoser Develo"
- 1356      73657273 
- 1356      5C43616C 
- 1356      65622043 
- 1356      6F747465 
- 1357 026a 706D656E 		.ascii	"pment\\3HC_Firmware_0_1.cydsn\000"
- 1357      745C3348 
- 1357      435F4669 
- 1357      726D7761 
- 1357      72655F30 
- 1358              	.LASF35:
- 1359 0287 72657375 		.ascii	"result\000"
- 1359      6C7400
- 1360              	.LASF40:
- 1361 028e 595F5057 		.ascii	"Y_PWM_ReadPeriod\000"
- 1361      4D5F5265 
- 1361      61645065 
- 1361      72696F64 
- 1361      00
- 1362              	.LASF28:
- 1363 029f 595F5057 		.ascii	"Y_PWM_ReadCounter\000"
- 1363      4D5F5265 
- 1363      6164436F 
- 1363      756E7465 
- 1363      7200
- 1364              	.LASF36:
- 1365 02b1 6374726C 		.ascii	"ctrl\000"
+ 1346 01d6 4379456E 		.ascii	"CyEnterCriticalSection\000"
+ 1346      74657243 
+ 1346      72697469 
+ 1346      63616C53 
+ 1346      65637469 
+ 1347              	.LASF8:
+ 1348 01ed 756E7369 		.ascii	"unsigned int\000"
+ 1348      676E6564 
+ 1348      20696E74 
+ 1348      00
+ 1349              	.LASF38:
+ 1350 01fa 595F5057 		.ascii	"Y_PWM_Start\000"
+ 1350      4D5F5374 
+ 1350      61727400 
+ 1351              	.LASF42:
+ 1352 0206 43794578 		.ascii	"CyExitCriticalSection\000"
+ 1352      69744372 
+ 1352      69746963 
+ 1352      616C5365 
+ 1352      6374696F 
+ 1353              	.LASF44:
+ 1354 021c 47656E65 		.ascii	"Generated_Source\\PSoC5\\Y_PWM.c\000"
+ 1354      72617465 
+ 1354      645F536F 
+ 1354      75726365 
+ 1354      5C50536F 
+ 1355              	.LASF35:
+ 1356 023b 72657375 		.ascii	"result\000"
+ 1356      6C7400
+ 1357              	.LASF40:
+ 1358 0242 595F5057 		.ascii	"Y_PWM_ReadPeriod\000"
+ 1358      4D5F5265 
+ 1358      61645065 
+ 1358      72696F64 
+ 1358      00
+ 1359              	.LASF28:
+ 1360 0253 595F5057 		.ascii	"Y_PWM_ReadCounter\000"
+ 1360      4D5F5265 
+ 1360      6164436F 
+ 1360      756E7465 
+ 1360      7200
+ 1361              	.LASF45:
+ 1362 0265 433A5C55 		.ascii	"C:\\Users\\Caleb Cotter\\Documents\\GitHub\\3HC\\3H"
+ 1362      73657273 
+ 1362      5C43616C 
+ 1362      65622043 
+ 1362      6F747465 
+ 1363 0292 435F4669 		.ascii	"C_Firmware\\3HC_Firmware_0_1.cydsn\000"
+ 1363      726D7761 
+ 1363      72655C33 
+ 1363      48435F46 
+ 1363      69726D77 
+ 1364              	.LASF17:
+ 1365 02b4 73697A65 		.ascii	"sizetype\000"
+ 1365      74797065 
  1365      00
- 1366              	.LASF17:
- 1367 02b6 73697A65 		.ascii	"sizetype\000"
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 43
+ 1366              	.LASF6:
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccnZ1mF4.s 			page 43
 
 
- 1367      74797065 
- 1367      00
- 1368              	.LASF6:
- 1369 02bf 6C6F6E67 		.ascii	"long long int\000"
- 1369      206C6F6E 
- 1369      6720696E 
- 1369      7400
- 1370              	.LASF27:
- 1371 02cd 696E7465 		.ascii	"interruptMode\000"
- 1371      72727570 
- 1371      744D6F64 
- 1371      6500
- 1372              	.LASF2:
- 1373 02db 73686F72 		.ascii	"short int\000"
- 1373      7420696E 
- 1373      7400
+ 1367 02bd 6C6F6E67 		.ascii	"long long int\000"
+ 1367      206C6F6E 
+ 1367      6720696E 
+ 1367      7400
+ 1368              	.LASF27:
+ 1369 02cb 696E7465 		.ascii	"interruptMode\000"
+ 1369      72727570 
+ 1369      744D6F64 
+ 1369      6500
+ 1370              	.LASF2:
+ 1371 02d9 73686F72 		.ascii	"short int\000"
+ 1371      7420696E 
+ 1371      7400
+ 1372              	.LASF36:
+ 1373 02e3 6374726C 		.ascii	"ctrl\000"
+ 1373      00
  1374              	.LASF18:
- 1375 02e5 595F5057 		.ascii	"Y_PWM_Enable\000"
+ 1375 02e8 595F5057 		.ascii	"Y_PWM_Enable\000"
  1375      4D5F456E 
  1375      61626C65 
  1375      00
  1376              	.LASF4:
- 1377 02f2 6C6F6E67 		.ascii	"long int\000"
+ 1377 02f5 6C6F6E67 		.ascii	"long int\000"
  1377      20696E74 
  1377      00
  1378              	.LASF13:
- 1379 02fb 63686172 		.ascii	"char\000"
+ 1379 02fe 63686172 		.ascii	"char\000"
  1379      00
  1380              	.LASF16:
- 1381 0300 6C6F6E67 		.ascii	"long double\000"
+ 1381 0303 6C6F6E67 		.ascii	"long double\000"
  1381      20646F75 
  1381      626C6500 
  1382              	.LASF30:
- 1383 030c 595F5057 		.ascii	"Y_PWM_WriteControlRegister\000"
+ 1383 030f 595F5057 		.ascii	"Y_PWM_WriteControlRegister\000"
  1383      4D5F5772 
  1383      69746543 
  1383      6F6E7472 
  1383      6F6C5265 
  1384              	.LASF0:
- 1385 0327 7369676E 		.ascii	"signed char\000"
+ 1385 032a 7369676E 		.ascii	"signed char\000"
  1385      65642063 
  1385      68617200 
  1386              	.LASF25:
- 1387 0333 636F6D70 		.ascii	"compare\000"
+ 1387 0336 636F6D70 		.ascii	"compare\000"
  1387      61726500 
  1388              	.LASF46:
- 1389 033b 595F5057 		.ascii	"Y_PWM_ReadControlRegister\000"
+ 1389 033e 595F5057 		.ascii	"Y_PWM_ReadControlRegister\000"
  1389      4D5F5265 
  1389      6164436F 
  1389      6E74726F 
  1389      6C526567 
  1390              	.LASF24:
- 1391 0355 595F5057 		.ascii	"Y_PWM_WriteCompare\000"
+ 1391 0358 595F5057 		.ascii	"Y_PWM_WriteCompare\000"
  1391      4D5F5772 
  1391      69746543 
  1391      6F6D7061 
  1391      726500
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccJ4YNjq.s 			page 44
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccnZ1mF4.s 			page 44
 
 
  1392              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

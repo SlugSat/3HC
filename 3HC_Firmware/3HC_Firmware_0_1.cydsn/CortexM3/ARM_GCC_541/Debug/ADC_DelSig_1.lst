@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
   29:Generated_Source\PSoC5/ADC_DelSig_1.c **** 
   30:Generated_Source\PSoC5/ADC_DelSig_1.c **** 
   31:Generated_Source\PSoC5/ADC_DelSig_1.c **** /***************************************
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 2
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 2
 
 
   32:Generated_Source\PSoC5/ADC_DelSig_1.c **** * Global data allocation
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
   86:Generated_Source\PSoC5/ADC_DelSig_1.c **** *
   87:Generated_Source\PSoC5/ADC_DelSig_1.c **** * Return:
   88:Generated_Source\PSoC5/ADC_DelSig_1.c **** *  None
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 3
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 3
 
 
   89:Generated_Source\PSoC5/ADC_DelSig_1.c **** *
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  143:Generated_Source\PSoC5/ADC_DelSig_1.c ****                                           ADC_DelSig_1_CFG2);
  144:Generated_Source\PSoC5/ADC_DelSig_1.c ****     #endif /* ADC_DelSig_1_DEFAULT_NUM_CONFIGS > 1 */
  145:Generated_Source\PSoC5/ADC_DelSig_1.c ****     #if(ADC_DelSig_1_DEFAULT_NUM_CONFIGS > 2)
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 4
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 4
 
 
  146:Generated_Source\PSoC5/ADC_DelSig_1.c ****         ADC_DelSig_1_GainCompensation(ADC_DelSig_1_CFG3_INPUT_RANGE,
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  200:Generated_Source\PSoC5/ADC_DelSig_1.c ****     ADC_DelSig_1_STBY_PWRMGR_DEC_REG |= ADC_DelSig_1_STBY_PWR_DEC_EN;
  201:Generated_Source\PSoC5/ADC_DelSig_1.c ****     ADC_DelSig_1_STBY_PWRMGR_DSM_REG |= ADC_DelSig_1_STBY_PWR_DSM_EN;
  202:Generated_Source\PSoC5/ADC_DelSig_1.c **** 
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 5
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 5
 
 
  203:Generated_Source\PSoC5/ADC_DelSig_1.c ****     /* Disable PRES, Enable power to VCMBUF0, REFBUF0 and REFBUF1, enable PRES */
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  257:Generated_Source\PSoC5/ADC_DelSig_1.c ****              (ADC_DelSig_1_CFG3_REFERENCE != ADC_DelSig_1_EXT_REF_ON_P32))) ||
  258:Generated_Source\PSoC5/ADC_DelSig_1.c ****              ((config == 4u) &&
  259:Generated_Source\PSoC5/ADC_DelSig_1.c ****               (ADC_DelSig_1_CFG4_INPUT_RANGE == ADC_DelSig_1_IR_VSSA_TO_2VREF) &&
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 6
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 6
 
 
  260:Generated_Source\PSoC5/ADC_DelSig_1.c ****              ((ADC_DelSig_1_CFG4_REFERENCE != ADC_DelSig_1_EXT_REF_ON_P03) &&
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  314:Generated_Source\PSoC5/ADC_DelSig_1.c **** *  Subsequent calls of the Start function only enable the ADC and turn
  315:Generated_Source\PSoC5/ADC_DelSig_1.c **** *  on the power. If multiple configurations are selected, it will
  316:Generated_Source\PSoC5/ADC_DelSig_1.c **** *  configure the ADC for configuration 1 by default, unless the
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 7
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 7
 
 
  317:Generated_Source\PSoC5/ADC_DelSig_1.c **** *  ADC_DelSig_1_SelectConfiguration( ) function has been called to change
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  371:Generated_Source\PSoC5/ADC_DelSig_1.c **** 
  372:Generated_Source\PSoC5/ADC_DelSig_1.c ****     /* Stop conversions */
  373:Generated_Source\PSoC5/ADC_DelSig_1.c ****     ADC_DelSig_1_DEC_CR_REG &= (uint8)~ADC_DelSig_1_DEC_START_CONV;
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 8
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 8
 
 
  374:Generated_Source\PSoC5/ADC_DelSig_1.c ****     ADC_DelSig_1_DEC_SR_REG |=  ADC_DelSig_1_DEC_INTR_CLEAR;
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  428:Generated_Source\PSoC5/ADC_DelSig_1.c **** *  gain:  Two bit value to select a gain of 1, 2, 4, or 8.
  429:Generated_Source\PSoC5/ADC_DelSig_1.c **** *
  430:Generated_Source\PSoC5/ADC_DelSig_1.c **** * Return:
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 9
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 9
 
 
  431:Generated_Source\PSoC5/ADC_DelSig_1.c **** *  None
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  485:Generated_Source\PSoC5/ADC_DelSig_1.c **** *  Calculates a new GCOR value and writes it into the GCOR register. 
  486:Generated_Source\PSoC5/ADC_DelSig_1.c **** *  The GCOR value is a 16-bit value that represents a gain of 0 to 2. 
  487:Generated_Source\PSoC5/ADC_DelSig_1.c **** *  The ADC result is multiplied by this value before it is placed in the ADC 
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 10
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 10
 
 
  488:Generated_Source\PSoC5/ADC_DelSig_1.c **** *  output registers. The numerical format for the GCOR value is:
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  542:Generated_Source\PSoC5/ADC_DelSig_1.c **** *
  543:Generated_Source\PSoC5/ADC_DelSig_1.c **** * Summary:
  544:Generated_Source\PSoC5/ADC_DelSig_1.c **** *  This API returns the current GCOR register value, normalized based on the
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 11
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 11
 
 
  545:Generated_Source\PSoC5/ADC_DelSig_1.c **** *  GVAL register settings.
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  599:Generated_Source\PSoC5/ADC_DelSig_1.c **** * Function Name: ADC_DelSig_1_StopConvert
  600:Generated_Source\PSoC5/ADC_DelSig_1.c **** ********************************************************************************
  601:Generated_Source\PSoC5/ADC_DelSig_1.c **** *
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 12
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 12
 
 
  602:Generated_Source\PSoC5/ADC_DelSig_1.c **** * Summary:
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  656:Generated_Source\PSoC5/ADC_DelSig_1.c ****         *   resolution above 16 bit
  657:Generated_Source\PSoC5/ADC_DelSig_1.c ****         */
  658:Generated_Source\PSoC5/ADC_DelSig_1.c ****         if(ADC_DelSig_1_stopConversion != 0u)
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 13
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 13
 
 
  659:Generated_Source\PSoC5/ADC_DelSig_1.c ****         {
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  713:Generated_Source\PSoC5/ADC_DelSig_1.c ****     }
  714:Generated_Source\PSoC5/ADC_DelSig_1.c ****     else /*No action required for other coherency */
  715:Generated_Source\PSoC5/ADC_DelSig_1.c ****     {
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 14
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 14
 
 
  716:Generated_Source\PSoC5/ADC_DelSig_1.c ****     }
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  770:Generated_Source\PSoC5/ADC_DelSig_1.c ****             result = (CY_GET_REG16(ADC_DelSig_1_DEC_SAMP_16B_PTR));
  771:Generated_Source\PSoC5/ADC_DelSig_1.c ****         #else
  772:Generated_Source\PSoC5/ADC_DelSig_1.c ****             result = ADC_DelSig_1_DEC_SAMP_REG;
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 15
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 15
 
 
  773:Generated_Source\PSoC5/ADC_DelSig_1.c ****             result |=  (uint16)((uint16)ADC_DelSig_1_DEC_SAMPM_REG << 8u);
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  827:Generated_Source\PSoC5/ADC_DelSig_1.c ****                 result |= 0xFF00u;
  828:Generated_Source\PSoC5/ADC_DelSig_1.c ****             }
  829:Generated_Source\PSoC5/ADC_DelSig_1.c ****             result = (result << 8u) | ADC_DelSig_1_DEC_SAMPM_REG;
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 16
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 16
 
 
  830:Generated_Source\PSoC5/ADC_DelSig_1.c ****             result = (result << 8u) | ADC_DelSig_1_DEC_SAMP_REG;
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  884:Generated_Source\PSoC5/ADC_DelSig_1.c **** *  given reading before calculating the voltage conversion.
  885:Generated_Source\PSoC5/ADC_DelSig_1.c **** *
  886:Generated_Source\PSoC5/ADC_DelSig_1.c **** * Parameters:
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 17
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 17
 
 
  887:Generated_Source\PSoC5/ADC_DelSig_1.c **** *  int32:  This value is a measured value when the inputs are shorted or 
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  941:Generated_Source\PSoC5/ADC_DelSig_1.c **** }
  942:Generated_Source\PSoC5/ADC_DelSig_1.c **** 
  943:Generated_Source\PSoC5/ADC_DelSig_1.c **** 
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 18
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 18
 
 
  944:Generated_Source\PSoC5/ADC_DelSig_1.c **** /*******************************************************************************
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  998:Generated_Source\PSoC5/ADC_DelSig_1.c **** 
  999:Generated_Source\PSoC5/ADC_DelSig_1.c ****     mVolts = (int16)(( adcCounts * ADC_DelSig_1_1MV_COUNTS ) / ADC_DelSig_1_CountsPerVolt) ;
 1000:Generated_Source\PSoC5/ADC_DelSig_1.c **** 
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 19
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 19
 
 
 1001:Generated_Source\PSoC5/ADC_DelSig_1.c ****     return(mVolts);
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
 1055:Generated_Source\PSoC5/ADC_DelSig_1.c ****     #endif /* ADC_DelSig_1_CFG2_DEC_DIV */
 1056:Generated_Source\PSoC5/ADC_DelSig_1.c **** 
 1057:Generated_Source\PSoC5/ADC_DelSig_1.c ****     /* Subtract ADC offset */
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 20
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 20
 
 
 1058:Generated_Source\PSoC5/ADC_DelSig_1.c ****     adcCounts -= ADC_DelSig_1_Offset;
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
 1112:Generated_Source\PSoC5/ADC_DelSig_1.c ****         #if(ADC_DelSig_1_CFG2_DEC_DIV != 0)
 1113:Generated_Source\PSoC5/ADC_DelSig_1.c ****             adcCounts /= ADC_DelSig_1_CFG2_DEC_DIV;
 1114:Generated_Source\PSoC5/ADC_DelSig_1.c ****         #endif /* ADC_DelSig_1_CFG2_DEC_DIV */
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 21
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 21
 
 
 1115:Generated_Source\PSoC5/ADC_DelSig_1.c ****     }
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
 1169:Generated_Source\PSoC5/ADC_DelSig_1.c ****         #if( (ADC_DelSig_1_CFG1_RESOLUTION == ADC_DelSig_1__BITS_16) || \
 1170:Generated_Source\PSoC5/ADC_DelSig_1.c ****              (ADC_DelSig_1_CFG2_RESOLUTION == ADC_DelSig_1__BITS_16) || \
 1171:Generated_Source\PSoC5/ADC_DelSig_1.c ****              (ADC_DelSig_1_CFG3_RESOLUTION == ADC_DelSig_1__BITS_16) || \
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 22
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 22
 
 
 1172:Generated_Source\PSoC5/ADC_DelSig_1.c ****              (ADC_DelSig_1_CFG4_RESOLUTION == ADC_DelSig_1__BITS_16) )
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
 1226:Generated_Source\PSoC5/ADC_DelSig_1.c **** 
 1227:Generated_Source\PSoC5/ADC_DelSig_1.c **** /*******************************************************************************
 1228:Generated_Source\PSoC5/ADC_DelSig_1.c **** * Function Name: ADC_DelSig_1_InitConfig(uint8 config)
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 23
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 23
 
 
 1229:Generated_Source\PSoC5/ADC_DelSig_1.c **** ********************************************************************************
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
 1283:Generated_Source\PSoC5/ADC_DelSig_1.c ****         ADC_DelSig_1_DSM_BUF2_REG    = ADC_DelSig_1_CFG1_DSM_BUF2;
 1284:Generated_Source\PSoC5/ADC_DelSig_1.c ****         ADC_DelSig_1_DSM_BUF3_REG    = ADC_DelSig_1_CFG1_DSM_BUF3;
 1285:Generated_Source\PSoC5/ADC_DelSig_1.c **** 
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 24
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 24
 
 
 1286:Generated_Source\PSoC5/ADC_DelSig_1.c ****         /* To select either Vssa or Vref to -ve input of DSM depending on
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
 1340:Generated_Source\PSoC5/ADC_DelSig_1.c ****             ADC_DelSig_1_DSM_CR11_REG    = ADC_DelSig_1_CFG2_DSM_CR11;
 1341:Generated_Source\PSoC5/ADC_DelSig_1.c ****             ADC_DelSig_1_DSM_CR12_REG    = ADC_DelSig_1_CFG2_DSM_CR12;
 1342:Generated_Source\PSoC5/ADC_DelSig_1.c ****             ADC_DelSig_1_DSM_CR14_REG    = ADC_DelSig_1_CFG2_DSM_CR14;
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 25
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 25
 
 
 1343:Generated_Source\PSoC5/ADC_DelSig_1.c ****             ADC_DelSig_1_DSM_CR15_REG    = ADC_DelSig_1_CFG2_DSM_CR15;
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
 1397:Generated_Source\PSoC5/ADC_DelSig_1.c ****             ADC_DelSig_1_DEC_SHIFT1_REG  = ADC_DelSig_1_CFG3_DEC_SHIFT1;
 1398:Generated_Source\PSoC5/ADC_DelSig_1.c ****             ADC_DelSig_1_DEC_SHIFT2_REG  = ADC_DelSig_1_CFG3_DEC_SHIFT2;
 1399:Generated_Source\PSoC5/ADC_DelSig_1.c ****             ADC_DelSig_1_DEC_DR2_REG     = ADC_DelSig_1_CFG3_DEC_DR2;
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 26
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 26
 
 
 1400:Generated_Source\PSoC5/ADC_DelSig_1.c ****             ADC_DelSig_1_DEC_DR2H_REG    = ADC_DelSig_1_CFG3_DEC_DR2H;
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
 1454:Generated_Source\PSoC5/ADC_DelSig_1.c **** 
 1455:Generated_Source\PSoC5/ADC_DelSig_1.c ****             #if(ADC_DelSig_1_IRQ_REMOVE == 0u)
 1456:Generated_Source\PSoC5/ADC_DelSig_1.c ****                 /* Set interrupt vector */
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 27
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 27
 
 
 1457:Generated_Source\PSoC5/ADC_DelSig_1.c ****                 (void)CyIntSetVector(ADC_DelSig_1_INTC_NUMBER, &ADC_DelSig_1_ISR3);
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
 1511:Generated_Source\PSoC5/ADC_DelSig_1.c ****             #if(ADC_DelSig_1_CFG4_RESOLUTION > 16 && \
 1512:Generated_Source\PSoC5/ADC_DelSig_1.c ****                 ADC_DelSig_1_CFG4_CONV_MODE == ADC_DelSig_1_MODE_SINGLE_SAMPLE)
 1513:Generated_Source\PSoC5/ADC_DelSig_1.c ****                 ADC_DelSig_1_stopConversion = 1u;
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 28
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 28
 
 
 1514:Generated_Source\PSoC5/ADC_DelSig_1.c ****             #endif /* Single sample with resolution above 16 bits */
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
 1568:Generated_Source\PSoC5/ADC_DelSig_1.c **** 		*/
 1569:Generated_Source\PSoC5/ADC_DelSig_1.c ****         if(ADC_DelSig_1_initVar == 0u)
 1570:Generated_Source\PSoC5/ADC_DelSig_1.c ****         {
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 29
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 29
 
 
 1571:Generated_Source\PSoC5/ADC_DelSig_1.c ****             ADC_DelSig_1_started = 1u;
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
 1625:Generated_Source\PSoC5/ADC_DelSig_1.c **** static void ADC_DelSig_1_GainCompensation(uint8 inputRange, uint16 idealDecGain, uint16 idealOddDec
 1626:Generated_Source\PSoC5/ADC_DelSig_1.c ****                               uint8 resolution, uint8 config) 
 1627:Generated_Source\PSoC5/ADC_DelSig_1.c **** {
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 30
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 30
 
 
   27              		.loc 1 1627 0
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
   66              		.loc 1 1642 0
   67 0026 2548     		ldr	r0, .L18
   68 0028 0078     		ldrb	r0, [r0]	@ zero_extendqisi2
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 31
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 31
 
 
   69 002a 40B2     		sxtb	r0, r0
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  101              		.loc 1 1664 0
  102 004a 0F2B     		cmp	r3, #15
  103 004c 03D9     		bls	.L11
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 32
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 32
 
 
 1665:Generated_Source\PSoC5/ADC_DelSig_1.c ****                 {
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
 1684:Generated_Source\PSoC5/ADC_DelSig_1.c ****                 break;
 1685:Generated_Source\PSoC5/ADC_DelSig_1.c **** 
 1686:Generated_Source\PSoC5/ADC_DelSig_1.c ****             default:
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 33
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 33
 
 
 1687:Generated_Source\PSoC5/ADC_DelSig_1.c ****                 flash = 0;
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
 1704:Generated_Source\PSoC5/ADC_DelSig_1.c ****             ADC_DelSig_1_gcor[config - 1u].gval = ADC_DelSig_1_MAX_GVAL;
  176              		.loc 1 1704 0
  177 009c 631E     		subs	r3, r4, #1
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 34
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 34
 
 
  178              	.LVL29:
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
 1716:Generated_Source\PSoC5/ADC_DelSig_1.c **** 
 1717:Generated_Source\PSoC5/ADC_DelSig_1.c **** 
 1718:Generated_Source\PSoC5/ADC_DelSig_1.c **** /******************************************************************************
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 35
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 35
 
 
 1719:Generated_Source\PSoC5/ADC_DelSig_1.c **** * Function Name: ADC_DelSig_1_SetDSMRef0Reg(uint8)
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
 1741:Generated_Source\PSoC5/ADC_DelSig_1.c **** 
 1742:Generated_Source\PSoC5/ADC_DelSig_1.c ****     /* Wait for 3 microseconds */
 1743:Generated_Source\PSoC5/ADC_DelSig_1.c ****     CyDelayUs(ADC_DelSig_1_PRES_DELAY_TIME);
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 36
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 36
 
 
  253              		.loc 1 1743 0
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
 1249:Generated_Source\PSoC5/ADC_DelSig_1.c **** 
  301              		.loc 1 1249 0
  302 0004 0022     		movs	r2, #0
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 37
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 37
 
 
  303 0006 C14B     		ldr	r3, .L30
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  345 0042 5022     		movs	r2, #80
  346 0044 03F52763 		add	r3, r3, #2672
  347 0048 1A70     		strb	r2, [r3]
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 38
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 38
 
 
 1266:Generated_Source\PSoC5/ADC_DelSig_1.c ****         ADC_DelSig_1_DSM_CR6_REG     = ADC_DelSig_1_CFG1_DSM_CR6;
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  390              		.loc 1 1278 0
  391 0086 5822     		movs	r2, #88
  392 0088 A24B     		ldr	r3, .L30+8
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 39
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 39
 
 
  393 008a 1A70     		strb	r2, [r3]
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  436 00ca 5DD1     		bne	.L26
 1324:Generated_Source\PSoC5/ADC_DelSig_1.c ****             ADC_DelSig_1_DEC_SHIFT1_REG  = ADC_DelSig_1_CFG2_DEC_SHIFT1;
  437              		.loc 1 1324 0
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 40
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 40
 
 
  438 00cc 3822     		movs	r2, #56
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
 1337:Generated_Source\PSoC5/ADC_DelSig_1.c ****             ADC_DelSig_1_DSM_CR7_REG     = ADC_DelSig_1_CFG2_DSM_CR7;
  481              		.loc 1 1337 0
  482 010e 2C22     		movs	r2, #44
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 41
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 41
 
 
  483 0110 0133     		adds	r3, r3, #1
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
 1351:Generated_Source\PSoC5/ADC_DelSig_1.c ****             ADC_DelSig_1_DSM_BUF1_REG    = ADC_DelSig_1_CFG2_DSM_BUF1;
  526              		.loc 1 1351 0
  527 0150 0533     		adds	r3, r3, #5
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 42
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 42
 
 
  528 0152 1F70     		strb	r7, [r3]
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  571 0192 0422     		movs	r2, #4
  572 0194 0233     		adds	r3, r3, #2
  573 0196 1A70     		strb	r2, [r3]
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 43
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 43
 
 
 1398:Generated_Source\PSoC5/ADC_DelSig_1.c ****             ADC_DelSig_1_DEC_DR2_REG     = ADC_DelSig_1_CFG3_DEC_DR2;
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  616 01d6 1D70     		strb	r5, [r3]
 1411:Generated_Source\PSoC5/ADC_DelSig_1.c ****             ADC_DelSig_1_DSM_CR11_REG    = ADC_DelSig_1_CFG3_DSM_CR11;
  617              		.loc 1 1411 0
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 44
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 44
 
 
  618 01d8 5522     		movs	r2, #85
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  661 0218 1A70     		strb	r2, [r3]
 1425:Generated_Source\PSoC5/ADC_DelSig_1.c ****             ADC_DelSig_1_DSM_BUF3_REG    = ADC_DelSig_1_CFG3_DSM_BUF3;
  662              		.loc 1 1425 0
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 45
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 45
 
 
  663 021a 0133     		adds	r3, r3, #1
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
 1469:Generated_Source\PSoC5/ADC_DelSig_1.c ****             ADC_DelSig_1_DEC_DR2H_REG    = ADC_DelSig_1_CFG4_DEC_DR2H;
  707              		.loc 1 1469 0
  708 025e 0024     		movs	r4, #0
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 46
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 46
 
 
  709 0260 0133     		adds	r3, r3, #1
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  751 029e 5A22     		movs	r2, #90
  752 02a0 0133     		adds	r3, r3, #1
  753 02a2 1A70     		strb	r2, [r3]
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 47
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 47
 
 
 1483:Generated_Source\PSoC5/ADC_DelSig_1.c ****             ADC_DelSig_1_DSM_CR14_REG    = ADC_DelSig_1_CFG4_DSM_CR14;
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  796 02e0 1C70     		strb	r4, [r3]
 1505:Generated_Source\PSoC5/ADC_DelSig_1.c ****                 #endif /* ADC_DelSig_1_IR_VSSA_TO_2VREF) */
  797              		.loc 1 1505 0
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 48
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 48
 
 
  798 02e2 2046     		mov	r0, r4
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  847              		@ frame_needed = 0, uses_anonymous_args = 0
  848 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
  849              		.cfi_def_cfa_offset 24
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 49
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 49
 
 
  850              		.cfi_offset 4, -24
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  894              		.loc 1 114 0
  895 0042 2E4B     		ldr	r3, .L34+16
  896 0044 1C70     		strb	r4, [r3]
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 50
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 50
 
 
  116:Generated_Source\PSoC5/ADC_DelSig_1.c ****     ADC_DelSig_1_DSM_OUT1_REG    = ADC_DelSig_1_CFG1_DSM_OUT1;
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  940 0092 4FF40042 		mov	r2, #32768
  941 0096 49F2DA01 		movw	r1, #37082
  942 009a 2046     		mov	r0, r4
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 51
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 51
 
 
  943 009c FFF7FEFF 		bl	ADC_DelSig_1_GainCompensation
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  991 00fc 93580040 		.word	1073764499
  992 0100 0E4E0040 		.word	1073761806
  993 0104 0C4E0040 		.word	1073761804
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 52
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 52
 
 
  994              		.cfi_endproc
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  1041 002e 1A70     		strb	r2, [r3]
  204:Generated_Source\PSoC5/ADC_DelSig_1.c ****     ADC_DelSig_1_RESET_CR5_REG |= ADC_DelSig_1_IGNORE_PRESA2;
  1042              		.loc 1 204 0
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 53
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 53
 
 
  1043 0030 224D     		ldr	r5, .L38+8
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  292:Generated_Source\PSoC5/ADC_DelSig_1.c ****     ADC_DelSig_1_STBY_PWRMGR_CHARGE_PUMP_CLK_REG |= ADC_DelSig_1_STBY_PWR_CHARGE_PUMP_CLK_EN;
  1088              		.loc 1 292 0
  1089 0088 0F3A     		subs	r2, r2, #15
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 54
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 54
 
 
  1090 008a 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  1139              		.cfi_def_cfa_offset 8
  1140              		.cfi_offset 3, -8
  1141              		.cfi_offset 14, -4
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 55
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 55
 
 
  336:Generated_Source\PSoC5/ADC_DelSig_1.c ****     {
@@ -3298,7 +3298,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  1189              		.loc 1 370 0
  1190 0002 FFF7FEFF 		bl	CyEnterCriticalSection
  1191              	.LVL79:
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 56
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 56
 
 
  1192 0006 0646     		mov	r6, r0
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  1236              		.loc 1 392 0
  1237 005c 1F4B     		ldr	r3, .L48+12
  1238 005e 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 57
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 57
 
 
  1239 0060 02F0EF02 		and	r2, r2, #239
@@ -3418,7 +3418,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  1284 00c0 03F0FE03 		and	r3, r3, #254
  1285 00c4 1370     		strb	r3, [r2]
  416:Generated_Source\PSoC5/ADC_DelSig_1.c **** }
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 58
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 58
 
 
  1286              		.loc 1 416 0
@@ -3478,7 +3478,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  1336              	.LFE4:
  1337              		.size	ADC_DelSig_1_SetBufferGain, .-ADC_DelSig_1_SetBufferGain
  1338              		.section	.text.ADC_DelSig_1_SetCoherency,"ax",%progbits
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 59
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 59
 
 
  1339              		.align	2
@@ -3538,7 +3538,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  1388              		@ frame_needed = 0, uses_anonymous_args = 0
  1389              	.LVL92:
  1390 0000 10B5     		push	{r4, lr}
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 60
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 60
 
 
  1391              		.cfi_def_cfa_offset 8
@@ -3598,7 +3598,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  1437 0048 074B     		ldr	r3, .L60+8
  1438 004a 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
  1439 004c 013B     		subs	r3, r3, #1
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 61
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 61
 
 
  1440 004e 074A     		ldr	r2, .L60+12
@@ -3658,7 +3658,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  1488              	.LVL110:
  565:Generated_Source\PSoC5/ADC_DelSig_1.c ****     {
  1489              		.loc 1 565 0
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 62
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 62
 
 
  1490 000c 0E2B     		cmp	r3, #14
@@ -3718,7 +3718,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  1540              		.thumb_func
  1541              		.type	ADC_DelSig_1_StopConvert, %function
  1542              	ADC_DelSig_1_StopConvert:
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 63
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 63
 
 
  1543              	.LFB9:
@@ -3778,7 +3778,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  1591 0012 064B     		ldr	r3, .L77+4
  1592 0014 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
  1593 0016 03F00103 		and	r3, r3, #1
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 64
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 64
 
 
  1594              	.LVL117:
@@ -3838,7 +3838,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  708:Generated_Source\PSoC5/ADC_DelSig_1.c ****     }
  1641              		.loc 1 708 0
  1642 0012 0A4B     		ldr	r3, .L83+8
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 65
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 65
 
 
  1643              	.LVL121:
@@ -3898,7 +3898,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  1691              		@ link register save eliminated.
  756:Generated_Source\PSoC5/ADC_DelSig_1.c **** 
  1692              		.loc 1 756 0
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 66
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 66
 
 
  1693 0000 0E4B     		ldr	r3, .L89
@@ -3958,7 +3958,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  1738 003a 7047     		bx	lr
  1739              	.L90:
  1740              		.align	2
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 67
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 67
 
 
  1741              	.L89:
@@ -4018,7 +4018,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  1788              		.loc 1 846 0
  1789 0020 0E4B     		ldr	r3, .L96+4
  1790              	.LVL136:
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 68
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 68
 
 
  1791 0022 1888     		ldrh	r0, [r3]
@@ -4078,7 +4078,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  1838              		.cfi_endproc
  1839              	.LFE13:
  1840              		.size	ADC_DelSig_1_GetResult32, .-ADC_DelSig_1_GetResult32
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 69
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 69
 
 
  1841              		.section	.text.ADC_DelSig_1_SetOffset,"ax",%progbits
@@ -4138,7 +4138,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  1891              		.section	.text.ADC_DelSig_1_CountsTo_mVolts,"ax",%progbits
  1892              		.align	2
  1893              		.global	ADC_DelSig_1_CountsTo_mVolts
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 70
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 70
 
 
  1894              		.thumb
@@ -4198,7 +4198,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  1943              	.LVL150:
  1944 0000 10B5     		push	{r4, lr}
  1945              		.cfi_def_cfa_offset 8
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 71
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 71
 
 
  1946              		.cfi_offset 4, -8
@@ -4258,7 +4258,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  1995 0008 06D0     		beq	.L112
 1109:Generated_Source\PSoC5/ADC_DelSig_1.c ****     {
  1996              		.loc 1 1109 0
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 72
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 72
 
 
  1997 000a 0D4B     		ldr	r3, .L114
@@ -4318,7 +4318,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
 1562:Generated_Source\PSoC5/ADC_DelSig_1.c ****     /* Check whether the configuration number is valid or not */
  2047              		.loc 1 1562 0
  2048              		.cfi_startproc
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 73
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 73
 
 
  2049              		@ args = 0, pretend = 0, frame = 0
@@ -4378,7 +4378,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
 1587:Generated_Source\PSoC5/ADC_DelSig_1.c ****         {
  2095              		.loc 1 1587 0
  2096 003e 012D     		cmp	r5, #1
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 74
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 74
 
 
  2097 0040 07D1     		bne	.L116
@@ -4438,7 +4438,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
 1765:Generated_Source\PSoC5/ADC_DelSig_1.c **** *
 1766:Generated_Source\PSoC5/ADC_DelSig_1.c **** * Return:
 1767:Generated_Source\PSoC5/ADC_DelSig_1.c **** *  int8:  ADC result.
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 75
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 75
 
 
 1768:Generated_Source\PSoC5/ADC_DelSig_1.c **** *
@@ -4498,7 +4498,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  2171              		.section	.text.ADC_DelSig_1_Read16,"ax",%progbits
  2172              		.align	2
  2173              		.global	ADC_DelSig_1_Read16
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 76
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 76
 
 
  2174              		.thumb
@@ -4558,7 +4558,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  2199              		.loc 1 1811 0
  2200 0016 FFF7FEFF 		bl	ADC_DelSig_1_GetResult16
  2201              	.LVL178:
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 77
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 77
 
 
  2202 001a 0446     		mov	r4, r0
@@ -4618,7 +4618,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  2230 0000 10B5     		push	{r4, lr}
  2231              		.cfi_def_cfa_offset 8
  2232              		.cfi_offset 4, -8
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 78
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 78
 
 
  2233              		.cfi_offset 14, -4
@@ -4678,7 +4678,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  2276              	ADC_DelSig_1_Config:
  2277 0000 01       		.byte	1
  2278              		.bss
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 79
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 79
 
 
  2279              		.align	2
@@ -4725,48 +4725,48 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  2317 0006 00000000 		.4byte	.Ldebug_abbrev0
  2318 000a 04       		.byte	0x4
  2319 000b 01       		.uleb128 0x1
- 2320 000c 13040000 		.4byte	.LASF101
+ 2320 000c 16040000 		.4byte	.LASF101
  2321 0010 0C       		.byte	0xc
- 2322 0011 FB050000 		.4byte	.LASF102
- 2323 0015 93000000 		.4byte	.LASF103
+ 2322 0011 FE050000 		.4byte	.LASF102
+ 2323 0015 22010000 		.4byte	.LASF103
  2324 0019 00000000 		.4byte	.Ldebug_ranges0+0
  2325 001d 00000000 		.4byte	0
  2326 0021 00000000 		.4byte	.Ldebug_line0
  2327 0025 02       		.uleb128 0x2
  2328 0026 04       		.byte	0x4
  2329 0027 04       		.byte	0x4
- 2330 0028 88030000 		.4byte	.LASF0
+ 2330 0028 8B030000 		.4byte	.LASF0
  2331 002c 02       		.uleb128 0x2
  2332 002d 01       		.byte	0x1
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 80
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 80
 
 
  2333 002e 06       		.byte	0x6
- 2334 002f 3F010000 		.4byte	.LASF1
+ 2334 002f F3000000 		.4byte	.LASF1
  2335 0033 02       		.uleb128 0x2
  2336 0034 01       		.byte	0x1
  2337 0035 08       		.byte	0x8
- 2338 0036 DC030000 		.4byte	.LASF2
+ 2338 0036 DF030000 		.4byte	.LASF2
  2339 003a 02       		.uleb128 0x2
  2340 003b 02       		.byte	0x2
  2341 003c 05       		.byte	0x5
- 2342 003d 01040000 		.4byte	.LASF3
+ 2342 003d 04040000 		.4byte	.LASF3
  2343 0041 02       		.uleb128 0x2
  2344 0042 02       		.byte	0x2
  2345 0043 07       		.byte	0x7
- 2346 0044 1C020000 		.4byte	.LASF4
+ 2346 0044 1F020000 		.4byte	.LASF4
  2347 0048 02       		.uleb128 0x2
  2348 0049 04       		.byte	0x4
  2349 004a 05       		.byte	0x5
- 2350 004b 65010000 		.4byte	.LASF5
+ 2350 004b 19010000 		.4byte	.LASF5
  2351 004f 02       		.uleb128 0x2
  2352 0050 04       		.byte	0x4
  2353 0051 07       		.byte	0x7
- 2354 0052 DE010000 		.4byte	.LASF6
+ 2354 0052 E1010000 		.4byte	.LASF6
  2355 0056 02       		.uleb128 0x2
  2356 0057 08       		.byte	0x8
  2357 0058 05       		.byte	0x5
- 2358 0059 31010000 		.4byte	.LASF7
+ 2358 0059 E5000000 		.4byte	.LASF7
  2359 005d 02       		.uleb128 0x2
  2360 005e 08       		.byte	0x8
  2361 005f 07       		.byte	0x7
@@ -4778,9 +4778,9 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  2367 006b 02       		.uleb128 0x2
  2368 006c 04       		.byte	0x4
  2369 006d 07       		.byte	0x7
- 2370 006e B5010000 		.4byte	.LASF9
+ 2370 006e B8010000 		.4byte	.LASF9
  2371 0072 04       		.uleb128 0x4
- 2372 0073 74010000 		.4byte	.LASF10
+ 2372 0073 77010000 		.4byte	.LASF10
  2373 0077 02       		.byte	0x2
  2374 0078 E401     		.2byte	0x1e4
  2375 007a 33000000 		.4byte	0x33
@@ -4790,57 +4790,57 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  2379 0084 E501     		.2byte	0x1e5
  2380 0086 41000000 		.4byte	0x41
  2381 008a 04       		.uleb128 0x4
- 2382 008b 91010000 		.4byte	.LASF12
+ 2382 008b 94010000 		.4byte	.LASF12
  2383 008f 02       		.byte	0x2
  2384 0090 E601     		.2byte	0x1e6
  2385 0092 4F000000 		.4byte	0x4f
  2386 0096 04       		.uleb128 0x4
- 2387 0097 2F020000 		.4byte	.LASF13
+ 2387 0097 32020000 		.4byte	.LASF13
  2388 009b 02       		.byte	0x2
  2389 009c E701     		.2byte	0x1e7
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 81
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 81
 
 
  2390 009e 2C000000 		.4byte	0x2c
  2391 00a2 04       		.uleb128 0x4
- 2392 00a3 46060000 		.4byte	.LASF14
+ 2392 00a3 49060000 		.4byte	.LASF14
  2393 00a7 02       		.byte	0x2
  2394 00a8 E801     		.2byte	0x1e8
  2395 00aa 3A000000 		.4byte	0x3a
  2396 00ae 04       		.uleb128 0x4
- 2397 00af 4B010000 		.4byte	.LASF15
+ 2397 00af FF000000 		.4byte	.LASF15
  2398 00b3 02       		.byte	0x2
  2399 00b4 E901     		.2byte	0x1e9
  2400 00b6 48000000 		.4byte	0x48
  2401 00ba 04       		.uleb128 0x4
- 2402 00bb 98020000 		.4byte	.LASF16
+ 2402 00bb 9B020000 		.4byte	.LASF16
  2403 00bf 02       		.byte	0x2
  2404 00c0 EA01     		.2byte	0x1ea
  2405 00c2 25000000 		.4byte	0x25
  2406 00c6 02       		.uleb128 0x2
  2407 00c7 08       		.byte	0x8
  2408 00c8 04       		.byte	0x4
- 2409 00c9 84010000 		.4byte	.LASF17
+ 2409 00c9 87010000 		.4byte	.LASF17
  2410 00cd 02       		.uleb128 0x2
  2411 00ce 01       		.byte	0x1
  2412 00cf 08       		.byte	0x8
- 2413 00d0 EB040000 		.4byte	.LASF18
+ 2413 00d0 EE040000 		.4byte	.LASF18
  2414 00d4 04       		.uleb128 0x4
- 2415 00d5 B8030000 		.4byte	.LASF19
+ 2415 00d5 BB030000 		.4byte	.LASF19
  2416 00d9 02       		.byte	0x2
  2417 00da 8E02     		.2byte	0x28e
  2418 00dc E0000000 		.4byte	0xe0
  2419 00e0 05       		.uleb128 0x5
  2420 00e1 72000000 		.4byte	0x72
  2421 00e5 04       		.uleb128 0x4
- 2422 00e6 6E010000 		.4byte	.LASF20
+ 2422 00e6 71010000 		.4byte	.LASF20
  2423 00ea 02       		.byte	0x2
  2424 00eb 8F02     		.2byte	0x28f
  2425 00ed F1000000 		.4byte	0xf1
  2426 00f1 05       		.uleb128 0x5
  2427 00f2 7E000000 		.4byte	0x7e
  2428 00f6 04       		.uleb128 0x4
- 2429 00f7 76020000 		.4byte	.LASF21
+ 2429 00f7 79020000 		.4byte	.LASF21
  2430 00fb 02       		.byte	0x2
  2431 00fc 9002     		.2byte	0x290
  2432 00fe 02010000 		.4byte	0x102
@@ -4849,16 +4849,16 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  2435 0107 02       		.uleb128 0x2
  2436 0108 08       		.byte	0x8
  2437 0109 04       		.byte	0x4
- 2438 010a D8020000 		.4byte	.LASF22
+ 2438 010a DB020000 		.4byte	.LASF22
  2439 010e 02       		.uleb128 0x2
  2440 010f 04       		.byte	0x4
  2441 0110 07       		.byte	0x7
- 2442 0111 B9020000 		.4byte	.LASF23
+ 2442 0111 BC020000 		.4byte	.LASF23
  2443 0115 06       		.uleb128 0x6
  2444 0116 04       		.byte	0x4
  2445 0117 03       		.byte	0x3
  2446 0118 2F       		.byte	0x2f
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 82
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 82
 
 
  2447 0119 36010000 		.4byte	0x136
@@ -4869,19 +4869,19 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  2452 0124 7E000000 		.4byte	0x7e
  2453 0128 00       		.byte	0
  2454 0129 07       		.uleb128 0x7
- 2455 012a 2C050000 		.4byte	.LASF25
+ 2455 012a 2F050000 		.4byte	.LASF25
  2456 012e 03       		.byte	0x3
  2457 012f 32       		.byte	0x32
  2458 0130 72000000 		.4byte	0x72
  2459 0134 02       		.byte	0x2
  2460 0135 00       		.byte	0
  2461 0136 08       		.uleb128 0x8
- 2462 0137 6F030000 		.4byte	.LASF26
+ 2462 0137 72030000 		.4byte	.LASF26
  2463 013b 03       		.byte	0x3
  2464 013c 33       		.byte	0x33
  2465 013d 15010000 		.4byte	0x115
  2466 0141 09       		.uleb128 0x9
- 2467 0142 93050000 		.4byte	.LASF36
+ 2467 0142 96050000 		.4byte	.LASF36
  2468 0146 01       		.byte	0x1
  2469 0147 5906     		.2byte	0x659
  2470 0149 00000000 		.4byte	.LFB21
@@ -4896,52 +4896,52 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  2479 015f 72000000 		.4byte	0x72
  2480 0163 00000000 		.4byte	.LLST0
  2481 0167 0A       		.uleb128 0xa
- 2482 0168 BD030000 		.4byte	.LASF28
+ 2482 0168 C0030000 		.4byte	.LASF28
  2483 016c 01       		.byte	0x1
  2484 016d 5906     		.2byte	0x659
  2485 016f 7E000000 		.4byte	0x7e
  2486 0173 3A000000 		.4byte	.LLST1
  2487 0177 0A       		.uleb128 0xa
- 2488 0178 F1000000 		.4byte	.LASF29
+ 2488 0178 A5000000 		.4byte	.LASF29
  2489 017c 01       		.byte	0x1
  2490 017d 5906     		.2byte	0x659
  2491 017f 7E000000 		.4byte	0x7e
  2492 0183 74000000 		.4byte	.LLST2
  2493 0187 0A       		.uleb128 0xa
- 2494 0188 BB040000 		.4byte	.LASF30
+ 2494 0188 BE040000 		.4byte	.LASF30
  2495 018c 01       		.byte	0x1
  2496 018d 5A06     		.2byte	0x65a
  2497 018f 72000000 		.4byte	0x72
  2498 0193 AE000000 		.4byte	.LLST3
  2499 0197 0A       		.uleb128 0xa
- 2500 0198 25050000 		.4byte	.LASF31
+ 2500 0198 28050000 		.4byte	.LASF31
  2501 019c 01       		.byte	0x1
  2502 019d 5A06     		.2byte	0x65a
  2503 019f 72000000 		.4byte	0x72
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 83
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 83
 
 
  2504 01a3 01010000 		.4byte	.LLST4
  2505 01a7 0B       		.uleb128 0xb
- 2506 01a8 70020000 		.4byte	.LASF32
+ 2506 01a8 73020000 		.4byte	.LASF32
  2507 01ac 01       		.byte	0x1
  2508 01ad 5C06     		.2byte	0x65c
  2509 01af 96000000 		.4byte	0x96
  2510 01b3 2D010000 		.4byte	.LLST5
  2511 01b7 0B       		.uleb128 0xb
- 2512 01b8 CA030000 		.4byte	.LASF33
+ 2512 01b8 CD030000 		.4byte	.LASF33
  2513 01bc 01       		.byte	0x1
  2514 01bd 5D06     		.2byte	0x65d
  2515 01bf AE000000 		.4byte	0xae
  2516 01c3 A3010000 		.4byte	.LLST6
  2517 01c7 0B       		.uleb128 0xb
- 2518 01c8 34020000 		.4byte	.LASF34
+ 2518 01c8 37020000 		.4byte	.LASF34
  2519 01cc 01       		.byte	0x1
  2520 01cd 5E06     		.2byte	0x65e
  2521 01cf 7E000000 		.4byte	0x7e
  2522 01d3 B6010000 		.4byte	.LLST7
  2523 01d7 0B       		.uleb128 0xb
- 2524 01d8 0B040000 		.4byte	.LASF35
+ 2524 01d8 0E040000 		.4byte	.LASF35
  2525 01dc 01       		.byte	0x1
  2526 01dd 5F06     		.2byte	0x65f
  2527 01df 8A000000 		.4byte	0x8a
@@ -4957,7 +4957,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  2537 01f5 00       		.byte	0
  2538 01f6 00       		.byte	0
  2539 01f7 09       		.uleb128 0x9
- 2540 01f8 42050000 		.4byte	.LASF37
+ 2540 01f8 45050000 		.4byte	.LASF37
  2541 01fc 01       		.byte	0x1
  2542 01fd C406     		.2byte	0x6c4
  2543 01ff 00000000 		.4byte	.LFB22
@@ -4966,19 +4966,19 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  2546 0208 9C       		.byte	0x9c
  2547 0209 5A020000 		.4byte	0x25a
  2548 020d 0A       		.uleb128 0xa
- 2549 020e A7010000 		.4byte	.LASF38
+ 2549 020e AA010000 		.4byte	.LASF38
  2550 0212 01       		.byte	0x1
  2551 0213 C406     		.2byte	0x6c4
  2552 0215 72000000 		.4byte	0x72
  2553 0219 F2010000 		.4byte	.LLST9
  2554 021d 0B       		.uleb128 0xb
- 2555 021e B1050000 		.4byte	.LASF39
+ 2555 021e B4050000 		.4byte	.LASF39
  2556 0222 01       		.byte	0x1
  2557 0223 C606     		.2byte	0x6c6
  2558 0225 72000000 		.4byte	0x72
  2559 0229 13020000 		.4byte	.LLST10
  2560 022d 0E       		.uleb128 0xe
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 84
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 84
 
 
  2561 022e 08000000 		.4byte	.LVL36
@@ -5005,7 +5005,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  2582 0258 00       		.byte	0
  2583 0259 00       		.byte	0
  2584 025a 09       		.uleb128 0x9
- 2585 025b 01010000 		.4byte	.LASF40
+ 2585 025b B5000000 		.4byte	.LASF40
  2586 025f 01       		.byte	0x1
  2587 0260 DF04     		.2byte	0x4df
  2588 0262 00000000 		.4byte	.LFB19
@@ -5014,7 +5014,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  2591 026b 9C       		.byte	0x9c
  2592 026c 39040000 		.4byte	0x439
  2593 0270 0A       		.uleb128 0xa
- 2594 0271 25050000 		.4byte	.LASF31
+ 2594 0271 28050000 		.4byte	.LASF31
  2595 0275 01       		.byte	0x1
  2596 0276 DF04     		.2byte	0x4df
  2597 0278 72000000 		.4byte	0x72
@@ -5038,7 +5038,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  2615 02a2 01       		.uleb128 0x1
  2616 02a3 50       		.byte	0x50
  2617 02a4 02       		.uleb128 0x2
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 85
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 85
 
 
  2618 02a5 75       		.byte	0x75
@@ -5098,7 +5098,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  2672 02ff 02       		.uleb128 0x2
  2673 0300 08       		.byte	0x8
  2674 0301 44       		.byte	0x44
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 86
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 86
 
 
  2675 0302 00       		.byte	0
@@ -5158,7 +5158,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  2729 035c 4D       		.byte	0x4d
  2730 035d 00       		.byte	0
  2731 035e 0F       		.uleb128 0xf
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 87
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 87
 
 
  2732 035f 06020000 		.4byte	.LVL53
@@ -5218,7 +5218,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  2786 03b9 00       		.byte	0
  2787 03ba 0F       		.uleb128 0xf
  2788 03bb 48020000 		.4byte	.LVL57
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 88
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 88
 
 
  2789 03bf C20B0000 		.4byte	0xbc2
@@ -5278,7 +5278,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  2843 041f 02       		.uleb128 0x2
  2844 0420 08       		.byte	0x8
  2845 0421 25       		.byte	0x25
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 89
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 89
 
 
  2846 0422 0D       		.uleb128 0xd
@@ -5299,7 +5299,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  2861 0437 00       		.byte	0
  2862 0438 00       		.byte	0
  2863 0439 10       		.uleb128 0x10
- 2864 043a E4020000 		.4byte	.LASF41
+ 2864 043a E7020000 		.4byte	.LASF41
  2865 043e 01       		.byte	0x1
  2866 043f 5B       		.byte	0x5b
  2867 0440 00000000 		.4byte	.LFB0
@@ -5338,7 +5338,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  2900 0485 4D       		.byte	0x4d
  2901 0486 0D       		.uleb128 0xd
  2902 0487 01       		.uleb128 0x1
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 90
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 90
 
 
  2903 0488 51       		.byte	0x51
@@ -5398,7 +5398,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  2957 04d2 DA90     		.2byte	0x90da
  2958 04d4 0D       		.uleb128 0xd
  2959 04d5 01       		.uleb128 0x1
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 91
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 91
 
 
  2960 04d6 52       		.byte	0x52
@@ -5458,7 +5458,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  3014 0521 0D       		.uleb128 0xd
  3015 0522 01       		.uleb128 0x1
  3016 0523 50       		.byte	0x50
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 92
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 92
 
 
  3017 0524 02       		.uleb128 0x2
@@ -5503,12 +5503,12 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  3056 055c 9C       		.byte	0x9c
  3057 055d A8050000 		.4byte	0x5a8
  3058 0561 11       		.uleb128 0x11
- 3059 0562 25050000 		.4byte	.LASF31
+ 3059 0562 28050000 		.4byte	.LASF31
  3060 0566 01       		.byte	0x1
  3061 0567 BC       		.byte	0xbc
  3062 0568 72000000 		.4byte	0x72
  3063 056c 12       		.uleb128 0x12
- 3064 056d B1050000 		.4byte	.LASF39
+ 3064 056d B4050000 		.4byte	.LASF39
  3065 0571 01       		.byte	0x1
  3066 0572 BD       		.byte	0xbd
  3067 0573 72000000 		.4byte	0x72
@@ -5518,7 +5518,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  3071 0580 800B0000 		.4byte	0xb80
  3072 0584 0F       		.uleb128 0xf
  3073 0585 54000000 		.4byte	.LVL74
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 93
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 93
 
 
  3074 0589 8B0B0000 		.4byte	0xb8b
@@ -5541,7 +5541,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  3091 05a6 00       		.byte	0
  3092 05a7 00       		.byte	0
  3093 05a8 13       		.uleb128 0x13
- 3094 05a9 33060000 		.4byte	.LASF43
+ 3094 05a9 36060000 		.4byte	.LASF43
  3095 05ad 01       		.byte	0x1
  3096 05ae 4E01     		.2byte	0x14e
  3097 05b0 00000000 		.4byte	.LFB2
@@ -5557,7 +5557,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  3107 05cc 4C050000 		.4byte	0x54c
  3108 05d0 00       		.byte	0
  3109 05d1 13       		.uleb128 0x13
- 3110 05d2 DF000000 		.4byte	.LASF44
+ 3110 05d2 93000000 		.4byte	.LASF44
  3111 05d6 01       		.byte	0x1
  3112 05d7 6F01     		.2byte	0x16f
  3113 05d9 00000000 		.4byte	.LFB3
@@ -5566,7 +5566,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  3116 05e2 9C       		.byte	0x9c
  3117 05e3 24060000 		.4byte	0x624
  3118 05e7 0B       		.uleb128 0xb
- 3119 05e8 B1050000 		.4byte	.LASF39
+ 3119 05e8 B4050000 		.4byte	.LASF39
  3120 05ec 01       		.byte	0x1
  3121 05ed 7101     		.2byte	0x171
  3122 05ef 72000000 		.4byte	0x72
@@ -5578,7 +5578,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  3128 0601 4C000000 		.4byte	.LVL81
  3129 0605 8B0B0000 		.4byte	0xb8b
  3130 0609 13060000 		.4byte	0x613
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 94
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 94
 
 
  3131 060d 0D       		.uleb128 0xd
@@ -5599,7 +5599,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  3146 0622 00       		.byte	0
  3147 0623 00       		.byte	0
  3148 0624 13       		.uleb128 0x13
- 3149 0625 C4060000 		.4byte	.LASF45
+ 3149 0625 C7060000 		.4byte	.LASF45
  3150 0629 01       		.byte	0x1
  3151 062a B201     		.2byte	0x1b2
  3152 062c 00000000 		.4byte	.LFB4
@@ -5608,20 +5608,20 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  3155 0635 9C       		.byte	0x9c
  3156 0636 5B060000 		.4byte	0x65b
  3157 063a 0A       		.uleb128 0xa
- 3158 063b 13030000 		.4byte	.LASF46
+ 3158 063b 16030000 		.4byte	.LASF46
  3159 063f 01       		.byte	0x1
  3160 0640 B201     		.2byte	0x1b2
  3161 0642 72000000 		.4byte	0x72
  3162 0646 6D020000 		.4byte	.LLST14
  3163 064a 0B       		.uleb128 0xb
- 3164 064b DF060000 		.4byte	.LASF47
+ 3164 064b E2060000 		.4byte	.LASF47
  3165 064f 01       		.byte	0x1
  3166 0650 B401     		.2byte	0x1b4
  3167 0652 72000000 		.4byte	0x72
  3168 0656 8E020000 		.4byte	.LLST15
  3169 065a 00       		.byte	0
  3170 065b 13       		.uleb128 0x13
- 3171 065c F0040000 		.4byte	.LASF48
+ 3171 065c F3040000 		.4byte	.LASF48
  3172 0660 01       		.byte	0x1
  3173 0661 D601     		.2byte	0x1d6
  3174 0663 00000000 		.4byte	.LFB5
@@ -5630,15 +5630,15 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  3177 066c 9C       		.byte	0x9c
  3178 066d 92060000 		.4byte	0x692
  3179 0671 0A       		.uleb128 0xa
- 3180 0672 2C030000 		.4byte	.LASF49
+ 3180 0672 2F030000 		.4byte	.LASF49
  3181 0676 01       		.byte	0x1
  3182 0677 D601     		.2byte	0x1d6
  3183 0679 72000000 		.4byte	0x72
  3184 067d AC020000 		.4byte	.LLST16
  3185 0681 0B       		.uleb128 0xb
- 3186 0682 DF060000 		.4byte	.LASF47
+ 3186 0682 E2060000 		.4byte	.LASF47
  3187 0686 01       		.byte	0x1
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 95
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 95
 
 
  3188 0687 D801     		.2byte	0x1d8
@@ -5646,7 +5646,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  3190 068d CD020000 		.4byte	.LLST17
  3191 0691 00       		.byte	0
  3192 0692 14       		.uleb128 0x14
- 3193 0693 DF050000 		.4byte	.LASF53
+ 3193 0693 E2050000 		.4byte	.LASF53
  3194 0697 01       		.byte	0x1
  3195 0698 FE01     		.2byte	0x1fe
  3196 069a 72000000 		.4byte	0x72
@@ -5656,32 +5656,32 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  3200 06a7 9C       		.byte	0x9c
  3201 06a8 ED060000 		.4byte	0x6ed
  3202 06ac 0A       		.uleb128 0xa
- 3203 06ad 28060000 		.4byte	.LASF50
+ 3203 06ad 2B060000 		.4byte	.LASF50
  3204 06b1 01       		.byte	0x1
  3205 06b2 FE01     		.2byte	0x1fe
  3206 06b4 BA000000 		.4byte	0xba
  3207 06b8 EB020000 		.4byte	.LLST18
  3208 06bc 0B       		.uleb128 0xb
- 3209 06bd DF060000 		.4byte	.LASF47
+ 3209 06bd E2060000 		.4byte	.LASF47
  3210 06c1 01       		.byte	0x1
  3211 06c2 0002     		.2byte	0x200
  3212 06c4 7E000000 		.4byte	0x7e
  3213 06c8 19030000 		.4byte	.LLST19
  3214 06cc 0B       		.uleb128 0xb
- 3215 06cd 21060000 		.4byte	.LASF51
+ 3215 06cd 24060000 		.4byte	.LASF51
  3216 06d1 01       		.byte	0x1
  3217 06d2 0102     		.2byte	0x201
  3218 06d4 72000000 		.4byte	0x72
  3219 06d8 51030000 		.4byte	.LLST20
  3220 06dc 0B       		.uleb128 0xb
- 3221 06dd 39050000 		.4byte	.LASF52
+ 3221 06dd 3C050000 		.4byte	.LASF52
  3222 06e1 01       		.byte	0x1
  3223 06e2 0202     		.2byte	0x202
  3224 06e4 BA000000 		.4byte	0xba
  3225 06e8 70030000 		.4byte	.LLST21
  3226 06ec 00       		.byte	0
  3227 06ed 15       		.uleb128 0x15
- 3228 06ee 1C070000 		.4byte	.LASF54
+ 3228 06ee 1F070000 		.4byte	.LASF54
  3229 06f2 01       		.byte	0x1
  3230 06f3 2D02     		.2byte	0x22d
  3231 06f5 7E000000 		.4byte	0x7e
@@ -5691,14 +5691,14 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  3235 0702 9C       		.byte	0x9c
  3236 0703 28070000 		.4byte	0x728
  3237 0707 0B       		.uleb128 0xb
- 3238 0708 F4050000 		.4byte	.LASF55
+ 3238 0708 F7050000 		.4byte	.LASF55
  3239 070c 01       		.byte	0x1
  3240 070d 2F02     		.2byte	0x22f
  3241 070f 72000000 		.4byte	0x72
  3242 0713 AF030000 		.4byte	.LLST22
  3243 0717 0B       		.uleb128 0xb
- 3244 0718 34020000 		.4byte	.LASF34
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 96
+ 3244 0718 37020000 		.4byte	.LASF34
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 96
 
 
  3245 071c 01       		.byte	0x1
@@ -5707,7 +5707,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  3248 0723 C2030000 		.4byte	.LLST23
  3249 0727 00       		.byte	0
  3250 0728 16       		.uleb128 0x16
- 3251 0729 A1040000 		.4byte	.LASF56
+ 3251 0729 A4040000 		.4byte	.LASF56
  3252 072d 01       		.byte	0x1
  3253 072e 4F02     		.2byte	0x24f
  3254 0730 00000000 		.4byte	.LFB8
@@ -5715,7 +5715,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  3256 0738 01       		.uleb128 0x1
  3257 0739 9C       		.byte	0x9c
  3258 073a 16       		.uleb128 0x16
- 3259 073b 4C060000 		.4byte	.LASF57
+ 3259 073b 4F060000 		.4byte	.LASF57
  3260 073f 01       		.byte	0x1
  3261 0740 6602     		.2byte	0x266
  3262 0742 00000000 		.4byte	.LFB9
@@ -5723,7 +5723,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  3264 074a 01       		.uleb128 0x1
  3265 074b 9C       		.byte	0x9c
  3266 074c 15       		.uleb128 0x15
- 3267 074d C2050000 		.4byte	.LASF58
+ 3267 074d C5050000 		.4byte	.LASF58
  3268 0751 01       		.byte	0x1
  3269 0752 8902     		.2byte	0x289
  3270 0754 72000000 		.4byte	0x72
@@ -5733,20 +5733,20 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  3274 0761 9C       		.byte	0x9c
  3275 0762 87070000 		.4byte	0x787
  3276 0766 0A       		.uleb128 0xa
- 3277 0767 AD010000 		.4byte	.LASF59
+ 3277 0767 B0010000 		.4byte	.LASF59
  3278 076b 01       		.byte	0x1
  3279 076c 8902     		.2byte	0x289
  3280 076e 72000000 		.4byte	0x72
  3281 0772 E0030000 		.4byte	.LLST24
  3282 0776 0B       		.uleb128 0xb
- 3283 0777 21060000 		.4byte	.LASF51
+ 3283 0777 24060000 		.4byte	.LASF51
  3284 077b 01       		.byte	0x1
  3285 077c 8B02     		.2byte	0x28b
  3286 077e 72000000 		.4byte	0x72
  3287 0782 01040000 		.4byte	.LLST25
  3288 0786 00       		.byte	0
  3289 0787 15       		.uleb128 0x15
- 3290 0788 19010000 		.4byte	.LASF60
+ 3290 0788 CD000000 		.4byte	.LASF60
  3291 078c 01       		.byte	0x1
  3292 078d B802     		.2byte	0x2b8
  3293 078f 96000000 		.4byte	0x96
@@ -5756,9 +5756,9 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  3297 079c 9C       		.byte	0x9c
  3298 079d C0070000 		.4byte	0x7c0
  3299 07a1 17       		.uleb128 0x17
- 3300 07a2 F9060000 		.4byte	.LASF61
+ 3300 07a2 FC060000 		.4byte	.LASF61
  3301 07a6 01       		.byte	0x1
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 97
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 97
 
 
  3302 07a7 BA02     		.2byte	0x2ba
@@ -5766,14 +5766,14 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  3304 07ad 01       		.uleb128 0x1
  3305 07ae 50       		.byte	0x50
  3306 07af 0B       		.uleb128 0xb
- 3307 07b0 2C030000 		.4byte	.LASF49
+ 3307 07b0 2F030000 		.4byte	.LASF49
  3308 07b4 01       		.byte	0x1
  3309 07b5 BB02     		.2byte	0x2bb
  3310 07b7 72000000 		.4byte	0x72
  3311 07bb 1F040000 		.4byte	.LLST26
  3312 07bf 00       		.byte	0
  3313 07c0 15       		.uleb128 0x15
- 3314 07c1 A0020000 		.4byte	.LASF62
+ 3314 07c1 A3020000 		.4byte	.LASF62
  3315 07c5 01       		.byte	0x1
  3316 07c6 EE02     		.2byte	0x2ee
  3317 07c8 A2000000 		.4byte	0xa2
@@ -5783,20 +5783,20 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  3321 07d5 9C       		.byte	0x9c
  3322 07d6 FB070000 		.4byte	0x7fb
  3323 07da 0B       		.uleb128 0xb
- 3324 07db F9060000 		.4byte	.LASF61
+ 3324 07db FC060000 		.4byte	.LASF61
  3325 07df 01       		.byte	0x1
  3326 07e0 F002     		.2byte	0x2f0
  3327 07e2 7E000000 		.4byte	0x7e
  3328 07e6 3D040000 		.4byte	.LLST27
  3329 07ea 0B       		.uleb128 0xb
- 3330 07eb 2C030000 		.4byte	.LASF49
+ 3330 07eb 2F030000 		.4byte	.LASF49
  3331 07ef 01       		.byte	0x1
  3332 07f0 F102     		.2byte	0x2f1
  3333 07f2 72000000 		.4byte	0x72
  3334 07f6 66040000 		.4byte	.LLST28
  3335 07fa 00       		.byte	0
  3336 07fb 15       		.uleb128 0x15
- 3337 07fc D2040000 		.4byte	.LASF63
+ 3337 07fc D5040000 		.4byte	.LASF63
  3338 0800 01       		.byte	0x1
  3339 0801 2A03     		.2byte	0x32a
  3340 0803 AE000000 		.4byte	0xae
@@ -5806,23 +5806,23 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  3344 0810 9C       		.byte	0x9c
  3345 0811 36080000 		.4byte	0x836
  3346 0815 0B       		.uleb128 0xb
- 3347 0816 F9060000 		.4byte	.LASF61
+ 3347 0816 FC060000 		.4byte	.LASF61
  3348 081a 01       		.byte	0x1
  3349 081b 2C03     		.2byte	0x32c
  3350 081d 8A000000 		.4byte	0x8a
  3351 0821 84040000 		.4byte	.LLST29
  3352 0825 0B       		.uleb128 0xb
- 3353 0826 2C030000 		.4byte	.LASF49
+ 3353 0826 2F030000 		.4byte	.LASF49
  3354 082a 01       		.byte	0x1
  3355 082b 2D03     		.2byte	0x32d
  3356 082d 72000000 		.4byte	0x72
  3357 0831 E5040000 		.4byte	.LLST30
  3358 0835 00       		.byte	0
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 98
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 98
 
 
  3359 0836 13       		.uleb128 0x13
- 3360 0837 EA030000 		.4byte	.LASF64
+ 3360 0837 ED030000 		.4byte	.LASF64
  3361 083b 01       		.byte	0x1
  3362 083c 8703     		.2byte	0x387
  3363 083e 00000000 		.4byte	.LFB14
@@ -5831,7 +5831,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  3366 0847 9C       		.byte	0x9c
  3367 0848 5B080000 		.4byte	0x85b
  3368 084c 18       		.uleb128 0x18
- 3369 084d 5D050000 		.4byte	.LASF65
+ 3369 084d 60050000 		.4byte	.LASF65
  3370 0851 01       		.byte	0x1
  3371 0852 8703     		.2byte	0x387
  3372 0854 AE000000 		.4byte	0xae
@@ -5839,7 +5839,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  3374 0859 50       		.byte	0x50
  3375 085a 00       		.byte	0
  3376 085b 13       		.uleb128 0x13
- 3377 085c 7E060000 		.4byte	.LASF66
+ 3377 085c 81060000 		.4byte	.LASF66
  3378 0860 01       		.byte	0x1
  3379 0861 AA03     		.2byte	0x3aa
  3380 0863 00000000 		.4byte	.LFB15
@@ -5856,7 +5856,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  3391 087e 50       		.byte	0x50
  3392 087f 00       		.byte	0
  3393 0880 15       		.uleb128 0x15
- 3394 0881 A7060000 		.4byte	.LASF68
+ 3394 0881 AA060000 		.4byte	.LASF68
  3395 0885 01       		.byte	0x1
  3396 0886 C503     		.2byte	0x3c5
  3397 0888 A2000000 		.4byte	0xa2
@@ -5866,24 +5866,24 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  3401 0895 9C       		.byte	0x9c
  3402 0896 B9080000 		.4byte	0x8b9
  3403 089a 0A       		.uleb128 0xa
- 3404 089b 89050000 		.4byte	.LASF69
+ 3404 089b 8C050000 		.4byte	.LASF69
  3405 089f 01       		.byte	0x1
  3406 08a0 C503     		.2byte	0x3c5
  3407 08a2 AE000000 		.4byte	0xae
  3408 08a6 0E050000 		.4byte	.LLST31
  3409 08aa 17       		.uleb128 0x17
- 3410 08ab 69020000 		.4byte	.LASF70
+ 3410 08ab 6C020000 		.4byte	.LASF70
  3411 08af 01       		.byte	0x1
  3412 08b0 C803     		.2byte	0x3c8
  3413 08b2 A2000000 		.4byte	0xa2
  3414 08b6 01       		.uleb128 0x1
  3415 08b7 50       		.byte	0x50
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 99
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 99
 
 
  3416 08b8 00       		.byte	0
  3417 08b9 14       		.uleb128 0x14
- 3418 08ba 7C020000 		.4byte	.LASF71
+ 3418 08ba 7F020000 		.4byte	.LASF71
  3419 08be 01       		.byte	0x1
  3420 08bf 0204     		.2byte	0x402
  3421 08c1 BA000000 		.4byte	0xba
@@ -5893,13 +5893,13 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  3425 08ce 9C       		.byte	0x9c
  3426 08cf F2080000 		.4byte	0x8f2
  3427 08d3 0A       		.uleb128 0xa
- 3428 08d4 89050000 		.4byte	.LASF69
+ 3428 08d4 8C050000 		.4byte	.LASF69
  3429 08d8 01       		.byte	0x1
  3430 08d9 0204     		.2byte	0x402
  3431 08db AE000000 		.4byte	0xae
  3432 08df 2C050000 		.4byte	.LLST32
  3433 08e3 17       		.uleb128 0x17
- 3434 08e4 8B010000 		.4byte	.LASF72
+ 3434 08e4 8E010000 		.4byte	.LASF72
  3435 08e8 01       		.byte	0x1
  3436 08e9 0504     		.2byte	0x405
  3437 08eb BA000000 		.4byte	0xba
@@ -5907,7 +5907,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  3439 08f0 50       		.byte	0x50
  3440 08f1 00       		.byte	0
  3441 08f2 15       		.uleb128 0x15
- 3442 08f3 F6020000 		.4byte	.LASF73
+ 3442 08f3 F9020000 		.4byte	.LASF73
  3443 08f7 01       		.byte	0x1
  3444 08f8 4404     		.2byte	0x444
  3445 08fa AE000000 		.4byte	0xae
@@ -5917,34 +5917,34 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  3449 0907 9C       		.byte	0x9c
  3450 0908 58090000 		.4byte	0x958
  3451 090c 0A       		.uleb128 0xa
- 3452 090d 89050000 		.4byte	.LASF69
+ 3452 090d 8C050000 		.4byte	.LASF69
  3453 0911 01       		.byte	0x1
  3454 0912 4404     		.2byte	0x444
  3455 0914 AE000000 		.4byte	0xae
  3456 0918 5A050000 		.4byte	.LLST33
  3457 091c 0B       		.uleb128 0xb
- 3458 091d C2010000 		.4byte	.LASF74
+ 3458 091d C5010000 		.4byte	.LASF74
  3459 0921 01       		.byte	0x1
  3460 0922 4704     		.2byte	0x447
  3461 0924 AE000000 		.4byte	0xae
  3462 0928 7B050000 		.4byte	.LLST34
  3463 092c 19       		.uleb128 0x19
- 3464 092d C6040000 		.4byte	.LASF75
+ 3464 092d C9040000 		.4byte	.LASF75
  3465 0931 01       		.byte	0x1
  3466 0932 4804     		.2byte	0x448
  3467 0934 AE000000 		.4byte	0xae
  3468 0938 127A     		.2byte	0x7a12
  3469 093a 0B       		.uleb128 0xb
- 3470 093b CC040000 		.4byte	.LASF76
+ 3470 093b CF040000 		.4byte	.LASF76
  3471 093f 01       		.byte	0x1
  3472 0940 4904     		.2byte	0x449
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 100
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 100
 
 
  3473 0942 AE000000 		.4byte	0xae
  3474 0946 9E050000 		.4byte	.LLST35
  3475 094a 1A       		.uleb128 0x1a
- 3476 094b BB040000 		.4byte	.LASF30
+ 3476 094b BE040000 		.4byte	.LASF30
  3477 094f 01       		.byte	0x1
  3478 0950 4A04     		.2byte	0x44a
  3479 0952 72000000 		.4byte	0x72
@@ -5960,13 +5960,13 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  3489 0969 9C       		.byte	0x9c
  3490 096a CD090000 		.4byte	0x9cd
  3491 096e 0A       		.uleb128 0xa
- 3492 096f 25050000 		.4byte	.LASF31
+ 3492 096f 28050000 		.4byte	.LASF31
  3493 0973 01       		.byte	0x1
  3494 0974 1806     		.2byte	0x618
  3495 0976 72000000 		.4byte	0x72
  3496 097a BE050000 		.4byte	.LLST36
  3497 097e 0A       		.uleb128 0xa
- 3498 097f 31050000 		.4byte	.LASF78
+ 3498 097f 34050000 		.4byte	.LASF78
  3499 0983 01       		.byte	0x1
  3500 0984 1806     		.2byte	0x618
  3501 0986 72000000 		.4byte	0x72
@@ -5998,14 +5998,14 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  3527 09c7 01       		.uleb128 0x1
  3528 09c8 50       		.byte	0x50
  3529 09c9 01       		.uleb128 0x1
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 101
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 101
 
 
  3530 09ca 30       		.byte	0x30
  3531 09cb 00       		.byte	0
  3532 09cc 00       		.byte	0
  3533 09cd 15       		.uleb128 0x15
- 3534 09ce E6060000 		.4byte	.LASF79
+ 3534 09ce E9060000 		.4byte	.LASF79
  3535 09d2 01       		.byte	0x1
  3536 09d3 EA06     		.2byte	0x6ea
  3537 09d5 96000000 		.4byte	0x96
@@ -6015,7 +6015,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  3541 09e2 9C       		.byte	0x9c
  3542 09e3 260A0000 		.4byte	0xa26
  3543 09e7 0B       		.uleb128 0xb
- 3544 09e8 F9060000 		.4byte	.LASF61
+ 3544 09e8 FC060000 		.4byte	.LASF61
  3545 09ec 01       		.byte	0x1
  3546 09ed EC06     		.2byte	0x6ec
  3547 09ef 96000000 		.4byte	0x96
@@ -6041,7 +6041,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  3567 0a21 3A070000 		.4byte	0x73a
  3568 0a25 00       		.byte	0
  3569 0a26 15       		.uleb128 0x15
- 3570 0a27 93060000 		.4byte	.LASF80
+ 3570 0a27 96060000 		.4byte	.LASF80
  3571 0a2b 01       		.byte	0x1
  3572 0a2c 0B07     		.2byte	0x70b
  3573 0a2e A2000000 		.4byte	0xa2
@@ -6051,14 +6051,14 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  3577 0a3b 9C       		.byte	0x9c
  3578 0a3c 7F0A0000 		.4byte	0xa7f
  3579 0a40 0B       		.uleb128 0xb
- 3580 0a41 F9060000 		.4byte	.LASF61
+ 3580 0a41 FC060000 		.4byte	.LASF61
  3581 0a45 01       		.byte	0x1
  3582 0a46 0D07     		.2byte	0x70d
  3583 0a48 A2000000 		.4byte	0xa2
  3584 0a4c 45060000 		.4byte	.LLST39
  3585 0a50 0E       		.uleb128 0xe
  3586 0a51 10000000 		.4byte	.LVL176
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 102
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 102
 
 
  3587 0a55 28070000 		.4byte	0x728
@@ -6080,7 +6080,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  3603 0a7a 3A070000 		.4byte	0x73a
  3604 0a7e 00       		.byte	0
  3605 0a7f 15       		.uleb128 0x15
- 3606 0a80 51010000 		.4byte	.LASF81
+ 3606 0a80 05010000 		.4byte	.LASF81
  3607 0a84 01       		.byte	0x1
  3608 0a85 2C07     		.2byte	0x72c
  3609 0a87 AE000000 		.4byte	0xae
@@ -6090,7 +6090,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  3613 0a94 9C       		.byte	0x9c
  3614 0a95 D80A0000 		.4byte	0xad8
  3615 0a99 0B       		.uleb128 0xb
- 3616 0a9a F9060000 		.4byte	.LASF61
+ 3616 0a9a FC060000 		.4byte	.LASF61
  3617 0a9e 01       		.byte	0x1
  3618 0a9f 2E07     		.2byte	0x72e
  3619 0aa1 AE000000 		.4byte	0xae
@@ -6118,7 +6118,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  3641 0ad8 1B       		.uleb128 0x1b
  3642 0ad9 36010000 		.4byte	0x136
  3643 0add E80A0000 		.4byte	0xae8
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 103
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 103
 
 
  3644 0ae1 1C       		.uleb128 0x1c
@@ -6126,7 +6126,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  3646 0ae6 03       		.byte	0x3
  3647 0ae7 00       		.byte	0
  3648 0ae8 1D       		.uleb128 0x1d
- 3649 0ae9 32070000 		.4byte	.LASF82
+ 3649 0ae9 35070000 		.4byte	.LASF82
  3650 0aed 01       		.byte	0x1
  3651 0aee 3D       		.byte	0x3d
  3652 0aef D80A0000 		.4byte	0xad8
@@ -6134,7 +6134,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  3654 0af4 03       		.byte	0x3
  3655 0af5 00000000 		.4byte	ADC_DelSig_1_gcor
  3656 0af9 1E       		.uleb128 0x1e
- 3657 0afa C9010000 		.4byte	.LASF83
+ 3657 0afa CC010000 		.4byte	.LASF83
  3658 0afe 01       		.byte	0x1
  3659 0aff 2C       		.byte	0x2c
  3660 0b00 72000000 		.4byte	0x72
@@ -6142,7 +6142,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  3662 0b05 03       		.byte	0x3
  3663 0b06 00000000 		.4byte	ADC_DelSig_1_initVar
  3664 0b0a 1E       		.uleb128 0x1e
- 3665 0b0b C2020000 		.4byte	.LASF84
+ 3665 0b0b C5020000 		.4byte	.LASF84
  3666 0b0f 01       		.byte	0x1
  3667 0b10 24       		.byte	0x24
  3668 0b11 E0000000 		.4byte	0xe0
@@ -6150,7 +6150,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  3670 0b16 03       		.byte	0x3
  3671 0b17 00000000 		.4byte	ADC_DelSig_1_convDone
  3672 0b1b 1E       		.uleb128 0x1e
- 3673 0b1c 00070000 		.4byte	.LASF85
+ 3673 0b1c 03070000 		.4byte	.LASF85
  3674 0b20 01       		.byte	0x1
  3675 0b21 29       		.byte	0x29
  3676 0b22 E0000000 		.4byte	0xe0
@@ -6158,7 +6158,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  3678 0b27 03       		.byte	0x3
  3679 0b28 00000000 		.4byte	ADC_DelSig_1_stopConversion
  3680 0b2c 1E       		.uleb128 0x1e
- 3681 0b2d 07020000 		.4byte	.LASF86
+ 3681 0b2d 0A020000 		.4byte	.LASF86
  3682 0b31 01       		.byte	0x1
  3683 0b32 2F       		.byte	0x2f
  3684 0b33 E0000000 		.4byte	0xe0
@@ -6166,7 +6166,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  3686 0b38 03       		.byte	0x3
  3687 0b39 00000000 		.4byte	ADC_DelSig_1_started
  3688 0b3d 1E       		.uleb128 0x1e
- 3689 0b3e 18030000 		.4byte	.LASF87
+ 3689 0b3e 1B030000 		.4byte	.LASF87
  3690 0b42 01       		.byte	0x1
  3691 0b43 32       		.byte	0x32
  3692 0b44 E0000000 		.4byte	0xe0
@@ -6174,11 +6174,11 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  3694 0b49 03       		.byte	0x3
  3695 0b4a 00000000 		.4byte	ADC_DelSig_1_Config
  3696 0b4e 1E       		.uleb128 0x1e
- 3697 0b4f A4030000 		.4byte	.LASF88
+ 3697 0b4f A7030000 		.4byte	.LASF88
  3698 0b53 01       		.byte	0x1
  3699 0b54 34       		.byte	0x34
  3700 0b55 5F0B0000 		.4byte	0xb5f
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 104
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 104
 
 
  3701 0b59 05       		.uleb128 0x5
@@ -6187,7 +6187,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  3704 0b5f 05       		.uleb128 0x5
  3705 0b60 AE000000 		.4byte	0xae
  3706 0b64 1E       		.uleb128 0x1e
- 3707 0b65 0A050000 		.4byte	.LASF89
+ 3707 0b65 0D050000 		.4byte	.LASF89
  3708 0b69 01       		.byte	0x1
  3709 0b6a 35       		.byte	0x35
  3710 0b6b 5F0B0000 		.4byte	0xb5f
@@ -6195,33 +6195,33 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  3712 0b70 03       		.byte	0x3
  3713 0b71 00000000 		.4byte	ADC_DelSig_1_CountsPerVolt
  3714 0b75 1F       		.uleb128 0x1f
- 3715 0b76 D5030000 		.4byte	.LASF90
- 3716 0b7a D5030000 		.4byte	.LASF90
+ 3715 0b76 D8030000 		.4byte	.LASF90
+ 3716 0b7a D8030000 		.4byte	.LASF90
  3717 0b7e 04       		.byte	0x4
  3718 0b7f 7F       		.byte	0x7f
  3719 0b80 1F       		.uleb128 0x1f
- 3720 0b81 F0010000 		.4byte	.LASF91
- 3721 0b85 F0010000 		.4byte	.LASF91
+ 3720 0b81 F3010000 		.4byte	.LASF91
+ 3721 0b85 F3010000 		.4byte	.LASF91
  3722 0b89 04       		.byte	0x4
  3723 0b8a 7D       		.byte	0x7d
  3724 0b8b 1F       		.uleb128 0x1f
- 3725 0b8c 7A010000 		.4byte	.LASF92
- 3726 0b90 7A010000 		.4byte	.LASF92
+ 3725 0b8c 7D010000 		.4byte	.LASF92
+ 3726 0b90 7D010000 		.4byte	.LASF92
  3727 0b94 04       		.byte	0x4
  3728 0b95 77       		.byte	0x77
  3729 0b96 1F       		.uleb128 0x1f
- 3730 0b97 8E030000 		.4byte	.LASF93
- 3731 0b9b 8E030000 		.4byte	.LASF93
+ 3730 0b97 91030000 		.4byte	.LASF93
+ 3731 0b9b 91030000 		.4byte	.LASF93
  3732 0b9f 04       		.byte	0x4
  3733 0ba0 7E       		.byte	0x7e
  3734 0ba1 1F       		.uleb128 0x1f
- 3735 0ba2 65060000 		.4byte	.LASF94
- 3736 0ba6 65060000 		.4byte	.LASF94
+ 3735 0ba2 68060000 		.4byte	.LASF94
+ 3736 0ba6 68060000 		.4byte	.LASF94
  3737 0baa 05       		.byte	0x5
  3738 0bab 57       		.byte	0x57
  3739 0bac 1F       		.uleb128 0x1f
- 3740 0bad 3E020000 		.4byte	.LASF95
- 3741 0bb1 3E020000 		.4byte	.LASF95
+ 3740 0bad 41020000 		.4byte	.LASF95
+ 3741 0bb1 41020000 		.4byte	.LASF95
  3742 0bb5 06       		.byte	0x6
  3743 0bb6 2F       		.byte	0x2f
  3744 0bb7 1F       		.uleb128 0x1f
@@ -6230,26 +6230,26 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  3747 0bc0 07       		.byte	0x7
  3748 0bc1 2F       		.byte	0x2f
  3749 0bc2 1F       		.uleb128 0x1f
- 3750 0bc3 98010000 		.4byte	.LASF97
- 3751 0bc7 98010000 		.4byte	.LASF97
+ 3750 0bc3 9B010000 		.4byte	.LASF97
+ 3751 0bc7 9B010000 		.4byte	.LASF97
  3752 0bcb 04       		.byte	0x4
  3753 0bcc 88       		.byte	0x88
  3754 0bcd 1F       		.uleb128 0x1f
- 3755 0bce 47030000 		.4byte	.LASF98
- 3756 0bd2 47030000 		.4byte	.LASF98
+ 3755 0bce 4A030000 		.4byte	.LASF98
+ 3756 0bd2 4A030000 		.4byte	.LASF98
  3757 0bd6 06       		.byte	0x6
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 105
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 105
 
 
  3758 0bd7 32       		.byte	0x32
  3759 0bd8 1F       		.uleb128 0x1f
- 3760 0bd9 64050000 		.4byte	.LASF99
- 3761 0bdd 64050000 		.4byte	.LASF99
+ 3760 0bd9 67050000 		.4byte	.LASF99
+ 3761 0bdd 67050000 		.4byte	.LASF99
  3762 0be1 07       		.byte	0x7
  3763 0be2 32       		.byte	0x32
  3764 0be3 1F       		.uleb128 0x1f
- 3765 0be4 36030000 		.4byte	.LASF100
- 3766 0be8 36030000 		.4byte	.LASF100
+ 3765 0be4 39030000 		.4byte	.LASF100
+ 3766 0be8 39030000 		.4byte	.LASF100
  3767 0bec 04       		.byte	0x4
  3768 0bed 8B       		.byte	0x8b
  3769 0bee 00       		.byte	0
@@ -6298,7 +6298,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  3812 0028 00       		.byte	0
  3813 0029 04       		.uleb128 0x4
  3814 002a 16       		.uleb128 0x16
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 106
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 106
 
 
  3815 002b 00       		.byte	0
@@ -6358,7 +6358,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  3869 0061 0B       		.uleb128 0xb
  3870 0062 49       		.uleb128 0x49
  3871 0063 13       		.uleb128 0x13
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 107
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 107
 
 
  3872 0064 00       		.byte	0
@@ -6418,7 +6418,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  3926 009b 00       		.byte	0
  3927 009c 0C       		.uleb128 0xc
  3928 009d 898201   		.uleb128 0x4109
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 108
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 108
 
 
  3929 00a0 01       		.byte	0x1
@@ -6478,7 +6478,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  3983 00dd 18       		.uleb128 0x18
  3984 00de 9742     		.uleb128 0x2117
  3985 00e0 19       		.uleb128 0x19
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 109
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 109
 
 
  3986 00e1 01       		.uleb128 0x1
@@ -6538,7 +6538,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  4040 0118 13       		.uleb128 0x13
  4041 0119 00       		.byte	0
  4042 011a 00       		.byte	0
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 110
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 110
 
 
  4043 011b 14       		.uleb128 0x14
@@ -6598,7 +6598,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  4097 0153 16       		.uleb128 0x16
  4098 0154 2E       		.uleb128 0x2e
  4099 0155 00       		.byte	0
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 111
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 111
 
 
  4100 0156 3F       		.uleb128 0x3f
@@ -6658,7 +6658,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  4154 018d 0E       		.uleb128 0xe
  4155 018e 3A       		.uleb128 0x3a
  4156 018f 0B       		.uleb128 0xb
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 112
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 112
 
 
  4157 0190 3B       		.uleb128 0x3b
@@ -6718,7 +6718,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  4211 01c6 00       		.byte	0
  4212 01c7 00       		.byte	0
  4213 01c8 1E       		.uleb128 0x1e
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 113
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 113
 
 
  4214 01c9 34       		.uleb128 0x34
@@ -6778,7 +6778,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  4268 002c 0400     		.2byte	0x4
  4269 002e F3       		.byte	0xf3
  4270 002f 01       		.uleb128 0x1
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 114
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 114
 
 
  4271 0030 50       		.byte	0x50
@@ -6838,7 +6838,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  4325              	.LLST3:
  4326 00ae 00000000 		.4byte	.LVL0
  4327 00b2 98000000 		.4byte	.LVL27
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 115
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 115
 
 
  4328 00b6 0100     		.2byte	0x1
@@ -6898,7 +6898,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  4382 0135 0100     		.2byte	0x1
  4383 0137 50       		.byte	0x50
  4384 0138 34000000 		.4byte	.LVL4
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 116
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 116
 
 
  4385 013c 36000000 		.4byte	.LVL5
@@ -6958,7 +6958,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  4439 01d0 B2000000 		.4byte	.LVL31
  4440 01d4 0100     		.2byte	0x1
  4441 01d6 51       		.byte	0x51
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 117
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 117
 
 
  4442 01d7 00000000 		.4byte	0
@@ -7018,7 +7018,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  4496 0262 0100     		.2byte	0x1
  4497 0264 56       		.byte	0x56
  4498 0265 00000000 		.4byte	0
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 118
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 118
 
 
  4499 0269 00000000 		.4byte	0
@@ -7078,7 +7078,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  4553 02f3 0100     		.2byte	0x1
  4554 02f5 50       		.byte	0x50
  4555 02f6 10000000 		.4byte	.LVL94
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 119
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 119
 
 
  4556 02fa 24000000 		.4byte	.LVL98
@@ -7138,7 +7138,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  4610 0370 1C000000 		.4byte	.LVL96
  4611 0374 21000000 		.4byte	.LVL97-1
  4612 0378 0100     		.2byte	0x1
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 120
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 120
 
 
  4613 037a 50       		.byte	0x50
@@ -7198,7 +7198,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  4667 0409 0100     		.2byte	0x1
  4668 040b 53       		.byte	0x53
  4669 040c 1A000000 		.4byte	.LVL117
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 121
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 121
 
 
  4670 0410 30000000 		.4byte	.LFE10
@@ -7258,7 +7258,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  4724 049d 0100     		.2byte	0x1
  4725 049f 50       		.byte	0x50
  4726 04a0 24000000 		.4byte	.LVL137
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 122
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 122
 
 
  4727 04a4 2C000000 		.4byte	.LVL138
@@ -7318,7 +7318,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  4781 0530 06000000 		.4byte	.LVL151
  4782 0534 0100     		.2byte	0x1
  4783 0536 50       		.byte	0x50
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 123
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 123
 
 
  4784 0537 06000000 		.4byte	.LVL151
@@ -7378,7 +7378,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  4838 05b3 0100     		.2byte	0x1
  4839 05b5 52       		.byte	0x52
  4840 05b6 00000000 		.4byte	0
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 124
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 124
 
 
  4841 05ba 00000000 		.4byte	0
@@ -7438,7 +7438,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  4895 063a 0100     		.2byte	0x1
  4896 063c 54       		.byte	0x54
  4897 063d 00000000 		.4byte	0
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 125
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 125
 
 
  4898 0641 00000000 		.4byte	0
@@ -7498,7 +7498,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  4952 006c 10000000 		.4byte	.LFE8-.LFB8
  4953 0070 00000000 		.4byte	.LFB9
  4954 0074 10000000 		.4byte	.LFE9-.LFB9
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 126
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 126
 
 
  4955 0078 00000000 		.4byte	.LFB10
@@ -7558,7 +7558,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  5009 0060 00000000 		.4byte	.LFB9
  5010 0064 10000000 		.4byte	.LFE9
  5011 0068 00000000 		.4byte	.LFB10
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 127
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 127
 
 
  5012 006c 30000000 		.4byte	.LFE10
@@ -7618,7 +7618,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  5051      5F746865 
  5051      41434C4B 
  5052              	.LASF77:
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 128
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 128
 
 
  5053 0056 4144435F 		.ascii	"ADC_DelSig_1_SelectConfiguration\000"
@@ -7635,170 +7635,170 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  5057      6720756E 
  5057      7369676E 
  5057      65642069 
- 5058              	.LASF103:
- 5059 0093 433A5C55 		.ascii	"C:\\Users\\Caleb Cotter\\Desktop\\NitroDoser Develo"
- 5059      73657273 
- 5059      5C43616C 
- 5059      65622043 
- 5059      6F747465 
- 5060 00c2 706D656E 		.ascii	"pment\\3HC_Firmware_0_1.cydsn\000"
- 5060      745C3348 
- 5060      435F4669 
- 5060      726D7761 
- 5060      72655F30 
- 5061              	.LASF44:
- 5062 00df 4144435F 		.ascii	"ADC_DelSig_1_Stop\000"
- 5062      44656C53 
- 5062      69675F31 
- 5062      5F53746F 
- 5062      7000
- 5063              	.LASF29:
- 5064 00f1 69646561 		.ascii	"idealOddDecGain\000"
- 5064      6C4F6464 
- 5064      44656347 
- 5064      61696E00 
- 5065              	.LASF40:
- 5066 0101 4144435F 		.ascii	"ADC_DelSig_1_InitConfig\000"
- 5066      44656C53 
- 5066      69675F31 
- 5066      5F496E69 
- 5066      74436F6E 
- 5067              	.LASF60:
- 5068 0119 4144435F 		.ascii	"ADC_DelSig_1_GetResult8\000"
- 5068      44656C53 
- 5068      69675F31 
- 5068      5F476574 
- 5068      52657375 
- 5069              	.LASF7:
- 5070 0131 6C6F6E67 		.ascii	"long long int\000"
- 5070      206C6F6E 
- 5070      6720696E 
- 5070      7400
- 5071              	.LASF1:
- 5072 013f 7369676E 		.ascii	"signed char\000"
- 5072      65642063 
- 5072      68617200 
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 129
+ 5058              	.LASF44:
+ 5059 0093 4144435F 		.ascii	"ADC_DelSig_1_Stop\000"
+ 5059      44656C53 
+ 5059      69675F31 
+ 5059      5F53746F 
+ 5059      7000
+ 5060              	.LASF29:
+ 5061 00a5 69646561 		.ascii	"idealOddDecGain\000"
+ 5061      6C4F6464 
+ 5061      44656347 
+ 5061      61696E00 
+ 5062              	.LASF40:
+ 5063 00b5 4144435F 		.ascii	"ADC_DelSig_1_InitConfig\000"
+ 5063      44656C53 
+ 5063      69675F31 
+ 5063      5F496E69 
+ 5063      74436F6E 
+ 5064              	.LASF60:
+ 5065 00cd 4144435F 		.ascii	"ADC_DelSig_1_GetResult8\000"
+ 5065      44656C53 
+ 5065      69675F31 
+ 5065      5F476574 
+ 5065      52657375 
+ 5066              	.LASF7:
+ 5067 00e5 6C6F6E67 		.ascii	"long long int\000"
+ 5067      206C6F6E 
+ 5067      6720696E 
+ 5067      7400
+ 5068              	.LASF1:
+ 5069 00f3 7369676E 		.ascii	"signed char\000"
+ 5069      65642063 
+ 5069      68617200 
+ 5070              	.LASF15:
+ 5071 00ff 696E7433 		.ascii	"int32\000"
+ 5071      3200
+ 5072              	.LASF81:
+ 5073 0105 4144435F 		.ascii	"ADC_DelSig_1_Read32\000"
+ 5073      44656C53 
+ 5073      69675F31 
+ 5073      5F526561 
+ 5073      64333200 
+ 5074              	.LASF5:
+ 5075 0119 6C6F6E67 		.ascii	"long int\000"
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 129
 
 
- 5073              	.LASF15:
- 5074 014b 696E7433 		.ascii	"int32\000"
- 5074      3200
- 5075              	.LASF81:
- 5076 0151 4144435F 		.ascii	"ADC_DelSig_1_Read32\000"
- 5076      44656C53 
- 5076      69675F31 
- 5076      5F526561 
- 5076      64333200 
- 5077              	.LASF5:
- 5078 0165 6C6F6E67 		.ascii	"long int\000"
- 5078      20696E74 
- 5078      00
+ 5075      20696E74 
+ 5075      00
+ 5076              	.LASF103:
+ 5077 0122 433A5C55 		.ascii	"C:\\Users\\Caleb Cotter\\Documents\\GitHub\\3HC\\3H"
+ 5077      73657273 
+ 5077      5C43616C 
+ 5077      65622043 
+ 5077      6F747465 
+ 5078 014f 435F4669 		.ascii	"C_Firmware\\3HC_Firmware_0_1.cydsn\000"
+ 5078      726D7761 
+ 5078      72655C33 
+ 5078      48435F46 
+ 5078      69726D77 
  5079              	.LASF20:
- 5080 016e 72656731 		.ascii	"reg16\000"
+ 5080 0171 72656731 		.ascii	"reg16\000"
  5080      3600
  5081              	.LASF10:
- 5082 0174 75696E74 		.ascii	"uint8\000"
+ 5082 0177 75696E74 		.ascii	"uint8\000"
  5082      3800
  5083              	.LASF92:
- 5084 017a 43794465 		.ascii	"CyDelayUs\000"
+ 5084 017d 43794465 		.ascii	"CyDelayUs\000"
  5084      6C617955 
  5084      7300
  5085              	.LASF17:
- 5086 0184 646F7562 		.ascii	"double\000"
+ 5086 0187 646F7562 		.ascii	"double\000"
  5086      6C6500
  5087              	.LASF72:
- 5088 018b 566F6C74 		.ascii	"Volts\000"
+ 5088 018e 566F6C74 		.ascii	"Volts\000"
  5088      7300
  5089              	.LASF12:
- 5090 0191 75696E74 		.ascii	"uint32\000"
+ 5090 0194 75696E74 		.ascii	"uint32\000"
  5090      333200
  5091              	.LASF97:
- 5092 0198 4379496E 		.ascii	"CyIntSetVector\000"
+ 5092 019b 4379496E 		.ascii	"CyIntSetVector\000"
  5092      74536574 
  5092      56656374 
  5092      6F7200
  5093              	.LASF38:
- 5094 01a7 76616C75 		.ascii	"value\000"
+ 5094 01aa 76616C75 		.ascii	"value\000"
  5094      6500
  5095              	.LASF59:
- 5096 01ad 7265744D 		.ascii	"retMode\000"
+ 5096 01b0 7265744D 		.ascii	"retMode\000"
  5096      6F646500 
  5097              	.LASF9:
- 5098 01b5 756E7369 		.ascii	"unsigned int\000"
+ 5098 01b8 756E7369 		.ascii	"unsigned int\000"
  5098      676E6564 
  5098      20696E74 
  5098      00
  5099              	.LASF74:
- 5100 01c2 75566F6C 		.ascii	"uVolts\000"
+ 5100 01c5 75566F6C 		.ascii	"uVolts\000"
  5100      747300
  5101              	.LASF83:
- 5102 01c9 4144435F 		.ascii	"ADC_DelSig_1_initVar\000"
+ 5102 01cc 4144435F 		.ascii	"ADC_DelSig_1_initVar\000"
  5102      44656C53 
  5102      69675F31 
  5102      5F696E69 
  5102      74566172 
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 130
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 130
 
 
  5103              	.LASF6:
- 5104 01de 6C6F6E67 		.ascii	"long unsigned int\000"
+ 5104 01e1 6C6F6E67 		.ascii	"long unsigned int\000"
  5104      20756E73 
  5104      69676E65 
  5104      6420696E 
  5104      7400
  5105              	.LASF91:
- 5106 01f0 4379456E 		.ascii	"CyEnterCriticalSection\000"
+ 5106 01f3 4379456E 		.ascii	"CyEnterCriticalSection\000"
  5106      74657243 
  5106      72697469 
  5106      63616C53 
  5106      65637469 
  5107              	.LASF86:
- 5108 0207 4144435F 		.ascii	"ADC_DelSig_1_started\000"
+ 5108 020a 4144435F 		.ascii	"ADC_DelSig_1_started\000"
  5108      44656C53 
  5108      69675F31 
  5108      5F737461 
  5108      72746564 
  5109              	.LASF4:
- 5110 021c 73686F72 		.ascii	"short unsigned int\000"
+ 5110 021f 73686F72 		.ascii	"short unsigned int\000"
  5110      7420756E 
  5110      7369676E 
  5110      65642069 
  5110      6E7400
  5111              	.LASF13:
- 5112 022f 696E7438 		.ascii	"int8\000"
+ 5112 0232 696E7438 		.ascii	"int8\000"
  5112      00
  5113              	.LASF34:
- 5114 0234 67636F72 		.ascii	"gcorValue\000"
+ 5114 0237 67636F72 		.ascii	"gcorValue\000"
  5114      56616C75 
  5114      6500
  5115              	.LASF95:
- 5116 023e 4144435F 		.ascii	"ADC_DelSig_1_Ext_CP_Clk_SetDividerRegister\000"
+ 5116 0241 4144435F 		.ascii	"ADC_DelSig_1_Ext_CP_Clk_SetDividerRegister\000"
  5116      44656C53 
  5116      69675F31 
  5116      5F457874 
  5116      5F43505F 
  5117              	.LASF70:
- 5118 0269 6D566F6C 		.ascii	"mVolts\000"
+ 5118 026c 6D566F6C 		.ascii	"mVolts\000"
  5118      747300
  5119              	.LASF32:
- 5120 0270 666C6173 		.ascii	"flash\000"
+ 5120 0273 666C6173 		.ascii	"flash\000"
  5120      6800
  5121              	.LASF21:
- 5122 0276 72656733 		.ascii	"reg32\000"
+ 5122 0279 72656733 		.ascii	"reg32\000"
  5122      3200
  5123              	.LASF71:
- 5124 027c 4144435F 		.ascii	"ADC_DelSig_1_CountsTo_Volts\000"
+ 5124 027f 4144435F 		.ascii	"ADC_DelSig_1_CountsTo_Volts\000"
  5124      44656C53 
  5124      69675F31 
  5124      5F436F75 
  5124      6E747354 
  5125              	.LASF16:
- 5126 0298 666C6F61 		.ascii	"float32\000"
+ 5126 029b 666C6F61 		.ascii	"float32\000"
  5126      74333200 
  5127              	.LASF62:
- 5128 02a0 4144435F 		.ascii	"ADC_DelSig_1_GetResult16\000"
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 131
+ 5128 02a3 4144435F 		.ascii	"ADC_DelSig_1_GetResult16\000"
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 131
 
 
  5128      44656C53 
@@ -7806,59 +7806,59 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  5128      5F476574 
  5128      52657375 
  5129              	.LASF23:
- 5130 02b9 73697A65 		.ascii	"sizetype\000"
+ 5130 02bc 73697A65 		.ascii	"sizetype\000"
  5130      74797065 
  5130      00
  5131              	.LASF84:
- 5132 02c2 4144435F 		.ascii	"ADC_DelSig_1_convDone\000"
+ 5132 02c5 4144435F 		.ascii	"ADC_DelSig_1_convDone\000"
  5132      44656C53 
  5132      69675F31 
  5132      5F636F6E 
  5132      76446F6E 
  5133              	.LASF22:
- 5134 02d8 6C6F6E67 		.ascii	"long double\000"
+ 5134 02db 6C6F6E67 		.ascii	"long double\000"
  5134      20646F75 
  5134      626C6500 
  5135              	.LASF41:
- 5136 02e4 4144435F 		.ascii	"ADC_DelSig_1_Init\000"
+ 5136 02e7 4144435F 		.ascii	"ADC_DelSig_1_Init\000"
  5136      44656C53 
  5136      69675F31 
  5136      5F496E69 
  5136      7400
  5137              	.LASF73:
- 5138 02f6 4144435F 		.ascii	"ADC_DelSig_1_CountsTo_uVolts\000"
+ 5138 02f9 4144435F 		.ascii	"ADC_DelSig_1_CountsTo_uVolts\000"
  5138      44656C53 
  5138      69675F31 
  5138      5F436F75 
  5138      6E747354 
  5139              	.LASF46:
- 5140 0313 6761696E 		.ascii	"gain\000"
+ 5140 0316 6761696E 		.ascii	"gain\000"
  5140      00
  5141              	.LASF87:
- 5142 0318 4144435F 		.ascii	"ADC_DelSig_1_Config\000"
+ 5142 031b 4144435F 		.ascii	"ADC_DelSig_1_Config\000"
  5142      44656C53 
  5142      69675F31 
  5142      5F436F6E 
  5142      66696700 
  5143              	.LASF49:
- 5144 032c 636F6865 		.ascii	"coherency\000"
+ 5144 032f 636F6865 		.ascii	"coherency\000"
  5144      72656E63 
  5144      7900
  5145              	.LASF100:
- 5146 0336 4379496E 		.ascii	"CyIntSetPriority\000"
+ 5146 0339 4379496E 		.ascii	"CyIntSetPriority\000"
  5146      74536574 
  5146      5072696F 
  5146      72697479 
  5146      00
  5147              	.LASF98:
- 5148 0347 4144435F 		.ascii	"ADC_DelSig_1_Ext_CP_Clk_SetModeRegister\000"
+ 5148 034a 4144435F 		.ascii	"ADC_DelSig_1_Ext_CP_Clk_SetModeRegister\000"
  5148      44656C53 
  5148      69675F31 
  5148      5F457874 
  5148      5F43505F 
  5149              	.LASF26:
- 5150 036f 4144435F 		.ascii	"ADC_DelSig_1_GCOR_STRUCT\000"
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 132
+ 5150 0372 4144435F 		.ascii	"ADC_DelSig_1_GCOR_STRUCT\000"
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 132
 
 
  5150      44656C53 
@@ -7866,261 +7866,261 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 1
  5150      5F47434F 
  5150      525F5354 
  5151              	.LASF0:
- 5152 0388 666C6F61 		.ascii	"float\000"
+ 5152 038b 666C6F61 		.ascii	"float\000"
  5152      7400
  5153              	.LASF93:
- 5154 038e 43794578 		.ascii	"CyExitCriticalSection\000"
+ 5154 0391 43794578 		.ascii	"CyExitCriticalSection\000"
  5154      69744372 
  5154      69746963 
  5154      616C5365 
  5154      6374696F 
  5155              	.LASF88:
- 5156 03a4 4144435F 		.ascii	"ADC_DelSig_1_Offset\000"
+ 5156 03a7 4144435F 		.ascii	"ADC_DelSig_1_Offset\000"
  5156      44656C53 
  5156      69675F31 
  5156      5F4F6666 
  5156      73657400 
  5157              	.LASF19:
- 5158 03b8 72656738 		.ascii	"reg8\000"
+ 5158 03bb 72656738 		.ascii	"reg8\000"
  5158      00
  5159              	.LASF28:
- 5160 03bd 69646561 		.ascii	"idealDecGain\000"
+ 5160 03c0 69646561 		.ascii	"idealDecGain\000"
  5160      6C446563 
  5160      4761696E 
  5160      00
  5161              	.LASF33:
- 5162 03ca 6E6F726D 		.ascii	"normalised\000"
+ 5162 03cd 6E6F726D 		.ascii	"normalised\000"
  5162      616C6973 
  5162      656400
  5163              	.LASF90:
- 5164 03d5 43794861 		.ascii	"CyHalt\000"
+ 5164 03d8 43794861 		.ascii	"CyHalt\000"
  5164      6C7400
  5165              	.LASF2:
- 5166 03dc 756E7369 		.ascii	"unsigned char\000"
+ 5166 03df 756E7369 		.ascii	"unsigned char\000"
  5166      676E6564 
  5166      20636861 
  5166      7200
  5167              	.LASF64:
- 5168 03ea 4144435F 		.ascii	"ADC_DelSig_1_SetOffset\000"
+ 5168 03ed 4144435F 		.ascii	"ADC_DelSig_1_SetOffset\000"
  5168      44656C53 
  5168      69675F31 
  5168      5F536574 
  5168      4F666673 
  5169              	.LASF3:
- 5170 0401 73686F72 		.ascii	"short int\000"
+ 5170 0404 73686F72 		.ascii	"short int\000"
  5170      7420696E 
  5170      7400
  5171              	.LASF35:
- 5172 040b 67636F72 		.ascii	"gcorTmp\000"
+ 5172 040e 67636F72 		.ascii	"gcorTmp\000"
  5172      546D7000 
  5173              	.LASF101:
- 5174 0413 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 5174 0416 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
  5174      43313120 
  5174      352E342E 
  5174      31203230 
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 133
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 133
 
 
  5174      31363036 
- 5175 0446 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 5175 0449 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
  5175      20726576 
  5175      6973696F 
  5175      6E203233 
  5175      37373135 
- 5176 0479 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 5176 047c 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
  5176      66756E63 
  5176      74696F6E 
  5176      2D736563 
  5176      74696F6E 
  5177              	.LASF56:
- 5178 04a1 4144435F 		.ascii	"ADC_DelSig_1_StartConvert\000"
+ 5178 04a4 4144435F 		.ascii	"ADC_DelSig_1_StartConvert\000"
  5178      44656C53 
  5178      69675F31 
  5178      5F537461 
  5178      7274436F 
  5179              	.LASF30:
- 5180 04bb 7265736F 		.ascii	"resolution\000"
+ 5180 04be 7265736F 		.ascii	"resolution\000"
  5180      6C757469 
  5180      6F6E00
  5181              	.LASF75:
- 5182 04c6 636F6566 		.ascii	"coefA\000"
+ 5182 04c9 636F6566 		.ascii	"coefA\000"
  5182      4100
  5183              	.LASF76:
- 5184 04cc 636F6566 		.ascii	"coefB\000"
+ 5184 04cf 636F6566 		.ascii	"coefB\000"
  5184      4200
  5185              	.LASF63:
- 5186 04d2 4144435F 		.ascii	"ADC_DelSig_1_GetResult32\000"
+ 5186 04d5 4144435F 		.ascii	"ADC_DelSig_1_GetResult32\000"
  5186      44656C53 
  5186      69675F31 
  5186      5F476574 
  5186      52657375 
  5187              	.LASF18:
- 5188 04eb 63686172 		.ascii	"char\000"
+ 5188 04ee 63686172 		.ascii	"char\000"
  5188      00
  5189              	.LASF48:
- 5190 04f0 4144435F 		.ascii	"ADC_DelSig_1_SetCoherency\000"
+ 5190 04f3 4144435F 		.ascii	"ADC_DelSig_1_SetCoherency\000"
  5190      44656C53 
  5190      69675F31 
  5190      5F536574 
  5190      436F6865 
  5191              	.LASF89:
- 5192 050a 4144435F 		.ascii	"ADC_DelSig_1_CountsPerVolt\000"
+ 5192 050d 4144435F 		.ascii	"ADC_DelSig_1_CountsPerVolt\000"
  5192      44656C53 
  5192      69675F31 
  5192      5F436F75 
  5192      6E747350 
  5193              	.LASF31:
- 5194 0525 636F6E66 		.ascii	"config\000"
+ 5194 0528 636F6E66 		.ascii	"config\000"
  5194      696700
  5195              	.LASF25:
- 5196 052c 6776616C 		.ascii	"gval\000"
+ 5196 052f 6776616C 		.ascii	"gval\000"
  5196      00
  5197              	.LASF78:
- 5198 0531 72657374 		.ascii	"restart\000"
+ 5198 0534 72657374 		.ascii	"restart\000"
  5198      61727400 
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 134
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 134
 
 
  5199              	.LASF52:
- 5200 0539 746D7056 		.ascii	"tmpValue\000"
+ 5200 053c 746D7056 		.ascii	"tmpValue\000"
  5200      616C7565 
  5200      00
  5201              	.LASF37:
- 5202 0542 4144435F 		.ascii	"ADC_DelSig_1_SetDSMRef0Reg\000"
+ 5202 0545 4144435F 		.ascii	"ADC_DelSig_1_SetDSMRef0Reg\000"
  5202      44656C53 
  5202      69675F31 
  5202      5F536574 
  5202      44534D52 
  5203              	.LASF65:
- 5204 055d 6F666673 		.ascii	"offset\000"
+ 5204 0560 6F666673 		.ascii	"offset\000"
  5204      657400
  5205              	.LASF99:
- 5206 0564 4144435F 		.ascii	"ADC_DelSig_1_theACLK_SetModeRegister\000"
+ 5206 0567 4144435F 		.ascii	"ADC_DelSig_1_theACLK_SetModeRegister\000"
  5206      44656C53 
  5206      69675F31 
  5206      5F746865 
  5206      41434C4B 
  5207              	.LASF69:
- 5208 0589 61646343 		.ascii	"adcCounts\000"
+ 5208 058c 61646343 		.ascii	"adcCounts\000"
  5208      6F756E74 
  5208      7300
  5209              	.LASF36:
- 5210 0593 4144435F 		.ascii	"ADC_DelSig_1_GainCompensation\000"
+ 5210 0596 4144435F 		.ascii	"ADC_DelSig_1_GainCompensation\000"
  5210      44656C53 
  5210      69675F31 
  5210      5F476169 
  5210      6E436F6D 
  5211              	.LASF39:
- 5212 05b1 656E6162 		.ascii	"enableInterrupts\000"
+ 5212 05b4 656E6162 		.ascii	"enableInterrupts\000"
  5212      6C65496E 
  5212      74657272 
  5212      75707473 
  5212      00
  5213              	.LASF58:
- 5214 05c2 4144435F 		.ascii	"ADC_DelSig_1_IsEndConversion\000"
+ 5214 05c5 4144435F 		.ascii	"ADC_DelSig_1_IsEndConversion\000"
  5214      44656C53 
  5214      69675F31 
  5214      5F497345 
  5214      6E64436F 
  5215              	.LASF53:
- 5216 05df 4144435F 		.ascii	"ADC_DelSig_1_SetGCOR\000"
+ 5216 05e2 4144435F 		.ascii	"ADC_DelSig_1_SetGCOR\000"
  5216      44656C53 
  5216      69675F31 
  5216      5F536574 
  5216      47434F52 
  5217              	.LASF55:
- 5218 05f4 6756616C 		.ascii	"gValue\000"
+ 5218 05f7 6756616C 		.ascii	"gValue\000"
  5218      756500
  5219              	.LASF102:
- 5220 05fb 47656E65 		.ascii	"Generated_Source\\PSoC5\\ADC_DelSig_1.c\000"
+ 5220 05fe 47656E65 		.ascii	"Generated_Source\\PSoC5\\ADC_DelSig_1.c\000"
  5220      72617465 
  5220      645F536F 
  5220      75726365 
  5220      5C50536F 
  5221              	.LASF51:
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 135
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 135
 
 
- 5222 0621 73746174 		.ascii	"status\000"
+ 5222 0624 73746174 		.ascii	"status\000"
  5222      757300
  5223              	.LASF50:
- 5224 0628 6761696E 		.ascii	"gainAdjust\000"
+ 5224 062b 6761696E 		.ascii	"gainAdjust\000"
  5224      41646A75 
  5224      737400
  5225              	.LASF43:
- 5226 0633 4144435F 		.ascii	"ADC_DelSig_1_Start\000"
+ 5226 0636 4144435F 		.ascii	"ADC_DelSig_1_Start\000"
  5226      44656C53 
  5226      69675F31 
  5226      5F537461 
  5226      727400
  5227              	.LASF14:
- 5228 0646 696E7431 		.ascii	"int16\000"
+ 5228 0649 696E7431 		.ascii	"int16\000"
  5228      3600
  5229              	.LASF57:
- 5230 064c 4144435F 		.ascii	"ADC_DelSig_1_StopConvert\000"
+ 5230 064f 4144435F 		.ascii	"ADC_DelSig_1_StopConvert\000"
  5230      44656C53 
  5230      69675F31 
  5230      5F53746F 
  5230      70436F6E 
  5231              	.LASF94:
- 5232 0665 4144435F 		.ascii	"ADC_DelSig_1_AMux_Select\000"
+ 5232 0668 4144435F 		.ascii	"ADC_DelSig_1_AMux_Select\000"
  5232      44656C53 
  5232      69675F31 
  5232      5F414D75 
  5232      785F5365 
  5233              	.LASF66:
- 5234 067e 4144435F 		.ascii	"ADC_DelSig_1_SetGain\000"
+ 5234 0681 4144435F 		.ascii	"ADC_DelSig_1_SetGain\000"
  5234      44656C53 
  5234      69675F31 
  5234      5F536574 
  5234      4761696E 
  5235              	.LASF80:
- 5236 0693 4144435F 		.ascii	"ADC_DelSig_1_Read16\000"
+ 5236 0696 4144435F 		.ascii	"ADC_DelSig_1_Read16\000"
  5236      44656C53 
  5236      69675F31 
  5236      5F526561 
  5236      64313600 
  5237              	.LASF68:
- 5238 06a7 4144435F 		.ascii	"ADC_DelSig_1_CountsTo_mVolts\000"
+ 5238 06aa 4144435F 		.ascii	"ADC_DelSig_1_CountsTo_mVolts\000"
  5238      44656C53 
  5238      69675F31 
  5238      5F436F75 
  5238      6E747354 
  5239              	.LASF45:
- 5240 06c4 4144435F 		.ascii	"ADC_DelSig_1_SetBufferGain\000"
+ 5240 06c7 4144435F 		.ascii	"ADC_DelSig_1_SetBufferGain\000"
  5240      44656C53 
  5240      69675F31 
  5240      5F536574 
  5240      42756666 
  5241              	.LASF47:
- 5242 06df 746D7052 		.ascii	"tmpReg\000"
+ 5242 06e2 746D7052 		.ascii	"tmpReg\000"
  5242      656700
  5243              	.LASF79:
- 5244 06e6 4144435F 		.ascii	"ADC_DelSig_1_Read8\000"
+ 5244 06e9 4144435F 		.ascii	"ADC_DelSig_1_Read8\000"
  5244      44656C53 
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHs6soZ.s 			page 136
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctLfbEx.s 			page 136
 
 
  5244      69675F31 
  5244      5F526561 
  5244      643800
  5245              	.LASF61:
- 5246 06f9 72657375 		.ascii	"result\000"
+ 5246 06fc 72657375 		.ascii	"result\000"
  5246      6C7400
  5247              	.LASF85:
- 5248 0700 4144435F 		.ascii	"ADC_DelSig_1_stopConversion\000"
+ 5248 0703 4144435F 		.ascii	"ADC_DelSig_1_stopConversion\000"
  5248      44656C53 
  5248      69675F31 
  5248      5F73746F 
  5248      70436F6E 
  5249              	.LASF54:
- 5250 071c 4144435F 		.ascii	"ADC_DelSig_1_ReadGCOR\000"
+ 5250 071f 4144435F 		.ascii	"ADC_DelSig_1_ReadGCOR\000"
  5250      44656C53 
  5250      69675F31 
  5250      5F526561 
  5250      6447434F 
  5251              	.LASF82:
- 5252 0732 4144435F 		.ascii	"ADC_DelSig_1_gcor\000"
+ 5252 0735 4144435F 		.ascii	"ADC_DelSig_1_gcor\000"
  5252      44656C53 
  5252      69675F31 
  5252      5F67636F 

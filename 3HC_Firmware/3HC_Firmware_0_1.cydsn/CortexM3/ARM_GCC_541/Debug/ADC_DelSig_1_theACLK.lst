@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 1
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccKDFiP8.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 1
   28:Generated_Source\PSoC5/ADC_DelSig_1_theACLK.c **** 
   29:Generated_Source\PSoC5/ADC_DelSig_1_theACLK.c **** 
   30:Generated_Source\PSoC5/ADC_DelSig_1_theACLK.c **** /*******************************************************************************
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 2
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccKDFiP8.s 			page 2
 
 
   31:Generated_Source\PSoC5/ADC_DelSig_1_theACLK.c **** * Function Name: ADC_DelSig_1_theACLK_Start
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 1
   54:Generated_Source\PSoC5/ADC_DelSig_1_theACLK.c **** * Function Name: ADC_DelSig_1_theACLK_Stop
   55:Generated_Source\PSoC5/ADC_DelSig_1_theACLK.c **** ********************************************************************************
   56:Generated_Source\PSoC5/ADC_DelSig_1_theACLK.c **** *
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 3
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccKDFiP8.s 			page 3
 
 
   57:Generated_Source\PSoC5/ADC_DelSig_1_theACLK.c **** * Summary:
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 1
   80:Generated_Source\PSoC5/ADC_DelSig_1_theACLK.c **** 
   81:Generated_Source\PSoC5/ADC_DelSig_1_theACLK.c **** 
   82:Generated_Source\PSoC5/ADC_DelSig_1_theACLK.c **** /*******************************************************************************
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 4
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccKDFiP8.s 			page 4
 
 
   83:Generated_Source\PSoC5/ADC_DelSig_1_theACLK.c **** * Function Name: ADC_DelSig_1_theACLK_StopBlock
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 1
  115:Generated_Source\PSoC5/ADC_DelSig_1_theACLK.c ****         CLK_DIST_AMASK = 0x00u;
  116:Generated_Source\PSoC5/ADC_DelSig_1_theACLK.c **** #endif /* ADC_DelSig_1_theACLK__CFG3 */
  117:Generated_Source\PSoC5/ADC_DelSig_1_theACLK.c **** 
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 5
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccKDFiP8.s 			page 5
 
 
  118:Generated_Source\PSoC5/ADC_DelSig_1_theACLK.c ****         /* Clear mask of bus clock. */
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 1
  136:Generated_Source\PSoC5/ADC_DelSig_1_theACLK.c ****         CY_SET_REG16(ADC_DelSig_1_theACLK_DIV_PTR, oldDivider);
  148              		.loc 1 136 0
  149 0056 FF33     		adds	r3, r3, #255
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 6
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccKDFiP8.s 			page 6
 
 
  150 0058 1A80     		strh	r2, [r3]	@ movhi
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 1
  160:Generated_Source\PSoC5/ADC_DelSig_1_theACLK.c ****     {
  161:Generated_Source\PSoC5/ADC_DelSig_1_theACLK.c ****         ADC_DelSig_1_theACLK_CLKSTBY &= (uint8)(~ADC_DelSig_1_theACLK_CLKSTBY_MASK);
  181              		.loc 1 161 0
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 7
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccKDFiP8.s 			page 7
 
 
  182 0002 064A     		ldr	r2, .L15
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 1
  189:Generated_Source\PSoC5/ADC_DelSig_1_theACLK.c **** * Returns:
  190:Generated_Source\PSoC5/ADC_DelSig_1_theACLK.c **** *  None
  191:Generated_Source\PSoC5/ADC_DelSig_1_theACLK.c **** *
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 8
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccKDFiP8.s 			page 8
 
 
  192:Generated_Source\PSoC5/ADC_DelSig_1_theACLK.c **** *******************************************************************************/
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 1
  246:Generated_Source\PSoC5/ADC_DelSig_1_theACLK.c ****                     CY_SET_REG16(CYREG_CLKDIST_WRK0, oldDivider);
  247:Generated_Source\PSoC5/ADC_DelSig_1_theACLK.c ****                     CLK_DIST_LD = CYCLK_LD_DISABLE|CYCLK_LD_SYNC_EN|CYCLK_LD_LOAD;
  248:Generated_Source\PSoC5/ADC_DelSig_1_theACLK.c **** 
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 9
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccKDFiP8.s 			page 9
 
 
  249:Generated_Source\PSoC5/ADC_DelSig_1_theACLK.c ****                     /* Wait for clock to be disabled */
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 1
  213              		@ link register save eliminated.
  299:Generated_Source\PSoC5/ADC_DelSig_1_theACLK.c ****     return CY_GET_REG16(ADC_DelSig_1_theACLK_DIV_PTR);
  214              		.loc 1 299 0
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 10
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccKDFiP8.s 			page 10
 
 
  215 0000 014B     		ldr	r3, .L18
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 1
  235              		.loc 1 333 0
  236              		.cfi_startproc
  237              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 11
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccKDFiP8.s 			page 11
 
 
  238              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 1
  362:Generated_Source\PSoC5/ADC_DelSig_1_theACLK.c **** *
  363:Generated_Source\PSoC5/ADC_DelSig_1_theACLK.c **** * Returns:
  364:Generated_Source\PSoC5/ADC_DelSig_1_theACLK.c **** *  None
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 12
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccKDFiP8.s 			page 12
 
 
  365:Generated_Source\PSoC5/ADC_DelSig_1_theACLK.c **** *
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 1
  388:Generated_Source\PSoC5/ADC_DelSig_1_theACLK.c **** uint8 ADC_DelSig_1_theACLK_GetModeRegister(void) 
  389:Generated_Source\PSoC5/ADC_DelSig_1_theACLK.c **** {
  295              		.loc 1 389 0
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 13
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccKDFiP8.s 			page 13
 
 
  296              		.cfi_startproc
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 1
  419:Generated_Source\PSoC5/ADC_DelSig_1_theACLK.c **** void ADC_DelSig_1_theACLK_SetSourceRegister(uint8 clkSource) 
  420:Generated_Source\PSoC5/ADC_DelSig_1_theACLK.c **** {
  421:Generated_Source\PSoC5/ADC_DelSig_1_theACLK.c ****     uint16 currDiv = ADC_DelSig_1_theACLK_GetDividerRegister();
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 14
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccKDFiP8.s 			page 14
 
 
  422:Generated_Source\PSoC5/ADC_DelSig_1_theACLK.c ****     uint8 oldSrc = ADC_DelSig_1_theACLK_GetSourceRegister();
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 1
  329              		.loc 1 467 0
  330 0004 00F00700 		and	r0, r0, #7
  331 0008 7047     		bx	lr
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 15
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccKDFiP8.s 			page 15
 
 
  332              	.L31:
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 1
  379 001e 00B1     		cbz	r0, .L35
  205:Generated_Source\PSoC5/ADC_DelSig_1_theACLK.c ****         {
  380              		.loc 1 205 0 discriminator 2
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 16
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccKDFiP8.s 			page 16
 
 
  381 0020 85B9     		cbnz	r5, .L34
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 1
  425 0056 0839     		subs	r1, r1, #8
  426 0058 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
  427 005a 03F07F03 		and	r3, r3, #127
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 17
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccKDFiP8.s 			page 17
 
 
  428 005e 0B70     		strb	r3, [r1]
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 1
  472 00a2 00E0     		b	.L41
  473              	.LVL19:
  474              	.L43:
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 18
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccKDFiP8.s 			page 18
 
 
  475 00a4 0122     		movs	r2, #1
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 1
  524              	.LVL23:
  525 0000 38B5     		push	{r3, r4, r5, lr}
  526              		.cfi_def_cfa_offset 16
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 19
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccKDFiP8.s 			page 19
 
 
  527              		.cfi_offset 3, -16
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 1
  569 0034 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
  438:Generated_Source\PSoC5/ADC_DelSig_1_theACLK.c ****             (ADC_DelSig_1_theACLK_MOD_SRC & (uint8)(~ADC_DelSig_1_theACLK_SRC_SEL_MSK)) | clkSource
  570              		.loc 1 438 0
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 20
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccKDFiP8.s 			page 20
 
 
  571 0036 03F0F803 		and	r3, r3, #248
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 1
  485:Generated_Source\PSoC5/ADC_DelSig_1_theACLK.c **** *   disable the clock. clkPhase = 1 produces a 0ns delay and clkPhase = 11 
  486:Generated_Source\PSoC5/ADC_DelSig_1_theACLK.c **** *   produces a 10ns delay.
  487:Generated_Source\PSoC5/ADC_DelSig_1_theACLK.c **** *
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 21
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccKDFiP8.s 			page 21
 
 
  488:Generated_Source\PSoC5/ADC_DelSig_1_theACLK.c **** * Returns:
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 1
  632              		.loc 1 514 0
  633              		.cfi_startproc
  634              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 22
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccKDFiP8.s 			page 22
 
 
  635              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -1288,21 +1288,21 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 1
  657 0006 00000000 		.4byte	.Ldebug_abbrev0
  658 000a 04       		.byte	0x4
  659 000b 01       		.uleb128 0x1
- 660 000c 5B030000 		.4byte	.LASF40
+ 660 000c 5E030000 		.4byte	.LASF40
  661 0010 0C       		.byte	0xc
  662 0011 AE000000 		.4byte	.LASF41
- 663 0015 C0020000 		.4byte	.LASF42
+ 663 0015 E2000000 		.4byte	.LASF42
  664 0019 00000000 		.4byte	.Ldebug_ranges0+0
  665 001d 00000000 		.4byte	0
  666 0021 00000000 		.4byte	.Ldebug_line0
  667 0025 02       		.uleb128 0x2
  668 0026 01       		.byte	0x1
  669 0027 06       		.byte	0x6
- 670 0028 B8010000 		.4byte	.LASF0
+ 670 0028 E1010000 		.4byte	.LASF0
  671 002c 02       		.uleb128 0x2
  672 002d 01       		.byte	0x1
  673 002e 08       		.byte	0x8
- 674 002f 9E010000 		.4byte	.LASF1
+ 674 002f C7010000 		.4byte	.LASF1
  675 0033 02       		.uleb128 0x2
  676 0034 02       		.byte	0x2
  677 0035 05       		.byte	0x5
@@ -1310,26 +1310,26 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 1
  679 003a 02       		.uleb128 0x2
  680 003b 02       		.byte	0x2
  681 003c 07       		.byte	0x7
- 682 003d E8010000 		.4byte	.LASF3
+ 682 003d 11020000 		.4byte	.LASF3
  683 0041 02       		.uleb128 0x2
  684 0042 04       		.byte	0x4
  685 0043 05       		.byte	0x5
- 686 0044 16010000 		.4byte	.LASF4
+ 686 0044 3F010000 		.4byte	.LASF4
  687 0048 02       		.uleb128 0x2
  688 0049 04       		.byte	0x4
  689 004a 07       		.byte	0x7
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 23
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccKDFiP8.s 			page 23
 
 
- 690 004b 61020000 		.4byte	.LASF5
+ 690 004b 8A020000 		.4byte	.LASF5
  691 004f 02       		.uleb128 0x2
  692 0050 08       		.byte	0x8
  693 0051 05       		.byte	0x5
- 694 0052 08010000 		.4byte	.LASF6
+ 694 0052 31010000 		.4byte	.LASF6
  695 0056 02       		.uleb128 0x2
  696 0057 08       		.byte	0x8
  697 0058 07       		.byte	0x7
- 698 0059 C4010000 		.4byte	.LASF7
+ 698 0059 ED010000 		.4byte	.LASF7
  699 005d 03       		.uleb128 0x3
  700 005e 04       		.byte	0x4
  701 005f 05       		.byte	0x5
@@ -1337,7 +1337,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 1
  703 0064 02       		.uleb128 0x2
  704 0065 04       		.byte	0x4
  705 0066 07       		.byte	0x7
- 706 0067 DB010000 		.4byte	.LASF8
+ 706 0067 04020000 		.4byte	.LASF8
  707 006b 04       		.uleb128 0x4
  708 006c 9D000000 		.4byte	.LASF9
  709 0070 02       		.byte	0x2
@@ -1355,13 +1355,13 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 1
  721 008a 02       		.uleb128 0x2
  722 008b 08       		.byte	0x8
  723 008c 04       		.byte	0x4
- 724 008d 73020000 		.4byte	.LASF12
+ 724 008d 9C020000 		.4byte	.LASF12
  725 0091 02       		.uleb128 0x2
  726 0092 01       		.byte	0x1
  727 0093 08       		.byte	0x8
- 728 0094 FB010000 		.4byte	.LASF13
+ 728 0094 24020000 		.4byte	.LASF13
  729 0098 04       		.uleb128 0x4
- 730 0099 5C020000 		.4byte	.LASF14
+ 730 0099 85020000 		.4byte	.LASF14
  731 009d 02       		.byte	0x2
  732 009e 8E02     		.2byte	0x28e
  733 00a0 A4000000 		.4byte	0xa4
@@ -1375,10 +1375,10 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 1
  741 00b5 05       		.uleb128 0x5
  742 00b6 77000000 		.4byte	0x77
  743 00ba 06       		.uleb128 0x6
- 744 00bb 1F010000 		.4byte	.LASF16
+ 744 00bb 48010000 		.4byte	.LASF16
  745 00bf 01       		.byte	0x1
  746 00c0 2D       		.byte	0x2d
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 24
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccKDFiP8.s 			page 24
 
 
  747 00c1 00000000 		.4byte	.LFB0
@@ -1394,7 +1394,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 1
  757 00da 01       		.uleb128 0x1
  758 00db 9C       		.byte	0x9c
  759 00dc 07       		.uleb128 0x7
- 760 00dd A1020000 		.4byte	.LASF18
+ 760 00dd CA020000 		.4byte	.LASF18
  761 00e1 01       		.byte	0x1
  762 00e2 64       		.byte	0x64
  763 00e3 00000000 		.4byte	.LFB2
@@ -1406,7 +1406,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 1
  769 00f2 0A000000 		.4byte	.LBB2
  770 00f6 62000000 		.4byte	.LBE2-.LBB2
  771 00fa 09       		.uleb128 0x9
- 772 00fb 2F020000 		.4byte	.LASF30
+ 772 00fb 58020000 		.4byte	.LASF30
  773 00ff 01       		.byte	0x1
  774 0100 69       		.byte	0x69
  775 0101 77000000 		.4byte	0x77
@@ -1414,7 +1414,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 1
  777 0109 00       		.byte	0
  778 010a 00       		.byte	0
  779 010b 07       		.uleb128 0x7
- 780 010c 3A020000 		.4byte	.LASF19
+ 780 010c 63020000 		.4byte	.LASF19
  781 0110 01       		.byte	0x1
  782 0111 9D       		.byte	0x9d
  783 0112 00000000 		.4byte	.LFB3
@@ -1423,7 +1423,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 1
  786 011b 9C       		.byte	0x9c
  787 011c 2E010000 		.4byte	0x12e
  788 0120 0A       		.uleb128 0xa
- 789 0121 60010000 		.4byte	.LASF21
+ 789 0121 89010000 		.4byte	.LASF21
  790 0125 01       		.byte	0x1
  791 0126 9D       		.byte	0x9d
  792 0127 6B000000 		.4byte	0x6b
@@ -1431,19 +1431,19 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 1
  794 012c 50       		.byte	0x50
  795 012d 00       		.byte	0
  796 012e 0B       		.uleb128 0xb
- 797 012f 33030000 		.4byte	.LASF24
+ 797 012f 10030000 		.4byte	.LASF24
  798 0133 01       		.byte	0x1
  799 0134 2901     		.2byte	0x129
  800 0136 77000000 		.4byte	0x77
  801 013a 00000000 		.4byte	.LFB5
  802 013e 0C000000 		.4byte	.LFE5-.LFB5
  803 0142 01       		.uleb128 0x1
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 25
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccKDFiP8.s 			page 25
 
 
  804 0143 9C       		.byte	0x9c
  805 0144 0C       		.uleb128 0xc
- 806 0145 0A020000 		.4byte	.LASF20
+ 806 0145 33020000 		.4byte	.LASF20
  807 0149 01       		.byte	0x1
  808 014a 4C01     		.2byte	0x14c
  809 014c 00000000 		.4byte	.LFB6
@@ -1452,14 +1452,14 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 1
  812 0155 9C       		.byte	0x9c
  813 0156 6B010000 		.4byte	0x16b
  814 015a 0D       		.uleb128 0xd
- 815 015b AC010000 		.4byte	.LASF22
+ 815 015b D5010000 		.4byte	.LASF22
  816 015f 01       		.byte	0x1
  817 0160 4C01     		.2byte	0x14c
  818 0162 6B000000 		.4byte	0x6b
  819 0166 13000000 		.4byte	.LLST1
  820 016a 00       		.byte	0
  821 016b 0C       		.uleb128 0xc
- 822 016c 77010000 		.4byte	.LASF23
+ 822 016c A0010000 		.4byte	.LASF23
  823 0170 01       		.byte	0x1
  824 0171 6F01     		.2byte	0x16f
  825 0173 00000000 		.4byte	.LFB7
@@ -1468,7 +1468,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 1
  828 017c 9C       		.byte	0x9c
  829 017d 92010000 		.4byte	0x192
  830 0181 0D       		.uleb128 0xd
- 831 0182 AC010000 		.4byte	.LASF22
+ 831 0182 D5010000 		.4byte	.LASF22
  832 0186 01       		.byte	0x1
  833 0187 6F01     		.2byte	0x16f
  834 0189 6B000000 		.4byte	0x6b
@@ -1484,7 +1484,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 1
  844 01a6 01       		.uleb128 0x1
  845 01a7 9C       		.byte	0x9c
  846 01a8 0B       		.uleb128 0xb
- 847 01a9 0C030000 		.4byte	.LASF26
+ 847 01a9 E9020000 		.4byte	.LASF26
  848 01ad 01       		.byte	0x1
  849 01ae D001     		.2byte	0x1d0
  850 01b0 6B000000 		.4byte	0x6b
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 1
  858 01c4 C1       		.byte	0xc1
  859 01c5 00000000 		.4byte	.LFB4
  860 01c9 D8000000 		.4byte	.LFE4-.LFB4
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 26
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccKDFiP8.s 			page 26
 
 
  861 01cd 01       		.uleb128 0x1
@@ -1523,13 +1523,13 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 1
  880 01f8 6B000000 		.4byte	0x6b
  881 01fc 97000000 		.4byte	.LLST5
  882 0200 09       		.uleb128 0x9
- 883 0201 6F010000 		.4byte	.LASF32
+ 883 0201 98010000 		.4byte	.LASF32
  884 0205 01       		.byte	0x1
  885 0206 C6       		.byte	0xc6
  886 0207 6B000000 		.4byte	0x6b
  887 020b E5000000 		.4byte	.LLST6
  888 020f 0F       		.uleb128 0xf
- 889 0210 2F020000 		.4byte	.LASF30
+ 889 0210 58020000 		.4byte	.LASF30
  890 0214 01       		.byte	0x1
  891 0215 C7       		.byte	0xc7
  892 0216 77000000 		.4byte	0x77
@@ -1543,7 +1543,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 1
  900 022a 2E010000 		.4byte	0x12e
  901 022e 00       		.byte	0
  902 022f 0C       		.uleb128 0xc
- 903 0230 7A020000 		.4byte	.LASF33
+ 903 0230 A3020000 		.4byte	.LASF33
  904 0234 01       		.byte	0x1
  905 0235 A301     		.2byte	0x1a3
  906 0237 00000000 		.4byte	.LFB9
@@ -1552,13 +1552,13 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 1
  909 0240 9C       		.byte	0x9c
  910 0241 86020000 		.4byte	0x286
  911 0245 0D       		.uleb128 0xd
- 912 0246 00020000 		.4byte	.LASF34
+ 912 0246 29020000 		.4byte	.LASF34
  913 024a 01       		.byte	0x1
  914 024b A301     		.2byte	0x1a3
  915 024d 6B000000 		.4byte	0x6b
  916 0251 F8000000 		.4byte	.LLST7
  917 0255 11       		.uleb128 0x11
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 27
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccKDFiP8.s 			page 27
 
 
  918 0256 00000000 		.4byte	.LASF35
@@ -1581,7 +1581,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 1
  935 0281 A8010000 		.4byte	0x1a8
  936 0285 00       		.byte	0
  937 0286 0C       		.uleb128 0xc
- 938 0287 3A010000 		.4byte	.LASF37
+ 938 0287 63010000 		.4byte	.LASF37
  939 028b 01       		.byte	0x1
  940 028c EC01     		.2byte	0x1ec
  941 028e 00000000 		.4byte	.LFB11
@@ -1590,14 +1590,14 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 1
  944 0297 9C       		.byte	0x9c
  945 0298 AD020000 		.4byte	0x2ad
  946 029c 0D       		.uleb128 0xd
- 947 029d 66010000 		.4byte	.LASF38
+ 947 029d 8F010000 		.4byte	.LASF38
  948 02a1 01       		.byte	0x1
  949 02a2 EC01     		.2byte	0x1ec
  950 02a4 6B000000 		.4byte	0x6b
  951 02a8 2C010000 		.4byte	.LLST9
  952 02ac 00       		.byte	0
  953 02ad 0B       		.uleb128 0xb
- 954 02ae E2000000 		.4byte	.LASF39
+ 954 02ae 38030000 		.4byte	.LASF39
  955 02b2 01       		.byte	0x1
  956 02b3 0102     		.2byte	0x201
  957 02b5 6B000000 		.4byte	0x6b
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 1
  972 0007 03       		.uleb128 0x3
  973 0008 0E       		.uleb128 0xe
  974 0009 1B       		.uleb128 0x1b
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 28
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccKDFiP8.s 			page 28
 
 
  975 000a 0E       		.uleb128 0xe
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 1
  1029 0040 3F       		.uleb128 0x3f
  1030 0041 19       		.uleb128 0x19
  1031 0042 03       		.uleb128 0x3
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 29
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccKDFiP8.s 			page 29
 
 
  1032 0043 0E       		.uleb128 0xe
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 1
  1086 007b 03       		.uleb128 0x3
  1087 007c 0E       		.uleb128 0xe
  1088 007d 3A       		.uleb128 0x3a
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 30
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccKDFiP8.s 			page 30
 
 
  1089 007e 0B       		.uleb128 0xb
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 1
  1143 00b5 03       		.uleb128 0x3
  1144 00b6 0E       		.uleb128 0xe
  1145 00b7 3A       		.uleb128 0x3a
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 31
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccKDFiP8.s 			page 31
 
 
  1146 00b8 0B       		.uleb128 0xb
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 1
  1200 00ef 3B       		.uleb128 0x3b
  1201 00f0 0B       		.uleb128 0xb
  1202 00f1 49       		.uleb128 0x49
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 32
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccKDFiP8.s 			page 32
 
 
  1203 00f2 13       		.uleb128 0x13
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 1
  1257              	.LLST1:
  1258 0013 00000000 		.4byte	.LVL3
  1259 0017 08000000 		.4byte	.LVL4
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 33
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccKDFiP8.s 			page 33
 
 
  1260 001b 0100     		.2byte	0x1
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 1
  1314 0097 1C000000 		.4byte	.LVL11
  1315 009b 2A000000 		.4byte	.LVL12
  1316 009f 0100     		.2byte	0x1
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 34
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccKDFiP8.s 			page 34
 
 
  1317 00a1 52       		.byte	0x52
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 1
  1371 0128 00000000 		.4byte	0
  1372              	.LLST9:
  1373 012c 00000000 		.4byte	.LVL30
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 35
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccKDFiP8.s 			page 35
 
 
  1374 0130 04000000 		.4byte	.LVL31
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 1
  1428 0010 00000000 		.4byte	.LFB2
  1429 0014 6C000000 		.4byte	.LFE2
  1430 0018 00000000 		.4byte	.LFB3
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 36
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccKDFiP8.s 			page 36
 
 
  1431 001c 20000000 		.4byte	.LFE3
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 1
  1468 005f 75696E74 		.ascii	"uint16\000"
  1468      313600
  1469              	.LASF29:
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 37
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccKDFiP8.s 			page 37
 
 
  1470 0066 72657374 		.ascii	"restart\000"
@@ -2188,170 +2188,170 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 1
  1481              	.LASF11:
  1482 00dc 666C6F61 		.ascii	"float\000"
  1482      7400
- 1483              	.LASF39:
- 1484 00e2 4144435F 		.ascii	"ADC_DelSig_1_theACLK_GetPhaseRegister\000"
- 1484      44656C53 
- 1484      69675F31 
- 1484      5F746865 
- 1484      41434C4B 
- 1485              	.LASF6:
- 1486 0108 6C6F6E67 		.ascii	"long long int\000"
- 1486      206C6F6E 
- 1486      6720696E 
- 1486      7400
- 1487              	.LASF4:
- 1488 0116 6C6F6E67 		.ascii	"long int\000"
- 1488      20696E74 
- 1488      00
- 1489              	.LASF16:
- 1490 011f 4144435F 		.ascii	"ADC_DelSig_1_theACLK_Start\000"
- 1490      44656C53 
- 1490      69675F31 
- 1490      5F746865 
- 1490      41434C4B 
- 1491              	.LASF37:
- 1492 013a 4144435F 		.ascii	"ADC_DelSig_1_theACLK_SetPhaseRegister\000"
- 1492      44656C53 
- 1492      69675F31 
- 1492      5F746865 
- 1492      41434C4B 
- 1493              	.LASF21:
- 1494 0160 73746174 		.ascii	"state\000"
- 1494      6500
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 38
+ 1483              	.LASF42:
+ 1484 00e2 433A5C55 		.ascii	"C:\\Users\\Caleb Cotter\\Documents\\GitHub\\3HC\\3H"
+ 1484      73657273 
+ 1484      5C43616C 
+ 1484      65622043 
+ 1484      6F747465 
+ 1485 010f 435F4669 		.ascii	"C_Firmware\\3HC_Firmware_0_1.cydsn\000"
+ 1485      726D7761 
+ 1485      72655C33 
+ 1485      48435F46 
+ 1485      69726D77 
+ 1486              	.LASF6:
+ 1487 0131 6C6F6E67 		.ascii	"long long int\000"
+ 1487      206C6F6E 
+ 1487      6720696E 
+ 1487      7400
+ 1488              	.LASF4:
+ 1489 013f 6C6F6E67 		.ascii	"long int\000"
+ 1489      20696E74 
+ 1489      00
+ 1490              	.LASF16:
+ 1491 0148 4144435F 		.ascii	"ADC_DelSig_1_theACLK_Start\000"
+ 1491      44656C53 
+ 1491      69675F31 
+ 1491      5F746865 
+ 1491      41434C4B 
+ 1492              	.LASF37:
+ 1493 0163 4144435F 		.ascii	"ADC_DelSig_1_theACLK_SetPhaseRegister\000"
+ 1493      44656C53 
+ 1493      69675F31 
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccKDFiP8.s 			page 38
 
 
- 1495              	.LASF38:
- 1496 0166 636C6B50 		.ascii	"clkPhase\000"
- 1496      68617365 
- 1496      00
- 1497              	.LASF32:
- 1498 016f 63757272 		.ascii	"currSrc\000"
- 1498      53726300 
- 1499              	.LASF23:
- 1500 0177 4144435F 		.ascii	"ADC_DelSig_1_theACLK_ClearModeRegister\000"
- 1500      44656C53 
- 1500      69675F31 
- 1500      5F746865 
- 1500      41434C4B 
- 1501              	.LASF1:
- 1502 019e 756E7369 		.ascii	"unsigned char\000"
- 1502      676E6564 
- 1502      20636861 
- 1502      7200
- 1503              	.LASF22:
- 1504 01ac 6D6F6465 		.ascii	"modeBitMask\000"
- 1504      4269744D 
- 1504      61736B00 
- 1505              	.LASF0:
- 1506 01b8 7369676E 		.ascii	"signed char\000"
- 1506      65642063 
- 1506      68617200 
- 1507              	.LASF7:
- 1508 01c4 6C6F6E67 		.ascii	"long long unsigned int\000"
- 1508      206C6F6E 
- 1508      6720756E 
- 1508      7369676E 
- 1508      65642069 
- 1509              	.LASF8:
- 1510 01db 756E7369 		.ascii	"unsigned int\000"
- 1510      676E6564 
- 1510      20696E74 
- 1510      00
- 1511              	.LASF3:
- 1512 01e8 73686F72 		.ascii	"short unsigned int\000"
- 1512      7420756E 
- 1512      7369676E 
- 1512      65642069 
- 1512      6E7400
- 1513              	.LASF13:
- 1514 01fb 63686172 		.ascii	"char\000"
- 1514      00
- 1515              	.LASF34:
- 1516 0200 636C6B53 		.ascii	"clkSource\000"
- 1516      6F757263 
- 1516      6500
- 1517              	.LASF20:
- 1518 020a 4144435F 		.ascii	"ADC_DelSig_1_theACLK_SetModeRegister\000"
- 1518      44656C53 
- 1518      69675F31 
- 1518      5F746865 
- 1518      41434C4B 
- 1519              	.LASF30:
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 39
+ 1493      5F746865 
+ 1493      41434C4B 
+ 1494              	.LASF21:
+ 1495 0189 73746174 		.ascii	"state\000"
+ 1495      6500
+ 1496              	.LASF38:
+ 1497 018f 636C6B50 		.ascii	"clkPhase\000"
+ 1497      68617365 
+ 1497      00
+ 1498              	.LASF32:
+ 1499 0198 63757272 		.ascii	"currSrc\000"
+ 1499      53726300 
+ 1500              	.LASF23:
+ 1501 01a0 4144435F 		.ascii	"ADC_DelSig_1_theACLK_ClearModeRegister\000"
+ 1501      44656C53 
+ 1501      69675F31 
+ 1501      5F746865 
+ 1501      41434C4B 
+ 1502              	.LASF1:
+ 1503 01c7 756E7369 		.ascii	"unsigned char\000"
+ 1503      676E6564 
+ 1503      20636861 
+ 1503      7200
+ 1504              	.LASF22:
+ 1505 01d5 6D6F6465 		.ascii	"modeBitMask\000"
+ 1505      4269744D 
+ 1505      61736B00 
+ 1506              	.LASF0:
+ 1507 01e1 7369676E 		.ascii	"signed char\000"
+ 1507      65642063 
+ 1507      68617200 
+ 1508              	.LASF7:
+ 1509 01ed 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1509      206C6F6E 
+ 1509      6720756E 
+ 1509      7369676E 
+ 1509      65642069 
+ 1510              	.LASF8:
+ 1511 0204 756E7369 		.ascii	"unsigned int\000"
+ 1511      676E6564 
+ 1511      20696E74 
+ 1511      00
+ 1512              	.LASF3:
+ 1513 0211 73686F72 		.ascii	"short unsigned int\000"
+ 1513      7420756E 
+ 1513      7369676E 
+ 1513      65642069 
+ 1513      6E7400
+ 1514              	.LASF13:
+ 1515 0224 63686172 		.ascii	"char\000"
+ 1515      00
+ 1516              	.LASF34:
+ 1517 0229 636C6B53 		.ascii	"clkSource\000"
+ 1517      6F757263 
+ 1517      6500
+ 1518              	.LASF20:
+ 1519 0233 4144435F 		.ascii	"ADC_DelSig_1_theACLK_SetModeRegister\000"
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccKDFiP8.s 			page 39
 
 
- 1520 022f 6F6C6444 		.ascii	"oldDivider\000"
- 1520      69766964 
- 1520      657200
- 1521              	.LASF19:
- 1522 023a 4144435F 		.ascii	"ADC_DelSig_1_theACLK_StandbyPower\000"
- 1522      44656C53 
- 1522      69675F31 
- 1522      5F746865 
- 1522      41434C4B 
- 1523              	.LASF14:
- 1524 025c 72656738 		.ascii	"reg8\000"
- 1524      00
- 1525              	.LASF5:
- 1526 0261 6C6F6E67 		.ascii	"long unsigned int\000"
- 1526      20756E73 
- 1526      69676E65 
- 1526      6420696E 
- 1526      7400
- 1527              	.LASF12:
- 1528 0273 646F7562 		.ascii	"double\000"
- 1528      6C6500
- 1529              	.LASF33:
- 1530 027a 4144435F 		.ascii	"ADC_DelSig_1_theACLK_SetSourceRegister\000"
- 1530      44656C53 
- 1530      69675F31 
- 1530      5F746865 
- 1530      41434C4B 
- 1531              	.LASF18:
- 1532 02a1 4144435F 		.ascii	"ADC_DelSig_1_theACLK_StopBlock\000"
- 1532      44656C53 
- 1532      69675F31 
- 1532      5F746865 
- 1532      41434C4B 
- 1533              	.LASF42:
- 1534 02c0 433A5C55 		.ascii	"C:\\Users\\Caleb Cotter\\Desktop\\NitroDoser Develo"
- 1534      73657273 
- 1534      5C43616C 
- 1534      65622043 
- 1534      6F747465 
- 1535 02ef 706D656E 		.ascii	"pment\\3HC_Firmware_0_1.cydsn\000"
- 1535      745C3348 
- 1535      435F4669 
- 1535      726D7761 
- 1535      72655F30 
- 1536              	.LASF26:
- 1537 030c 4144435F 		.ascii	"ADC_DelSig_1_theACLK_GetSourceRegister\000"
+ 1519      44656C53 
+ 1519      69675F31 
+ 1519      5F746865 
+ 1519      41434C4B 
+ 1520              	.LASF30:
+ 1521 0258 6F6C6444 		.ascii	"oldDivider\000"
+ 1521      69766964 
+ 1521      657200
+ 1522              	.LASF19:
+ 1523 0263 4144435F 		.ascii	"ADC_DelSig_1_theACLK_StandbyPower\000"
+ 1523      44656C53 
+ 1523      69675F31 
+ 1523      5F746865 
+ 1523      41434C4B 
+ 1524              	.LASF14:
+ 1525 0285 72656738 		.ascii	"reg8\000"
+ 1525      00
+ 1526              	.LASF5:
+ 1527 028a 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1527      20756E73 
+ 1527      69676E65 
+ 1527      6420696E 
+ 1527      7400
+ 1528              	.LASF12:
+ 1529 029c 646F7562 		.ascii	"double\000"
+ 1529      6C6500
+ 1530              	.LASF33:
+ 1531 02a3 4144435F 		.ascii	"ADC_DelSig_1_theACLK_SetSourceRegister\000"
+ 1531      44656C53 
+ 1531      69675F31 
+ 1531      5F746865 
+ 1531      41434C4B 
+ 1532              	.LASF18:
+ 1533 02ca 4144435F 		.ascii	"ADC_DelSig_1_theACLK_StopBlock\000"
+ 1533      44656C53 
+ 1533      69675F31 
+ 1533      5F746865 
+ 1533      41434C4B 
+ 1534              	.LASF26:
+ 1535 02e9 4144435F 		.ascii	"ADC_DelSig_1_theACLK_GetSourceRegister\000"
+ 1535      44656C53 
+ 1535      69675F31 
+ 1535      5F746865 
+ 1535      41434C4B 
+ 1536              	.LASF24:
+ 1537 0310 4144435F 		.ascii	"ADC_DelSig_1_theACLK_GetDividerRegister\000"
  1537      44656C53 
  1537      69675F31 
  1537      5F746865 
  1537      41434C4B 
- 1538              	.LASF24:
- 1539 0333 4144435F 		.ascii	"ADC_DelSig_1_theACLK_GetDividerRegister\000"
+ 1538              	.LASF39:
+ 1539 0338 4144435F 		.ascii	"ADC_DelSig_1_theACLK_GetPhaseRegister\000"
  1539      44656C53 
  1539      69675F31 
  1539      5F746865 
  1539      41434C4B 
  1540              	.LASF40:
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccM4K4eX.s 			page 40
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccKDFiP8.s 			page 40
 
 
- 1541 035b 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1541 035e 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
  1541      43313120 
  1541      352E342E 
  1541      31203230 
  1541      31363036 
- 1542 038e 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 1542 0391 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
  1542      20726576 
  1542      6973696F 
  1542      6E203233 
  1542      37373135 
- 1543 03c1 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1543 03c4 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
  1543      66756E63 
  1543      74696F6E 
  1543      2D736563 

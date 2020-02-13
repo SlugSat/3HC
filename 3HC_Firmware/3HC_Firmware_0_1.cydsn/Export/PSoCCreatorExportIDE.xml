@@ -25,7 +25,7 @@
       <Tool Name="postbuild" Command="" Options="" />
     </Toolchain>
   </Toolchains>
-  <Project Name="3HC_Firmware_0_1" Path="C:\Users\Caleb Cotter\Desktop\NitroDoser Development\3HC_Firmware_0_1.cydsn" Version="5.70" Type="Normal">
+  <Project Name="3HC_Firmware_0_1" Path="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn" Version="5.70" Type="Normal">
     <CMSIS_SVD_File>3HC_Firmware_0_1.svd</CMSIS_SVD_File>
     <Datasheet />
     <LinkerFiles>
@@ -34,14 +34,14 @@
       <LinkerFile Toolchain="ARM IAR Generic">.\Generated_Source\PSoC5\Cm3Iar.icf</LinkerFile>
     </LinkerFiles>
     <Folders>
-      <Folder BuildType="STRICT" Path="C:\Users\Caleb Cotter\Desktop\NitroDoser Development\3HC_Firmware_0_1.cydsn">
-        <Files Root="C:\Users\Caleb Cotter\Desktop\NitroDoser Development\3HC_Firmware_0_1.cydsn">
+      <Folder BuildType="STRICT" Path="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn">
+        <Files Root="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn">
           <File BuildType="BUILD" Toolchain="">main.c</File>
           <File BuildType="BUILD" Toolchain="">cyapicallbacks.h</File>
         </Files>
       </Folder>
-      <Folder BuildType="STRICT" Path="C:\Users\Caleb Cotter\Desktop\NitroDoser Development\3HC_Firmware_0_1.cydsn\Generated_Source\PSoC5">
-        <Files Root="C:\Users\Caleb Cotter\Desktop\NitroDoser Development\3HC_Firmware_0_1.cydsn">
+      <Folder BuildType="STRICT" Path="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\Generated_Source\PSoC5">
+        <Files Root="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn">
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\cyfitter_cfg.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\cyfitter_cfg.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\cymetadata.c</File>
@@ -129,14 +129,6 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\X_PWM.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\X_PWM.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\X_PWM_PM.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\I2C_IMU.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\I2C_IMU.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\I2C_IMU_BOOT.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\I2C_IMU_INT.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\I2C_IMU_PM.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\I2C_IMU_SLAVE.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\I2C_IMU_MASTER.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\I2C_IMU_PVT.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\SDA_aliases.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\SDA.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\SDA.h</File>
@@ -170,64 +162,60 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Z_DIR_OUT_aliases.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Z_DIR_OUT.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Z_DIR_OUT.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ADC_DelSig_1.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ADC_DelSig_1.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ADC_DelSig_1_PM.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ADC_DelSig_1_INT.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ADC_DelSig_1_Ext_CP_Clk.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ADC_DelSig_1_Ext_CP_Clk.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ADC_DelSig_1_IRQ.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ADC_DelSig_1_IRQ.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ADC_DelSig_1_theACLK.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ADC_DelSig_1_theACLK.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ADC_DelSig_1_AMux.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ADC_DelSig_1_AMux.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\I2C.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\I2C.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\I2C_BOOT.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\I2C_INT.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\I2C_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\I2C_SLAVE.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\I2C_MASTER.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\I2C_PVT.h</File>
         </Files>
       </Folder>
-      <Folder BuildType="STRICT" Path="C:\Users\Caleb Cotter\Desktop\NitroDoser Development\3HC_Firmware_0_1.cydsn\Export\ARM_GCC_Generic">
-        <Files Root="C:\Users\Caleb Cotter\Desktop\NitroDoser Development\3HC_Firmware_0_1.cydsn">
+      <Folder BuildType="STRICT" Path="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\Export\ARM_GCC_Generic">
+        <Files Root="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn">
           <File BuildType="BUILD" Toolchain="ARM GCC Generic">.\Export\ARM_GCC_Generic\CyComponentLibrary.a</File>
         </Files>
       </Folder>
-      <Folder BuildType="STRICT" Path="C:\Users\Caleb Cotter\Desktop\NitroDoser Development\3HC_Firmware_0_1.cydsn\Export\ARM_MDK_Generic">
-        <Files Root="C:\Users\Caleb Cotter\Desktop\NitroDoser Development\3HC_Firmware_0_1.cydsn">
+      <Folder BuildType="STRICT" Path="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\Export\ARM_MDK_Generic">
+        <Files Root="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn">
           <File BuildType="BUILD" Toolchain="ARM MDK Generic">.\Export\ARM_MDK_Generic\CyComponentLibrary.a</File>
         </Files>
       </Folder>
-      <Folder BuildType="STRICT" Path="C:\Users\Caleb Cotter\Desktop\NitroDoser Development\3HC_Firmware_0_1.cydsn\Export\ARM_IAR_Generic">
-        <Files Root="C:\Users\Caleb Cotter\Desktop\NitroDoser Development\3HC_Firmware_0_1.cydsn">
+      <Folder BuildType="STRICT" Path="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\Export\ARM_IAR_Generic">
+        <Files Root="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn">
           <File BuildType="BUILD" Toolchain="ARM IAR Generic">.\Export\ARM_IAR_Generic\CyComponentLibrary.a</File>
         </Files>
       </Folder>
       <Folder BuildType="EXCLUDE" Path=".\codegentemp">
-        <Files Root="C:\Users\Caleb Cotter\Desktop\NitroDoser Development\3HC_Firmware_0_1.cydsn" />
+        <Files Root="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn" />
       </Folder>
       <Folder BuildType="EXCLUDE" Path=".\ARM_GCC_441">
-        <Files Root="C:\Users\Caleb Cotter\Desktop\NitroDoser Development\3HC_Firmware_0_1.cydsn" />
+        <Files Root="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn" />
       </Folder>
       <Folder BuildType="EXCLUDE" Path=".\ARM_GCC_473">
-        <Files Root="C:\Users\Caleb Cotter\Desktop\NitroDoser Development\3HC_Firmware_0_1.cydsn" />
+        <Files Root="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn" />
       </Folder>
       <Folder BuildType="EXCLUDE" Path=".\DP8051_Keil_952">
-        <Files Root="C:\Users\Caleb Cotter\Desktop\NitroDoser Development\3HC_Firmware_0_1.cydsn" />
+        <Files Root="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn" />
       </Folder>
       <Folder BuildType="EXCLUDE" Path=".\DP8051">
-        <Files Root="C:\Users\Caleb Cotter\Desktop\NitroDoser Development\3HC_Firmware_0_1.cydsn" />
+        <Files Root="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn" />
       </Folder>
       <Folder BuildType="EXCLUDE" Path=".\CortexM0">
-        <Files Root="C:\Users\Caleb Cotter\Desktop\NitroDoser Development\3HC_Firmware_0_1.cydsn" />
+        <Files Root="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn" />
       </Folder>
       <Folder BuildType="EXCLUDE" Path=".\CortexM0p">
-        <Files Root="C:\Users\Caleb Cotter\Desktop\NitroDoser Development\3HC_Firmware_0_1.cydsn" />
+        <Files Root="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn" />
       </Folder>
       <Folder BuildType="EXCLUDE" Path=".\CortexM3">
-        <Files Root="C:\Users\Caleb Cotter\Desktop\NitroDoser Development\3HC_Firmware_0_1.cydsn" />
+        <Files Root="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn" />
       </Folder>
       <Folder BuildType="EXCLUDE" Path=".\CortexM4">
-        <Files Root="C:\Users\Caleb Cotter\Desktop\NitroDoser Development\3HC_Firmware_0_1.cydsn" />
+        <Files Root="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn" />
       </Folder>
       <Folder BuildType="EXCLUDE" Path=".\CortexM7">
-        <Files Root="C:\Users\Caleb Cotter\Desktop\NitroDoser Development\3HC_Firmware_0_1.cydsn" />
+        <Files Root="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn" />
       </Folder>
     </Folders>
   </Project>

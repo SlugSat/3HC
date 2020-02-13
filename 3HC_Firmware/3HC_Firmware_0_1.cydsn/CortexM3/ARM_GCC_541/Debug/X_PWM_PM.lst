@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccF1TETU.s 			page 1
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHHOa4o.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccF1TETU.s 			page 1
   28:Generated_Source\PSoC5/X_PWM_PM.c **** *  Saves the current user configuration of the component.
   29:Generated_Source\PSoC5/X_PWM_PM.c **** *
   30:Generated_Source\PSoC5/X_PWM_PM.c **** * Parameters:
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccF1TETU.s 			page 2
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHHOa4o.s 			page 2
 
 
   31:Generated_Source\PSoC5/X_PWM_PM.c **** *  None
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccF1TETU.s 			page 1
   64:Generated_Source\PSoC5/X_PWM_PM.c ****             X_PWM_backup.PWMControlRegister = X_PWM_ReadControlRegister();
   49              		.loc 1 64 0
   50 0016 FFF7FEFF 		bl	X_PWM_ReadControlRegister
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccF1TETU.s 			page 3
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHHOa4o.s 			page 3
 
 
   51              	.LVL2:
@@ -128,7 +128,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccF1TETU.s 			page 1
   55 001e 00BF     		.align	2
   56              	.L3:
   57 0020 00000000 		.word	.LANCHOR0
-  58 0024 83640040 		.word	1073767555
+  58 0024 85640040 		.word	1073767557
   59              		.cfi_endproc
   60              	.LFE0:
   61              		.size	X_PWM_SaveConfig, .-X_PWM_SaveConfig
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccF1TETU.s 			page 1
   92:Generated_Source\PSoC5/X_PWM_PM.c ****                 X_PWM_WritePeriod(X_PWM_backup.PWMPeriod);
   78              		.loc 1 92 0
   79 0002 074C     		ldr	r4, .L7
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccF1TETU.s 			page 4
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHHOa4o.s 			page 4
 
 
   80 0004 A088     		ldrh	r0, [r4, #4]
@@ -220,7 +220,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccF1TETU.s 			page 1
   97 001e 00BF     		.align	2
   98              	.L7:
   99 0020 00000000 		.word	.LANCHOR0
- 100 0024 83640040 		.word	1073767555
+ 100 0024 85640040 		.word	1073767557
  101              		.cfi_endproc
  102              	.LFE1:
  103              		.size	X_PWM_RestoreConfig, .-X_PWM_RestoreConfig
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccF1TETU.s 			page 1
  115:Generated_Source\PSoC5/X_PWM_PM.c **** 
  116:Generated_Source\PSoC5/X_PWM_PM.c **** 
  117:Generated_Source\PSoC5/X_PWM_PM.c **** /*******************************************************************************
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccF1TETU.s 			page 5
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHHOa4o.s 			page 5
 
 
  118:Generated_Source\PSoC5/X_PWM_PM.c **** * Function Name: X_PWM_Sleep
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccF1TETU.s 			page 1
  148:Generated_Source\PSoC5/X_PWM_PM.c ****         }
  149:Generated_Source\PSoC5/X_PWM_PM.c ****     #endif /* (X_PWM_UseControl) */
  150:Generated_Source\PSoC5/X_PWM_PM.c **** 
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccF1TETU.s 			page 6
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHHOa4o.s 			page 6
 
 
  151:Generated_Source\PSoC5/X_PWM_PM.c ****     /* Stop component */
@@ -316,7 +316,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccF1TETU.s 			page 1
  143              	.L14:
  144              		.align	2
  145              	.L13:
- 146 0024 72640040 		.word	1073767538
+ 146 0024 74640040 		.word	1073767540
  147 0028 00000000 		.word	.LANCHOR0
  148              		.cfi_endproc
  149              	.LFE2:
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccF1TETU.s 			page 1
  161              		@ args = 0, pretend = 0, frame = 0
  162              		@ frame_needed = 0, uses_anonymous_args = 0
  163 0000 08B5     		push	{r3, lr}
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccF1TETU.s 			page 7
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHHOa4o.s 			page 7
 
 
  164              		.cfi_def_cfa_offset 8
@@ -409,48 +409,48 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccF1TETU.s 			page 1
  201 0006 00000000 		.4byte	.Ldebug_abbrev0
  202 000a 04       		.byte	0x4
  203 000b 01       		.uleb128 0x1
- 204 000c 63000000 		.4byte	.LASF35
+ 204 000c 57000000 		.4byte	.LASF35
  205 0010 0C       		.byte	0xc
- 206 0011 64010000 		.4byte	.LASF36
- 207 0015 DD010000 		.4byte	.LASF37
+ 206 0011 58010000 		.4byte	.LASF36
+ 207 0015 01020000 		.4byte	.LASF37
  208 0019 00000000 		.4byte	.Ldebug_ranges0+0
  209 001d 00000000 		.4byte	0
  210 0021 00000000 		.4byte	.Ldebug_line0
  211 0025 02       		.uleb128 0x2
  212 0026 01       		.byte	0x1
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccF1TETU.s 			page 8
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHHOa4o.s 			page 8
 
 
  213 0027 06       		.byte	0x6
- 214 0028 C1020000 		.4byte	.LASF0
+ 214 0028 C4020000 		.4byte	.LASF0
  215 002c 02       		.uleb128 0x2
  216 002d 01       		.byte	0x1
  217 002e 08       		.byte	0x8
- 218 002f 55000000 		.4byte	.LASF1
+ 218 002f 49000000 		.4byte	.LASF1
  219 0033 02       		.uleb128 0x2
  220 0034 02       		.byte	0x2
  221 0035 05       		.byte	0x5
- 222 0036 75020000 		.4byte	.LASF2
+ 222 0036 78020000 		.4byte	.LASF2
  223 003a 02       		.uleb128 0x2
  224 003b 02       		.byte	0x2
  225 003c 07       		.byte	0x7
- 226 003d 11000000 		.4byte	.LASF3
+ 226 003d 16000000 		.4byte	.LASF3
  227 0041 02       		.uleb128 0x2
  228 0042 04       		.byte	0x4
  229 0043 05       		.byte	0x5
- 230 0044 9F020000 		.4byte	.LASF4
+ 230 0044 A2020000 		.4byte	.LASF4
  231 0048 02       		.uleb128 0x2
  232 0049 04       		.byte	0x4
  233 004a 07       		.byte	0x7
- 234 004b 13010000 		.4byte	.LASF5
+ 234 004b 07010000 		.4byte	.LASF5
  235 004f 02       		.uleb128 0x2
  236 0050 08       		.byte	0x8
  237 0051 05       		.byte	0x5
- 238 0052 56020000 		.4byte	.LASF6
+ 238 0052 59020000 		.4byte	.LASF6
  239 0056 02       		.uleb128 0x2
  240 0057 08       		.byte	0x8
  241 0058 07       		.byte	0x7
- 242 0059 C6010000 		.4byte	.LASF7
+ 242 0059 BA010000 		.4byte	.LASF7
  243 005d 03       		.uleb128 0x3
  244 005e 04       		.byte	0x4
  245 005f 05       		.byte	0x5
@@ -458,34 +458,34 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccF1TETU.s 			page 1
  247 0064 02       		.uleb128 0x2
  248 0065 04       		.byte	0x4
  249 0066 07       		.byte	0x7
- 250 0067 B9010000 		.4byte	.LASF8
+ 250 0067 AD010000 		.4byte	.LASF8
  251 006b 04       		.uleb128 0x4
- 252 006c 25010000 		.4byte	.LASF9
+ 252 006c 19010000 		.4byte	.LASF9
  253 0070 02       		.byte	0x2
  254 0071 E401     		.2byte	0x1e4
  255 0073 2C000000 		.4byte	0x2c
  256 0077 04       		.uleb128 0x4
- 257 0078 A1010000 		.4byte	.LASF10
+ 257 0078 95010000 		.4byte	.LASF10
  258 007c 02       		.byte	0x2
  259 007d E501     		.2byte	0x1e5
  260 007f 3A000000 		.4byte	0x3a
  261 0083 02       		.uleb128 0x2
  262 0084 04       		.byte	0x4
  263 0085 04       		.byte	0x4
- 264 0086 3E000000 		.4byte	.LASF11
+ 264 0086 43000000 		.4byte	.LASF11
  265 008a 02       		.uleb128 0x2
  266 008b 08       		.byte	0x8
  267 008c 04       		.byte	0x4
- 268 008d 86010000 		.4byte	.LASF12
+ 268 008d 7A010000 		.4byte	.LASF12
  269 0091 02       		.uleb128 0x2
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccF1TETU.s 			page 9
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHHOa4o.s 			page 9
 
 
  270 0092 01       		.byte	0x1
  271 0093 08       		.byte	0x8
- 272 0094 64020000 		.4byte	.LASF13
+ 272 0094 67020000 		.4byte	.LASF13
  273 0098 04       		.uleb128 0x4
- 274 0099 48020000 		.4byte	.LASF14
+ 274 0099 07000000 		.4byte	.LASF14
  275 009d 02       		.byte	0x2
  276 009e 8E02     		.2byte	0x28e
  277 00a0 A4000000 		.4byte	0xa4
@@ -494,18 +494,18 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccF1TETU.s 			page 1
  280 00a9 02       		.uleb128 0x2
  281 00aa 08       		.byte	0x8
  282 00ab 04       		.byte	0x4
- 283 00ac B5020000 		.4byte	.LASF15
+ 283 00ac B8020000 		.4byte	.LASF15
  284 00b0 02       		.uleb128 0x2
  285 00b1 04       		.byte	0x4
  286 00b2 07       		.byte	0x7
- 287 00b3 4D020000 		.4byte	.LASF16
+ 287 00b3 50020000 		.4byte	.LASF16
  288 00b7 06       		.uleb128 0x6
  289 00b8 08       		.byte	0x8
  290 00b9 03       		.byte	0x3
  291 00ba 6B       		.byte	0x6b
  292 00bb FC000000 		.4byte	0xfc
  293 00bf 07       		.uleb128 0x7
- 294 00c0 04010000 		.4byte	.LASF17
+ 294 00c0 F8000000 		.4byte	.LASF17
  295 00c4 03       		.byte	0x3
  296 00c5 6E       		.byte	0x6e
  297 00c6 6B000000 		.4byte	0x6b
@@ -517,34 +517,34 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccF1TETU.s 			page 1
  303 00d2 77000000 		.4byte	0x77
  304 00d6 02       		.byte	0x2
  305 00d7 07       		.uleb128 0x7
- 306 00d8 07000000 		.4byte	.LASF19
+ 306 00d8 0C000000 		.4byte	.LASF19
  307 00dc 03       		.byte	0x3
  308 00dd 73       		.byte	0x73
  309 00de 77000000 		.4byte	0x77
  310 00e2 04       		.byte	0x4
  311 00e3 07       		.uleb128 0x7
- 312 00e4 DF020000 		.4byte	.LASF20
+ 312 00e4 E2020000 		.4byte	.LASF20
  313 00e8 03       		.byte	0x3
  314 00e9 76       		.byte	0x76
  315 00ea 6B000000 		.4byte	0x6b
  316 00ee 06       		.byte	0x6
  317 00ef 07       		.uleb128 0x7
- 318 00f0 36010000 		.4byte	.LASF21
+ 318 00f0 2A010000 		.4byte	.LASF21
  319 00f4 03       		.byte	0x3
  320 00f5 86       		.byte	0x86
  321 00f6 6B000000 		.4byte	0x6b
  322 00fa 07       		.byte	0x7
  323 00fb 00       		.byte	0
  324 00fc 08       		.uleb128 0x8
- 325 00fd F1000000 		.4byte	.LASF22
+ 325 00fd E5000000 		.4byte	.LASF22
  326 0101 03       		.byte	0x3
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccF1TETU.s 			page 10
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHHOa4o.s 			page 10
 
 
  327 0102 8B       		.byte	0x8b
  328 0103 B7000000 		.4byte	0xb7
  329 0107 09       		.uleb128 0x9
- 330 0108 44000000 		.4byte	.LASF23
+ 330 0108 D1010000 		.4byte	.LASF23
  331 010c 01       		.byte	0x1
  332 010d 2A       		.byte	0x2a
  333 010e 00000000 		.4byte	.LFB0
@@ -563,7 +563,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccF1TETU.s 			page 1
  346 0133 E0010000 		.4byte	0x1e0
  347 0137 00       		.byte	0
  348 0138 09       		.uleb128 0x9
- 349 0139 8D010000 		.4byte	.LASF24
+ 349 0139 81010000 		.4byte	.LASF24
  350 013d 01       		.byte	0x1
  351 013e 58       		.byte	0x58
  352 013f 00000000 		.4byte	.LFB1
@@ -582,7 +582,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccF1TETU.s 			page 1
  365 0164 01020000 		.4byte	0x201
  366 0168 00       		.byte	0
  367 0169 09       		.uleb128 0x9
- 368 016a 69020000 		.4byte	.LASF25
+ 368 016a 6C020000 		.4byte	.LASF25
  369 016e 01       		.byte	0x1
  370 016f 88       		.byte	0x88
  371 0170 00000000 		.4byte	.LFB2
@@ -598,10 +598,10 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccF1TETU.s 			page 1
  381 018c 07010000 		.4byte	0x107
  382 0190 00       		.byte	0
  383 0191 09       		.uleb128 0x9
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccF1TETU.s 			page 11
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHHOa4o.s 			page 11
 
 
- 384 0192 A8020000 		.4byte	.LASF26
+ 384 0192 AB020000 		.4byte	.LASF26
  385 0196 01       		.byte	0x1
  386 0197 B2       		.byte	0xb2
  387 0198 00000000 		.4byte	.LFB3
@@ -617,7 +617,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccF1TETU.s 			page 1
  397 01b4 17020000 		.4byte	0x217
  398 01b8 00       		.byte	0
  399 01b9 0B       		.uleb128 0xb
- 400 01ba 3B020000 		.4byte	.LASF38
+ 400 01ba F4010000 		.4byte	.LASF38
  401 01be 01       		.byte	0x1
  402 01bf 14       		.byte	0x14
  403 01c0 FC000000 		.4byte	0xfc
@@ -625,46 +625,46 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccF1TETU.s 			page 1
  405 01c5 03       		.byte	0x3
  406 01c6 00000000 		.4byte	X_PWM_backup
  407 01ca 0C       		.uleb128 0xc
- 408 01cb A8010000 		.4byte	.LASF27
- 409 01cf A8010000 		.4byte	.LASF27
+ 408 01cb 9C010000 		.4byte	.LASF27
+ 409 01cf 9C010000 		.4byte	.LASF27
  410 01d3 03       		.byte	0x3
  411 01d4 C0       		.byte	0xc0
  412 01d5 0C       		.uleb128 0xc
- 413 01d6 29020000 		.4byte	.LASF28
- 414 01da 29020000 		.4byte	.LASF28
+ 413 01d6 E2010000 		.4byte	.LASF28
+ 414 01da E2010000 		.4byte	.LASF28
  415 01de 03       		.byte	0x3
  416 01df B3       		.byte	0xb3
  417 01e0 0C       		.uleb128 0xc
- 418 01e1 24000000 		.4byte	.LASF29
- 419 01e5 24000000 		.4byte	.LASF29
+ 418 01e1 29000000 		.4byte	.LASF29
+ 419 01e5 29000000 		.4byte	.LASF29
  420 01e9 03       		.byte	0x3
  421 01ea 9D       		.byte	0x9d
  422 01eb 0C       		.uleb128 0xc
- 423 01ec CD020000 		.4byte	.LASF30
- 424 01f0 CD020000 		.4byte	.LASF30
+ 423 01ec D0020000 		.4byte	.LASF30
+ 424 01f0 D0020000 		.4byte	.LASF30
  425 01f4 03       		.byte	0x3
  426 01f5 BE       		.byte	0xbe
  427 01f6 0C       		.uleb128 0xc
- 428 01f7 7F020000 		.4byte	.LASF31
- 429 01fb 7F020000 		.4byte	.LASF31
+ 428 01f7 82020000 		.4byte	.LASF31
+ 429 01fb 82020000 		.4byte	.LASF31
  430 01ff 03       		.byte	0x3
  431 0200 BA       		.byte	0xba
  432 0201 0C       		.uleb128 0xc
- 433 0202 49010000 		.4byte	.LASF32
- 434 0206 49010000 		.4byte	.LASF32
+ 433 0202 3D010000 		.4byte	.LASF32
+ 434 0206 3D010000 		.4byte	.LASF32
  435 020a 03       		.byte	0x3
  436 020b 9E       		.byte	0x9e
  437 020c 0C       		.uleb128 0xc
- 438 020d 2B010000 		.4byte	.LASF33
- 439 0211 2B010000 		.4byte	.LASF33
+ 438 020d 1F010000 		.4byte	.LASF33
+ 439 0211 1F010000 		.4byte	.LASF33
  440 0215 03       		.byte	0x3
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccF1TETU.s 			page 12
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHHOa4o.s 			page 12
 
 
  441 0216 93       		.byte	0x93
  442 0217 0C       		.uleb128 0xc
- 443 0218 92020000 		.4byte	.LASF34
- 444 021c 92020000 		.4byte	.LASF34
+ 443 0218 95020000 		.4byte	.LASF34
+ 444 021c 95020000 		.4byte	.LASF34
  445 0220 03       		.byte	0x3
  446 0221 DB       		.byte	0xdb
  447 0222 00       		.byte	0
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccF1TETU.s 			page 1
  495 002d 0E       		.uleb128 0xe
  496 002e 3A       		.uleb128 0x3a
  497 002f 0B       		.uleb128 0xb
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccF1TETU.s 			page 13
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHHOa4o.s 			page 13
 
 
  498 0030 3B       		.uleb128 0x3b
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccF1TETU.s 			page 1
  552 0066 09       		.uleb128 0x9
  553 0067 2E       		.uleb128 0x2e
  554 0068 01       		.byte	0x1
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccF1TETU.s 			page 14
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHHOa4o.s 			page 14
 
 
  555 0069 3F       		.uleb128 0x3f
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccF1TETU.s 			page 1
  609 00a2 0E       		.uleb128 0xe
  610 00a3 03       		.uleb128 0x3
  611 00a4 0E       		.uleb128 0xe
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccF1TETU.s 			page 15
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHHOa4o.s 			page 15
 
 
  612 00a5 3A       		.uleb128 0x3a
@@ -888,216 +888,216 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccF1TETU.s 			page 1
  652              	.LASF18:
  653 0000 50574D55 		.ascii	"PWMUdb\000"
  653      646200
- 654              	.LASF19:
- 655 0007 50574D50 		.ascii	"PWMPeriod\000"
- 655      6572696F 
- 655      6400
- 656              	.LASF3:
- 657 0011 73686F72 		.ascii	"short unsigned int\000"
- 657      7420756E 
- 657      7369676E 
- 657      65642069 
- 657      6E7400
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccF1TETU.s 			page 16
+ 654              	.LASF14:
+ 655 0007 72656738 		.ascii	"reg8\000"
+ 655      00
+ 656              	.LASF19:
+ 657 000c 50574D50 		.ascii	"PWMPeriod\000"
+ 657      6572696F 
+ 657      6400
+ 658              	.LASF3:
+ 659 0016 73686F72 		.ascii	"short unsigned int\000"
+ 659      7420756E 
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHHOa4o.s 			page 16
 
 
- 658              	.LASF29:
- 659 0024 585F5057 		.ascii	"X_PWM_ReadControlRegister\000"
- 659      4D5F5265 
- 659      6164436F 
- 659      6E74726F 
- 659      6C526567 
- 660              	.LASF11:
- 661 003e 666C6F61 		.ascii	"float\000"
- 661      7400
- 662              	.LASF23:
- 663 0044 585F5057 		.ascii	"X_PWM_SaveConfig\000"
- 663      4D5F5361 
- 663      7665436F 
- 663      6E666967 
- 663      00
+ 659      7369676E 
+ 659      65642069 
+ 659      6E7400
+ 660              	.LASF29:
+ 661 0029 585F5057 		.ascii	"X_PWM_ReadControlRegister\000"
+ 661      4D5F5265 
+ 661      6164436F 
+ 661      6E74726F 
+ 661      6C526567 
+ 662              	.LASF11:
+ 663 0043 666C6F61 		.ascii	"float\000"
+ 663      7400
  664              	.LASF1:
- 665 0055 756E7369 		.ascii	"unsigned char\000"
+ 665 0049 756E7369 		.ascii	"unsigned char\000"
  665      676E6564 
  665      20636861 
  665      7200
  666              	.LASF35:
- 667 0063 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 667 0057 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
  667      43313120 
  667      352E342E 
  667      31203230 
  667      31363036 
- 668 0096 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 668 008a 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
  668      20726576 
  668      6973696F 
  668      6E203233 
  668      37373135 
- 669 00c9 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 669 00bd 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
  669      66756E63 
  669      74696F6E 
  669      2D736563 
  669      74696F6E 
  670              	.LASF22:
- 671 00f1 585F5057 		.ascii	"X_PWM_backupStruct\000"
+ 671 00e5 585F5057 		.ascii	"X_PWM_backupStruct\000"
  671      4D5F6261 
  671      636B7570 
  671      53747275 
  671      637400
  672              	.LASF17:
- 673 0104 50574D45 		.ascii	"PWMEnableState\000"
+ 673 00f8 50574D45 		.ascii	"PWMEnableState\000"
  673      6E61626C 
  673      65537461 
  673      746500
  674              	.LASF5:
- 675 0113 6C6F6E67 		.ascii	"long unsigned int\000"
+ 675 0107 6C6F6E67 		.ascii	"long unsigned int\000"
  675      20756E73 
  675      69676E65 
  675      6420696E 
  675      7400
  676              	.LASF9:
- 677 0125 75696E74 		.ascii	"uint8\000"
+ 677 0119 75696E74 		.ascii	"uint8\000"
  677      3800
  678              	.LASF33:
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccF1TETU.s 			page 17
-
-
- 679 012b 585F5057 		.ascii	"X_PWM_Stop\000"
+ 679 011f 585F5057 		.ascii	"X_PWM_Stop\000"
  679      4D5F5374 
  679      6F7000
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHHOa4o.s 			page 17
+
+
  680              	.LASF21:
- 681 0136 50574D43 		.ascii	"PWMControlRegister\000"
+ 681 012a 50574D43 		.ascii	"PWMControlRegister\000"
  681      6F6E7472 
  681      6F6C5265 
  681      67697374 
  681      657200
  682              	.LASF32:
- 683 0149 585F5057 		.ascii	"X_PWM_WriteControlRegister\000"
+ 683 013d 585F5057 		.ascii	"X_PWM_WriteControlRegister\000"
  683      4D5F5772 
  683      69746543 
  683      6F6E7472 
  683      6F6C5265 
  684              	.LASF36:
- 685 0164 47656E65 		.ascii	"Generated_Source\\PSoC5\\X_PWM_PM.c\000"
+ 685 0158 47656E65 		.ascii	"Generated_Source\\PSoC5\\X_PWM_PM.c\000"
  685      72617465 
  685      645F536F 
  685      75726365 
  685      5C50536F 
  686              	.LASF12:
- 687 0186 646F7562 		.ascii	"double\000"
+ 687 017a 646F7562 		.ascii	"double\000"
  687      6C6500
  688              	.LASF24:
- 689 018d 585F5057 		.ascii	"X_PWM_RestoreConfig\000"
+ 689 0181 585F5057 		.ascii	"X_PWM_RestoreConfig\000"
  689      4D5F5265 
  689      73746F72 
  689      65436F6E 
  689      66696700 
  690              	.LASF10:
- 691 01a1 75696E74 		.ascii	"uint16\000"
+ 691 0195 75696E74 		.ascii	"uint16\000"
  691      313600
  692              	.LASF27:
- 693 01a8 585F5057 		.ascii	"X_PWM_ReadPeriod\000"
+ 693 019c 585F5057 		.ascii	"X_PWM_ReadPeriod\000"
  693      4D5F5265 
  693      61645065 
  693      72696F64 
  693      00
  694              	.LASF8:
- 695 01b9 756E7369 		.ascii	"unsigned int\000"
+ 695 01ad 756E7369 		.ascii	"unsigned int\000"
  695      676E6564 
  695      20696E74 
  695      00
  696              	.LASF7:
- 697 01c6 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 697 01ba 6C6F6E67 		.ascii	"long long unsigned int\000"
  697      206C6F6E 
  697      6720756E 
  697      7369676E 
  697      65642069 
- 698              	.LASF37:
- 699 01dd 433A5C55 		.ascii	"C:\\Users\\Caleb Cotter\\Desktop\\NitroDoser Develo"
- 699      73657273 
- 699      5C43616C 
- 699      65622043 
- 699      6F747465 
- 700 020c 706D656E 		.ascii	"pment\\3HC_Firmware_0_1.cydsn\000"
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccF1TETU.s 			page 18
+ 698              	.LASF23:
+ 699 01d1 585F5057 		.ascii	"X_PWM_SaveConfig\000"
+ 699      4D5F5361 
+ 699      7665436F 
+ 699      6E666967 
+ 699      00
+ 700              	.LASF28:
+ 701 01e2 585F5057 		.ascii	"X_PWM_ReadCounter\000"
+ 701      4D5F5265 
+ 701      6164436F 
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHHOa4o.s 			page 18
 
 
- 700      745C3348 
- 700      435F4669 
- 700      726D7761 
- 700      72655F30 
- 701              	.LASF28:
- 702 0229 585F5057 		.ascii	"X_PWM_ReadCounter\000"
- 702      4D5F5265 
- 702      6164436F 
- 702      756E7465 
- 702      7200
- 703              	.LASF38:
- 704 023b 585F5057 		.ascii	"X_PWM_backup\000"
- 704      4D5F6261 
- 704      636B7570 
- 704      00
- 705              	.LASF14:
- 706 0248 72656738 		.ascii	"reg8\000"
- 706      00
+ 701      756E7465 
+ 701      7200
+ 702              	.LASF38:
+ 703 01f4 585F5057 		.ascii	"X_PWM_backup\000"
+ 703      4D5F6261 
+ 703      636B7570 
+ 703      00
+ 704              	.LASF37:
+ 705 0201 433A5C55 		.ascii	"C:\\Users\\Caleb Cotter\\Documents\\GitHub\\3HC\\3H"
+ 705      73657273 
+ 705      5C43616C 
+ 705      65622043 
+ 705      6F747465 
+ 706 022e 435F4669 		.ascii	"C_Firmware\\3HC_Firmware_0_1.cydsn\000"
+ 706      726D7761 
+ 706      72655C33 
+ 706      48435F46 
+ 706      69726D77 
  707              	.LASF16:
- 708 024d 73697A65 		.ascii	"sizetype\000"
+ 708 0250 73697A65 		.ascii	"sizetype\000"
  708      74797065 
  708      00
  709              	.LASF6:
- 710 0256 6C6F6E67 		.ascii	"long long int\000"
+ 710 0259 6C6F6E67 		.ascii	"long long int\000"
  710      206C6F6E 
  710      6720696E 
  710      7400
  711              	.LASF13:
- 712 0264 63686172 		.ascii	"char\000"
+ 712 0267 63686172 		.ascii	"char\000"
  712      00
  713              	.LASF25:
- 714 0269 585F5057 		.ascii	"X_PWM_Sleep\000"
+ 714 026c 585F5057 		.ascii	"X_PWM_Sleep\000"
  714      4D5F536C 
  714      65657000 
  715              	.LASF2:
- 716 0275 73686F72 		.ascii	"short int\000"
+ 716 0278 73686F72 		.ascii	"short int\000"
  716      7420696E 
  716      7400
  717              	.LASF31:
- 718 027f 585F5057 		.ascii	"X_PWM_WriteCounter\000"
+ 718 0282 585F5057 		.ascii	"X_PWM_WriteCounter\000"
  718      4D5F5772 
  718      69746543 
  718      6F756E74 
  718      657200
  719              	.LASF34:
- 720 0292 585F5057 		.ascii	"X_PWM_Enable\000"
+ 720 0295 585F5057 		.ascii	"X_PWM_Enable\000"
  720      4D5F456E 
  720      61626C65 
  720      00
  721              	.LASF4:
- 722 029f 6C6F6E67 		.ascii	"long int\000"
+ 722 02a2 6C6F6E67 		.ascii	"long int\000"
  722      20696E74 
  722      00
  723              	.LASF26:
- 724 02a8 585F5057 		.ascii	"X_PWM_Wakeup\000"
+ 724 02ab 585F5057 		.ascii	"X_PWM_Wakeup\000"
  724      4D5F5761 
  724      6B657570 
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccF1TETU.s 			page 19
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccHHOa4o.s 			page 19
 
 
  724      00
  725              	.LASF15:
- 726 02b5 6C6F6E67 		.ascii	"long double\000"
+ 726 02b8 6C6F6E67 		.ascii	"long double\000"
  726      20646F75 
  726      626C6500 
  727              	.LASF0:
- 728 02c1 7369676E 		.ascii	"signed char\000"
+ 728 02c4 7369676E 		.ascii	"signed char\000"
  728      65642063 
  728      68617200 
  729              	.LASF30:
- 730 02cd 585F5057 		.ascii	"X_PWM_WritePeriod\000"
+ 730 02d0 585F5057 		.ascii	"X_PWM_WritePeriod\000"
  730      4D5F5772 
  730      69746550 
  730      6572696F 
  730      6400
  731              	.LASF20:
- 732 02df 496E7465 		.ascii	"InterruptMaskValue\000"
+ 732 02e2 496E7465 		.ascii	"InterruptMaskValue\000"
  732      72727570 
  732      744D6173 
  732      6B56616C 

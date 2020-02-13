@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccnRhp1G.s 			page 1
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccdjlZRh.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccnRhp1G.s 			page 1
   28:Generated_Source\PSoC5/LCD_PM.c **** *  Does nothing, provided for consistency.
   29:Generated_Source\PSoC5/LCD_PM.c **** *
   30:Generated_Source\PSoC5/LCD_PM.c **** * Parameters:
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccnRhp1G.s 			page 2
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccdjlZRh.s 			page 2
 
 
   31:Generated_Source\PSoC5/LCD_PM.c **** *  None.
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccnRhp1G.s 			page 1
   55              		.align	2
   56              		.global	LCD_Sleep
   57              		.thumb
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccnRhp1G.s 			page 3
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccdjlZRh.s 			page 3
 
 
   58              		.thumb_func
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccnRhp1G.s 			page 1
   87              		.size	LCD_Sleep, .-LCD_Sleep
   88              		.section	.text.LCD_Wakeup,"ax",%progbits
   89              		.align	2
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccnRhp1G.s 			page 4
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccdjlZRh.s 			page 4
 
 
   90              		.global	LCD_Wakeup
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccnRhp1G.s 			page 1
  113 000e 08BD     		pop	{r3, pc}
  114              	.L11:
  115              		.align	2
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccnRhp1G.s 			page 5
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccdjlZRh.s 			page 5
 
 
  116              	.L10:
@@ -274,7 +274,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccnRhp1G.s 			page 1
  146 0025 02       		.uleb128 0x2
  147 0026 01       		.byte	0x1
  148 0027 06       		.byte	0x6
- 149 0028 02020000 		.4byte	.LASF0
+ 149 0028 05020000 		.4byte	.LASF0
  150 002c 02       		.uleb128 0x2
  151 002d 01       		.byte	0x1
  152 002e 08       		.byte	0x8
@@ -282,7 +282,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccnRhp1G.s 			page 1
  154 0033 02       		.uleb128 0x2
  155 0034 02       		.byte	0x2
  156 0035 05       		.byte	0x5
- 157 0036 D2010000 		.4byte	.LASF2
+ 157 0036 D5010000 		.4byte	.LASF2
  158 003a 02       		.uleb128 0x2
  159 003b 02       		.byte	0x2
  160 003c 07       		.byte	0x7
@@ -290,7 +290,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccnRhp1G.s 			page 1
  162 0041 02       		.uleb128 0x2
  163 0042 04       		.byte	0x4
  164 0043 05       		.byte	0x5
- 165 0044 ED010000 		.4byte	.LASF4
+ 165 0044 F0010000 		.4byte	.LASF4
  166 0048 02       		.uleb128 0x2
  167 0049 04       		.byte	0x4
  168 004a 07       		.byte	0x7
@@ -298,10 +298,10 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccnRhp1G.s 			page 1
  170 004f 02       		.uleb128 0x2
  171 0050 08       		.byte	0x8
  172 0051 05       		.byte	0x5
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccnRhp1G.s 			page 6
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccdjlZRh.s 			page 6
 
 
- 173 0052 AD010000 		.4byte	.LASF6
+ 173 0052 B0010000 		.4byte	.LASF6
  174 0056 02       		.uleb128 0x2
  175 0057 08       		.byte	0x8
  176 0058 07       		.byte	0x7
@@ -315,7 +315,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccnRhp1G.s 			page 1
  184 0066 07       		.byte	0x7
  185 0067 3D010000 		.4byte	.LASF8
  186 006b 04       		.uleb128 0x4
- 187 006c DC010000 		.4byte	.LASF12
+ 187 006c DF010000 		.4byte	.LASF12
  188 0070 02       		.byte	0x2
  189 0071 E401     		.2byte	0x1e4
  190 0073 2C000000 		.4byte	0x2c
@@ -330,21 +330,21 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccnRhp1G.s 			page 1
  199 0085 02       		.uleb128 0x2
  200 0086 01       		.byte	0x1
  201 0087 08       		.byte	0x8
- 202 0088 BB010000 		.4byte	.LASF11
+ 202 0088 BE010000 		.4byte	.LASF11
  203 008c 05       		.uleb128 0x5
  204 008d 01       		.byte	0x1
  205 008e 03       		.byte	0x3
  206 008f 2C       		.byte	0x2c
  207 0090 A1000000 		.4byte	0xa1
  208 0094 06       		.uleb128 0x6
- 209 0095 F6010000 		.4byte	.LASF23
+ 209 0095 F9010000 		.4byte	.LASF23
  210 0099 03       		.byte	0x3
  211 009a 2E       		.byte	0x2e
  212 009b 6B000000 		.4byte	0x6b
  213 009f 00       		.byte	0
  214 00a0 00       		.byte	0
  215 00a1 07       		.uleb128 0x7
- 216 00a2 C0010000 		.4byte	.LASF13
+ 216 00a2 C3010000 		.4byte	.LASF13
  217 00a6 03       		.byte	0x3
  218 00a7 2F       		.byte	0x2f
  219 00a8 8C000000 		.4byte	0x8c
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccnRhp1G.s 			page 1
  227 00bc 9C       		.byte	0x9c
  228 00bd 08       		.uleb128 0x8
  229 00be 2B010000 		.4byte	.LASF15
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccnRhp1G.s 			page 7
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccdjlZRh.s 			page 7
 
 
  230 00c2 01       		.byte	0x1
@@ -381,7 +381,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccnRhp1G.s 			page 1
  247 00e8 28010000 		.4byte	0x128
  248 00ec 00       		.byte	0
  249 00ed 09       		.uleb128 0x9
- 250 00ee 0E020000 		.4byte	.LASF17
+ 250 00ee 11020000 		.4byte	.LASF17
  251 00f2 01       		.byte	0x1
  252 00f3 6B       		.byte	0x6b
  253 00f4 00000000 		.4byte	.LFB3
@@ -394,7 +394,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccnRhp1G.s 			page 1
  260 0107 33010000 		.4byte	0x133
  261 010b 00       		.byte	0
  262 010c 0B       		.uleb128 0xb
- 263 010d E2010000 		.4byte	.LASF24
+ 263 010d E5010000 		.4byte	.LASF24
  264 0111 01       		.byte	0x1
  265 0112 14       		.byte	0x14
  266 0113 A1000000 		.4byte	0xa1
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccnRhp1G.s 			page 1
  284 013d 37       		.byte	0x37
  285 013e 00       		.byte	0
  286              		.section	.debug_abbrev,"",%progbits
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccnRhp1G.s 			page 8
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccdjlZRh.s 			page 8
 
 
  287              	.Ldebug_abbrev0:
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccnRhp1G.s 			page 1
  341 0035 00       		.byte	0
  342 0036 05       		.uleb128 0x5
  343 0037 13       		.uleb128 0x13
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccnRhp1G.s 			page 9
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccdjlZRh.s 			page 9
 
 
  344 0038 01       		.byte	0x1
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccnRhp1G.s 			page 1
  398 006e 12       		.uleb128 0x12
  399 006f 06       		.uleb128 0x6
  400 0070 40       		.uleb128 0x40
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccnRhp1G.s 			page 10
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccdjlZRh.s 			page 10
 
 
  401 0071 18       		.uleb128 0x18
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccnRhp1G.s 			page 1
  455 00ab 0C       		.uleb128 0xc
  456 00ac 34       		.uleb128 0x34
  457 00ad 00       		.byte	0
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccnRhp1G.s 			page 11
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccdjlZRh.s 			page 11
 
 
  458 00ae 03       		.uleb128 0x3
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccnRhp1G.s 			page 1
  512 0008 00000000 		.4byte	.LFB1
  513 000c 02000000 		.4byte	.LFE1
  514 0010 00000000 		.4byte	.LFB2
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccnRhp1G.s 			page 12
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccdjlZRh.s 			page 12
 
 
  515 0014 18000000 		.4byte	.LFE2
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccnRhp1G.s 			page 1
  539      37373135 
  540 00cc 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
  540      66756E63 
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccnRhp1G.s 			page 13
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccdjlZRh.s 			page 13
 
 
  540      74696F6E 
@@ -761,58 +761,58 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccnRhp1G.s 			page 1
  554      7369676E 
  554      65642069 
  555              	.LASF22:
- 556 0161 433A5C55 		.ascii	"C:\\Users\\Caleb Cotter\\Desktop\\NitroDoser Develo"
+ 556 0161 433A5C55 		.ascii	"C:\\Users\\Caleb Cotter\\Documents\\GitHub\\3HC\\3H"
  556      73657273 
  556      5C43616C 
  556      65622043 
  556      6F747465 
- 557 0190 706D656E 		.ascii	"pment\\3HC_Firmware_0_1.cydsn\000"
- 557      745C3348 
- 557      435F4669 
+ 557 018e 435F4669 		.ascii	"C_Firmware\\3HC_Firmware_0_1.cydsn\000"
  557      726D7761 
- 557      72655F30 
+ 557      72655C33 
+ 557      48435F46 
+ 557      69726D77 
  558              	.LASF6:
- 559 01ad 6C6F6E67 		.ascii	"long long int\000"
+ 559 01b0 6C6F6E67 		.ascii	"long long int\000"
  559      206C6F6E 
  559      6720696E 
  559      7400
  560              	.LASF11:
- 561 01bb 63686172 		.ascii	"char\000"
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccnRhp1G.s 			page 14
+ 561 01be 63686172 		.ascii	"char\000"
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccdjlZRh.s 			page 14
 
 
  561      00
  562              	.LASF13:
- 563 01c0 4C43445F 		.ascii	"LCD_BACKUP_STRUCT\000"
+ 563 01c3 4C43445F 		.ascii	"LCD_BACKUP_STRUCT\000"
  563      4241434B 
  563      55505F53 
  563      54525543 
  563      5400
  564              	.LASF2:
- 565 01d2 73686F72 		.ascii	"short int\000"
+ 565 01d5 73686F72 		.ascii	"short int\000"
  565      7420696E 
  565      7400
  566              	.LASF12:
- 567 01dc 75696E74 		.ascii	"uint8\000"
+ 567 01df 75696E74 		.ascii	"uint8\000"
  567      3800
  568              	.LASF24:
- 569 01e2 4C43445F 		.ascii	"LCD_backup\000"
+ 569 01e5 4C43445F 		.ascii	"LCD_backup\000"
  569      6261636B 
  569      757000
  570              	.LASF4:
- 571 01ed 6C6F6E67 		.ascii	"long int\000"
+ 571 01f0 6C6F6E67 		.ascii	"long int\000"
  571      20696E74 
  571      00
  572              	.LASF23:
- 573 01f6 656E6162 		.ascii	"enableState\000"
+ 573 01f9 656E6162 		.ascii	"enableState\000"
  573      6C655374 
  573      61746500 
  574              	.LASF0:
- 575 0202 7369676E 		.ascii	"signed char\000"
+ 575 0205 7369676E 		.ascii	"signed char\000"
  575      65642063 
  575      68617200 
  576              	.LASF17:
- 577 020e 4C43445F 		.ascii	"LCD_Wakeup\000"
+ 577 0211 4C43445F 		.ascii	"LCD_Wakeup\000"
  577      57616B65 
  577      757000
  578              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

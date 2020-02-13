@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvXvxv6.s 			page 1
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccI6pU2o.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvXvxv6.s 			page 1
   28:Generated_Source\PSoC5/QuadDec_INT.c **** ********************************************************************************
   29:Generated_Source\PSoC5/QuadDec_INT.c **** *
   30:Generated_Source\PSoC5/QuadDec_INT.c **** * Summary:
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvXvxv6.s 			page 2
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccI6pU2o.s 			page 2
 
 
   31:Generated_Source\PSoC5/QuadDec_INT.c **** *  Interrupt Service Routine for Quadrature Decoder Component.
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvXvxv6.s 			page 1
   64:Generated_Source\PSoC5/QuadDec_INT.c ****     }
   65:Generated_Source\PSoC5/QuadDec_INT.c ****     else if (0u != (QuadDec_swStatus & QuadDec_COUNTER_UNDERFLOW))
   49              		.loc 1 65 0
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvXvxv6.s 			page 3
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccI6pU2o.s 			page 3
 
 
   50 001a 13F0020F 		tst	r3, #2
@@ -153,7 +153,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvXvxv6.s 			page 1
   68              	.L6:
   69              		.align	2
   70              	.L5:
-  71 0038 67650040 		.word	1073767783
+  71 0038 66650040 		.word	1073767782
   72 003c 00000000 		.word	.LANCHOR0
   73              		.cfi_endproc
   74              	.LFE0:
@@ -178,11 +178,11 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvXvxv6.s 			page 1
   93 000b 01       		.uleb128 0x1
   94 000c 27000000 		.4byte	.LASF17
   95 0010 0C       		.byte	0xc
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvXvxv6.s 			page 4
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccI6pU2o.s 			page 4
 
 
-  96 0011 A1010000 		.4byte	.LASF18
-  97 0015 0E010000 		.4byte	.LASF19
+  96 0011 A4010000 		.4byte	.LASF18
+  97 0015 2F010000 		.4byte	.LASF19
   98 0019 00000000 		.4byte	.Ldebug_ranges0+0
   99 001d 00000000 		.4byte	0
  100 0021 00000000 		.4byte	.Ldebug_line0
@@ -201,11 +201,11 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvXvxv6.s 			page 1
  113 003a 03       		.uleb128 0x3
  114 003b 08       		.byte	0x8
  115 003c 04       		.byte	0x4
- 116 003d C6010000 		.4byte	.LASF2
+ 116 003d C9010000 		.4byte	.LASF2
  117 0041 03       		.uleb128 0x3
  118 0042 01       		.byte	0x1
  119 0043 06       		.byte	0x6
- 120 0044 95010000 		.4byte	.LASF3
+ 120 0044 98010000 		.4byte	.LASF3
  121 0048 03       		.uleb128 0x3
  122 0049 01       		.byte	0x1
  123 004a 08       		.byte	0x8
@@ -213,15 +213,15 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvXvxv6.s 			page 1
  125 004f 03       		.uleb128 0x3
  126 0050 02       		.byte	0x2
  127 0051 05       		.byte	0x5
- 128 0052 D2010000 		.4byte	.LASF5
+ 128 0052 D5010000 		.4byte	.LASF5
  129 0056 03       		.uleb128 0x3
  130 0057 02       		.byte	0x2
  131 0058 07       		.byte	0x7
- 132 0059 82010000 		.4byte	.LASF6
+ 132 0059 85010000 		.4byte	.LASF6
  133 005d 03       		.uleb128 0x3
  134 005e 04       		.byte	0x4
  135 005f 05       		.byte	0x5
- 136 0060 5A010000 		.4byte	.LASF7
+ 136 0060 0E010000 		.4byte	.LASF7
  137 0064 03       		.uleb128 0x3
  138 0065 04       		.byte	0x4
  139 0066 07       		.byte	0x7
@@ -233,12 +233,12 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvXvxv6.s 			page 1
  145 0072 03       		.uleb128 0x3
  146 0073 04       		.byte	0x4
  147 0074 07       		.byte	0x7
- 148 0075 E1010000 		.4byte	.LASF10
+ 148 0075 E4010000 		.4byte	.LASF10
  149 0079 03       		.uleb128 0x3
  150 007a 01       		.byte	0x1
  151 007b 08       		.byte	0x8
  152 007c 09010000 		.4byte	.LASF11
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvXvxv6.s 			page 5
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccI6pU2o.s 			page 5
 
 
  153 0080 04       		.uleb128 0x4
@@ -247,7 +247,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvXvxv6.s 			page 1
  156 0086 E401     		.2byte	0x1e4
  157 0088 48000000 		.4byte	0x48
  158 008c 04       		.uleb128 0x4
- 159 008d EA010000 		.4byte	.LASF13
+ 159 008d ED010000 		.4byte	.LASF13
  160 0091 02       		.byte	0x2
  161 0092 E901     		.2byte	0x1e9
  162 0094 5D000000 		.4byte	0x5d
@@ -258,9 +258,9 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvXvxv6.s 			page 1
  167 009f 03       		.uleb128 0x3
  168 00a0 08       		.byte	0x8
  169 00a1 04       		.byte	0x4
- 170 00a2 7B010000 		.4byte	.LASF15
+ 170 00a2 7E010000 		.4byte	.LASF15
  171 00a6 04       		.uleb128 0x4
- 172 00a7 DC010000 		.4byte	.LASF16
+ 172 00a7 DF010000 		.4byte	.LASF16
  173 00ab 02       		.byte	0x2
  174 00ac 8E02     		.2byte	0x28e
  175 00ae B2000000 		.4byte	0xb2
@@ -283,7 +283,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvXvxv6.s 			page 1
  192 00d7 00000000 		.4byte	.LLST0
  193 00db 00       		.byte	0
  194 00dc 08       		.uleb128 0x8
- 195 00dd 63010000 		.4byte	.LASF22
+ 195 00dd 17010000 		.4byte	.LASF22
  196 00e1 01       		.byte	0x1
  197 00e2 17       		.byte	0x17
  198 00e3 ED000000 		.4byte	0xed
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvXvxv6.s 			page 1
  207 0000 01       		.uleb128 0x1
  208 0001 11       		.uleb128 0x11
  209 0002 01       		.byte	0x1
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvXvxv6.s 			page 6
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccI6pU2o.s 			page 6
 
 
  210 0003 25       		.uleb128 0x25
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvXvxv6.s 			page 1
  264 0039 49       		.uleb128 0x49
  265 003a 13       		.uleb128 0x13
  266 003b 00       		.byte	0
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvXvxv6.s 			page 7
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccI6pU2o.s 			page 7
 
 
  267 003c 00       		.byte	0
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvXvxv6.s 			page 1
  321 0073 02       		.uleb128 0x2
  322 0074 18       		.uleb128 0x18
  323 0075 00       		.byte	0
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvXvxv6.s 			page 8
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccI6pU2o.s 			page 8
 
 
  324 0076 00       		.byte	0
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvXvxv6.s 			page 1
  363      31203230 
  363      31363036 
  364 005a 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvXvxv6.s 			page 9
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccI6pU2o.s 			page 9
 
 
  364      20726576 
@@ -522,65 +522,65 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvXvxv6.s 			page 1
  378              	.LASF11:
  379 0109 63686172 		.ascii	"char\000"
  379      00
- 380              	.LASF19:
- 381 010e 433A5C55 		.ascii	"C:\\Users\\Caleb Cotter\\Desktop\\NitroDoser Develo"
- 381      73657273 
- 381      5C43616C 
- 381      65622043 
- 381      6F747465 
- 382 013d 706D656E 		.ascii	"pment\\3HC_Firmware_0_1.cydsn\000"
- 382      745C3348 
- 382      435F4669 
- 382      726D7761 
- 382      72655F30 
- 383              	.LASF7:
- 384 015a 6C6F6E67 		.ascii	"long int\000"
- 384      20696E74 
- 384      00
- 385              	.LASF22:
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvXvxv6.s 			page 10
+ 380              	.LASF7:
+ 381 010e 6C6F6E67 		.ascii	"long int\000"
+ 381      20696E74 
+ 381      00
+ 382              	.LASF22:
+ 383 0117 51756164 		.ascii	"QuadDec_count32SoftPart\000"
+ 383      4465635F 
+ 383      636F756E 
+ 383      74333253 
+ 383      6F667450 
+ 384              	.LASF19:
+ 385 012f 433A5C55 		.ascii	"C:\\Users\\Caleb Cotter\\Documents\\GitHub\\3HC\\3H"
+ 385      73657273 
+ 385      5C43616C 
+ 385      65622043 
+ 385      6F747465 
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccI6pU2o.s 			page 10
 
 
- 386 0163 51756164 		.ascii	"QuadDec_count32SoftPart\000"
- 386      4465635F 
- 386      636F756E 
- 386      74333253 
- 386      6F667450 
+ 386 015c 435F4669 		.ascii	"C_Firmware\\3HC_Firmware_0_1.cydsn\000"
+ 386      726D7761 
+ 386      72655C33 
+ 386      48435F46 
+ 386      69726D77 
  387              	.LASF15:
- 388 017b 646F7562 		.ascii	"double\000"
+ 388 017e 646F7562 		.ascii	"double\000"
  388      6C6500
  389              	.LASF6:
- 390 0182 73686F72 		.ascii	"short unsigned int\000"
+ 390 0185 73686F72 		.ascii	"short unsigned int\000"
  390      7420756E 
  390      7369676E 
  390      65642069 
  390      6E7400
  391              	.LASF3:
- 392 0195 7369676E 		.ascii	"signed char\000"
+ 392 0198 7369676E 		.ascii	"signed char\000"
  392      65642063 
  392      68617200 
  393              	.LASF18:
- 394 01a1 47656E65 		.ascii	"Generated_Source\\PSoC5\\QuadDec_INT.c\000"
+ 394 01a4 47656E65 		.ascii	"Generated_Source\\PSoC5\\QuadDec_INT.c\000"
  394      72617465 
  394      645F536F 
  394      75726365 
  394      5C50536F 
  395              	.LASF2:
- 396 01c6 6C6F6E67 		.ascii	"long double\000"
+ 396 01c9 6C6F6E67 		.ascii	"long double\000"
  396      20646F75 
  396      626C6500 
  397              	.LASF5:
- 398 01d2 73686F72 		.ascii	"short int\000"
+ 398 01d5 73686F72 		.ascii	"short int\000"
  398      7420696E 
  398      7400
  399              	.LASF16:
- 400 01dc 72656738 		.ascii	"reg8\000"
+ 400 01df 72656738 		.ascii	"reg8\000"
  400      00
  401              	.LASF10:
- 402 01e1 73697A65 		.ascii	"sizetype\000"
+ 402 01e4 73697A65 		.ascii	"sizetype\000"
  402      74797065 
  402      00
  403              	.LASF13:
- 404 01ea 696E7433 		.ascii	"int32\000"
+ 404 01ed 696E7433 		.ascii	"int32\000"
  404      3200
  405              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

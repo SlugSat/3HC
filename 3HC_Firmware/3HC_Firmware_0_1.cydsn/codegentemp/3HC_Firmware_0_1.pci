@@ -1,5 +1,5 @@
 # 3HC_Firmware_0_1
-# 2020-02-11 06:14:51Z
+# 2020-02-13 04:48:33Z
 
 # IO_0@[IOP=(1)][IoId=(0)] is reserved: SWDDebugEnabled
 dont_use_io iocell 1 0
@@ -16,5 +16,12 @@ set_io "\LCD:LCDPort(5)\" iocell 2 5
 set_io "\LCD:LCDPort(6)\" iocell 2 6
 set_io "QUAD_A(0)" iocell 3 3
 set_io "QUAD_B(0)" iocell 3 4
+set_io "SCL(0)" iocell 12 0
 set_io "Encoder_Button(0)" iocell 3 2
-set_location "\ADC_DelSig_1:DSM\" dsmodcell -1 -1 0
+set_io "SDA(0)" iocell 12 1
+set_io "X_PWM_OUT(0)" iocell 0 1
+set_io "Y_PWM_OUT(0)" iocell 0 3
+set_io "Z_PWM_OUT(0)" iocell 0 5
+set_io "X_DIR_OUT(0)" iocell 0 0
+set_io "Y_DIR_OUT(0)" iocell 0 2
+set_io "Z_DIR_OUT(0)" iocell 0 4

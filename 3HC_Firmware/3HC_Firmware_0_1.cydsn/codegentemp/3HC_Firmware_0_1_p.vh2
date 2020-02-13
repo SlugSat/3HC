@@ -1,5 +1,5 @@
 -- Project:   3HC_Firmware_0_1
--- Generated: 02/10/2020 22:14:51
+-- Generated: 02/12/2020 20:48:33
 -- PSoC Creator  4.2
 
 ENTITY \3HC_Firmware_0_1\ IS
@@ -63,7 +63,6 @@ ARCHITECTURE __DEFAULT__ OF \3HC_Firmware_0_1\ IS
     SIGNAL Net_311 : bit;
     SIGNAL Net_312 : bit;
     SIGNAL Net_314 : bit;
-    SIGNAL Net_325 : bit;
     SIGNAL Net_5 : bit;
     SIGNAL QUAD_A(0)__PA : bit;
     SIGNAL QUAD_B(0)__PA : bit;
@@ -75,33 +74,11 @@ ARCHITECTURE __DEFAULT__ OF \3HC_Firmware_0_1\ IS
     SIGNAL Y_PWM_OUT(0)__PA : bit;
     SIGNAL Z_DIR_OUT(0)__PA : bit;
     SIGNAL Z_PWM_OUT(0)__PA : bit;
-    SIGNAL \ADC_DelSig_1:Net_245_0\ : bit;
-    SIGNAL \ADC_DelSig_1:Net_245_1\ : bit;
-    SIGNAL \ADC_DelSig_1:Net_245_2\ : bit;
-    SIGNAL \ADC_DelSig_1:Net_245_3\ : bit;
-    SIGNAL \ADC_DelSig_1:Net_245_4\ : bit;
-    SIGNAL \ADC_DelSig_1:Net_245_5\ : bit;
-    SIGNAL \ADC_DelSig_1:Net_245_6\ : bit;
-    SIGNAL \ADC_DelSig_1:Net_245_7\ : bit;
-    SIGNAL \ADC_DelSig_1:Net_488\ : bit;
-    ATTRIBUTE global_signal OF \ADC_DelSig_1:Net_488\ : SIGNAL IS true;
-    SIGNAL \ADC_DelSig_1:Net_488_adig\ : bit;
-    SIGNAL \ADC_DelSig_1:Net_488_adig_local\ : bit;
-    SIGNAL \ADC_DelSig_1:Net_488_local\ : bit;
-    SIGNAL \ADC_DelSig_1:Net_93\ : bit;
-    ATTRIBUTE global_signal OF \ADC_DelSig_1:Net_93\ : SIGNAL IS true;
-    SIGNAL \ADC_DelSig_1:Net_93_local\ : bit;
-    SIGNAL \ADC_DelSig_1:aclock\ : bit;
-    SIGNAL \ADC_DelSig_1:mod_dat_0\ : bit;
-    SIGNAL \ADC_DelSig_1:mod_dat_1\ : bit;
-    SIGNAL \ADC_DelSig_1:mod_dat_2\ : bit;
-    SIGNAL \ADC_DelSig_1:mod_dat_3\ : bit;
-    SIGNAL \ADC_DelSig_1:mod_reset\ : bit;
-    SIGNAL \I2C_IMU:Net_1109_0\ : bit;
-    SIGNAL \I2C_IMU:Net_1109_1\ : bit;
-    SIGNAL \I2C_IMU:Net_643_0\ : bit;
-    SIGNAL \I2C_IMU:Net_697\ : bit;
-    SIGNAL \I2C_IMU:sda_x_wire\ : bit;
+    SIGNAL \I2C:Net_1109_0\ : bit;
+    SIGNAL \I2C:Net_1109_1\ : bit;
+    SIGNAL \I2C:Net_643_0\ : bit;
+    SIGNAL \I2C:Net_697\ : bit;
+    SIGNAL \I2C:sda_x_wire\ : bit;
     SIGNAL \\\LCD:LCDPort(0)\\__PA\ : bit;
     SIGNAL \\\LCD:LCDPort(1)\\__PA\ : bit;
     SIGNAL \\\LCD:LCDPort(2)\\__PA\ : bit;
@@ -220,8 +197,7 @@ ARCHITECTURE __DEFAULT__ OF \3HC_Firmware_0_1\ IS
     SIGNAL zero : bit;
     ATTRIBUTE GROUND OF zero : SIGNAL IS true;
     SIGNAL \ClockBlock.clk_bus_glb_ff__sig\ : bit;
-    SIGNAL \ClockBlock.aclk_glb_ff_0__sig\ : bit;
-    SIGNAL \ClockBlock.dclk_glb_ff_1__sig\ : bit;
+    SIGNAL \ClockBlock.dclk_glb_ff_0__sig\ : bit;
     SIGNAL \QuadDec:Cnt16:CounterUDB:sC16:counterdp:u0.ce0__sig\ : bit;
     SIGNAL \QuadDec:Cnt16:CounterUDB:sC16:counterdp:u0.cl0__sig\ : bit;
     SIGNAL \QuadDec:Cnt16:CounterUDB:sC16:counterdp:u0.z0__sig\ : bit;
@@ -289,10 +265,24 @@ ARCHITECTURE __DEFAULT__ OF \3HC_Firmware_0_1\ IS
     ATTRIBUTE Location OF QUAD_A(0) : LABEL IS "P3[3]";
     ATTRIBUTE lib_model OF QUAD_B(0) : LABEL IS "iocell9";
     ATTRIBUTE Location OF QUAD_B(0) : LABEL IS "P3[4]";
-    ATTRIBUTE lib_model OF SCL(0) : LABEL IS "iocell_ireg";
-    ATTRIBUTE lib_model OF Encoder_Button(0) : LABEL IS "iocell10";
+    ATTRIBUTE lib_model OF SCL(0) : LABEL IS "iocell10";
+    ATTRIBUTE Location OF SCL(0) : LABEL IS "P12[0]";
+    ATTRIBUTE lib_model OF Encoder_Button(0) : LABEL IS "iocell11";
     ATTRIBUTE Location OF Encoder_Button(0) : LABEL IS "P3[2]";
-    ATTRIBUTE lib_model OF SDA(0) : LABEL IS "iocell_ireg";
+    ATTRIBUTE lib_model OF SDA(0) : LABEL IS "iocell12";
+    ATTRIBUTE Location OF SDA(0) : LABEL IS "P12[1]";
+    ATTRIBUTE lib_model OF X_PWM_OUT(0) : LABEL IS "iocell13";
+    ATTRIBUTE Location OF X_PWM_OUT(0) : LABEL IS "P0[1]";
+    ATTRIBUTE lib_model OF Y_PWM_OUT(0) : LABEL IS "iocell14";
+    ATTRIBUTE Location OF Y_PWM_OUT(0) : LABEL IS "P0[3]";
+    ATTRIBUTE lib_model OF Z_PWM_OUT(0) : LABEL IS "iocell15";
+    ATTRIBUTE Location OF Z_PWM_OUT(0) : LABEL IS "P0[5]";
+    ATTRIBUTE lib_model OF X_DIR_OUT(0) : LABEL IS "iocell16";
+    ATTRIBUTE Location OF X_DIR_OUT(0) : LABEL IS "P0[0]";
+    ATTRIBUTE lib_model OF Y_DIR_OUT(0) : LABEL IS "iocell17";
+    ATTRIBUTE Location OF Y_DIR_OUT(0) : LABEL IS "P0[2]";
+    ATTRIBUTE lib_model OF Z_DIR_OUT(0) : LABEL IS "iocell18";
+    ATTRIBUTE Location OF Z_DIR_OUT(0) : LABEL IS "P0[4]";
     ATTRIBUTE lib_model OF \QuadDec:Cnt16:CounterUDB:reload\ : LABEL IS "macrocell1";
     ATTRIBUTE lib_model OF \QuadDec:Cnt16:CounterUDB:status_0\ : LABEL IS "macrocell2";
     ATTRIBUTE lib_model OF \QuadDec:Cnt16:CounterUDB:status_2\ : LABEL IS "macrocell3";
@@ -332,7 +322,6 @@ ARCHITECTURE __DEFAULT__ OF \3HC_Firmware_0_1\ IS
     ATTRIBUTE lib_model OF \Z_PWM:PWMUDB:sP16:pwmdp:u0\ : LABEL IS "datapathcell7";
     ATTRIBUTE lib_model OF \Z_PWM:PWMUDB:sP16:pwmdp:u1\ : LABEL IS "datapathcell8";
     ATTRIBUTE lib_model OF \XYZ_Direction_Select:Sync:ctrl_reg\ : LABEL IS "controlcell6";
-    ATTRIBUTE Location OF \ADC_DelSig_1:DSM\ : LABEL IS "F(DSM,0)";
     ATTRIBUTE lib_model OF \QuadDec:Net_1251\ : LABEL IS "macrocell21";
     ATTRIBUTE lib_model OF \QuadDec:Cnt16:CounterUDB:overflow_reg_i\ : LABEL IS "macrocell22";
     ATTRIBUTE lib_model OF \QuadDec:Cnt16:CounterUDB:underflow_reg_i\ : LABEL IS "macrocell23";
@@ -557,39 +546,6 @@ ARCHITECTURE __DEFAULT__ OF \3HC_Firmware_0_1\ IS
     ATTRIBUTE udb_chain OF datapathcell : COMPONENT IS "ce0i,ce0,cl0i,cl0,z0i,z0,ff0i,ff0,ce1i,ce1,cl1i,cl1,z1i,z1,ff1i,ff1,cap0i,cap0,cap1i,cap1,ci,co_msb,sir,sol_msb,cfbi,cfbo,sil,sor,cmsbi,cmsbo";
     ATTRIBUTE chain_lsb OF datapathcell : COMPONENT IS "ce0i,cl0i,z0i,ff0i,ce1i,cl1i,z1i,ff1i,cap0i,cap1i,ci,sir,cfbi,sor,cmsbo";
     ATTRIBUTE chain_msb OF datapathcell : COMPONENT IS "ce0,cl0,z0,ff0,ce1,cl1,z1,ff1,cap0,cap1,co_msb,sol_msb,cfbo,sil,cmsbi";
-    COMPONENT decimatorcell
-        PORT (
-            aclock : IN std_ulogic;
-            mod_dat_0 : IN std_ulogic;
-            mod_dat_1 : IN std_ulogic;
-            mod_dat_2 : IN std_ulogic;
-            mod_dat_3 : IN std_ulogic;
-            ext_start : IN std_ulogic;
-            modrst : OUT std_ulogic;
-            interrupt : OUT std_ulogic);
-    END COMPONENT;
-    COMPONENT dsmodcell
-        PORT (
-            aclock : IN std_ulogic;
-            modbitin_udb : IN std_ulogic;
-            reset_udb : IN std_ulogic;
-            reset_dec : IN std_ulogic;
-            dec_clock : OUT std_ulogic;
-            mod_dat_0 : OUT std_ulogic;
-            mod_dat_1 : OUT std_ulogic;
-            mod_dat_2 : OUT std_ulogic;
-            mod_dat_3 : OUT std_ulogic;
-            dout_udb_0 : OUT std_ulogic;
-            dout_udb_1 : OUT std_ulogic;
-            dout_udb_2 : OUT std_ulogic;
-            dout_udb_3 : OUT std_ulogic;
-            dout_udb_4 : OUT std_ulogic;
-            dout_udb_5 : OUT std_ulogic;
-            dout_udb_6 : OUT std_ulogic;
-            dout_udb_7 : OUT std_ulogic;
-            extclk_cp_udb : IN std_ulogic;
-            clk_udb : IN std_ulogic);
-    END COMPONENT;
     COMPONENT i2ccell
         PORT (
             clock : IN std_ulogic;
@@ -731,17 +687,10 @@ BEGIN
             clk_bus => ClockBlock_BUS_CLK_local,
             dsi_clkin_div => open,
             dsi_glb_div => open,
-            dclk_glb_0 => \ADC_DelSig_1:Net_93\,
-            dclk_0 => \ADC_DelSig_1:Net_93_local\,
-            aclk_glb_0 => \ADC_DelSig_1:Net_488\,
-            aclk_0 => \ADC_DelSig_1:Net_488_local\,
-            clk_a_dig_glb_0 => \ADC_DelSig_1:Net_488_adig\,
-            clk_a_dig_0 => \ADC_DelSig_1:Net_488_adig_local\,
-            dclk_glb_1 => Net_10,
-            dclk_1 => Net_10_local,
+            dclk_glb_0 => Net_10,
+            dclk_0 => Net_10_local,
             clk_bus_glb_ff => \ClockBlock.clk_bus_glb_ff__sig\,
-            aclk_glb_ff_0 => \ClockBlock.aclk_glb_ff_0__sig\,
-            dclk_glb_ff_1 => \ClockBlock.dclk_glb_ff_1__sig\);
+            dclk_glb_ff_0 => \ClockBlock.dclk_glb_ff_0__sig\);
 
     \LCD:LCDPort\:logicalport
         GENERIC MAP(
@@ -1212,8 +1161,8 @@ BEGIN
         PORT MAP(
             pa_out => SCL(0)__PA,
             oe => open,
-            fb => \I2C_IMU:Net_1109_0\,
-            pin_input => \I2C_IMU:Net_643_0\,
+            fb => \I2C:Net_1109_0\,
+            pin_input => \I2C:Net_643_0\,
             pad_out => SCL(0)_PAD,
             pad_in => SCL(0)_PAD,
             in_clock => ClockBlock_BUS_CLK,
@@ -1396,8 +1345,8 @@ BEGIN
         PORT MAP(
             pa_out => SDA(0)__PA,
             oe => open,
-            fb => \I2C_IMU:Net_1109_1\,
-            pin_input => \I2C_IMU:sda_x_wire\,
+            fb => \I2C:Net_1109_1\,
+            pin_input => \I2C:sda_x_wire\,
             pad_out => SDA(0)_PAD,
             pad_in => SDA(0)_PAD,
             in_clock => ClockBlock_BUS_CLK,
@@ -2344,7 +2293,7 @@ BEGIN
         GENERIC MAP(
             cy_registers => "")
         PORT MAP(
-            clock => \ClockBlock.dclk_glb_ff_1__sig\,
+            clock => \ClockBlock.dclk_glb_ff_0__sig\,
             kill => open,
             enable => __ONE__,
             capture => open,
@@ -2486,25 +2435,25 @@ BEGIN
             sor => \X_PWM:PWMUDB:sP16:pwmdp:u1.sor__sig\,
             cmsbo => \X_PWM:PWMUDB:sP16:pwmdp:u1.cmsbo__sig\);
 
-    \I2C_IMU:I2C_IRQ\:interrupt
+    \I2C:I2C_IRQ\:interrupt
         GENERIC MAP(
             int_type => "00",
             is_nmi => 0)
         PORT MAP(
-            interrupt => \I2C_IMU:Net_697\,
+            interrupt => \I2C:Net_697\,
             clock => ClockBlock_BUS_CLK);
 
-    \I2C_IMU:I2C_FF\:i2ccell
+    \I2C:I2C_FF\:i2ccell
         GENERIC MAP(
             cy_registers => "",
             use_wakeup => 0)
         PORT MAP(
             clock => \ClockBlock.clk_bus_glb_ff__sig\,
-            scl_in => \I2C_IMU:Net_1109_0\,
-            sda_in => \I2C_IMU:Net_1109_1\,
-            scl_out => \I2C_IMU:Net_643_0\,
-            sda_out => \I2C_IMU:sda_x_wire\,
-            interrupt => \I2C_IMU:Net_697\);
+            scl_in => \I2C:Net_1109_0\,
+            sda_in => \I2C:Net_1109_1\,
+            scl_out => \I2C:Net_643_0\,
+            sda_out => \I2C:sda_x_wire\,
+            interrupt => \I2C:Net_697\);
 
     \Output_Enable:Sync:ctrl_reg\:controlcell
         GENERIC MAP(
@@ -2809,51 +2758,6 @@ BEGIN
             control_1 => Net_311,
             control_0 => Net_314,
             busclk => ClockBlock_BUS_CLK);
-
-    \ADC_DelSig_1:DSM\:dsmodcell
-        GENERIC MAP(
-            cy_registers => "",
-            resolution => 16)
-        PORT MAP(
-            aclock => \ClockBlock.aclk_glb_ff_0__sig\,
-            modbitin_udb => open,
-            reset_udb => open,
-            reset_dec => \ADC_DelSig_1:mod_reset\,
-            extclk_cp_udb => \ADC_DelSig_1:Net_93_local\,
-            dec_clock => \ADC_DelSig_1:aclock\,
-            mod_dat_3 => \ADC_DelSig_1:mod_dat_3\,
-            mod_dat_2 => \ADC_DelSig_1:mod_dat_2\,
-            mod_dat_1 => \ADC_DelSig_1:mod_dat_1\,
-            mod_dat_0 => \ADC_DelSig_1:mod_dat_0\,
-            dout_udb_7 => \ADC_DelSig_1:Net_245_7\,
-            dout_udb_6 => \ADC_DelSig_1:Net_245_6\,
-            dout_udb_5 => \ADC_DelSig_1:Net_245_5\,
-            dout_udb_4 => \ADC_DelSig_1:Net_245_4\,
-            dout_udb_3 => \ADC_DelSig_1:Net_245_3\,
-            dout_udb_2 => \ADC_DelSig_1:Net_245_2\,
-            dout_udb_1 => \ADC_DelSig_1:Net_245_1\,
-            dout_udb_0 => \ADC_DelSig_1:Net_245_0\);
-
-    \ADC_DelSig_1:IRQ\:interrupt
-        GENERIC MAP(
-            int_type => "10",
-            is_nmi => 0)
-        PORT MAP(
-            interrupt => Net_325,
-            clock => ClockBlock_BUS_CLK);
-
-    \ADC_DelSig_1:DEC\:decimatorcell
-        GENERIC MAP(
-            cy_registers => "")
-        PORT MAP(
-            aclock => \ADC_DelSig_1:aclock\,
-            mod_dat_3 => \ADC_DelSig_1:mod_dat_3\,
-            mod_dat_2 => \ADC_DelSig_1:mod_dat_2\,
-            mod_dat_1 => \ADC_DelSig_1:mod_dat_1\,
-            mod_dat_0 => \ADC_DelSig_1:mod_dat_0\,
-            ext_start => __ONE__,
-            modrst => \ADC_DelSig_1:mod_reset\,
-            interrupt => Net_325);
 
     \QuadDec:Net_1251\:macrocell
         GENERIC MAP(

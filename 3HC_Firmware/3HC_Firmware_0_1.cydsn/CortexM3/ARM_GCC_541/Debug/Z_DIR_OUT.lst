@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccGagHee.s 			page 1
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccfMuPIf.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccGagHee.s 			page 1
   28:Generated_Source\PSoC5/Z_DIR_OUT.c **** *
   29:Generated_Source\PSoC5/Z_DIR_OUT.c **** * \brief Writes the value to the physical port (data output register), masking
   30:Generated_Source\PSoC5/Z_DIR_OUT.c **** *  and shifting the bits appropriately. 
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccGagHee.s 			page 2
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccfMuPIf.s 			page 2
 
 
   31:Generated_Source\PSoC5/Z_DIR_OUT.c **** *
@@ -99,26 +99,26 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccGagHee.s 			page 1
   34              		.loc 1 59 0
   35 0000 044A     		ldr	r2, .L2
   36 0002 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
-  37 0004 03F0FB03 		and	r3, r3, #251
+  37 0004 03F0EF03 		and	r3, r3, #239
   38              	.LVL1:
   60:Generated_Source\PSoC5/Z_DIR_OUT.c ****     Z_DIR_OUT_DR = staticBits | ((uint8)(value << Z_DIR_OUT_SHIFT) & Z_DIR_OUT_MASK);
   39              		.loc 1 60 0
-  40 0008 8000     		lsls	r0, r0, #2
+  40 0008 0001     		lsls	r0, r0, #4
   41              	.LVL2:
-  42 000a 00F00400 		and	r0, r0, #4
+  42 000a 00F01000 		and	r0, r0, #16
   43 000e 1843     		orrs	r0, r0, r3
   44 0010 1070     		strb	r0, [r2]
   45 0012 7047     		bx	lr
   46              	.L3:
   47              		.align	2
   48              	.L2:
-  49 0014 C0510040 		.word	1073762752
+  49 0014 00510040 		.word	1073762560
   50              		.cfi_endproc
   51              	.LFE0:
   52              		.size	Z_DIR_OUT_Write, .-Z_DIR_OUT_Write
   53              		.section	.text.Z_DIR_OUT_SetDriveMode,"ax",%progbits
   54              		.align	2
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccGagHee.s 			page 3
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccfMuPIf.s 			page 3
 
 
   55              		.global	Z_DIR_OUT_SetDriveMode
@@ -177,8 +177,8 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccGagHee.s 			page 1
   76              	.L6:
   77 0012 00BF     		.align	2
   78              	.L5:
-  79 0014 62500040 		.word	1073762402
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccGagHee.s 			page 4
+  79 0014 04500040 		.word	1073762308
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccfMuPIf.s 			page 4
 
 
   80              		.cfi_endproc
@@ -225,12 +225,12 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccGagHee.s 			page 1
   98 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
  116:Generated_Source\PSoC5/Z_DIR_OUT.c **** }
   99              		.loc 1 116 0
- 100 0004 C0F38000 		ubfx	r0, r0, #2, #1
+ 100 0004 C0F30010 		ubfx	r0, r0, #4, #1
  101 0008 7047     		bx	lr
  102              	.L9:
  103 000a 00BF     		.align	2
  104              	.L8:
- 105 000c C1510040 		.word	1073762753
+ 105 000c 01510040 		.word	1073762561
  106              		.cfi_endproc
  107              	.LFE2:
  108              		.size	Z_DIR_OUT_Read, .-Z_DIR_OUT_Read
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccGagHee.s 			page 1
  110              		.align	2
  111              		.global	Z_DIR_OUT_ReadDataReg
  112              		.thumb
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccGagHee.s 			page 5
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccfMuPIf.s 			page 5
 
 
  113              		.thumb_func
@@ -282,12 +282,12 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccGagHee.s 			page 1
  124 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
  144:Generated_Source\PSoC5/Z_DIR_OUT.c **** }
  125              		.loc 1 144 0
- 126 0004 C0F38000 		ubfx	r0, r0, #2, #1
+ 126 0004 C0F30010 		ubfx	r0, r0, #4, #1
  127 0008 7047     		bx	lr
  128              	.L12:
  129 000a 00BF     		.align	2
  130              	.L11:
- 131 000c C0510040 		.word	1073762752
+ 131 000c 00510040 		.word	1073762560
  132              		.cfi_endproc
  133              	.LFE3:
  134              		.size	Z_DIR_OUT_ReadDataReg, .-Z_DIR_OUT_ReadDataReg
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccGagHee.s 			page 1
  139              	.Ldebug_info0:
  140 0000 1B010000 		.4byte	0x11b
  141 0004 0400     		.2byte	0x4
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccGagHee.s 			page 6
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccfMuPIf.s 			page 6
 
 
  142 0006 00000000 		.4byte	.Ldebug_abbrev0
@@ -306,15 +306,15 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccGagHee.s 			page 1
  144 000b 01       		.uleb128 0x1
  145 000c 3C000000 		.4byte	.LASF20
  146 0010 0C       		.byte	0xc
- 147 0011 A5010000 		.4byte	.LASF21
- 148 0015 54010000 		.4byte	.LASF22
+ 147 0011 59010000 		.4byte	.LASF21
+ 148 0015 A8010000 		.4byte	.LASF22
  149 0019 00000000 		.4byte	.Ldebug_ranges0+0
  150 001d 00000000 		.4byte	0
  151 0021 00000000 		.4byte	.Ldebug_line0
  152 0025 02       		.uleb128 0x2
  153 0026 01       		.byte	0x1
  154 0027 06       		.byte	0x6
- 155 0028 F4010000 		.4byte	.LASF0
+ 155 0028 F7010000 		.4byte	.LASF0
  156 002c 02       		.uleb128 0x2
  157 002d 01       		.byte	0x1
  158 002e 08       		.byte	0x8
@@ -322,7 +322,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccGagHee.s 			page 1
  160 0033 02       		.uleb128 0x2
  161 0034 02       		.byte	0x2
  162 0035 05       		.byte	0x5
- 163 0036 DB010000 		.4byte	.LASF2
+ 163 0036 8F010000 		.4byte	.LASF2
  164 003a 02       		.uleb128 0x2
  165 003b 02       		.byte	0x2
  166 003c 07       		.byte	0x7
@@ -330,7 +330,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccGagHee.s 			page 1
  168 0041 02       		.uleb128 0x2
  169 0042 04       		.byte	0x4
  170 0043 05       		.byte	0x5
- 171 0044 EB010000 		.4byte	.LASF4
+ 171 0044 9F010000 		.4byte	.LASF4
  172 0048 02       		.uleb128 0x2
  173 0049 04       		.byte	0x4
  174 004a 07       		.byte	0x7
@@ -338,7 +338,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccGagHee.s 			page 1
  176 004f 02       		.uleb128 0x2
  177 0050 08       		.byte	0x8
  178 0051 05       		.byte	0x5
- 179 0052 C8010000 		.4byte	.LASF6
+ 179 0052 7C010000 		.4byte	.LASF6
  180 0056 02       		.uleb128 0x2
  181 0057 08       		.byte	0x8
  182 0058 07       		.byte	0x7
@@ -352,13 +352,13 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccGagHee.s 			page 1
  190 0066 07       		.byte	0x7
  191 0067 20010000 		.4byte	.LASF8
  192 006b 04       		.uleb128 0x4
- 193 006c E5010000 		.4byte	.LASF12
+ 193 006c 99010000 		.4byte	.LASF12
  194 0070 02       		.byte	0x2
  195 0071 E401     		.2byte	0x1e4
  196 0073 2C000000 		.4byte	0x2c
  197 0077 02       		.uleb128 0x2
  198 0078 04       		.byte	0x4
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccGagHee.s 			page 7
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccfMuPIf.s 			page 7
 
 
  199 0079 04       		.byte	0x4
@@ -370,7 +370,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccGagHee.s 			page 1
  205 0085 02       		.uleb128 0x2
  206 0086 01       		.byte	0x1
  207 0087 08       		.byte	0x8
- 208 0088 D6010000 		.4byte	.LASF11
+ 208 0088 8A010000 		.4byte	.LASF11
  209 008c 04       		.uleb128 0x4
  210 008d CA000000 		.4byte	.LASF13
  211 0091 02       		.byte	0x2
@@ -411,14 +411,14 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccGagHee.s 			page 1
  246 00df 9C       		.byte	0x9c
  247 00e0 F4000000 		.4byte	0xf4
  248 00e4 07       		.uleb128 0x7
- 249 00e5 A0010000 		.4byte	.LASF17
+ 249 00e5 54010000 		.4byte	.LASF17
  250 00e9 01       		.byte	0x1
  251 00ea 5A       		.byte	0x5a
  252 00eb 6B000000 		.4byte	0x6b
  253 00ef 21000000 		.4byte	.LLST1
  254 00f3 00       		.byte	0
  255 00f4 09       		.uleb128 0x9
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccGagHee.s 			page 8
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccfMuPIf.s 			page 8
 
 
  256 00f5 E1000000 		.4byte	.LASF18
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccGagHee.s 			page 1
  310 0022 0B       		.uleb128 0xb
  311 0023 3E       		.uleb128 0x3e
  312 0024 0B       		.uleb128 0xb
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccGagHee.s 			page 9
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccfMuPIf.s 			page 9
 
 
  313 0025 03       		.uleb128 0x3
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccGagHee.s 			page 1
  367 005c 3A       		.uleb128 0x3a
  368 005d 0B       		.uleb128 0xb
  369 005e 3B       		.uleb128 0x3b
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccGagHee.s 			page 10
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccfMuPIf.s 			page 10
 
 
  370 005f 0B       		.uleb128 0xb
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccGagHee.s 			page 1
  424 000a 50       		.byte	0x50
  425 000b 0A000000 		.4byte	.LVL2
  426 000f 18000000 		.4byte	.LFE0
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccGagHee.s 			page 11
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccfMuPIf.s 			page 11
 
 
  427 0013 0400     		.2byte	0x4
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccGagHee.s 			page 1
  480      02004600 
  480      00000201 
  480      FB0E0D00 
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccGagHee.s 			page 12
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccfMuPIf.s 			page 12
 
 
  480      01010101 
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccGagHee.s 			page 1
  502      7420756E 
  502      7369676E 
  502      65642069 
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccGagHee.s 			page 13
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccfMuPIf.s 			page 13
 
 
  502      6E7400
@@ -747,50 +747,50 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccGagHee.s 			page 1
  512      6720756E 
  512      7369676E 
  512      65642069 
- 513              	.LASF22:
- 514 0154 433A5C55 		.ascii	"C:\\Users\\Caleb Cotter\\Desktop\\NitroDoser Develo"
- 514      73657273 
- 514      5C43616C 
- 514      65622043 
- 514      6F747465 
- 515 0183 706D656E 		.ascii	"pment\\3HC_Firmware_0_1.cydsn\000"
- 515      745C3348 
- 515      435F4669 
- 515      726D7761 
- 515      72655F30 
- 516              	.LASF17:
- 517 01a0 6D6F6465 		.ascii	"mode\000"
- 517      00
- 518              	.LASF21:
- 519 01a5 47656E65 		.ascii	"Generated_Source\\PSoC5\\Z_DIR_OUT.c\000"
- 519      72617465 
- 519      645F536F 
- 519      75726365 
- 519      5C50536F 
- 520              	.LASF6:
- 521 01c8 6C6F6E67 		.ascii	"long long int\000"
- 521      206C6F6E 
- 521      6720696E 
- 521      7400
- 522              	.LASF11:
- 523 01d6 63686172 		.ascii	"char\000"
- 523      00
- 524              	.LASF2:
- 525 01db 73686F72 		.ascii	"short int\000"
- 525      7420696E 
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccGagHee.s 			page 14
+ 513              	.LASF17:
+ 514 0154 6D6F6465 		.ascii	"mode\000"
+ 514      00
+ 515              	.LASF21:
+ 516 0159 47656E65 		.ascii	"Generated_Source\\PSoC5\\Z_DIR_OUT.c\000"
+ 516      72617465 
+ 516      645F536F 
+ 516      75726365 
+ 516      5C50536F 
+ 517              	.LASF6:
+ 518 017c 6C6F6E67 		.ascii	"long long int\000"
+ 518      206C6F6E 
+ 518      6720696E 
+ 518      7400
+ 519              	.LASF11:
+ 520 018a 63686172 		.ascii	"char\000"
+ 520      00
+ 521              	.LASF2:
+ 522 018f 73686F72 		.ascii	"short int\000"
+ 522      7420696E 
+ 522      7400
+ 523              	.LASF12:
+ 524 0199 75696E74 		.ascii	"uint8\000"
+ 524      3800
+ 525              	.LASF4:
+ 526 019f 6C6F6E67 		.ascii	"long int\000"
+ 526      20696E74 
+ 526      00
+ 527              	.LASF22:
+ 528 01a8 433A5C55 		.ascii	"C:\\Users\\Caleb Cotter\\Documents\\GitHub\\3HC\\3H"
+ 528      73657273 
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccfMuPIf.s 			page 14
 
 
- 525      7400
- 526              	.LASF12:
- 527 01e5 75696E74 		.ascii	"uint8\000"
- 527      3800
- 528              	.LASF4:
- 529 01eb 6C6F6E67 		.ascii	"long int\000"
- 529      20696E74 
- 529      00
+ 528      5C43616C 
+ 528      65622043 
+ 528      6F747465 
+ 529 01d5 435F4669 		.ascii	"C_Firmware\\3HC_Firmware_0_1.cydsn\000"
+ 529      726D7761 
+ 529      72655C33 
+ 529      48435F46 
+ 529      69726D77 
  530              	.LASF0:
- 531 01f4 7369676E 		.ascii	"signed char\000"
+ 531 01f7 7369676E 		.ascii	"signed char\000"
  531      65642063 
  531      68617200 
  532              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

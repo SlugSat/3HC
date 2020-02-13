@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccVoNQi.s 			page 1
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccmfMuVI.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccVoNQi.s 			page 1
   28:Generated_Source\PSoC5/QUAD_A.c **** *
   29:Generated_Source\PSoC5/QUAD_A.c **** * \brief Writes the value to the physical port (data output register), masking
   30:Generated_Source\PSoC5/QUAD_A.c **** *  and shifting the bits appropriately. 
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccVoNQi.s 			page 2
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccmfMuVI.s 			page 2
 
 
   31:Generated_Source\PSoC5/QUAD_A.c **** *
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccVoNQi.s 			page 1
   52              		.size	QUAD_A_Write, .-QUAD_A_Write
   53              		.section	.text.QUAD_A_SetDriveMode,"ax",%progbits
   54              		.align	2
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccVoNQi.s 			page 3
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccmfMuVI.s 			page 3
 
 
   55              		.global	QUAD_A_SetDriveMode
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccVoNQi.s 			page 1
   77 0012 00BF     		.align	2
   78              	.L5:
   79 0014 1B500040 		.word	1073762331
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccVoNQi.s 			page 4
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccmfMuVI.s 			page 4
 
 
   80              		.cfi_endproc
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccVoNQi.s 			page 1
  110              		.align	2
  111              		.global	QUAD_A_ReadDataReg
  112              		.thumb
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccVoNQi.s 			page 5
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccmfMuVI.s 			page 5
 
 
  113              		.thumb_func
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccVoNQi.s 			page 1
  139              	.Ldebug_info0:
  140 0000 1B010000 		.4byte	0x11b
  141 0004 0400     		.2byte	0x4
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccVoNQi.s 			page 6
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccmfMuVI.s 			page 6
 
 
  142 0006 00000000 		.4byte	.Ldebug_abbrev0
@@ -307,14 +307,14 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccVoNQi.s 			page 1
  145 000c 58000000 		.4byte	.LASF20
  146 0010 0C       		.byte	0xc
  147 0011 2A000000 		.4byte	.LASF21
- 148 0015 47010000 		.4byte	.LASF22
+ 148 0015 4C010000 		.4byte	.LASF22
  149 0019 00000000 		.4byte	.Ldebug_ranges0+0
  150 001d 00000000 		.4byte	0
  151 0021 00000000 		.4byte	.Ldebug_line0
  152 0025 02       		.uleb128 0x2
  153 0026 01       		.byte	0x1
  154 0027 06       		.byte	0x6
- 155 0028 E5010000 		.4byte	.LASF0
+ 155 0028 E8010000 		.4byte	.LASF0
  156 002c 02       		.uleb128 0x2
  157 002d 01       		.byte	0x1
  158 002e 08       		.byte	0x8
@@ -322,7 +322,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccVoNQi.s 			page 1
  160 0033 02       		.uleb128 0x2
  161 0034 02       		.byte	0x2
  162 0035 05       		.byte	0x5
- 163 0036 AB010000 		.4byte	.LASF2
+ 163 0036 AE010000 		.4byte	.LASF2
  164 003a 02       		.uleb128 0x2
  165 003b 02       		.byte	0x2
  166 003c 07       		.byte	0x7
@@ -330,7 +330,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccVoNQi.s 			page 1
  168 0041 02       		.uleb128 0x2
  169 0042 04       		.byte	0x4
  170 0043 05       		.byte	0x5
- 171 0044 BB010000 		.4byte	.LASF4
+ 171 0044 BE010000 		.4byte	.LASF4
  172 0048 02       		.uleb128 0x2
  173 0049 04       		.byte	0x4
  174 004a 07       		.byte	0x7
@@ -338,7 +338,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccVoNQi.s 			page 1
  176 004f 02       		.uleb128 0x2
  177 0050 08       		.byte	0x8
  178 0051 05       		.byte	0x5
- 179 0052 98010000 		.4byte	.LASF6
+ 179 0052 9B010000 		.4byte	.LASF6
  180 0056 02       		.uleb128 0x2
  181 0057 08       		.byte	0x8
  182 0058 07       		.byte	0x7
@@ -352,13 +352,13 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccVoNQi.s 			page 1
  190 0066 07       		.byte	0x7
  191 0067 23010000 		.4byte	.LASF8
  192 006b 04       		.uleb128 0x4
- 193 006c B5010000 		.4byte	.LASF12
+ 193 006c B8010000 		.4byte	.LASF12
  194 0070 02       		.byte	0x2
  195 0071 E401     		.2byte	0x1e4
  196 0073 2C000000 		.4byte	0x2c
  197 0077 02       		.uleb128 0x2
  198 0078 04       		.byte	0x4
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccVoNQi.s 			page 7
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccmfMuVI.s 			page 7
 
 
  199 0079 04       		.byte	0x4
@@ -370,7 +370,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccVoNQi.s 			page 1
  205 0085 02       		.uleb128 0x2
  206 0086 01       		.byte	0x1
  207 0087 08       		.byte	0x8
- 208 0088 A6010000 		.4byte	.LASF11
+ 208 0088 A9010000 		.4byte	.LASF11
  209 008c 04       		.uleb128 0x4
  210 008d E6000000 		.4byte	.LASF13
  211 0091 02       		.byte	0x2
@@ -379,7 +379,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccVoNQi.s 			page 1
  214 0098 05       		.uleb128 0x5
  215 0099 6B000000 		.4byte	0x6b
  216 009d 06       		.uleb128 0x6
- 217 009e C4010000 		.4byte	.LASF14
+ 217 009e C7010000 		.4byte	.LASF14
  218 00a2 01       		.byte	0x1
  219 00a3 39       		.byte	0x39
  220 00a4 00000000 		.4byte	.LFB0
@@ -402,7 +402,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccVoNQi.s 			page 1
  237 00cd 53       		.byte	0x53
  238 00ce 00       		.byte	0
  239 00cf 06       		.uleb128 0x6
- 240 00d0 D1010000 		.4byte	.LASF15
+ 240 00d0 D4010000 		.4byte	.LASF15
  241 00d4 01       		.byte	0x1
  242 00d5 5A       		.byte	0x5a
  243 00d6 00000000 		.4byte	.LFB1
@@ -411,14 +411,14 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccVoNQi.s 			page 1
  246 00df 9C       		.byte	0x9c
  247 00e0 F4000000 		.4byte	0xf4
  248 00e4 07       		.uleb128 0x7
- 249 00e5 93010000 		.4byte	.LASF17
+ 249 00e5 47010000 		.4byte	.LASF17
  250 00e9 01       		.byte	0x1
  251 00ea 5A       		.byte	0x5a
  252 00eb 6B000000 		.4byte	0x6b
  253 00ef 21000000 		.4byte	.LLST1
  254 00f3 00       		.byte	0
  255 00f4 09       		.uleb128 0x9
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccVoNQi.s 			page 8
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccmfMuVI.s 			page 8
 
 
  256 00f5 10010000 		.4byte	.LASF18
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccVoNQi.s 			page 1
  310 0022 0B       		.uleb128 0xb
  311 0023 3E       		.uleb128 0x3e
  312 0024 0B       		.uleb128 0xb
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccVoNQi.s 			page 9
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccmfMuVI.s 			page 9
 
 
  313 0025 03       		.uleb128 0x3
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccVoNQi.s 			page 1
  367 005c 3A       		.uleb128 0x3a
  368 005d 0B       		.uleb128 0xb
  369 005e 3B       		.uleb128 0x3b
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccVoNQi.s 			page 10
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccmfMuVI.s 			page 10
 
 
  370 005f 0B       		.uleb128 0xb
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccVoNQi.s 			page 1
  424 000a 50       		.byte	0x50
  425 000b 0A000000 		.4byte	.LVL2
  426 000f 18000000 		.4byte	.LFE0
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccVoNQi.s 			page 11
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccmfMuVI.s 			page 11
 
 
  427 0013 0400     		.2byte	0x4
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccVoNQi.s 			page 1
  480      02004300 
  480      00000201 
  480      FB0E0D00 
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccVoNQi.s 			page 12
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccmfMuVI.s 			page 12
 
 
  480      01010101 
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccVoNQi.s 			page 1
  502 00fd 73686F72 		.ascii	"short unsigned int\000"
  502      7420756E 
  502      7369676E 
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccVoNQi.s 			page 13
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccmfMuVI.s 			page 13
 
 
  502      65642069 
@@ -741,55 +741,55 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccVoNQi.s 			page 1
  510      6720756E 
  510      7369676E 
  510      65642069 
- 511              	.LASF22:
- 512 0147 433A5C55 		.ascii	"C:\\Users\\Caleb Cotter\\Desktop\\NitroDoser Develo"
- 512      73657273 
- 512      5C43616C 
- 512      65622043 
- 512      6F747465 
- 513 0176 706D656E 		.ascii	"pment\\3HC_Firmware_0_1.cydsn\000"
- 513      745C3348 
- 513      435F4669 
- 513      726D7761 
- 513      72655F30 
- 514              	.LASF17:
- 515 0193 6D6F6465 		.ascii	"mode\000"
- 515      00
+ 511              	.LASF17:
+ 512 0147 6D6F6465 		.ascii	"mode\000"
+ 512      00
+ 513              	.LASF22:
+ 514 014c 433A5C55 		.ascii	"C:\\Users\\Caleb Cotter\\Documents\\GitHub\\3HC\\3H"
+ 514      73657273 
+ 514      5C43616C 
+ 514      65622043 
+ 514      6F747465 
+ 515 0179 435F4669 		.ascii	"C_Firmware\\3HC_Firmware_0_1.cydsn\000"
+ 515      726D7761 
+ 515      72655C33 
+ 515      48435F46 
+ 515      69726D77 
  516              	.LASF6:
- 517 0198 6C6F6E67 		.ascii	"long long int\000"
+ 517 019b 6C6F6E67 		.ascii	"long long int\000"
  517      206C6F6E 
  517      6720696E 
  517      7400
  518              	.LASF11:
- 519 01a6 63686172 		.ascii	"char\000"
+ 519 01a9 63686172 		.ascii	"char\000"
  519      00
  520              	.LASF2:
- 521 01ab 73686F72 		.ascii	"short int\000"
+ 521 01ae 73686F72 		.ascii	"short int\000"
  521      7420696E 
  521      7400
  522              	.LASF12:
- 523 01b5 75696E74 		.ascii	"uint8\000"
+ 523 01b8 75696E74 		.ascii	"uint8\000"
  523      3800
  524              	.LASF4:
- 525 01bb 6C6F6E67 		.ascii	"long int\000"
+ 525 01be 6C6F6E67 		.ascii	"long int\000"
  525      20696E74 
  525      00
  526              	.LASF14:
- 527 01c4 51554144 		.ascii	"QUAD_A_Write\000"
+ 527 01c7 51554144 		.ascii	"QUAD_A_Write\000"
  527      5F415F57 
  527      72697465 
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccVoNQi.s 			page 14
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccmfMuVI.s 			page 14
 
 
  527      00
  528              	.LASF15:
- 529 01d1 51554144 		.ascii	"QUAD_A_SetDriveMode\000"
+ 529 01d4 51554144 		.ascii	"QUAD_A_SetDriveMode\000"
  529      5F415F53 
  529      65744472 
  529      6976654D 
  529      6F646500 
  530              	.LASF0:
- 531 01e5 7369676E 		.ascii	"signed char\000"
+ 531 01e8 7369676E 		.ascii	"signed char\000"
  531      65642063 
  531      68617200 
  532              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
