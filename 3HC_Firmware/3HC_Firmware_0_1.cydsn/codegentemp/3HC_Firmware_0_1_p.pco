@@ -60,7 +60,7 @@ set_location "\Y_PWM:PWMUDB:sP16:pwmdp:u1\" datapathcell 2 2 2
 set_location "\Z_PWM:PWMUDB:sP16:pwmdp:u1\" datapathcell 2 4 2 
 set_location "\X_PWM:PWMUDB:sP16:pwmdp:u1\" datapathcell 3 3 2 
 set_location "\QuadDec:Net_530\" macrocell 3 1 0 1
-set_location "\I2C:I2C_FF\" i2ccell -1 -1 0
+set_location "\I2C_Module:I2C_FF\" i2ccell -1 -1 0
 set_io "\LCD:LCDPort(6)\" iocell 2 6
 set_io "\LCD:LCDPort(5)\" iocell 2 5
 set_io "\LCD:LCDPort(3)\" iocell 2 3
@@ -80,7 +80,7 @@ set_io "X_PWM_OUT(0)" iocell 0 1
 set_io "SCL(0)" iocell 12 0
 set_io "X_DIR_OUT(0)" iocell 0 0
 set_location "\QuadDec:isr\" interrupt -1 -1 1
-set_location "\I2C:I2C_IRQ\" interrupt -1 -1 15
+set_location "\I2C_Module:I2C_IRQ\" interrupt -1 -1 15
 set_io "Encoder_Button(0)" iocell 3 2
 set_io "\LCD:LCDPort(0)\" iocell 2 0
 set_location "UPDATE_UI" interrupt -1 -1 0

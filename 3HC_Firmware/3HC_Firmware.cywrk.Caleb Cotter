@@ -30,7 +30,9 @@
 <v>3HC_Firmware\3HC_Firmware_0_1\3HC_Firmware_0_1.cydwr\EEPROM</v>
 <v>3HC_Firmware\3HC_Firmware_0_1\Header Files</v>
 <v>3HC_Firmware\3HC_Firmware_0_1\Header Files\cyapicallbacks.h</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\Header Files\I2C.h</v>
 <v>3HC_Firmware\3HC_Firmware_0_1\Source Files</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\Source Files\I2C.c</v>
 <v>3HC_Firmware\3HC_Firmware_0_1\Source Files\main.c</v>
 <v>3HC_Firmware\3HC_Firmware_0_1\Generated_Source</v>
 </ExpandedNodeIds>
@@ -50,7 +52,9 @@
 <v>3HC_Firmware\3HC_Firmware_0_1\3HC_Firmware_0_1.cydwr\EEPROM</v>
 <v>3HC_Firmware\3HC_Firmware_0_1\Header Files</v>
 <v>3HC_Firmware\3HC_Firmware_0_1\Header Files\cyapicallbacks.h</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\Header Files\I2C.h</v>
 <v>3HC_Firmware\3HC_Firmware_0_1\Source Files</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\Source Files\I2C.c</v>
 <v>3HC_Firmware\3HC_Firmware_0_1\Source Files\main.c</v>
 <v>3HC_Firmware\3HC_Firmware_0_1\Generated_Source</v>
 <v>3HC_Firmware\3HC_Firmware_0_1\Generated_Source\PSoC5</v>
@@ -91,11 +95,12 @@
 <v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
 <v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\Encoder_Button.lst</v>
 <v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C.lst</v>
-<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C_BOOT.lst</v>
-<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C_INT.lst</v>
-<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C_MASTER.lst</v>
-<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C_PM.lst</v>
-<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C_SLAVE.lst</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C_Module.lst</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C_Module_BOOT.lst</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C_Module_INT.lst</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C_Module_MASTER.lst</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C_Module_PM.lst</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C_Module_SLAVE.lst</v>
 <v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\LCD.lst</v>
 <v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\LCD_LCDPort.lst</v>
 <v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\LCD_PM.lst</v>
@@ -140,6 +145,35 @@
 <VisibleNodeIds>
 <v>3HC_Firmware</v>
 <v>3HC_Firmware\3HC_Firmware_0_1</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\Cm3Start.lst</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\CyDmac.lst</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\Encoder_Button.lst</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C.lst</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C_Module.lst</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C_Module_BOOT.lst</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C_Module_INT.lst</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C_Module_MASTER.lst</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C_Module_PM.lst</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C_Module_SLAVE.lst</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\LCD.lst</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\LCD_LCDPort.lst</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\LCD_PM.lst</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\main.lst</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\Output_Enable.lst</v>
+<v>3HC_Firmware\3HC_Firmware_0_1\CortexM3\ARM_GCC_541\Debug\Listing Files\Output_Enable_PM.lst</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>

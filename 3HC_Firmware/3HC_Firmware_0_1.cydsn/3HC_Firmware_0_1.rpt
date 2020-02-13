@@ -1,13 +1,13 @@
-Loading plugins phase: Elapsed time ==> 0s.184ms
+Loading plugins phase: Elapsed time ==> 0s.181ms
 <CYPRESSTAG name="CyDsfit arguments...">
 cydsfit arguments: -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\3HC_Firmware_0_1.cyprj -d CY8C5888LTI-LP097 -s C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\Generated_Source\PSoC5 -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
 </CYPRESSTAG>
 <CYPRESSTAG name="Design elaboration results...">
 </CYPRESSTAG>
-Elaboration phase: Elapsed time ==> 3s.600ms
+Elaboration phase: Elapsed time ==> 2s.160ms
 <CYPRESSTAG name="HDL generation results...">
 </CYPRESSTAG>
-HDL generation phase: Elapsed time ==> 0s.083ms
+HDL generation phase: Elapsed time ==> 0s.089ms
 <CYPRESSTAG name="Synthesis results...">
 
      | | | | | | |
@@ -41,7 +41,7 @@ Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\Caleb
 ======================================================================
 
 vlogfe V6.3 IR 41:  Verilog parser
-Wed Feb 12 20:48:30 2020
+Wed Feb 12 20:58:53 2020
 
 
 ======================================================================
@@ -51,7 +51,7 @@ Options  :    -yv2 -q10 3HC_Firmware_0_1.v
 ======================================================================
 
 vpp V6.3 IR 41:  Verilog Pre-Processor
-Wed Feb 12 20:48:30 2020
+Wed Feb 12 20:58:53 2020
 
 Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.v'
 Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\ZeroTerminal\ZeroTerminal.v'
@@ -99,7 +99,7 @@ Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\Caleb
 ======================================================================
 
 tovif V6.3 IR 41:  High-level synthesis
-Wed Feb 12 20:48:30 2020
+Wed Feb 12 20:58:54 2020
 
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\std.vhd'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\cypress.vhd'.
@@ -138,7 +138,7 @@ Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\Caleb
 ======================================================================
 
 topld V6.3 IR 41:  Synthesis and optimization
-Wed Feb 12 20:48:31 2020
+Wed Feb 12 20:58:55 2020
 
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\std.vhd'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\cypress.vhd'.
@@ -315,14 +315,14 @@ Detecting unused logic.
 	\X_PWM:Net_113\
 	\X_PWM:Net_107\
 	\X_PWM:Net_114\
-	\I2C:udb_clk\
+	\I2C_Module:udb_clk\
 	Net_61
-	\I2C:Net_973\
+	\I2C_Module:Net_973\
 	Net_62
-	\I2C:Net_974\
-	\I2C:timeout_clk\
+	\I2C_Module:Net_974\
+	\I2C_Module:timeout_clk\
 	Net_67
-	\I2C:Net_975\
+	\I2C_Module:Net_975\
 	Net_65
 	Net_66
 	Net_118
@@ -776,8 +776,8 @@ Aliasing \X_PWM:PWMUDB:MODULE_1:g2:a0:a_3\ to zero
 Aliasing \X_PWM:PWMUDB:MODULE_1:g2:a0:a_2\ to zero
 Aliasing \X_PWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:b_0\ to \LCD:tmpOE__LCDPort_net_6\
 Aliasing tmpOE__Encoder_Button_net_0 to \LCD:tmpOE__LCDPort_net_6\
-Aliasing \I2C:Net_969\ to \LCD:tmpOE__LCDPort_net_6\
-Aliasing \I2C:Net_968\ to \LCD:tmpOE__LCDPort_net_6\
+Aliasing \I2C_Module:Net_969\ to \LCD:tmpOE__LCDPort_net_6\
+Aliasing \I2C_Module:Net_968\ to \LCD:tmpOE__LCDPort_net_6\
 Aliasing tmpOE__SDA_net_0 to \LCD:tmpOE__LCDPort_net_6\
 Aliasing \Output_Enable:clk\ to zero
 Aliasing \Output_Enable:rst\ to zero
@@ -1033,15 +1033,15 @@ Removing Lhs of wire \X_PWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_0\[627] = one
 Removing Lhs of wire \X_PWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:b_0\[628] = one[24]
 Removing Rhs of wire Net_307[629] = \X_PWM:Net_96\[426]
 Removing Lhs of wire tmpOE__Encoder_Button_net_0[636] = one[24]
-Removing Rhs of wire \I2C:sda_x_wire\[641] = \I2C:Net_643_1\[642]
-Removing Rhs of wire \I2C:Net_697\[644] = \I2C:Net_643_2\[650]
-Removing Rhs of wire \I2C:Net_1109_0\[647] = \I2C:scl_yfb\[660]
-Removing Rhs of wire \I2C:Net_1109_1\[648] = \I2C:sda_yfb\[661]
-Removing Lhs of wire \I2C:scl_x_wire\[651] = \I2C:Net_643_0\[649]
-Removing Lhs of wire \I2C:Net_969\[652] = one[24]
-Removing Lhs of wire \I2C:Net_968\[653] = one[24]
-Removing Lhs of wire \I2C:tmpOE__Bufoe_scl_net_0\[663] = one[24]
-Removing Lhs of wire \I2C:tmpOE__Bufoe_sda_net_0\[665] = one[24]
+Removing Rhs of wire \I2C_Module:sda_x_wire\[641] = \I2C_Module:Net_643_1\[642]
+Removing Rhs of wire \I2C_Module:Net_697\[644] = \I2C_Module:Net_643_2\[650]
+Removing Rhs of wire \I2C_Module:Net_1109_0\[647] = \I2C_Module:scl_yfb\[660]
+Removing Rhs of wire \I2C_Module:Net_1109_1\[648] = \I2C_Module:sda_yfb\[661]
+Removing Lhs of wire \I2C_Module:scl_x_wire\[651] = \I2C_Module:Net_643_0\[649]
+Removing Lhs of wire \I2C_Module:Net_969\[652] = one[24]
+Removing Lhs of wire \I2C_Module:Net_968\[653] = one[24]
+Removing Lhs of wire \I2C_Module:tmpOE__Bufoe_scl_net_0\[663] = one[24]
+Removing Lhs of wire \I2C_Module:tmpOE__Bufoe_sda_net_0\[665] = one[24]
 Removing Lhs of wire tmpOE__SDA_net_0[673] = one[24]
 Removing Rhs of wire Net_308[678] = \Output_Enable:control_out_0\[681]
 Removing Rhs of wire Net_308[678] = \Output_Enable:control_0\[704]
@@ -1605,14 +1605,14 @@ CYPRESS_DIR    : C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\wa
 Warp Program   : C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\bin\warp.exe
 Warp Arguments : -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya "-.fftprj=C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\3HC_Firmware_0_1.cyprj" -dcpsoc3 3HC_Firmware_0_1.v -verilog
 </CYPRESSTAG>
-Warp synthesis phase: Elapsed time ==> 2s.652ms
+Warp synthesis phase: Elapsed time ==> 2s.307ms
 <CYPRESSTAG name="Fitter results...">
 <CYPRESSTAG name="Fitter startup details...">
-cyp3fit: V4.2.0.641, Family: PSoC3, Started at: Wednesday, 12 February 2020 20:48:32
+cyp3fit: V4.2.0.641, Family: PSoC3, Started at: Wednesday, 12 February 2020 20:58:56
 Options: -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\3HC_Firmware_0_1.cyprj -d CY8C5888LTI-LP097 3HC_Firmware_0_1.v -verilog
 </CYPRESSTAG>
 <CYPRESSTAG name="Design parsing">
-Design parsing phase: Elapsed time ==> 0s.026ms
+Design parsing phase: Elapsed time ==> 0s.039ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Tech Mapping">
 <CYPRESSTAG name="Initial Mapping" icon="FILE_RPT_TECHM">
@@ -1646,7 +1646,7 @@ Design parsing phase: Elapsed time ==> 0s.026ms
     Converted constant MacroCell: \Z_PWM:PWMUDB:pwm2_i_reg\ from registered to combinatorial
 Assigning clock Clock_1 to clock BUS_CLK because it is a pass-through
 Assigning clock PWM_Clock to clock BUS_CLK because it is a pass-through
-Assigning clock I2C_BusClock to clock BUS_CLK because it is a pass-through
+Assigning clock I2C_Module_BusClock to clock BUS_CLK because it is a pass-through
 <CYPRESSTAG name="Global Clock Selection" icon="FILE_RPT_TECHM">
     Digital Clock 0: Automatic-assigning  clock 'timer_clock'. Fanout=1, Signal=Net_10
 </CYPRESSTAG>
@@ -2104,8 +2104,8 @@ Design Equations
             IO Voltage: 0
         PORT MAP (
             pa_out => SCL(0)__PA ,
-            fb => \I2C:Net_1109_0\ ,
-            pin_input => \I2C:Net_643_0\ ,
+            fb => \I2C_Module:Net_1109_0\ ,
+            pin_input => \I2C_Module:Net_643_0\ ,
             pad => SCL(0)_PAD );
         Properties:
         {
@@ -2184,8 +2184,8 @@ Design Equations
             IO Voltage: 0
         PORT MAP (
             pa_out => SDA(0)__PA ,
-            fb => \I2C:Net_1109_1\ ,
-            pin_input => \I2C:sda_x_wire\ ,
+            fb => \I2C_Module:Net_1109_1\ ,
+            pin_input => \I2C_Module:sda_x_wire\ ,
             pad => SDA(0)_PAD );
         Properties:
         {
@@ -3603,9 +3603,9 @@ Design Equations
             is_nmi = 0
         }
 
-    interrupt: Name =\I2C:I2C_IRQ\
+    interrupt: Name =\I2C_Module:I2C_IRQ\
         PORT MAP (
-            interrupt => \I2C:Net_697\ );
+            interrupt => \I2C_Module:Net_697\ );
         Properties:
         {
             int_type = "00"
@@ -3651,8 +3651,8 @@ Analog (SC/CT) Blocks         :    0 :    4 :    4 :  0.00 %
 DAC                           :      :      :      :        
   VIDAC                       :    0 :    4 :    4 :  0.00 %
 </CYPRESSTAG>
-Technology Mapping: Elapsed time ==> 0s.174ms
-Tech Mapping phase: Elapsed time ==> 0s.265ms
+Technology Mapping: Elapsed time ==> 0s.205ms
+Tech Mapping phase: Elapsed time ==> 0s.335ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Analog Placement">
 Initial Analog Placement Results:
@@ -3692,7 +3692,7 @@ Dump of CyP35AnalogRoutingResultsDB
 IsVddaHalfUsedForComp = False
 IsVddaHalfUsedForSar0 = False
 IsVddaHalfUsedForSar1 = False
-Analog Code Generation phase: Elapsed time ==> 0s.332ms
+Analog Code Generation phase: Elapsed time ==> 0s.316ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Digital Placement">
 <CYPRESSTAG name="Detailed placement messages">
@@ -3727,7 +3727,7 @@ PLD Packing: Elapsed time ==> 0s.001ms
 Initial Partitioning Summary not displayed at this verbose level.</CYPRESSTAG>
 <CYPRESSTAG name="Final Partitioning Summary">
 Final Partitioning Summary not displayed at this verbose level.</CYPRESSTAG>
-Partitioning: Elapsed time ==> 0s.073ms
+Partitioning: Elapsed time ==> 0s.076ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Final Placement Summary">
 
@@ -5140,9 +5140,9 @@ Intr container @ [IntrContainer=(0)]:
             is_nmi = 0
         }
   Intr@ [IntrContainer=(0)][IntrId=(15)] 
-    interrupt: Name =\I2C:I2C_IRQ\
+    interrupt: Name =\I2C_Module:I2C_IRQ\
         PORT MAP (
-            interrupt => \I2C:Net_697\ );
+            interrupt => \I2C_Module:Net_697\ );
         Properties:
         {
             int_type = "00"
@@ -5837,8 +5837,8 @@ Pin : Name = SCL(0)
         IO Voltage: 0
     PORT MAP (
         pa_out => SCL(0)__PA ,
-        fb => \I2C:Net_1109_0\ ,
-        pin_input => \I2C:Net_643_0\ ,
+        fb => \I2C_Module:Net_1109_0\ ,
+        pin_input => \I2C_Module:Net_643_0\ ,
         pad => SCL(0)_PAD );
     Properties:
     {
@@ -5879,8 +5879,8 @@ Pin : Name = SDA(0)
         IO Voltage: 0
     PORT MAP (
         pa_out => SDA(0)__PA ,
-        fb => \I2C:Net_1109_1\ ,
-        pin_input => \I2C:sda_x_wire\ ,
+        fb => \I2C_Module:Net_1109_1\ ,
+        pin_input => \I2C_Module:sda_x_wire\ ,
         pad => SDA(0)_PAD );
     Properties:
     {
@@ -5918,14 +5918,14 @@ Decimator group 0: empty
 EMIF group 0: empty
 I2C group 0: 
     I2C Block @ F(I2C,0): 
-    i2ccell: Name =\I2C:I2C_FF\
+    i2ccell: Name =\I2C_Module:I2C_FF\
         PORT MAP (
             clock => ClockBlock_BUS_CLK ,
-            scl_in => \I2C:Net_1109_0\ ,
-            sda_in => \I2C:Net_1109_1\ ,
-            scl_out => \I2C:Net_643_0\ ,
-            sda_out => \I2C:sda_x_wire\ ,
-            interrupt => \I2C:Net_697\ );
+            scl_in => \I2C_Module:Net_1109_0\ ,
+            sda_in => \I2C_Module:Net_1109_1\ ,
+            scl_out => \I2C_Module:Net_643_0\ ,
+            sda_out => \I2C_Module:sda_x_wire\ ,
+            interrupt => \I2C_Module:Net_697\ );
         Properties:
         {
             cy_registers = ""
@@ -5967,14 +5967,14 @@ Port Configuration report
 ------------------------------------------------------------
      |     |       | Interrupt |                  |                   | 
 Port | Pin | Fixed |      Type |       Drive Mode |              Name | Connections
------+-----+-------+-----------+------------------+-------------------+-------------------------------------------
+-----+-----+-------+-----------+------------------+-------------------+---------------------------------------------------------
    0 |   0 |     * |      NONE |         CMOS_OUT |      X_DIR_OUT(0) | In(Net_314)
      |   1 |     * |      NONE |         CMOS_OUT |      X_PWM_OUT(0) | In(Net_117)
      |   2 |     * |      NONE |         CMOS_OUT |      Y_DIR_OUT(0) | In(Net_311)
      |   3 |     * |      NONE |         CMOS_OUT |      Y_PWM_OUT(0) | In(Net_131)
      |   4 |     * |      NONE |         CMOS_OUT |      Z_DIR_OUT(0) | In(Net_312)
      |   5 |     * |      NONE |         CMOS_OUT |      Z_PWM_OUT(0) | In(Net_199)
------+-----+-------+-----------+------------------+-------------------+-------------------------------------------
+-----+-----+-------+-----------+------------------+-------------------+---------------------------------------------------------
    2 |   0 |     * |      NONE |         CMOS_OUT |  \LCD:LCDPort(0)\ | 
      |   1 |     * |      NONE |         CMOS_OUT |  \LCD:LCDPort(1)\ | 
      |   2 |     * |      NONE |         CMOS_OUT |  \LCD:LCDPort(2)\ | 
@@ -5982,44 +5982,44 @@ Port | Pin | Fixed |      Type |       Drive Mode |              Name | Connecti
      |   4 |     * |      NONE |         CMOS_OUT |  \LCD:LCDPort(4)\ | 
      |   5 |     * |      NONE |         CMOS_OUT |  \LCD:LCDPort(5)\ | 
      |   6 |     * |      NONE |         CMOS_OUT |  \LCD:LCDPort(6)\ | 
------+-----+-------+-----------+------------------+-------------------+-------------------------------------------
+-----+-----+-------+-----------+------------------+-------------------+---------------------------------------------------------
    3 |   2 |     * |      NONE |     HI_Z_DIGITAL | Encoder_Button(0) | 
      |   3 |     * |      NONE |     HI_Z_DIGITAL |         QUAD_A(0) | FB(Net_1)
      |   4 |     * |      NONE |     HI_Z_DIGITAL |         QUAD_B(0) | FB(Net_2)
------+-----+-------+-----------+------------------+-------------------+-------------------------------------------
-  12 |   0 |     * |      NONE |    OPEN_DRAIN_LO |            SCL(0) | FB(\I2C:Net_1109_0\), In(\I2C:Net_643_0\)
-     |   1 |     * |      NONE |    OPEN_DRAIN_LO |            SDA(0) | FB(\I2C:Net_1109_1\), In(\I2C:sda_x_wire\)
-------------------------------------------------------------------------------------------------------------------
+-----+-----+-------+-----------+------------------+-------------------+---------------------------------------------------------
+  12 |   0 |     * |      NONE |    OPEN_DRAIN_LO |            SCL(0) | FB(\I2C_Module:Net_1109_0\), In(\I2C_Module:Net_643_0\)
+     |   1 |     * |      NONE |    OPEN_DRAIN_LO |            SDA(0) | FB(\I2C_Module:Net_1109_1\), In(\I2C_Module:sda_x_wire\)
+--------------------------------------------------------------------------------------------------------------------------------
 </CYPRESSTAG>
 </CYPRESSTAG>
 </CYPRESSTAG>
-Digital component placer commit/Report: Elapsed time ==> 0s.082ms
-Digital Placement phase: Elapsed time ==> 1s.736ms
+Digital component placer commit/Report: Elapsed time ==> 0s.084ms
+Digital Placement phase: Elapsed time ==> 1s.861ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Digital Routing">
 "C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\bin/sjrouter.exe" --xml-path "C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\dev\psoc5/psoc5lp/route_arch-rrg.cydata" --vh2-path "3HC_Firmware_0_1_r.vh2" --pcf-path "3HC_Firmware_0_1.pco" --des-name "3HC_Firmware_0_1" --dsf-path "3HC_Firmware_0_1.dsf" --sdc-path "3HC_Firmware_0_1.sdc" --lib-path "3HC_Firmware_0_1_r.lib"
 Routing successful.
-Digital Routing phase: Elapsed time ==> 2s.077ms
+Digital Routing phase: Elapsed time ==> 2s.076ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Bitstream Generation">
-Bitstream Generation phase: Elapsed time ==> 0s.255ms
+Bitstream Generation phase: Elapsed time ==> 0s.379ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Bitstream Verification">
-Bitstream Verification phase: Elapsed time ==> 0s.041ms
+Bitstream Verification phase: Elapsed time ==> 0s.097ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Static timing analysis">
 Timing report is in 3HC_Firmware_0_1_timing.html.
-Static timing analysis phase: Elapsed time ==> 0s.554ms
+Static timing analysis phase: Elapsed time ==> 0s.516ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Data reporting">
 Data reporting phase: Elapsed time ==> 0s.000ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Database update...">
-Design database save phase: Elapsed time ==> 0s.248ms
+Design database save phase: Elapsed time ==> 0s.275ms
 </CYPRESSTAG>
-cydsfit: Elapsed time ==> 5s.633ms
+cydsfit: Elapsed time ==> 6s.000ms
 </CYPRESSTAG>
-Fitter phase: Elapsed time ==> 5s.635ms
-API generation phase: Elapsed time ==> 2s.278ms
-Dependency generation phase: Elapsed time ==> 0s.064ms
+Fitter phase: Elapsed time ==> 6s.002ms
+API generation phase: Elapsed time ==> 2s.505ms
+Dependency generation phase: Elapsed time ==> 0s.066ms
 Cleanup phase: Elapsed time ==> 0s.002ms

@@ -1,5 +1,5 @@
 # 3HC_Firmware_0_1
-# 2020-02-13 04:48:35Z
+# 2020-02-13 04:58:59Z
 
 # IO_0@[IOP=(1)][IoId=(0)] is reserved: SWDDebugEnabled
 dont_use_io iocell 1 0
@@ -58,8 +58,8 @@ set_location "\X_PWM:PWMUDB:genblk1:ctrlreg\" 2 3 6
 set_location "\X_PWM:PWMUDB:genblk8:stsreg\" 3 3 4
 set_location "\X_PWM:PWMUDB:sP16:pwmdp:u0\" 2 3 2
 set_location "\X_PWM:PWMUDB:sP16:pwmdp:u1\" 3 3 2
-set_location "\I2C:I2C_IRQ\" interrupt -1 -1 15
-set_location "\I2C:I2C_FF\" i2ccell -1 -1 0
+set_location "\I2C_Module:I2C_IRQ\" interrupt -1 -1 15
+set_location "\I2C_Module:I2C_FF\" i2ccell -1 -1 0
 set_location "\Output_Enable:Sync:ctrl_reg\" 3 3 6
 set_location "\Y_PWM:PWMUDB:genblk1:ctrlreg\" 2 2 6
 set_location "\Y_PWM:PWMUDB:genblk8:stsreg\" 2 2 4

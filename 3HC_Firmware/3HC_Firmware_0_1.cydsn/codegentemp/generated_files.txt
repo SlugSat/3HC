@@ -48,14 +48,14 @@
   <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\Encoder_Button_aliases.h" value="HEADER;;;;;Encoder_Button" />
   <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\Encoder_Button.c" value="SOURCE_C;CortexM3;;;;Encoder_Button" />
   <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\Encoder_Button.h" value="HEADER;;;;;Encoder_Button" />
-  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\I2C.c" value="SOURCE_C;CortexM3;;;;I2C" />
-  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\I2C.h" value="HEADER;;;;;I2C" />
-  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\I2C_BOOT.c" value="SOURCE_C;CortexM3;;;;I2C" />
-  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\I2C_INT.c" value="SOURCE_C;CortexM3;;;;I2C" />
-  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\I2C_PM.c" value="SOURCE_C;CortexM3;;;;I2C" />
-  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\I2C_SLAVE.c" value="SOURCE_C;CortexM3;;;;I2C" />
-  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\I2C_MASTER.c" value="SOURCE_C;CortexM3;;;;I2C" />
-  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\I2C_PVT.h" value="HEADER;;;;;I2C" />
+  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\I2C_Module.c" value="SOURCE_C;CortexM3;;;;I2C_Module" />
+  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\I2C_Module.h" value="HEADER;;;;;I2C_Module" />
+  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\I2C_Module_BOOT.c" value="SOURCE_C;CortexM3;;;;I2C_Module" />
+  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\I2C_Module_INT.c" value="SOURCE_C;CortexM3;;;;I2C_Module" />
+  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\I2C_Module_PM.c" value="SOURCE_C;CortexM3;;;;I2C_Module" />
+  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\I2C_Module_SLAVE.c" value="SOURCE_C;CortexM3;;;;I2C_Module" />
+  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\I2C_Module_MASTER.c" value="SOURCE_C;CortexM3;;;;I2C_Module" />
+  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\I2C_Module_PVT.h" value="HEADER;;;;;I2C_Module" />
   <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\SDA_aliases.h" value="HEADER;;;;;SDA" />
   <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\SDA.c" value="SOURCE_C;CortexM3;;;;SDA" />
   <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\SDA.h" value="HEADER;;;;;SDA" />

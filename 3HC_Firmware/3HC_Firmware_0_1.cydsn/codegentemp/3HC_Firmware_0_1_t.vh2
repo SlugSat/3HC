@@ -1,5 +1,5 @@
 -- Project:   C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\3HC_Firmware_0_1.cyprj
--- Generated: 02/12/2020 20:48:37
+-- Generated: 02/12/2020 20:59:01
 -- PSoC Creator  4.2
 
 ENTITY \3HC_Firmware_0_1\ IS
@@ -80,11 +80,11 @@ ARCHITECTURE __DEFAULT__ OF \3HC_Firmware_0_1\ IS
     SIGNAL Y_PWM_OUT(0)__PA : bit;
     SIGNAL Z_DIR_OUT(0)__PA : bit;
     SIGNAL Z_PWM_OUT(0)__PA : bit;
-    SIGNAL \I2C:Net_1109_0\ : bit;
-    SIGNAL \I2C:Net_1109_1\ : bit;
-    SIGNAL \I2C:Net_643_0\ : bit;
-    SIGNAL \I2C:Net_697\ : bit;
-    SIGNAL \I2C:sda_x_wire\ : bit;
+    SIGNAL \I2C_Module:Net_1109_0\ : bit;
+    SIGNAL \I2C_Module:Net_1109_1\ : bit;
+    SIGNAL \I2C_Module:Net_643_0\ : bit;
+    SIGNAL \I2C_Module:Net_697\ : bit;
+    SIGNAL \I2C_Module:sda_x_wire\ : bit;
     SIGNAL \\\LCD:LCDPort(0)\\__PA\ : bit;
     SIGNAL \\\LCD:LCDPort(1)\\__PA\ : bit;
     SIGNAL \\\LCD:LCDPort(2)\\__PA\ : bit;
@@ -391,8 +391,8 @@ ARCHITECTURE __DEFAULT__ OF \3HC_Firmware_0_1\ IS
     ATTRIBUTE Location OF \X_PWM:PWMUDB:sP16:pwmdp:u0\ : LABEL IS "U(2,3)";
     ATTRIBUTE lib_model OF \X_PWM:PWMUDB:sP16:pwmdp:u1\ : LABEL IS "datapathcell4";
     ATTRIBUTE Location OF \X_PWM:PWMUDB:sP16:pwmdp:u1\ : LABEL IS "U(3,3)";
-    ATTRIBUTE Location OF \I2C:I2C_IRQ\ : LABEL IS "[IntrContainer=(0)][IntrId=(15)]";
-    ATTRIBUTE Location OF \I2C:I2C_FF\ : LABEL IS "F(I2C,0)";
+    ATTRIBUTE Location OF \I2C_Module:I2C_IRQ\ : LABEL IS "[IntrContainer=(0)][IntrId=(15)]";
+    ATTRIBUTE Location OF \I2C_Module:I2C_FF\ : LABEL IS "F(I2C,0)";
     ATTRIBUTE lib_model OF \Output_Enable:Sync:ctrl_reg\ : LABEL IS "controlcell3";
     ATTRIBUTE Location OF \Output_Enable:Sync:ctrl_reg\ : LABEL IS "U(3,3)";
     ATTRIBUTE lib_model OF \Y_PWM:PWMUDB:genblk1:ctrlreg\ : LABEL IS "controlcell4";
@@ -1259,8 +1259,8 @@ BEGIN
         PORT MAP(
             pa_out => SCL(0)__PA,
             oe => open,
-            fb => \I2C:Net_1109_0\,
-            pin_input => \I2C:Net_643_0\,
+            fb => \I2C_Module:Net_1109_0\,
+            pin_input => \I2C_Module:Net_643_0\,
             pad_out => SCL(0)_PAD,
             pad_in => SCL(0)_PAD,
             in_clock => ClockBlock_BUS_CLK,
@@ -1443,8 +1443,8 @@ BEGIN
         PORT MAP(
             pa_out => SDA(0)__PA,
             oe => open,
-            fb => \I2C:Net_1109_1\,
-            pin_input => \I2C:sda_x_wire\,
+            fb => \I2C_Module:Net_1109_1\,
+            pin_input => \I2C_Module:sda_x_wire\,
             pad_out => SDA(0)_PAD,
             pad_in => SDA(0)_PAD,
             in_clock => ClockBlock_BUS_CLK,
@@ -2533,25 +2533,25 @@ BEGIN
             sor => \X_PWM:PWMUDB:sP16:pwmdp:u1.sor__sig\,
             cmsbo => \X_PWM:PWMUDB:sP16:pwmdp:u1.cmsbo__sig\);
 
-    \I2C:I2C_IRQ\:interrupt
+    \I2C_Module:I2C_IRQ\:interrupt
         GENERIC MAP(
             int_type => "00",
             is_nmi => 0)
         PORT MAP(
-            interrupt => \I2C:Net_697\,
+            interrupt => \I2C_Module:Net_697\,
             clock => ClockBlock_BUS_CLK);
 
-    \I2C:I2C_FF\:i2ccell
+    \I2C_Module:I2C_FF\:i2ccell
         GENERIC MAP(
             cy_registers => "",
             use_wakeup => 0)
         PORT MAP(
             clock => \ClockBlock.clk_bus_glb_ff__sig\,
-            scl_in => \I2C:Net_1109_0\,
-            sda_in => \I2C:Net_1109_1\,
-            scl_out => \I2C:Net_643_0\,
-            sda_out => \I2C:sda_x_wire\,
-            interrupt => \I2C:Net_697\);
+            scl_in => \I2C_Module:Net_1109_0\,
+            sda_in => \I2C_Module:Net_1109_1\,
+            scl_out => \I2C_Module:Net_643_0\,
+            sda_out => \I2C_Module:sda_x_wire\,
+            interrupt => \I2C_Module:Net_697\);
 
     \Output_Enable:Sync:ctrl_reg\:controlcell
         GENERIC MAP(

@@ -2,7 +2,7 @@
 --	Conversion of 3HC_Firmware_0_1.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Wed Feb 12 20:48:32 2020
+--	Wed Feb 12 20:58:55 2020
 --
 
 USE cypress.cypress.all;
@@ -718,30 +718,30 @@ SIGNAL tmpFB_0__Encoder_Button_net_0 : bit;
 SIGNAL tmpIO_0__Encoder_Button_net_0 : bit;
 TERMINAL tmpSIOVREF__Encoder_Button_net_0 : bit;
 SIGNAL tmpINTERRUPT_0__Encoder_Button_net_0 : bit;
-SIGNAL \I2C:sda_x_wire\ : bit;
-SIGNAL \I2C:Net_643_1\ : bit;
-SIGNAL \I2C:Net_697\ : bit;
-SIGNAL \I2C:bus_clk\ : bit;
-SIGNAL \I2C:Net_1109_0\ : bit;
-SIGNAL \I2C:Net_1109_1\ : bit;
-SIGNAL \I2C:Net_643_0\ : bit;
-SIGNAL \I2C:Net_643_2\ : bit;
-SIGNAL \I2C:scl_x_wire\ : bit;
-SIGNAL \I2C:Net_969\ : bit;
-SIGNAL \I2C:Net_968\ : bit;
-SIGNAL \I2C:udb_clk\ : bit;
+SIGNAL \I2C_Module:sda_x_wire\ : bit;
+SIGNAL \I2C_Module:Net_643_1\ : bit;
+SIGNAL \I2C_Module:Net_697\ : bit;
+SIGNAL \I2C_Module:bus_clk\ : bit;
+SIGNAL \I2C_Module:Net_1109_0\ : bit;
+SIGNAL \I2C_Module:Net_1109_1\ : bit;
+SIGNAL \I2C_Module:Net_643_0\ : bit;
+SIGNAL \I2C_Module:Net_643_2\ : bit;
+SIGNAL \I2C_Module:scl_x_wire\ : bit;
+SIGNAL \I2C_Module:Net_969\ : bit;
+SIGNAL \I2C_Module:Net_968\ : bit;
+SIGNAL \I2C_Module:udb_clk\ : bit;
 SIGNAL Net_61 : bit;
-SIGNAL \I2C:Net_973\ : bit;
+SIGNAL \I2C_Module:Net_973\ : bit;
 SIGNAL Net_62 : bit;
-SIGNAL \I2C:Net_974\ : bit;
-SIGNAL \I2C:scl_yfb\ : bit;
-SIGNAL \I2C:sda_yfb\ : bit;
-SIGNAL \I2C:tmpOE__Bufoe_scl_net_0\ : bit;
-SIGNAL \I2C:tmpOE__Bufoe_sda_net_0\ : bit;
+SIGNAL \I2C_Module:Net_974\ : bit;
+SIGNAL \I2C_Module:scl_yfb\ : bit;
+SIGNAL \I2C_Module:sda_yfb\ : bit;
+SIGNAL \I2C_Module:tmpOE__Bufoe_scl_net_0\ : bit;
+SIGNAL \I2C_Module:tmpOE__Bufoe_sda_net_0\ : bit;
 SIGNAL Net_57 : bit;
-SIGNAL \I2C:timeout_clk\ : bit;
+SIGNAL \I2C_Module:timeout_clk\ : bit;
 SIGNAL Net_67 : bit;
-SIGNAL \I2C:Net_975\ : bit;
+SIGNAL \I2C_Module:Net_975\ : bit;
 SIGNAL Net_65 : bit;
 SIGNAL Net_66 : bit;
 SIGNAL tmpOE__SDA_net_0 : bit;
@@ -2713,20 +2713,20 @@ Encoder_Button:cy_psoc3_pins_v1_10
 		out_clock_en=>one,
 		out_reset=>zero,
 		interrupt=>tmpINTERRUPT_0__Encoder_Button_net_0);
-\I2C:I2C_IRQ\:cy_isr_v1_0
+\I2C_Module:I2C_IRQ\:cy_isr_v1_0
 	GENERIC MAP(int_type=>"00",
 		is_nmi=>'0')
-	PORT MAP(int_signal=>\I2C:Net_697\);
-\I2C:I2C_FF\:cy_psoc3_i2c_v1_0
+	PORT MAP(int_signal=>\I2C_Module:Net_697\);
+\I2C_Module:I2C_FF\:cy_psoc3_i2c_v1_0
 	GENERIC MAP(cy_registers=>"",
 		use_wakeup=>'0')
-	PORT MAP(clock=>\I2C:bus_clk\,
-		scl_in=>\I2C:Net_1109_0\,
-		sda_in=>\I2C:Net_1109_1\,
-		scl_out=>\I2C:Net_643_0\,
-		sda_out=>\I2C:sda_x_wire\,
-		interrupt=>\I2C:Net_697\);
-\I2C:BusClock\:cy_clock_v1_0
+	PORT MAP(clock=>\I2C_Module:bus_clk\,
+		scl_in=>\I2C_Module:Net_1109_0\,
+		sda_in=>\I2C_Module:Net_1109_1\,
+		scl_out=>\I2C_Module:Net_643_0\,
+		sda_out=>\I2C_Module:sda_x_wire\,
+		interrupt=>\I2C_Module:Net_697\);
+\I2C_Module:BusClock\:cy_clock_v1_0
 	GENERIC MAP(cy_registers=>"",
 		id=>"6f2d57bd-b6d0-4115-93da-ded3485bf4ed/5ece924d-20ba-480e-9102-bc082dcdd926",
 		source_clock_id=>"75C2148C-3656-4d8a-846D-0CAE99AB6FF7",
@@ -2734,18 +2734,18 @@ Encoder_Button:cy_psoc3_pins_v1_10
 		period=>"0",
 		is_direct=>'1',
 		is_digital=>'1')
-	PORT MAP(clock_out=>\I2C:bus_clk\,
+	PORT MAP(clock_out=>\I2C_Module:bus_clk\,
 		dig_domain_out=>open);
-\I2C:Bufoe_scl\:cy_bufoe
-	PORT MAP(x=>\I2C:Net_643_0\,
+\I2C_Module:Bufoe_scl\:cy_bufoe
+	PORT MAP(x=>\I2C_Module:Net_643_0\,
 		oe=>one,
 		y=>Net_58,
-		yfb=>\I2C:Net_1109_0\);
-\I2C:Bufoe_sda\:cy_bufoe
-	PORT MAP(x=>\I2C:sda_x_wire\,
+		yfb=>\I2C_Module:Net_1109_0\);
+\I2C_Module:Bufoe_sda\:cy_bufoe
+	PORT MAP(x=>\I2C_Module:sda_x_wire\,
 		oe=>one,
 		y=>Net_57,
-		yfb=>\I2C:Net_1109_1\);
+		yfb=>\I2C_Module:Net_1109_1\);
 SDA:cy_psoc3_pins_v1_10
 	GENERIC MAP(id=>"22863ebe-a37b-476f-b252-6e49a8c00b12",
 		drive_mode=>"100",

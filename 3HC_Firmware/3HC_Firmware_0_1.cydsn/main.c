@@ -1,15 +1,5 @@
-/* ========================================
- *
- * Copyright YOUR COMPANY, THE YEAR
- * All Rights Reserved
- * UNPUBLISHED, LICENSED SOFTWARE.
- *
- * CONFIDENTIAL AND PROPRIETARY INFORMATION
- * WHICH IS THE PROPERTY OF your company.
- *
- * ========================================
-*/
 #include "project.h"
+#include "I2C.h"
 #include <stdio.h>
 
 #define HIGH_PRIORITY       (1u)
@@ -20,12 +10,11 @@
 CY_ISR_PROTO(UPDATE_UI);
 
 // Global Variables
-char LCD_MSG[32];
+char LCD_MSG[2][16];
 unsigned char update = 1;
-uint8_t byteReturn;
+unsigned char readVal = 0;
 
-
-// Magnetometer Defines
+// IMU Definitions
 #define MAG_I2C_ADDRESS 0x0C
 #define ACCGYR_I2C_ADDRESS 0x68
 
@@ -45,49 +34,49 @@ static enum {
     AK_CNTL2
 } AK8963_REGISTERS;
 
+static enum {
+    MPU_SMPLRT_DIV = 25,
+    MPU_CONFIG,
+    MPU_GYRO_CONFIG,
+    MPU_ACCEL_CONFIG,
+    MPU_ACCEL_CONFIG2,
+    MPU_INT_BYPASS_CONFIG = 55,
+    MPU_INT_CONFIG,
+    ACCEL_XOUT_H = 59,
+    ACCEL_XOUT_L,
+    ACCEL_YOUT_H,
+    ACCEL_YOUT_L,
+    ACCEL_ZOUT_H,
+    ACCEL_ZOUT_L,
+    GYRO_XOUT_H = 67,
+    GYRO_XOUT_L,
+    GYRO_YOUT_H,
+    GYRO_YOUT_L,
+    GYRO_ZOUT_H,
+    GYRO_ZOUT_L,
+    MPU_POWER_CTRL1 = 107,
+    MPU_WHOAMI_REGISTER = 117
+} MPU9250_REGISTERS;
+
 
 int main(void)
-{
+{   
+    I2C_Init();
     
-    #define SLAVE_ADDRESS 0x68u
-    #define SUB_ADDRESS_LOCATION 117
+    I2C_WriteReg(ACCGYR_I2C_ADDRESS, MPU_POWER_CTRL1, 0x01);
+    readVal = I2C_ReadRegister(ACCGYR_I2C_ADDRESS, MPU_POWER_CTRL1);
     
-    uint8 i = 0;
-    uint8 status = 0;
-
-    I2C_Start();
-    /* Initialize the read buffer */
-    uint8 read_data_value = 0;
-
-    /* Send start condition and slave address, followed by write bit */ 
-    status = I2C_MasterSendStart(SLAVE_ADDRESS, I2C_WRITE_XFER_MODE);     
-    
-    /* Check if the master status is error free */
-    if(status == I2C_MSTR_NO_ERROR)
-    {
-        status = I2C_MasterWriteByte(SUB_ADDRESS_LOCATION);
-        
-        /* Send start condition and slave address, followed by read bit */
-        status = I2C_MasterSendRestart(SLAVE_ADDRESS, I2C_READ_XFER_MODE);
-
-        /* Check if the master status is error free */
-        if(status == I2C_MSTR_NO_ERROR)
-        {
-            /* Load the read buffer with the data read from slave, followed by ACK */
-            read_data_value = I2C_MasterReadByte(I2C_ACK_DATA);
-        }
-        CyDelay(1);
-    }
-
-    /* Send stop condition after the transaction is completed */
-    I2C_MasterSendStop();
+    sprintf(LCD_MSG[0],"Wrote %x", 0x01);
+    sprintf(LCD_MSG[1],"Read  %x", readVal);
     
     LCD_Start();
-    sprintf(LCD_MSG,"%x", read_data_value);
     // Update UI if Flag is Set
     if(update == 1){
         LCD_ClearDisplay();
-        LCD_PrintString(LCD_MSG);
+        LCD_Position(0,0);
+        LCD_PrintString(LCD_MSG[0]);
+        LCD_Position(1,0);
+        LCD_PrintString(LCD_MSG[1]);
         update = 0;
     }
 }

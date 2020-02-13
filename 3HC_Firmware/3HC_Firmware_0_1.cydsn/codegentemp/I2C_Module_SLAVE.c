@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: I2C_SLAVE.c
+* File Name: I2C_Module_SLAVE.c
 * Version 3.50
 *
 * Description:
@@ -14,33 +14,33 @@
 * the software package with which this file was provided.
 *******************************************************************************/
 
-#include "I2C_PVT.h"
+#include "I2C_Module_PVT.h"
 
-#if (I2C_MODE_SLAVE_ENABLED)
+#if (I2C_Module_MODE_SLAVE_ENABLED)
 
 /**********************************
 *      System variables
 **********************************/
 
-volatile uint8 I2C_slStatus;   /* Slave Status  */
+volatile uint8 I2C_Module_slStatus;   /* Slave Status  */
 
 /* Transmit buffer variables */
-volatile uint8 * I2C_slRdBufPtr;   /* Pointer to Transmit buffer  */
-volatile uint8   I2C_slRdBufSize;  /* Slave Transmit buffer size  */
-volatile uint8   I2C_slRdBufIndex; /* Slave Transmit buffer Index */
+volatile uint8 * I2C_Module_slRdBufPtr;   /* Pointer to Transmit buffer  */
+volatile uint8   I2C_Module_slRdBufSize;  /* Slave Transmit buffer size  */
+volatile uint8   I2C_Module_slRdBufIndex; /* Slave Transmit buffer Index */
 
 /* Receive buffer variables */
-volatile uint8 * I2C_slWrBufPtr;   /* Pointer to Receive buffer  */
-volatile uint8   I2C_slWrBufSize;  /* Slave Receive buffer size  */
-volatile uint8   I2C_slWrBufIndex; /* Slave Receive buffer Index */
+volatile uint8 * I2C_Module_slWrBufPtr;   /* Pointer to Receive buffer  */
+volatile uint8   I2C_Module_slWrBufSize;  /* Slave Receive buffer size  */
+volatile uint8   I2C_Module_slWrBufIndex; /* Slave Receive buffer Index */
 
-#if (I2C_SW_ADRR_DECODE)
-    volatile uint8 I2C_slAddress;  /* Software address variable */
-#endif /* (I2C_SW_ADRR_DECODE) */
+#if (I2C_Module_SW_ADRR_DECODE)
+    volatile uint8 I2C_Module_slAddress;  /* Software address variable */
+#endif /* (I2C_Module_SW_ADRR_DECODE) */
 
 
 /*******************************************************************************
-* Function Name: I2C_SlaveStatus
+* Function Name: I2C_Module_SlaveStatus
 ********************************************************************************
 *
 * Summary:
@@ -53,23 +53,23 @@ volatile uint8   I2C_slWrBufIndex; /* Slave Receive buffer Index */
 *  Current status of I2C slave.
 *
 * Global variables:
-*  I2C_slStatus - The global variable used to store a current
+*  I2C_Module_slStatus - The global variable used to store a current
 *                              status of the I2C slave.
 *
 *******************************************************************************/
-uint8 I2C_SlaveStatus(void) 
+uint8 I2C_Module_SlaveStatus(void) 
 {
-    return (I2C_slStatus);
+    return (I2C_Module_slStatus);
 }
 
 
 /*******************************************************************************
-* Function Name: I2C_SlaveClearReadStatus
+* Function Name: I2C_Module_SlaveClearReadStatus
 ********************************************************************************
 *
 * Summary:
 *  Clears the read status flags and returns they values.
-*  The I2C_SSTAT_RD_BUSY flag is not effected by clear.
+*  The I2C_Module_SSTAT_RD_BUSY flag is not effected by clear.
 *
 * Parameters:
 *  None.
@@ -78,36 +78,36 @@ uint8 I2C_SlaveStatus(void)
 *  Current read status of I2C slave.
 *
 * Global variables:
-*  I2C_slStatus - The global variable used to store a current
+*  I2C_Module_slStatus - The global variable used to store a current
 *                              status of the I2C slave.
 *
 * Reentrant:
 *  No.
 *
 *******************************************************************************/
-uint8 I2C_SlaveClearReadStatus(void) 
+uint8 I2C_Module_SlaveClearReadStatus(void) 
 {
     uint8 status;
 
-    I2C_DisableInt(); /* Lock from interrupt */
+    I2C_Module_DisableInt(); /* Lock from interrupt */
 
     /* Mask of transfer complete flag and Error status */
-    status = (I2C_slStatus & I2C_SSTAT_RD_MASK);
-    I2C_slStatus &= (uint8) ~I2C_SSTAT_RD_CLEAR;
+    status = (I2C_Module_slStatus & I2C_Module_SSTAT_RD_MASK);
+    I2C_Module_slStatus &= (uint8) ~I2C_Module_SSTAT_RD_CLEAR;
 
-    I2C_EnableInt(); /* Release lock */
+    I2C_Module_EnableInt(); /* Release lock */
 
     return (status);
 }
 
 
 /*******************************************************************************
-* Function Name: I2C_SlaveClearWriteStatus
+* Function Name: I2C_Module_SlaveClearWriteStatus
 ********************************************************************************
 *
 * Summary:
 *  Clears the write status flags and returns they values.
-*  The I2C_SSTAT_WR_BUSY flag is not effected by clear.
+*  The I2C_Module_SSTAT_WR_BUSY flag is not effected by clear.
 *
 * Parameters:
 *  None.
@@ -116,31 +116,31 @@ uint8 I2C_SlaveClearReadStatus(void)
 *  Current write status of I2C slave.
 *
 * Global variables:
-*  I2C_slStatus - The global variable used to store a current
+*  I2C_Module_slStatus - The global variable used to store a current
 *                              status of the I2C slave.
 *
 * Reentrant:
 *  No.
 *
 *******************************************************************************/
-uint8 I2C_SlaveClearWriteStatus(void) 
+uint8 I2C_Module_SlaveClearWriteStatus(void) 
 {
     uint8 status;
 
-    I2C_DisableInt(); /* Lock from interrupt */
+    I2C_Module_DisableInt(); /* Lock from interrupt */
 
     /* Mask of transfer complete flag and Error status */
-    status = (I2C_slStatus & I2C_SSTAT_WR_MASK);
-    I2C_slStatus &= (uint8) ~I2C_SSTAT_WR_CLEAR;
+    status = (I2C_Module_slStatus & I2C_Module_SSTAT_WR_MASK);
+    I2C_Module_slStatus &= (uint8) ~I2C_Module_SSTAT_WR_CLEAR;
 
-    I2C_EnableInt(); /* Release lock */
+    I2C_Module_EnableInt(); /* Release lock */
 
     return (status);
 }
 
 
 /*******************************************************************************
-* Function Name: I2C_SlaveSetAddress
+* Function Name: I2C_Module_SlaveSetAddress
 ********************************************************************************
 *
 * Summary:
@@ -154,7 +154,7 @@ uint8 I2C_SlaveClearWriteStatus(void)
 *  None.
 *
 * Global variables:
-*  I2C_Address  - The global variable used to store an I2C slave
+*  I2C_Module_Address  - The global variable used to store an I2C slave
 *                              address for the primary device when the software
 *                              address detect feature is used.
 *
@@ -162,18 +162,18 @@ uint8 I2C_SlaveClearWriteStatus(void)
 *  No.
 *
 *******************************************************************************/
-void I2C_SlaveSetAddress(uint8 address) 
+void I2C_Module_SlaveSetAddress(uint8 address) 
 {
-#if (I2C_SW_ADRR_DECODE)
-    I2C_slAddress = (address & I2C_SLAVE_ADDR_MASK);
+#if (I2C_Module_SW_ADRR_DECODE)
+    I2C_Module_slAddress = (address & I2C_Module_SLAVE_ADDR_MASK);
 #else
-    I2C_ADDR_REG  = (address & I2C_SLAVE_ADDR_MASK);
-#endif /* (I2C_SW_ADRR_DECODE) */
+    I2C_Module_ADDR_REG  = (address & I2C_Module_SLAVE_ADDR_MASK);
+#endif /* (I2C_Module_SW_ADRR_DECODE) */
 }
 
 
 /*******************************************************************************
-* Function Name: I2C_SlaveInitReadBuf
+* Function Name: I2C_Module_SlaveInitReadBuf
 ********************************************************************************
 *
 * Summary:
@@ -188,11 +188,11 @@ void I2C_SlaveSetAddress(uint8 address)
 *  None.
 *
 * Global variables:
-*  I2C_slRdBufPtr   - The global variable used to store a pointer
+*  I2C_Module_slRdBufPtr   - The global variable used to store a pointer
 *                                  to the slave read buffer.
-*  I2C_slRdBufSize  - The global variable used to store a slave
+*  I2C_Module_slRdBufSize  - The global variable used to store a slave
 *                                  read buffer size.
-*  I2C_slRdBufIndex - The global variable used to store a current
+*  I2C_Module_slRdBufIndex - The global variable used to store a current
 *                                  index within the slave read buffer.
 *
 * Side Effects:
@@ -203,25 +203,25 @@ void I2C_SlaveSetAddress(uint8 address)
 *  No.
 *
 *******************************************************************************/
-void I2C_SlaveInitReadBuf(uint8 * rdBuf, uint8 bufSize)
+void I2C_Module_SlaveInitReadBuf(uint8 * rdBuf, uint8 bufSize)
      
 {
     if (NULL != rdBuf)
     {
-        I2C_DisableInt(); /* Lock from interrupt */
+        I2C_Module_DisableInt(); /* Lock from interrupt */
 
         /* Set buffer pointer */
-        I2C_slRdBufPtr   = (volatile uint8 *) rdBuf;
-        I2C_slRdBufSize  = bufSize;    /* Set buffer size     */
-        I2C_slRdBufIndex = 0u;         /* Clears buffer index */
+        I2C_Module_slRdBufPtr   = (volatile uint8 *) rdBuf;
+        I2C_Module_slRdBufSize  = bufSize;    /* Set buffer size     */
+        I2C_Module_slRdBufIndex = 0u;         /* Clears buffer index */
 
-        I2C_EnableInt(); /* Release lock */
+        I2C_Module_EnableInt(); /* Release lock */
     }
 }
 
 
 /*******************************************************************************
-* Function Name: I2C_SlaveInitWriteBuf
+* Function Name: I2C_Module_SlaveInitWriteBuf
 ********************************************************************************
 *
 * Summary:
@@ -236,11 +236,11 @@ void I2C_SlaveInitReadBuf(uint8 * rdBuf, uint8 bufSize)
 *  None.
 *
 * Global variables:
-*  I2C_slWrBufPtr   - The global variable used to store a pointer
+*  I2C_Module_slWrBufPtr   - The global variable used to store a pointer
 *                                  to the slave write buffer.
-*  I2C_slWrBufSize  - The global variable used to store a slave
+*  I2C_Module_slWrBufSize  - The global variable used to store a slave
 *                                  write buffer size.
-*  I2C_slWrBufIndex - The global variable used to store a current
+*  I2C_Module_slWrBufIndex - The global variable used to store a current
 *                                  index within the slave write buffer.
 *
 * Side Effects:
@@ -251,25 +251,25 @@ void I2C_SlaveInitReadBuf(uint8 * rdBuf, uint8 bufSize)
 *  No.
 *
 *******************************************************************************/
-void I2C_SlaveInitWriteBuf(uint8 * wrBuf, uint8 bufSize)
+void I2C_Module_SlaveInitWriteBuf(uint8 * wrBuf, uint8 bufSize)
      
 {
     if (NULL != wrBuf)
     {
-        I2C_DisableInt(); /* Lock from interrupt */
+        I2C_Module_DisableInt(); /* Lock from interrupt */
 
          /* Set buffer pointer */
-        I2C_slWrBufPtr   = (volatile uint8 *) wrBuf;
-        I2C_slWrBufSize  = bufSize;    /* Set buffer size     */
-        I2C_slWrBufIndex = 0u;         /* Clears buffer index */
+        I2C_Module_slWrBufPtr   = (volatile uint8 *) wrBuf;
+        I2C_Module_slWrBufSize  = bufSize;    /* Set buffer size     */
+        I2C_Module_slWrBufIndex = 0u;         /* Clears buffer index */
 
-        I2C_EnableInt(); /* Release lock */
+        I2C_Module_EnableInt(); /* Release lock */
     }
 }
 
 
 /*******************************************************************************
-* Function Name: I2C_SlaveGetReadBufSize
+* Function Name: I2C_Module_SlaveGetReadBufSize
 ********************************************************************************
 *
 * Summary:
@@ -284,18 +284,18 @@ void I2C_SlaveInitWriteBuf(uint8 * wrBuf, uint8 bufSize)
 *  Bytes read by master.
 *
 * Global variables:
-*  I2C_slRdBufIndex - The global variable used to store a current
+*  I2C_Module_slRdBufIndex - The global variable used to store a current
 *                                  index within the slave read buffer.
 *
 *******************************************************************************/
-uint8 I2C_SlaveGetReadBufSize(void) 
+uint8 I2C_Module_SlaveGetReadBufSize(void) 
 {
-    return (I2C_slRdBufIndex);
+    return (I2C_Module_slRdBufIndex);
 }
 
 
 /*******************************************************************************
-* Function Name: I2C_SlaveGetWriteBufSize
+* Function Name: I2C_Module_SlaveGetWriteBufSize
 ********************************************************************************
 *
 * Summary:
@@ -310,18 +310,18 @@ uint8 I2C_SlaveGetReadBufSize(void)
 *  Bytes written by master.
 *
 * Global variables:
-*  I2C_slWrBufIndex - The global variable used to store a current
+*  I2C_Module_slWrBufIndex - The global variable used to store a current
 *                                  index within the slave write buffer.
 *
 *******************************************************************************/
-uint8 I2C_SlaveGetWriteBufSize(void) 
+uint8 I2C_Module_SlaveGetWriteBufSize(void) 
 {
-    return (I2C_slWrBufIndex);
+    return (I2C_Module_slWrBufIndex);
 }
 
 
 /*******************************************************************************
-* Function Name: I2C_SlaveClearReadBuf
+* Function Name: I2C_Module_SlaveClearReadBuf
 ********************************************************************************
 *
 * Summary:
@@ -335,21 +335,21 @@ uint8 I2C_SlaveGetWriteBufSize(void)
 *  None.
 *
 * Global variables:
-*  I2C_slRdBufIndex - The global variable used to store a current
+*  I2C_Module_slRdBufIndex - The global variable used to store a current
 *                                  index the within slave read buffer.
 *
 * Reentrant:
 *  No.
 *
 *******************************************************************************/
-void I2C_SlaveClearReadBuf(void) 
+void I2C_Module_SlaveClearReadBuf(void) 
 {
-    I2C_slRdBufIndex = 0u;
+    I2C_Module_slRdBufIndex = 0u;
 }
 
 
 /*******************************************************************************
-* Function Name: I2C_SlaveClearRxBuf
+* Function Name: I2C_Module_SlaveClearRxBuf
 ********************************************************************************
 *
 * Summary:
@@ -363,19 +363,19 @@ void I2C_SlaveClearReadBuf(void)
 *  None.
 *
 * Global variables:
-*  I2C_slWrBufIndex - The global variable used to store a current
+*  I2C_Module_slWrBufIndex - The global variable used to store a current
 *                                  index within the slave write buffer.
 *
 * Reentrant:
 *  No.
 *
 *******************************************************************************/
-void I2C_SlaveClearWriteBuf(void) 
+void I2C_Module_SlaveClearWriteBuf(void) 
 {
-    I2C_slWrBufIndex = 0u;
+    I2C_Module_slWrBufIndex = 0u;
 }
 
-#endif /* (I2C_MODE_SLAVE_ENABLED) */
+#endif /* (I2C_Module_MODE_SLAVE_ENABLED) */
 
 
 /* [] END OF FILE */
