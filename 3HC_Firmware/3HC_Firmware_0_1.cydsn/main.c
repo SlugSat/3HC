@@ -2,6 +2,9 @@
 #include "I2C.h"
 #include <stdio.h>
 
+#define TRUE 1
+#define FALSE 0
+
 #define HIGH_PRIORITY       (1u)
 #define DEFAULT_PRIORITY    (3u)
 #define LOW_PRIORITY        (7u)
@@ -13,6 +16,7 @@ CY_ISR_PROTO(UPDATE_UI);
 char LCD_MSG[2][16];
 unsigned char update = 1;
 unsigned char readVal = 0;
+int readInt = 0;
 
 // IMU Definitions
 #define MAG_I2C_ADDRESS 0x0C
@@ -62,14 +66,21 @@ static enum {
 int main(void)
 {   
     I2C_Init();
+    UpdateTimer_UI_Start();
+    LCD_Start();
+
+    // Configure Interrupts
+    UPDATE_UI_StartEx(UPDATE_UI);
+    UPDATE_UI_SetPriority(LOW_PRIORITY);
+    CyGlobalIntEnable;
     
     I2C_WriteReg(ACCGYR_I2C_ADDRESS, MPU_POWER_CTRL1, 0x01);
     readVal = I2C_ReadRegister(ACCGYR_I2C_ADDRESS, MPU_POWER_CTRL1);
     
+    
     sprintf(LCD_MSG[0],"Wrote %x", 0x01);
     sprintf(LCD_MSG[1],"Read  %x", readVal);
     
-    LCD_Start();
     // Update UI if Flag is Set
     if(update == 1){
         LCD_ClearDisplay();
@@ -78,6 +89,21 @@ int main(void)
         LCD_Position(1,0);
         LCD_PrintString(LCD_MSG[1]);
         update = 0;
+    }
+
+    for(;;)
+    {
+        readInt = I2C_ReadInt(ACCGYR_I2C_ADDRESS, ACCEL_XOUT_H, TRUE);
+        if(update == 1){
+            sprintf(LCD_MSG[0],"%d", readInt);
+            sprintf(LCD_MSG[1],"");
+            LCD_ClearDisplay();
+            LCD_Position(0,0);
+            LCD_PrintString(LCD_MSG[0]);
+            LCD_Position(1,0);
+            LCD_PrintString(LCD_MSG[1]);
+            update = 0;
+        }
     }
 }
     /*
