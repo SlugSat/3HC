@@ -1,5 +1,5 @@
 # 3HC_Firmware_0_1
-# 2020-02-13 08:21:57Z
+# 2020-02-17 01:55:19Z
 
 # IO_0@[IOP=(1)][IoId=(0)] is reserved: SWDDebugEnabled
 dont_use_io iocell 1 0
@@ -21,6 +21,7 @@ set_io "Encoder_Button(0)" iocell 3 2
 set_io "SDA(0)" iocell 12 1
 set_io "\USBUART:Dm(0)\" iocell 15 7
 set_io "\USBUART:Dp(0)\" iocell 15 6
+set_io "X_CURR_IN(0)" iocell 3 5
 set_io "X_PWM_OUT(0)" iocell 0 1
 set_io "Y_PWM_OUT(0)" iocell 0 3
 set_io "Z_PWM_OUT(0)" iocell 0 5
@@ -28,3 +29,4 @@ set_io "X_DIR_OUT(0)" iocell 0 0
 set_io "Y_DIR_OUT(0)" iocell 0 2
 set_io "Z_DIR_OUT(0)" iocell 0 4
 set_location "\USBUART:USB\" usbcell -1 -1 0
+set_location "\ADC:DSM\" dsmodcell -1 -1 0
