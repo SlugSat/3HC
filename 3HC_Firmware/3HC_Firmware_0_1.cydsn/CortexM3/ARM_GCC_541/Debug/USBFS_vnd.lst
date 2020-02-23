@@ -1,0 +1,869 @@
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccgy4Ddi.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"USBFS_vnd.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.USBFS_HandleVendorRqst,"ax",%progbits
+  20              		.align	2
+  21              		.global	USBFS_HandleVendorRqst
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	USBFS_HandleVendorRqst, %function
+  25              	USBFS_HandleVendorRqst:
+  26              	.LFB0:
+  27              		.file 1 "Generated_Source\\PSoC5\\USBFS_vnd.c"
+   1:Generated_Source\PSoC5/USBFS_vnd.c **** /***************************************************************************//**
+   2:Generated_Source\PSoC5/USBFS_vnd.c **** * \file USBFS_vnd.c
+   3:Generated_Source\PSoC5/USBFS_vnd.c **** * \version 3.10
+   4:Generated_Source\PSoC5/USBFS_vnd.c **** *
+   5:Generated_Source\PSoC5/USBFS_vnd.c **** * \brief
+   6:Generated_Source\PSoC5/USBFS_vnd.c **** *  This file contains the  USB vendor request handler.
+   7:Generated_Source\PSoC5/USBFS_vnd.c **** *
+   8:Generated_Source\PSoC5/USBFS_vnd.c **** ********************************************************************************
+   9:Generated_Source\PSoC5/USBFS_vnd.c **** * \copyright
+  10:Generated_Source\PSoC5/USBFS_vnd.c **** * Copyright 2008-2016, Cypress Semiconductor Corporation.  All rights reserved.
+  11:Generated_Source\PSoC5/USBFS_vnd.c **** * You may use this file only in accordance with the license, terms, conditions,
+  12:Generated_Source\PSoC5/USBFS_vnd.c **** * disclaimers, and limitations in the end user license agreement accompanying
+  13:Generated_Source\PSoC5/USBFS_vnd.c **** * the software package with which this file was provided.
+  14:Generated_Source\PSoC5/USBFS_vnd.c **** *******************************************************************************/
+  15:Generated_Source\PSoC5/USBFS_vnd.c **** 
+  16:Generated_Source\PSoC5/USBFS_vnd.c **** #include "USBFS_pvt.h"
+  17:Generated_Source\PSoC5/USBFS_vnd.c **** #include "cyapicallbacks.h"
+  18:Generated_Source\PSoC5/USBFS_vnd.c **** 
+  19:Generated_Source\PSoC5/USBFS_vnd.c **** #if(USBFS_EXTERN_VND == USBFS_FALSE)
+  20:Generated_Source\PSoC5/USBFS_vnd.c **** 
+  21:Generated_Source\PSoC5/USBFS_vnd.c **** /***************************************
+  22:Generated_Source\PSoC5/USBFS_vnd.c **** * Vendor Specific Declarations
+  23:Generated_Source\PSoC5/USBFS_vnd.c **** ***************************************/
+  24:Generated_Source\PSoC5/USBFS_vnd.c **** 
+  25:Generated_Source\PSoC5/USBFS_vnd.c **** /* `#START VENDOR_SPECIFIC_DECLARATIONS` Place your declaration here */
+  26:Generated_Source\PSoC5/USBFS_vnd.c **** 
+  27:Generated_Source\PSoC5/USBFS_vnd.c **** /* `#END` */
+  28:Generated_Source\PSoC5/USBFS_vnd.c **** 
+  29:Generated_Source\PSoC5/USBFS_vnd.c **** 
+  30:Generated_Source\PSoC5/USBFS_vnd.c **** /*******************************************************************************
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccgy4Ddi.s 			page 2
+
+
+  31:Generated_Source\PSoC5/USBFS_vnd.c **** * Function Name: USBFS_HandleVendorRqst
+  32:Generated_Source\PSoC5/USBFS_vnd.c **** ****************************************************************************//**
+  33:Generated_Source\PSoC5/USBFS_vnd.c **** *
+  34:Generated_Source\PSoC5/USBFS_vnd.c **** *  This routine provide users with a method to implement vendor specific
+  35:Generated_Source\PSoC5/USBFS_vnd.c **** *  requests.
+  36:Generated_Source\PSoC5/USBFS_vnd.c **** *
+  37:Generated_Source\PSoC5/USBFS_vnd.c **** *  To implement vendor specific requests, add your code in this function to
+  38:Generated_Source\PSoC5/USBFS_vnd.c **** *  decode and disposition the request.  If the request is handled, your code
+  39:Generated_Source\PSoC5/USBFS_vnd.c **** *  must set the variable "requestHandled" to TRUE, indicating that the
+  40:Generated_Source\PSoC5/USBFS_vnd.c **** *  request has been handled.
+  41:Generated_Source\PSoC5/USBFS_vnd.c **** *
+  42:Generated_Source\PSoC5/USBFS_vnd.c **** * \return
+  43:Generated_Source\PSoC5/USBFS_vnd.c **** *  requestHandled.
+  44:Generated_Source\PSoC5/USBFS_vnd.c **** *
+  45:Generated_Source\PSoC5/USBFS_vnd.c **** * \reentrant
+  46:Generated_Source\PSoC5/USBFS_vnd.c **** *  No.
+  47:Generated_Source\PSoC5/USBFS_vnd.c **** *
+  48:Generated_Source\PSoC5/USBFS_vnd.c **** *******************************************************************************/
+  49:Generated_Source\PSoC5/USBFS_vnd.c **** uint8 USBFS_HandleVendorRqst(void) 
+  50:Generated_Source\PSoC5/USBFS_vnd.c **** {
+  28              		.loc 1 50 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 08B5     		push	{r3, lr}
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 3, -8
+  35              		.cfi_offset 14, -4
+  36              	.LVL0:
+  51:Generated_Source\PSoC5/USBFS_vnd.c ****     uint8 requestHandled = USBFS_FALSE;
+  52:Generated_Source\PSoC5/USBFS_vnd.c **** 
+  53:Generated_Source\PSoC5/USBFS_vnd.c ****     /* Check request direction: D2H or H2D. */
+  54:Generated_Source\PSoC5/USBFS_vnd.c ****     if (0u != (USBFS_bmRequestTypeReg & USBFS_RQST_DIR_D2H))
+  37              		.loc 1 54 0
+  38 0002 0B4B     		ldr	r3, .L8
+  39 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+  40 0006 13F0800F 		tst	r3, #128
+  41 000a 0CD0     		beq	.L4
+  55:Generated_Source\PSoC5/USBFS_vnd.c ****     {
+  56:Generated_Source\PSoC5/USBFS_vnd.c ****         /* Handle direction from device to host. */
+  57:Generated_Source\PSoC5/USBFS_vnd.c ****         
+  58:Generated_Source\PSoC5/USBFS_vnd.c ****         switch (USBFS_bRequestReg)
+  42              		.loc 1 58 0
+  43 000c 084B     		ldr	r3, .L8
+  44 000e 5B78     		ldrb	r3, [r3, #1]	@ zero_extendqisi2
+  45 0010 DBB2     		uxtb	r3, r3
+  46 0012 012B     		cmp	r3, #1
+  47 0014 09D1     		bne	.L6
+  59:Generated_Source\PSoC5/USBFS_vnd.c ****         {
+  60:Generated_Source\PSoC5/USBFS_vnd.c ****             case USBFS_GET_EXTENDED_CONFIG_DESCRIPTOR:
+  61:Generated_Source\PSoC5/USBFS_vnd.c ****             #if defined(USBFS_ENABLE_MSOS_STRING)
+  62:Generated_Source\PSoC5/USBFS_vnd.c ****                 USBFS_currentTD.pData = (volatile uint8 *) &USBFS_MSOS_CONFIGURATION_DESCR[0u];
+  48              		.loc 1 62 0
+  49 0016 074B     		ldr	r3, .L8+4
+  50 0018 074A     		ldr	r2, .L8+8
+  51 001a 5A60     		str	r2, [r3, #4]
+  63:Generated_Source\PSoC5/USBFS_vnd.c ****                 USBFS_currentTD.count = USBFS_MSOS_CONFIGURATION_DESCR[0u];
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccgy4Ddi.s 			page 3
+
+
+  52              		.loc 1 63 0
+  53 001c 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
+  54 001e 1A80     		strh	r2, [r3]	@ movhi
+  64:Generated_Source\PSoC5/USBFS_vnd.c ****                 requestHandled  = USBFS_InitControlRead();
+  55              		.loc 1 64 0
+  56 0020 FFF7FEFF 		bl	USBFS_InitControlRead
+  57              	.LVL1:
+  65:Generated_Source\PSoC5/USBFS_vnd.c ****             #endif /* (USBFS_ENABLE_MSOS_STRING) */
+  66:Generated_Source\PSoC5/USBFS_vnd.c ****                 break;
+  58              		.loc 1 66 0
+  59 0024 08BD     		pop	{r3, pc}
+  60              	.LVL2:
+  61              	.L4:
+  51:Generated_Source\PSoC5/USBFS_vnd.c **** 
+  62              		.loc 1 51 0
+  63 0026 0020     		movs	r0, #0
+  64 0028 08BD     		pop	{r3, pc}
+  65              	.L6:
+  66 002a 0020     		movs	r0, #0
+  67              	.LVL3:
+  67:Generated_Source\PSoC5/USBFS_vnd.c ****             
+  68:Generated_Source\PSoC5/USBFS_vnd.c ****             default:
+  69:Generated_Source\PSoC5/USBFS_vnd.c ****                 break;
+  70:Generated_Source\PSoC5/USBFS_vnd.c ****         }
+  71:Generated_Source\PSoC5/USBFS_vnd.c ****     }
+  72:Generated_Source\PSoC5/USBFS_vnd.c **** 
+  73:Generated_Source\PSoC5/USBFS_vnd.c ****     /* `#START VENDOR_SPECIFIC_CODE` Place your vendor specific request here */
+  74:Generated_Source\PSoC5/USBFS_vnd.c **** 
+  75:Generated_Source\PSoC5/USBFS_vnd.c ****     /* `#END` */
+  76:Generated_Source\PSoC5/USBFS_vnd.c **** 
+  77:Generated_Source\PSoC5/USBFS_vnd.c **** #ifdef USBFS_HANDLE_VENDOR_RQST_CALLBACK
+  78:Generated_Source\PSoC5/USBFS_vnd.c ****     if (USBFS_FALSE == requestHandled)
+  79:Generated_Source\PSoC5/USBFS_vnd.c ****     {
+  80:Generated_Source\PSoC5/USBFS_vnd.c ****         requestHandled = USBFS_HandleVendorRqst_Callback();
+  81:Generated_Source\PSoC5/USBFS_vnd.c ****     }
+  82:Generated_Source\PSoC5/USBFS_vnd.c **** #endif /* (USBFS_HANDLE_VENDOR_RQST_CALLBACK) */
+  83:Generated_Source\PSoC5/USBFS_vnd.c **** 
+  84:Generated_Source\PSoC5/USBFS_vnd.c ****     return (requestHandled);
+  85:Generated_Source\PSoC5/USBFS_vnd.c **** }
+  68              		.loc 1 85 0
+  69 002c 08BD     		pop	{r3, pc}
+  70              	.L9:
+  71 002e 00BF     		.align	2
+  72              	.L8:
+  73 0030 00600040 		.word	1073766400
+  74 0034 00000000 		.word	USBFS_currentTD
+  75 0038 00000000 		.word	USBFS_MSOS_CONFIGURATION_DESCR
+  76              		.cfi_endproc
+  77              	.LFE0:
+  78              		.size	USBFS_HandleVendorRqst, .-USBFS_HandleVendorRqst
+  79              		.text
+  80              	.Letext0:
+  81              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
+  82              		.file 3 "Generated_Source\\PSoC5\\USBFS.h"
+  83              		.file 4 "Generated_Source\\PSoC5\\USBFS_pvt.h"
+  84              		.section	.debug_info,"",%progbits
+  85              	.Ldebug_info0:
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccgy4Ddi.s 			page 4
+
+
+  86 0000 BA010000 		.4byte	0x1ba
+  87 0004 0400     		.2byte	0x4
+  88 0006 00000000 		.4byte	.Ldebug_abbrev0
+  89 000a 04       		.byte	0x4
+  90 000b 01       		.uleb128 0x1
+  91 000c 93000000 		.4byte	.LASF27
+  92 0010 0C       		.byte	0xc
+  93 0011 26000000 		.4byte	.LASF28
+  94 0015 C1010000 		.4byte	.LASF29
+  95 0019 00000000 		.4byte	.Ldebug_ranges0+0
+  96 001d 00000000 		.4byte	0
+  97 0021 00000000 		.4byte	.Ldebug_line0
+  98 0025 02       		.uleb128 0x2
+  99 0026 01       		.byte	0x1
+ 100 0027 06       		.byte	0x6
+ 101 0028 79020000 		.4byte	.LASF0
+ 102 002c 02       		.uleb128 0x2
+ 103 002d 01       		.byte	0x1
+ 104 002e 08       		.byte	0x8
+ 105 002f 85000000 		.4byte	.LASF1
+ 106 0033 02       		.uleb128 0x2
+ 107 0034 02       		.byte	0x2
+ 108 0035 05       		.byte	0x5
+ 109 0036 2C020000 		.4byte	.LASF2
+ 110 003a 02       		.uleb128 0x2
+ 111 003b 02       		.byte	0x2
+ 112 003c 07       		.byte	0x7
+ 113 003d 13000000 		.4byte	.LASF3
+ 114 0041 02       		.uleb128 0x2
+ 115 0042 04       		.byte	0x4
+ 116 0043 05       		.byte	0x5
+ 117 0044 64020000 		.4byte	.LASF4
+ 118 0048 02       		.uleb128 0x2
+ 119 0049 04       		.byte	0x4
+ 120 004a 07       		.byte	0x7
+ 121 004b 3B010000 		.4byte	.LASF5
+ 122 004f 02       		.uleb128 0x2
+ 123 0050 08       		.byte	0x8
+ 124 0051 05       		.byte	0x5
+ 125 0052 19020000 		.4byte	.LASF6
+ 126 0056 02       		.uleb128 0x2
+ 127 0057 08       		.byte	0x8
+ 128 0058 07       		.byte	0x7
+ 129 0059 9A010000 		.4byte	.LASF7
+ 130 005d 03       		.uleb128 0x3
+ 131 005e 04       		.byte	0x4
+ 132 005f 05       		.byte	0x5
+ 133 0060 696E7400 		.ascii	"int\000"
+ 134 0064 02       		.uleb128 0x2
+ 135 0065 04       		.byte	0x4
+ 136 0066 07       		.byte	0x7
+ 137 0067 8D010000 		.4byte	.LASF8
+ 138 006b 04       		.uleb128 0x4
+ 139 006c 4D010000 		.4byte	.LASF9
+ 140 0070 02       		.byte	0x2
+ 141 0071 E401     		.2byte	0x1e4
+ 142 0073 2C000000 		.4byte	0x2c
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccgy4Ddi.s 			page 5
+
+
+ 143 0077 04       		.uleb128 0x4
+ 144 0078 86010000 		.4byte	.LASF10
+ 145 007c 02       		.byte	0x2
+ 146 007d E501     		.2byte	0x1e5
+ 147 007f 3A000000 		.4byte	0x3a
+ 148 0083 02       		.uleb128 0x2
+ 149 0084 04       		.byte	0x4
+ 150 0085 04       		.byte	0x4
+ 151 0086 7F000000 		.4byte	.LASF11
+ 152 008a 02       		.uleb128 0x2
+ 153 008b 08       		.byte	0x8
+ 154 008c 04       		.byte	0x4
+ 155 008d 69010000 		.4byte	.LASF12
+ 156 0091 02       		.uleb128 0x2
+ 157 0092 01       		.byte	0x1
+ 158 0093 08       		.byte	0x8
+ 159 0094 27020000 		.4byte	.LASF13
+ 160 0098 05       		.uleb128 0x5
+ 161 0099 6B000000 		.4byte	0x6b
+ 162 009d 02       		.uleb128 0x2
+ 163 009e 08       		.byte	0x8
+ 164 009f 04       		.byte	0x4
+ 165 00a0 6D020000 		.4byte	.LASF14
+ 166 00a4 02       		.uleb128 0x2
+ 167 00a5 04       		.byte	0x4
+ 168 00a6 07       		.byte	0x7
+ 169 00a7 10020000 		.4byte	.LASF15
+ 170 00ab 06       		.uleb128 0x6
+ 171 00ac 04       		.byte	0x4
+ 172 00ad 03       		.byte	0x3
+ 173 00ae A4       		.byte	0xa4
+ 174 00af CC000000 		.4byte	0xcc
+ 175 00b3 07       		.uleb128 0x7
+ 176 00b4 60000000 		.4byte	.LASF16
+ 177 00b8 03       		.byte	0x3
+ 178 00b9 A6       		.byte	0xa6
+ 179 00ba 6B000000 		.4byte	0x6b
+ 180 00be 00       		.byte	0
+ 181 00bf 07       		.uleb128 0x7
+ 182 00c0 85020000 		.4byte	.LASF17
+ 183 00c4 03       		.byte	0x3
+ 184 00c5 A7       		.byte	0xa7
+ 185 00c6 77000000 		.4byte	0x77
+ 186 00ca 02       		.byte	0x2
+ 187 00cb 00       		.byte	0
+ 188 00cc 08       		.uleb128 0x8
+ 189 00cd 21010000 		.4byte	.LASF18
+ 190 00d1 03       		.byte	0x3
+ 191 00d2 A8       		.byte	0xa8
+ 192 00d3 AB000000 		.4byte	0xab
+ 193 00d7 06       		.uleb128 0x6
+ 194 00d8 0C       		.byte	0xc
+ 195 00d9 03       		.byte	0x3
+ 196 00da AA       		.byte	0xaa
+ 197 00db 04010000 		.4byte	0x104
+ 198 00df 07       		.uleb128 0x7
+ 199 00e0 0D000000 		.4byte	.LASF19
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccgy4Ddi.s 			page 6
+
+
+ 200 00e4 03       		.byte	0x3
+ 201 00e5 AC       		.byte	0xac
+ 202 00e6 77000000 		.4byte	0x77
+ 203 00ea 00       		.byte	0
+ 204 00eb 07       		.uleb128 0x7
+ 205 00ec 67000000 		.4byte	.LASF20
+ 206 00f0 03       		.byte	0x3
+ 207 00f1 AD       		.byte	0xad
+ 208 00f2 04010000 		.4byte	0x104
+ 209 00f6 04       		.byte	0x4
+ 210 00f7 07       		.uleb128 0x7
+ 211 00f8 00000000 		.4byte	.LASF21
+ 212 00fc 03       		.byte	0x3
+ 213 00fd AE       		.byte	0xae
+ 214 00fe 0A010000 		.4byte	0x10a
+ 215 0102 08       		.byte	0x8
+ 216 0103 00       		.byte	0
+ 217 0104 09       		.uleb128 0x9
+ 218 0105 04       		.byte	0x4
+ 219 0106 98000000 		.4byte	0x98
+ 220 010a 09       		.uleb128 0x9
+ 221 010b 04       		.byte	0x4
+ 222 010c CC000000 		.4byte	0xcc
+ 223 0110 08       		.uleb128 0x8
+ 224 0111 74000000 		.4byte	.LASF22
+ 225 0115 03       		.byte	0x3
+ 226 0116 AF       		.byte	0xaf
+ 227 0117 D7000000 		.4byte	0xd7
+ 228 011b 06       		.uleb128 0x6
+ 229 011c 08       		.byte	0x8
+ 230 011d 03       		.byte	0x3
+ 231 011e C5       		.byte	0xc5
+ 232 011f 30010000 		.4byte	0x130
+ 233 0123 07       		.uleb128 0x7
+ 234 0124 6D000000 		.4byte	.LASF23
+ 235 0128 03       		.byte	0x3
+ 236 0129 C7       		.byte	0xc7
+ 237 012a 30010000 		.4byte	0x130
+ 238 012e 00       		.byte	0
+ 239 012f 00       		.byte	0
+ 240 0130 0A       		.uleb128 0xa
+ 241 0131 6B000000 		.4byte	0x6b
+ 242 0135 40010000 		.4byte	0x140
+ 243 0139 0B       		.uleb128 0xb
+ 244 013a A4000000 		.4byte	0xa4
+ 245 013e 07       		.byte	0x7
+ 246 013f 00       		.byte	0
+ 247 0140 08       		.uleb128 0x8
+ 248 0141 53010000 		.4byte	.LASF24
+ 249 0145 03       		.byte	0x3
+ 250 0146 C8       		.byte	0xc8
+ 251 0147 1B010000 		.4byte	0x11b
+ 252 014b 0C       		.uleb128 0xc
+ 253 014c 49000000 		.4byte	.LASF30
+ 254 0150 01       		.byte	0x1
+ 255 0151 31       		.byte	0x31
+ 256 0152 6B000000 		.4byte	0x6b
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccgy4Ddi.s 			page 7
+
+
+ 257 0156 00000000 		.4byte	.LFB0
+ 258 015a 3C000000 		.4byte	.LFE0-.LFB0
+ 259 015e 01       		.uleb128 0x1
+ 260 015f 9C       		.byte	0x9c
+ 261 0160 7D010000 		.4byte	0x17d
+ 262 0164 0D       		.uleb128 0xd
+ 263 0165 55020000 		.4byte	.LASF31
+ 264 0169 01       		.byte	0x1
+ 265 016a 33       		.byte	0x33
+ 266 016b 6B000000 		.4byte	0x6b
+ 267 016f 00000000 		.4byte	.LLST0
+ 268 0173 0E       		.uleb128 0xe
+ 269 0174 24000000 		.4byte	.LVL1
+ 270 0178 B2010000 		.4byte	0x1b2
+ 271 017c 00       		.byte	0
+ 272 017d 0A       		.uleb128 0xa
+ 273 017e 8D010000 		.4byte	0x18d
+ 274 0182 8D010000 		.4byte	0x18d
+ 275 0186 0B       		.uleb128 0xb
+ 276 0187 A4000000 		.4byte	0xa4
+ 277 018b 27       		.byte	0x27
+ 278 018c 00       		.byte	0
+ 279 018d 0F       		.uleb128 0xf
+ 280 018e 6B000000 		.4byte	0x6b
+ 281 0192 10       		.uleb128 0x10
+ 282 0193 36020000 		.4byte	.LASF25
+ 283 0197 04       		.byte	0x4
+ 284 0198 6D       		.byte	0x6d
+ 285 0199 9D010000 		.4byte	0x19d
+ 286 019d 0F       		.uleb128 0xf
+ 287 019e 7D010000 		.4byte	0x17d
+ 288 01a2 10       		.uleb128 0x10
+ 289 01a3 B1010000 		.4byte	.LASF26
+ 290 01a7 04       		.byte	0x4
+ 291 01a8 7A       		.byte	0x7a
+ 292 01a9 AD010000 		.4byte	0x1ad
+ 293 01ad 05       		.uleb128 0x5
+ 294 01ae 10010000 		.4byte	0x110
+ 295 01b2 11       		.uleb128 0x11
+ 296 01b3 70010000 		.4byte	.LASF32
+ 297 01b7 70010000 		.4byte	.LASF32
+ 298 01bb 04       		.byte	0x4
+ 299 01bc A9       		.byte	0xa9
+ 300 01bd 00       		.byte	0
+ 301              		.section	.debug_abbrev,"",%progbits
+ 302              	.Ldebug_abbrev0:
+ 303 0000 01       		.uleb128 0x1
+ 304 0001 11       		.uleb128 0x11
+ 305 0002 01       		.byte	0x1
+ 306 0003 25       		.uleb128 0x25
+ 307 0004 0E       		.uleb128 0xe
+ 308 0005 13       		.uleb128 0x13
+ 309 0006 0B       		.uleb128 0xb
+ 310 0007 03       		.uleb128 0x3
+ 311 0008 0E       		.uleb128 0xe
+ 312 0009 1B       		.uleb128 0x1b
+ 313 000a 0E       		.uleb128 0xe
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccgy4Ddi.s 			page 8
+
+
+ 314 000b 55       		.uleb128 0x55
+ 315 000c 17       		.uleb128 0x17
+ 316 000d 11       		.uleb128 0x11
+ 317 000e 01       		.uleb128 0x1
+ 318 000f 10       		.uleb128 0x10
+ 319 0010 17       		.uleb128 0x17
+ 320 0011 00       		.byte	0
+ 321 0012 00       		.byte	0
+ 322 0013 02       		.uleb128 0x2
+ 323 0014 24       		.uleb128 0x24
+ 324 0015 00       		.byte	0
+ 325 0016 0B       		.uleb128 0xb
+ 326 0017 0B       		.uleb128 0xb
+ 327 0018 3E       		.uleb128 0x3e
+ 328 0019 0B       		.uleb128 0xb
+ 329 001a 03       		.uleb128 0x3
+ 330 001b 0E       		.uleb128 0xe
+ 331 001c 00       		.byte	0
+ 332 001d 00       		.byte	0
+ 333 001e 03       		.uleb128 0x3
+ 334 001f 24       		.uleb128 0x24
+ 335 0020 00       		.byte	0
+ 336 0021 0B       		.uleb128 0xb
+ 337 0022 0B       		.uleb128 0xb
+ 338 0023 3E       		.uleb128 0x3e
+ 339 0024 0B       		.uleb128 0xb
+ 340 0025 03       		.uleb128 0x3
+ 341 0026 08       		.uleb128 0x8
+ 342 0027 00       		.byte	0
+ 343 0028 00       		.byte	0
+ 344 0029 04       		.uleb128 0x4
+ 345 002a 16       		.uleb128 0x16
+ 346 002b 00       		.byte	0
+ 347 002c 03       		.uleb128 0x3
+ 348 002d 0E       		.uleb128 0xe
+ 349 002e 3A       		.uleb128 0x3a
+ 350 002f 0B       		.uleb128 0xb
+ 351 0030 3B       		.uleb128 0x3b
+ 352 0031 05       		.uleb128 0x5
+ 353 0032 49       		.uleb128 0x49
+ 354 0033 13       		.uleb128 0x13
+ 355 0034 00       		.byte	0
+ 356 0035 00       		.byte	0
+ 357 0036 05       		.uleb128 0x5
+ 358 0037 35       		.uleb128 0x35
+ 359 0038 00       		.byte	0
+ 360 0039 49       		.uleb128 0x49
+ 361 003a 13       		.uleb128 0x13
+ 362 003b 00       		.byte	0
+ 363 003c 00       		.byte	0
+ 364 003d 06       		.uleb128 0x6
+ 365 003e 13       		.uleb128 0x13
+ 366 003f 01       		.byte	0x1
+ 367 0040 0B       		.uleb128 0xb
+ 368 0041 0B       		.uleb128 0xb
+ 369 0042 3A       		.uleb128 0x3a
+ 370 0043 0B       		.uleb128 0xb
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccgy4Ddi.s 			page 9
+
+
+ 371 0044 3B       		.uleb128 0x3b
+ 372 0045 0B       		.uleb128 0xb
+ 373 0046 01       		.uleb128 0x1
+ 374 0047 13       		.uleb128 0x13
+ 375 0048 00       		.byte	0
+ 376 0049 00       		.byte	0
+ 377 004a 07       		.uleb128 0x7
+ 378 004b 0D       		.uleb128 0xd
+ 379 004c 00       		.byte	0
+ 380 004d 03       		.uleb128 0x3
+ 381 004e 0E       		.uleb128 0xe
+ 382 004f 3A       		.uleb128 0x3a
+ 383 0050 0B       		.uleb128 0xb
+ 384 0051 3B       		.uleb128 0x3b
+ 385 0052 0B       		.uleb128 0xb
+ 386 0053 49       		.uleb128 0x49
+ 387 0054 13       		.uleb128 0x13
+ 388 0055 38       		.uleb128 0x38
+ 389 0056 0B       		.uleb128 0xb
+ 390 0057 00       		.byte	0
+ 391 0058 00       		.byte	0
+ 392 0059 08       		.uleb128 0x8
+ 393 005a 16       		.uleb128 0x16
+ 394 005b 00       		.byte	0
+ 395 005c 03       		.uleb128 0x3
+ 396 005d 0E       		.uleb128 0xe
+ 397 005e 3A       		.uleb128 0x3a
+ 398 005f 0B       		.uleb128 0xb
+ 399 0060 3B       		.uleb128 0x3b
+ 400 0061 0B       		.uleb128 0xb
+ 401 0062 49       		.uleb128 0x49
+ 402 0063 13       		.uleb128 0x13
+ 403 0064 00       		.byte	0
+ 404 0065 00       		.byte	0
+ 405 0066 09       		.uleb128 0x9
+ 406 0067 0F       		.uleb128 0xf
+ 407 0068 00       		.byte	0
+ 408 0069 0B       		.uleb128 0xb
+ 409 006a 0B       		.uleb128 0xb
+ 410 006b 49       		.uleb128 0x49
+ 411 006c 13       		.uleb128 0x13
+ 412 006d 00       		.byte	0
+ 413 006e 00       		.byte	0
+ 414 006f 0A       		.uleb128 0xa
+ 415 0070 01       		.uleb128 0x1
+ 416 0071 01       		.byte	0x1
+ 417 0072 49       		.uleb128 0x49
+ 418 0073 13       		.uleb128 0x13
+ 419 0074 01       		.uleb128 0x1
+ 420 0075 13       		.uleb128 0x13
+ 421 0076 00       		.byte	0
+ 422 0077 00       		.byte	0
+ 423 0078 0B       		.uleb128 0xb
+ 424 0079 21       		.uleb128 0x21
+ 425 007a 00       		.byte	0
+ 426 007b 49       		.uleb128 0x49
+ 427 007c 13       		.uleb128 0x13
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccgy4Ddi.s 			page 10
+
+
+ 428 007d 2F       		.uleb128 0x2f
+ 429 007e 0B       		.uleb128 0xb
+ 430 007f 00       		.byte	0
+ 431 0080 00       		.byte	0
+ 432 0081 0C       		.uleb128 0xc
+ 433 0082 2E       		.uleb128 0x2e
+ 434 0083 01       		.byte	0x1
+ 435 0084 3F       		.uleb128 0x3f
+ 436 0085 19       		.uleb128 0x19
+ 437 0086 03       		.uleb128 0x3
+ 438 0087 0E       		.uleb128 0xe
+ 439 0088 3A       		.uleb128 0x3a
+ 440 0089 0B       		.uleb128 0xb
+ 441 008a 3B       		.uleb128 0x3b
+ 442 008b 0B       		.uleb128 0xb
+ 443 008c 27       		.uleb128 0x27
+ 444 008d 19       		.uleb128 0x19
+ 445 008e 49       		.uleb128 0x49
+ 446 008f 13       		.uleb128 0x13
+ 447 0090 11       		.uleb128 0x11
+ 448 0091 01       		.uleb128 0x1
+ 449 0092 12       		.uleb128 0x12
+ 450 0093 06       		.uleb128 0x6
+ 451 0094 40       		.uleb128 0x40
+ 452 0095 18       		.uleb128 0x18
+ 453 0096 9742     		.uleb128 0x2117
+ 454 0098 19       		.uleb128 0x19
+ 455 0099 01       		.uleb128 0x1
+ 456 009a 13       		.uleb128 0x13
+ 457 009b 00       		.byte	0
+ 458 009c 00       		.byte	0
+ 459 009d 0D       		.uleb128 0xd
+ 460 009e 34       		.uleb128 0x34
+ 461 009f 00       		.byte	0
+ 462 00a0 03       		.uleb128 0x3
+ 463 00a1 0E       		.uleb128 0xe
+ 464 00a2 3A       		.uleb128 0x3a
+ 465 00a3 0B       		.uleb128 0xb
+ 466 00a4 3B       		.uleb128 0x3b
+ 467 00a5 0B       		.uleb128 0xb
+ 468 00a6 49       		.uleb128 0x49
+ 469 00a7 13       		.uleb128 0x13
+ 470 00a8 02       		.uleb128 0x2
+ 471 00a9 17       		.uleb128 0x17
+ 472 00aa 00       		.byte	0
+ 473 00ab 00       		.byte	0
+ 474 00ac 0E       		.uleb128 0xe
+ 475 00ad 898201   		.uleb128 0x4109
+ 476 00b0 00       		.byte	0
+ 477 00b1 11       		.uleb128 0x11
+ 478 00b2 01       		.uleb128 0x1
+ 479 00b3 31       		.uleb128 0x31
+ 480 00b4 13       		.uleb128 0x13
+ 481 00b5 00       		.byte	0
+ 482 00b6 00       		.byte	0
+ 483 00b7 0F       		.uleb128 0xf
+ 484 00b8 26       		.uleb128 0x26
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccgy4Ddi.s 			page 11
+
+
+ 485 00b9 00       		.byte	0
+ 486 00ba 49       		.uleb128 0x49
+ 487 00bb 13       		.uleb128 0x13
+ 488 00bc 00       		.byte	0
+ 489 00bd 00       		.byte	0
+ 490 00be 10       		.uleb128 0x10
+ 491 00bf 34       		.uleb128 0x34
+ 492 00c0 00       		.byte	0
+ 493 00c1 03       		.uleb128 0x3
+ 494 00c2 0E       		.uleb128 0xe
+ 495 00c3 3A       		.uleb128 0x3a
+ 496 00c4 0B       		.uleb128 0xb
+ 497 00c5 3B       		.uleb128 0x3b
+ 498 00c6 0B       		.uleb128 0xb
+ 499 00c7 49       		.uleb128 0x49
+ 500 00c8 13       		.uleb128 0x13
+ 501 00c9 3F       		.uleb128 0x3f
+ 502 00ca 19       		.uleb128 0x19
+ 503 00cb 3C       		.uleb128 0x3c
+ 504 00cc 19       		.uleb128 0x19
+ 505 00cd 00       		.byte	0
+ 506 00ce 00       		.byte	0
+ 507 00cf 11       		.uleb128 0x11
+ 508 00d0 2E       		.uleb128 0x2e
+ 509 00d1 00       		.byte	0
+ 510 00d2 3F       		.uleb128 0x3f
+ 511 00d3 19       		.uleb128 0x19
+ 512 00d4 3C       		.uleb128 0x3c
+ 513 00d5 19       		.uleb128 0x19
+ 514 00d6 6E       		.uleb128 0x6e
+ 515 00d7 0E       		.uleb128 0xe
+ 516 00d8 03       		.uleb128 0x3
+ 517 00d9 0E       		.uleb128 0xe
+ 518 00da 3A       		.uleb128 0x3a
+ 519 00db 0B       		.uleb128 0xb
+ 520 00dc 3B       		.uleb128 0x3b
+ 521 00dd 0B       		.uleb128 0xb
+ 522 00de 00       		.byte	0
+ 523 00df 00       		.byte	0
+ 524 00e0 00       		.byte	0
+ 525              		.section	.debug_loc,"",%progbits
+ 526              	.Ldebug_loc0:
+ 527              	.LLST0:
+ 528 0000 02000000 		.4byte	.LVL0
+ 529 0004 24000000 		.4byte	.LVL1
+ 530 0008 0200     		.2byte	0x2
+ 531 000a 30       		.byte	0x30
+ 532 000b 9F       		.byte	0x9f
+ 533 000c 24000000 		.4byte	.LVL1
+ 534 0010 26000000 		.4byte	.LVL2
+ 535 0014 0100     		.2byte	0x1
+ 536 0016 50       		.byte	0x50
+ 537 0017 26000000 		.4byte	.LVL2
+ 538 001b 2C000000 		.4byte	.LVL3
+ 539 001f 0200     		.2byte	0x2
+ 540 0021 30       		.byte	0x30
+ 541 0022 9F       		.byte	0x9f
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccgy4Ddi.s 			page 12
+
+
+ 542 0023 2C000000 		.4byte	.LVL3
+ 543 0027 3C000000 		.4byte	.LFE0
+ 544 002b 0100     		.2byte	0x1
+ 545 002d 50       		.byte	0x50
+ 546 002e 00000000 		.4byte	0
+ 547 0032 00000000 		.4byte	0
+ 548              		.section	.debug_aranges,"",%progbits
+ 549 0000 1C000000 		.4byte	0x1c
+ 550 0004 0200     		.2byte	0x2
+ 551 0006 00000000 		.4byte	.Ldebug_info0
+ 552 000a 04       		.byte	0x4
+ 553 000b 00       		.byte	0
+ 554 000c 0000     		.2byte	0
+ 555 000e 0000     		.2byte	0
+ 556 0010 00000000 		.4byte	.LFB0
+ 557 0014 3C000000 		.4byte	.LFE0-.LFB0
+ 558 0018 00000000 		.4byte	0
+ 559 001c 00000000 		.4byte	0
+ 560              		.section	.debug_ranges,"",%progbits
+ 561              	.Ldebug_ranges0:
+ 562 0000 00000000 		.4byte	.LFB0
+ 563 0004 3C000000 		.4byte	.LFE0
+ 564 0008 00000000 		.4byte	0
+ 565 000c 00000000 		.4byte	0
+ 566              		.section	.debug_line,"",%progbits
+ 567              	.Ldebug_line0:
+ 568 0000 81000000 		.section	.debug_str,"MS",%progbits,1
+ 568      02006000 
+ 568      00000201 
+ 568      FB0E0D00 
+ 568      01010101 
+ 569              	.LASF21:
+ 570 0000 70537461 		.ascii	"pStatusBlock\000"
+ 570      74757342 
+ 570      6C6F636B 
+ 570      00
+ 571              	.LASF19:
+ 572 000d 636F756E 		.ascii	"count\000"
+ 572      7400
+ 573              	.LASF3:
+ 574 0013 73686F72 		.ascii	"short unsigned int\000"
+ 574      7420756E 
+ 574      7369676E 
+ 574      65642069 
+ 574      6E7400
+ 575              	.LASF28:
+ 576 0026 47656E65 		.ascii	"Generated_Source\\PSoC5\\USBFS_vnd.c\000"
+ 576      72617465 
+ 576      645F536F 
+ 576      75726365 
+ 576      5C50536F 
+ 577              	.LASF30:
+ 578 0049 55534246 		.ascii	"USBFS_HandleVendorRqst\000"
+ 578      535F4861 
+ 578      6E646C65 
+ 578      56656E64 
+ 578      6F725271 
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccgy4Ddi.s 			page 13
+
+
+ 579              	.LASF16:
+ 580 0060 73746174 		.ascii	"status\000"
+ 580      757300
+ 581              	.LASF20:
+ 582 0067 70446174 		.ascii	"pData\000"
+ 582      6100
+ 583              	.LASF23:
+ 584 006d 65704461 		.ascii	"epData\000"
+ 584      746100
+ 585              	.LASF22:
+ 586 0074 545F5553 		.ascii	"T_USBFS_TD\000"
+ 586      4246535F 
+ 586      544400
+ 587              	.LASF11:
+ 588 007f 666C6F61 		.ascii	"float\000"
+ 588      7400
+ 589              	.LASF1:
+ 590 0085 756E7369 		.ascii	"unsigned char\000"
+ 590      676E6564 
+ 590      20636861 
+ 590      7200
+ 591              	.LASF27:
+ 592 0093 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 592      43313120 
+ 592      352E342E 
+ 592      31203230 
+ 592      31363036 
+ 593 00c6 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 593      20726576 
+ 593      6973696F 
+ 593      6E203233 
+ 593      37373135 
+ 594 00f9 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 594      66756E63 
+ 594      74696F6E 
+ 594      2D736563 
+ 594      74696F6E 
+ 595              	.LASF18:
+ 596 0121 545F5553 		.ascii	"T_USBFS_XFER_STATUS_BLOCK\000"
+ 596      4246535F 
+ 596      58464552 
+ 596      5F535441 
+ 596      5455535F 
+ 597              	.LASF5:
+ 598 013b 6C6F6E67 		.ascii	"long unsigned int\000"
+ 598      20756E73 
+ 598      69676E65 
+ 598      6420696E 
+ 598      7400
+ 599              	.LASF9:
+ 600 014d 75696E74 		.ascii	"uint8\000"
+ 600      3800
+ 601              	.LASF24:
+ 602 0153 55534246 		.ascii	"USBFS_ep0_data_struct\000"
+ 602      535F6570 
+ 602      305F6461 
+ 602      74615F73 
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccgy4Ddi.s 			page 14
+
+
+ 602      74727563 
+ 603              	.LASF12:
+ 604 0169 646F7562 		.ascii	"double\000"
+ 604      6C6500
+ 605              	.LASF32:
+ 606 0170 55534246 		.ascii	"USBFS_InitControlRead\000"
+ 606      535F496E 
+ 606      6974436F 
+ 606      6E74726F 
+ 606      6C526561 
+ 607              	.LASF10:
+ 608 0186 75696E74 		.ascii	"uint16\000"
+ 608      313600
+ 609              	.LASF8:
+ 610 018d 756E7369 		.ascii	"unsigned int\000"
+ 610      676E6564 
+ 610      20696E74 
+ 610      00
+ 611              	.LASF7:
+ 612 019a 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 612      206C6F6E 
+ 612      6720756E 
+ 612      7369676E 
+ 612      65642069 
+ 613              	.LASF26:
+ 614 01b1 55534246 		.ascii	"USBFS_currentTD\000"
+ 614      535F6375 
+ 614      7272656E 
+ 614      74544400 
+ 615              	.LASF29:
+ 616 01c1 433A5C55 		.ascii	"C:\\Users\\Caleb Cotter\\Documents\\GitHub\\3HC\\3H"
+ 616      73657273 
+ 616      5C43616C 
+ 616      65622043 
+ 616      6F747465 
+ 617 01ee 435F4669 		.ascii	"C_Firmware\\3HC_Firmware_0_1.cydsn\000"
+ 617      726D7761 
+ 617      72655C33 
+ 617      48435F46 
+ 617      69726D77 
+ 618              	.LASF15:
+ 619 0210 73697A65 		.ascii	"sizetype\000"
+ 619      74797065 
+ 619      00
+ 620              	.LASF6:
+ 621 0219 6C6F6E67 		.ascii	"long long int\000"
+ 621      206C6F6E 
+ 621      6720696E 
+ 621      7400
+ 622              	.LASF13:
+ 623 0227 63686172 		.ascii	"char\000"
+ 623      00
+ 624              	.LASF2:
+ 625 022c 73686F72 		.ascii	"short int\000"
+ 625      7420696E 
+ 625      7400
+ 626              	.LASF25:
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccgy4Ddi.s 			page 15
+
+
+ 627 0236 55534246 		.ascii	"USBFS_MSOS_CONFIGURATION_DESCR\000"
+ 627      535F4D53 
+ 627      4F535F43 
+ 627      4F4E4649 
+ 627      47555241 
+ 628              	.LASF31:
+ 629 0255 72657175 		.ascii	"requestHandled\000"
+ 629      65737448 
+ 629      616E646C 
+ 629      656400
+ 630              	.LASF4:
+ 631 0264 6C6F6E67 		.ascii	"long int\000"
+ 631      20696E74 
+ 631      00
+ 632              	.LASF14:
+ 633 026d 6C6F6E67 		.ascii	"long double\000"
+ 633      20646F75 
+ 633      626C6500 
+ 634              	.LASF0:
+ 635 0279 7369676E 		.ascii	"signed char\000"
+ 635      65642063 
+ 635      68617200 
+ 636              	.LASF17:
+ 637 0285 6C656E67 		.ascii	"length\000"
+ 637      746800
+ 638              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

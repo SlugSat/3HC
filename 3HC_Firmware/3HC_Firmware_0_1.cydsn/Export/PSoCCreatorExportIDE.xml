@@ -7,7 +7,7 @@
       <Tool Name="prebuild" Command="" Options="" />
       <Tool Name="assembler" Command="arm-none-eabi-as.exe" Options="-mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -alh=${OutputDir}/${CompileFile}.lst -g -W" />
       <Tool Name="compiler" Command="arm-none-eabi-gcc.exe" Options="-mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og" />
-      <Tool Name="linker" Command="arm-none-eabi-gcc.exe" Options="-mcpu=cortex-m3 -mthumb -L Generated_Source\PSoC5 -Wl,-Map,${OutputDir}/${ProjectShortName}.map -T Generated_Source\PSoC5\cm3gcc.ld -Wl,--gc-sections -g -ffunction-sections -Og -ffat-lto-objects" />
+      <Tool Name="linker" Command="arm-none-eabi-gcc.exe" Options="-mcpu=cortex-m3 -mthumb -L Generated_Source\PSoC5 -Wl,-Map,${OutputDir}/${ProjectShortName}.map -T Generated_Source\PSoC5\cm3gcc.ld -specs=nano.specs -u _printf_float -Wl,--gc-sections -u_printf_float -g -ffunction-sections -Og -ffat-lto-objects" />
       <Tool Name="postbuild" Command="" Options="" />
     </Toolchain>
     <Toolchain Name="ARM MDK Generic" Selected="False">
@@ -174,37 +174,6 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\I2C_Module_SLAVE.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\I2C_Module_MASTER.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\I2C_Module_PVT.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART_audio.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART_audio.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART_boot.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART_cdc.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART_cdc.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART_cls.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART_descr.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART_drv.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART_episr.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART_hid.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART_hid.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART_pm.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART_std.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART_vnd.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART_midi.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART_midi.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART_pvt.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART_cydmac.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART_msc.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART_msc.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART_Dm_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART_Dm.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART_Dm.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART_Dp_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART_Dp.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBUART_Dp.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\X_CURR_IN_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\X_CURR_IN.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\X_CURR_IN.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ADC.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ADC.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ADC_PM.c</File>
@@ -217,6 +186,43 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ADC_IRQ.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ADC_theACLK.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ADC_theACLK.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ADC_CurrentReadingReady.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ADC_CurrentReadingReady.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\X_CURR_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\X_CURR.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\X_CURR.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBFS.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBFS.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBFS_audio.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBFS_audio.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBFS_boot.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBFS_cdc.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBFS_cdc.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBFS_cls.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBFS_descr.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBFS_drv.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBFS_episr.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBFS_hid.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBFS_hid.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBFS_pm.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBFS_std.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBFS_vnd.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBFS_midi.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBFS_midi.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBFS_pvt.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBFS_cydmac.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBFS_msc.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBFS_msc.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBFS_Dm_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBFS_Dm.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBFS_Dm.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBFS_Dp_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBFS_Dp.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBFS_Dp.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBFS_ep2_dma.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBFS_ep2_dma.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBFS_ep1_dma.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBFS_ep1_dma.h</File>
         </Files>
       </Folder>
       <Folder BuildType="STRICT" Path="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\Export\ARM_GCC_Generic">

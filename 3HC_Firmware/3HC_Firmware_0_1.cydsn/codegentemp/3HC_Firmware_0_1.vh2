@@ -2,7 +2,7 @@
 --	Conversion of 3HC_Firmware_0_1.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Sun Feb 16 17:55:18 2020
+--	Fri Feb 21 17:19:57 2020
 --
 
 USE cypress.cypress.all;
@@ -748,62 +748,59 @@ SIGNAL tmpOE__SDA_net_0 : bit;
 SIGNAL tmpFB_0__SDA_net_0 : bit;
 TERMINAL tmpSIOVREF__SDA_net_0 : bit;
 SIGNAL tmpINTERRUPT_0__SDA_net_0 : bit;
-SIGNAL \USBUART:Net_1010\ : bit;
-SIGNAL \USBUART:tmpOE__Dm_net_0\ : bit;
-SIGNAL \USBUART:tmpFB_0__Dm_net_0\ : bit;
-TERMINAL \USBUART:Net_597\ : bit;
-SIGNAL \USBUART:tmpIO_0__Dm_net_0\ : bit;
-TERMINAL \USBUART:tmpSIOVREF__Dm_net_0\ : bit;
-SIGNAL \USBUART:tmpINTERRUPT_0__Dm_net_0\ : bit;
-SIGNAL \USBUART:tmpOE__Dp_net_0\ : bit;
-SIGNAL \USBUART:tmpFB_0__Dp_net_0\ : bit;
-TERMINAL \USBUART:Net_1000\ : bit;
-SIGNAL \USBUART:tmpIO_0__Dp_net_0\ : bit;
-TERMINAL \USBUART:tmpSIOVREF__Dp_net_0\ : bit;
-SIGNAL Net_55 : bit;
-SIGNAL \USBUART:Net_1889\ : bit;
-SIGNAL \USBUART:Net_1876\ : bit;
-SIGNAL \USBUART:ep_int_8\ : bit;
-SIGNAL \USBUART:ep_int_7\ : bit;
-SIGNAL \USBUART:ep_int_6\ : bit;
-SIGNAL \USBUART:ep_int_5\ : bit;
-SIGNAL \USBUART:ep_int_4\ : bit;
-SIGNAL \USBUART:ep_int_3\ : bit;
-SIGNAL \USBUART:ep_int_2\ : bit;
-SIGNAL \USBUART:ep_int_1\ : bit;
-SIGNAL \USBUART:ep_int_0\ : bit;
-SIGNAL \USBUART:Net_95\ : bit;
-SIGNAL \USBUART:dma_request_7\ : bit;
-SIGNAL \USBUART:dma_request_6\ : bit;
-SIGNAL \USBUART:dma_request_5\ : bit;
-SIGNAL \USBUART:dma_request_4\ : bit;
-SIGNAL \USBUART:dma_request_3\ : bit;
-SIGNAL \USBUART:dma_request_2\ : bit;
-SIGNAL \USBUART:dma_request_1\ : bit;
-SIGNAL \USBUART:dma_request_0\ : bit;
-SIGNAL \USBUART:dma_terminate\ : bit;
-SIGNAL \USBUART:dma_complete_0\ : bit;
-SIGNAL \USBUART:Net_1922\ : bit;
-SIGNAL \USBUART:dma_complete_1\ : bit;
-SIGNAL \USBUART:Net_1921\ : bit;
-SIGNAL \USBUART:dma_complete_2\ : bit;
-SIGNAL \USBUART:Net_1920\ : bit;
-SIGNAL \USBUART:dma_complete_3\ : bit;
-SIGNAL \USBUART:Net_1919\ : bit;
-SIGNAL \USBUART:dma_complete_4\ : bit;
-SIGNAL \USBUART:Net_1918\ : bit;
-SIGNAL \USBUART:dma_complete_5\ : bit;
-SIGNAL \USBUART:Net_1917\ : bit;
-SIGNAL \USBUART:dma_complete_6\ : bit;
-SIGNAL \USBUART:Net_1916\ : bit;
-SIGNAL \USBUART:dma_complete_7\ : bit;
-SIGNAL \USBUART:Net_1915\ : bit;
-SIGNAL tmpOE__X_CURR_IN_net_0 : bit;
-SIGNAL tmpFB_0__X_CURR_IN_net_0 : bit;
-TERMINAL Net_322 : bit;
-SIGNAL tmpIO_0__X_CURR_IN_net_0 : bit;
-TERMINAL tmpSIOVREF__X_CURR_IN_net_0 : bit;
-SIGNAL tmpINTERRUPT_0__X_CURR_IN_net_0 : bit;
+SIGNAL \USBFS:dma_request_1\ : bit;
+SIGNAL \USBFS:dma_terminate\ : bit;
+SIGNAL \USBFS:Net_1498\ : bit;
+SIGNAL \USBFS:dma_request_0\ : bit;
+SIGNAL \USBFS:Net_1495\ : bit;
+SIGNAL \USBFS:Net_1010\ : bit;
+SIGNAL \USBFS:tmpOE__Dm_net_0\ : bit;
+SIGNAL \USBFS:tmpFB_0__Dm_net_0\ : bit;
+TERMINAL \USBFS:Net_597\ : bit;
+SIGNAL \USBFS:tmpIO_0__Dm_net_0\ : bit;
+TERMINAL \USBFS:tmpSIOVREF__Dm_net_0\ : bit;
+SIGNAL \USBFS:tmpINTERRUPT_0__Dm_net_0\ : bit;
+SIGNAL \USBFS:tmpOE__Dp_net_0\ : bit;
+SIGNAL \USBFS:tmpFB_0__Dp_net_0\ : bit;
+TERMINAL \USBFS:Net_1000\ : bit;
+SIGNAL \USBFS:tmpIO_0__Dp_net_0\ : bit;
+TERMINAL \USBFS:tmpSIOVREF__Dp_net_0\ : bit;
+SIGNAL Net_379 : bit;
+SIGNAL \USBFS:Net_1889\ : bit;
+SIGNAL \USBFS:Net_1876\ : bit;
+SIGNAL \USBFS:ep_int_8\ : bit;
+SIGNAL \USBFS:ep_int_7\ : bit;
+SIGNAL \USBFS:ep_int_6\ : bit;
+SIGNAL \USBFS:ep_int_5\ : bit;
+SIGNAL \USBFS:ep_int_4\ : bit;
+SIGNAL \USBFS:ep_int_3\ : bit;
+SIGNAL \USBFS:ep_int_2\ : bit;
+SIGNAL \USBFS:ep_int_1\ : bit;
+SIGNAL \USBFS:ep_int_0\ : bit;
+SIGNAL \USBFS:Net_95\ : bit;
+SIGNAL \USBFS:dma_request_7\ : bit;
+SIGNAL \USBFS:dma_request_6\ : bit;
+SIGNAL \USBFS:dma_request_5\ : bit;
+SIGNAL \USBFS:dma_request_4\ : bit;
+SIGNAL \USBFS:dma_request_3\ : bit;
+SIGNAL \USBFS:dma_request_2\ : bit;
+SIGNAL \USBFS:dma_complete_0\ : bit;
+SIGNAL \USBFS:Net_1922\ : bit;
+SIGNAL \USBFS:dma_complete_1\ : bit;
+SIGNAL \USBFS:Net_1921\ : bit;
+SIGNAL \USBFS:dma_complete_2\ : bit;
+SIGNAL \USBFS:Net_1920\ : bit;
+SIGNAL \USBFS:dma_complete_3\ : bit;
+SIGNAL \USBFS:Net_1919\ : bit;
+SIGNAL \USBFS:dma_complete_4\ : bit;
+SIGNAL \USBFS:Net_1918\ : bit;
+SIGNAL \USBFS:dma_complete_5\ : bit;
+SIGNAL \USBFS:Net_1917\ : bit;
+SIGNAL \USBFS:dma_complete_6\ : bit;
+SIGNAL \USBFS:Net_1916\ : bit;
+SIGNAL \USBFS:dma_complete_7\ : bit;
+SIGNAL \USBFS:Net_1915\ : bit;
+SIGNAL Net_325 : bit;
 SIGNAL \Output_Enable:clk\ : bit;
 SIGNAL \Output_Enable:rst\ : bit;
 SIGNAL Net_348 : bit;
@@ -1741,6 +1738,7 @@ TERMINAL \ADC:Net_34\ : bit;
 TERMINAL \ADC:Net_677\ : bit;
 TERMINAL \ADC:Net_20\ : bit;
 SIGNAL \ADC:Net_488\ : bit;
+TERMINAL Net_376 : bit;
 TERMINAL \ADC:Net_520\ : bit;
 SIGNAL \ADC:Net_481\ : bit;
 SIGNAL \ADC:Net_482\ : bit;
@@ -1765,12 +1763,16 @@ SIGNAL \ADC:Net_245_0\ : bit;
 TERMINAL \ADC:Net_352\ : bit;
 TERMINAL \ADC:Net_257\ : bit;
 TERMINAL \ADC:Net_249\ : bit;
-SIGNAL Net_325 : bit;
 SIGNAL \ADC:Net_250\ : bit;
 SIGNAL \ADC:Net_252\ : bit;
 SIGNAL \ADC:soc\ : bit;
 SIGNAL \ADC:Net_268\ : bit;
 SIGNAL \ADC:Net_270\ : bit;
+SIGNAL tmpOE__X_CURR_net_0 : bit;
+SIGNAL tmpFB_0__X_CURR_net_0 : bit;
+SIGNAL tmpIO_0__X_CURR_net_0 : bit;
+TERMINAL tmpSIOVREF__X_CURR_net_0 : bit;
+SIGNAL tmpINTERRUPT_0__X_CURR_net_0 : bit;
 SIGNAL \QuadDec:Net_1251\\D\ : bit;
 SIGNAL \QuadDec:Cnt16:CounterUDB:prevCapture\\D\ : bit;
 SIGNAL \QuadDec:Cnt16:CounterUDB:overflow_reg_i\\D\ : bit;
@@ -2906,12 +2908,24 @@ SDA:cy_psoc3_pins_v1_10
 		out_clock_en=>one,
 		out_reset=>zero,
 		interrupt=>tmpINTERRUPT_0__SDA_net_0);
-\USBUART:dp_int\:cy_isr_v1_0
+\USBFS:ep2\:cy_dma_v1_0
+	GENERIC MAP(drq_type=>"10",
+		num_tds=>0)
+	PORT MAP(drq=>\USBFS:dma_request_1\,
+		trq=>\USBFS:dma_terminate\,
+		nrq=>\USBFS:Net_1498\);
+\USBFS:ep1\:cy_dma_v1_0
+	GENERIC MAP(drq_type=>"10",
+		num_tds=>0)
+	PORT MAP(drq=>\USBFS:dma_request_0\,
+		trq=>\USBFS:dma_terminate\,
+		nrq=>\USBFS:Net_1495\);
+\USBFS:dp_int\:cy_isr_v1_0
 	GENERIC MAP(int_type=>"10",
 		is_nmi=>'0')
-	PORT MAP(int_signal=>\USBUART:Net_1010\);
-\USBUART:Dm\:cy_psoc3_pins_v1_10
-	GENERIC MAP(id=>"beca5e2d-f70f-4900-a4db-7eca1ed3126e/8b77a6c4-10a0-4390-971c-672353e2a49c",
+	PORT MAP(int_signal=>\USBFS:Net_1010\);
+\USBFS:Dm\:cy_psoc3_pins_v1_10
+	GENERIC MAP(id=>"641048dc-d4dc-4972-b7e8-aead58798ae0/8b77a6c4-10a0-4390-971c-672353e2a49c",
 		drive_mode=>"000",
 		ibuf_enabled=>"0",
 		init_dr_st=>"0",
@@ -2968,10 +2982,10 @@ SDA:cy_psoc3_pins_v1_10
 		input_buffer_sel=>"00")
 	PORT MAP(oe=>(one),
 		y=>(zero),
-		fb=>(\USBUART:tmpFB_0__Dm_net_0\),
-		analog=>\USBUART:Net_597\,
-		io=>(\USBUART:tmpIO_0__Dm_net_0\),
-		siovref=>(\USBUART:tmpSIOVREF__Dm_net_0\),
+		fb=>(\USBFS:tmpFB_0__Dm_net_0\),
+		analog=>\USBFS:Net_597\,
+		io=>(\USBFS:tmpIO_0__Dm_net_0\),
+		siovref=>(\USBFS:tmpSIOVREF__Dm_net_0\),
 		annotation=>(open),
 		in_clock=>zero,
 		in_clock_en=>one,
@@ -2979,9 +2993,9 @@ SDA:cy_psoc3_pins_v1_10
 		out_clock=>zero,
 		out_clock_en=>one,
 		out_reset=>zero,
-		interrupt=>\USBUART:tmpINTERRUPT_0__Dm_net_0\);
-\USBUART:Dp\:cy_psoc3_pins_v1_10
-	GENERIC MAP(id=>"beca5e2d-f70f-4900-a4db-7eca1ed3126e/618a72fc-5ddd-4df5-958f-a3d55102db42",
+		interrupt=>\USBFS:tmpINTERRUPT_0__Dm_net_0\);
+\USBFS:Dp\:cy_psoc3_pins_v1_10
+	GENERIC MAP(id=>"641048dc-d4dc-4972-b7e8-aead58798ae0/618a72fc-5ddd-4df5-958f-a3d55102db42",
 		drive_mode=>"000",
 		ibuf_enabled=>"0",
 		init_dr_st=>"1",
@@ -3038,10 +3052,10 @@ SDA:cy_psoc3_pins_v1_10
 		input_buffer_sel=>"00")
 	PORT MAP(oe=>(one),
 		y=>(zero),
-		fb=>(\USBUART:tmpFB_0__Dp_net_0\),
-		analog=>\USBUART:Net_1000\,
-		io=>(\USBUART:tmpIO_0__Dp_net_0\),
-		siovref=>(\USBUART:tmpSIOVREF__Dp_net_0\),
+		fb=>(\USBFS:tmpFB_0__Dp_net_0\),
+		analog=>\USBFS:Net_1000\,
+		io=>(\USBFS:tmpIO_0__Dp_net_0\),
+		siovref=>(\USBFS:tmpSIOVREF__Dp_net_0\),
 		annotation=>(open),
 		in_clock=>zero,
 		in_clock_en=>one,
@@ -3049,119 +3063,49 @@ SDA:cy_psoc3_pins_v1_10
 		out_clock=>zero,
 		out_clock_en=>one,
 		out_reset=>zero,
-		interrupt=>\USBUART:Net_1010\);
-\USBUART:USB\:cy_psoc3_usb_v1_0
+		interrupt=>\USBFS:Net_1010\);
+\USBFS:USB\:cy_psoc3_usb_v1_0
 	GENERIC MAP(cy_registers=>"")
-	PORT MAP(dp=>\USBUART:Net_1000\,
-		dm=>\USBUART:Net_597\,
-		sof_int=>Net_55,
-		arb_int=>\USBUART:Net_1889\,
-		usb_int=>\USBUART:Net_1876\,
-		ept_int=>(\USBUART:ep_int_8\, \USBUART:ep_int_7\, \USBUART:ep_int_6\, \USBUART:ep_int_5\,
-			\USBUART:ep_int_4\, \USBUART:ep_int_3\, \USBUART:ep_int_2\, \USBUART:ep_int_1\,
-			\USBUART:ep_int_0\),
-		ord_int=>\USBUART:Net_95\,
-		dma_req=>(\USBUART:dma_request_7\, \USBUART:dma_request_6\, \USBUART:dma_request_5\, \USBUART:dma_request_4\,
-			\USBUART:dma_request_3\, \USBUART:dma_request_2\, \USBUART:dma_request_1\, \USBUART:dma_request_0\),
-		dma_termin=>\USBUART:dma_terminate\);
-\USBUART:ep_3\:cy_isr_v1_0
+	PORT MAP(dp=>\USBFS:Net_1000\,
+		dm=>\USBFS:Net_597\,
+		sof_int=>Net_379,
+		arb_int=>\USBFS:Net_1889\,
+		usb_int=>\USBFS:Net_1876\,
+		ept_int=>(\USBFS:ep_int_8\, \USBFS:ep_int_7\, \USBFS:ep_int_6\, \USBFS:ep_int_5\,
+			\USBFS:ep_int_4\, \USBFS:ep_int_3\, \USBFS:ep_int_2\, \USBFS:ep_int_1\,
+			\USBFS:ep_int_0\),
+		ord_int=>\USBFS:Net_95\,
+		dma_req=>(\USBFS:dma_request_7\, \USBFS:dma_request_6\, \USBFS:dma_request_5\, \USBFS:dma_request_4\,
+			\USBFS:dma_request_3\, \USBFS:dma_request_2\, \USBFS:dma_request_1\, \USBFS:dma_request_0\),
+		dma_termin=>\USBFS:dma_terminate\);
+\USBFS:ord_int\:cy_isr_v1_0
 	GENERIC MAP(int_type=>"10",
 		is_nmi=>'0')
-	PORT MAP(int_signal=>\USBUART:ep_int_3\);
-\USBUART:ep_2\:cy_isr_v1_0
+	PORT MAP(int_signal=>\USBFS:Net_95\);
+\USBFS:ep_2\:cy_isr_v1_0
 	GENERIC MAP(int_type=>"10",
 		is_nmi=>'0')
-	PORT MAP(int_signal=>\USBUART:ep_int_2\);
-\USBUART:ep_1\:cy_isr_v1_0
+	PORT MAP(int_signal=>\USBFS:ep_int_2\);
+\USBFS:ep_1\:cy_isr_v1_0
 	GENERIC MAP(int_type=>"10",
 		is_nmi=>'0')
-	PORT MAP(int_signal=>\USBUART:ep_int_1\);
-\USBUART:ep_0\:cy_isr_v1_0
+	PORT MAP(int_signal=>\USBFS:ep_int_1\);
+\USBFS:ep_0\:cy_isr_v1_0
 	GENERIC MAP(int_type=>"10",
 		is_nmi=>'0')
-	PORT MAP(int_signal=>\USBUART:ep_int_0\);
-\USBUART:bus_reset\:cy_isr_v1_0
+	PORT MAP(int_signal=>\USBFS:ep_int_0\);
+\USBFS:bus_reset\:cy_isr_v1_0
 	GENERIC MAP(int_type=>"10",
 		is_nmi=>'0')
-	PORT MAP(int_signal=>\USBUART:Net_1876\);
-\USBUART:arb_int\:cy_isr_v1_0
+	PORT MAP(int_signal=>\USBFS:Net_1876\);
+\USBFS:arb_int\:cy_isr_v1_0
 	GENERIC MAP(int_type=>"10",
 		is_nmi=>'0')
-	PORT MAP(int_signal=>\USBUART:Net_1889\);
-\USBUART:sof_int\:cy_isr_v1_0
+	PORT MAP(int_signal=>\USBFS:Net_1889\);
+ADC_CurrentReadingReady:cy_isr_v1_0
 	GENERIC MAP(int_type=>"10",
 		is_nmi=>'0')
-	PORT MAP(int_signal=>Net_55);
-X_CURR_IN:cy_psoc3_pins_v1_10
-	GENERIC MAP(id=>"bf1b78f3-bfe8-4580-8859-402378bfbeca",
-		drive_mode=>"000",
-		ibuf_enabled=>"0",
-		init_dr_st=>"0",
-		input_sync=>"1",
-		input_clk_en=>'0',
-		input_sync_mode=>"0",
-		intr_mode=>"00",
-		invert_in_clock=>'0',
-		invert_in_clock_en=>'0',
-		invert_in_reset=>'0',
-		invert_out_clock=>'0',
-		invert_out_clock_en=>'0',
-		invert_out_reset=>'0',
-		io_voltage=>"",
-		layout_mode=>"CONTIGUOUS",
-		output_conn=>"0",
-		output_sync=>"0",
-		output_clk_en=>'0',
-		output_mode=>"0",
-		output_reset=>'0',
-		output_clock_mode=>"0",
-		oe_sync=>"0",
-		oe_conn=>"0",
-		oe_reset=>'0',
-		pin_aliases=>"",
-		pin_mode=>"A",
-		por_state=>4,
-		sio_group_cnt=>0,
-		sio_hifreq=>"00000000",
-		sio_hyst=>"1",
-		sio_ibuf=>"00000000",
-		sio_info=>"00",
-		sio_obuf=>"00000000",
-		sio_refsel=>"00000000",
-		sio_vtrip=>"00000000",
-		sio_vohsel=>"00000000",
-		slew_rate=>"0",
-		spanning=>'0',
-		sw_only=>'0',
-		vtrip=>"10",
-		width=>1,
-		port_alias_required=>'0',
-		port_alias_group=>"",
-		use_annotation=>"0",
-		pa_in_clock=>-1,
-		pa_in_clock_en=>-1,
-		pa_in_reset=>-1,
-		pa_out_clock=>-1,
-		pa_out_clock_en=>-1,
-		pa_out_reset=>-1,
-		ovt_needed=>"0",
-		ovt_slew_control=>"00",
-		ovt_hyst_trim=>"0",
-		input_buffer_sel=>"00")
-	PORT MAP(oe=>(one),
-		y=>(zero),
-		fb=>(tmpFB_0__X_CURR_IN_net_0),
-		analog=>Net_322,
-		io=>(tmpIO_0__X_CURR_IN_net_0),
-		siovref=>(tmpSIOVREF__X_CURR_IN_net_0),
-		annotation=>(open),
-		in_clock=>zero,
-		in_clock_en=>one,
-		in_reset=>zero,
-		out_clock=>zero,
-		out_clock_en=>one,
-		out_reset=>zero,
-		interrupt=>tmpINTERRUPT_0__X_CURR_IN_net_0);
+	PORT MAP(int_signal=>Net_325);
 \Output_Enable:Sync:ctrl_reg\:cy_psoc3_control
 	GENERIC MAP(cy_init_value=>"00000000",
 		cy_force_order=>'1',
@@ -4045,7 +3989,7 @@ Z_DIR_OUT:cy_psoc3_pins_v1_10
 	GENERIC MAP(cy_registers=>"",
 		resolution=>16)
 	PORT MAP(aclock=>\ADC:Net_488\,
-		vplus=>Net_322,
+		vplus=>Net_376,
 		vminus=>\ADC:Net_520\,
 		modbit=>zero,
 		reset_udb=>zero,
@@ -4117,6 +4061,76 @@ Z_DIR_OUT:cy_psoc3_pins_v1_10
 		ext_start=>one,
 		mod_reset=>\ADC:mod_reset\,
 		interrupt=>Net_325);
+X_CURR:cy_psoc3_pins_v1_10
+	GENERIC MAP(id=>"2140755c-4db4-450f-addd-9871b59b918c",
+		drive_mode=>"000",
+		ibuf_enabled=>"0",
+		init_dr_st=>"0",
+		input_sync=>"1",
+		input_clk_en=>'0',
+		input_sync_mode=>"0",
+		intr_mode=>"00",
+		invert_in_clock=>'0',
+		invert_in_clock_en=>'0',
+		invert_in_reset=>'0',
+		invert_out_clock=>'0',
+		invert_out_clock_en=>'0',
+		invert_out_reset=>'0',
+		io_voltage=>"",
+		layout_mode=>"CONTIGUOUS",
+		output_conn=>"0",
+		output_sync=>"0",
+		output_clk_en=>'0',
+		output_mode=>"0",
+		output_reset=>'0',
+		output_clock_mode=>"0",
+		oe_sync=>"0",
+		oe_conn=>"0",
+		oe_reset=>'0',
+		pin_aliases=>"",
+		pin_mode=>"A",
+		por_state=>4,
+		sio_group_cnt=>0,
+		sio_hifreq=>"00000000",
+		sio_hyst=>"1",
+		sio_ibuf=>"00000000",
+		sio_info=>"00",
+		sio_obuf=>"00000000",
+		sio_refsel=>"00000000",
+		sio_vtrip=>"00000000",
+		sio_vohsel=>"00000000",
+		slew_rate=>"0",
+		spanning=>'0',
+		sw_only=>'0',
+		vtrip=>"10",
+		width=>1,
+		port_alias_required=>'0',
+		port_alias_group=>"",
+		use_annotation=>"0",
+		pa_in_clock=>-1,
+		pa_in_clock_en=>-1,
+		pa_in_reset=>-1,
+		pa_out_clock=>-1,
+		pa_out_clock_en=>-1,
+		pa_out_reset=>-1,
+		ovt_needed=>"0",
+		ovt_slew_control=>"00",
+		ovt_hyst_trim=>"0",
+		input_buffer_sel=>"00")
+	PORT MAP(oe=>(one),
+		y=>(zero),
+		fb=>(tmpFB_0__X_CURR_net_0),
+		analog=>Net_376,
+		io=>(tmpIO_0__X_CURR_net_0),
+		siovref=>(tmpSIOVREF__X_CURR_net_0),
+		annotation=>(open),
+		in_clock=>zero,
+		in_clock_en=>one,
+		in_reset=>zero,
+		out_clock=>zero,
+		out_clock_en=>one,
+		out_reset=>zero,
+		interrupt=>tmpINTERRUPT_0__X_CURR_net_0);
 \QuadDec:Net_1251\:cy_dff
 	PORT MAP(d=>\QuadDec:Net_1251\\D\,
 		clk=>\QuadDec:bQuadDec:sync_clock\,

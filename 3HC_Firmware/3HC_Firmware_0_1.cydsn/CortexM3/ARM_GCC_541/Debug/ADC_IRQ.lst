@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccPf7ZB.s 			page 1
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctCccCP.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccPf7ZB.s 			page 1
   28:Generated_Source\PSoC5/ADC_IRQ.c **** ********************************************************************************/
   29:Generated_Source\PSoC5/ADC_IRQ.c **** /* `#START ADC_IRQ_intc` */
   30:Generated_Source\PSoC5/ADC_IRQ.c **** 
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccPf7ZB.s 			page 2
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctCccCP.s 			page 2
 
 
   31:Generated_Source\PSoC5/ADC_IRQ.c **** /* `#END` */
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccPf7ZB.s 			page 1
   85:Generated_Source\PSoC5/ADC_IRQ.c **** *  the interrupt to the interrupt controller.
   86:Generated_Source\PSoC5/ADC_IRQ.c **** *  
   87:Generated_Source\PSoC5/ADC_IRQ.c **** *  When defining ISR functions, the CY_ISR and CY_ISR_PROTO macros should be 
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccPf7ZB.s 			page 3
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctCccCP.s 			page 3
 
 
   88:Generated_Source\PSoC5/ADC_IRQ.c **** *  used to provide consistent definition across compilers:
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccPf7ZB.s 			page 1
  142:Generated_Source\PSoC5/ADC_IRQ.c **** 
  143:Generated_Source\PSoC5/ADC_IRQ.c **** 
  144:Generated_Source\PSoC5/ADC_IRQ.c **** /*******************************************************************************
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccPf7ZB.s 			page 4
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctCccCP.s 			page 4
 
 
  145:Generated_Source\PSoC5/ADC_IRQ.c **** * Function Name: ADC_IRQ_Interrupt
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccPf7ZB.s 			page 1
  182:Generated_Source\PSoC5/ADC_IRQ.c **** *   When defining ISR functions, the CY_ISR and CY_ISR_PROTO macros should be 
  183:Generated_Source\PSoC5/ADC_IRQ.c **** *   used to provide consistent definition across compilers:
  184:Generated_Source\PSoC5/ADC_IRQ.c **** *
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccPf7ZB.s 			page 5
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctCccCP.s 			page 5
 
 
  185:Generated_Source\PSoC5/ADC_IRQ.c **** *   Function definition example:
@@ -268,18 +268,18 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccPf7ZB.s 			page 1
  203:Generated_Source\PSoC5/ADC_IRQ.c **** 
  204:Generated_Source\PSoC5/ADC_IRQ.c ****     ramVectorTable = (cyisraddress *) *CYINT_VECT_TABLE;
   51              		.loc 1 204 0
-  52 0000 024B     		ldr	r3, .L3
+  52 0000 014B     		ldr	r3, .L3
   53 0002 1B68     		ldr	r3, [r3]
   54              	.LVL1:
  205:Generated_Source\PSoC5/ADC_IRQ.c **** 
  206:Generated_Source\PSoC5/ADC_IRQ.c ****     ramVectorTable[CYINT_IRQ_BASE + (uint32)ADC_IRQ__INTC_NUMBER] = address;
   55              		.loc 1 206 0
-  56 0004 C3F8B400 		str	r0, [r3, #180]
-  57 0008 7047     		bx	lr
+  56 0004 5864     		str	r0, [r3, #68]
+  57 0006 7047     		bx	lr
   58              	.L4:
-  59 000a 00BF     		.align	2
+  59              		.align	2
   60              	.L3:
-  61 000c 08ED00E0 		.word	-536810232
+  61 0008 08ED00E0 		.word	-536810232
   62              		.cfi_endproc
   63              	.LFE4:
   64              		.size	ADC_IRQ_SetVector, .-ADC_IRQ_SetVector
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccPf7ZB.s 			page 1
  211:Generated_Source\PSoC5/ADC_IRQ.c **** * Function Name: ADC_IRQ_GetVector
  212:Generated_Source\PSoC5/ADC_IRQ.c **** ********************************************************************************
  213:Generated_Source\PSoC5/ADC_IRQ.c **** *
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccPf7ZB.s 			page 6
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctCccCP.s 			page 6
 
 
  214:Generated_Source\PSoC5/ADC_IRQ.c **** * Summary:
@@ -322,19 +322,19 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccPf7ZB.s 			page 1
  227:Generated_Source\PSoC5/ADC_IRQ.c **** 
  228:Generated_Source\PSoC5/ADC_IRQ.c ****     ramVectorTable = (cyisraddress *) *CYINT_VECT_TABLE;
   78              		.loc 1 228 0
-  79 0000 024B     		ldr	r3, .L6
+  79 0000 014B     		ldr	r3, .L6
   80 0002 1B68     		ldr	r3, [r3]
   81              	.LVL2:
  229:Generated_Source\PSoC5/ADC_IRQ.c **** 
  230:Generated_Source\PSoC5/ADC_IRQ.c ****     return ramVectorTable[CYINT_IRQ_BASE + (uint32)ADC_IRQ__INTC_NUMBER];
  231:Generated_Source\PSoC5/ADC_IRQ.c **** }
   82              		.loc 1 231 0
-  83 0004 D3F8B400 		ldr	r0, [r3, #180]
-  84 0008 7047     		bx	lr
+  83 0004 586C     		ldr	r0, [r3, #68]
+  84 0006 7047     		bx	lr
   85              	.L7:
-  86 000a 00BF     		.align	2
+  86              		.align	2
   87              	.L6:
-  88 000c 08ED00E0 		.word	-536810232
+  88 0008 08ED00E0 		.word	-536810232
   89              		.cfi_endproc
   90              	.LFE5:
   91              		.size	ADC_IRQ_GetVector, .-ADC_IRQ_GetVector
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccPf7ZB.s 			page 1
  241:Generated_Source\PSoC5/ADC_IRQ.c **** *   Note calling ADC_IRQ_Start or ADC_IRQ_StartEx will 
  242:Generated_Source\PSoC5/ADC_IRQ.c **** *   override any effect this API would have had. This API should only be called
  243:Generated_Source\PSoC5/ADC_IRQ.c **** *   after ADC_IRQ_Start or ADC_IRQ_StartEx has been called. 
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccPf7ZB.s 			page 7
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctCccCP.s 			page 7
 
 
  244:Generated_Source\PSoC5/ADC_IRQ.c **** *   To set the initial priority for the component, use the Design-Wide Resources
@@ -394,7 +394,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccPf7ZB.s 			page 1
  113              	.L10:
  114 000a 00BF     		.align	2
  115              	.L9:
- 116 000c 1DE400E0 		.word	-536812515
+ 116 000c 01E400E0 		.word	-536812543
  117              		.cfi_endproc
  118              	.LFE6:
  119              		.size	ADC_IRQ_SetPriority, .-ADC_IRQ_SetPriority
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccPf7ZB.s 			page 1
  270:Generated_Source\PSoC5/ADC_IRQ.c **** *
  271:Generated_Source\PSoC5/ADC_IRQ.c **** * Parameters:
  272:Generated_Source\PSoC5/ADC_IRQ.c **** *   None
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccPf7ZB.s 			page 8
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctCccCP.s 			page 8
 
 
  273:Generated_Source\PSoC5/ADC_IRQ.c **** *
@@ -453,7 +453,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccPf7ZB.s 			page 1
  141              	.L13:
  142              		.align	2
  143              	.L12:
- 144 0008 1DE400E0 		.word	-536812515
+ 144 0008 01E400E0 		.word	-536812543
  145              		.cfi_endproc
  146              	.LFE7:
  147              		.size	ADC_IRQ_GetPriority, .-ADC_IRQ_GetPriority
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccPf7ZB.s 			page 1
  299:Generated_Source\PSoC5/ADC_IRQ.c **** *
  300:Generated_Source\PSoC5/ADC_IRQ.c **** * Parameters:
  301:Generated_Source\PSoC5/ADC_IRQ.c **** *   None
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccPf7ZB.s 			page 9
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctCccCP.s 			page 9
 
 
  302:Generated_Source\PSoC5/ADC_IRQ.c **** *
@@ -496,14 +496,14 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccPf7ZB.s 			page 1
  309:Generated_Source\PSoC5/ADC_IRQ.c ****     /* Enable the general interrupt. */
  310:Generated_Source\PSoC5/ADC_IRQ.c ****     *ADC_IRQ_INTC_SET_EN = ADC_IRQ__INTC_MASK;
  161              		.loc 1 310 0
- 162 0000 4FF00052 		mov	r2, #536870912
- 163 0004 014B     		ldr	r3, .L15
- 164 0006 1A60     		str	r2, [r3]
- 165 0008 7047     		bx	lr
+ 162 0000 0222     		movs	r2, #2
+ 163 0002 014B     		ldr	r3, .L15
+ 164 0004 1A60     		str	r2, [r3]
+ 165 0006 7047     		bx	lr
  166              	.L16:
- 167 000a 00BF     		.align	2
+ 167              		.align	2
  168              	.L15:
- 169 000c 00E100E0 		.word	-536813312
+ 169 0008 00E100E0 		.word	-536813312
  170              		.cfi_endproc
  171              	.LFE8:
  172              		.size	ADC_IRQ_Enable, .-ADC_IRQ_Enable
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccPf7ZB.s 			page 1
  182              		.cfi_startproc
  183              		@ args = 0, pretend = 0, frame = 0
  184              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccPf7ZB.s 			page 10
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctCccCP.s 			page 10
 
 
  185              		@ link register save eliminated.
@@ -547,7 +547,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccPf7ZB.s 			page 1
  186              		.loc 1 331 0
  187 0000 044B     		ldr	r3, .L20
  188 0002 1B68     		ldr	r3, [r3]
- 189 0004 13F0005F 		tst	r3, #536870912
+ 189 0004 13F0020F 		tst	r3, #2
  190 0008 01D0     		beq	.L19
  191 000a 0120     		movs	r0, #1
  192 000c 7047     		bx	lr
@@ -597,17 +597,17 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccPf7ZB.s 			page 1
  351:Generated_Source\PSoC5/ADC_IRQ.c ****     /* Disable the general interrupt. */
  352:Generated_Source\PSoC5/ADC_IRQ.c ****     *ADC_IRQ_INTC_CLR_EN = ADC_IRQ__INTC_MASK;
  217              		.loc 1 352 0
- 218 0000 4FF00052 		mov	r2, #536870912
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccPf7ZB.s 			page 11
+ 218 0000 0222     		movs	r2, #2
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctCccCP.s 			page 11
 
 
- 219 0004 014B     		ldr	r3, .L23
- 220 0006 1A60     		str	r2, [r3]
- 221 0008 7047     		bx	lr
+ 219 0002 014B     		ldr	r3, .L23
+ 220 0004 1A60     		str	r2, [r3]
+ 221 0006 7047     		bx	lr
  222              	.L24:
- 223 000a 00BF     		.align	2
+ 223              		.align	2
  224              	.L23:
- 225 000c 80E100E0 		.word	-536813184
+ 225 0008 80E100E0 		.word	-536813184
  226              		.cfi_endproc
  227              	.LFE10:
  228              		.size	ADC_IRQ_Disable, .-ADC_IRQ_Disable
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccPf7ZB.s 			page 1
  268              		.align	2
  269              		.global	ADC_IRQ_StartEx
  270              		.thumb
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccPf7ZB.s 			page 12
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctCccCP.s 			page 12
 
 
  271              		.thumb_func
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccPf7ZB.s 			page 1
  137:Generated_Source\PSoC5/ADC_IRQ.c **** 
  319              		.loc 1 137 0
  320 0002 FFF7FEFF 		bl	ADC_IRQ_Disable
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccPf7ZB.s 			page 13
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctCccCP.s 			page 13
 
 
  321              	.LVL16:
@@ -775,17 +775,17 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccPf7ZB.s 			page 1
  346              		@ link register save eliminated.
  378:Generated_Source\PSoC5/ADC_IRQ.c ****     *ADC_IRQ_INTC_SET_PD = ADC_IRQ__INTC_MASK;
  347              		.loc 1 378 0
- 348 0000 4FF00052 		mov	r2, #536870912
- 349 0004 014B     		ldr	r3, .L36
- 350 0006 1A60     		str	r2, [r3]
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccPf7ZB.s 			page 14
+ 348 0000 0222     		movs	r2, #2
+ 349 0002 014B     		ldr	r3, .L36
+ 350 0004 1A60     		str	r2, [r3]
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctCccCP.s 			page 14
 
 
- 351 0008 7047     		bx	lr
+ 351 0006 7047     		bx	lr
  352              	.L37:
- 353 000a 00BF     		.align	2
+ 353              		.align	2
  354              	.L36:
- 355 000c 00E200E0 		.word	-536813056
+ 355 0008 00E200E0 		.word	-536813056
  356              		.cfi_endproc
  357              	.LFE11:
  358              		.size	ADC_IRQ_SetPending, .-ADC_IRQ_SetPending
@@ -828,17 +828,17 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccPf7ZB.s 			page 1
  371              		@ link register save eliminated.
  403:Generated_Source\PSoC5/ADC_IRQ.c ****     *ADC_IRQ_INTC_CLR_PD = ADC_IRQ__INTC_MASK;
  372              		.loc 1 403 0
- 373 0000 4FF00052 		mov	r2, #536870912
- 374 0004 014B     		ldr	r3, .L39
- 375 0006 1A60     		str	r2, [r3]
- 376 0008 7047     		bx	lr
+ 373 0000 0222     		movs	r2, #2
+ 374 0002 014B     		ldr	r3, .L39
+ 375 0004 1A60     		str	r2, [r3]
+ 376 0006 7047     		bx	lr
  377              	.L40:
- 378 000a 00BF     		.align	2
+ 378              		.align	2
  379              	.L39:
- 380 000c 80E200E0 		.word	-536812928
+ 380 0008 80E200E0 		.word	-536812928
  381              		.cfi_endproc
  382              	.LFE12:
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccPf7ZB.s 			page 15
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctCccCP.s 			page 15
 
 
  383              		.size	ADC_IRQ_ClearPending, .-ADC_IRQ_ClearPending
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccPf7ZB.s 			page 1
  437 0064 03       		.uleb128 0x3
  438 0065 04       		.byte	0x4
  439 0066 07       		.byte	0x7
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccPf7ZB.s 			page 16
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctCccCP.s 			page 16
 
 
  440 0067 23010000 		.4byte	.LASF8
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccPf7ZB.s 			page 1
  494 00db 08       		.uleb128 0x8
  495 00dc 6A000000 		.4byte	.LASF26
  496 00e0 01       		.byte	0x1
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccPf7ZB.s 			page 17
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctCccCP.s 			page 17
 
 
  497 00e1 A0       		.byte	0xa0
@@ -971,7 +971,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccPf7ZB.s 			page 1
  504 00f1 01       		.byte	0x1
  505 00f2 C8       		.byte	0xc8
  506 00f3 00000000 		.4byte	.LFB4
- 507 00f7 10000000 		.4byte	.LFE4-.LFB4
+ 507 00f7 0C000000 		.4byte	.LFE4-.LFB4
  508 00fb 01       		.uleb128 0x1
  509 00fc 9C       		.byte	0x9c
  510 00fd 1C010000 		.4byte	0x11c
@@ -999,7 +999,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccPf7ZB.s 			page 1
  532 0128 E0       		.byte	0xe0
  533 0129 CF000000 		.4byte	0xcf
  534 012d 00000000 		.4byte	.LFB5
- 535 0131 10000000 		.4byte	.LFE5-.LFB5
+ 535 0131 0C000000 		.4byte	.LFE5-.LFB5
  536 0135 01       		.uleb128 0x1
  537 0136 9C       		.byte	0x9c
  538 0137 49010000 		.4byte	0x149
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccPf7ZB.s 			page 1
  551 0151 00000000 		.4byte	.LFB6
  552 0155 10000000 		.4byte	.LFE6-.LFB6
  553 0159 01       		.uleb128 0x1
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccPf7ZB.s 			page 18
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctCccCP.s 			page 18
 
 
  554 015a 9C       		.byte	0x9c
@@ -1052,7 +1052,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccPf7ZB.s 			page 1
  582 01a0 01       		.byte	0x1
  583 01a1 3301     		.2byte	0x133
  584 01a3 00000000 		.4byte	.LFB8
- 585 01a7 10000000 		.4byte	.LFE8-.LFB8
+ 585 01a7 0C000000 		.4byte	.LFE8-.LFB8
  586 01ab 01       		.uleb128 0x1
  587 01ac 9C       		.byte	0x9c
  588 01ad 12       		.uleb128 0x12
@@ -1069,7 +1069,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccPf7ZB.s 			page 1
  599 01c8 01       		.byte	0x1
  600 01c9 5D01     		.2byte	0x15d
  601 01cb 00000000 		.4byte	.LFB10
- 602 01cf 10000000 		.4byte	.LFE10-.LFB10
+ 602 01cf 0C000000 		.4byte	.LFE10-.LFB10
  603 01d3 01       		.uleb128 0x1
  604 01d4 9C       		.byte	0x9c
  605 01d5 09       		.uleb128 0x9
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccPf7ZB.s 			page 1
  608 01db 3D       		.byte	0x3d
  609 01dc 00000000 		.4byte	.LFB0
  610 01e0 1C000000 		.4byte	.LFE0-.LFB0
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccPf7ZB.s 			page 19
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctCccCP.s 			page 19
 
 
  611 01e4 01       		.uleb128 0x1
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccPf7ZB.s 			page 1
  665 0262 01       		.uleb128 0x1
  666 0263 50       		.byte	0x50
  667 0264 02       		.uleb128 0x2
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccPf7ZB.s 			page 20
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctCccCP.s 			page 20
 
 
  668 0265 74       		.byte	0x74
@@ -1179,7 +1179,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccPf7ZB.s 			page 1
  703 02b2 01       		.byte	0x1
  704 02b3 7801     		.2byte	0x178
  705 02b5 00000000 		.4byte	.LFB11
- 706 02b9 10000000 		.4byte	.LFE11-.LFB11
+ 706 02b9 0C000000 		.4byte	.LFE11-.LFB11
  707 02bd 01       		.uleb128 0x1
  708 02be 9C       		.byte	0x9c
  709 02bf 11       		.uleb128 0x11
@@ -1187,7 +1187,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccPf7ZB.s 			page 1
  711 02c4 01       		.byte	0x1
  712 02c5 9101     		.2byte	0x191
  713 02c7 00000000 		.4byte	.LFB12
- 714 02cb 10000000 		.4byte	.LFE12-.LFB12
+ 714 02cb 0C000000 		.4byte	.LFE12-.LFB12
  715 02cf 01       		.uleb128 0x1
  716 02d0 9C       		.byte	0x9c
  717 02d1 00       		.byte	0
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccPf7ZB.s 			page 1
  722 0002 01       		.byte	0x1
  723 0003 25       		.uleb128 0x25
  724 0004 0E       		.uleb128 0xe
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccPf7ZB.s 			page 21
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctCccCP.s 			page 21
 
 
  725 0005 13       		.uleb128 0x13
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccPf7ZB.s 			page 1
  779 003b 00       		.byte	0
  780 003c 03       		.uleb128 0x3
  781 003d 0E       		.uleb128 0xe
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccPf7ZB.s 			page 22
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctCccCP.s 			page 22
 
 
  782 003e 3A       		.uleb128 0x3a
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccPf7ZB.s 			page 1
  836 0075 06       		.uleb128 0x6
  837 0076 40       		.uleb128 0x40
  838 0077 18       		.uleb128 0x18
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccPf7ZB.s 			page 23
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctCccCP.s 			page 23
 
 
  839 0078 9742     		.uleb128 0x2117
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccPf7ZB.s 			page 1
  893 00af 06       		.uleb128 0x6
  894 00b0 40       		.uleb128 0x40
  895 00b1 18       		.uleb128 0x18
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccPf7ZB.s 			page 24
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctCccCP.s 			page 24
 
 
  896 00b2 9742     		.uleb128 0x2117
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccPf7ZB.s 			page 1
  950 00ea 0B       		.uleb128 0xb
  951 00eb 3B       		.uleb128 0x3b
  952 00ec 05       		.uleb128 0x5
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccPf7ZB.s 			page 25
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctCccCP.s 			page 25
 
 
  953 00ed 27       		.uleb128 0x27
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccPf7ZB.s 			page 1
  1007 0125 12       		.uleb128 0x12
  1008 0126 2E       		.uleb128 0x2e
  1009 0127 00       		.byte	0
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccPf7ZB.s 			page 26
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctCccCP.s 			page 26
 
 
  1010 0128 3F       		.uleb128 0x3f
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccPf7ZB.s 			page 1
  1064 0166 03       		.uleb128 0x3
  1065 0167 0E       		.uleb128 0xe
  1066 0168 3A       		.uleb128 0x3a
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccPf7ZB.s 			page 27
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctCccCP.s 			page 27
 
 
  1067 0169 0B       		.uleb128 0xb
@@ -1618,24 +1618,24 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccPf7ZB.s 			page 1
  1121 000c 0000     		.2byte	0
  1122 000e 0000     		.2byte	0
  1123 0010 00000000 		.4byte	.LFB3
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccPf7ZB.s 			page 28
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctCccCP.s 			page 28
 
 
  1124 0014 02000000 		.4byte	.LFE3-.LFB3
  1125 0018 00000000 		.4byte	.LFB4
- 1126 001c 10000000 		.4byte	.LFE4-.LFB4
+ 1126 001c 0C000000 		.4byte	.LFE4-.LFB4
  1127 0020 00000000 		.4byte	.LFB5
- 1128 0024 10000000 		.4byte	.LFE5-.LFB5
+ 1128 0024 0C000000 		.4byte	.LFE5-.LFB5
  1129 0028 00000000 		.4byte	.LFB6
  1130 002c 10000000 		.4byte	.LFE6-.LFB6
  1131 0030 00000000 		.4byte	.LFB7
  1132 0034 0C000000 		.4byte	.LFE7-.LFB7
  1133 0038 00000000 		.4byte	.LFB8
- 1134 003c 10000000 		.4byte	.LFE8-.LFB8
+ 1134 003c 0C000000 		.4byte	.LFE8-.LFB8
  1135 0040 00000000 		.4byte	.LFB9
  1136 0044 18000000 		.4byte	.LFE9-.LFB9
  1137 0048 00000000 		.4byte	.LFB10
- 1138 004c 10000000 		.4byte	.LFE10-.LFB10
+ 1138 004c 0C000000 		.4byte	.LFE10-.LFB10
  1139 0050 00000000 		.4byte	.LFB0
  1140 0054 1C000000 		.4byte	.LFE0-.LFB0
  1141 0058 00000000 		.4byte	.LFB1
@@ -1643,9 +1643,9 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccPf7ZB.s 			page 1
  1143 0060 00000000 		.4byte	.LFB2
  1144 0064 14000000 		.4byte	.LFE2-.LFB2
  1145 0068 00000000 		.4byte	.LFB11
- 1146 006c 10000000 		.4byte	.LFE11-.LFB11
+ 1146 006c 0C000000 		.4byte	.LFE11-.LFB11
  1147 0070 00000000 		.4byte	.LFB12
- 1148 0074 10000000 		.4byte	.LFE12-.LFB12
+ 1148 0074 0C000000 		.4byte	.LFE12-.LFB12
  1149 0078 00000000 		.4byte	0
  1150 007c 00000000 		.4byte	0
  1151              		.section	.debug_ranges,"",%progbits
@@ -1653,19 +1653,19 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccPf7ZB.s 			page 1
  1153 0000 00000000 		.4byte	.LFB3
  1154 0004 02000000 		.4byte	.LFE3
  1155 0008 00000000 		.4byte	.LFB4
- 1156 000c 10000000 		.4byte	.LFE4
+ 1156 000c 0C000000 		.4byte	.LFE4
  1157 0010 00000000 		.4byte	.LFB5
- 1158 0014 10000000 		.4byte	.LFE5
+ 1158 0014 0C000000 		.4byte	.LFE5
  1159 0018 00000000 		.4byte	.LFB6
  1160 001c 10000000 		.4byte	.LFE6
  1161 0020 00000000 		.4byte	.LFB7
  1162 0024 0C000000 		.4byte	.LFE7
  1163 0028 00000000 		.4byte	.LFB8
- 1164 002c 10000000 		.4byte	.LFE8
+ 1164 002c 0C000000 		.4byte	.LFE8
  1165 0030 00000000 		.4byte	.LFB9
  1166 0034 18000000 		.4byte	.LFE9
  1167 0038 00000000 		.4byte	.LFB10
- 1168 003c 10000000 		.4byte	.LFE10
+ 1168 003c 0C000000 		.4byte	.LFE10
  1169 0040 00000000 		.4byte	.LFB0
  1170 0044 1C000000 		.4byte	.LFE0
  1171 0048 00000000 		.4byte	.LFB1
@@ -1673,12 +1673,12 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccPf7ZB.s 			page 1
  1173 0050 00000000 		.4byte	.LFB2
  1174 0054 14000000 		.4byte	.LFE2
  1175 0058 00000000 		.4byte	.LFB11
- 1176 005c 10000000 		.4byte	.LFE11
+ 1176 005c 0C000000 		.4byte	.LFE11
  1177 0060 00000000 		.4byte	.LFB12
- 1178 0064 10000000 		.4byte	.LFE12
+ 1178 0064 0C000000 		.4byte	.LFE12
  1179 0068 00000000 		.4byte	0
  1180 006c 00000000 		.4byte	0
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccPf7ZB.s 			page 29
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctCccCP.s 			page 29
 
 
  1181              		.section	.debug_line,"",%progbits
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccPf7ZB.s 			page 1
  1203 0090 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
  1203      43313120 
  1203      352E342E 
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccPf7ZB.s 			page 30
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctCccCP.s 			page 30
 
 
  1203      31203230 
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccPf7ZB.s 			page 1
  1224              	.LASF13:
  1225 0195 75696E74 		.ascii	"uint32\000"
  1225      333200
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccPf7ZB.s 			page 31
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctCccCP.s 			page 31
 
 
  1226              	.LASF0:
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccPf7ZB.s 			page 1
  1248      7420696E 
  1248      7400
  1249              	.LASF28:
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cccPf7ZB.s 			page 32
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cctCccCP.s 			page 32
 
 
  1250 0269 4144435F 		.ascii	"ADC_IRQ_Disable\000"
