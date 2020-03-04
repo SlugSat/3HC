@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccXykWet.s 			page 1
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccFAa98d.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccXykWet.s 			page 1
   28:Generated_Source\PSoC5/QuadDec.c **** /*******************************************************************************
   29:Generated_Source\PSoC5/QuadDec.c **** * Function Name: QuadDec_Init
   30:Generated_Source\PSoC5/QuadDec.c **** ********************************************************************************
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccXykWet.s 			page 2
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccFAa98d.s 			page 2
 
 
   31:Generated_Source\PSoC5/QuadDec.c **** *
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccXykWet.s 			page 1
   62              		.thumb
   63              		.thumb_func
   64              		.type	QuadDec_Stop, %function
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccXykWet.s 			page 3
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccFAa98d.s 			page 3
 
 
   65              	QuadDec_Stop:
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccXykWet.s 			page 1
  103:Generated_Source\PSoC5/QuadDec.c **** *  None.
  104:Generated_Source\PSoC5/QuadDec.c **** *
  105:Generated_Source\PSoC5/QuadDec.c **** * Return:
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccXykWet.s 			page 4
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccFAa98d.s 			page 4
 
 
  106:Generated_Source\PSoC5/QuadDec.c **** *  None.
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccXykWet.s 			page 1
   68              		.cfi_startproc
   69              		@ args = 0, pretend = 0, frame = 0
   70              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccXykWet.s 			page 5
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccFAa98d.s 			page 5
 
 
   71 0000 08B5     		push	{r3, lr}
@@ -287,7 +287,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccXykWet.s 			page 1
   94              	.L8:
   95              		.align	2
   96              	.L7:
-  97 0020 96640040 		.word	1073767574
+  97 0020 97650040 		.word	1073767831
   98 0024 80E100E0 		.word	-536813184
   99              		.cfi_endproc
  100              	.LFE3:
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccXykWet.s 			page 1
  105              		.thumb
  106              		.thumb_func
  107              		.type	QuadDec_GetCounter, %function
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccXykWet.s 			page 6
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccFAa98d.s 			page 6
 
 
  108              	QuadDec_GetCounter:
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccXykWet.s 			page 1
  127              	.LVL6:
  128 0010 00B2     		sxth	r0, r0
  129              	.LVL7:
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccXykWet.s 			page 7
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccFAa98d.s 			page 7
 
 
  214:Generated_Source\PSoC5/QuadDec.c ****         count = QuadDec_count32SoftPart + hwCount;
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccXykWet.s 			page 1
  240:Generated_Source\PSoC5/QuadDec.c **** * Summary:
  241:Generated_Source\PSoC5/QuadDec.c **** *  Sets the current value of the counter.
  242:Generated_Source\PSoC5/QuadDec.c **** *
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccXykWet.s 			page 8
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccFAa98d.s 			page 8
 
 
  243:Generated_Source\PSoC5/QuadDec.c **** * Parameters:
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccXykWet.s 			page 1
  174              		.loc 1 280 0
  175 000a 4FF40040 		mov	r0, #32768
  176              	.LVL11:
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccXykWet.s 			page 9
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccFAa98d.s 			page 9
 
 
  177 000e FFF7FEFF 		bl	QuadDec_Cnt16_WriteCounter
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccXykWet.s 			page 1
  308:Generated_Source\PSoC5/QuadDec.c **** *
  309:Generated_Source\PSoC5/QuadDec.c **** *******************************************************************************/
  310:Generated_Source\PSoC5/QuadDec.c **** uint8 QuadDec_GetEvents(void) 
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccXykWet.s 			page 10
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccFAa98d.s 			page 10
 
 
  311:Generated_Source\PSoC5/QuadDec.c **** {
@@ -558,7 +558,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccXykWet.s 			page 1
  215              	.L19:
  216 000a 00BF     		.align	2
  217              	.L18:
- 218 000c 66640040 		.word	1073767526
+ 218 000c 67650040 		.word	1073767783
  219              		.cfi_endproc
  220              	.LFE6:
  221              		.size	QuadDec_GetEvents, .-QuadDec_GetEvents
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccXykWet.s 			page 1
  235              	.LVL14:
  334:Generated_Source\PSoC5/QuadDec.c ****     #if (QuadDec_COUNTER_SIZE == QuadDec_COUNTER_SIZE_32_BIT)
  335:Generated_Source\PSoC5/QuadDec.c ****         /* Underflow, Overflow and Reset interrupts for 32-bit Counter are always enable */
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccXykWet.s 			page 11
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccFAa98d.s 			page 11
 
 
  336:Generated_Source\PSoC5/QuadDec.c ****         mask |= (QuadDec_COUNTER_OVERFLOW | QuadDec_COUNTER_UNDERFLOW |
@@ -616,7 +616,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccXykWet.s 			page 1
  243              	.L22:
  244 000a 00BF     		.align	2
  245              	.L21:
- 246 000c 86640040 		.word	1073767558
+ 246 000c 87650040 		.word	1073767815
  247              		.cfi_endproc
  248              	.LFE7:
  249              		.size	QuadDec_SetInterruptMask, .-QuadDec_SetInterruptMask
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccXykWet.s 			page 1
  280 0018 1370     		strb	r3, [r2]
   84:Generated_Source\PSoC5/QuadDec.c **** 
  281              		.loc 1 84 0
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccXykWet.s 			page 12
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccFAa98d.s 			page 12
 
 
  282 001a FFF7FEFF 		bl	CyExitCriticalSection
@@ -672,7 +672,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccXykWet.s 			page 1
  289              	.L26:
  290 0026 00BF     		.align	2
  291              	.L25:
- 292 0028 96640040 		.word	1073767574
+ 292 0028 97650040 		.word	1073767831
  293 002c 00E100E0 		.word	-536813312
  294              		.cfi_endproc
  295              	.LFE1:
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccXykWet.s 			page 1
  329 001a FFF7FEFF 		bl	QuadDec_Init
  330              	.LVL22:
  136:Generated_Source\PSoC5/QuadDec.c ****     }
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccXykWet.s 			page 13
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccFAa98d.s 			page 13
 
 
  331              		.loc 1 136 0
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccXykWet.s 			page 1
  362 0000 024B     		ldr	r3, .L33
  363 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
  363:Generated_Source\PSoC5/QuadDec.c **** }
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccXykWet.s 			page 14
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccFAa98d.s 			page 14
 
 
  364              		.loc 1 363 0
@@ -787,7 +787,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccXykWet.s 			page 1
  367              	.L34:
  368 000a 00BF     		.align	2
  369              	.L33:
- 370 000c 86640040 		.word	1073767558
+ 370 000c 87650040 		.word	1073767815
  371              		.cfi_endproc
  372              	.LFE8:
  373              		.size	QuadDec_GetInterruptMask, .-QuadDec_GetInterruptMask
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccXykWet.s 			page 1
  418 0042 01       		.byte	0x1
  419 0043 06       		.byte	0x6
  420 0044 45030000 		.4byte	.LASF3
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccXykWet.s 			page 15
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccFAa98d.s 			page 15
 
 
  421 0048 03       		.uleb128 0x3
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccXykWet.s 			page 1
  475 00b5 02       		.byte	0x2
  476 00b6 E901     		.2byte	0x1e9
  477 00b8 5D000000 		.4byte	0x5d
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccXykWet.s 			page 16
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccFAa98d.s 			page 16
 
 
  478 00bc 03       		.uleb128 0x3
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccXykWet.s 			page 1
  532 0127 00       		.byte	0
  533 0128 00       		.byte	0
  534 0129 06       		.uleb128 0x6
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccXykWet.s 			page 17
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccFAa98d.s 			page 17
 
 
  535 012a 51030000 		.4byte	.LASF22
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccXykWet.s 			page 1
  589 01b4 35030000 		.4byte	0x335
  590 01b8 00       		.byte	0
  591 01b9 0D       		.uleb128 0xd
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccXykWet.s 			page 18
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccFAa98d.s 			page 18
 
 
  592 01ba 18030000 		.4byte	.LASF27
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccXykWet.s 			page 1
  646 0235 00000000 		.4byte	.LFB1
  647 0239 30000000 		.4byte	.LFE1-.LFB1
  648 023d 01       		.uleb128 0x1
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccXykWet.s 			page 19
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccFAa98d.s 			page 19
 
 
  649 023e 9C       		.byte	0x9c
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccXykWet.s 			page 1
  703 02bd 0B       		.uleb128 0xb
  704 02be 28000000 		.4byte	.LVL23
  705 02c2 2E020000 		.4byte	0x22e
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccXykWet.s 			page 20
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccFAa98d.s 			page 20
 
 
  706 02c6 00       		.byte	0
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccXykWet.s 			page 1
  760 033f 5D       		.byte	0x5d
  761 0340 12       		.uleb128 0x12
  762 0341 5E010000 		.4byte	.LASF43
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccXykWet.s 			page 21
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccFAa98d.s 			page 21
 
 
  763 0345 5E010000 		.4byte	.LASF43
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccXykWet.s 			page 1
  817 002b 00       		.byte	0
  818 002c 03       		.uleb128 0x3
  819 002d 0E       		.uleb128 0xe
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccXykWet.s 			page 22
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccFAa98d.s 			page 22
 
 
  820 002e 3A       		.uleb128 0x3a
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccXykWet.s 			page 1
  874 0069 02       		.uleb128 0x2
  875 006a 18       		.uleb128 0x18
  876 006b 9142     		.uleb128 0x2111
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccXykWet.s 			page 23
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccFAa98d.s 			page 23
 
 
  877 006d 18       		.uleb128 0x18
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccXykWet.s 			page 1
  931 00a7 06       		.uleb128 0x6
  932 00a8 40       		.uleb128 0x40
  933 00a9 18       		.uleb128 0x18
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccXykWet.s 			page 24
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccFAa98d.s 			page 24
 
 
  934 00aa 9742     		.uleb128 0x2117
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccXykWet.s 			page 1
  988 00e2 0B       		.uleb128 0xb
  989 00e3 3B       		.uleb128 0x3b
  990 00e4 05       		.uleb128 0x5
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccXykWet.s 			page 25
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccFAa98d.s 			page 25
 
 
  991 00e5 27       		.uleb128 0x27
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccXykWet.s 			page 1
  1045 011c 19       		.uleb128 0x19
  1046 011d 6E       		.uleb128 0x6e
  1047 011e 0E       		.uleb128 0xe
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccXykWet.s 			page 26
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccFAa98d.s 			page 26
 
 
  1048 011f 03       		.uleb128 0x3
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccXykWet.s 			page 1
  1102 006b 1C000000 		.4byte	.LVL13
  1103 006f 0100     		.2byte	0x1
  1104 0071 55       		.byte	0x55
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccXykWet.s 			page 27
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccFAa98d.s 			page 27
 
 
  1105 0072 1C000000 		.4byte	.LVL13
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccXykWet.s 			page 1
  1159 005c 00000000 		.4byte	0
  1160              		.section	.debug_ranges,"",%progbits
  1161              	.Ldebug_ranges0:
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccXykWet.s 			page 28
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccFAa98d.s 			page 28
 
 
  1162 0000 00000000 		.4byte	.LFB0
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccXykWet.s 			page 1
  1195              	.LASF29:
  1196 00a8 76616C75 		.ascii	"value\000"
  1196      6500
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccXykWet.s 			page 29
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccFAa98d.s 			page 29
 
 
  1197              	.LASF24:
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccXykWet.s 			page 1
  1218      20636861 
  1218      7200
  1219              	.LASF43:
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccXykWet.s 			page 30
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccFAa98d.s 			page 30
 
 
  1220 015e 51756164 		.ascii	"QuadDec_Cnt16_WriteCounter\000"
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccXykWet.s 			page 1
  1242      6F756E74 
  1242      657200
  1243              	.LASF13:
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccXykWet.s 			page 31
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccFAa98d.s 			page 31
 
 
  1244 021e 75696E74 		.ascii	"uint16\000"
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccXykWet.s 			page 1
  1264              	.LASF30:
  1265 02f6 6D61736B 		.ascii	"mask\000"
  1265      00
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccXykWet.s 			page 32
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccFAa98d.s 			page 32
 
 
  1266              	.LASF21:

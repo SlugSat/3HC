@@ -1,0 +1,918 @@
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccxWUijg.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"NMEA0183.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.StringChecksum,"ax",%progbits
+  20              		.align	2
+  21              		.global	StringChecksum
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	StringChecksum, %function
+  25              	StringChecksum:
+  26              	.LFB63:
+  27              		.file 1 "NMEA0183.c"
+   1:NMEA0183.c    **** /* ========================================
+   2:NMEA0183.c    ****  * FILE:   NMEA0183.c
+   3:NMEA0183.c    ****  * AUTHOR: Caleb Cotter
+   4:NMEA0183.c    ****  *
+   5:NMEA0183.c    ****  * CREATED ON FEBRUARY 24, 2020, 1:25 PM
+   6:NMEA0183.c    ****  *
+   7:NMEA0183.c    ****  * ========================================
+   8:NMEA0183.c    ****  *
+   9:NMEA0183.c    ****  * Copyright SLUGSAT, 2020
+  10:NMEA0183.c    ****  * All Rights Reserved
+  11:NMEA0183.c    ****  * UNPUBLISHED, LICENSED SOFTWARE.
+  12:NMEA0183.c    ****  *
+  13:NMEA0183.c    ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+  14:NMEA0183.c    ****  * WHICH IS THE PROPERTY OF SLUGSAT.
+  15:NMEA0183.c    ****  *
+  16:NMEA0183.c    ****  * ========================================
+  17:NMEA0183.c    **** */
+  18:NMEA0183.c    **** 
+  19:NMEA0183.c    **** #include "project.h"
+  20:NMEA0183.c    **** #include "NMEA0183.h"
+  21:NMEA0183.c    **** 
+  22:NMEA0183.c    **** /* Public Functions */
+  23:NMEA0183.c    **** 
+  24:NMEA0183.c    **** void NMEA0183_Init();
+  25:NMEA0183.c    **** 
+  26:NMEA0183.c    **** int NMEA0183_DecodeMsg(char * message);
+  27:NMEA0183.c    **** 
+  28:NMEA0183.c    **** int NMEA0183_EncodeMsg(char * message);
+  29:NMEA0183.c    **** 
+  30:NMEA0183.c    **** 
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccxWUijg.s 			page 2
+
+
+  31:NMEA0183.c    **** /******************************************************************************
+  32:NMEA0183.c    ****  * Private Functions                                                          *  
+  33:NMEA0183.c    ****  ******************************************************************************/
+  34:NMEA0183.c    **** 
+  35:NMEA0183.c    **** uint8_t StringChecksum(char *string) {
+  28              		.loc 1 35 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              	.LVL0:
+  33 0000 10B5     		push	{r4, lr}
+  34              		.cfi_def_cfa_offset 8
+  35              		.cfi_offset 4, -8
+  36              		.cfi_offset 14, -4
+  37 0002 0446     		mov	r4, r0
+  36:NMEA0183.c    **** 
+  37:NMEA0183.c    ****     //Local Variables
+  38:NMEA0183.c    ****     int stringLength = strlen(string);
+  38              		.loc 1 38 0
+  39 0004 FFF7FEFF 		bl	strlen
+  40              	.LVL1:
+  39:NMEA0183.c    ****     int i;
+  40:NMEA0183.c    ****     uint8_t checksum = 0x00;
+  41              		.loc 1 40 0
+  42 0008 0022     		movs	r2, #0
+  41:NMEA0183.c    **** 
+  42:NMEA0183.c    ****     //Calculate One-Byte XOR Checksum
+  43:NMEA0183.c    ****     for (i = 0; i < stringLength; i++) {
+  43              		.loc 1 43 0
+  44 000a 1346     		mov	r3, r2
+  45 000c 02E0     		b	.L2
+  46              	.LVL2:
+  47              	.L3:
+  44:NMEA0183.c    ****         checksum ^= string[i];
+  48              		.loc 1 44 0 discriminator 3
+  49 000e E15C     		ldrb	r1, [r4, r3]	@ zero_extendqisi2
+  50 0010 4A40     		eors	r2, r2, r1
+  51              	.LVL3:
+  43:NMEA0183.c    ****         checksum ^= string[i];
+  52              		.loc 1 43 0 discriminator 3
+  53 0012 0133     		adds	r3, r3, #1
+  54              	.LVL4:
+  55              	.L2:
+  43:NMEA0183.c    ****         checksum ^= string[i];
+  56              		.loc 1 43 0 is_stmt 0 discriminator 1
+  57 0014 8342     		cmp	r3, r0
+  58 0016 FADB     		blt	.L3
+  45:NMEA0183.c    ****     }
+  46:NMEA0183.c    ****     return checksum;
+  47:NMEA0183.c    **** }
+  59              		.loc 1 47 0 is_stmt 1
+  60 0018 1046     		mov	r0, r2
+  61              	.LVL5:
+  62 001a 10BD     		pop	{r4, pc}
+  63              		.cfi_endproc
+  64              	.LFE63:
+  65              		.size	StringChecksum, .-StringChecksum
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccxWUijg.s 			page 3
+
+
+  66              		.section	.text.AsciiToInt,"ax",%progbits
+  67              		.align	2
+  68              		.global	AsciiToInt
+  69              		.thumb
+  70              		.thumb_func
+  71              		.type	AsciiToInt, %function
+  72              	AsciiToInt:
+  73              	.LFB64:
+  48:NMEA0183.c    **** 
+  49:NMEA0183.c    **** uint8_t AsciiToInt(char letter) {
+  74              		.loc 1 49 0
+  75              		.cfi_startproc
+  76              		@ args = 0, pretend = 0, frame = 0
+  77              		@ frame_needed = 0, uses_anonymous_args = 0
+  78              		@ link register save eliminated.
+  79              	.LVL6:
+  50:NMEA0183.c    ****     switch (letter) {
+  80              		.loc 1 50 0
+  81 0000 A0F13003 		sub	r3, r0, #48
+  82 0004 362B     		cmp	r3, #54
+  83 0006 26D8     		bhi	.L11
+  84 0008 DFE803F0 		tbb	[pc, r3]
+  85              	.L8:
+  86 000c 1C       		.byte	(.L7-.L8)/2
+  87 000d 1C       		.byte	(.L7-.L8)/2
+  88 000e 1C       		.byte	(.L7-.L8)/2
+  89 000f 1C       		.byte	(.L7-.L8)/2
+  90 0010 1C       		.byte	(.L7-.L8)/2
+  91 0011 1C       		.byte	(.L7-.L8)/2
+  92 0012 1C       		.byte	(.L7-.L8)/2
+  93 0013 1C       		.byte	(.L7-.L8)/2
+  94 0014 1C       		.byte	(.L7-.L8)/2
+  95 0015 1C       		.byte	(.L7-.L8)/2
+  96 0016 25       		.byte	(.L11-.L8)/2
+  97 0017 25       		.byte	(.L11-.L8)/2
+  98 0018 25       		.byte	(.L11-.L8)/2
+  99 0019 25       		.byte	(.L11-.L8)/2
+ 100 001a 25       		.byte	(.L11-.L8)/2
+ 101 001b 25       		.byte	(.L11-.L8)/2
+ 102 001c 25       		.byte	(.L11-.L8)/2
+ 103 001d 22       		.byte	(.L9-.L8)/2
+ 104 001e 22       		.byte	(.L9-.L8)/2
+ 105 001f 22       		.byte	(.L9-.L8)/2
+ 106 0020 22       		.byte	(.L9-.L8)/2
+ 107 0021 22       		.byte	(.L9-.L8)/2
+ 108 0022 22       		.byte	(.L9-.L8)/2
+ 109 0023 25       		.byte	(.L11-.L8)/2
+ 110 0024 25       		.byte	(.L11-.L8)/2
+ 111 0025 25       		.byte	(.L11-.L8)/2
+ 112 0026 25       		.byte	(.L11-.L8)/2
+ 113 0027 25       		.byte	(.L11-.L8)/2
+ 114 0028 25       		.byte	(.L11-.L8)/2
+ 115 0029 25       		.byte	(.L11-.L8)/2
+ 116 002a 25       		.byte	(.L11-.L8)/2
+ 117 002b 25       		.byte	(.L11-.L8)/2
+ 118 002c 25       		.byte	(.L11-.L8)/2
+ 119 002d 25       		.byte	(.L11-.L8)/2
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccxWUijg.s 			page 4
+
+
+ 120 002e 25       		.byte	(.L11-.L8)/2
+ 121 002f 25       		.byte	(.L11-.L8)/2
+ 122 0030 25       		.byte	(.L11-.L8)/2
+ 123 0031 25       		.byte	(.L11-.L8)/2
+ 124 0032 25       		.byte	(.L11-.L8)/2
+ 125 0033 25       		.byte	(.L11-.L8)/2
+ 126 0034 25       		.byte	(.L11-.L8)/2
+ 127 0035 25       		.byte	(.L11-.L8)/2
+ 128 0036 25       		.byte	(.L11-.L8)/2
+ 129 0037 25       		.byte	(.L11-.L8)/2
+ 130 0038 25       		.byte	(.L11-.L8)/2
+ 131 0039 25       		.byte	(.L11-.L8)/2
+ 132 003a 25       		.byte	(.L11-.L8)/2
+ 133 003b 25       		.byte	(.L11-.L8)/2
+ 134 003c 25       		.byte	(.L11-.L8)/2
+ 135 003d 1F       		.byte	(.L10-.L8)/2
+ 136 003e 1F       		.byte	(.L10-.L8)/2
+ 137 003f 1F       		.byte	(.L10-.L8)/2
+ 138 0040 1F       		.byte	(.L10-.L8)/2
+ 139 0041 1F       		.byte	(.L10-.L8)/2
+ 140 0042 1F       		.byte	(.L10-.L8)/2
+ 141 0043 00       		.p2align 1
+ 142              	.L7:
+  51:NMEA0183.c    ****         case '0'...'9':
+  52:NMEA0183.c    ****             return (letter - 48);
+ 143              		.loc 1 52 0
+ 144 0044 3038     		subs	r0, r0, #48
+ 145              	.LVL7:
+ 146 0046 C0B2     		uxtb	r0, r0
+ 147 0048 7047     		bx	lr
+ 148              	.LVL8:
+ 149              	.L10:
+  53:NMEA0183.c    ****             break;
+  54:NMEA0183.c    ****         case 'a'...'f':
+  55:NMEA0183.c    ****             return (letter - 87);
+ 150              		.loc 1 55 0
+ 151 004a 5738     		subs	r0, r0, #87
+ 152              	.LVL9:
+ 153 004c C0B2     		uxtb	r0, r0
+ 154 004e 7047     		bx	lr
+ 155              	.LVL10:
+ 156              	.L9:
+  56:NMEA0183.c    ****             break;
+  57:NMEA0183.c    ****         case 'A'...'F':
+  58:NMEA0183.c    ****             return (letter - 55);
+ 157              		.loc 1 58 0
+ 158 0050 3738     		subs	r0, r0, #55
+ 159              	.LVL11:
+ 160 0052 C0B2     		uxtb	r0, r0
+ 161 0054 7047     		bx	lr
+ 162              	.LVL12:
+ 163              	.L11:
+  59:NMEA0183.c    ****             break;
+  60:NMEA0183.c    ****     }
+  61:NMEA0183.c    ****     return -1;
+ 164              		.loc 1 61 0
+ 165 0056 FF20     		movs	r0, #255
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccxWUijg.s 			page 5
+
+
+ 166              	.LVL13:
+  62:NMEA0183.c    **** }
+ 167              		.loc 1 62 0
+ 168 0058 7047     		bx	lr
+ 169              		.cfi_endproc
+ 170              	.LFE64:
+ 171              		.size	AsciiToInt, .-AsciiToInt
+ 172 005a 00BF     		.text
+ 173              	.Letext0:
+ 174              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 175              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 176              		.file 4 "Generated_Source\\PSoC5/core_cm3.h"
+ 177              		.file 5 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 178              		.section	.debug_info,"",%progbits
+ 179              	.Ldebug_info0:
+ 180 0000 66010000 		.4byte	0x166
+ 181 0004 0400     		.2byte	0x4
+ 182 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 183 000a 04       		.byte	0x4
+ 184 000b 01       		.uleb128 0x1
+ 185 000c 50000000 		.4byte	.LASF24
+ 186 0010 0C       		.byte	0xc
+ 187 0011 00000000 		.4byte	.LASF25
+ 188 0015 59010000 		.4byte	.LASF26
+ 189 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 190 001d 00000000 		.4byte	0
+ 191 0021 00000000 		.4byte	.Ldebug_line0
+ 192 0025 02       		.uleb128 0x2
+ 193 0026 01       		.byte	0x1
+ 194 0027 06       		.byte	0x6
+ 195 0028 F2010000 		.4byte	.LASF0
+ 196 002c 03       		.uleb128 0x3
+ 197 002d 0B000000 		.4byte	.LASF4
+ 198 0031 02       		.byte	0x2
+ 199 0032 1D       		.byte	0x1d
+ 200 0033 37000000 		.4byte	0x37
+ 201 0037 02       		.uleb128 0x2
+ 202 0038 01       		.byte	0x1
+ 203 0039 08       		.byte	0x8
+ 204 003a 42000000 		.4byte	.LASF1
+ 205 003e 02       		.uleb128 0x2
+ 206 003f 02       		.byte	0x2
+ 207 0040 05       		.byte	0x5
+ 208 0041 CC010000 		.4byte	.LASF2
+ 209 0045 02       		.uleb128 0x2
+ 210 0046 02       		.byte	0x2
+ 211 0047 07       		.byte	0x7
+ 212 0048 F0000000 		.4byte	.LASF3
+ 213 004c 03       		.uleb128 0x3
+ 214 004d 15000000 		.4byte	.LASF5
+ 215 0051 02       		.byte	0x2
+ 216 0052 3F       		.byte	0x3f
+ 217 0053 57000000 		.4byte	0x57
+ 218 0057 02       		.uleb128 0x2
+ 219 0058 04       		.byte	0x4
+ 220 0059 05       		.byte	0x5
+ 221 005a D6010000 		.4byte	.LASF6
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccxWUijg.s 			page 6
+
+
+ 222 005e 02       		.uleb128 0x2
+ 223 005f 04       		.byte	0x4
+ 224 0060 07       		.byte	0x7
+ 225 0061 DE000000 		.4byte	.LASF7
+ 226 0065 02       		.uleb128 0x2
+ 227 0066 08       		.byte	0x8
+ 228 0067 05       		.byte	0x5
+ 229 0068 B9010000 		.4byte	.LASF8
+ 230 006c 02       		.uleb128 0x2
+ 231 006d 08       		.byte	0x8
+ 232 006e 07       		.byte	0x7
+ 233 006f 2B010000 		.4byte	.LASF9
+ 234 0073 04       		.uleb128 0x4
+ 235 0074 04       		.byte	0x4
+ 236 0075 05       		.byte	0x5
+ 237 0076 696E7400 		.ascii	"int\000"
+ 238 007a 02       		.uleb128 0x2
+ 239 007b 04       		.byte	0x4
+ 240 007c 07       		.byte	0x7
+ 241 007d 1F000000 		.4byte	.LASF10
+ 242 0081 03       		.uleb128 0x3
+ 243 0082 42010000 		.4byte	.LASF11
+ 244 0086 03       		.byte	0x3
+ 245 0087 18       		.byte	0x18
+ 246 0088 2C000000 		.4byte	0x2c
+ 247 008c 03       		.uleb128 0x3
+ 248 008d A8010000 		.4byte	.LASF12
+ 249 0091 03       		.byte	0x3
+ 250 0092 2C       		.byte	0x2c
+ 251 0093 4C000000 		.4byte	0x4c
+ 252 0097 02       		.uleb128 0x2
+ 253 0098 04       		.byte	0x4
+ 254 0099 04       		.byte	0x4
+ 255 009a 33000000 		.4byte	.LASF13
+ 256 009e 02       		.uleb128 0x2
+ 257 009f 08       		.byte	0x8
+ 258 00a0 04       		.byte	0x4
+ 259 00a1 1D010000 		.4byte	.LASF14
+ 260 00a5 02       		.uleb128 0x2
+ 261 00a6 01       		.byte	0x1
+ 262 00a7 08       		.byte	0x8
+ 263 00a8 C7010000 		.4byte	.LASF15
+ 264 00ac 02       		.uleb128 0x2
+ 265 00ad 08       		.byte	0x8
+ 266 00ae 04       		.byte	0x4
+ 267 00af DF010000 		.4byte	.LASF16
+ 268 00b3 02       		.uleb128 0x2
+ 269 00b4 04       		.byte	0x4
+ 270 00b5 07       		.byte	0x7
+ 271 00b6 B0010000 		.4byte	.LASF17
+ 272 00ba 05       		.uleb128 0x5
+ 273 00bb 04       		.byte	0x4
+ 274 00bc A5000000 		.4byte	0xa5
+ 275 00c0 06       		.uleb128 0x6
+ 276 00c1 4A010000 		.4byte	.LASF20
+ 277 00c5 01       		.byte	0x1
+ 278 00c6 23       		.byte	0x23
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccxWUijg.s 			page 7
+
+
+ 279 00c7 81000000 		.4byte	0x81
+ 280 00cb 00000000 		.4byte	.LFB63
+ 281 00cf 1C000000 		.4byte	.LFE63-.LFB63
+ 282 00d3 01       		.uleb128 0x1
+ 283 00d4 9C       		.byte	0x9c
+ 284 00d5 24010000 		.4byte	0x124
+ 285 00d9 07       		.uleb128 0x7
+ 286 00da 2C000000 		.4byte	.LASF22
+ 287 00de 01       		.byte	0x1
+ 288 00df 23       		.byte	0x23
+ 289 00e0 BA000000 		.4byte	0xba
+ 290 00e4 00000000 		.4byte	.LLST0
+ 291 00e8 08       		.uleb128 0x8
+ 292 00e9 03010000 		.4byte	.LASF18
+ 293 00ed 01       		.byte	0x1
+ 294 00ee 26       		.byte	0x26
+ 295 00ef 73000000 		.4byte	0x73
+ 296 00f3 1E000000 		.4byte	.LLST1
+ 297 00f7 09       		.uleb128 0x9
+ 298 00f8 6900     		.ascii	"i\000"
+ 299 00fa 01       		.byte	0x1
+ 300 00fb 27       		.byte	0x27
+ 301 00fc 73000000 		.4byte	0x73
+ 302 0100 31000000 		.4byte	.LLST2
+ 303 0104 08       		.uleb128 0x8
+ 304 0105 39000000 		.4byte	.LASF19
+ 305 0109 01       		.byte	0x1
+ 306 010a 28       		.byte	0x28
+ 307 010b 81000000 		.4byte	0x81
+ 308 010f 50000000 		.4byte	.LLST3
+ 309 0113 0A       		.uleb128 0xa
+ 310 0114 08000000 		.4byte	.LVL1
+ 311 0118 5E010000 		.4byte	0x15e
+ 312 011c 0B       		.uleb128 0xb
+ 313 011d 01       		.uleb128 0x1
+ 314 011e 50       		.byte	0x50
+ 315 011f 02       		.uleb128 0x2
+ 316 0120 74       		.byte	0x74
+ 317 0121 00       		.sleb128 0
+ 318 0122 00       		.byte	0
+ 319 0123 00       		.byte	0
+ 320 0124 06       		.uleb128 0x6
+ 321 0125 FE010000 		.4byte	.LASF21
+ 322 0129 01       		.byte	0x1
+ 323 012a 31       		.byte	0x31
+ 324 012b 81000000 		.4byte	0x81
+ 325 012f 00000000 		.4byte	.LFB64
+ 326 0133 5A000000 		.4byte	.LFE64-.LFB64
+ 327 0137 01       		.uleb128 0x1
+ 328 0138 9C       		.byte	0x9c
+ 329 0139 4D010000 		.4byte	0x14d
+ 330 013d 07       		.uleb128 0x7
+ 331 013e EB010000 		.4byte	.LASF23
+ 332 0142 01       		.byte	0x1
+ 333 0143 31       		.byte	0x31
+ 334 0144 A5000000 		.4byte	0xa5
+ 335 0148 6F000000 		.4byte	.LLST4
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccxWUijg.s 			page 8
+
+
+ 336 014c 00       		.byte	0
+ 337 014d 0C       		.uleb128 0xc
+ 338 014e 10010000 		.4byte	.LASF27
+ 339 0152 04       		.byte	0x4
+ 340 0153 1207     		.2byte	0x712
+ 341 0155 59010000 		.4byte	0x159
+ 342 0159 0D       		.uleb128 0xd
+ 343 015a 8C000000 		.4byte	0x8c
+ 344 015e 0E       		.uleb128 0xe
+ 345 015f 24010000 		.4byte	.LASF28
+ 346 0163 24010000 		.4byte	.LASF28
+ 347 0167 05       		.byte	0x5
+ 348 0168 21       		.byte	0x21
+ 349 0169 00       		.byte	0
+ 350              		.section	.debug_abbrev,"",%progbits
+ 351              	.Ldebug_abbrev0:
+ 352 0000 01       		.uleb128 0x1
+ 353 0001 11       		.uleb128 0x11
+ 354 0002 01       		.byte	0x1
+ 355 0003 25       		.uleb128 0x25
+ 356 0004 0E       		.uleb128 0xe
+ 357 0005 13       		.uleb128 0x13
+ 358 0006 0B       		.uleb128 0xb
+ 359 0007 03       		.uleb128 0x3
+ 360 0008 0E       		.uleb128 0xe
+ 361 0009 1B       		.uleb128 0x1b
+ 362 000a 0E       		.uleb128 0xe
+ 363 000b 55       		.uleb128 0x55
+ 364 000c 17       		.uleb128 0x17
+ 365 000d 11       		.uleb128 0x11
+ 366 000e 01       		.uleb128 0x1
+ 367 000f 10       		.uleb128 0x10
+ 368 0010 17       		.uleb128 0x17
+ 369 0011 00       		.byte	0
+ 370 0012 00       		.byte	0
+ 371 0013 02       		.uleb128 0x2
+ 372 0014 24       		.uleb128 0x24
+ 373 0015 00       		.byte	0
+ 374 0016 0B       		.uleb128 0xb
+ 375 0017 0B       		.uleb128 0xb
+ 376 0018 3E       		.uleb128 0x3e
+ 377 0019 0B       		.uleb128 0xb
+ 378 001a 03       		.uleb128 0x3
+ 379 001b 0E       		.uleb128 0xe
+ 380 001c 00       		.byte	0
+ 381 001d 00       		.byte	0
+ 382 001e 03       		.uleb128 0x3
+ 383 001f 16       		.uleb128 0x16
+ 384 0020 00       		.byte	0
+ 385 0021 03       		.uleb128 0x3
+ 386 0022 0E       		.uleb128 0xe
+ 387 0023 3A       		.uleb128 0x3a
+ 388 0024 0B       		.uleb128 0xb
+ 389 0025 3B       		.uleb128 0x3b
+ 390 0026 0B       		.uleb128 0xb
+ 391 0027 49       		.uleb128 0x49
+ 392 0028 13       		.uleb128 0x13
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccxWUijg.s 			page 9
+
+
+ 393 0029 00       		.byte	0
+ 394 002a 00       		.byte	0
+ 395 002b 04       		.uleb128 0x4
+ 396 002c 24       		.uleb128 0x24
+ 397 002d 00       		.byte	0
+ 398 002e 0B       		.uleb128 0xb
+ 399 002f 0B       		.uleb128 0xb
+ 400 0030 3E       		.uleb128 0x3e
+ 401 0031 0B       		.uleb128 0xb
+ 402 0032 03       		.uleb128 0x3
+ 403 0033 08       		.uleb128 0x8
+ 404 0034 00       		.byte	0
+ 405 0035 00       		.byte	0
+ 406 0036 05       		.uleb128 0x5
+ 407 0037 0F       		.uleb128 0xf
+ 408 0038 00       		.byte	0
+ 409 0039 0B       		.uleb128 0xb
+ 410 003a 0B       		.uleb128 0xb
+ 411 003b 49       		.uleb128 0x49
+ 412 003c 13       		.uleb128 0x13
+ 413 003d 00       		.byte	0
+ 414 003e 00       		.byte	0
+ 415 003f 06       		.uleb128 0x6
+ 416 0040 2E       		.uleb128 0x2e
+ 417 0041 01       		.byte	0x1
+ 418 0042 3F       		.uleb128 0x3f
+ 419 0043 19       		.uleb128 0x19
+ 420 0044 03       		.uleb128 0x3
+ 421 0045 0E       		.uleb128 0xe
+ 422 0046 3A       		.uleb128 0x3a
+ 423 0047 0B       		.uleb128 0xb
+ 424 0048 3B       		.uleb128 0x3b
+ 425 0049 0B       		.uleb128 0xb
+ 426 004a 27       		.uleb128 0x27
+ 427 004b 19       		.uleb128 0x19
+ 428 004c 49       		.uleb128 0x49
+ 429 004d 13       		.uleb128 0x13
+ 430 004e 11       		.uleb128 0x11
+ 431 004f 01       		.uleb128 0x1
+ 432 0050 12       		.uleb128 0x12
+ 433 0051 06       		.uleb128 0x6
+ 434 0052 40       		.uleb128 0x40
+ 435 0053 18       		.uleb128 0x18
+ 436 0054 9742     		.uleb128 0x2117
+ 437 0056 19       		.uleb128 0x19
+ 438 0057 01       		.uleb128 0x1
+ 439 0058 13       		.uleb128 0x13
+ 440 0059 00       		.byte	0
+ 441 005a 00       		.byte	0
+ 442 005b 07       		.uleb128 0x7
+ 443 005c 05       		.uleb128 0x5
+ 444 005d 00       		.byte	0
+ 445 005e 03       		.uleb128 0x3
+ 446 005f 0E       		.uleb128 0xe
+ 447 0060 3A       		.uleb128 0x3a
+ 448 0061 0B       		.uleb128 0xb
+ 449 0062 3B       		.uleb128 0x3b
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccxWUijg.s 			page 10
+
+
+ 450 0063 0B       		.uleb128 0xb
+ 451 0064 49       		.uleb128 0x49
+ 452 0065 13       		.uleb128 0x13
+ 453 0066 02       		.uleb128 0x2
+ 454 0067 17       		.uleb128 0x17
+ 455 0068 00       		.byte	0
+ 456 0069 00       		.byte	0
+ 457 006a 08       		.uleb128 0x8
+ 458 006b 34       		.uleb128 0x34
+ 459 006c 00       		.byte	0
+ 460 006d 03       		.uleb128 0x3
+ 461 006e 0E       		.uleb128 0xe
+ 462 006f 3A       		.uleb128 0x3a
+ 463 0070 0B       		.uleb128 0xb
+ 464 0071 3B       		.uleb128 0x3b
+ 465 0072 0B       		.uleb128 0xb
+ 466 0073 49       		.uleb128 0x49
+ 467 0074 13       		.uleb128 0x13
+ 468 0075 02       		.uleb128 0x2
+ 469 0076 17       		.uleb128 0x17
+ 470 0077 00       		.byte	0
+ 471 0078 00       		.byte	0
+ 472 0079 09       		.uleb128 0x9
+ 473 007a 34       		.uleb128 0x34
+ 474 007b 00       		.byte	0
+ 475 007c 03       		.uleb128 0x3
+ 476 007d 08       		.uleb128 0x8
+ 477 007e 3A       		.uleb128 0x3a
+ 478 007f 0B       		.uleb128 0xb
+ 479 0080 3B       		.uleb128 0x3b
+ 480 0081 0B       		.uleb128 0xb
+ 481 0082 49       		.uleb128 0x49
+ 482 0083 13       		.uleb128 0x13
+ 483 0084 02       		.uleb128 0x2
+ 484 0085 17       		.uleb128 0x17
+ 485 0086 00       		.byte	0
+ 486 0087 00       		.byte	0
+ 487 0088 0A       		.uleb128 0xa
+ 488 0089 898201   		.uleb128 0x4109
+ 489 008c 01       		.byte	0x1
+ 490 008d 11       		.uleb128 0x11
+ 491 008e 01       		.uleb128 0x1
+ 492 008f 31       		.uleb128 0x31
+ 493 0090 13       		.uleb128 0x13
+ 494 0091 00       		.byte	0
+ 495 0092 00       		.byte	0
+ 496 0093 0B       		.uleb128 0xb
+ 497 0094 8A8201   		.uleb128 0x410a
+ 498 0097 00       		.byte	0
+ 499 0098 02       		.uleb128 0x2
+ 500 0099 18       		.uleb128 0x18
+ 501 009a 9142     		.uleb128 0x2111
+ 502 009c 18       		.uleb128 0x18
+ 503 009d 00       		.byte	0
+ 504 009e 00       		.byte	0
+ 505 009f 0C       		.uleb128 0xc
+ 506 00a0 34       		.uleb128 0x34
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccxWUijg.s 			page 11
+
+
+ 507 00a1 00       		.byte	0
+ 508 00a2 03       		.uleb128 0x3
+ 509 00a3 0E       		.uleb128 0xe
+ 510 00a4 3A       		.uleb128 0x3a
+ 511 00a5 0B       		.uleb128 0xb
+ 512 00a6 3B       		.uleb128 0x3b
+ 513 00a7 05       		.uleb128 0x5
+ 514 00a8 49       		.uleb128 0x49
+ 515 00a9 13       		.uleb128 0x13
+ 516 00aa 3F       		.uleb128 0x3f
+ 517 00ab 19       		.uleb128 0x19
+ 518 00ac 3C       		.uleb128 0x3c
+ 519 00ad 19       		.uleb128 0x19
+ 520 00ae 00       		.byte	0
+ 521 00af 00       		.byte	0
+ 522 00b0 0D       		.uleb128 0xd
+ 523 00b1 35       		.uleb128 0x35
+ 524 00b2 00       		.byte	0
+ 525 00b3 49       		.uleb128 0x49
+ 526 00b4 13       		.uleb128 0x13
+ 527 00b5 00       		.byte	0
+ 528 00b6 00       		.byte	0
+ 529 00b7 0E       		.uleb128 0xe
+ 530 00b8 2E       		.uleb128 0x2e
+ 531 00b9 00       		.byte	0
+ 532 00ba 3F       		.uleb128 0x3f
+ 533 00bb 19       		.uleb128 0x19
+ 534 00bc 3C       		.uleb128 0x3c
+ 535 00bd 19       		.uleb128 0x19
+ 536 00be 6E       		.uleb128 0x6e
+ 537 00bf 0E       		.uleb128 0xe
+ 538 00c0 03       		.uleb128 0x3
+ 539 00c1 0E       		.uleb128 0xe
+ 540 00c2 3A       		.uleb128 0x3a
+ 541 00c3 0B       		.uleb128 0xb
+ 542 00c4 3B       		.uleb128 0x3b
+ 543 00c5 0B       		.uleb128 0xb
+ 544 00c6 00       		.byte	0
+ 545 00c7 00       		.byte	0
+ 546 00c8 00       		.byte	0
+ 547              		.section	.debug_loc,"",%progbits
+ 548              	.Ldebug_loc0:
+ 549              	.LLST0:
+ 550 0000 00000000 		.4byte	.LVL0
+ 551 0004 07000000 		.4byte	.LVL1-1
+ 552 0008 0100     		.2byte	0x1
+ 553 000a 50       		.byte	0x50
+ 554 000b 07000000 		.4byte	.LVL1-1
+ 555 000f 1C000000 		.4byte	.LFE63
+ 556 0013 0100     		.2byte	0x1
+ 557 0015 54       		.byte	0x54
+ 558 0016 00000000 		.4byte	0
+ 559 001a 00000000 		.4byte	0
+ 560              	.LLST1:
+ 561 001e 08000000 		.4byte	.LVL1
+ 562 0022 1A000000 		.4byte	.LVL5
+ 563 0026 0100     		.2byte	0x1
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccxWUijg.s 			page 12
+
+
+ 564 0028 50       		.byte	0x50
+ 565 0029 00000000 		.4byte	0
+ 566 002d 00000000 		.4byte	0
+ 567              	.LLST2:
+ 568 0031 08000000 		.4byte	.LVL1
+ 569 0035 0E000000 		.4byte	.LVL2
+ 570 0039 0200     		.2byte	0x2
+ 571 003b 30       		.byte	0x30
+ 572 003c 9F       		.byte	0x9f
+ 573 003d 0E000000 		.4byte	.LVL2
+ 574 0041 1C000000 		.4byte	.LFE63
+ 575 0045 0100     		.2byte	0x1
+ 576 0047 53       		.byte	0x53
+ 577 0048 00000000 		.4byte	0
+ 578 004c 00000000 		.4byte	0
+ 579              	.LLST3:
+ 580 0050 08000000 		.4byte	.LVL1
+ 581 0054 0E000000 		.4byte	.LVL2
+ 582 0058 0200     		.2byte	0x2
+ 583 005a 30       		.byte	0x30
+ 584 005b 9F       		.byte	0x9f
+ 585 005c 0E000000 		.4byte	.LVL2
+ 586 0060 1C000000 		.4byte	.LFE63
+ 587 0064 0100     		.2byte	0x1
+ 588 0066 52       		.byte	0x52
+ 589 0067 00000000 		.4byte	0
+ 590 006b 00000000 		.4byte	0
+ 591              	.LLST4:
+ 592 006f 00000000 		.4byte	.LVL6
+ 593 0073 46000000 		.4byte	.LVL7
+ 594 0077 0100     		.2byte	0x1
+ 595 0079 50       		.byte	0x50
+ 596 007a 46000000 		.4byte	.LVL7
+ 597 007e 4A000000 		.4byte	.LVL8
+ 598 0082 0400     		.2byte	0x4
+ 599 0084 F3       		.byte	0xf3
+ 600 0085 01       		.uleb128 0x1
+ 601 0086 50       		.byte	0x50
+ 602 0087 9F       		.byte	0x9f
+ 603 0088 4A000000 		.4byte	.LVL8
+ 604 008c 4C000000 		.4byte	.LVL9
+ 605 0090 0100     		.2byte	0x1
+ 606 0092 50       		.byte	0x50
+ 607 0093 4C000000 		.4byte	.LVL9
+ 608 0097 50000000 		.4byte	.LVL10
+ 609 009b 0400     		.2byte	0x4
+ 610 009d F3       		.byte	0xf3
+ 611 009e 01       		.uleb128 0x1
+ 612 009f 50       		.byte	0x50
+ 613 00a0 9F       		.byte	0x9f
+ 614 00a1 50000000 		.4byte	.LVL10
+ 615 00a5 52000000 		.4byte	.LVL11
+ 616 00a9 0100     		.2byte	0x1
+ 617 00ab 50       		.byte	0x50
+ 618 00ac 52000000 		.4byte	.LVL11
+ 619 00b0 56000000 		.4byte	.LVL12
+ 620 00b4 0400     		.2byte	0x4
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccxWUijg.s 			page 13
+
+
+ 621 00b6 F3       		.byte	0xf3
+ 622 00b7 01       		.uleb128 0x1
+ 623 00b8 50       		.byte	0x50
+ 624 00b9 9F       		.byte	0x9f
+ 625 00ba 56000000 		.4byte	.LVL12
+ 626 00be 58000000 		.4byte	.LVL13
+ 627 00c2 0100     		.2byte	0x1
+ 628 00c4 50       		.byte	0x50
+ 629 00c5 58000000 		.4byte	.LVL13
+ 630 00c9 5A000000 		.4byte	.LFE64
+ 631 00cd 0400     		.2byte	0x4
+ 632 00cf F3       		.byte	0xf3
+ 633 00d0 01       		.uleb128 0x1
+ 634 00d1 50       		.byte	0x50
+ 635 00d2 9F       		.byte	0x9f
+ 636 00d3 00000000 		.4byte	0
+ 637 00d7 00000000 		.4byte	0
+ 638              		.section	.debug_aranges,"",%progbits
+ 639 0000 24000000 		.4byte	0x24
+ 640 0004 0200     		.2byte	0x2
+ 641 0006 00000000 		.4byte	.Ldebug_info0
+ 642 000a 04       		.byte	0x4
+ 643 000b 00       		.byte	0
+ 644 000c 0000     		.2byte	0
+ 645 000e 0000     		.2byte	0
+ 646 0010 00000000 		.4byte	.LFB63
+ 647 0014 1C000000 		.4byte	.LFE63-.LFB63
+ 648 0018 00000000 		.4byte	.LFB64
+ 649 001c 5A000000 		.4byte	.LFE64-.LFB64
+ 650 0020 00000000 		.4byte	0
+ 651 0024 00000000 		.4byte	0
+ 652              		.section	.debug_ranges,"",%progbits
+ 653              	.Ldebug_ranges0:
+ 654 0000 00000000 		.4byte	.LFB63
+ 655 0004 1C000000 		.4byte	.LFE63
+ 656 0008 00000000 		.4byte	.LFB64
+ 657 000c 5A000000 		.4byte	.LFE64
+ 658 0010 00000000 		.4byte	0
+ 659 0014 00000000 		.4byte	0
+ 660              		.section	.debug_line,"",%progbits
+ 661              	.Ldebug_line0:
+ 662 0000 F8010000 		.section	.debug_str,"MS",%progbits,1
+ 662      0200B701 
+ 662      00000201 
+ 662      FB0E0D00 
+ 662      01010101 
+ 663              	.LASF25:
+ 664 0000 4E4D4541 		.ascii	"NMEA0183.c\000"
+ 664      30313833 
+ 664      2E6300
+ 665              	.LASF4:
+ 666 000b 5F5F7569 		.ascii	"__uint8_t\000"
+ 666      6E74385F 
+ 666      7400
+ 667              	.LASF5:
+ 668 0015 5F5F696E 		.ascii	"__int32_t\000"
+ 668      7433325F 
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccxWUijg.s 			page 14
+
+
+ 668      7400
+ 669              	.LASF10:
+ 670 001f 756E7369 		.ascii	"unsigned int\000"
+ 670      676E6564 
+ 670      20696E74 
+ 670      00
+ 671              	.LASF22:
+ 672 002c 73747269 		.ascii	"string\000"
+ 672      6E6700
+ 673              	.LASF13:
+ 674 0033 666C6F61 		.ascii	"float\000"
+ 674      7400
+ 675              	.LASF19:
+ 676 0039 63686563 		.ascii	"checksum\000"
+ 676      6B73756D 
+ 676      00
+ 677              	.LASF1:
+ 678 0042 756E7369 		.ascii	"unsigned char\000"
+ 678      676E6564 
+ 678      20636861 
+ 678      7200
+ 679              	.LASF24:
+ 680 0050 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 680      43313120 
+ 680      352E342E 
+ 680      31203230 
+ 680      31363036 
+ 681 0083 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 681      20726576 
+ 681      6973696F 
+ 681      6E203233 
+ 681      37373135 
+ 682 00b6 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 682      66756E63 
+ 682      74696F6E 
+ 682      2D736563 
+ 682      74696F6E 
+ 683              	.LASF7:
+ 684 00de 6C6F6E67 		.ascii	"long unsigned int\000"
+ 684      20756E73 
+ 684      69676E65 
+ 684      6420696E 
+ 684      7400
+ 685              	.LASF3:
+ 686 00f0 73686F72 		.ascii	"short unsigned int\000"
+ 686      7420756E 
+ 686      7369676E 
+ 686      65642069 
+ 686      6E7400
+ 687              	.LASF18:
+ 688 0103 73747269 		.ascii	"stringLength\000"
+ 688      6E674C65 
+ 688      6E677468 
+ 688      00
+ 689              	.LASF27:
+ 690 0110 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 690      52784275 
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccxWUijg.s 			page 15
+
+
+ 690      66666572 
+ 690      00
+ 691              	.LASF14:
+ 692 011d 646F7562 		.ascii	"double\000"
+ 692      6C6500
+ 693              	.LASF28:
+ 694 0124 7374726C 		.ascii	"strlen\000"
+ 694      656E00
+ 695              	.LASF9:
+ 696 012b 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 696      206C6F6E 
+ 696      6720756E 
+ 696      7369676E 
+ 696      65642069 
+ 697              	.LASF11:
+ 698 0142 75696E74 		.ascii	"uint8_t\000"
+ 698      385F7400 
+ 699              	.LASF20:
+ 700 014a 53747269 		.ascii	"StringChecksum\000"
+ 700      6E674368 
+ 700      65636B73 
+ 700      756D00
+ 701              	.LASF26:
+ 702 0159 433A5C55 		.ascii	"C:\\Users\\Caleb Cotter\\Documents\\GitHub\\3HC\\3H"
+ 702      73657273 
+ 702      5C43616C 
+ 702      65622043 
+ 702      6F747465 
+ 703 0186 435F4669 		.ascii	"C_Firmware\\3HC_Firmware_0_1.cydsn\000"
+ 703      726D7761 
+ 703      72655C33 
+ 703      48435F46 
+ 703      69726D77 
+ 704              	.LASF12:
+ 705 01a8 696E7433 		.ascii	"int32_t\000"
+ 705      325F7400 
+ 706              	.LASF17:
+ 707 01b0 73697A65 		.ascii	"sizetype\000"
+ 707      74797065 
+ 707      00
+ 708              	.LASF8:
+ 709 01b9 6C6F6E67 		.ascii	"long long int\000"
+ 709      206C6F6E 
+ 709      6720696E 
+ 709      7400
+ 710              	.LASF15:
+ 711 01c7 63686172 		.ascii	"char\000"
+ 711      00
+ 712              	.LASF2:
+ 713 01cc 73686F72 		.ascii	"short int\000"
+ 713      7420696E 
+ 713      7400
+ 714              	.LASF6:
+ 715 01d6 6C6F6E67 		.ascii	"long int\000"
+ 715      20696E74 
+ 715      00
+ 716              	.LASF16:
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccxWUijg.s 			page 16
+
+
+ 717 01df 6C6F6E67 		.ascii	"long double\000"
+ 717      20646F75 
+ 717      626C6500 
+ 718              	.LASF23:
+ 719 01eb 6C657474 		.ascii	"letter\000"
+ 719      657200
+ 720              	.LASF0:
+ 721 01f2 7369676E 		.ascii	"signed char\000"
+ 721      65642063 
+ 721      68617200 
+ 722              	.LASF21:
+ 723 01fe 41736369 		.ascii	"AsciiToInt\000"
+ 723      69546F49 
+ 723      6E7400
+ 724              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

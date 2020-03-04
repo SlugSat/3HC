@@ -45,9 +45,9 @@
   <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\X_PWM.c" value="SOURCE_C;CortexM3;;;;X_PWM" />
   <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\X_PWM.h" value="HEADER;;;;;X_PWM" />
   <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\X_PWM_PM.c" value="SOURCE_C;CortexM3;;;;X_PWM" />
-  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\Encoder_Button_aliases.h" value="HEADER;;;;;Encoder_Button" />
-  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\Encoder_Button.c" value="SOURCE_C;CortexM3;;;;Encoder_Button" />
-  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\Encoder_Button.h" value="HEADER;;;;;Encoder_Button" />
+  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\ENC_BTN_aliases.h" value="HEADER;;;;;ENC_BTN" />
+  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\ENC_BTN.c" value="SOURCE_C;CortexM3;;;;ENC_BTN" />
+  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\ENC_BTN.h" value="HEADER;;;;;ENC_BTN" />
   <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\I2C_Module.c" value="SOURCE_C;CortexM3;;;;I2C_Module" />
   <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\I2C_Module.h" value="HEADER;;;;;I2C_Module" />
   <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\I2C_Module_BOOT.c" value="SOURCE_C;CortexM3;;;;I2C_Module" />
@@ -82,8 +82,8 @@
   <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\USBFS_cydmac.h" value="HEADER;;;;;USBFS" />
   <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\USBFS_msc.c" value="SOURCE_C;CortexM3;;;;USBFS" />
   <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\USBFS_msc.h" value="HEADER;;;;;USBFS" />
-  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\ADC_CurrentReadingReady.c" value="SOURCE_C;CortexM3;;;;ADC_CurrentReadingReady" />
-  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\ADC_CurrentReadingReady.h" value="HEADER;;;;;ADC_CurrentReadingReady" />
+  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\ADC_SAMPLECURRSENSOR.c" value="SOURCE_C;CortexM3;;;;ADC_SAMPLECURRSENSOR" />
+  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\ADC_SAMPLECURRSENSOR.h" value="HEADER;;;;;ADC_SAMPLECURRSENSOR" />
   <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\Output_Enable.h" value="HEADER;;;;;Output_Enable" />
   <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\Output_Enable.c" value="SOURCE_C;CortexM3;;;;Output_Enable" />
   <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\Output_Enable_PM.c" value="SOURCE_C;CortexM3;;;;Output_Enable" />
@@ -105,9 +105,9 @@
   <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\X_DIR_OUT_aliases.h" value="HEADER;;;;;X_DIR_OUT" />
   <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\X_DIR_OUT.c" value="SOURCE_C;CortexM3;;;;X_DIR_OUT" />
   <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\X_DIR_OUT.h" value="HEADER;;;;;X_DIR_OUT" />
-  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\XYZ_Direction_Select.h" value="HEADER;;;;;XYZ_Direction_Select" />
-  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\XYZ_Direction_Select.c" value="SOURCE_C;CortexM3;;;;XYZ_Direction_Select" />
-  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\XYZ_Direction_Select_PM.c" value="SOURCE_C;CortexM3;;;;XYZ_Direction_Select" />
+  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\XYZ_Direction.h" value="HEADER;;;;;XYZ_Direction" />
+  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\XYZ_Direction.c" value="SOURCE_C;CortexM3;;;;XYZ_Direction" />
+  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\XYZ_Direction_PM.c" value="SOURCE_C;CortexM3;;;;XYZ_Direction" />
   <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\Y_DIR_OUT_aliases.h" value="HEADER;;;;;Y_DIR_OUT" />
   <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\Y_DIR_OUT.c" value="SOURCE_C;CortexM3;;;;Y_DIR_OUT" />
   <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\Y_DIR_OUT.h" value="HEADER;;;;;Y_DIR_OUT" />
@@ -118,9 +118,41 @@
   <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\ADC.h" value="HEADER;;;;;ADC" />
   <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\ADC_PM.c" value="SOURCE_C;CortexM3;;;;ADC" />
   <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\ADC_INT.c" value="SOURCE_C;CortexM3;;;;ADC" />
-  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\X_CURR_aliases.h" value="HEADER;;;;;X_CURR" />
-  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\X_CURR.c" value="SOURCE_C;CortexM3;;;;X_CURR" />
-  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\X_CURR.h" value="HEADER;;;;;X_CURR" />
+  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\AMux.c" value="SOURCE_C;CortexM3;;;;AMux" />
+  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\AMux.h" value="HEADER;;;;;AMux" />
+  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\X_CURR_SENSE_aliases.h" value="HEADER;;;;;X_CURR_SENSE" />
+  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\X_CURR_SENSE.c" value="SOURCE_C;CortexM3;;;;X_CURR_SENSE" />
+  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\X_CURR_SENSE.h" value="HEADER;;;;;X_CURR_SENSE" />
+  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\Y_CURR_SENSE_aliases.h" value="HEADER;;;;;Y_CURR_SENSE" />
+  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\Y_CURR_SENSE.c" value="SOURCE_C;CortexM3;;;;Y_CURR_SENSE" />
+  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\Y_CURR_SENSE.h" value="HEADER;;;;;Y_CURR_SENSE" />
+  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\Z_CURR_SENSE_aliases.h" value="HEADER;;;;;Z_CURR_SENSE" />
+  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\Z_CURR_SENSE.c" value="SOURCE_C;CortexM3;;;;Z_CURR_SENSE" />
+  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\Z_CURR_SENSE.h" value="HEADER;;;;;Z_CURR_SENSE" />
+  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\LCD_R_aliases.h" value="HEADER;;;;;LCD_R" />
+  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\LCD_R.c" value="SOURCE_C;CortexM3;;;;LCD_R" />
+  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\LCD_R.h" value="HEADER;;;;;LCD_R" />
+  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\LCD_Backlight.h" value="HEADER;;;;;LCD_Backlight" />
+  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\LCD_Backlight.c" value="SOURCE_C;CortexM3;;;;LCD_Backlight" />
+  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\LCD_Backlight_PM.c" value="SOURCE_C;CortexM3;;;;LCD_Backlight" />
+  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\LCD_G_aliases.h" value="HEADER;;;;;LCD_G" />
+  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\LCD_G.c" value="SOURCE_C;CortexM3;;;;LCD_G" />
+  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\LCD_G.h" value="HEADER;;;;;LCD_G" />
+  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\LCD_B_aliases.h" value="HEADER;;;;;LCD_B" />
+  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\LCD_B.c" value="SOURCE_C;CortexM3;;;;LCD_B" />
+  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\LCD_B.h" value="HEADER;;;;;LCD_B" />
+  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\ENC_R_aliases.h" value="HEADER;;;;;ENC_R" />
+  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\ENC_R.c" value="SOURCE_C;CortexM3;;;;ENC_R" />
+  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\ENC_R.h" value="HEADER;;;;;ENC_R" />
+  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\ENC_Backlight.h" value="HEADER;;;;;ENC_Backlight" />
+  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\ENC_Backlight.c" value="SOURCE_C;CortexM3;;;;ENC_Backlight" />
+  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\ENC_Backlight_PM.c" value="SOURCE_C;CortexM3;;;;ENC_Backlight" />
+  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\ENC_G_aliases.h" value="HEADER;;;;;ENC_G" />
+  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\ENC_G.c" value="SOURCE_C;CortexM3;;;;ENC_G" />
+  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\ENC_G.h" value="HEADER;;;;;ENC_G" />
+  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\ENC_B_aliases.h" value="HEADER;;;;;ENC_B" />
+  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\ENC_B.c" value="SOURCE_C;CortexM3;;;;ENC_B" />
+  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\ENC_B.h" value="HEADER;;;;;ENC_B" />
   <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\LCD_LCDPort_aliases.h" value="HEADER;;;;;LCD_LCDPort" />
   <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\LCD_LCDPort.c" value="SOURCE_C;CortexM3;;;;LCD_LCDPort" />
   <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\LCD_LCDPort.h" value="HEADER;;;;;LCD_LCDPort" />

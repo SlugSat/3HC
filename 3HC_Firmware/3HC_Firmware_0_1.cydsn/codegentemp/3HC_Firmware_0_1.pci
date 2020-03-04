@@ -1,5 +1,5 @@
 # 3HC_Firmware_0_1
-# 2020-02-22 01:19:58Z
+# 2020-03-04 07:55:03Z
 
 # IO_0@[IOP=(1)][IoId=(0)] is reserved: SWDDebugEnabled
 dont_use_io iocell 1 0
@@ -14,19 +14,27 @@ set_io "\LCD:LCDPort(3)\" iocell 2 3
 set_io "\LCD:LCDPort(4)\" iocell 2 4
 set_io "\LCD:LCDPort(5)\" iocell 2 5
 set_io "\LCD:LCDPort(6)\" iocell 2 6
-set_io "QUAD_A(0)" iocell 3 3
-set_io "QUAD_B(0)" iocell 3 4
+set_io "QUAD_A(0)" iocell 3 1
+set_io "QUAD_B(0)" iocell 3 0
 set_io "SCL(0)" iocell 12 0
-set_io "Encoder_Button(0)" iocell 3 2
+set_io "ENC_BTN(0)" iocell 3 2
 set_io "SDA(0)" iocell 12 1
 set_io "\USBFS:Dm(0)\" iocell 15 7
 set_io "\USBFS:Dp(0)\" iocell 15 6
-set_io "X_PWM_OUT(0)" iocell 0 1
-set_io "Y_PWM_OUT(0)" iocell 0 3
-set_io "Z_PWM_OUT(0)" iocell 0 5
-set_io "X_DIR_OUT(0)" iocell 0 0
-set_io "Y_DIR_OUT(0)" iocell 0 2
-set_io "Z_DIR_OUT(0)" iocell 0 4
-set_io "X_CURR(0)" iocell 3 7
+set_io "X_PWM_OUT(0)" iocell 0 4
+set_io "Y_PWM_OUT(0)" iocell 0 2
+set_io "Z_PWM_OUT(0)" iocell 0 0
+set_io "X_DIR_OUT(0)" iocell 0 5
+set_io "Y_DIR_OUT(0)" iocell 0 3
+set_io "Z_DIR_OUT(0)" iocell 0 1
+set_io "X_CURR_SENSE(0)" iocell 3 7
+set_io "Y_CURR_SENSE(0)" iocell 3 6
+set_io "Z_CURR_SENSE(0)" iocell 3 5
+set_io "LCD_R(0)" iocell 1 6
+set_io "LCD_G(0)" iocell 1 5
+set_io "LCD_B(0)" iocell 1 4
+set_io "ENC_R(0)" iocell 3 4
+set_io "ENC_G(0)" iocell 3 3
+set_io "ENC_B(0)" iocell 1 7
 set_location "\USBFS:USB\" usbcell -1 -1 0
 set_location "\ADC:DSM\" dsmodcell -1 -1 0

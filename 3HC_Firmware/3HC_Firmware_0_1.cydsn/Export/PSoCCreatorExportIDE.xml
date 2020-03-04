@@ -39,9 +39,14 @@
           <File BuildType="BUILD" Toolchain="">main.c</File>
           <File BuildType="BUILD" Toolchain="">I2C.c</File>
           <File BuildType="BUILD" Toolchain="">MPU9250.c</File>
+          <File BuildType="BUILD" Toolchain="">NMEA0183.c</File>
+          <File BuildType="BUILD" Toolchain="">HHC.c</File>
           <File BuildType="BUILD" Toolchain="">cyapicallbacks.h</File>
           <File BuildType="BUILD" Toolchain="">I2C.h</File>
           <File BuildType="BUILD" Toolchain="">MPU9250.h</File>
+          <File BuildType="BUILD" Toolchain="">NMEA0183.h</File>
+          <File BuildType="BUILD" Toolchain="">HHC.h</File>
+          <File BuildType="BUILD" Toolchain="">config.h</File>
         </Files>
       </Folder>
       <Folder BuildType="STRICT" Path="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\Generated_Source\PSoC5">
@@ -124,9 +129,6 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\UpdateTimer_UI.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\UpdateTimer_UI.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\UpdateTimer_UI_PM.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Encoder_Button_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Encoder_Button.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Encoder_Button.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\SCL_aliases.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\SCL.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\SCL.h</File>
@@ -157,9 +159,6 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\X_DIR_OUT_aliases.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\X_DIR_OUT.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\X_DIR_OUT.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\XYZ_Direction_Select.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\XYZ_Direction_Select.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\XYZ_Direction_Select_PM.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Y_DIR_OUT_aliases.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Y_DIR_OUT.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Y_DIR_OUT.h</File>
@@ -186,11 +185,6 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ADC_IRQ.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ADC_theACLK.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ADC_theACLK.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ADC_CurrentReadingReady.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ADC_CurrentReadingReady.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\X_CURR_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\X_CURR.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\X_CURR.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBFS.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBFS.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBFS_audio.c</File>
@@ -223,6 +217,49 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBFS_ep2_dma.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBFS_ep1_dma.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USBFS_ep1_dma.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ENC_BTN_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ENC_BTN.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ENC_BTN.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\XYZ_Direction.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\XYZ_Direction.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\XYZ_Direction_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\X_CURR_SENSE_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\X_CURR_SENSE.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\X_CURR_SENSE.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Y_CURR_SENSE_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Y_CURR_SENSE.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Y_CURR_SENSE.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Z_CURR_SENSE_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Z_CURR_SENSE.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Z_CURR_SENSE.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\LCD_R_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\LCD_R.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\LCD_R.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\LCD_Backlight.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\LCD_Backlight.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\LCD_Backlight_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\LCD_G_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\LCD_G.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\LCD_G.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\LCD_B_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\LCD_B.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\LCD_B.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ENC_R_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ENC_R.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ENC_R.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ENC_Backlight.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ENC_Backlight.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ENC_Backlight_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ENC_G_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ENC_G.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ENC_G.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ENC_B_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ENC_B.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ENC_B.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\AMux.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\AMux.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ADC_SAMPLECURRSENSOR.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ADC_SAMPLECURRSENSOR.h</File>
         </Files>
       </Folder>
       <Folder BuildType="STRICT" Path="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\Export\ARM_GCC_Generic">
