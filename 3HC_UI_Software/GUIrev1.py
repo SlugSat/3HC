@@ -6,6 +6,7 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from USB import * 
+from Layout import*
 #from USB.py import *
 
 
@@ -17,12 +18,35 @@ from USB import *
 class MainWindow(QMainWindow):
 	def __init__(self):
 		super().__init__()
-		self.initUI()
 		self.x = 0
 		self.y = 0
 		self.z = 0
+		self.XSP = 1
+		self.YSP = 2 
+		self.ZSP = 3
+		self.initUI()
+		
 		#connect USB and verify connection
 		#U = self.connectUSB()
+
+
+	#updates current values dispaly for setpoints	
+	def UpdateSetpoints(self):
+		if(self.XSP):
+			self.XS.setText('X Setpoint (Current Value: %s)' % self.XSP)
+		else:	
+			self.XS.setText('X Setpoint (Current Value: %s)' % 0)
+		if(self.YSP):
+			self.YS.setText('Y Setpoint (Current Value: %s)' % self.YSP)
+		else:	
+			self.YS.setText('Y Setpoint (Current Value: %s)' % 0)
+		if(self.ZSP):
+			self.ZS.setText('Z Setpoint (Current Value: %s)' % self.ZSP)
+		else:	
+			self.ZS.setText('Z Setpoint (Current Value: %s)' % 0)	
+	
+
+
 
 
 
@@ -71,36 +95,40 @@ class MainWindow(QMainWindow):
 
 		#enter X setpoint value
 		self.XSPoint =  QLineEdit(self)
+		self.XSPoint.setValidator(QDoubleValidator(-200, 200, 3))
 		self.XSPoint.move(20, 60)
 		self.XSPoint.resize(280,40)
 
 		#sets X setpoint value
-		self.XS = QLabel('X Setpoint',self)
+		self.XS = QLabel('X Setpoint (Current Value: %d)' % self.XSP,self)
 		self.XS.move(300, 60)
-		self.XS.resize(160,40)
+		self.XS.resize(250,40)
 		
 
 		#enter Y setpoint value
 		self.YSPoint =  QLineEdit(self)
+		self.YSPoint.setValidator(QDoubleValidator(-200, 200, 3))
 		self.YSPoint.move(20, 140)
 		self.YSPoint.resize(280,40)
 
 
 		#set Y setpoint value
-		self.YS = QLabel('Y Setpoint',self)
+		self.YS = QLabel('Y Setpoint (Current Value: %d)' % self.YSP,self)
 		self.YS.move(300, 140)
-		self.YS.resize(160,40)
+		self.YS.resize(250,40)
 
 		#enter Z setpoint value
 		self.ZSPoint =  QLineEdit(self)
+		self.ZSPoint.setValidator(QDoubleValidator(-200, 200, 3))
 		self.ZSPoint.move(20, 220)
 		self.ZSPoint.resize(280,40)
 
 
 		#sets Z setpoint
-		self.ZS = QLabel('Z Setpoint',self)
+		self.ZS = QLabel('Z Setpoint (Current Value: %d)' % self.ZSP,self)
 		self.ZS.move(300, 220)
-		self.ZS.resize(160,40)
+		self.ZS.resize(250,40)
+
 
 
 		#sets X,Y,Z setpoints in one go
@@ -158,20 +186,28 @@ class MainWindow(QMainWindow):
 
 		#update timer
 		self.NullTimer = QTimer()
-		self.NullTimer.setInterval(100)
-		self.NullTimer.timeout.connect(self.update)
+		self.NullTimer.setInterval(1500)
+		self.NullTimer.timeout.connect(self.updatenulloffsets)
 		self.NullTimer.start()
 
+
+	#pulls setpoints from text entries and updates setpoint display
 	def SetpointsEntered(self):
 		print("Set Setpoints Clicked")
+		self.XSP = self.XSPoint.text()
+		self.YSP = self.YSPoint.text()
+		self.ZSP = self.ZSPoint.text()
+		self.UpdateSetpoints()
 
-
+	#user pressed help button, bring up HHC manual in new window
 	def NeedHelp(self):
 		#print("User Needs Help")
 		helpalert = QMessageBox()
-		helpalert.setText('Fuck Off')
+		helpalert.setText('Help!')
 		helpalert.exec_()
 
+
+	#connects and verifies successful USB connection established
 	def connectUSB(self):
 		item = USB()
 		#USB_Write()
@@ -182,8 +218,8 @@ class MainWindow(QMainWindow):
 
 
 
-
-	def update(self):
+	#updates the null offset values
+	def updatenulloffsets(self):
 		#self.x = usbitem.read()
 		self.x += 1
 		self.y += 1
@@ -200,7 +236,7 @@ class MainWindow(QMainWindow):
 
 
 
-#Actually runs the GUI
+#Actually runs the GUI (Main loop)
 if __name__=='__main__':
 
 
