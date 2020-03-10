@@ -1,13 +1,12 @@
 #created by Nick Jannuzzi 2/21/20
-#testing PyQt Widget builder library
+#GUI layout for 3 axis HHC user interface
+#created using PyQt5 to communicate with PSoC 5LP microcontroller
 
 
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from USB import * 
-#from Layout import*
-#from USB.py import *
 
 
 
@@ -47,10 +46,14 @@ class MainWindow(QMainWindow):
 		self.YI = 0
 		self.ZI = 0
 
-
+		#connect our USB device(PSoC)
+		self.GUIUSB = USB()
+		self.GUIUSB.verify()
 		#initialize layout of UI
 		self.initUI()
 		
+
+
 
 
 	
@@ -192,7 +195,7 @@ class MainWindow(QMainWindow):
 
 		#update null offset timer
 		self.NullTimer = QTimer()
-		self.NullTimer.setInterval(250)
+		self.NullTimer.setInterval(2000)
 		self.NullTimer.timeout.connect(self.updatenulloffsets)
 		self.NullTimer.start()
 
@@ -221,9 +224,6 @@ class MainWindow(QMainWindow):
 			self.ZSP =0.0
 		else:
 			 self.ZSP = float(self.ZSPoint.text())
-		print(self.XSP)
-		print(self.YSP)
-		print(self.ZSP)
 		self.UpdateSetpoints()
 
 
@@ -276,6 +276,8 @@ class MainWindow(QMainWindow):
 		helpalert.exec_()
 
 
+
+
 	#connects and verifies successful USB connection established
 	def connectUSB(self):
 		USBitem = USB()
@@ -289,19 +291,13 @@ class MainWindow(QMainWindow):
 
 	#updates the null offset values
 	def updatenulloffsets(self):
-		#self.x = usbitem.read()
+		#a = self.GUIUSB.read()
 		self.x += 1
 		self.y += 1
 		self.z += 1
-		#f = U.read()
-		'''U = USB()
-		#USB_Write()
-		U.verify()
-		booty = U.read()'''
-		self.XNULLreadout.setText('%s' % self.x)
+		self.XNULLreadout.setText('%s' % self.GUIUSB.read())
 		self.YNULLreadout.setText('%s' % self.y)
 		self.ZNULLreadout.setText('%s' % self.z)	
-		#print('Tick Tock')
 
 
 	def updateIread(self):
