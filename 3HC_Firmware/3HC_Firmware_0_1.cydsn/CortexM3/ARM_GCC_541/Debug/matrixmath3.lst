@@ -1,0 +1,3419 @@
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccs3wCQG.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"matrixmath3.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.global	__aeabi_fmul
+  20              		.global	__aeabi_fadd
+  21              		.section	.text.Matrix3Multiply,"ax",%progbits
+  22              		.align	2
+  23              		.global	Matrix3Multiply
+  24              		.thumb
+  25              		.thumb_func
+  26              		.type	Matrix3Multiply, %function
+  27              	Matrix3Multiply:
+  28              	.LFB1:
+  29              		.file 1 "matrixmath3.c"
+   1:matrixmath3.c **** /**
+   2:matrixmath3.c ****  * matrixmath3.c
+   3:matrixmath3.c ****  *
+   4:matrixmath3.c ****  * Written by Caleb Cotter
+   5:matrixmath3.c ****  * This file contains the implementations of a 3x3 matrix math library.
+   6:matrixmath3.c ****  */
+   7:matrixmath3.c **** 
+   8:matrixmath3.c ****  //#define TEST_MATRIX_MATH_3
+   9:matrixmath3.c **** 
+  10:matrixmath3.c ****  // Header Files
+  11:matrixmath3.c ****  #include "matrixmath3.h"
+  12:matrixmath3.c **** 
+  13:matrixmath3.c **** // Standard libraries
+  14:matrixmath3.c **** #include <math.h>
+  15:matrixmath3.c **** #include <stdio.h>
+  16:matrixmath3.c **** 
+  17:matrixmath3.c **** /******************************************************************************
+  18:matrixmath3.c ****  * Matrix - Matrix Operations
+  19:matrixmath3.c ****  *****************************************************************************/
+  20:matrixmath3.c **** 
+  21:matrixmath3.c **** void Matrix3Multiply(float mat1[3][3], float mat2[3][3], float result[3][3]) {
+  30              		.loc 1 21 0
+  31              		.cfi_startproc
+  32              		@ args = 0, pretend = 0, frame = 0
+  33              		@ frame_needed = 0, uses_anonymous_args = 0
+  34              	.LVL0:
+  35 0000 2DE9F047 		push	{r4, r5, r6, r7, r8, r9, r10, lr}
+  36              		.cfi_def_cfa_offset 32
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccs3wCQG.s 			page 2
+
+
+  37              		.cfi_offset 4, -32
+  38              		.cfi_offset 5, -28
+  39              		.cfi_offset 6, -24
+  40              		.cfi_offset 7, -20
+  41              		.cfi_offset 8, -16
+  42              		.cfi_offset 9, -12
+  43              		.cfi_offset 10, -8
+  44              		.cfi_offset 14, -4
+  45 0004 8146     		mov	r9, r0
+  46 0006 8846     		mov	r8, r1
+  47 0008 9246     		mov	r10, r2
+  48              	.LVL1:
+  22:matrixmath3.c ****     int i = 0, j = 0, k = 0;
+  23:matrixmath3.c ****     float sum;
+  24:matrixmath3.c ****     for (i = 0; i < 3; i++) {
+  49              		.loc 1 24 0
+  50 000a 0025     		movs	r5, #0
+  51 000c 24E0     		b	.L2
+  52              	.LVL2:
+  53              	.L3:
+  25:matrixmath3.c ****         for (j = 0; j < 3; j++) {
+  26:matrixmath3.c ****           sum = 0;
+  27:matrixmath3.c ****           for (k = 0; k <3; k++) {
+  28:matrixmath3.c ****              sum += mat1[i][k] * mat2[k][j];
+  54              		.loc 1 28 0 discriminator 3
+  55 000e 05EB4502 		add	r2, r5, r5, lsl #1
+  56 0012 9300     		lsls	r3, r2, #2
+  57 0014 4B44     		add	r3, r3, r9
+  58 0016 04EB4401 		add	r1, r4, r4, lsl #1
+  59 001a 8A00     		lsls	r2, r1, #2
+  60 001c 4244     		add	r2, r2, r8
+  61 001e 52F82710 		ldr	r1, [r2, r7, lsl #2]	@ float
+  62 0022 53F82400 		ldr	r0, [r3, r4, lsl #2]	@ float
+  63 0026 FFF7FEFF 		bl	__aeabi_fmul
+  64              	.LVL3:
+  65 002a 0146     		mov	r1, r0
+  66 002c 3046     		mov	r0, r6
+  67 002e FFF7FEFF 		bl	__aeabi_fadd
+  68              	.LVL4:
+  69 0032 0646     		mov	r6, r0
+  70              	.LVL5:
+  27:matrixmath3.c ****              sum += mat1[i][k] * mat2[k][j];
+  71              		.loc 1 27 0 discriminator 3
+  72 0034 0134     		adds	r4, r4, #1
+  73              	.LVL6:
+  74 0036 01E0     		b	.L4
+  75              	.LVL7:
+  76              	.L6:
+  77 0038 0026     		movs	r6, #0
+  78 003a 0024     		movs	r4, #0
+  79              	.L4:
+  80              	.LVL8:
+  27:matrixmath3.c ****              sum += mat1[i][k] * mat2[k][j];
+  81              		.loc 1 27 0 is_stmt 0 discriminator 1
+  82 003c 022C     		cmp	r4, #2
+  83 003e E6DD     		ble	.L3
+  29:matrixmath3.c ****           }
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccs3wCQG.s 			page 3
+
+
+  30:matrixmath3.c ****           result[i][j] = sum;
+  84              		.loc 1 30 0 is_stmt 1 discriminator 2
+  85 0040 05EB4502 		add	r2, r5, r5, lsl #1
+  86 0044 9300     		lsls	r3, r2, #2
+  87 0046 5344     		add	r3, r3, r10
+  88 0048 43F82760 		str	r6, [r3, r7, lsl #2]	@ float
+  89              	.LVL9:
+  25:matrixmath3.c ****           sum = 0;
+  90              		.loc 1 25 0 discriminator 2
+  91 004c 0137     		adds	r7, r7, #1
+  92              	.LVL10:
+  93 004e 00E0     		b	.L5
+  94              	.LVL11:
+  95              	.L7:
+  96 0050 0027     		movs	r7, #0
+  97              	.L5:
+  98              	.LVL12:
+  25:matrixmath3.c ****           sum = 0;
+  99              		.loc 1 25 0 is_stmt 0 discriminator 1
+ 100 0052 022F     		cmp	r7, #2
+ 101 0054 F0DD     		ble	.L6
+  24:matrixmath3.c ****         for (j = 0; j < 3; j++) {
+ 102              		.loc 1 24 0 is_stmt 1 discriminator 2
+ 103 0056 0135     		adds	r5, r5, #1
+ 104              	.LVL13:
+ 105              	.L2:
+  24:matrixmath3.c ****         for (j = 0; j < 3; j++) {
+ 106              		.loc 1 24 0 is_stmt 0 discriminator 1
+ 107 0058 022D     		cmp	r5, #2
+ 108 005a F9DD     		ble	.L7
+  31:matrixmath3.c ****           sum = 0;
+  32:matrixmath3.c ****         }
+  33:matrixmath3.c ****     }
+  34:matrixmath3.c **** }
+ 109              		.loc 1 34 0 is_stmt 1
+ 110 005c BDE8F087 		pop	{r4, r5, r6, r7, r8, r9, r10, pc}
+ 111              		.cfi_endproc
+ 112              	.LFE1:
+ 113              		.size	Matrix3Multiply, .-Matrix3Multiply
+ 114              		.section	.text.Matrix3Add,"ax",%progbits
+ 115              		.align	2
+ 116              		.global	Matrix3Add
+ 117              		.thumb
+ 118              		.thumb_func
+ 119              		.type	Matrix3Add, %function
+ 120              	Matrix3Add:
+ 121              	.LFB2:
+  35:matrixmath3.c **** 
+  36:matrixmath3.c **** void Matrix3Add(float mat1[3][3], float mat2[3][3], float result[3][3]) {
+ 122              		.loc 1 36 0
+ 123              		.cfi_startproc
+ 124              		@ args = 0, pretend = 0, frame = 0
+ 125              		@ frame_needed = 0, uses_anonymous_args = 0
+ 126              	.LVL14:
+ 127 0000 2DE9F843 		push	{r3, r4, r5, r6, r7, r8, r9, lr}
+ 128              		.cfi_def_cfa_offset 32
+ 129              		.cfi_offset 3, -32
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccs3wCQG.s 			page 4
+
+
+ 130              		.cfi_offset 4, -28
+ 131              		.cfi_offset 5, -24
+ 132              		.cfi_offset 6, -20
+ 133              		.cfi_offset 7, -16
+ 134              		.cfi_offset 8, -12
+ 135              		.cfi_offset 9, -8
+ 136              		.cfi_offset 14, -4
+ 137 0004 8046     		mov	r8, r0
+ 138 0006 0F46     		mov	r7, r1
+ 139 0008 1646     		mov	r6, r2
+ 140              	.LVL15:
+  37:matrixmath3.c ****     int i = 0, j = 0;
+  38:matrixmath3.c ****     for (i = 0; i < 3; i++) {
+ 141              		.loc 1 38 0
+ 142 000a 0025     		movs	r5, #0
+ 143 000c 15E0     		b	.L10
+ 144              	.LVL16:
+ 145              	.L11:
+  39:matrixmath3.c ****         for (j = 0; j < 3; j++) {
+  40:matrixmath3.c ****             result[i][j] = mat1[i][j] + mat2[i][j];
+ 146              		.loc 1 40 0 discriminator 3
+ 147 000e 05EB4502 		add	r2, r5, r5, lsl #1
+ 148 0012 9300     		lsls	r3, r2, #2
+ 149 0014 06EB0309 		add	r9, r6, r3
+ 150 0018 08EB0302 		add	r2, r8, r3
+ 151 001c 3B44     		add	r3, r3, r7
+ 152 001e 53F82410 		ldr	r1, [r3, r4, lsl #2]	@ float
+ 153 0022 52F82400 		ldr	r0, [r2, r4, lsl #2]	@ float
+ 154 0026 FFF7FEFF 		bl	__aeabi_fadd
+ 155              	.LVL17:
+ 156 002a 49F82400 		str	r0, [r9, r4, lsl #2]	@ float
+  39:matrixmath3.c ****         for (j = 0; j < 3; j++) {
+ 157              		.loc 1 39 0 discriminator 3
+ 158 002e 0134     		adds	r4, r4, #1
+ 159              	.LVL18:
+ 160 0030 00E0     		b	.L12
+ 161              	.LVL19:
+ 162              	.L13:
+ 163 0032 0024     		movs	r4, #0
+ 164              	.L12:
+ 165              	.LVL20:
+  39:matrixmath3.c ****         for (j = 0; j < 3; j++) {
+ 166              		.loc 1 39 0 is_stmt 0 discriminator 1
+ 167 0034 022C     		cmp	r4, #2
+ 168 0036 EADD     		ble	.L11
+  38:matrixmath3.c ****         for (j = 0; j < 3; j++) {
+ 169              		.loc 1 38 0 is_stmt 1 discriminator 2
+ 170 0038 0135     		adds	r5, r5, #1
+ 171              	.LVL21:
+ 172              	.L10:
+  38:matrixmath3.c ****         for (j = 0; j < 3; j++) {
+ 173              		.loc 1 38 0 is_stmt 0 discriminator 1
+ 174 003a 022D     		cmp	r5, #2
+ 175 003c F9DD     		ble	.L13
+  41:matrixmath3.c ****         }
+  42:matrixmath3.c ****     }
+  43:matrixmath3.c **** }
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccs3wCQG.s 			page 5
+
+
+ 176              		.loc 1 43 0 is_stmt 1
+ 177 003e BDE8F883 		pop	{r3, r4, r5, r6, r7, r8, r9, pc}
+ 178              		.cfi_endproc
+ 179              	.LFE2:
+ 180              		.size	Matrix3Add, .-Matrix3Add
+ 181              		.global	__aeabi_fsub
+ 182              		.global	__aeabi_f2d
+ 183              		.global	__aeabi_dcmplt
+ 184 0042 00BF     		.section	.text.Matrix3Equals,"ax",%progbits
+ 185              		.align	2
+ 186              		.global	Matrix3Equals
+ 187              		.thumb
+ 188              		.thumb_func
+ 189              		.type	Matrix3Equals, %function
+ 190              	Matrix3Equals:
+ 191              	.LFB3:
+  44:matrixmath3.c **** 
+  45:matrixmath3.c **** int Matrix3Equals(float mat1[3][3], float mat2[3][3]) {
+ 192              		.loc 1 45 0
+ 193              		.cfi_startproc
+ 194              		@ args = 0, pretend = 0, frame = 0
+ 195              		@ frame_needed = 0, uses_anonymous_args = 0
+ 196              	.LVL22:
+ 197 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+ 198              		.cfi_def_cfa_offset 24
+ 199              		.cfi_offset 4, -24
+ 200              		.cfi_offset 5, -20
+ 201              		.cfi_offset 6, -16
+ 202              		.cfi_offset 7, -12
+ 203              		.cfi_offset 8, -8
+ 204              		.cfi_offset 14, -4
+ 205 0004 0746     		mov	r7, r0
+ 206 0006 0E46     		mov	r6, r1
+ 207              	.LVL23:
+  46:matrixmath3.c ****     int i = 0, j = 0;
+  47:matrixmath3.c ****     int result = 1;
+ 208              		.loc 1 47 0
+ 209 0008 4FF00108 		mov	r8, #1
+  48:matrixmath3.c ****     float d;
+  49:matrixmath3.c ****     for (i = 0; i < 3; i++) {
+ 210              		.loc 1 49 0
+ 211 000c 0025     		movs	r5, #0
+ 212 000e 1DE0     		b	.L16
+ 213              	.LVL24:
+ 214              	.L19:
+  50:matrixmath3.c ****         for (j = 0; j < 3; j++) {
+  51:matrixmath3.c ****             d = fabs(mat1[i][j] - mat2[i][j]);
+ 215              		.loc 1 51 0
+ 216 0010 05EB4502 		add	r2, r5, r5, lsl #1
+ 217 0014 9300     		lsls	r3, r2, #2
+ 218 0016 FA18     		adds	r2, r7, r3
+ 219 0018 3344     		add	r3, r3, r6
+ 220 001a 53F82410 		ldr	r1, [r3, r4, lsl #2]	@ float
+ 221 001e 52F82400 		ldr	r0, [r2, r4, lsl #2]	@ float
+ 222 0022 FFF7FEFF 		bl	__aeabi_fsub
+ 223              	.LVL25:
+ 224 0026 20F00040 		bic	r0, r0, #-2147483648
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccs3wCQG.s 			page 6
+
+
+ 225              	.LVL26:
+  52:matrixmath3.c ****             if (d < FP_DELTA) {
+ 226              		.loc 1 52 0
+ 227 002a FFF7FEFF 		bl	__aeabi_f2d
+ 228              	.LVL27:
+ 229 002e 0AA3     		adr	r3, .L26
+ 230 0030 D3E90023 		ldrd	r2, [r3]
+ 231 0034 FFF7FEFF 		bl	__aeabi_dcmplt
+ 232              	.LVL28:
+ 233 0038 28B1     		cbz	r0, .L24
+  50:matrixmath3.c ****         for (j = 0; j < 3; j++) {
+ 234              		.loc 1 50 0
+ 235 003a 0134     		adds	r4, r4, #1
+ 236              	.LVL29:
+ 237 003c 00E0     		b	.L20
+ 238              	.LVL30:
+ 239              	.L22:
+ 240 003e 0024     		movs	r4, #0
+ 241              	.L20:
+ 242              	.LVL31:
+  50:matrixmath3.c ****         for (j = 0; j < 3; j++) {
+ 243              		.loc 1 50 0 is_stmt 0 discriminator 1
+ 244 0040 022C     		cmp	r4, #2
+ 245 0042 E5DD     		ble	.L19
+ 246 0044 01E0     		b	.L17
+ 247              	.L24:
+  53:matrixmath3.c ****                 continue;
+  54:matrixmath3.c ****             } else {
+  55:matrixmath3.c ****                 result = 0;
+ 248              		.loc 1 55 0 is_stmt 1
+ 249 0046 4FF00008 		mov	r8, #0
+ 250              	.LVL32:
+ 251              	.L17:
+  49:matrixmath3.c ****         for (j = 0; j < 3; j++) {
+ 252              		.loc 1 49 0 discriminator 2
+ 253 004a 0135     		adds	r5, r5, #1
+ 254              	.LVL33:
+ 255              	.L16:
+  49:matrixmath3.c ****         for (j = 0; j < 3; j++) {
+ 256              		.loc 1 49 0 is_stmt 0 discriminator 1
+ 257 004c 022D     		cmp	r5, #2
+ 258 004e F6DD     		ble	.L22
+  56:matrixmath3.c ****                 break;
+  57:matrixmath3.c ****             }
+  58:matrixmath3.c ****         }
+  59:matrixmath3.c ****     }
+  60:matrixmath3.c ****     return result;
+  61:matrixmath3.c **** }
+ 259              		.loc 1 61 0 is_stmt 1
+ 260 0050 4046     		mov	r0, r8
+ 261 0052 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 262              	.LVL34:
+ 263              	.L27:
+ 264 0056 00BF     		.align	3
+ 265              	.L26:
+ 266 0058 2D431CEB 		.word	-350469331
+ 267 005c E2361A3F 		.word	1058682594
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccs3wCQG.s 			page 7
+
+
+ 268              		.cfi_endproc
+ 269              	.LFE3:
+ 270              		.size	Matrix3Equals, .-Matrix3Equals
+ 271              		.section	.text.Matrix3ScalarMultiply,"ax",%progbits
+ 272              		.align	2
+ 273              		.global	Matrix3ScalarMultiply
+ 274              		.thumb
+ 275              		.thumb_func
+ 276              		.type	Matrix3ScalarMultiply, %function
+ 277              	Matrix3ScalarMultiply:
+ 278              	.LFB4:
+  62:matrixmath3.c **** 
+  63:matrixmath3.c **** /******************************************************************************
+  64:matrixmath3.c ****  * Matrix - Scalar Operations
+  65:matrixmath3.c ****  *****************************************************************************/
+  66:matrixmath3.c **** 
+  67:matrixmath3.c **** void Matrix3ScalarMultiply(float x, float mat[3][3], float result[3][3]) {
+ 279              		.loc 1 67 0
+ 280              		.cfi_startproc
+ 281              		@ args = 0, pretend = 0, frame = 0
+ 282              		@ frame_needed = 0, uses_anonymous_args = 0
+ 283              	.LVL35:
+ 284 0000 2DE9F843 		push	{r3, r4, r5, r6, r7, r8, r9, lr}
+ 285              		.cfi_def_cfa_offset 32
+ 286              		.cfi_offset 3, -32
+ 287              		.cfi_offset 4, -28
+ 288              		.cfi_offset 5, -24
+ 289              		.cfi_offset 6, -20
+ 290              		.cfi_offset 7, -16
+ 291              		.cfi_offset 8, -12
+ 292              		.cfi_offset 9, -8
+ 293              		.cfi_offset 14, -4
+ 294 0004 8046     		mov	r8, r0
+ 295 0006 0F46     		mov	r7, r1
+ 296 0008 1646     		mov	r6, r2
+ 297              	.LVL36:
+  68:matrixmath3.c ****     int i = 0, j = 0;
+  69:matrixmath3.c ****     for (i = 0; i < 3; i++) {
+ 298              		.loc 1 69 0
+ 299 000a 0025     		movs	r5, #0
+ 300 000c 12E0     		b	.L29
+ 301              	.LVL37:
+ 302              	.L30:
+  70:matrixmath3.c ****         for (j = 0; j < 3; j++) {
+  71:matrixmath3.c ****             result[i][j] = (mat[i][j] * x);
+ 303              		.loc 1 71 0 discriminator 3
+ 304 000e 05EB4502 		add	r2, r5, r5, lsl #1
+ 305 0012 9300     		lsls	r3, r2, #2
+ 306 0014 06EB0309 		add	r9, r6, r3
+ 307 0018 3B44     		add	r3, r3, r7
+ 308 001a 4146     		mov	r1, r8
+ 309 001c 53F82400 		ldr	r0, [r3, r4, lsl #2]	@ float
+ 310 0020 FFF7FEFF 		bl	__aeabi_fmul
+ 311              	.LVL38:
+ 312 0024 49F82400 		str	r0, [r9, r4, lsl #2]	@ float
+  70:matrixmath3.c ****         for (j = 0; j < 3; j++) {
+ 313              		.loc 1 70 0 discriminator 3
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccs3wCQG.s 			page 8
+
+
+ 314 0028 0134     		adds	r4, r4, #1
+ 315              	.LVL39:
+ 316 002a 00E0     		b	.L31
+ 317              	.LVL40:
+ 318              	.L32:
+ 319 002c 0024     		movs	r4, #0
+ 320              	.L31:
+ 321              	.LVL41:
+  70:matrixmath3.c ****         for (j = 0; j < 3; j++) {
+ 322              		.loc 1 70 0 is_stmt 0 discriminator 1
+ 323 002e 022C     		cmp	r4, #2
+ 324 0030 EDDD     		ble	.L30
+  69:matrixmath3.c ****         for (j = 0; j < 3; j++) {
+ 325              		.loc 1 69 0 is_stmt 1 discriminator 2
+ 326 0032 0135     		adds	r5, r5, #1
+ 327              	.LVL42:
+ 328              	.L29:
+  69:matrixmath3.c ****         for (j = 0; j < 3; j++) {
+ 329              		.loc 1 69 0 is_stmt 0 discriminator 1
+ 330 0034 022D     		cmp	r5, #2
+ 331 0036 F9DD     		ble	.L32
+  72:matrixmath3.c ****         }
+  73:matrixmath3.c ****     }
+  74:matrixmath3.c **** }
+ 332              		.loc 1 74 0 is_stmt 1
+ 333 0038 BDE8F883 		pop	{r3, r4, r5, r6, r7, r8, r9, pc}
+ 334              		.cfi_endproc
+ 335              	.LFE4:
+ 336              		.size	Matrix3ScalarMultiply, .-Matrix3ScalarMultiply
+ 337              		.section	.text.Matrix3ScalarAdd,"ax",%progbits
+ 338              		.align	2
+ 339              		.global	Matrix3ScalarAdd
+ 340              		.thumb
+ 341              		.thumb_func
+ 342              		.type	Matrix3ScalarAdd, %function
+ 343              	Matrix3ScalarAdd:
+ 344              	.LFB5:
+  75:matrixmath3.c **** 
+  76:matrixmath3.c **** void Matrix3ScalarAdd(float x, float mat[3][3], float result[3][3]) {
+ 345              		.loc 1 76 0
+ 346              		.cfi_startproc
+ 347              		@ args = 0, pretend = 0, frame = 0
+ 348              		@ frame_needed = 0, uses_anonymous_args = 0
+ 349              	.LVL43:
+ 350 0000 2DE9F843 		push	{r3, r4, r5, r6, r7, r8, r9, lr}
+ 351              		.cfi_def_cfa_offset 32
+ 352              		.cfi_offset 3, -32
+ 353              		.cfi_offset 4, -28
+ 354              		.cfi_offset 5, -24
+ 355              		.cfi_offset 6, -20
+ 356              		.cfi_offset 7, -16
+ 357              		.cfi_offset 8, -12
+ 358              		.cfi_offset 9, -8
+ 359              		.cfi_offset 14, -4
+ 360 0004 8046     		mov	r8, r0
+ 361 0006 0F46     		mov	r7, r1
+ 362 0008 1646     		mov	r6, r2
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccs3wCQG.s 			page 9
+
+
+ 363              	.LVL44:
+  77:matrixmath3.c ****     int i = 0, j = 0;
+  78:matrixmath3.c ****     for (i = 0; i < 3; i++) {
+ 364              		.loc 1 78 0
+ 365 000a 0025     		movs	r5, #0
+ 366 000c 12E0     		b	.L35
+ 367              	.LVL45:
+ 368              	.L36:
+  79:matrixmath3.c ****         for (j = 0; j < 3; j++) {
+  80:matrixmath3.c ****             result[i][j] = (mat[i][j] + x);
+ 369              		.loc 1 80 0 discriminator 3
+ 370 000e 05EB4502 		add	r2, r5, r5, lsl #1
+ 371 0012 9300     		lsls	r3, r2, #2
+ 372 0014 06EB0309 		add	r9, r6, r3
+ 373 0018 3B44     		add	r3, r3, r7
+ 374 001a 4146     		mov	r1, r8
+ 375 001c 53F82400 		ldr	r0, [r3, r4, lsl #2]	@ float
+ 376 0020 FFF7FEFF 		bl	__aeabi_fadd
+ 377              	.LVL46:
+ 378 0024 49F82400 		str	r0, [r9, r4, lsl #2]	@ float
+  79:matrixmath3.c ****         for (j = 0; j < 3; j++) {
+ 379              		.loc 1 79 0 discriminator 3
+ 380 0028 0134     		adds	r4, r4, #1
+ 381              	.LVL47:
+ 382 002a 00E0     		b	.L37
+ 383              	.LVL48:
+ 384              	.L38:
+ 385 002c 0024     		movs	r4, #0
+ 386              	.L37:
+ 387              	.LVL49:
+  79:matrixmath3.c ****         for (j = 0; j < 3; j++) {
+ 388              		.loc 1 79 0 is_stmt 0 discriminator 1
+ 389 002e 022C     		cmp	r4, #2
+ 390 0030 EDDD     		ble	.L36
+  78:matrixmath3.c ****         for (j = 0; j < 3; j++) {
+ 391              		.loc 1 78 0 is_stmt 1 discriminator 2
+ 392 0032 0135     		adds	r5, r5, #1
+ 393              	.LVL50:
+ 394              	.L35:
+  78:matrixmath3.c ****         for (j = 0; j < 3; j++) {
+ 395              		.loc 1 78 0 is_stmt 0 discriminator 1
+ 396 0034 022D     		cmp	r5, #2
+ 397 0036 F9DD     		ble	.L38
+  81:matrixmath3.c ****         }
+  82:matrixmath3.c ****     }
+  83:matrixmath3.c **** }
+ 398              		.loc 1 83 0 is_stmt 1
+ 399 0038 BDE8F883 		pop	{r3, r4, r5, r6, r7, r8, r9, pc}
+ 400              		.cfi_endproc
+ 401              	.LFE5:
+ 402              		.size	Matrix3ScalarAdd, .-Matrix3ScalarAdd
+ 403              		.section	.text.Matrix3VectorMultiply,"ax",%progbits
+ 404              		.align	2
+ 405              		.global	Matrix3VectorMultiply
+ 406              		.thumb
+ 407              		.thumb_func
+ 408              		.type	Matrix3VectorMultiply, %function
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccs3wCQG.s 			page 10
+
+
+ 409              	Matrix3VectorMultiply:
+ 410              	.LFB6:
+  84:matrixmath3.c **** 
+  85:matrixmath3.c **** /******************************************************************************
+  86:matrixmath3.c ****  * Matrix - Vector Operations
+  87:matrixmath3.c ****  *****************************************************************************/
+  88:matrixmath3.c **** 
+  89:matrixmath3.c **** void Matrix3VectorMultiply(float vec[3], float mat[3][3], float result[3]) {
+ 411              		.loc 1 89 0
+ 412              		.cfi_startproc
+ 413              		@ args = 0, pretend = 0, frame = 0
+ 414              		@ frame_needed = 0, uses_anonymous_args = 0
+ 415              	.LVL51:
+ 416 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+ 417              		.cfi_def_cfa_offset 24
+ 418              		.cfi_offset 4, -24
+ 419              		.cfi_offset 5, -20
+ 420              		.cfi_offset 6, -16
+ 421              		.cfi_offset 7, -12
+ 422              		.cfi_offset 8, -8
+ 423              		.cfi_offset 14, -4
+ 424 0004 8046     		mov	r8, r0
+ 425 0006 0F46     		mov	r7, r1
+ 426 0008 1646     		mov	r6, r2
+ 427              	.LVL52:
+  90:matrixmath3.c ****   int i = 0, j = 0;
+  91:matrixmath3.c ****   for (i = 0; i < 3; i++) {
+ 428              		.loc 1 91 0
+ 429 000a 0025     		movs	r5, #0
+ 430 000c 16E0     		b	.L41
+ 431              	.LVL53:
+ 432              	.L42:
+  92:matrixmath3.c ****     for (j = 0; j < 3; j++) {
+  93:matrixmath3.c ****       result[i] += vec[j] * mat[i][j];
+ 433              		.loc 1 93 0 discriminator 3
+ 434 000e 05EB4502 		add	r2, r5, r5, lsl #1
+ 435 0012 9300     		lsls	r3, r2, #2
+ 436 0014 3B44     		add	r3, r3, r7
+ 437 0016 53F82410 		ldr	r1, [r3, r4, lsl #2]	@ float
+ 438 001a 58F82400 		ldr	r0, [r8, r4, lsl #2]	@ float
+ 439 001e FFF7FEFF 		bl	__aeabi_fmul
+ 440              	.LVL54:
+ 441 0022 0146     		mov	r1, r0
+ 442 0024 56F82500 		ldr	r0, [r6, r5, lsl #2]	@ float
+ 443 0028 FFF7FEFF 		bl	__aeabi_fadd
+ 444              	.LVL55:
+ 445 002c 46F82500 		str	r0, [r6, r5, lsl #2]	@ float
+  92:matrixmath3.c ****     for (j = 0; j < 3; j++) {
+ 446              		.loc 1 92 0 discriminator 3
+ 447 0030 0134     		adds	r4, r4, #1
+ 448              	.LVL56:
+ 449 0032 00E0     		b	.L43
+ 450              	.LVL57:
+ 451              	.L44:
+ 452 0034 0024     		movs	r4, #0
+ 453              	.L43:
+ 454              	.LVL58:
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccs3wCQG.s 			page 11
+
+
+  92:matrixmath3.c ****     for (j = 0; j < 3; j++) {
+ 455              		.loc 1 92 0 is_stmt 0 discriminator 1
+ 456 0036 022C     		cmp	r4, #2
+ 457 0038 E9DD     		ble	.L42
+  91:matrixmath3.c ****     for (j = 0; j < 3; j++) {
+ 458              		.loc 1 91 0 is_stmt 1 discriminator 2
+ 459 003a 0135     		adds	r5, r5, #1
+ 460              	.LVL59:
+ 461              	.L41:
+  91:matrixmath3.c ****     for (j = 0; j < 3; j++) {
+ 462              		.loc 1 91 0 is_stmt 0 discriminator 1
+ 463 003c 022D     		cmp	r5, #2
+ 464 003e F9DD     		ble	.L44
+  94:matrixmath3.c ****     }
+  95:matrixmath3.c ****   }
+  96:matrixmath3.c **** }
+ 465              		.loc 1 96 0 is_stmt 1
+ 466 0040 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 467              		.cfi_endproc
+ 468              	.LFE6:
+ 469              		.size	Matrix3VectorMultiply, .-Matrix3VectorMultiply
+ 470              		.section	.text.Matrix3Determinant,"ax",%progbits
+ 471              		.align	2
+ 472              		.global	Matrix3Determinant
+ 473              		.thumb
+ 474              		.thumb_func
+ 475              		.type	Matrix3Determinant, %function
+ 476              	Matrix3Determinant:
+ 477              	.LFB7:
+  97:matrixmath3.c **** 
+  98:matrixmath3.c **** /******************************************************************************
+  99:matrixmath3.c ****  * Unary Matrix Operations
+ 100:matrixmath3.c ****  *****************************************************************************/
+ 101:matrixmath3.c **** 
+ 102:matrixmath3.c **** float Matrix3Determinant(float mat[3][3]) {
+ 478              		.loc 1 102 0
+ 479              		.cfi_startproc
+ 480              		@ args = 0, pretend = 0, frame = 8
+ 481              		@ frame_needed = 0, uses_anonymous_args = 0
+ 482              	.LVL60:
+ 483 0000 2DE9F04F 		push	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
+ 484              		.cfi_def_cfa_offset 36
+ 485              		.cfi_offset 4, -36
+ 486              		.cfi_offset 5, -32
+ 487              		.cfi_offset 6, -28
+ 488              		.cfi_offset 7, -24
+ 489              		.cfi_offset 8, -20
+ 490              		.cfi_offset 9, -16
+ 491              		.cfi_offset 10, -12
+ 492              		.cfi_offset 11, -8
+ 493              		.cfi_offset 14, -4
+ 494 0004 83B0     		sub	sp, sp, #12
+ 495              		.cfi_def_cfa_offset 48
+ 496 0006 0446     		mov	r4, r0
+ 497              	.LVL61:
+ 103:matrixmath3.c ****     float determTotal = 0;
+ 104:matrixmath3.c ****     float leftRightDiag = 0;
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccs3wCQG.s 			page 12
+
+
+ 105:matrixmath3.c ****     float rightLeftDiag = 0;
+ 106:matrixmath3.c ****     leftRightDiag += (mat[0][0] * mat[1][1] * mat[2][2]);
+ 498              		.loc 1 106 0
+ 499 0008 0768     		ldr	r7, [r0]	@ float
+ 500 000a D0F810A0 		ldr	r10, [r0, #16]	@ float
+ 501 000e 5146     		mov	r1, r10
+ 502 0010 3846     		mov	r0, r7
+ 503              	.LVL62:
+ 504 0012 FFF7FEFF 		bl	__aeabi_fmul
+ 505              	.LVL63:
+ 506 0016 236A     		ldr	r3, [r4, #32]	@ float
+ 507 0018 0093     		str	r3, [sp]	@ float
+ 508 001a 1946     		mov	r1, r3
+ 509 001c FFF7FEFF 		bl	__aeabi_fmul
+ 510              	.LVL64:
+ 511 0020 0021     		movs	r1, #0
+ 512 0022 FFF7FEFF 		bl	__aeabi_fadd
+ 513              	.LVL65:
+ 514 0026 0646     		mov	r6, r0
+ 515              	.LVL66:
+ 107:matrixmath3.c ****     leftRightDiag += (mat[0][1] * mat[1][2] * mat[2][0]);
+ 516              		.loc 1 107 0
+ 517 0028 6568     		ldr	r5, [r4, #4]	@ float
+ 518 002a D4F81480 		ldr	r8, [r4, #20]	@ float
+ 519 002e 4146     		mov	r1, r8
+ 520 0030 2846     		mov	r0, r5
+ 521              	.LVL67:
+ 522 0032 FFF7FEFF 		bl	__aeabi_fmul
+ 523              	.LVL68:
+ 524 0036 D4F81890 		ldr	r9, [r4, #24]	@ float
+ 525 003a 4946     		mov	r1, r9
+ 526 003c FFF7FEFF 		bl	__aeabi_fmul
+ 527              	.LVL69:
+ 528 0040 0146     		mov	r1, r0
+ 529 0042 3046     		mov	r0, r6
+ 530 0044 FFF7FEFF 		bl	__aeabi_fadd
+ 531              	.LVL70:
+ 532 0048 0190     		str	r0, [sp, #4]	@ float
+ 533              	.LVL71:
+ 108:matrixmath3.c ****     leftRightDiag += (mat[0][2] * mat[1][0] * mat[2][1]);
+ 534              		.loc 1 108 0
+ 535 004a D4F808B0 		ldr	fp, [r4, #8]	@ float
+ 536 004e E668     		ldr	r6, [r4, #12]	@ float
+ 537 0050 3146     		mov	r1, r6
+ 538 0052 5846     		mov	r0, fp
+ 539              	.LVL72:
+ 540 0054 FFF7FEFF 		bl	__aeabi_fmul
+ 541              	.LVL73:
+ 542 0058 E469     		ldr	r4, [r4, #28]	@ float
+ 543              	.LVL74:
+ 544 005a 2146     		mov	r1, r4
+ 545 005c FFF7FEFF 		bl	__aeabi_fmul
+ 546              	.LVL75:
+ 547 0060 0146     		mov	r1, r0
+ 548 0062 0198     		ldr	r0, [sp, #4]	@ float
+ 549 0064 FFF7FEFF 		bl	__aeabi_fadd
+ 550              	.LVL76:
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccs3wCQG.s 			page 13
+
+
+ 551 0068 0190     		str	r0, [sp, #4]	@ float
+ 552              	.LVL77:
+ 109:matrixmath3.c **** 
+ 110:matrixmath3.c ****     rightLeftDiag += (mat[0][2] * mat[1][1] * mat[2][0]);
+ 553              		.loc 1 110 0
+ 554 006a 5946     		mov	r1, fp
+ 555 006c 5046     		mov	r0, r10
+ 556              	.LVL78:
+ 557 006e FFF7FEFF 		bl	__aeabi_fmul
+ 558              	.LVL79:
+ 559 0072 0146     		mov	r1, r0
+ 560 0074 4846     		mov	r0, r9
+ 561 0076 FFF7FEFF 		bl	__aeabi_fmul
+ 562              	.LVL80:
+ 563 007a 0021     		movs	r1, #0
+ 564 007c FFF7FEFF 		bl	__aeabi_fadd
+ 565              	.LVL81:
+ 566 0080 8146     		mov	r9, r0
+ 567              	.LVL82:
+ 111:matrixmath3.c ****     rightLeftDiag += (mat[0][0] * mat[1][2] * mat[2][1]);
+ 568              		.loc 1 111 0
+ 569 0082 4146     		mov	r1, r8
+ 570 0084 3846     		mov	r0, r7
+ 571              	.LVL83:
+ 572 0086 FFF7FEFF 		bl	__aeabi_fmul
+ 573              	.LVL84:
+ 574 008a 0146     		mov	r1, r0
+ 575 008c 2046     		mov	r0, r4
+ 576 008e FFF7FEFF 		bl	__aeabi_fmul
+ 577              	.LVL85:
+ 578 0092 0146     		mov	r1, r0
+ 579 0094 4846     		mov	r0, r9
+ 580 0096 FFF7FEFF 		bl	__aeabi_fadd
+ 581              	.LVL86:
+ 582 009a 0446     		mov	r4, r0
+ 583              	.LVL87:
+ 112:matrixmath3.c ****     rightLeftDiag += (mat[0][1] * mat[1][0] * mat[2][2]);
+ 584              		.loc 1 112 0
+ 585 009c 3146     		mov	r1, r6
+ 586 009e 2846     		mov	r0, r5
+ 587              	.LVL88:
+ 588 00a0 FFF7FEFF 		bl	__aeabi_fmul
+ 589              	.LVL89:
+ 590 00a4 0146     		mov	r1, r0
+ 591 00a6 0098     		ldr	r0, [sp]	@ float
+ 592 00a8 FFF7FEFF 		bl	__aeabi_fmul
+ 593              	.LVL90:
+ 594 00ac 0146     		mov	r1, r0
+ 595 00ae 2046     		mov	r0, r4
+ 596 00b0 FFF7FEFF 		bl	__aeabi_fadd
+ 597              	.LVL91:
+ 113:matrixmath3.c **** 
+ 114:matrixmath3.c ****     determTotal = leftRightDiag - rightLeftDiag;
+ 598              		.loc 1 114 0
+ 599 00b4 0146     		mov	r1, r0
+ 600 00b6 0198     		ldr	r0, [sp, #4]	@ float
+ 601              	.LVL92:
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccs3wCQG.s 			page 14
+
+
+ 602 00b8 FFF7FEFF 		bl	__aeabi_fsub
+ 603              	.LVL93:
+ 115:matrixmath3.c **** 
+ 116:matrixmath3.c ****     return determTotal;
+ 117:matrixmath3.c **** }
+ 604              		.loc 1 117 0
+ 605 00bc 03B0     		add	sp, sp, #12
+ 606              		.cfi_def_cfa_offset 36
+ 607              		@ sp needed
+ 608 00be BDE8F08F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, pc}
+ 609              		.cfi_endproc
+ 610              	.LFE7:
+ 611              		.size	Matrix3Determinant, .-Matrix3Determinant
+ 612 00c2 00BF     		.section	.text.Matrix3Trace,"ax",%progbits
+ 613              		.align	2
+ 614              		.global	Matrix3Trace
+ 615              		.thumb
+ 616              		.thumb_func
+ 617              		.type	Matrix3Trace, %function
+ 618              	Matrix3Trace:
+ 619              	.LFB8:
+ 118:matrixmath3.c **** 
+ 119:matrixmath3.c **** float Matrix3Trace(float mat[3][3]) {
+ 620              		.loc 1 119 0
+ 621              		.cfi_startproc
+ 622              		@ args = 0, pretend = 0, frame = 0
+ 623              		@ frame_needed = 0, uses_anonymous_args = 0
+ 624              	.LVL94:
+ 625 0000 70B5     		push	{r4, r5, r6, lr}
+ 626              		.cfi_def_cfa_offset 16
+ 627              		.cfi_offset 4, -16
+ 628              		.cfi_offset 5, -12
+ 629              		.cfi_offset 6, -8
+ 630              		.cfi_offset 14, -4
+ 631 0002 0646     		mov	r6, r0
+ 632              	.LVL95:
+ 120:matrixmath3.c ****     float traceTotal = 0;
+ 121:matrixmath3.c ****     int i = 0, j = 0;
+ 633              		.loc 1 121 0
+ 634 0004 0025     		movs	r5, #0
+ 122:matrixmath3.c ****     for (i = 0; i < 3; i++) {
+ 635              		.loc 1 122 0
+ 636 0006 2C46     		mov	r4, r5
+ 120:matrixmath3.c ****     float traceTotal = 0;
+ 637              		.loc 1 120 0
+ 638 0008 0020     		movs	r0, #0
+ 639              	.LVL96:
+ 640              		.loc 1 122 0
+ 641 000a 09E0     		b	.L49
+ 642              	.LVL97:
+ 643              	.L50:
+ 123:matrixmath3.c ****         traceTotal += mat[i][j];
+ 644              		.loc 1 123 0 discriminator 3
+ 645 000c 04EB4402 		add	r2, r4, r4, lsl #1
+ 646 0010 9300     		lsls	r3, r2, #2
+ 647 0012 3344     		add	r3, r3, r6
+ 648 0014 53F82510 		ldr	r1, [r3, r5, lsl #2]	@ float
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccs3wCQG.s 			page 15
+
+
+ 649 0018 FFF7FEFF 		bl	__aeabi_fadd
+ 650              	.LVL98:
+ 124:matrixmath3.c ****         j++;
+ 651              		.loc 1 124 0 discriminator 3
+ 652 001c 0135     		adds	r5, r5, #1
+ 653              	.LVL99:
+ 122:matrixmath3.c ****     for (i = 0; i < 3; i++) {
+ 654              		.loc 1 122 0 discriminator 3
+ 655 001e 0134     		adds	r4, r4, #1
+ 656              	.LVL100:
+ 657              	.L49:
+ 122:matrixmath3.c ****     for (i = 0; i < 3; i++) {
+ 658              		.loc 1 122 0 is_stmt 0 discriminator 1
+ 659 0020 022C     		cmp	r4, #2
+ 660 0022 F3DD     		ble	.L50
+ 125:matrixmath3.c ****     }
+ 126:matrixmath3.c ****     return traceTotal;
+ 127:matrixmath3.c **** }
+ 661              		.loc 1 127 0 is_stmt 1
+ 662 0024 70BD     		pop	{r4, r5, r6, pc}
+ 663              		.cfi_endproc
+ 664              	.LFE8:
+ 665              		.size	Matrix3Trace, .-Matrix3Trace
+ 666 0026 00BF     		.section	.text.Matrix3Transpose,"ax",%progbits
+ 667              		.align	2
+ 668              		.global	Matrix3Transpose
+ 669              		.thumb
+ 670              		.thumb_func
+ 671              		.type	Matrix3Transpose, %function
+ 672              	Matrix3Transpose:
+ 673              	.LFB9:
+ 128:matrixmath3.c **** 
+ 129:matrixmath3.c **** void Matrix3Transpose(float mat[3][3], float result[3][3]) {
+ 674              		.loc 1 129 0
+ 675              		.cfi_startproc
+ 676              		@ args = 0, pretend = 0, frame = 0
+ 677              		@ frame_needed = 0, uses_anonymous_args = 0
+ 678              		@ link register save eliminated.
+ 679              	.LVL101:
+ 680 0000 70B4     		push	{r4, r5, r6}
+ 681              		.cfi_def_cfa_offset 12
+ 682              		.cfi_offset 4, -12
+ 683              		.cfi_offset 5, -8
+ 684              		.cfi_offset 6, -4
+ 685              	.LVL102:
+ 130:matrixmath3.c ****     int i = 0, j = 0;
+ 131:matrixmath3.c ****     for (i = 0; i < 3; i++) {
+ 686              		.loc 1 131 0
+ 687 0002 0025     		movs	r5, #0
+ 688 0004 11E0     		b	.L53
+ 689              	.LVL103:
+ 690              	.L54:
+ 132:matrixmath3.c ****         for (j = 0; j < 3; j++) {
+ 133:matrixmath3.c ****             result[j][i] = mat[i][j];
+ 691              		.loc 1 133 0 discriminator 3
+ 692 0006 03EB4304 		add	r4, r3, r3, lsl #1
+ 693 000a A200     		lsls	r2, r4, #2
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccs3wCQG.s 			page 16
+
+
+ 694 000c 0A44     		add	r2, r2, r1
+ 695 000e 05EB4506 		add	r6, r5, r5, lsl #1
+ 696 0012 B400     		lsls	r4, r6, #2
+ 697 0014 0444     		add	r4, r4, r0
+ 698 0016 54F82340 		ldr	r4, [r4, r3, lsl #2]	@ float
+ 699 001a 42F82540 		str	r4, [r2, r5, lsl #2]	@ float
+ 132:matrixmath3.c ****         for (j = 0; j < 3; j++) {
+ 700              		.loc 1 132 0 discriminator 3
+ 701 001e 0133     		adds	r3, r3, #1
+ 702              	.LVL104:
+ 703 0020 00E0     		b	.L55
+ 704              	.LVL105:
+ 705              	.L56:
+ 706 0022 0023     		movs	r3, #0
+ 707              	.L55:
+ 708              	.LVL106:
+ 132:matrixmath3.c ****         for (j = 0; j < 3; j++) {
+ 709              		.loc 1 132 0 is_stmt 0 discriminator 1
+ 710 0024 022B     		cmp	r3, #2
+ 711 0026 EEDD     		ble	.L54
+ 131:matrixmath3.c ****         for (j = 0; j < 3; j++) {
+ 712              		.loc 1 131 0 is_stmt 1 discriminator 2
+ 713 0028 0135     		adds	r5, r5, #1
+ 714              	.LVL107:
+ 715              	.L53:
+ 131:matrixmath3.c ****         for (j = 0; j < 3; j++) {
+ 716              		.loc 1 131 0 is_stmt 0 discriminator 1
+ 717 002a 022D     		cmp	r5, #2
+ 718 002c F9DD     		ble	.L56
+ 134:matrixmath3.c ****         }
+ 135:matrixmath3.c ****     }
+ 136:matrixmath3.c **** }
+ 719              		.loc 1 136 0 is_stmt 1
+ 720 002e 70BC     		pop	{r4, r5, r6}
+ 721              		.cfi_restore 6
+ 722              		.cfi_restore 5
+ 723              		.cfi_restore 4
+ 724              		.cfi_def_cfa_offset 0
+ 725              	.LVL108:
+ 726 0030 7047     		bx	lr
+ 727              		.cfi_endproc
+ 728              	.LFE9:
+ 729              		.size	Matrix3Transpose, .-Matrix3Transpose
+ 730              		.global	__aeabi_fdiv
+ 731 0032 00BF     		.section	.text.Matrix3Inverse,"ax",%progbits
+ 732              		.align	2
+ 733              		.global	Matrix3Inverse
+ 734              		.thumb
+ 735              		.thumb_func
+ 736              		.type	Matrix3Inverse, %function
+ 737              	Matrix3Inverse:
+ 738              	.LFB10:
+ 137:matrixmath3.c **** 
+ 138:matrixmath3.c **** void Matrix3Inverse(float mat[3][3], float result[3][3]) {
+ 739              		.loc 1 138 0
+ 740              		.cfi_startproc
+ 741              		@ args = 0, pretend = 0, frame = 88
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccs3wCQG.s 			page 17
+
+
+ 742              		@ frame_needed = 0, uses_anonymous_args = 0
+ 743              	.LVL109:
+ 744 0000 2DE9F04F 		push	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
+ 745              		.cfi_def_cfa_offset 36
+ 746              		.cfi_offset 4, -36
+ 747              		.cfi_offset 5, -32
+ 748              		.cfi_offset 6, -28
+ 749              		.cfi_offset 7, -24
+ 750              		.cfi_offset 8, -20
+ 751              		.cfi_offset 9, -16
+ 752              		.cfi_offset 10, -12
+ 753              		.cfi_offset 11, -8
+ 754              		.cfi_offset 14, -4
+ 755 0004 97B0     		sub	sp, sp, #92
+ 756              		.cfi_def_cfa_offset 128
+ 757 0006 0446     		mov	r4, r0
+ 758 0008 0391     		str	r1, [sp, #12]
+ 759              	.LVL110:
+ 139:matrixmath3.c ****     float determinateInv = 0;
+ 140:matrixmath3.c ****     float cofactorMat[3][3] = {{},{},{}};
+ 760              		.loc 1 140 0
+ 761 000a 2425     		movs	r5, #36
+ 762 000c 2A46     		mov	r2, r5
+ 763 000e 0021     		movs	r1, #0
+ 764              	.LVL111:
+ 765 0010 0DA8     		add	r0, sp, #52
+ 766              	.LVL112:
+ 767 0012 FFF7FEFF 		bl	memset
+ 768              	.LVL113:
+ 141:matrixmath3.c ****     float adjugateMat[3][3] = {{},{},{}};
+ 769              		.loc 1 141 0
+ 770 0016 2A46     		mov	r2, r5
+ 771 0018 0021     		movs	r1, #0
+ 772 001a 04A8     		add	r0, sp, #16
+ 773 001c FFF7FEFF 		bl	memset
+ 774              	.LVL114:
+ 142:matrixmath3.c **** 
+ 143:matrixmath3.c ****     cofactorMat[0][0] = (mat[1][1] * mat[2][2]) - (mat[1][2] * mat[2][1]);
+ 775              		.loc 1 143 0
+ 776 0020 2369     		ldr	r3, [r4, #16]	@ float
+ 777 0022 9846     		mov	r8, r3
+ 778 0024 D4F820B0 		ldr	fp, [r4, #32]	@ float
+ 779 0028 5946     		mov	r1, fp
+ 780 002a 1846     		mov	r0, r3
+ 781 002c FFF7FEFF 		bl	__aeabi_fmul
+ 782              	.LVL115:
+ 783 0030 0546     		mov	r5, r0
+ 784 0032 6769     		ldr	r7, [r4, #20]	@ float
+ 785 0034 D4F81C90 		ldr	r9, [r4, #28]	@ float
+ 786 0038 4946     		mov	r1, r9
+ 787 003a 3846     		mov	r0, r7
+ 788 003c FFF7FEFF 		bl	__aeabi_fmul
+ 789              	.LVL116:
+ 790 0040 0146     		mov	r1, r0
+ 791 0042 2846     		mov	r0, r5
+ 792 0044 FFF7FEFF 		bl	__aeabi_fsub
+ 793              	.LVL117:
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccs3wCQG.s 			page 18
+
+
+ 794 0048 0D90     		str	r0, [sp, #52]	@ float
+ 144:matrixmath3.c ****     cofactorMat[0][1] = (mat[1][2] * mat[2][0]) - (mat[1][0] * mat[2][2]);
+ 795              		.loc 1 144 0
+ 796 004a D4F818A0 		ldr	r10, [r4, #24]	@ float
+ 797 004e 5146     		mov	r1, r10
+ 798 0050 3846     		mov	r0, r7
+ 799 0052 FFF7FEFF 		bl	__aeabi_fmul
+ 800              	.LVL118:
+ 801 0056 0646     		mov	r6, r0
+ 802 0058 E568     		ldr	r5, [r4, #12]	@ float
+ 803 005a 2946     		mov	r1, r5
+ 804 005c 5846     		mov	r0, fp
+ 805 005e FFF7FEFF 		bl	__aeabi_fmul
+ 806              	.LVL119:
+ 807 0062 0146     		mov	r1, r0
+ 808 0064 3046     		mov	r0, r6
+ 809 0066 FFF7FEFF 		bl	__aeabi_fsub
+ 810              	.LVL120:
+ 811 006a 0E90     		str	r0, [sp, #56]	@ float
+ 145:matrixmath3.c ****     cofactorMat[0][2] = (mat[1][0] * mat[2][1]) - (mat[1][1] * mat[2][0]);
+ 812              		.loc 1 145 0
+ 813 006c 2946     		mov	r1, r5
+ 814 006e 4846     		mov	r0, r9
+ 815 0070 FFF7FEFF 		bl	__aeabi_fmul
+ 816              	.LVL121:
+ 817 0074 0646     		mov	r6, r0
+ 818 0076 5146     		mov	r1, r10
+ 819 0078 CDF80480 		str	r8, [sp, #4]	@ float
+ 820 007c 4046     		mov	r0, r8
+ 821 007e FFF7FEFF 		bl	__aeabi_fmul
+ 822              	.LVL122:
+ 823 0082 0146     		mov	r1, r0
+ 824 0084 3046     		mov	r0, r6
+ 825 0086 FFF7FEFF 		bl	__aeabi_fsub
+ 826              	.LVL123:
+ 827 008a 0F90     		str	r0, [sp, #60]	@ float
+ 146:matrixmath3.c ****     cofactorMat[1][0] = (mat[0][2] * mat[2][1]) - (mat[0][1] * mat[2][2]);
+ 828              		.loc 1 146 0
+ 829 008c D4F80880 		ldr	r8, [r4, #8]	@ float
+ 830 0090 4146     		mov	r1, r8
+ 831 0092 4846     		mov	r0, r9
+ 832 0094 FFF7FEFF 		bl	__aeabi_fmul
+ 833              	.LVL124:
+ 834 0098 0646     		mov	r6, r0
+ 835 009a 6368     		ldr	r3, [r4, #4]	@ float
+ 836 009c 0293     		str	r3, [sp, #8]	@ float
+ 837 009e 1946     		mov	r1, r3
+ 838 00a0 5846     		mov	r0, fp
+ 839 00a2 FFF7FEFF 		bl	__aeabi_fmul
+ 840              	.LVL125:
+ 841 00a6 0146     		mov	r1, r0
+ 842 00a8 3046     		mov	r0, r6
+ 843 00aa FFF7FEFF 		bl	__aeabi_fsub
+ 844              	.LVL126:
+ 845 00ae 1090     		str	r0, [sp, #64]	@ float
+ 147:matrixmath3.c ****     cofactorMat[1][1] = (mat[0][0] * mat[2][2]) - (mat[0][2] * mat[2][0]);
+ 846              		.loc 1 147 0
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccs3wCQG.s 			page 19
+
+
+ 847 00b0 2668     		ldr	r6, [r4]	@ float
+ 848 00b2 3146     		mov	r1, r6
+ 849 00b4 5846     		mov	r0, fp
+ 850 00b6 FFF7FEFF 		bl	__aeabi_fmul
+ 851              	.LVL127:
+ 852 00ba 8346     		mov	fp, r0
+ 853 00bc 4146     		mov	r1, r8
+ 854 00be 5046     		mov	r0, r10
+ 855 00c0 FFF7FEFF 		bl	__aeabi_fmul
+ 856              	.LVL128:
+ 857 00c4 0146     		mov	r1, r0
+ 858 00c6 5846     		mov	r0, fp
+ 859 00c8 FFF7FEFF 		bl	__aeabi_fsub
+ 860              	.LVL129:
+ 861 00cc 1190     		str	r0, [sp, #68]	@ float
+ 148:matrixmath3.c ****     cofactorMat[1][2] = (mat[0][1] * mat[2][0]) - (mat[0][0] * mat[2][1]);
+ 862              		.loc 1 148 0
+ 863 00ce DDF808B0 		ldr	fp, [sp, #8]	@ float
+ 864 00d2 5946     		mov	r1, fp
+ 865 00d4 5046     		mov	r0, r10
+ 866 00d6 FFF7FEFF 		bl	__aeabi_fmul
+ 867              	.LVL130:
+ 868 00da 8246     		mov	r10, r0
+ 869 00dc 3146     		mov	r1, r6
+ 870 00de 4846     		mov	r0, r9
+ 871 00e0 FFF7FEFF 		bl	__aeabi_fmul
+ 872              	.LVL131:
+ 873 00e4 0146     		mov	r1, r0
+ 874 00e6 5046     		mov	r0, r10
+ 875 00e8 FFF7FEFF 		bl	__aeabi_fsub
+ 876              	.LVL132:
+ 877 00ec 1290     		str	r0, [sp, #72]	@ float
+ 149:matrixmath3.c ****     cofactorMat[2][0] = (mat[0][1] * mat[1][2]) - (mat[0][2] * mat[1][1]);
+ 878              		.loc 1 149 0
+ 879 00ee 3946     		mov	r1, r7
+ 880 00f0 5846     		mov	r0, fp
+ 881 00f2 FFF7FEFF 		bl	__aeabi_fmul
+ 882              	.LVL133:
+ 883 00f6 8146     		mov	r9, r0
+ 884 00f8 DDF804A0 		ldr	r10, [sp, #4]	@ float
+ 885 00fc 5146     		mov	r1, r10
+ 886 00fe 4046     		mov	r0, r8
+ 887 0100 FFF7FEFF 		bl	__aeabi_fmul
+ 888              	.LVL134:
+ 889 0104 0146     		mov	r1, r0
+ 890 0106 4846     		mov	r0, r9
+ 891 0108 FFF7FEFF 		bl	__aeabi_fsub
+ 892              	.LVL135:
+ 893 010c 1390     		str	r0, [sp, #76]	@ float
+ 150:matrixmath3.c ****     cofactorMat[2][1] = (mat[0][2] * mat[1][0]) - (mat[0][0] * mat[1][2]);
+ 894              		.loc 1 150 0
+ 895 010e 2946     		mov	r1, r5
+ 896 0110 4046     		mov	r0, r8
+ 897 0112 FFF7FEFF 		bl	__aeabi_fmul
+ 898              	.LVL136:
+ 899 0116 8046     		mov	r8, r0
+ 900 0118 3946     		mov	r1, r7
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccs3wCQG.s 			page 20
+
+
+ 901 011a 3046     		mov	r0, r6
+ 902 011c FFF7FEFF 		bl	__aeabi_fmul
+ 903              	.LVL137:
+ 904 0120 0146     		mov	r1, r0
+ 905 0122 4046     		mov	r0, r8
+ 906 0124 FFF7FEFF 		bl	__aeabi_fsub
+ 907              	.LVL138:
+ 908 0128 1490     		str	r0, [sp, #80]	@ float
+ 151:matrixmath3.c ****     cofactorMat[2][2] = (mat[0][0] * mat[1][1]) - (mat[0][1] * mat[1][0]);
+ 909              		.loc 1 151 0
+ 910 012a 5146     		mov	r1, r10
+ 911 012c 3046     		mov	r0, r6
+ 912 012e FFF7FEFF 		bl	__aeabi_fmul
+ 913              	.LVL139:
+ 914 0132 0646     		mov	r6, r0
+ 915 0134 2946     		mov	r1, r5
+ 916 0136 5846     		mov	r0, fp
+ 917 0138 FFF7FEFF 		bl	__aeabi_fmul
+ 918              	.LVL140:
+ 919 013c 0146     		mov	r1, r0
+ 920 013e 3046     		mov	r0, r6
+ 921 0140 FFF7FEFF 		bl	__aeabi_fsub
+ 922              	.LVL141:
+ 923 0144 1590     		str	r0, [sp, #84]	@ float
+ 152:matrixmath3.c ****     Matrix3Transpose(cofactorMat, adjugateMat);
+ 924              		.loc 1 152 0
+ 925 0146 04A9     		add	r1, sp, #16
+ 926 0148 0DA8     		add	r0, sp, #52
+ 927 014a FFF7FEFF 		bl	Matrix3Transpose
+ 928              	.LVL142:
+ 153:matrixmath3.c ****     determinateInv = (1 / Matrix3Determinant(mat));
+ 929              		.loc 1 153 0
+ 930 014e 2046     		mov	r0, r4
+ 931 0150 FFF7FEFF 		bl	Matrix3Determinant
+ 932              	.LVL143:
+ 933 0154 0146     		mov	r1, r0
+ 934 0156 4FF07E50 		mov	r0, #1065353216
+ 935 015a FFF7FEFF 		bl	__aeabi_fdiv
+ 936              	.LVL144:
+ 154:matrixmath3.c ****     Matrix3ScalarMultiply(determinateInv, adjugateMat, result);
+ 937              		.loc 1 154 0
+ 938 015e 039A     		ldr	r2, [sp, #12]
+ 939 0160 04A9     		add	r1, sp, #16
+ 940 0162 FFF7FEFF 		bl	Matrix3ScalarMultiply
+ 941              	.LVL145:
+ 155:matrixmath3.c **** }
+ 942              		.loc 1 155 0
+ 943 0166 17B0     		add	sp, sp, #92
+ 944              		.cfi_def_cfa_offset 36
+ 945              		@ sp needed
+ 946 0168 BDE8F08F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, pc}
+ 947              		.cfi_endproc
+ 948              	.LFE10:
+ 949              		.size	Matrix3Inverse, .-Matrix3Inverse
+ 950              		.section	.text.Matrix3Print,"ax",%progbits
+ 951              		.align	2
+ 952              		.global	Matrix3Print
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccs3wCQG.s 			page 21
+
+
+ 953              		.thumb
+ 954              		.thumb_func
+ 955              		.type	Matrix3Print, %function
+ 956              	Matrix3Print:
+ 957              	.LFB11:
+ 156:matrixmath3.c **** 
+ 157:matrixmath3.c **** void Matrix3Print(float mat[3][3]) {
+ 958              		.loc 1 157 0
+ 959              		.cfi_startproc
+ 960              		@ args = 0, pretend = 0, frame = 0
+ 961              		@ frame_needed = 0, uses_anonymous_args = 0
+ 962              	.LVL146:
+ 963 0000 70B5     		push	{r4, r5, r6, lr}
+ 964              		.cfi_def_cfa_offset 16
+ 965              		.cfi_offset 4, -16
+ 966              		.cfi_offset 5, -12
+ 967              		.cfi_offset 6, -8
+ 968              		.cfi_offset 14, -4
+ 969 0002 0646     		mov	r6, r0
+ 970              	.LVL147:
+ 158:matrixmath3.c ****     int i = 0, j = 0;
+ 159:matrixmath3.c ****     printf(" -----------------------------------\n");
+ 971              		.loc 1 159 0
+ 972 0004 1048     		ldr	r0, .L66
+ 973              	.LVL148:
+ 974 0006 FFF7FEFF 		bl	puts
+ 975              	.LVL149:
+ 160:matrixmath3.c ****     for (i = 0; i < 3; i++) {
+ 976              		.loc 1 160 0
+ 977 000a 0025     		movs	r5, #0
+ 978 000c 15E0     		b	.L61
+ 979              	.LVL150:
+ 980              	.L62:
+ 161:matrixmath3.c ****         for (j = 0; j < 3; j++) {
+ 162:matrixmath3.c ****             printf("| % .6f ", (double) mat[i][j]);
+ 981              		.loc 1 162 0 discriminator 3
+ 982 000e 05EB4502 		add	r2, r5, r5, lsl #1
+ 983 0012 9300     		lsls	r3, r2, #2
+ 984 0014 3344     		add	r3, r3, r6
+ 985 0016 53F82400 		ldr	r0, [r3, r4, lsl #2]	@ float
+ 986 001a FFF7FEFF 		bl	__aeabi_f2d
+ 987              	.LVL151:
+ 988 001e 0246     		mov	r2, r0
+ 989 0020 0B46     		mov	r3, r1
+ 990 0022 0A48     		ldr	r0, .L66+4
+ 991 0024 FFF7FEFF 		bl	printf
+ 992              	.LVL152:
+ 161:matrixmath3.c ****         for (j = 0; j < 3; j++) {
+ 993              		.loc 1 161 0 discriminator 3
+ 994 0028 0134     		adds	r4, r4, #1
+ 995              	.LVL153:
+ 996 002a 00E0     		b	.L63
+ 997              	.LVL154:
+ 998              	.L64:
+ 999 002c 0024     		movs	r4, #0
+ 1000              	.L63:
+ 1001              	.LVL155:
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccs3wCQG.s 			page 22
+
+
+ 161:matrixmath3.c ****         for (j = 0; j < 3; j++) {
+ 1002              		.loc 1 161 0 is_stmt 0 discriminator 1
+ 1003 002e 022C     		cmp	r4, #2
+ 1004 0030 EDDD     		ble	.L62
+ 163:matrixmath3.c ****         }
+ 164:matrixmath3.c ****         printf("|\n -----------------------------------\n");
+ 1005              		.loc 1 164 0 is_stmt 1 discriminator 2
+ 1006 0032 0748     		ldr	r0, .L66+8
+ 1007 0034 FFF7FEFF 		bl	puts
+ 1008              	.LVL156:
+ 160:matrixmath3.c ****         for (j = 0; j < 3; j++) {
+ 1009              		.loc 1 160 0 discriminator 2
+ 1010 0038 0135     		adds	r5, r5, #1
+ 1011              	.LVL157:
+ 1012              	.L61:
+ 160:matrixmath3.c ****         for (j = 0; j < 3; j++) {
+ 1013              		.loc 1 160 0 is_stmt 0 discriminator 1
+ 1014 003a 022D     		cmp	r5, #2
+ 1015 003c F6DD     		ble	.L64
+ 165:matrixmath3.c ****     }
+ 166:matrixmath3.c ****     printf("\n");
+ 1016              		.loc 1 166 0 is_stmt 1
+ 1017 003e 0A20     		movs	r0, #10
+ 1018 0040 FFF7FEFF 		bl	putchar
+ 1019              	.LVL158:
+ 1020 0044 70BD     		pop	{r4, r5, r6, pc}
+ 1021              	.LVL159:
+ 1022              	.L67:
+ 1023 0046 00BF     		.align	2
+ 1024              	.L66:
+ 1025 0048 00000000 		.word	.LC0
+ 1026 004c 28000000 		.word	.LC1
+ 1027 0050 34000000 		.word	.LC2
+ 1028              		.cfi_endproc
+ 1029              	.LFE11:
+ 1030              		.size	Matrix3Print, .-Matrix3Print
+ 1031              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 1032              		.align	2
+ 1033              	.LC0:
+ 1034 0000 202D2D2D 		.ascii	" -----------------------------------\000"
+ 1034      2D2D2D2D 
+ 1034      2D2D2D2D 
+ 1034      2D2D2D2D 
+ 1034      2D2D2D2D 
+ 1035 0025 000000   		.space	3
+ 1036              	.LC1:
+ 1037 0028 7C202520 		.ascii	"| % .6f \000"
+ 1037      2E366620 
+ 1037      00
+ 1038 0031 000000   		.space	3
+ 1039              	.LC2:
+ 1040 0034 7C0A202D 		.ascii	"|\012 -----------------------------------\000"
+ 1040      2D2D2D2D 
+ 1040      2D2D2D2D 
+ 1040      2D2D2D2D 
+ 1040      2D2D2D2D 
+ 1041              		.text
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccs3wCQG.s 			page 23
+
+
+ 1042              	.Letext0:
+ 1043              		.file 2 "<built-in>"
+ 1044              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 1045              		.section	.debug_info,"",%progbits
+ 1046              	.Ldebug_info0:
+ 1047 0000 B5050000 		.4byte	0x5b5
+ 1048 0004 0400     		.2byte	0x4
+ 1049 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 1050 000a 04       		.byte	0x4
+ 1051 000b 01       		.uleb128 0x1
+ 1052 000c AA000000 		.4byte	.LASF39
+ 1053 0010 0C       		.byte	0xc
+ 1054 0011 6A000000 		.4byte	.LASF40
+ 1055 0015 F1010000 		.4byte	.LASF41
+ 1056 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 1057 001d 00000000 		.4byte	0
+ 1058 0021 00000000 		.4byte	.Ldebug_line0
+ 1059 0025 02       		.uleb128 0x2
+ 1060 0026 04       		.byte	0x4
+ 1061 0027 05       		.byte	0x5
+ 1062 0028 696E7400 		.ascii	"int\000"
+ 1063 002c 03       		.uleb128 0x3
+ 1064 002d 04       		.byte	0x4
+ 1065 002e 07       		.byte	0x7
+ 1066 002f A4010000 		.4byte	.LASF0
+ 1067 0033 03       		.uleb128 0x3
+ 1068 0034 08       		.byte	0x8
+ 1069 0035 05       		.byte	0x5
+ 1070 0036 55020000 		.4byte	.LASF1
+ 1071 003a 03       		.uleb128 0x3
+ 1072 003b 08       		.byte	0x8
+ 1073 003c 04       		.byte	0x4
+ 1074 003d 40020000 		.4byte	.LASF2
+ 1075 0041 03       		.uleb128 0x3
+ 1076 0042 01       		.byte	0x1
+ 1077 0043 06       		.byte	0x6
+ 1078 0044 D6020000 		.4byte	.LASF3
+ 1079 0048 03       		.uleb128 0x3
+ 1080 0049 01       		.byte	0x1
+ 1081 004a 08       		.byte	0x8
+ 1082 004b 9C000000 		.4byte	.LASF4
+ 1083 004f 03       		.uleb128 0x3
+ 1084 0050 02       		.byte	0x2
+ 1085 0051 05       		.byte	0x5
+ 1086 0052 87020000 		.4byte	.LASF5
+ 1087 0056 03       		.uleb128 0x3
+ 1088 0057 02       		.byte	0x2
+ 1089 0058 07       		.byte	0x7
+ 1090 0059 4A010000 		.4byte	.LASF6
+ 1091 005d 03       		.uleb128 0x3
+ 1092 005e 04       		.byte	0x4
+ 1093 005f 05       		.byte	0x5
+ 1094 0060 A6020000 		.4byte	.LASF7
+ 1095 0064 03       		.uleb128 0x3
+ 1096 0065 04       		.byte	0x4
+ 1097 0066 07       		.byte	0x7
+ 1098 0067 38010000 		.4byte	.LASF8
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccs3wCQG.s 			page 24
+
+
+ 1099 006b 03       		.uleb128 0x3
+ 1100 006c 08       		.byte	0x8
+ 1101 006d 07       		.byte	0x7
+ 1102 006e C2010000 		.4byte	.LASF9
+ 1103 0072 03       		.uleb128 0x3
+ 1104 0073 04       		.byte	0x4
+ 1105 0074 07       		.byte	0x7
+ 1106 0075 4C020000 		.4byte	.LASF10
+ 1107 0079 03       		.uleb128 0x3
+ 1108 007a 01       		.byte	0x1
+ 1109 007b 08       		.byte	0x8
+ 1110 007c 63020000 		.4byte	.LASF11
+ 1111 0080 03       		.uleb128 0x3
+ 1112 0081 08       		.byte	0x8
+ 1113 0082 04       		.byte	0x4
+ 1114 0083 82010000 		.4byte	.LASF12
+ 1115 0087 03       		.uleb128 0x3
+ 1116 0088 04       		.byte	0x4
+ 1117 0089 04       		.byte	0x4
+ 1118 008a 78000000 		.4byte	.LASF13
+ 1119 008e 04       		.uleb128 0x4
+ 1120 008f 1A000000 		.4byte	.LASF17
+ 1121 0093 01       		.byte	0x1
+ 1122 0094 15       		.byte	0x15
+ 1123 0095 00000000 		.4byte	.LFB1
+ 1124 0099 60000000 		.4byte	.LFE1-.LFB1
+ 1125 009d 01       		.uleb128 0x1
+ 1126 009e 9C       		.byte	0x9c
+ 1127 009f 07010000 		.4byte	0x107
+ 1128 00a3 05       		.uleb128 0x5
+ 1129 00a4 91020000 		.4byte	.LASF14
+ 1130 00a8 01       		.byte	0x1
+ 1131 00a9 15       		.byte	0x15
+ 1132 00aa 17010000 		.4byte	0x117
+ 1133 00ae 00000000 		.4byte	.LLST0
+ 1134 00b2 05       		.uleb128 0x5
+ 1135 00b3 96020000 		.4byte	.LASF15
+ 1136 00b7 01       		.byte	0x1
+ 1137 00b8 15       		.byte	0x15
+ 1138 00b9 17010000 		.4byte	0x117
+ 1139 00bd 1E000000 		.4byte	.LLST1
+ 1140 00c1 05       		.uleb128 0x5
+ 1141 00c2 D9010000 		.4byte	.LASF16
+ 1142 00c6 01       		.byte	0x1
+ 1143 00c7 15       		.byte	0x15
+ 1144 00c8 17010000 		.4byte	0x117
+ 1145 00cc 3C000000 		.4byte	.LLST2
+ 1146 00d0 06       		.uleb128 0x6
+ 1147 00d1 6900     		.ascii	"i\000"
+ 1148 00d3 01       		.byte	0x1
+ 1149 00d4 16       		.byte	0x16
+ 1150 00d5 25000000 		.4byte	0x25
+ 1151 00d9 5A000000 		.4byte	.LLST3
+ 1152 00dd 06       		.uleb128 0x6
+ 1153 00de 6A00     		.ascii	"j\000"
+ 1154 00e0 01       		.byte	0x1
+ 1155 00e1 16       		.byte	0x16
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccs3wCQG.s 			page 25
+
+
+ 1156 00e2 25000000 		.4byte	0x25
+ 1157 00e6 79000000 		.4byte	.LLST4
+ 1158 00ea 06       		.uleb128 0x6
+ 1159 00eb 6B00     		.ascii	"k\000"
+ 1160 00ed 01       		.byte	0x1
+ 1161 00ee 16       		.byte	0x16
+ 1162 00ef 25000000 		.4byte	0x25
+ 1163 00f3 A3000000 		.4byte	.LLST5
+ 1164 00f7 06       		.uleb128 0x6
+ 1165 00f8 73756D00 		.ascii	"sum\000"
+ 1166 00fc 01       		.byte	0x1
+ 1167 00fd 17       		.byte	0x17
+ 1168 00fe 87000000 		.4byte	0x87
+ 1169 0102 CD000000 		.4byte	.LLST6
+ 1170 0106 00       		.byte	0
+ 1171 0107 07       		.uleb128 0x7
+ 1172 0108 87000000 		.4byte	0x87
+ 1173 010c 17010000 		.4byte	0x117
+ 1174 0110 08       		.uleb128 0x8
+ 1175 0111 72000000 		.4byte	0x72
+ 1176 0115 02       		.byte	0x2
+ 1177 0116 00       		.byte	0
+ 1178 0117 09       		.uleb128 0x9
+ 1179 0118 04       		.byte	0x4
+ 1180 0119 07010000 		.4byte	0x107
+ 1181 011d 04       		.uleb128 0x4
+ 1182 011e 68020000 		.4byte	.LASF18
+ 1183 0122 01       		.byte	0x1
+ 1184 0123 24       		.byte	0x24
+ 1185 0124 00000000 		.4byte	.LFB2
+ 1186 0128 42000000 		.4byte	.LFE2-.LFB2
+ 1187 012c 01       		.uleb128 0x1
+ 1188 012d 9C       		.byte	0x9c
+ 1189 012e 7A010000 		.4byte	0x17a
+ 1190 0132 05       		.uleb128 0x5
+ 1191 0133 91020000 		.4byte	.LASF14
+ 1192 0137 01       		.byte	0x1
+ 1193 0138 24       		.byte	0x24
+ 1194 0139 17010000 		.4byte	0x117
+ 1195 013d 06010000 		.4byte	.LLST7
+ 1196 0141 05       		.uleb128 0x5
+ 1197 0142 96020000 		.4byte	.LASF15
+ 1198 0146 01       		.byte	0x1
+ 1199 0147 24       		.byte	0x24
+ 1200 0148 17010000 		.4byte	0x117
+ 1201 014c 24010000 		.4byte	.LLST8
+ 1202 0150 05       		.uleb128 0x5
+ 1203 0151 D9010000 		.4byte	.LASF16
+ 1204 0155 01       		.byte	0x1
+ 1205 0156 24       		.byte	0x24
+ 1206 0157 17010000 		.4byte	0x117
+ 1207 015b 42010000 		.4byte	.LLST9
+ 1208 015f 06       		.uleb128 0x6
+ 1209 0160 6900     		.ascii	"i\000"
+ 1210 0162 01       		.byte	0x1
+ 1211 0163 25       		.byte	0x25
+ 1212 0164 25000000 		.4byte	0x25
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccs3wCQG.s 			page 26
+
+
+ 1213 0168 60010000 		.4byte	.LLST10
+ 1214 016c 06       		.uleb128 0x6
+ 1215 016d 6A00     		.ascii	"j\000"
+ 1216 016f 01       		.byte	0x1
+ 1217 0170 25       		.byte	0x25
+ 1218 0171 25000000 		.4byte	0x25
+ 1219 0175 7F010000 		.4byte	.LLST11
+ 1220 0179 00       		.byte	0
+ 1221 017a 0A       		.uleb128 0xa
+ 1222 017b 96010000 		.4byte	.LASF22
+ 1223 017f 01       		.byte	0x1
+ 1224 0180 2D       		.byte	0x2d
+ 1225 0181 25000000 		.4byte	0x25
+ 1226 0185 00000000 		.4byte	.LFB3
+ 1227 0189 60000000 		.4byte	.LFE3-.LFB3
+ 1228 018d 01       		.uleb128 0x1
+ 1229 018e 9C       		.byte	0x9c
+ 1230 018f E8010000 		.4byte	0x1e8
+ 1231 0193 05       		.uleb128 0x5
+ 1232 0194 91020000 		.4byte	.LASF14
+ 1233 0198 01       		.byte	0x1
+ 1234 0199 2D       		.byte	0x2d
+ 1235 019a 17010000 		.4byte	0x117
+ 1236 019e A9010000 		.4byte	.LLST12
+ 1237 01a2 05       		.uleb128 0x5
+ 1238 01a3 96020000 		.4byte	.LASF15
+ 1239 01a7 01       		.byte	0x1
+ 1240 01a8 2D       		.byte	0x2d
+ 1241 01a9 17010000 		.4byte	0x117
+ 1242 01ad D5010000 		.4byte	.LLST13
+ 1243 01b1 06       		.uleb128 0x6
+ 1244 01b2 6900     		.ascii	"i\000"
+ 1245 01b4 01       		.byte	0x1
+ 1246 01b5 2E       		.byte	0x2e
+ 1247 01b6 25000000 		.4byte	0x25
+ 1248 01ba 01020000 		.4byte	.LLST14
+ 1249 01be 06       		.uleb128 0x6
+ 1250 01bf 6A00     		.ascii	"j\000"
+ 1251 01c1 01       		.byte	0x1
+ 1252 01c2 2E       		.byte	0x2e
+ 1253 01c3 25000000 		.4byte	0x25
+ 1254 01c7 20020000 		.4byte	.LLST15
+ 1255 01cb 0B       		.uleb128 0xb
+ 1256 01cc D9010000 		.4byte	.LASF16
+ 1257 01d0 01       		.byte	0x1
+ 1258 01d1 2F       		.byte	0x2f
+ 1259 01d2 25000000 		.4byte	0x25
+ 1260 01d6 4A020000 		.4byte	.LLST16
+ 1261 01da 06       		.uleb128 0x6
+ 1262 01db 6400     		.ascii	"d\000"
+ 1263 01dd 01       		.byte	0x1
+ 1264 01de 30       		.byte	0x30
+ 1265 01df 87000000 		.4byte	0x87
+ 1266 01e3 74020000 		.4byte	.LLST17
+ 1267 01e7 00       		.byte	0
+ 1268 01e8 04       		.uleb128 0x4
+ 1269 01e9 65010000 		.4byte	.LASF19
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccs3wCQG.s 			page 27
+
+
+ 1270 01ed 01       		.byte	0x1
+ 1271 01ee 43       		.byte	0x43
+ 1272 01ef 00000000 		.4byte	.LFB4
+ 1273 01f3 3C000000 		.4byte	.LFE4-.LFB4
+ 1274 01f7 01       		.uleb128 0x1
+ 1275 01f8 9C       		.byte	0x9c
+ 1276 01f9 43020000 		.4byte	0x243
+ 1277 01fd 0C       		.uleb128 0xc
+ 1278 01fe 7800     		.ascii	"x\000"
+ 1279 0200 01       		.byte	0x1
+ 1280 0201 43       		.byte	0x43
+ 1281 0202 87000000 		.4byte	0x87
+ 1282 0206 87020000 		.4byte	.LLST18
+ 1283 020a 0C       		.uleb128 0xc
+ 1284 020b 6D617400 		.ascii	"mat\000"
+ 1285 020f 01       		.byte	0x1
+ 1286 0210 43       		.byte	0x43
+ 1287 0211 17010000 		.4byte	0x117
+ 1288 0215 A5020000 		.4byte	.LLST19
+ 1289 0219 05       		.uleb128 0x5
+ 1290 021a D9010000 		.4byte	.LASF16
+ 1291 021e 01       		.byte	0x1
+ 1292 021f 43       		.byte	0x43
+ 1293 0220 17010000 		.4byte	0x117
+ 1294 0224 C3020000 		.4byte	.LLST20
+ 1295 0228 06       		.uleb128 0x6
+ 1296 0229 6900     		.ascii	"i\000"
+ 1297 022b 01       		.byte	0x1
+ 1298 022c 44       		.byte	0x44
+ 1299 022d 25000000 		.4byte	0x25
+ 1300 0231 E1020000 		.4byte	.LLST21
+ 1301 0235 06       		.uleb128 0x6
+ 1302 0236 6A00     		.ascii	"j\000"
+ 1303 0238 01       		.byte	0x1
+ 1304 0239 44       		.byte	0x44
+ 1305 023a 25000000 		.4byte	0x25
+ 1306 023e 00030000 		.4byte	.LLST22
+ 1307 0242 00       		.byte	0
+ 1308 0243 04       		.uleb128 0x4
+ 1309 0244 E0010000 		.4byte	.LASF20
+ 1310 0248 01       		.byte	0x1
+ 1311 0249 4C       		.byte	0x4c
+ 1312 024a 00000000 		.4byte	.LFB5
+ 1313 024e 3C000000 		.4byte	.LFE5-.LFB5
+ 1314 0252 01       		.uleb128 0x1
+ 1315 0253 9C       		.byte	0x9c
+ 1316 0254 9E020000 		.4byte	0x29e
+ 1317 0258 0C       		.uleb128 0xc
+ 1318 0259 7800     		.ascii	"x\000"
+ 1319 025b 01       		.byte	0x1
+ 1320 025c 4C       		.byte	0x4c
+ 1321 025d 87000000 		.4byte	0x87
+ 1322 0261 2A030000 		.4byte	.LLST23
+ 1323 0265 0C       		.uleb128 0xc
+ 1324 0266 6D617400 		.ascii	"mat\000"
+ 1325 026a 01       		.byte	0x1
+ 1326 026b 4C       		.byte	0x4c
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccs3wCQG.s 			page 28
+
+
+ 1327 026c 17010000 		.4byte	0x117
+ 1328 0270 48030000 		.4byte	.LLST24
+ 1329 0274 05       		.uleb128 0x5
+ 1330 0275 D9010000 		.4byte	.LASF16
+ 1331 0279 01       		.byte	0x1
+ 1332 027a 4C       		.byte	0x4c
+ 1333 027b 17010000 		.4byte	0x117
+ 1334 027f 66030000 		.4byte	.LLST25
+ 1335 0283 06       		.uleb128 0x6
+ 1336 0284 6900     		.ascii	"i\000"
+ 1337 0286 01       		.byte	0x1
+ 1338 0287 4D       		.byte	0x4d
+ 1339 0288 25000000 		.4byte	0x25
+ 1340 028c 84030000 		.4byte	.LLST26
+ 1341 0290 06       		.uleb128 0x6
+ 1342 0291 6A00     		.ascii	"j\000"
+ 1343 0293 01       		.byte	0x1
+ 1344 0294 4D       		.byte	0x4d
+ 1345 0295 25000000 		.4byte	0x25
+ 1346 0299 A3030000 		.4byte	.LLST27
+ 1347 029d 00       		.byte	0
+ 1348 029e 04       		.uleb128 0x4
+ 1349 029f AF020000 		.4byte	.LASF21
+ 1350 02a3 01       		.byte	0x1
+ 1351 02a4 59       		.byte	0x59
+ 1352 02a5 00000000 		.4byte	.LFB6
+ 1353 02a9 44000000 		.4byte	.LFE6-.LFB6
+ 1354 02ad 01       		.uleb128 0x1
+ 1355 02ae 9C       		.byte	0x9c
+ 1356 02af FB020000 		.4byte	0x2fb
+ 1357 02b3 0C       		.uleb128 0xc
+ 1358 02b4 76656300 		.ascii	"vec\000"
+ 1359 02b8 01       		.byte	0x1
+ 1360 02b9 59       		.byte	0x59
+ 1361 02ba FB020000 		.4byte	0x2fb
+ 1362 02be CD030000 		.4byte	.LLST28
+ 1363 02c2 0C       		.uleb128 0xc
+ 1364 02c3 6D617400 		.ascii	"mat\000"
+ 1365 02c7 01       		.byte	0x1
+ 1366 02c8 59       		.byte	0x59
+ 1367 02c9 17010000 		.4byte	0x117
+ 1368 02cd EB030000 		.4byte	.LLST29
+ 1369 02d1 05       		.uleb128 0x5
+ 1370 02d2 D9010000 		.4byte	.LASF16
+ 1371 02d6 01       		.byte	0x1
+ 1372 02d7 59       		.byte	0x59
+ 1373 02d8 FB020000 		.4byte	0x2fb
+ 1374 02dc 09040000 		.4byte	.LLST30
+ 1375 02e0 06       		.uleb128 0x6
+ 1376 02e1 6900     		.ascii	"i\000"
+ 1377 02e3 01       		.byte	0x1
+ 1378 02e4 5A       		.byte	0x5a
+ 1379 02e5 25000000 		.4byte	0x25
+ 1380 02e9 27040000 		.4byte	.LLST31
+ 1381 02ed 06       		.uleb128 0x6
+ 1382 02ee 6A00     		.ascii	"j\000"
+ 1383 02f0 01       		.byte	0x1
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccs3wCQG.s 			page 29
+
+
+ 1384 02f1 5A       		.byte	0x5a
+ 1385 02f2 25000000 		.4byte	0x25
+ 1386 02f6 46040000 		.4byte	.LLST32
+ 1387 02fa 00       		.byte	0
+ 1388 02fb 09       		.uleb128 0x9
+ 1389 02fc 04       		.byte	0x4
+ 1390 02fd 87000000 		.4byte	0x87
+ 1391 0301 0A       		.uleb128 0xa
+ 1392 0302 57000000 		.4byte	.LASF23
+ 1393 0306 01       		.byte	0x1
+ 1394 0307 66       		.byte	0x66
+ 1395 0308 87000000 		.4byte	0x87
+ 1396 030c 00000000 		.4byte	.LFB7
+ 1397 0310 C2000000 		.4byte	.LFE7-.LFB7
+ 1398 0314 01       		.uleb128 0x1
+ 1399 0315 9C       		.byte	0x9c
+ 1400 0316 57030000 		.4byte	0x357
+ 1401 031a 0C       		.uleb128 0xc
+ 1402 031b 6D617400 		.ascii	"mat\000"
+ 1403 031f 01       		.byte	0x1
+ 1404 0320 66       		.byte	0x66
+ 1405 0321 17010000 		.4byte	0x117
+ 1406 0325 70040000 		.4byte	.LLST33
+ 1407 0329 0B       		.uleb128 0xb
+ 1408 032a 00000000 		.4byte	.LASF24
+ 1409 032e 01       		.byte	0x1
+ 1410 032f 67       		.byte	0x67
+ 1411 0330 87000000 		.4byte	0x87
+ 1412 0334 9C040000 		.4byte	.LLST34
+ 1413 0338 0B       		.uleb128 0xb
+ 1414 0339 0C000000 		.4byte	.LASF25
+ 1415 033d 01       		.byte	0x1
+ 1416 033e 68       		.byte	0x68
+ 1417 033f 87000000 		.4byte	0x87
+ 1418 0343 BF040000 		.4byte	.LLST35
+ 1419 0347 0B       		.uleb128 0xb
+ 1420 0348 E2020000 		.4byte	.LASF26
+ 1421 034c 01       		.byte	0x1
+ 1422 034d 69       		.byte	0x69
+ 1423 034e 87000000 		.4byte	0x87
+ 1424 0352 1B050000 		.4byte	.LLST36
+ 1425 0356 00       		.byte	0
+ 1426 0357 0A       		.uleb128 0xa
+ 1427 0358 7A020000 		.4byte	.LASF27
+ 1428 035c 01       		.byte	0x1
+ 1429 035d 77       		.byte	0x77
+ 1430 035e 87000000 		.4byte	0x87
+ 1431 0362 00000000 		.4byte	.LFB8
+ 1432 0366 26000000 		.4byte	.LFE8-.LFB8
+ 1433 036a 01       		.uleb128 0x1
+ 1434 036b 9C       		.byte	0x9c
+ 1435 036c A9030000 		.4byte	0x3a9
+ 1436 0370 0C       		.uleb128 0xc
+ 1437 0371 6D617400 		.ascii	"mat\000"
+ 1438 0375 01       		.byte	0x1
+ 1439 0376 77       		.byte	0x77
+ 1440 0377 17010000 		.4byte	0x117
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccs3wCQG.s 			page 30
+
+
+ 1441 037b 75050000 		.4byte	.LLST37
+ 1442 037f 0B       		.uleb128 0xb
+ 1443 0380 9B020000 		.4byte	.LASF28
+ 1444 0384 01       		.byte	0x1
+ 1445 0385 78       		.byte	0x78
+ 1446 0386 87000000 		.4byte	0x87
+ 1447 038a 93050000 		.4byte	.LLST38
+ 1448 038e 06       		.uleb128 0x6
+ 1449 038f 6900     		.ascii	"i\000"
+ 1450 0391 01       		.byte	0x1
+ 1451 0392 79       		.byte	0x79
+ 1452 0393 25000000 		.4byte	0x25
+ 1453 0397 C1050000 		.4byte	.LLST39
+ 1454 039b 06       		.uleb128 0x6
+ 1455 039c 6A00     		.ascii	"j\000"
+ 1456 039e 01       		.byte	0x1
+ 1457 039f 79       		.byte	0x79
+ 1458 03a0 25000000 		.4byte	0x25
+ 1459 03a4 E0050000 		.4byte	.LLST40
+ 1460 03a8 00       		.byte	0
+ 1461 03a9 0D       		.uleb128 0xd
+ 1462 03aa B1010000 		.4byte	.LASF29
+ 1463 03ae 01       		.byte	0x1
+ 1464 03af 81       		.byte	0x81
+ 1465 03b0 00000000 		.4byte	.LFB9
+ 1466 03b4 32000000 		.4byte	.LFE9-.LFB9
+ 1467 03b8 01       		.uleb128 0x1
+ 1468 03b9 9C       		.byte	0x9c
+ 1469 03ba F3030000 		.4byte	0x3f3
+ 1470 03be 0E       		.uleb128 0xe
+ 1471 03bf 6D617400 		.ascii	"mat\000"
+ 1472 03c3 01       		.byte	0x1
+ 1473 03c4 81       		.byte	0x81
+ 1474 03c5 17010000 		.4byte	0x117
+ 1475 03c9 01       		.uleb128 0x1
+ 1476 03ca 50       		.byte	0x50
+ 1477 03cb 0F       		.uleb128 0xf
+ 1478 03cc D9010000 		.4byte	.LASF16
+ 1479 03d0 01       		.byte	0x1
+ 1480 03d1 81       		.byte	0x81
+ 1481 03d2 17010000 		.4byte	0x117
+ 1482 03d6 01       		.uleb128 0x1
+ 1483 03d7 51       		.byte	0x51
+ 1484 03d8 06       		.uleb128 0x6
+ 1485 03d9 6900     		.ascii	"i\000"
+ 1486 03db 01       		.byte	0x1
+ 1487 03dc 82       		.byte	0x82
+ 1488 03dd 25000000 		.4byte	0x25
+ 1489 03e1 FF050000 		.4byte	.LLST41
+ 1490 03e5 06       		.uleb128 0x6
+ 1491 03e6 6A00     		.ascii	"j\000"
+ 1492 03e8 01       		.byte	0x1
+ 1493 03e9 82       		.byte	0x82
+ 1494 03ea 25000000 		.4byte	0x25
+ 1495 03ee 1E060000 		.4byte	.LLST42
+ 1496 03f2 00       		.byte	0
+ 1497 03f3 04       		.uleb128 0x4
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccs3wCQG.s 			page 31
+
+
+ 1498 03f4 7E000000 		.4byte	.LASF30
+ 1499 03f8 01       		.byte	0x1
+ 1500 03f9 8A       		.byte	0x8a
+ 1501 03fa 00000000 		.4byte	.LFB10
+ 1502 03fe 6C010000 		.4byte	.LFE10-.LFB10
+ 1503 0402 01       		.uleb128 0x1
+ 1504 0403 9C       		.byte	0x9c
+ 1505 0404 DD040000 		.4byte	0x4dd
+ 1506 0408 0C       		.uleb128 0xc
+ 1507 0409 6D617400 		.ascii	"mat\000"
+ 1508 040d 01       		.byte	0x1
+ 1509 040e 8A       		.byte	0x8a
+ 1510 040f 17010000 		.4byte	0x117
+ 1511 0413 48060000 		.4byte	.LLST43
+ 1512 0417 05       		.uleb128 0x5
+ 1513 0418 D9010000 		.4byte	.LASF16
+ 1514 041c 01       		.byte	0x1
+ 1515 041d 8A       		.byte	0x8a
+ 1516 041e 17010000 		.4byte	0x117
+ 1517 0422 66060000 		.4byte	.LLST44
+ 1518 0426 0B       		.uleb128 0xb
+ 1519 0427 48000000 		.4byte	.LASF31
+ 1520 042b 01       		.byte	0x1
+ 1521 042c 8B       		.byte	0x8b
+ 1522 042d 87000000 		.4byte	0x87
+ 1523 0431 86060000 		.4byte	.LLST45
+ 1524 0435 10       		.uleb128 0x10
+ 1525 0436 CA020000 		.4byte	.LASF32
+ 1526 043a 01       		.byte	0x1
+ 1527 043b 8C       		.byte	0x8c
+ 1528 043c DD040000 		.4byte	0x4dd
+ 1529 0440 03       		.uleb128 0x3
+ 1530 0441 91       		.byte	0x91
+ 1531 0442 B47F     		.sleb128 -76
+ 1532 0444 10       		.uleb128 0x10
+ 1533 0445 2A000000 		.4byte	.LASF33
+ 1534 0449 01       		.byte	0x1
+ 1535 044a 8D       		.byte	0x8d
+ 1536 044b DD040000 		.4byte	0x4dd
+ 1537 044f 03       		.uleb128 0x3
+ 1538 0450 91       		.byte	0x91
+ 1539 0451 907F     		.sleb128 -112
+ 1540 0453 11       		.uleb128 0x11
+ 1541 0454 16000000 		.4byte	.LVL113
+ 1542 0458 86050000 		.4byte	0x586
+ 1543 045c 73040000 		.4byte	0x473
+ 1544 0460 12       		.uleb128 0x12
+ 1545 0461 01       		.uleb128 0x1
+ 1546 0462 50       		.byte	0x50
+ 1547 0463 03       		.uleb128 0x3
+ 1548 0464 91       		.byte	0x91
+ 1549 0465 B47F     		.sleb128 -76
+ 1550 0467 12       		.uleb128 0x12
+ 1551 0468 01       		.uleb128 0x1
+ 1552 0469 51       		.byte	0x51
+ 1553 046a 01       		.uleb128 0x1
+ 1554 046b 30       		.byte	0x30
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccs3wCQG.s 			page 32
+
+
+ 1555 046c 12       		.uleb128 0x12
+ 1556 046d 01       		.uleb128 0x1
+ 1557 046e 52       		.byte	0x52
+ 1558 046f 02       		.uleb128 0x2
+ 1559 0470 75       		.byte	0x75
+ 1560 0471 00       		.sleb128 0
+ 1561 0472 00       		.byte	0
+ 1562 0473 11       		.uleb128 0x11
+ 1563 0474 20000000 		.4byte	.LVL114
+ 1564 0478 86050000 		.4byte	0x586
+ 1565 047c 93040000 		.4byte	0x493
+ 1566 0480 12       		.uleb128 0x12
+ 1567 0481 01       		.uleb128 0x1
+ 1568 0482 50       		.byte	0x50
+ 1569 0483 03       		.uleb128 0x3
+ 1570 0484 91       		.byte	0x91
+ 1571 0485 907F     		.sleb128 -112
+ 1572 0487 12       		.uleb128 0x12
+ 1573 0488 01       		.uleb128 0x1
+ 1574 0489 51       		.byte	0x51
+ 1575 048a 01       		.uleb128 0x1
+ 1576 048b 30       		.byte	0x30
+ 1577 048c 12       		.uleb128 0x12
+ 1578 048d 01       		.uleb128 0x1
+ 1579 048e 52       		.byte	0x52
+ 1580 048f 02       		.uleb128 0x2
+ 1581 0490 75       		.byte	0x75
+ 1582 0491 00       		.sleb128 0
+ 1583 0492 00       		.byte	0
+ 1584 0493 11       		.uleb128 0x11
+ 1585 0494 4E010000 		.4byte	.LVL142
+ 1586 0498 A9030000 		.4byte	0x3a9
+ 1587 049c AF040000 		.4byte	0x4af
+ 1588 04a0 12       		.uleb128 0x12
+ 1589 04a1 01       		.uleb128 0x1
+ 1590 04a2 50       		.byte	0x50
+ 1591 04a3 03       		.uleb128 0x3
+ 1592 04a4 91       		.byte	0x91
+ 1593 04a5 B47F     		.sleb128 -76
+ 1594 04a7 12       		.uleb128 0x12
+ 1595 04a8 01       		.uleb128 0x1
+ 1596 04a9 51       		.byte	0x51
+ 1597 04aa 03       		.uleb128 0x3
+ 1598 04ab 91       		.byte	0x91
+ 1599 04ac 907F     		.sleb128 -112
+ 1600 04ae 00       		.byte	0
+ 1601 04af 11       		.uleb128 0x11
+ 1602 04b0 54010000 		.4byte	.LVL143
+ 1603 04b4 01030000 		.4byte	0x301
+ 1604 04b8 C3040000 		.4byte	0x4c3
+ 1605 04bc 12       		.uleb128 0x12
+ 1606 04bd 01       		.uleb128 0x1
+ 1607 04be 50       		.byte	0x50
+ 1608 04bf 02       		.uleb128 0x2
+ 1609 04c0 74       		.byte	0x74
+ 1610 04c1 00       		.sleb128 0
+ 1611 04c2 00       		.byte	0
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccs3wCQG.s 			page 33
+
+
+ 1612 04c3 13       		.uleb128 0x13
+ 1613 04c4 66010000 		.4byte	.LVL145
+ 1614 04c8 E8010000 		.4byte	0x1e8
+ 1615 04cc 12       		.uleb128 0x12
+ 1616 04cd 01       		.uleb128 0x1
+ 1617 04ce 51       		.byte	0x51
+ 1618 04cf 03       		.uleb128 0x3
+ 1619 04d0 91       		.byte	0x91
+ 1620 04d1 907F     		.sleb128 -112
+ 1621 04d3 12       		.uleb128 0x12
+ 1622 04d4 01       		.uleb128 0x1
+ 1623 04d5 52       		.byte	0x52
+ 1624 04d6 04       		.uleb128 0x4
+ 1625 04d7 91       		.byte	0x91
+ 1626 04d8 8C7F     		.sleb128 -116
+ 1627 04da 06       		.byte	0x6
+ 1628 04db 00       		.byte	0
+ 1629 04dc 00       		.byte	0
+ 1630 04dd 07       		.uleb128 0x7
+ 1631 04de 87000000 		.4byte	0x87
+ 1632 04e2 F3040000 		.4byte	0x4f3
+ 1633 04e6 08       		.uleb128 0x8
+ 1634 04e7 72000000 		.4byte	0x72
+ 1635 04eb 02       		.byte	0x2
+ 1636 04ec 08       		.uleb128 0x8
+ 1637 04ed 72000000 		.4byte	0x72
+ 1638 04f1 02       		.byte	0x2
+ 1639 04f2 00       		.byte	0
+ 1640 04f3 04       		.uleb128 0x4
+ 1641 04f4 89010000 		.4byte	.LASF34
+ 1642 04f8 01       		.byte	0x1
+ 1643 04f9 9D       		.byte	0x9d
+ 1644 04fa 00000000 		.4byte	.LFB11
+ 1645 04fe 54000000 		.4byte	.LFE11-.LFB11
+ 1646 0502 01       		.uleb128 0x1
+ 1647 0503 9C       		.byte	0x9c
+ 1648 0504 86050000 		.4byte	0x586
+ 1649 0508 0C       		.uleb128 0xc
+ 1650 0509 6D617400 		.ascii	"mat\000"
+ 1651 050d 01       		.byte	0x1
+ 1652 050e 9D       		.byte	0x9d
+ 1653 050f 17010000 		.4byte	0x117
+ 1654 0513 A9060000 		.4byte	.LLST46
+ 1655 0517 06       		.uleb128 0x6
+ 1656 0518 6900     		.ascii	"i\000"
+ 1657 051a 01       		.byte	0x1
+ 1658 051b 9E       		.byte	0x9e
+ 1659 051c 25000000 		.4byte	0x25
+ 1660 0520 D5060000 		.4byte	.LLST47
+ 1661 0524 06       		.uleb128 0x6
+ 1662 0525 6A00     		.ascii	"j\000"
+ 1663 0527 01       		.byte	0x1
+ 1664 0528 9E       		.byte	0x9e
+ 1665 0529 25000000 		.4byte	0x25
+ 1666 052d F4060000 		.4byte	.LLST48
+ 1667 0531 11       		.uleb128 0x11
+ 1668 0532 0A000000 		.4byte	.LVL149
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccs3wCQG.s 			page 34
+
+
+ 1669 0536 8F050000 		.4byte	0x58f
+ 1670 053a 48050000 		.4byte	0x548
+ 1671 053e 12       		.uleb128 0x12
+ 1672 053f 01       		.uleb128 0x1
+ 1673 0540 50       		.byte	0x50
+ 1674 0541 05       		.uleb128 0x5
+ 1675 0542 03       		.byte	0x3
+ 1676 0543 00000000 		.4byte	.LC0
+ 1677 0547 00       		.byte	0
+ 1678 0548 11       		.uleb128 0x11
+ 1679 0549 28000000 		.4byte	.LVL152
+ 1680 054d 9E050000 		.4byte	0x59e
+ 1681 0551 5F050000 		.4byte	0x55f
+ 1682 0555 12       		.uleb128 0x12
+ 1683 0556 01       		.uleb128 0x1
+ 1684 0557 50       		.byte	0x50
+ 1685 0558 05       		.uleb128 0x5
+ 1686 0559 03       		.byte	0x3
+ 1687 055a 28000000 		.4byte	.LC1
+ 1688 055e 00       		.byte	0
+ 1689 055f 11       		.uleb128 0x11
+ 1690 0560 38000000 		.4byte	.LVL156
+ 1691 0564 8F050000 		.4byte	0x58f
+ 1692 0568 76050000 		.4byte	0x576
+ 1693 056c 12       		.uleb128 0x12
+ 1694 056d 01       		.uleb128 0x1
+ 1695 056e 50       		.byte	0x50
+ 1696 056f 05       		.uleb128 0x5
+ 1697 0570 03       		.byte	0x3
+ 1698 0571 34000000 		.4byte	.LC2
+ 1699 0575 00       		.byte	0
+ 1700 0576 13       		.uleb128 0x13
+ 1701 0577 44000000 		.4byte	.LVL158
+ 1702 057b A9050000 		.4byte	0x5a9
+ 1703 057f 12       		.uleb128 0x12
+ 1704 0580 01       		.uleb128 0x1
+ 1705 0581 50       		.byte	0x50
+ 1706 0582 01       		.uleb128 0x1
+ 1707 0583 3A       		.byte	0x3a
+ 1708 0584 00       		.byte	0
+ 1709 0585 00       		.byte	0
+ 1710 0586 14       		.uleb128 0x14
+ 1711 0587 7B010000 		.4byte	.LASF42
+ 1712 058b 7B010000 		.4byte	.LASF42
+ 1713 058f 15       		.uleb128 0x15
+ 1714 0590 C5020000 		.4byte	.LASF35
+ 1715 0594 8D000000 		.4byte	.LASF37
+ 1716 0598 02       		.byte	0x2
+ 1717 0599 00       		.byte	0
+ 1718 059a C5020000 		.4byte	.LASF35
+ 1719 059e 16       		.uleb128 0x16
+ 1720 059f 73020000 		.4byte	.LASF43
+ 1721 05a3 73020000 		.4byte	.LASF43
+ 1722 05a7 03       		.byte	0x3
+ 1723 05a8 BB       		.byte	0xbb
+ 1724 05a9 15       		.uleb128 0x15
+ 1725 05aa 5D010000 		.4byte	.LASF36
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccs3wCQG.s 			page 35
+
+
+ 1726 05ae 36000000 		.4byte	.LASF38
+ 1727 05b2 02       		.byte	0x2
+ 1728 05b3 00       		.byte	0
+ 1729 05b4 5D010000 		.4byte	.LASF36
+ 1730 05b8 00       		.byte	0
+ 1731              		.section	.debug_abbrev,"",%progbits
+ 1732              	.Ldebug_abbrev0:
+ 1733 0000 01       		.uleb128 0x1
+ 1734 0001 11       		.uleb128 0x11
+ 1735 0002 01       		.byte	0x1
+ 1736 0003 25       		.uleb128 0x25
+ 1737 0004 0E       		.uleb128 0xe
+ 1738 0005 13       		.uleb128 0x13
+ 1739 0006 0B       		.uleb128 0xb
+ 1740 0007 03       		.uleb128 0x3
+ 1741 0008 0E       		.uleb128 0xe
+ 1742 0009 1B       		.uleb128 0x1b
+ 1743 000a 0E       		.uleb128 0xe
+ 1744 000b 55       		.uleb128 0x55
+ 1745 000c 17       		.uleb128 0x17
+ 1746 000d 11       		.uleb128 0x11
+ 1747 000e 01       		.uleb128 0x1
+ 1748 000f 10       		.uleb128 0x10
+ 1749 0010 17       		.uleb128 0x17
+ 1750 0011 00       		.byte	0
+ 1751 0012 00       		.byte	0
+ 1752 0013 02       		.uleb128 0x2
+ 1753 0014 24       		.uleb128 0x24
+ 1754 0015 00       		.byte	0
+ 1755 0016 0B       		.uleb128 0xb
+ 1756 0017 0B       		.uleb128 0xb
+ 1757 0018 3E       		.uleb128 0x3e
+ 1758 0019 0B       		.uleb128 0xb
+ 1759 001a 03       		.uleb128 0x3
+ 1760 001b 08       		.uleb128 0x8
+ 1761 001c 00       		.byte	0
+ 1762 001d 00       		.byte	0
+ 1763 001e 03       		.uleb128 0x3
+ 1764 001f 24       		.uleb128 0x24
+ 1765 0020 00       		.byte	0
+ 1766 0021 0B       		.uleb128 0xb
+ 1767 0022 0B       		.uleb128 0xb
+ 1768 0023 3E       		.uleb128 0x3e
+ 1769 0024 0B       		.uleb128 0xb
+ 1770 0025 03       		.uleb128 0x3
+ 1771 0026 0E       		.uleb128 0xe
+ 1772 0027 00       		.byte	0
+ 1773 0028 00       		.byte	0
+ 1774 0029 04       		.uleb128 0x4
+ 1775 002a 2E       		.uleb128 0x2e
+ 1776 002b 01       		.byte	0x1
+ 1777 002c 3F       		.uleb128 0x3f
+ 1778 002d 19       		.uleb128 0x19
+ 1779 002e 03       		.uleb128 0x3
+ 1780 002f 0E       		.uleb128 0xe
+ 1781 0030 3A       		.uleb128 0x3a
+ 1782 0031 0B       		.uleb128 0xb
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccs3wCQG.s 			page 36
+
+
+ 1783 0032 3B       		.uleb128 0x3b
+ 1784 0033 0B       		.uleb128 0xb
+ 1785 0034 27       		.uleb128 0x27
+ 1786 0035 19       		.uleb128 0x19
+ 1787 0036 11       		.uleb128 0x11
+ 1788 0037 01       		.uleb128 0x1
+ 1789 0038 12       		.uleb128 0x12
+ 1790 0039 06       		.uleb128 0x6
+ 1791 003a 40       		.uleb128 0x40
+ 1792 003b 18       		.uleb128 0x18
+ 1793 003c 9642     		.uleb128 0x2116
+ 1794 003e 19       		.uleb128 0x19
+ 1795 003f 01       		.uleb128 0x1
+ 1796 0040 13       		.uleb128 0x13
+ 1797 0041 00       		.byte	0
+ 1798 0042 00       		.byte	0
+ 1799 0043 05       		.uleb128 0x5
+ 1800 0044 05       		.uleb128 0x5
+ 1801 0045 00       		.byte	0
+ 1802 0046 03       		.uleb128 0x3
+ 1803 0047 0E       		.uleb128 0xe
+ 1804 0048 3A       		.uleb128 0x3a
+ 1805 0049 0B       		.uleb128 0xb
+ 1806 004a 3B       		.uleb128 0x3b
+ 1807 004b 0B       		.uleb128 0xb
+ 1808 004c 49       		.uleb128 0x49
+ 1809 004d 13       		.uleb128 0x13
+ 1810 004e 02       		.uleb128 0x2
+ 1811 004f 17       		.uleb128 0x17
+ 1812 0050 00       		.byte	0
+ 1813 0051 00       		.byte	0
+ 1814 0052 06       		.uleb128 0x6
+ 1815 0053 34       		.uleb128 0x34
+ 1816 0054 00       		.byte	0
+ 1817 0055 03       		.uleb128 0x3
+ 1818 0056 08       		.uleb128 0x8
+ 1819 0057 3A       		.uleb128 0x3a
+ 1820 0058 0B       		.uleb128 0xb
+ 1821 0059 3B       		.uleb128 0x3b
+ 1822 005a 0B       		.uleb128 0xb
+ 1823 005b 49       		.uleb128 0x49
+ 1824 005c 13       		.uleb128 0x13
+ 1825 005d 02       		.uleb128 0x2
+ 1826 005e 17       		.uleb128 0x17
+ 1827 005f 00       		.byte	0
+ 1828 0060 00       		.byte	0
+ 1829 0061 07       		.uleb128 0x7
+ 1830 0062 01       		.uleb128 0x1
+ 1831 0063 01       		.byte	0x1
+ 1832 0064 49       		.uleb128 0x49
+ 1833 0065 13       		.uleb128 0x13
+ 1834 0066 01       		.uleb128 0x1
+ 1835 0067 13       		.uleb128 0x13
+ 1836 0068 00       		.byte	0
+ 1837 0069 00       		.byte	0
+ 1838 006a 08       		.uleb128 0x8
+ 1839 006b 21       		.uleb128 0x21
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccs3wCQG.s 			page 37
+
+
+ 1840 006c 00       		.byte	0
+ 1841 006d 49       		.uleb128 0x49
+ 1842 006e 13       		.uleb128 0x13
+ 1843 006f 2F       		.uleb128 0x2f
+ 1844 0070 0B       		.uleb128 0xb
+ 1845 0071 00       		.byte	0
+ 1846 0072 00       		.byte	0
+ 1847 0073 09       		.uleb128 0x9
+ 1848 0074 0F       		.uleb128 0xf
+ 1849 0075 00       		.byte	0
+ 1850 0076 0B       		.uleb128 0xb
+ 1851 0077 0B       		.uleb128 0xb
+ 1852 0078 49       		.uleb128 0x49
+ 1853 0079 13       		.uleb128 0x13
+ 1854 007a 00       		.byte	0
+ 1855 007b 00       		.byte	0
+ 1856 007c 0A       		.uleb128 0xa
+ 1857 007d 2E       		.uleb128 0x2e
+ 1858 007e 01       		.byte	0x1
+ 1859 007f 3F       		.uleb128 0x3f
+ 1860 0080 19       		.uleb128 0x19
+ 1861 0081 03       		.uleb128 0x3
+ 1862 0082 0E       		.uleb128 0xe
+ 1863 0083 3A       		.uleb128 0x3a
+ 1864 0084 0B       		.uleb128 0xb
+ 1865 0085 3B       		.uleb128 0x3b
+ 1866 0086 0B       		.uleb128 0xb
+ 1867 0087 27       		.uleb128 0x27
+ 1868 0088 19       		.uleb128 0x19
+ 1869 0089 49       		.uleb128 0x49
+ 1870 008a 13       		.uleb128 0x13
+ 1871 008b 11       		.uleb128 0x11
+ 1872 008c 01       		.uleb128 0x1
+ 1873 008d 12       		.uleb128 0x12
+ 1874 008e 06       		.uleb128 0x6
+ 1875 008f 40       		.uleb128 0x40
+ 1876 0090 18       		.uleb128 0x18
+ 1877 0091 9642     		.uleb128 0x2116
+ 1878 0093 19       		.uleb128 0x19
+ 1879 0094 01       		.uleb128 0x1
+ 1880 0095 13       		.uleb128 0x13
+ 1881 0096 00       		.byte	0
+ 1882 0097 00       		.byte	0
+ 1883 0098 0B       		.uleb128 0xb
+ 1884 0099 34       		.uleb128 0x34
+ 1885 009a 00       		.byte	0
+ 1886 009b 03       		.uleb128 0x3
+ 1887 009c 0E       		.uleb128 0xe
+ 1888 009d 3A       		.uleb128 0x3a
+ 1889 009e 0B       		.uleb128 0xb
+ 1890 009f 3B       		.uleb128 0x3b
+ 1891 00a0 0B       		.uleb128 0xb
+ 1892 00a1 49       		.uleb128 0x49
+ 1893 00a2 13       		.uleb128 0x13
+ 1894 00a3 02       		.uleb128 0x2
+ 1895 00a4 17       		.uleb128 0x17
+ 1896 00a5 00       		.byte	0
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccs3wCQG.s 			page 38
+
+
+ 1897 00a6 00       		.byte	0
+ 1898 00a7 0C       		.uleb128 0xc
+ 1899 00a8 05       		.uleb128 0x5
+ 1900 00a9 00       		.byte	0
+ 1901 00aa 03       		.uleb128 0x3
+ 1902 00ab 08       		.uleb128 0x8
+ 1903 00ac 3A       		.uleb128 0x3a
+ 1904 00ad 0B       		.uleb128 0xb
+ 1905 00ae 3B       		.uleb128 0x3b
+ 1906 00af 0B       		.uleb128 0xb
+ 1907 00b0 49       		.uleb128 0x49
+ 1908 00b1 13       		.uleb128 0x13
+ 1909 00b2 02       		.uleb128 0x2
+ 1910 00b3 17       		.uleb128 0x17
+ 1911 00b4 00       		.byte	0
+ 1912 00b5 00       		.byte	0
+ 1913 00b6 0D       		.uleb128 0xd
+ 1914 00b7 2E       		.uleb128 0x2e
+ 1915 00b8 01       		.byte	0x1
+ 1916 00b9 3F       		.uleb128 0x3f
+ 1917 00ba 19       		.uleb128 0x19
+ 1918 00bb 03       		.uleb128 0x3
+ 1919 00bc 0E       		.uleb128 0xe
+ 1920 00bd 3A       		.uleb128 0x3a
+ 1921 00be 0B       		.uleb128 0xb
+ 1922 00bf 3B       		.uleb128 0x3b
+ 1923 00c0 0B       		.uleb128 0xb
+ 1924 00c1 27       		.uleb128 0x27
+ 1925 00c2 19       		.uleb128 0x19
+ 1926 00c3 11       		.uleb128 0x11
+ 1927 00c4 01       		.uleb128 0x1
+ 1928 00c5 12       		.uleb128 0x12
+ 1929 00c6 06       		.uleb128 0x6
+ 1930 00c7 40       		.uleb128 0x40
+ 1931 00c8 18       		.uleb128 0x18
+ 1932 00c9 9742     		.uleb128 0x2117
+ 1933 00cb 19       		.uleb128 0x19
+ 1934 00cc 01       		.uleb128 0x1
+ 1935 00cd 13       		.uleb128 0x13
+ 1936 00ce 00       		.byte	0
+ 1937 00cf 00       		.byte	0
+ 1938 00d0 0E       		.uleb128 0xe
+ 1939 00d1 05       		.uleb128 0x5
+ 1940 00d2 00       		.byte	0
+ 1941 00d3 03       		.uleb128 0x3
+ 1942 00d4 08       		.uleb128 0x8
+ 1943 00d5 3A       		.uleb128 0x3a
+ 1944 00d6 0B       		.uleb128 0xb
+ 1945 00d7 3B       		.uleb128 0x3b
+ 1946 00d8 0B       		.uleb128 0xb
+ 1947 00d9 49       		.uleb128 0x49
+ 1948 00da 13       		.uleb128 0x13
+ 1949 00db 02       		.uleb128 0x2
+ 1950 00dc 18       		.uleb128 0x18
+ 1951 00dd 00       		.byte	0
+ 1952 00de 00       		.byte	0
+ 1953 00df 0F       		.uleb128 0xf
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccs3wCQG.s 			page 39
+
+
+ 1954 00e0 05       		.uleb128 0x5
+ 1955 00e1 00       		.byte	0
+ 1956 00e2 03       		.uleb128 0x3
+ 1957 00e3 0E       		.uleb128 0xe
+ 1958 00e4 3A       		.uleb128 0x3a
+ 1959 00e5 0B       		.uleb128 0xb
+ 1960 00e6 3B       		.uleb128 0x3b
+ 1961 00e7 0B       		.uleb128 0xb
+ 1962 00e8 49       		.uleb128 0x49
+ 1963 00e9 13       		.uleb128 0x13
+ 1964 00ea 02       		.uleb128 0x2
+ 1965 00eb 18       		.uleb128 0x18
+ 1966 00ec 00       		.byte	0
+ 1967 00ed 00       		.byte	0
+ 1968 00ee 10       		.uleb128 0x10
+ 1969 00ef 34       		.uleb128 0x34
+ 1970 00f0 00       		.byte	0
+ 1971 00f1 03       		.uleb128 0x3
+ 1972 00f2 0E       		.uleb128 0xe
+ 1973 00f3 3A       		.uleb128 0x3a
+ 1974 00f4 0B       		.uleb128 0xb
+ 1975 00f5 3B       		.uleb128 0x3b
+ 1976 00f6 0B       		.uleb128 0xb
+ 1977 00f7 49       		.uleb128 0x49
+ 1978 00f8 13       		.uleb128 0x13
+ 1979 00f9 02       		.uleb128 0x2
+ 1980 00fa 18       		.uleb128 0x18
+ 1981 00fb 00       		.byte	0
+ 1982 00fc 00       		.byte	0
+ 1983 00fd 11       		.uleb128 0x11
+ 1984 00fe 898201   		.uleb128 0x4109
+ 1985 0101 01       		.byte	0x1
+ 1986 0102 11       		.uleb128 0x11
+ 1987 0103 01       		.uleb128 0x1
+ 1988 0104 31       		.uleb128 0x31
+ 1989 0105 13       		.uleb128 0x13
+ 1990 0106 01       		.uleb128 0x1
+ 1991 0107 13       		.uleb128 0x13
+ 1992 0108 00       		.byte	0
+ 1993 0109 00       		.byte	0
+ 1994 010a 12       		.uleb128 0x12
+ 1995 010b 8A8201   		.uleb128 0x410a
+ 1996 010e 00       		.byte	0
+ 1997 010f 02       		.uleb128 0x2
+ 1998 0110 18       		.uleb128 0x18
+ 1999 0111 9142     		.uleb128 0x2111
+ 2000 0113 18       		.uleb128 0x18
+ 2001 0114 00       		.byte	0
+ 2002 0115 00       		.byte	0
+ 2003 0116 13       		.uleb128 0x13
+ 2004 0117 898201   		.uleb128 0x4109
+ 2005 011a 01       		.byte	0x1
+ 2006 011b 11       		.uleb128 0x11
+ 2007 011c 01       		.uleb128 0x1
+ 2008 011d 31       		.uleb128 0x31
+ 2009 011e 13       		.uleb128 0x13
+ 2010 011f 00       		.byte	0
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccs3wCQG.s 			page 40
+
+
+ 2011 0120 00       		.byte	0
+ 2012 0121 14       		.uleb128 0x14
+ 2013 0122 2E       		.uleb128 0x2e
+ 2014 0123 00       		.byte	0
+ 2015 0124 3F       		.uleb128 0x3f
+ 2016 0125 19       		.uleb128 0x19
+ 2017 0126 3C       		.uleb128 0x3c
+ 2018 0127 19       		.uleb128 0x19
+ 2019 0128 6E       		.uleb128 0x6e
+ 2020 0129 0E       		.uleb128 0xe
+ 2021 012a 03       		.uleb128 0x3
+ 2022 012b 0E       		.uleb128 0xe
+ 2023 012c 00       		.byte	0
+ 2024 012d 00       		.byte	0
+ 2025 012e 15       		.uleb128 0x15
+ 2026 012f 2E       		.uleb128 0x2e
+ 2027 0130 00       		.byte	0
+ 2028 0131 3F       		.uleb128 0x3f
+ 2029 0132 19       		.uleb128 0x19
+ 2030 0133 3C       		.uleb128 0x3c
+ 2031 0134 19       		.uleb128 0x19
+ 2032 0135 6E       		.uleb128 0x6e
+ 2033 0136 0E       		.uleb128 0xe
+ 2034 0137 03       		.uleb128 0x3
+ 2035 0138 0E       		.uleb128 0xe
+ 2036 0139 3A       		.uleb128 0x3a
+ 2037 013a 0B       		.uleb128 0xb
+ 2038 013b 3B       		.uleb128 0x3b
+ 2039 013c 0B       		.uleb128 0xb
+ 2040 013d 6E       		.uleb128 0x6e
+ 2041 013e 0E       		.uleb128 0xe
+ 2042 013f 00       		.byte	0
+ 2043 0140 00       		.byte	0
+ 2044 0141 16       		.uleb128 0x16
+ 2045 0142 2E       		.uleb128 0x2e
+ 2046 0143 00       		.byte	0
+ 2047 0144 3F       		.uleb128 0x3f
+ 2048 0145 19       		.uleb128 0x19
+ 2049 0146 3C       		.uleb128 0x3c
+ 2050 0147 19       		.uleb128 0x19
+ 2051 0148 6E       		.uleb128 0x6e
+ 2052 0149 0E       		.uleb128 0xe
+ 2053 014a 03       		.uleb128 0x3
+ 2054 014b 0E       		.uleb128 0xe
+ 2055 014c 3A       		.uleb128 0x3a
+ 2056 014d 0B       		.uleb128 0xb
+ 2057 014e 3B       		.uleb128 0x3b
+ 2058 014f 0B       		.uleb128 0xb
+ 2059 0150 00       		.byte	0
+ 2060 0151 00       		.byte	0
+ 2061 0152 00       		.byte	0
+ 2062              		.section	.debug_loc,"",%progbits
+ 2063              	.Ldebug_loc0:
+ 2064              	.LLST0:
+ 2065 0000 00000000 		.4byte	.LVL0
+ 2066 0004 0E000000 		.4byte	.LVL2
+ 2067 0008 0100     		.2byte	0x1
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccs3wCQG.s 			page 41
+
+
+ 2068 000a 50       		.byte	0x50
+ 2069 000b 0E000000 		.4byte	.LVL2
+ 2070 000f 60000000 		.4byte	.LFE1
+ 2071 0013 0100     		.2byte	0x1
+ 2072 0015 59       		.byte	0x59
+ 2073 0016 00000000 		.4byte	0
+ 2074 001a 00000000 		.4byte	0
+ 2075              	.LLST1:
+ 2076 001e 00000000 		.4byte	.LVL0
+ 2077 0022 0E000000 		.4byte	.LVL2
+ 2078 0026 0100     		.2byte	0x1
+ 2079 0028 51       		.byte	0x51
+ 2080 0029 0E000000 		.4byte	.LVL2
+ 2081 002d 60000000 		.4byte	.LFE1
+ 2082 0031 0100     		.2byte	0x1
+ 2083 0033 58       		.byte	0x58
+ 2084 0034 00000000 		.4byte	0
+ 2085 0038 00000000 		.4byte	0
+ 2086              	.LLST2:
+ 2087 003c 00000000 		.4byte	.LVL0
+ 2088 0040 0E000000 		.4byte	.LVL2
+ 2089 0044 0100     		.2byte	0x1
+ 2090 0046 52       		.byte	0x52
+ 2091 0047 0E000000 		.4byte	.LVL2
+ 2092 004b 60000000 		.4byte	.LFE1
+ 2093 004f 0100     		.2byte	0x1
+ 2094 0051 5A       		.byte	0x5a
+ 2095 0052 00000000 		.4byte	0
+ 2096 0056 00000000 		.4byte	0
+ 2097              	.LLST3:
+ 2098 005a 0A000000 		.4byte	.LVL1
+ 2099 005e 0E000000 		.4byte	.LVL2
+ 2100 0062 0200     		.2byte	0x2
+ 2101 0064 30       		.byte	0x30
+ 2102 0065 9F       		.byte	0x9f
+ 2103 0066 0E000000 		.4byte	.LVL2
+ 2104 006a 60000000 		.4byte	.LFE1
+ 2105 006e 0100     		.2byte	0x1
+ 2106 0070 55       		.byte	0x55
+ 2107 0071 00000000 		.4byte	0
+ 2108 0075 00000000 		.4byte	0
+ 2109              	.LLST4:
+ 2110 0079 0A000000 		.4byte	.LVL1
+ 2111 007d 0E000000 		.4byte	.LVL2
+ 2112 0081 0200     		.2byte	0x2
+ 2113 0083 30       		.byte	0x30
+ 2114 0084 9F       		.byte	0x9f
+ 2115 0085 0E000000 		.4byte	.LVL2
+ 2116 0089 50000000 		.4byte	.LVL11
+ 2117 008d 0100     		.2byte	0x1
+ 2118 008f 57       		.byte	0x57
+ 2119 0090 52000000 		.4byte	.LVL12
+ 2120 0094 58000000 		.4byte	.LVL13
+ 2121 0098 0100     		.2byte	0x1
+ 2122 009a 57       		.byte	0x57
+ 2123 009b 00000000 		.4byte	0
+ 2124 009f 00000000 		.4byte	0
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccs3wCQG.s 			page 42
+
+
+ 2125              	.LLST5:
+ 2126 00a3 0A000000 		.4byte	.LVL1
+ 2127 00a7 0E000000 		.4byte	.LVL2
+ 2128 00ab 0200     		.2byte	0x2
+ 2129 00ad 30       		.byte	0x30
+ 2130 00ae 9F       		.byte	0x9f
+ 2131 00af 0E000000 		.4byte	.LVL2
+ 2132 00b3 38000000 		.4byte	.LVL7
+ 2133 00b7 0100     		.2byte	0x1
+ 2134 00b9 54       		.byte	0x54
+ 2135 00ba 3C000000 		.4byte	.LVL8
+ 2136 00be 50000000 		.4byte	.LVL11
+ 2137 00c2 0100     		.2byte	0x1
+ 2138 00c4 54       		.byte	0x54
+ 2139 00c5 00000000 		.4byte	0
+ 2140 00c9 00000000 		.4byte	0
+ 2141              	.LLST6:
+ 2142 00cd 0E000000 		.4byte	.LVL2
+ 2143 00d1 34000000 		.4byte	.LVL5
+ 2144 00d5 0100     		.2byte	0x1
+ 2145 00d7 56       		.byte	0x56
+ 2146 00d8 34000000 		.4byte	.LVL5
+ 2147 00dc 38000000 		.4byte	.LVL7
+ 2148 00e0 0100     		.2byte	0x1
+ 2149 00e2 50       		.byte	0x50
+ 2150 00e3 3C000000 		.4byte	.LVL8
+ 2151 00e7 4C000000 		.4byte	.LVL9
+ 2152 00eb 0100     		.2byte	0x1
+ 2153 00ed 56       		.byte	0x56
+ 2154 00ee 4C000000 		.4byte	.LVL9
+ 2155 00f2 50000000 		.4byte	.LVL11
+ 2156 00f6 0600     		.2byte	0x6
+ 2157 00f8 9E       		.byte	0x9e
+ 2158 00f9 04       		.uleb128 0x4
+ 2159 00fa 00000000 		.4byte	0
+ 2160 00fe 00000000 		.4byte	0
+ 2161 0102 00000000 		.4byte	0
+ 2162              	.LLST7:
+ 2163 0106 00000000 		.4byte	.LVL14
+ 2164 010a 0E000000 		.4byte	.LVL16
+ 2165 010e 0100     		.2byte	0x1
+ 2166 0110 50       		.byte	0x50
+ 2167 0111 0E000000 		.4byte	.LVL16
+ 2168 0115 42000000 		.4byte	.LFE2
+ 2169 0119 0100     		.2byte	0x1
+ 2170 011b 58       		.byte	0x58
+ 2171 011c 00000000 		.4byte	0
+ 2172 0120 00000000 		.4byte	0
+ 2173              	.LLST8:
+ 2174 0124 00000000 		.4byte	.LVL14
+ 2175 0128 0E000000 		.4byte	.LVL16
+ 2176 012c 0100     		.2byte	0x1
+ 2177 012e 51       		.byte	0x51
+ 2178 012f 0E000000 		.4byte	.LVL16
+ 2179 0133 42000000 		.4byte	.LFE2
+ 2180 0137 0100     		.2byte	0x1
+ 2181 0139 57       		.byte	0x57
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccs3wCQG.s 			page 43
+
+
+ 2182 013a 00000000 		.4byte	0
+ 2183 013e 00000000 		.4byte	0
+ 2184              	.LLST9:
+ 2185 0142 00000000 		.4byte	.LVL14
+ 2186 0146 0E000000 		.4byte	.LVL16
+ 2187 014a 0100     		.2byte	0x1
+ 2188 014c 52       		.byte	0x52
+ 2189 014d 0E000000 		.4byte	.LVL16
+ 2190 0151 42000000 		.4byte	.LFE2
+ 2191 0155 0100     		.2byte	0x1
+ 2192 0157 56       		.byte	0x56
+ 2193 0158 00000000 		.4byte	0
+ 2194 015c 00000000 		.4byte	0
+ 2195              	.LLST10:
+ 2196 0160 0A000000 		.4byte	.LVL15
+ 2197 0164 0E000000 		.4byte	.LVL16
+ 2198 0168 0200     		.2byte	0x2
+ 2199 016a 30       		.byte	0x30
+ 2200 016b 9F       		.byte	0x9f
+ 2201 016c 0E000000 		.4byte	.LVL16
+ 2202 0170 42000000 		.4byte	.LFE2
+ 2203 0174 0100     		.2byte	0x1
+ 2204 0176 55       		.byte	0x55
+ 2205 0177 00000000 		.4byte	0
+ 2206 017b 00000000 		.4byte	0
+ 2207              	.LLST11:
+ 2208 017f 0A000000 		.4byte	.LVL15
+ 2209 0183 0E000000 		.4byte	.LVL16
+ 2210 0187 0200     		.2byte	0x2
+ 2211 0189 30       		.byte	0x30
+ 2212 018a 9F       		.byte	0x9f
+ 2213 018b 0E000000 		.4byte	.LVL16
+ 2214 018f 32000000 		.4byte	.LVL19
+ 2215 0193 0100     		.2byte	0x1
+ 2216 0195 54       		.byte	0x54
+ 2217 0196 34000000 		.4byte	.LVL20
+ 2218 019a 3A000000 		.4byte	.LVL21
+ 2219 019e 0100     		.2byte	0x1
+ 2220 01a0 54       		.byte	0x54
+ 2221 01a1 00000000 		.4byte	0
+ 2222 01a5 00000000 		.4byte	0
+ 2223              	.LLST12:
+ 2224 01a9 00000000 		.4byte	.LVL22
+ 2225 01ad 10000000 		.4byte	.LVL24
+ 2226 01b1 0100     		.2byte	0x1
+ 2227 01b3 50       		.byte	0x50
+ 2228 01b4 10000000 		.4byte	.LVL24
+ 2229 01b8 56000000 		.4byte	.LVL34
+ 2230 01bc 0100     		.2byte	0x1
+ 2231 01be 57       		.byte	0x57
+ 2232 01bf 56000000 		.4byte	.LVL34
+ 2233 01c3 60000000 		.4byte	.LFE3
+ 2234 01c7 0400     		.2byte	0x4
+ 2235 01c9 F3       		.byte	0xf3
+ 2236 01ca 01       		.uleb128 0x1
+ 2237 01cb 50       		.byte	0x50
+ 2238 01cc 9F       		.byte	0x9f
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccs3wCQG.s 			page 44
+
+
+ 2239 01cd 00000000 		.4byte	0
+ 2240 01d1 00000000 		.4byte	0
+ 2241              	.LLST13:
+ 2242 01d5 00000000 		.4byte	.LVL22
+ 2243 01d9 10000000 		.4byte	.LVL24
+ 2244 01dd 0100     		.2byte	0x1
+ 2245 01df 51       		.byte	0x51
+ 2246 01e0 10000000 		.4byte	.LVL24
+ 2247 01e4 56000000 		.4byte	.LVL34
+ 2248 01e8 0100     		.2byte	0x1
+ 2249 01ea 56       		.byte	0x56
+ 2250 01eb 56000000 		.4byte	.LVL34
+ 2251 01ef 60000000 		.4byte	.LFE3
+ 2252 01f3 0400     		.2byte	0x4
+ 2253 01f5 F3       		.byte	0xf3
+ 2254 01f6 01       		.uleb128 0x1
+ 2255 01f7 51       		.byte	0x51
+ 2256 01f8 9F       		.byte	0x9f
+ 2257 01f9 00000000 		.4byte	0
+ 2258 01fd 00000000 		.4byte	0
+ 2259              	.LLST14:
+ 2260 0201 08000000 		.4byte	.LVL23
+ 2261 0205 10000000 		.4byte	.LVL24
+ 2262 0209 0200     		.2byte	0x2
+ 2263 020b 30       		.byte	0x30
+ 2264 020c 9F       		.byte	0x9f
+ 2265 020d 10000000 		.4byte	.LVL24
+ 2266 0211 56000000 		.4byte	.LVL34
+ 2267 0215 0100     		.2byte	0x1
+ 2268 0217 55       		.byte	0x55
+ 2269 0218 00000000 		.4byte	0
+ 2270 021c 00000000 		.4byte	0
+ 2271              	.LLST15:
+ 2272 0220 08000000 		.4byte	.LVL23
+ 2273 0224 10000000 		.4byte	.LVL24
+ 2274 0228 0200     		.2byte	0x2
+ 2275 022a 30       		.byte	0x30
+ 2276 022b 9F       		.byte	0x9f
+ 2277 022c 10000000 		.4byte	.LVL24
+ 2278 0230 3E000000 		.4byte	.LVL30
+ 2279 0234 0100     		.2byte	0x1
+ 2280 0236 54       		.byte	0x54
+ 2281 0237 40000000 		.4byte	.LVL31
+ 2282 023b 4C000000 		.4byte	.LVL33
+ 2283 023f 0100     		.2byte	0x1
+ 2284 0241 54       		.byte	0x54
+ 2285 0242 00000000 		.4byte	0
+ 2286 0246 00000000 		.4byte	0
+ 2287              	.LLST16:
+ 2288 024a 08000000 		.4byte	.LVL23
+ 2289 024e 10000000 		.4byte	.LVL24
+ 2290 0252 0200     		.2byte	0x2
+ 2291 0254 31       		.byte	0x31
+ 2292 0255 9F       		.byte	0x9f
+ 2293 0256 10000000 		.4byte	.LVL24
+ 2294 025a 56000000 		.4byte	.LVL34
+ 2295 025e 0100     		.2byte	0x1
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccs3wCQG.s 			page 45
+
+
+ 2296 0260 58       		.byte	0x58
+ 2297 0261 56000000 		.4byte	.LVL34
+ 2298 0265 60000000 		.4byte	.LFE3
+ 2299 0269 0100     		.2byte	0x1
+ 2300 026b 50       		.byte	0x50
+ 2301 026c 00000000 		.4byte	0
+ 2302 0270 00000000 		.4byte	0
+ 2303              	.LLST17:
+ 2304 0274 2A000000 		.4byte	.LVL26
+ 2305 0278 2D000000 		.4byte	.LVL27-1
+ 2306 027c 0100     		.2byte	0x1
+ 2307 027e 50       		.byte	0x50
+ 2308 027f 00000000 		.4byte	0
+ 2309 0283 00000000 		.4byte	0
+ 2310              	.LLST18:
+ 2311 0287 00000000 		.4byte	.LVL35
+ 2312 028b 0E000000 		.4byte	.LVL37
+ 2313 028f 0100     		.2byte	0x1
+ 2314 0291 50       		.byte	0x50
+ 2315 0292 0E000000 		.4byte	.LVL37
+ 2316 0296 3C000000 		.4byte	.LFE4
+ 2317 029a 0100     		.2byte	0x1
+ 2318 029c 58       		.byte	0x58
+ 2319 029d 00000000 		.4byte	0
+ 2320 02a1 00000000 		.4byte	0
+ 2321              	.LLST19:
+ 2322 02a5 00000000 		.4byte	.LVL35
+ 2323 02a9 0E000000 		.4byte	.LVL37
+ 2324 02ad 0100     		.2byte	0x1
+ 2325 02af 51       		.byte	0x51
+ 2326 02b0 0E000000 		.4byte	.LVL37
+ 2327 02b4 3C000000 		.4byte	.LFE4
+ 2328 02b8 0100     		.2byte	0x1
+ 2329 02ba 57       		.byte	0x57
+ 2330 02bb 00000000 		.4byte	0
+ 2331 02bf 00000000 		.4byte	0
+ 2332              	.LLST20:
+ 2333 02c3 00000000 		.4byte	.LVL35
+ 2334 02c7 0E000000 		.4byte	.LVL37
+ 2335 02cb 0100     		.2byte	0x1
+ 2336 02cd 52       		.byte	0x52
+ 2337 02ce 0E000000 		.4byte	.LVL37
+ 2338 02d2 3C000000 		.4byte	.LFE4
+ 2339 02d6 0100     		.2byte	0x1
+ 2340 02d8 56       		.byte	0x56
+ 2341 02d9 00000000 		.4byte	0
+ 2342 02dd 00000000 		.4byte	0
+ 2343              	.LLST21:
+ 2344 02e1 0A000000 		.4byte	.LVL36
+ 2345 02e5 0E000000 		.4byte	.LVL37
+ 2346 02e9 0200     		.2byte	0x2
+ 2347 02eb 30       		.byte	0x30
+ 2348 02ec 9F       		.byte	0x9f
+ 2349 02ed 0E000000 		.4byte	.LVL37
+ 2350 02f1 3C000000 		.4byte	.LFE4
+ 2351 02f5 0100     		.2byte	0x1
+ 2352 02f7 55       		.byte	0x55
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccs3wCQG.s 			page 46
+
+
+ 2353 02f8 00000000 		.4byte	0
+ 2354 02fc 00000000 		.4byte	0
+ 2355              	.LLST22:
+ 2356 0300 0A000000 		.4byte	.LVL36
+ 2357 0304 0E000000 		.4byte	.LVL37
+ 2358 0308 0200     		.2byte	0x2
+ 2359 030a 30       		.byte	0x30
+ 2360 030b 9F       		.byte	0x9f
+ 2361 030c 0E000000 		.4byte	.LVL37
+ 2362 0310 2C000000 		.4byte	.LVL40
+ 2363 0314 0100     		.2byte	0x1
+ 2364 0316 54       		.byte	0x54
+ 2365 0317 2E000000 		.4byte	.LVL41
+ 2366 031b 34000000 		.4byte	.LVL42
+ 2367 031f 0100     		.2byte	0x1
+ 2368 0321 54       		.byte	0x54
+ 2369 0322 00000000 		.4byte	0
+ 2370 0326 00000000 		.4byte	0
+ 2371              	.LLST23:
+ 2372 032a 00000000 		.4byte	.LVL43
+ 2373 032e 0E000000 		.4byte	.LVL45
+ 2374 0332 0100     		.2byte	0x1
+ 2375 0334 50       		.byte	0x50
+ 2376 0335 0E000000 		.4byte	.LVL45
+ 2377 0339 3C000000 		.4byte	.LFE5
+ 2378 033d 0100     		.2byte	0x1
+ 2379 033f 58       		.byte	0x58
+ 2380 0340 00000000 		.4byte	0
+ 2381 0344 00000000 		.4byte	0
+ 2382              	.LLST24:
+ 2383 0348 00000000 		.4byte	.LVL43
+ 2384 034c 0E000000 		.4byte	.LVL45
+ 2385 0350 0100     		.2byte	0x1
+ 2386 0352 51       		.byte	0x51
+ 2387 0353 0E000000 		.4byte	.LVL45
+ 2388 0357 3C000000 		.4byte	.LFE5
+ 2389 035b 0100     		.2byte	0x1
+ 2390 035d 57       		.byte	0x57
+ 2391 035e 00000000 		.4byte	0
+ 2392 0362 00000000 		.4byte	0
+ 2393              	.LLST25:
+ 2394 0366 00000000 		.4byte	.LVL43
+ 2395 036a 0E000000 		.4byte	.LVL45
+ 2396 036e 0100     		.2byte	0x1
+ 2397 0370 52       		.byte	0x52
+ 2398 0371 0E000000 		.4byte	.LVL45
+ 2399 0375 3C000000 		.4byte	.LFE5
+ 2400 0379 0100     		.2byte	0x1
+ 2401 037b 56       		.byte	0x56
+ 2402 037c 00000000 		.4byte	0
+ 2403 0380 00000000 		.4byte	0
+ 2404              	.LLST26:
+ 2405 0384 0A000000 		.4byte	.LVL44
+ 2406 0388 0E000000 		.4byte	.LVL45
+ 2407 038c 0200     		.2byte	0x2
+ 2408 038e 30       		.byte	0x30
+ 2409 038f 9F       		.byte	0x9f
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccs3wCQG.s 			page 47
+
+
+ 2410 0390 0E000000 		.4byte	.LVL45
+ 2411 0394 3C000000 		.4byte	.LFE5
+ 2412 0398 0100     		.2byte	0x1
+ 2413 039a 55       		.byte	0x55
+ 2414 039b 00000000 		.4byte	0
+ 2415 039f 00000000 		.4byte	0
+ 2416              	.LLST27:
+ 2417 03a3 0A000000 		.4byte	.LVL44
+ 2418 03a7 0E000000 		.4byte	.LVL45
+ 2419 03ab 0200     		.2byte	0x2
+ 2420 03ad 30       		.byte	0x30
+ 2421 03ae 9F       		.byte	0x9f
+ 2422 03af 0E000000 		.4byte	.LVL45
+ 2423 03b3 2C000000 		.4byte	.LVL48
+ 2424 03b7 0100     		.2byte	0x1
+ 2425 03b9 54       		.byte	0x54
+ 2426 03ba 2E000000 		.4byte	.LVL49
+ 2427 03be 34000000 		.4byte	.LVL50
+ 2428 03c2 0100     		.2byte	0x1
+ 2429 03c4 54       		.byte	0x54
+ 2430 03c5 00000000 		.4byte	0
+ 2431 03c9 00000000 		.4byte	0
+ 2432              	.LLST28:
+ 2433 03cd 00000000 		.4byte	.LVL51
+ 2434 03d1 0E000000 		.4byte	.LVL53
+ 2435 03d5 0100     		.2byte	0x1
+ 2436 03d7 50       		.byte	0x50
+ 2437 03d8 0E000000 		.4byte	.LVL53
+ 2438 03dc 44000000 		.4byte	.LFE6
+ 2439 03e0 0100     		.2byte	0x1
+ 2440 03e2 58       		.byte	0x58
+ 2441 03e3 00000000 		.4byte	0
+ 2442 03e7 00000000 		.4byte	0
+ 2443              	.LLST29:
+ 2444 03eb 00000000 		.4byte	.LVL51
+ 2445 03ef 0E000000 		.4byte	.LVL53
+ 2446 03f3 0100     		.2byte	0x1
+ 2447 03f5 51       		.byte	0x51
+ 2448 03f6 0E000000 		.4byte	.LVL53
+ 2449 03fa 44000000 		.4byte	.LFE6
+ 2450 03fe 0100     		.2byte	0x1
+ 2451 0400 57       		.byte	0x57
+ 2452 0401 00000000 		.4byte	0
+ 2453 0405 00000000 		.4byte	0
+ 2454              	.LLST30:
+ 2455 0409 00000000 		.4byte	.LVL51
+ 2456 040d 0E000000 		.4byte	.LVL53
+ 2457 0411 0100     		.2byte	0x1
+ 2458 0413 52       		.byte	0x52
+ 2459 0414 0E000000 		.4byte	.LVL53
+ 2460 0418 44000000 		.4byte	.LFE6
+ 2461 041c 0100     		.2byte	0x1
+ 2462 041e 56       		.byte	0x56
+ 2463 041f 00000000 		.4byte	0
+ 2464 0423 00000000 		.4byte	0
+ 2465              	.LLST31:
+ 2466 0427 0A000000 		.4byte	.LVL52
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccs3wCQG.s 			page 48
+
+
+ 2467 042b 0E000000 		.4byte	.LVL53
+ 2468 042f 0200     		.2byte	0x2
+ 2469 0431 30       		.byte	0x30
+ 2470 0432 9F       		.byte	0x9f
+ 2471 0433 0E000000 		.4byte	.LVL53
+ 2472 0437 44000000 		.4byte	.LFE6
+ 2473 043b 0100     		.2byte	0x1
+ 2474 043d 55       		.byte	0x55
+ 2475 043e 00000000 		.4byte	0
+ 2476 0442 00000000 		.4byte	0
+ 2477              	.LLST32:
+ 2478 0446 0A000000 		.4byte	.LVL52
+ 2479 044a 0E000000 		.4byte	.LVL53
+ 2480 044e 0200     		.2byte	0x2
+ 2481 0450 30       		.byte	0x30
+ 2482 0451 9F       		.byte	0x9f
+ 2483 0452 0E000000 		.4byte	.LVL53
+ 2484 0456 34000000 		.4byte	.LVL57
+ 2485 045a 0100     		.2byte	0x1
+ 2486 045c 54       		.byte	0x54
+ 2487 045d 36000000 		.4byte	.LVL58
+ 2488 0461 3C000000 		.4byte	.LVL59
+ 2489 0465 0100     		.2byte	0x1
+ 2490 0467 54       		.byte	0x54
+ 2491 0468 00000000 		.4byte	0
+ 2492 046c 00000000 		.4byte	0
+ 2493              	.LLST33:
+ 2494 0470 00000000 		.4byte	.LVL60
+ 2495 0474 12000000 		.4byte	.LVL62
+ 2496 0478 0100     		.2byte	0x1
+ 2497 047a 50       		.byte	0x50
+ 2498 047b 12000000 		.4byte	.LVL62
+ 2499 047f 5A000000 		.4byte	.LVL74
+ 2500 0483 0100     		.2byte	0x1
+ 2501 0485 54       		.byte	0x54
+ 2502 0486 5A000000 		.4byte	.LVL74
+ 2503 048a C2000000 		.4byte	.LFE7
+ 2504 048e 0400     		.2byte	0x4
+ 2505 0490 F3       		.byte	0xf3
+ 2506 0491 01       		.uleb128 0x1
+ 2507 0492 50       		.byte	0x50
+ 2508 0493 9F       		.byte	0x9f
+ 2509 0494 00000000 		.4byte	0
+ 2510 0498 00000000 		.4byte	0
+ 2511              	.LLST34:
+ 2512 049c 08000000 		.4byte	.LVL61
+ 2513 04a0 BC000000 		.4byte	.LVL93
+ 2514 04a4 0600     		.2byte	0x6
+ 2515 04a6 9E       		.byte	0x9e
+ 2516 04a7 04       		.uleb128 0x4
+ 2517 04a8 00000000 		.4byte	0
+ 2518 04ac BC000000 		.4byte	.LVL93
+ 2519 04b0 C2000000 		.4byte	.LFE7
+ 2520 04b4 0100     		.2byte	0x1
+ 2521 04b6 50       		.byte	0x50
+ 2522 04b7 00000000 		.4byte	0
+ 2523 04bb 00000000 		.4byte	0
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccs3wCQG.s 			page 49
+
+
+ 2524              	.LLST35:
+ 2525 04bf 08000000 		.4byte	.LVL61
+ 2526 04c3 28000000 		.4byte	.LVL66
+ 2527 04c7 0600     		.2byte	0x6
+ 2528 04c9 9E       		.byte	0x9e
+ 2529 04ca 04       		.uleb128 0x4
+ 2530 04cb 00000000 		.4byte	0
+ 2531 04cf 28000000 		.4byte	.LVL66
+ 2532 04d3 32000000 		.4byte	.LVL67
+ 2533 04d7 0100     		.2byte	0x1
+ 2534 04d9 50       		.byte	0x50
+ 2535 04da 32000000 		.4byte	.LVL67
+ 2536 04de 4A000000 		.4byte	.LVL71
+ 2537 04e2 0100     		.2byte	0x1
+ 2538 04e4 56       		.byte	0x56
+ 2539 04e5 4A000000 		.4byte	.LVL71
+ 2540 04e9 54000000 		.4byte	.LVL72
+ 2541 04ed 0100     		.2byte	0x1
+ 2542 04ef 50       		.byte	0x50
+ 2543 04f0 54000000 		.4byte	.LVL72
+ 2544 04f4 6A000000 		.4byte	.LVL77
+ 2545 04f8 0200     		.2byte	0x2
+ 2546 04fa 91       		.byte	0x91
+ 2547 04fb 54       		.sleb128 -44
+ 2548 04fc 6A000000 		.4byte	.LVL77
+ 2549 0500 6E000000 		.4byte	.LVL78
+ 2550 0504 0100     		.2byte	0x1
+ 2551 0506 50       		.byte	0x50
+ 2552 0507 6E000000 		.4byte	.LVL78
+ 2553 050b C2000000 		.4byte	.LFE7
+ 2554 050f 0200     		.2byte	0x2
+ 2555 0511 91       		.byte	0x91
+ 2556 0512 54       		.sleb128 -44
+ 2557 0513 00000000 		.4byte	0
+ 2558 0517 00000000 		.4byte	0
+ 2559              	.LLST36:
+ 2560 051b 08000000 		.4byte	.LVL61
+ 2561 051f 82000000 		.4byte	.LVL82
+ 2562 0523 0600     		.2byte	0x6
+ 2563 0525 9E       		.byte	0x9e
+ 2564 0526 04       		.uleb128 0x4
+ 2565 0527 00000000 		.4byte	0
+ 2566 052b 82000000 		.4byte	.LVL82
+ 2567 052f 86000000 		.4byte	.LVL83
+ 2568 0533 0100     		.2byte	0x1
+ 2569 0535 50       		.byte	0x50
+ 2570 0536 86000000 		.4byte	.LVL83
+ 2571 053a 9C000000 		.4byte	.LVL87
+ 2572 053e 0100     		.2byte	0x1
+ 2573 0540 59       		.byte	0x59
+ 2574 0541 9C000000 		.4byte	.LVL87
+ 2575 0545 A0000000 		.4byte	.LVL88
+ 2576 0549 0100     		.2byte	0x1
+ 2577 054b 50       		.byte	0x50
+ 2578 054c A0000000 		.4byte	.LVL88
+ 2579 0550 B4000000 		.4byte	.LVL91
+ 2580 0554 0100     		.2byte	0x1
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccs3wCQG.s 			page 50
+
+
+ 2581 0556 54       		.byte	0x54
+ 2582 0557 B4000000 		.4byte	.LVL91
+ 2583 055b B8000000 		.4byte	.LVL92
+ 2584 055f 0100     		.2byte	0x1
+ 2585 0561 50       		.byte	0x50
+ 2586 0562 B8000000 		.4byte	.LVL92
+ 2587 0566 BB000000 		.4byte	.LVL93-1
+ 2588 056a 0100     		.2byte	0x1
+ 2589 056c 51       		.byte	0x51
+ 2590 056d 00000000 		.4byte	0
+ 2591 0571 00000000 		.4byte	0
+ 2592              	.LLST37:
+ 2593 0575 00000000 		.4byte	.LVL94
+ 2594 0579 0A000000 		.4byte	.LVL96
+ 2595 057d 0100     		.2byte	0x1
+ 2596 057f 50       		.byte	0x50
+ 2597 0580 0A000000 		.4byte	.LVL96
+ 2598 0584 26000000 		.4byte	.LFE8
+ 2599 0588 0100     		.2byte	0x1
+ 2600 058a 56       		.byte	0x56
+ 2601 058b 00000000 		.4byte	0
+ 2602 058f 00000000 		.4byte	0
+ 2603              	.LLST38:
+ 2604 0593 04000000 		.4byte	.LVL95
+ 2605 0597 0C000000 		.4byte	.LVL97
+ 2606 059b 0600     		.2byte	0x6
+ 2607 059d 9E       		.byte	0x9e
+ 2608 059e 04       		.uleb128 0x4
+ 2609 059f 00000000 		.4byte	0
+ 2610 05a3 0C000000 		.4byte	.LVL97
+ 2611 05a7 1B000000 		.4byte	.LVL98-1
+ 2612 05ab 0100     		.2byte	0x1
+ 2613 05ad 50       		.byte	0x50
+ 2614 05ae 1C000000 		.4byte	.LVL98
+ 2615 05b2 26000000 		.4byte	.LFE8
+ 2616 05b6 0100     		.2byte	0x1
+ 2617 05b8 50       		.byte	0x50
+ 2618 05b9 00000000 		.4byte	0
+ 2619 05bd 00000000 		.4byte	0
+ 2620              	.LLST39:
+ 2621 05c1 04000000 		.4byte	.LVL95
+ 2622 05c5 0C000000 		.4byte	.LVL97
+ 2623 05c9 0200     		.2byte	0x2
+ 2624 05cb 30       		.byte	0x30
+ 2625 05cc 9F       		.byte	0x9f
+ 2626 05cd 0C000000 		.4byte	.LVL97
+ 2627 05d1 26000000 		.4byte	.LFE8
+ 2628 05d5 0100     		.2byte	0x1
+ 2629 05d7 54       		.byte	0x54
+ 2630 05d8 00000000 		.4byte	0
+ 2631 05dc 00000000 		.4byte	0
+ 2632              	.LLST40:
+ 2633 05e0 04000000 		.4byte	.LVL95
+ 2634 05e4 0C000000 		.4byte	.LVL97
+ 2635 05e8 0200     		.2byte	0x2
+ 2636 05ea 30       		.byte	0x30
+ 2637 05eb 9F       		.byte	0x9f
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccs3wCQG.s 			page 51
+
+
+ 2638 05ec 0C000000 		.4byte	.LVL97
+ 2639 05f0 26000000 		.4byte	.LFE8
+ 2640 05f4 0100     		.2byte	0x1
+ 2641 05f6 55       		.byte	0x55
+ 2642 05f7 00000000 		.4byte	0
+ 2643 05fb 00000000 		.4byte	0
+ 2644              	.LLST41:
+ 2645 05ff 02000000 		.4byte	.LVL102
+ 2646 0603 06000000 		.4byte	.LVL103
+ 2647 0607 0200     		.2byte	0x2
+ 2648 0609 30       		.byte	0x30
+ 2649 060a 9F       		.byte	0x9f
+ 2650 060b 06000000 		.4byte	.LVL103
+ 2651 060f 30000000 		.4byte	.LVL108
+ 2652 0613 0100     		.2byte	0x1
+ 2653 0615 55       		.byte	0x55
+ 2654 0616 00000000 		.4byte	0
+ 2655 061a 00000000 		.4byte	0
+ 2656              	.LLST42:
+ 2657 061e 02000000 		.4byte	.LVL102
+ 2658 0622 06000000 		.4byte	.LVL103
+ 2659 0626 0200     		.2byte	0x2
+ 2660 0628 30       		.byte	0x30
+ 2661 0629 9F       		.byte	0x9f
+ 2662 062a 06000000 		.4byte	.LVL103
+ 2663 062e 22000000 		.4byte	.LVL105
+ 2664 0632 0100     		.2byte	0x1
+ 2665 0634 53       		.byte	0x53
+ 2666 0635 24000000 		.4byte	.LVL106
+ 2667 0639 2A000000 		.4byte	.LVL107
+ 2668 063d 0100     		.2byte	0x1
+ 2669 063f 53       		.byte	0x53
+ 2670 0640 00000000 		.4byte	0
+ 2671 0644 00000000 		.4byte	0
+ 2672              	.LLST43:
+ 2673 0648 00000000 		.4byte	.LVL109
+ 2674 064c 12000000 		.4byte	.LVL112
+ 2675 0650 0100     		.2byte	0x1
+ 2676 0652 50       		.byte	0x50
+ 2677 0653 12000000 		.4byte	.LVL112
+ 2678 0657 6C010000 		.4byte	.LFE10
+ 2679 065b 0100     		.2byte	0x1
+ 2680 065d 54       		.byte	0x54
+ 2681 065e 00000000 		.4byte	0
+ 2682 0662 00000000 		.4byte	0
+ 2683              	.LLST44:
+ 2684 0666 00000000 		.4byte	.LVL109
+ 2685 066a 10000000 		.4byte	.LVL111
+ 2686 066e 0100     		.2byte	0x1
+ 2687 0670 51       		.byte	0x51
+ 2688 0671 10000000 		.4byte	.LVL111
+ 2689 0675 6C010000 		.4byte	.LFE10
+ 2690 0679 0300     		.2byte	0x3
+ 2691 067b 91       		.byte	0x91
+ 2692 067c 8C7F     		.sleb128 -116
+ 2693 067e 00000000 		.4byte	0
+ 2694 0682 00000000 		.4byte	0
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccs3wCQG.s 			page 52
+
+
+ 2695              	.LLST45:
+ 2696 0686 0A000000 		.4byte	.LVL110
+ 2697 068a 5E010000 		.4byte	.LVL144
+ 2698 068e 0600     		.2byte	0x6
+ 2699 0690 9E       		.byte	0x9e
+ 2700 0691 04       		.uleb128 0x4
+ 2701 0692 00000000 		.4byte	0
+ 2702 0696 5E010000 		.4byte	.LVL144
+ 2703 069a 65010000 		.4byte	.LVL145-1
+ 2704 069e 0100     		.2byte	0x1
+ 2705 06a0 50       		.byte	0x50
+ 2706 06a1 00000000 		.4byte	0
+ 2707 06a5 00000000 		.4byte	0
+ 2708              	.LLST46:
+ 2709 06a9 00000000 		.4byte	.LVL146
+ 2710 06ad 06000000 		.4byte	.LVL148
+ 2711 06b1 0100     		.2byte	0x1
+ 2712 06b3 50       		.byte	0x50
+ 2713 06b4 06000000 		.4byte	.LVL148
+ 2714 06b8 46000000 		.4byte	.LVL159
+ 2715 06bc 0100     		.2byte	0x1
+ 2716 06be 56       		.byte	0x56
+ 2717 06bf 46000000 		.4byte	.LVL159
+ 2718 06c3 54000000 		.4byte	.LFE11
+ 2719 06c7 0400     		.2byte	0x4
+ 2720 06c9 F3       		.byte	0xf3
+ 2721 06ca 01       		.uleb128 0x1
+ 2722 06cb 50       		.byte	0x50
+ 2723 06cc 9F       		.byte	0x9f
+ 2724 06cd 00000000 		.4byte	0
+ 2725 06d1 00000000 		.4byte	0
+ 2726              	.LLST47:
+ 2727 06d5 04000000 		.4byte	.LVL147
+ 2728 06d9 0E000000 		.4byte	.LVL150
+ 2729 06dd 0200     		.2byte	0x2
+ 2730 06df 30       		.byte	0x30
+ 2731 06e0 9F       		.byte	0x9f
+ 2732 06e1 0E000000 		.4byte	.LVL150
+ 2733 06e5 46000000 		.4byte	.LVL159
+ 2734 06e9 0100     		.2byte	0x1
+ 2735 06eb 55       		.byte	0x55
+ 2736 06ec 00000000 		.4byte	0
+ 2737 06f0 00000000 		.4byte	0
+ 2738              	.LLST48:
+ 2739 06f4 04000000 		.4byte	.LVL147
+ 2740 06f8 0E000000 		.4byte	.LVL150
+ 2741 06fc 0200     		.2byte	0x2
+ 2742 06fe 30       		.byte	0x30
+ 2743 06ff 9F       		.byte	0x9f
+ 2744 0700 0E000000 		.4byte	.LVL150
+ 2745 0704 2C000000 		.4byte	.LVL154
+ 2746 0708 0100     		.2byte	0x1
+ 2747 070a 54       		.byte	0x54
+ 2748 070b 2E000000 		.4byte	.LVL155
+ 2749 070f 3A000000 		.4byte	.LVL157
+ 2750 0713 0100     		.2byte	0x1
+ 2751 0715 54       		.byte	0x54
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccs3wCQG.s 			page 53
+
+
+ 2752 0716 00000000 		.4byte	0
+ 2753 071a 00000000 		.4byte	0
+ 2754              		.section	.debug_aranges,"",%progbits
+ 2755 0000 6C000000 		.4byte	0x6c
+ 2756 0004 0200     		.2byte	0x2
+ 2757 0006 00000000 		.4byte	.Ldebug_info0
+ 2758 000a 04       		.byte	0x4
+ 2759 000b 00       		.byte	0
+ 2760 000c 0000     		.2byte	0
+ 2761 000e 0000     		.2byte	0
+ 2762 0010 00000000 		.4byte	.LFB1
+ 2763 0014 60000000 		.4byte	.LFE1-.LFB1
+ 2764 0018 00000000 		.4byte	.LFB2
+ 2765 001c 42000000 		.4byte	.LFE2-.LFB2
+ 2766 0020 00000000 		.4byte	.LFB3
+ 2767 0024 60000000 		.4byte	.LFE3-.LFB3
+ 2768 0028 00000000 		.4byte	.LFB4
+ 2769 002c 3C000000 		.4byte	.LFE4-.LFB4
+ 2770 0030 00000000 		.4byte	.LFB5
+ 2771 0034 3C000000 		.4byte	.LFE5-.LFB5
+ 2772 0038 00000000 		.4byte	.LFB6
+ 2773 003c 44000000 		.4byte	.LFE6-.LFB6
+ 2774 0040 00000000 		.4byte	.LFB7
+ 2775 0044 C2000000 		.4byte	.LFE7-.LFB7
+ 2776 0048 00000000 		.4byte	.LFB8
+ 2777 004c 26000000 		.4byte	.LFE8-.LFB8
+ 2778 0050 00000000 		.4byte	.LFB9
+ 2779 0054 32000000 		.4byte	.LFE9-.LFB9
+ 2780 0058 00000000 		.4byte	.LFB10
+ 2781 005c 6C010000 		.4byte	.LFE10-.LFB10
+ 2782 0060 00000000 		.4byte	.LFB11
+ 2783 0064 54000000 		.4byte	.LFE11-.LFB11
+ 2784 0068 00000000 		.4byte	0
+ 2785 006c 00000000 		.4byte	0
+ 2786              		.section	.debug_ranges,"",%progbits
+ 2787              	.Ldebug_ranges0:
+ 2788 0000 00000000 		.4byte	.LFB1
+ 2789 0004 60000000 		.4byte	.LFE1
+ 2790 0008 00000000 		.4byte	.LFB2
+ 2791 000c 42000000 		.4byte	.LFE2
+ 2792 0010 00000000 		.4byte	.LFB3
+ 2793 0014 60000000 		.4byte	.LFE3
+ 2794 0018 00000000 		.4byte	.LFB4
+ 2795 001c 3C000000 		.4byte	.LFE4
+ 2796 0020 00000000 		.4byte	.LFB5
+ 2797 0024 3C000000 		.4byte	.LFE5
+ 2798 0028 00000000 		.4byte	.LFB6
+ 2799 002c 44000000 		.4byte	.LFE6
+ 2800 0030 00000000 		.4byte	.LFB7
+ 2801 0034 C2000000 		.4byte	.LFE7
+ 2802 0038 00000000 		.4byte	.LFB8
+ 2803 003c 26000000 		.4byte	.LFE8
+ 2804 0040 00000000 		.4byte	.LFB9
+ 2805 0044 32000000 		.4byte	.LFE9
+ 2806 0048 00000000 		.4byte	.LFB10
+ 2807 004c 6C010000 		.4byte	.LFE10
+ 2808 0050 00000000 		.4byte	.LFB11
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccs3wCQG.s 			page 54
+
+
+ 2809 0054 54000000 		.4byte	.LFE11
+ 2810 0058 00000000 		.4byte	0
+ 2811 005c 00000000 		.4byte	0
+ 2812              		.section	.debug_line,"",%progbits
+ 2813              	.Ldebug_line0:
+ 2814 0000 9F020000 		.section	.debug_str,"MS",%progbits,1
+ 2814      0200A500 
+ 2814      00000201 
+ 2814      FB0E0D00 
+ 2814      01010101 
+ 2815              	.LASF24:
+ 2816 0000 64657465 		.ascii	"determTotal\000"
+ 2816      726D546F 
+ 2816      74616C00 
+ 2817              	.LASF25:
+ 2818 000c 6C656674 		.ascii	"leftRightDiag\000"
+ 2818      52696768 
+ 2818      74446961 
+ 2818      6700
+ 2819              	.LASF17:
+ 2820 001a 4D617472 		.ascii	"Matrix3Multiply\000"
+ 2820      6978334D 
+ 2820      756C7469 
+ 2820      706C7900 
+ 2821              	.LASF33:
+ 2822 002a 61646A75 		.ascii	"adjugateMat\000"
+ 2822      67617465 
+ 2822      4D617400 
+ 2823              	.LASF38:
+ 2824 0036 5F5F6275 		.ascii	"__builtin_putchar\000"
+ 2824      696C7469 
+ 2824      6E5F7075 
+ 2824      74636861 
+ 2824      7200
+ 2825              	.LASF31:
+ 2826 0048 64657465 		.ascii	"determinateInv\000"
+ 2826      726D696E 
+ 2826      61746549 
+ 2826      6E7600
+ 2827              	.LASF23:
+ 2828 0057 4D617472 		.ascii	"Matrix3Determinant\000"
+ 2828      69783344 
+ 2828      65746572 
+ 2828      6D696E61 
+ 2828      6E7400
+ 2829              	.LASF40:
+ 2830 006a 6D617472 		.ascii	"matrixmath3.c\000"
+ 2830      69786D61 
+ 2830      7468332E 
+ 2830      6300
+ 2831              	.LASF13:
+ 2832 0078 666C6F61 		.ascii	"float\000"
+ 2832      7400
+ 2833              	.LASF30:
+ 2834 007e 4D617472 		.ascii	"Matrix3Inverse\000"
+ 2834      69783349 
+ 2834      6E766572 
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccs3wCQG.s 			page 55
+
+
+ 2834      736500
+ 2835              	.LASF37:
+ 2836 008d 5F5F6275 		.ascii	"__builtin_puts\000"
+ 2836      696C7469 
+ 2836      6E5F7075 
+ 2836      747300
+ 2837              	.LASF4:
+ 2838 009c 756E7369 		.ascii	"unsigned char\000"
+ 2838      676E6564 
+ 2838      20636861 
+ 2838      7200
+ 2839              	.LASF39:
+ 2840 00aa 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 2840      43313120 
+ 2840      352E342E 
+ 2840      31203230 
+ 2840      31363036 
+ 2841 00dd 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 2841      20726576 
+ 2841      6973696F 
+ 2841      6E203233 
+ 2841      37373135 
+ 2842 0110 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 2842      66756E63 
+ 2842      74696F6E 
+ 2842      2D736563 
+ 2842      74696F6E 
+ 2843              	.LASF8:
+ 2844 0138 6C6F6E67 		.ascii	"long unsigned int\000"
+ 2844      20756E73 
+ 2844      69676E65 
+ 2844      6420696E 
+ 2844      7400
+ 2845              	.LASF6:
+ 2846 014a 73686F72 		.ascii	"short unsigned int\000"
+ 2846      7420756E 
+ 2846      7369676E 
+ 2846      65642069 
+ 2846      6E7400
+ 2847              	.LASF36:
+ 2848 015d 70757463 		.ascii	"putchar\000"
+ 2848      68617200 
+ 2849              	.LASF19:
+ 2850 0165 4D617472 		.ascii	"Matrix3ScalarMultiply\000"
+ 2850      69783353 
+ 2850      63616C61 
+ 2850      724D756C 
+ 2850      7469706C 
+ 2851              	.LASF42:
+ 2852 017b 6D656D73 		.ascii	"memset\000"
+ 2852      657400
+ 2853              	.LASF12:
+ 2854 0182 646F7562 		.ascii	"double\000"
+ 2854      6C6500
+ 2855              	.LASF34:
+ 2856 0189 4D617472 		.ascii	"Matrix3Print\000"
+ 2856      69783350 
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccs3wCQG.s 			page 56
+
+
+ 2856      72696E74 
+ 2856      00
+ 2857              	.LASF22:
+ 2858 0196 4D617472 		.ascii	"Matrix3Equals\000"
+ 2858      69783345 
+ 2858      7175616C 
+ 2858      7300
+ 2859              	.LASF0:
+ 2860 01a4 756E7369 		.ascii	"unsigned int\000"
+ 2860      676E6564 
+ 2860      20696E74 
+ 2860      00
+ 2861              	.LASF29:
+ 2862 01b1 4D617472 		.ascii	"Matrix3Transpose\000"
+ 2862      69783354 
+ 2862      72616E73 
+ 2862      706F7365 
+ 2862      00
+ 2863              	.LASF9:
+ 2864 01c2 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 2864      206C6F6E 
+ 2864      6720756E 
+ 2864      7369676E 
+ 2864      65642069 
+ 2865              	.LASF16:
+ 2866 01d9 72657375 		.ascii	"result\000"
+ 2866      6C7400
+ 2867              	.LASF20:
+ 2868 01e0 4D617472 		.ascii	"Matrix3ScalarAdd\000"
+ 2868      69783353 
+ 2868      63616C61 
+ 2868      72416464 
+ 2868      00
+ 2869              	.LASF41:
+ 2870 01f1 433A5C55 		.ascii	"C:\\Users\\Caleb Cotter\\Documents\\GitHub\\3HC\\3H"
+ 2870      73657273 
+ 2870      5C43616C 
+ 2870      65622043 
+ 2870      6F747465 
+ 2871 021e 435F4669 		.ascii	"C_Firmware\\3HC_Firmware_0_1.cydsn\000"
+ 2871      726D7761 
+ 2871      72655C33 
+ 2871      48435F46 
+ 2871      69726D77 
+ 2872              	.LASF2:
+ 2873 0240 6C6F6E67 		.ascii	"long double\000"
+ 2873      20646F75 
+ 2873      626C6500 
+ 2874              	.LASF10:
+ 2875 024c 73697A65 		.ascii	"sizetype\000"
+ 2875      74797065 
+ 2875      00
+ 2876              	.LASF1:
+ 2877 0255 6C6F6E67 		.ascii	"long long int\000"
+ 2877      206C6F6E 
+ 2877      6720696E 
+ 2877      7400
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccs3wCQG.s 			page 57
+
+
+ 2878              	.LASF11:
+ 2879 0263 63686172 		.ascii	"char\000"
+ 2879      00
+ 2880              	.LASF18:
+ 2881 0268 4D617472 		.ascii	"Matrix3Add\000"
+ 2881      69783341 
+ 2881      646400
+ 2882              	.LASF43:
+ 2883 0273 7072696E 		.ascii	"printf\000"
+ 2883      746600
+ 2884              	.LASF27:
+ 2885 027a 4D617472 		.ascii	"Matrix3Trace\000"
+ 2885      69783354 
+ 2885      72616365 
+ 2885      00
+ 2886              	.LASF5:
+ 2887 0287 73686F72 		.ascii	"short int\000"
+ 2887      7420696E 
+ 2887      7400
+ 2888              	.LASF14:
+ 2889 0291 6D617431 		.ascii	"mat1\000"
+ 2889      00
+ 2890              	.LASF15:
+ 2891 0296 6D617432 		.ascii	"mat2\000"
+ 2891      00
+ 2892              	.LASF28:
+ 2893 029b 74726163 		.ascii	"traceTotal\000"
+ 2893      65546F74 
+ 2893      616C00
+ 2894              	.LASF7:
+ 2895 02a6 6C6F6E67 		.ascii	"long int\000"
+ 2895      20696E74 
+ 2895      00
+ 2896              	.LASF21:
+ 2897 02af 4D617472 		.ascii	"Matrix3VectorMultiply\000"
+ 2897      69783356 
+ 2897      6563746F 
+ 2897      724D756C 
+ 2897      7469706C 
+ 2898              	.LASF35:
+ 2899 02c5 70757473 		.ascii	"puts\000"
+ 2899      00
+ 2900              	.LASF32:
+ 2901 02ca 636F6661 		.ascii	"cofactorMat\000"
+ 2901      63746F72 
+ 2901      4D617400 
+ 2902              	.LASF3:
+ 2903 02d6 7369676E 		.ascii	"signed char\000"
+ 2903      65642063 
+ 2903      68617200 
+ 2904              	.LASF26:
+ 2905 02e2 72696768 		.ascii	"rightLeftDiag\000"
+ 2905      744C6566 
+ 2905      74446961 
+ 2905      6700
+ 2906              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

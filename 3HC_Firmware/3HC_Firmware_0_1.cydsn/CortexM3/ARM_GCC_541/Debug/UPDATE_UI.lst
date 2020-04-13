@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvLQdPF.s 			page 1
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccauhsv3.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvLQdPF.s 			page 1
   28:Generated_Source\PSoC5/UPDATE_UI.c **** ********************************************************************************/
   29:Generated_Source\PSoC5/UPDATE_UI.c **** /* `#START UPDATE_UI_intc` */
   30:Generated_Source\PSoC5/UPDATE_UI.c **** 
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvLQdPF.s 			page 2
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccauhsv3.s 			page 2
 
 
   31:Generated_Source\PSoC5/UPDATE_UI.c **** /* `#END` */
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvLQdPF.s 			page 1
   85:Generated_Source\PSoC5/UPDATE_UI.c **** *  the interrupt to the interrupt controller.
   86:Generated_Source\PSoC5/UPDATE_UI.c **** *  
   87:Generated_Source\PSoC5/UPDATE_UI.c **** *  When defining ISR functions, the CY_ISR and CY_ISR_PROTO macros should be 
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvLQdPF.s 			page 3
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccauhsv3.s 			page 3
 
 
   88:Generated_Source\PSoC5/UPDATE_UI.c **** *  used to provide consistent definition across compilers:
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvLQdPF.s 			page 1
  142:Generated_Source\PSoC5/UPDATE_UI.c **** 
  143:Generated_Source\PSoC5/UPDATE_UI.c **** 
  144:Generated_Source\PSoC5/UPDATE_UI.c **** /*******************************************************************************
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvLQdPF.s 			page 4
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccauhsv3.s 			page 4
 
 
  145:Generated_Source\PSoC5/UPDATE_UI.c **** * Function Name: UPDATE_UI_Interrupt
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvLQdPF.s 			page 1
  182:Generated_Source\PSoC5/UPDATE_UI.c **** *   When defining ISR functions, the CY_ISR and CY_ISR_PROTO macros should be 
  183:Generated_Source\PSoC5/UPDATE_UI.c **** *   used to provide consistent definition across compilers:
  184:Generated_Source\PSoC5/UPDATE_UI.c **** *
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvLQdPF.s 			page 5
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccauhsv3.s 			page 5
 
 
  185:Generated_Source\PSoC5/UPDATE_UI.c **** *   Function definition example:
@@ -274,7 +274,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvLQdPF.s 			page 1
  205:Generated_Source\PSoC5/UPDATE_UI.c **** 
  206:Generated_Source\PSoC5/UPDATE_UI.c ****     ramVectorTable[CYINT_IRQ_BASE + (uint32)UPDATE_UI__INTC_NUMBER] = address;
   55              		.loc 1 206 0
-  56 0004 1864     		str	r0, [r3, #64]
+  56 0004 9864     		str	r0, [r3, #72]
   57 0006 7047     		bx	lr
   58              	.L4:
   59              		.align	2
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvLQdPF.s 			page 1
  211:Generated_Source\PSoC5/UPDATE_UI.c **** * Function Name: UPDATE_UI_GetVector
  212:Generated_Source\PSoC5/UPDATE_UI.c **** ********************************************************************************
  213:Generated_Source\PSoC5/UPDATE_UI.c **** *
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvLQdPF.s 			page 6
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccauhsv3.s 			page 6
 
 
  214:Generated_Source\PSoC5/UPDATE_UI.c **** * Summary:
@@ -329,7 +329,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvLQdPF.s 			page 1
  230:Generated_Source\PSoC5/UPDATE_UI.c ****     return ramVectorTable[CYINT_IRQ_BASE + (uint32)UPDATE_UI__INTC_NUMBER];
  231:Generated_Source\PSoC5/UPDATE_UI.c **** }
   82              		.loc 1 231 0
-  83 0004 186C     		ldr	r0, [r3, #64]
+  83 0004 986C     		ldr	r0, [r3, #72]
   84 0006 7047     		bx	lr
   85              	.L7:
   86              		.align	2
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvLQdPF.s 			page 1
  241:Generated_Source\PSoC5/UPDATE_UI.c **** *   Note calling UPDATE_UI_Start or UPDATE_UI_StartEx will 
  242:Generated_Source\PSoC5/UPDATE_UI.c **** *   override any effect this API would have had. This API should only be called
  243:Generated_Source\PSoC5/UPDATE_UI.c **** *   after UPDATE_UI_Start or UPDATE_UI_StartEx has been called. 
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvLQdPF.s 			page 7
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccauhsv3.s 			page 7
 
 
  244:Generated_Source\PSoC5/UPDATE_UI.c **** *   To set the initial priority for the component, use the Design-Wide Resources
@@ -394,7 +394,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvLQdPF.s 			page 1
  113              	.L10:
  114 000a 00BF     		.align	2
  115              	.L9:
- 116 000c 00E400E0 		.word	-536812544
+ 116 000c 02E400E0 		.word	-536812542
  117              		.cfi_endproc
  118              	.LFE6:
  119              		.size	UPDATE_UI_SetPriority, .-UPDATE_UI_SetPriority
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvLQdPF.s 			page 1
  270:Generated_Source\PSoC5/UPDATE_UI.c **** *
  271:Generated_Source\PSoC5/UPDATE_UI.c **** * Parameters:
  272:Generated_Source\PSoC5/UPDATE_UI.c **** *   None
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvLQdPF.s 			page 8
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccauhsv3.s 			page 8
 
 
  273:Generated_Source\PSoC5/UPDATE_UI.c **** *
@@ -453,7 +453,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvLQdPF.s 			page 1
  141              	.L13:
  142              		.align	2
  143              	.L12:
- 144 0008 00E400E0 		.word	-536812544
+ 144 0008 02E400E0 		.word	-536812542
  145              		.cfi_endproc
  146              	.LFE7:
  147              		.size	UPDATE_UI_GetPriority, .-UPDATE_UI_GetPriority
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvLQdPF.s 			page 1
  299:Generated_Source\PSoC5/UPDATE_UI.c **** *
  300:Generated_Source\PSoC5/UPDATE_UI.c **** * Parameters:
  301:Generated_Source\PSoC5/UPDATE_UI.c **** *   None
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvLQdPF.s 			page 9
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccauhsv3.s 			page 9
 
 
  302:Generated_Source\PSoC5/UPDATE_UI.c **** *
@@ -496,7 +496,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvLQdPF.s 			page 1
  309:Generated_Source\PSoC5/UPDATE_UI.c ****     /* Enable the general interrupt. */
  310:Generated_Source\PSoC5/UPDATE_UI.c ****     *UPDATE_UI_INTC_SET_EN = UPDATE_UI__INTC_MASK;
  161              		.loc 1 310 0
- 162 0000 0122     		movs	r2, #1
+ 162 0000 0422     		movs	r2, #4
  163 0002 014B     		ldr	r3, .L15
  164 0004 1A60     		str	r2, [r3]
  165 0006 7047     		bx	lr
@@ -538,34 +538,39 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvLQdPF.s 			page 1
  182              		.cfi_startproc
  183              		@ args = 0, pretend = 0, frame = 0
  184              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvLQdPF.s 			page 10
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccauhsv3.s 			page 10
 
 
  185              		@ link register save eliminated.
  330:Generated_Source\PSoC5/UPDATE_UI.c ****     /* Get the state of the general interrupt. */
  331:Generated_Source\PSoC5/UPDATE_UI.c ****     return ((*UPDATE_UI_INTC_SET_EN & (uint32)UPDATE_UI__INTC_MASK) != 0u) ? 1u:0u;
  186              		.loc 1 331 0
- 187 0000 024B     		ldr	r3, .L18
- 188 0002 1868     		ldr	r0, [r3]
+ 187 0000 044B     		ldr	r3, .L20
+ 188 0002 1B68     		ldr	r3, [r3]
+ 189 0004 13F0040F 		tst	r3, #4
+ 190 0008 01D0     		beq	.L19
+ 191 000a 0120     		movs	r0, #1
+ 192 000c 7047     		bx	lr
+ 193              	.L19:
+ 194 000e 0020     		movs	r0, #0
  332:Generated_Source\PSoC5/UPDATE_UI.c **** }
- 189              		.loc 1 332 0
- 190 0004 00F00100 		and	r0, r0, #1
- 191 0008 7047     		bx	lr
- 192              	.L19:
- 193 000a 00BF     		.align	2
- 194              	.L18:
- 195 000c 00E100E0 		.word	-536813312
- 196              		.cfi_endproc
- 197              	.LFE9:
- 198              		.size	UPDATE_UI_GetState, .-UPDATE_UI_GetState
- 199              		.section	.text.UPDATE_UI_Disable,"ax",%progbits
- 200              		.align	2
- 201              		.global	UPDATE_UI_Disable
- 202              		.thumb
- 203              		.thumb_func
- 204              		.type	UPDATE_UI_Disable, %function
- 205              	UPDATE_UI_Disable:
- 206              	.LFB10:
+ 195              		.loc 1 332 0
+ 196 0010 7047     		bx	lr
+ 197              	.L21:
+ 198 0012 00BF     		.align	2
+ 199              	.L20:
+ 200 0014 00E100E0 		.word	-536813312
+ 201              		.cfi_endproc
+ 202              	.LFE9:
+ 203              		.size	UPDATE_UI_GetState, .-UPDATE_UI_GetState
+ 204              		.section	.text.UPDATE_UI_Disable,"ax",%progbits
+ 205              		.align	2
+ 206              		.global	UPDATE_UI_Disable
+ 207              		.thumb
+ 208              		.thumb_func
+ 209              		.type	UPDATE_UI_Disable, %function
+ 210              	UPDATE_UI_Disable:
+ 211              	.LFB10:
  333:Generated_Source\PSoC5/UPDATE_UI.c **** 
  334:Generated_Source\PSoC5/UPDATE_UI.c **** 
  335:Generated_Source\PSoC5/UPDATE_UI.c **** /*******************************************************************************
@@ -584,160 +589,160 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvLQdPF.s 			page 1
  348:Generated_Source\PSoC5/UPDATE_UI.c **** *******************************************************************************/
  349:Generated_Source\PSoC5/UPDATE_UI.c **** void UPDATE_UI_Disable(void)
  350:Generated_Source\PSoC5/UPDATE_UI.c **** {
- 207              		.loc 1 350 0
- 208              		.cfi_startproc
- 209              		@ args = 0, pretend = 0, frame = 0
- 210              		@ frame_needed = 0, uses_anonymous_args = 0
- 211              		@ link register save eliminated.
+ 212              		.loc 1 350 0
+ 213              		.cfi_startproc
+ 214              		@ args = 0, pretend = 0, frame = 0
+ 215              		@ frame_needed = 0, uses_anonymous_args = 0
+ 216              		@ link register save eliminated.
  351:Generated_Source\PSoC5/UPDATE_UI.c ****     /* Disable the general interrupt. */
  352:Generated_Source\PSoC5/UPDATE_UI.c ****     *UPDATE_UI_INTC_CLR_EN = UPDATE_UI__INTC_MASK;
- 212              		.loc 1 352 0
- 213 0000 0122     		movs	r2, #1
- 214 0002 014B     		ldr	r3, .L21
- 215 0004 1A60     		str	r2, [r3]
- 216 0006 7047     		bx	lr
- 217              	.L22:
- 218              		.align	2
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvLQdPF.s 			page 11
+ 217              		.loc 1 352 0
+ 218 0000 0422     		movs	r2, #4
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccauhsv3.s 			page 11
 
 
- 219              	.L21:
- 220 0008 80E100E0 		.word	-536813184
- 221              		.cfi_endproc
- 222              	.LFE10:
- 223              		.size	UPDATE_UI_Disable, .-UPDATE_UI_Disable
- 224              		.section	.text.UPDATE_UI_Start,"ax",%progbits
- 225              		.align	2
- 226              		.global	UPDATE_UI_Start
- 227              		.thumb
- 228              		.thumb_func
- 229              		.type	UPDATE_UI_Start, %function
- 230              	UPDATE_UI_Start:
- 231              	.LFB0:
+ 219 0002 014B     		ldr	r3, .L23
+ 220 0004 1A60     		str	r2, [r3]
+ 221 0006 7047     		bx	lr
+ 222              	.L24:
+ 223              		.align	2
+ 224              	.L23:
+ 225 0008 80E100E0 		.word	-536813184
+ 226              		.cfi_endproc
+ 227              	.LFE10:
+ 228              		.size	UPDATE_UI_Disable, .-UPDATE_UI_Disable
+ 229              		.section	.text.UPDATE_UI_Start,"ax",%progbits
+ 230              		.align	2
+ 231              		.global	UPDATE_UI_Start
+ 232              		.thumb
+ 233              		.thumb_func
+ 234              		.type	UPDATE_UI_Start, %function
+ 235              	UPDATE_UI_Start:
+ 236              	.LFB0:
   62:Generated_Source\PSoC5/UPDATE_UI.c ****     /* For all we know the interrupt is active. */
- 232              		.loc 1 62 0
- 233              		.cfi_startproc
- 234              		@ args = 0, pretend = 0, frame = 0
- 235              		@ frame_needed = 0, uses_anonymous_args = 0
- 236 0000 08B5     		push	{r3, lr}
- 237              		.cfi_def_cfa_offset 8
- 238              		.cfi_offset 3, -8
- 239              		.cfi_offset 14, -4
+ 237              		.loc 1 62 0
+ 238              		.cfi_startproc
+ 239              		@ args = 0, pretend = 0, frame = 0
+ 240              		@ frame_needed = 0, uses_anonymous_args = 0
+ 241 0000 08B5     		push	{r3, lr}
+ 242              		.cfi_def_cfa_offset 8
+ 243              		.cfi_offset 3, -8
+ 244              		.cfi_offset 14, -4
   64:Generated_Source\PSoC5/UPDATE_UI.c **** 
- 240              		.loc 1 64 0
- 241 0002 FFF7FEFF 		bl	UPDATE_UI_Disable
- 242              	.LVL7:
+ 245              		.loc 1 64 0
+ 246 0002 FFF7FEFF 		bl	UPDATE_UI_Disable
+ 247              	.LVL7:
   67:Generated_Source\PSoC5/UPDATE_UI.c **** 
- 243              		.loc 1 67 0
- 244 0006 0448     		ldr	r0, .L25
- 245 0008 FFF7FEFF 		bl	UPDATE_UI_SetVector
- 246              	.LVL8:
+ 248              		.loc 1 67 0
+ 249 0006 0448     		ldr	r0, .L27
+ 250 0008 FFF7FEFF 		bl	UPDATE_UI_SetVector
+ 251              	.LVL8:
   70:Generated_Source\PSoC5/UPDATE_UI.c **** 
- 247              		.loc 1 70 0
- 248 000c 0720     		movs	r0, #7
- 249 000e FFF7FEFF 		bl	UPDATE_UI_SetPriority
- 250              	.LVL9:
+ 252              		.loc 1 70 0
+ 253 000c 0720     		movs	r0, #7
+ 254 000e FFF7FEFF 		bl	UPDATE_UI_SetPriority
+ 255              	.LVL9:
   73:Generated_Source\PSoC5/UPDATE_UI.c **** }
- 251              		.loc 1 73 0
- 252 0012 FFF7FEFF 		bl	UPDATE_UI_Enable
- 253              	.LVL10:
- 254 0016 08BD     		pop	{r3, pc}
- 255              	.L26:
- 256              		.align	2
- 257              	.L25:
- 258 0018 00000000 		.word	UPDATE_UI_Interrupt
- 259              		.cfi_endproc
- 260              	.LFE0:
- 261              		.size	UPDATE_UI_Start, .-UPDATE_UI_Start
- 262              		.section	.text.UPDATE_UI_StartEx,"ax",%progbits
- 263              		.align	2
- 264              		.global	UPDATE_UI_StartEx
- 265              		.thumb
- 266              		.thumb_func
- 267              		.type	UPDATE_UI_StartEx, %function
- 268              	UPDATE_UI_StartEx:
- 269              	.LFB1:
+ 256              		.loc 1 73 0
+ 257 0012 FFF7FEFF 		bl	UPDATE_UI_Enable
+ 258              	.LVL10:
+ 259 0016 08BD     		pop	{r3, pc}
+ 260              	.L28:
+ 261              		.align	2
+ 262              	.L27:
+ 263 0018 00000000 		.word	UPDATE_UI_Interrupt
+ 264              		.cfi_endproc
+ 265              	.LFE0:
+ 266              		.size	UPDATE_UI_Start, .-UPDATE_UI_Start
+ 267              		.section	.text.UPDATE_UI_StartEx,"ax",%progbits
+ 268              		.align	2
+ 269              		.global	UPDATE_UI_StartEx
+ 270              		.thumb
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccauhsv3.s 			page 12
+
+
+ 271              		.thumb_func
+ 272              		.type	UPDATE_UI_StartEx, %function
+ 273              	UPDATE_UI_StartEx:
+ 274              	.LFB1:
  105:Generated_Source\PSoC5/UPDATE_UI.c ****     /* For all we know the interrupt is active. */
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvLQdPF.s 			page 12
-
-
- 270              		.loc 1 105 0
- 271              		.cfi_startproc
- 272              		@ args = 0, pretend = 0, frame = 0
- 273              		@ frame_needed = 0, uses_anonymous_args = 0
- 274              	.LVL11:
- 275 0000 10B5     		push	{r4, lr}
- 276              		.cfi_def_cfa_offset 8
- 277              		.cfi_offset 4, -8
- 278              		.cfi_offset 14, -4
- 279 0002 0446     		mov	r4, r0
+ 275              		.loc 1 105 0
+ 276              		.cfi_startproc
+ 277              		@ args = 0, pretend = 0, frame = 0
+ 278              		@ frame_needed = 0, uses_anonymous_args = 0
+ 279              	.LVL11:
+ 280 0000 10B5     		push	{r4, lr}
+ 281              		.cfi_def_cfa_offset 8
+ 282              		.cfi_offset 4, -8
+ 283              		.cfi_offset 14, -4
+ 284 0002 0446     		mov	r4, r0
  107:Generated_Source\PSoC5/UPDATE_UI.c **** 
- 280              		.loc 1 107 0
- 281 0004 FFF7FEFF 		bl	UPDATE_UI_Disable
- 282              	.LVL12:
+ 285              		.loc 1 107 0
+ 286 0004 FFF7FEFF 		bl	UPDATE_UI_Disable
+ 287              	.LVL12:
  110:Generated_Source\PSoC5/UPDATE_UI.c **** 
- 283              		.loc 1 110 0
- 284 0008 2046     		mov	r0, r4
- 285 000a FFF7FEFF 		bl	UPDATE_UI_SetVector
- 286              	.LVL13:
+ 288              		.loc 1 110 0
+ 289 0008 2046     		mov	r0, r4
+ 290 000a FFF7FEFF 		bl	UPDATE_UI_SetVector
+ 291              	.LVL13:
  113:Generated_Source\PSoC5/UPDATE_UI.c **** 
- 287              		.loc 1 113 0
- 288 000e 0720     		movs	r0, #7
- 289 0010 FFF7FEFF 		bl	UPDATE_UI_SetPriority
- 290              	.LVL14:
+ 292              		.loc 1 113 0
+ 293 000e 0720     		movs	r0, #7
+ 294 0010 FFF7FEFF 		bl	UPDATE_UI_SetPriority
+ 295              	.LVL14:
  116:Generated_Source\PSoC5/UPDATE_UI.c **** }
- 291              		.loc 1 116 0
- 292 0014 FFF7FEFF 		bl	UPDATE_UI_Enable
- 293              	.LVL15:
- 294 0018 10BD     		pop	{r4, pc}
- 295              		.cfi_endproc
- 296              	.LFE1:
- 297              		.size	UPDATE_UI_StartEx, .-UPDATE_UI_StartEx
- 298 001a 00BF     		.section	.text.UPDATE_UI_Stop,"ax",%progbits
- 299              		.align	2
- 300              		.global	UPDATE_UI_Stop
- 301              		.thumb
- 302              		.thumb_func
- 303              		.type	UPDATE_UI_Stop, %function
- 304              	UPDATE_UI_Stop:
- 305              	.LFB2:
+ 296              		.loc 1 116 0
+ 297 0014 FFF7FEFF 		bl	UPDATE_UI_Enable
+ 298              	.LVL15:
+ 299 0018 10BD     		pop	{r4, pc}
+ 300              		.cfi_endproc
+ 301              	.LFE1:
+ 302              		.size	UPDATE_UI_StartEx, .-UPDATE_UI_StartEx
+ 303 001a 00BF     		.section	.text.UPDATE_UI_Stop,"ax",%progbits
+ 304              		.align	2
+ 305              		.global	UPDATE_UI_Stop
+ 306              		.thumb
+ 307              		.thumb_func
+ 308              		.type	UPDATE_UI_Stop, %function
+ 309              	UPDATE_UI_Stop:
+ 310              	.LFB2:
  135:Generated_Source\PSoC5/UPDATE_UI.c ****     /* Disable this interrupt. */
- 306              		.loc 1 135 0
- 307              		.cfi_startproc
- 308              		@ args = 0, pretend = 0, frame = 0
- 309              		@ frame_needed = 0, uses_anonymous_args = 0
- 310 0000 08B5     		push	{r3, lr}
- 311              		.cfi_def_cfa_offset 8
- 312              		.cfi_offset 3, -8
- 313              		.cfi_offset 14, -4
+ 311              		.loc 1 135 0
+ 312              		.cfi_startproc
+ 313              		@ args = 0, pretend = 0, frame = 0
+ 314              		@ frame_needed = 0, uses_anonymous_args = 0
+ 315 0000 08B5     		push	{r3, lr}
+ 316              		.cfi_def_cfa_offset 8
+ 317              		.cfi_offset 3, -8
+ 318              		.cfi_offset 14, -4
  137:Generated_Source\PSoC5/UPDATE_UI.c **** 
- 314              		.loc 1 137 0
- 315 0002 FFF7FEFF 		bl	UPDATE_UI_Disable
- 316              	.LVL16:
+ 319              		.loc 1 137 0
+ 320 0002 FFF7FEFF 		bl	UPDATE_UI_Disable
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccauhsv3.s 			page 13
+
+
+ 321              	.LVL16:
  140:Generated_Source\PSoC5/UPDATE_UI.c **** }
- 317              		.loc 1 140 0
- 318 0006 0248     		ldr	r0, .L31
- 319 0008 FFF7FEFF 		bl	UPDATE_UI_SetVector
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvLQdPF.s 			page 13
-
-
- 320              	.LVL17:
- 321 000c 08BD     		pop	{r3, pc}
- 322              	.L32:
- 323 000e 00BF     		.align	2
- 324              	.L31:
- 325 0010 00000000 		.word	IntDefaultHandler
- 326              		.cfi_endproc
- 327              	.LFE2:
- 328              		.size	UPDATE_UI_Stop, .-UPDATE_UI_Stop
- 329              		.section	.text.UPDATE_UI_SetPending,"ax",%progbits
- 330              		.align	2
- 331              		.global	UPDATE_UI_SetPending
- 332              		.thumb
- 333              		.thumb_func
- 334              		.type	UPDATE_UI_SetPending, %function
- 335              	UPDATE_UI_SetPending:
- 336              	.LFB11:
+ 322              		.loc 1 140 0
+ 323 0006 0248     		ldr	r0, .L33
+ 324 0008 FFF7FEFF 		bl	UPDATE_UI_SetVector
+ 325              	.LVL17:
+ 326 000c 08BD     		pop	{r3, pc}
+ 327              	.L34:
+ 328 000e 00BF     		.align	2
+ 329              	.L33:
+ 330 0010 00000000 		.word	IntDefaultHandler
+ 331              		.cfi_endproc
+ 332              	.LFE2:
+ 333              		.size	UPDATE_UI_Stop, .-UPDATE_UI_Stop
+ 334              		.section	.text.UPDATE_UI_SetPending,"ax",%progbits
+ 335              		.align	2
+ 336              		.global	UPDATE_UI_SetPending
+ 337              		.thumb
+ 338              		.thumb_func
+ 339              		.type	UPDATE_UI_SetPending, %function
+ 340              	UPDATE_UI_SetPending:
+ 341              	.LFB11:
  353:Generated_Source\PSoC5/UPDATE_UI.c **** }
  354:Generated_Source\PSoC5/UPDATE_UI.c **** 
  355:Generated_Source\PSoC5/UPDATE_UI.c **** 
@@ -763,35 +768,35 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvLQdPF.s 			page 1
  375:Generated_Source\PSoC5/UPDATE_UI.c **** *******************************************************************************/
  376:Generated_Source\PSoC5/UPDATE_UI.c **** void UPDATE_UI_SetPending(void)
  377:Generated_Source\PSoC5/UPDATE_UI.c **** {
- 337              		.loc 1 377 0
- 338              		.cfi_startproc
- 339              		@ args = 0, pretend = 0, frame = 0
- 340              		@ frame_needed = 0, uses_anonymous_args = 0
- 341              		@ link register save eliminated.
+ 342              		.loc 1 377 0
+ 343              		.cfi_startproc
+ 344              		@ args = 0, pretend = 0, frame = 0
+ 345              		@ frame_needed = 0, uses_anonymous_args = 0
+ 346              		@ link register save eliminated.
  378:Generated_Source\PSoC5/UPDATE_UI.c ****     *UPDATE_UI_INTC_SET_PD = UPDATE_UI__INTC_MASK;
- 342              		.loc 1 378 0
- 343 0000 0122     		movs	r2, #1
- 344 0002 014B     		ldr	r3, .L34
- 345 0004 1A60     		str	r2, [r3]
- 346 0006 7047     		bx	lr
- 347              	.L35:
- 348              		.align	2
- 349              	.L34:
- 350 0008 00E200E0 		.word	-536813056
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvLQdPF.s 			page 14
+ 347              		.loc 1 378 0
+ 348 0000 0422     		movs	r2, #4
+ 349 0002 014B     		ldr	r3, .L36
+ 350 0004 1A60     		str	r2, [r3]
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccauhsv3.s 			page 14
 
 
- 351              		.cfi_endproc
- 352              	.LFE11:
- 353              		.size	UPDATE_UI_SetPending, .-UPDATE_UI_SetPending
- 354              		.section	.text.UPDATE_UI_ClearPending,"ax",%progbits
- 355              		.align	2
- 356              		.global	UPDATE_UI_ClearPending
- 357              		.thumb
- 358              		.thumb_func
- 359              		.type	UPDATE_UI_ClearPending, %function
- 360              	UPDATE_UI_ClearPending:
- 361              	.LFB12:
+ 351 0006 7047     		bx	lr
+ 352              	.L37:
+ 353              		.align	2
+ 354              	.L36:
+ 355 0008 00E200E0 		.word	-536813056
+ 356              		.cfi_endproc
+ 357              	.LFE11:
+ 358              		.size	UPDATE_UI_SetPending, .-UPDATE_UI_SetPending
+ 359              		.section	.text.UPDATE_UI_ClearPending,"ax",%progbits
+ 360              		.align	2
+ 361              		.global	UPDATE_UI_ClearPending
+ 362              		.thumb
+ 363              		.thumb_func
+ 364              		.type	UPDATE_UI_ClearPending, %function
+ 365              	UPDATE_UI_ClearPending:
+ 366              	.LFB12:
  379:Generated_Source\PSoC5/UPDATE_UI.c **** }
  380:Generated_Source\PSoC5/UPDATE_UI.c **** 
  381:Generated_Source\PSoC5/UPDATE_UI.c **** 
@@ -816,1080 +821,1080 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvLQdPF.s 			page 1
  400:Generated_Source\PSoC5/UPDATE_UI.c **** *******************************************************************************/
  401:Generated_Source\PSoC5/UPDATE_UI.c **** void UPDATE_UI_ClearPending(void)
  402:Generated_Source\PSoC5/UPDATE_UI.c **** {
- 362              		.loc 1 402 0
- 363              		.cfi_startproc
- 364              		@ args = 0, pretend = 0, frame = 0
- 365              		@ frame_needed = 0, uses_anonymous_args = 0
- 366              		@ link register save eliminated.
+ 367              		.loc 1 402 0
+ 368              		.cfi_startproc
+ 369              		@ args = 0, pretend = 0, frame = 0
+ 370              		@ frame_needed = 0, uses_anonymous_args = 0
+ 371              		@ link register save eliminated.
  403:Generated_Source\PSoC5/UPDATE_UI.c ****     *UPDATE_UI_INTC_CLR_PD = UPDATE_UI__INTC_MASK;
- 367              		.loc 1 403 0
- 368 0000 0122     		movs	r2, #1
- 369 0002 014B     		ldr	r3, .L37
- 370 0004 1A60     		str	r2, [r3]
- 371 0006 7047     		bx	lr
- 372              	.L38:
- 373              		.align	2
- 374              	.L37:
- 375 0008 80E200E0 		.word	-536812928
- 376              		.cfi_endproc
- 377              	.LFE12:
- 378              		.size	UPDATE_UI_ClearPending, .-UPDATE_UI_ClearPending
- 379              		.text
- 380              	.Letext0:
- 381              		.file 2 "Generated_Source\\PSoC5/cytypes.h"
- 382              		.section	.debug_info,"",%progbits
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvLQdPF.s 			page 15
+ 372              		.loc 1 403 0
+ 373 0000 0422     		movs	r2, #4
+ 374 0002 014B     		ldr	r3, .L39
+ 375 0004 1A60     		str	r2, [r3]
+ 376 0006 7047     		bx	lr
+ 377              	.L40:
+ 378              		.align	2
+ 379              	.L39:
+ 380 0008 80E200E0 		.word	-536812928
+ 381              		.cfi_endproc
+ 382              	.LFE12:
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccauhsv3.s 			page 15
 
 
- 383              	.Ldebug_info0:
- 384 0000 CE020000 		.4byte	0x2ce
- 385 0004 0400     		.2byte	0x4
- 386 0006 00000000 		.4byte	.Ldebug_abbrev0
- 387 000a 04       		.byte	0x4
- 388 000b 01       		.uleb128 0x1
- 389 000c 9F000000 		.4byte	.LASF34
- 390 0010 0C       		.byte	0xc
- 391 0011 49020000 		.4byte	.LASF35
- 392 0015 75020000 		.4byte	.LASF36
- 393 0019 00000000 		.4byte	.Ldebug_ranges0+0
- 394 001d 00000000 		.4byte	0
- 395 0021 00000000 		.4byte	.Ldebug_line0
- 396 0025 02       		.uleb128 0x2
- 397 0026 04       		.byte	0x4
- 398 0027 05       		.byte	0x5
- 399 0028 696E7400 		.ascii	"int\000"
- 400 002c 03       		.uleb128 0x3
- 401 002d 04       		.byte	0x4
- 402 002e 07       		.byte	0x7
- 403 002f 88010000 		.4byte	.LASF0
- 404 0033 03       		.uleb128 0x3
- 405 0034 08       		.byte	0x8
- 406 0035 05       		.byte	0x5
- 407 0036 0B020000 		.4byte	.LASF1
- 408 003a 03       		.uleb128 0x3
- 409 003b 08       		.byte	0x8
- 410 003c 04       		.byte	0x4
- 411 003d C4020000 		.4byte	.LASF2
- 412 0041 03       		.uleb128 0x3
- 413 0042 01       		.byte	0x1
- 414 0043 06       		.byte	0x6
- 415 0044 D0020000 		.4byte	.LASF3
- 416 0048 03       		.uleb128 0x3
- 417 0049 01       		.byte	0x1
- 418 004a 08       		.byte	0x8
- 419 004b 91000000 		.4byte	.LASF4
- 420 004f 03       		.uleb128 0x3
- 421 0050 02       		.byte	0x2
- 422 0051 05       		.byte	0x5
- 423 0052 2D020000 		.4byte	.LASF5
- 424 0056 03       		.uleb128 0x3
- 425 0057 02       		.byte	0x2
- 426 0058 07       		.byte	0x7
- 427 0059 3F000000 		.4byte	.LASF6
- 428 005d 03       		.uleb128 0x3
- 429 005e 04       		.byte	0x4
- 430 005f 05       		.byte	0x5
- 431 0060 6C020000 		.4byte	.LASF7
- 432 0064 03       		.uleb128 0x3
- 433 0065 04       		.byte	0x4
- 434 0066 07       		.byte	0x7
- 435 0067 32010000 		.4byte	.LASF8
- 436 006b 03       		.uleb128 0x3
- 437 006c 08       		.byte	0x8
- 438 006d 07       		.byte	0x7
- 439 006e B4010000 		.4byte	.LASF9
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvLQdPF.s 			page 16
+ 383              		.size	UPDATE_UI_ClearPending, .-UPDATE_UI_ClearPending
+ 384              		.text
+ 385              	.Letext0:
+ 386              		.file 2 "Generated_Source\\PSoC5/cytypes.h"
+ 387              		.section	.debug_info,"",%progbits
+ 388              	.Ldebug_info0:
+ 389 0000 CE020000 		.4byte	0x2ce
+ 390 0004 0400     		.2byte	0x4
+ 391 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 392 000a 04       		.byte	0x4
+ 393 000b 01       		.uleb128 0x1
+ 394 000c 9F000000 		.4byte	.LASF34
+ 395 0010 0C       		.byte	0xc
+ 396 0011 49020000 		.4byte	.LASF35
+ 397 0015 75020000 		.4byte	.LASF36
+ 398 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 399 001d 00000000 		.4byte	0
+ 400 0021 00000000 		.4byte	.Ldebug_line0
+ 401 0025 02       		.uleb128 0x2
+ 402 0026 04       		.byte	0x4
+ 403 0027 05       		.byte	0x5
+ 404 0028 696E7400 		.ascii	"int\000"
+ 405 002c 03       		.uleb128 0x3
+ 406 002d 04       		.byte	0x4
+ 407 002e 07       		.byte	0x7
+ 408 002f 88010000 		.4byte	.LASF0
+ 409 0033 03       		.uleb128 0x3
+ 410 0034 08       		.byte	0x8
+ 411 0035 05       		.byte	0x5
+ 412 0036 0B020000 		.4byte	.LASF1
+ 413 003a 03       		.uleb128 0x3
+ 414 003b 08       		.byte	0x8
+ 415 003c 04       		.byte	0x4
+ 416 003d C4020000 		.4byte	.LASF2
+ 417 0041 03       		.uleb128 0x3
+ 418 0042 01       		.byte	0x1
+ 419 0043 06       		.byte	0x6
+ 420 0044 D0020000 		.4byte	.LASF3
+ 421 0048 03       		.uleb128 0x3
+ 422 0049 01       		.byte	0x1
+ 423 004a 08       		.byte	0x8
+ 424 004b 91000000 		.4byte	.LASF4
+ 425 004f 03       		.uleb128 0x3
+ 426 0050 02       		.byte	0x2
+ 427 0051 05       		.byte	0x5
+ 428 0052 2D020000 		.4byte	.LASF5
+ 429 0056 03       		.uleb128 0x3
+ 430 0057 02       		.byte	0x2
+ 431 0058 07       		.byte	0x7
+ 432 0059 3F000000 		.4byte	.LASF6
+ 433 005d 03       		.uleb128 0x3
+ 434 005e 04       		.byte	0x4
+ 435 005f 05       		.byte	0x5
+ 436 0060 6C020000 		.4byte	.LASF7
+ 437 0064 03       		.uleb128 0x3
+ 438 0065 04       		.byte	0x4
+ 439 0066 07       		.byte	0x7
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccauhsv3.s 			page 16
 
 
- 440 0072 03       		.uleb128 0x3
- 441 0073 04       		.byte	0x4
- 442 0074 07       		.byte	0x7
- 443 0075 02020000 		.4byte	.LASF10
- 444 0079 03       		.uleb128 0x3
- 445 007a 01       		.byte	0x1
- 446 007b 08       		.byte	0x8
- 447 007c 19020000 		.4byte	.LASF11
- 448 0080 04       		.uleb128 0x4
- 449 0081 04       		.byte	0x4
- 450 0082 86000000 		.4byte	0x86
- 451 0086 05       		.uleb128 0x5
- 452 0087 06       		.uleb128 0x6
- 453 0088 44010000 		.4byte	.LASF12
- 454 008c 02       		.byte	0x2
- 455 008d E401     		.2byte	0x1e4
- 456 008f 48000000 		.4byte	0x48
- 457 0093 06       		.uleb128 0x6
- 458 0094 81010000 		.4byte	.LASF13
- 459 0098 02       		.byte	0x2
- 460 0099 E601     		.2byte	0x1e6
- 461 009b 64000000 		.4byte	0x64
- 462 009f 03       		.uleb128 0x3
- 463 00a0 04       		.byte	0x4
- 464 00a1 04       		.byte	0x4
- 465 00a2 78000000 		.4byte	.LASF14
- 466 00a6 03       		.uleb128 0x3
- 467 00a7 08       		.byte	0x8
- 468 00a8 04       		.byte	0x4
- 469 00a9 53010000 		.4byte	.LASF15
- 470 00ad 06       		.uleb128 0x6
- 471 00ae 2D010000 		.4byte	.LASF16
- 472 00b2 02       		.byte	0x2
- 473 00b3 8E02     		.2byte	0x28e
- 474 00b5 B9000000 		.4byte	0xb9
- 475 00b9 07       		.uleb128 0x7
- 476 00ba 87000000 		.4byte	0x87
- 477 00be 06       		.uleb128 0x6
- 478 00bf 11000000 		.4byte	.LASF17
- 479 00c3 02       		.byte	0x2
- 480 00c4 9002     		.2byte	0x290
- 481 00c6 CA000000 		.4byte	0xca
- 482 00ca 07       		.uleb128 0x7
- 483 00cb 93000000 		.4byte	0x93
- 484 00cf 06       		.uleb128 0x6
- 485 00d0 E1010000 		.4byte	.LASF18
- 486 00d4 02       		.byte	0x2
- 487 00d5 A002     		.2byte	0x2a0
- 488 00d7 80000000 		.4byte	0x80
- 489 00db 08       		.uleb128 0x8
- 490 00dc 2B000000 		.4byte	.LASF26
- 491 00e0 01       		.byte	0x1
- 492 00e1 A0       		.byte	0xa0
- 493 00e2 00000000 		.4byte	.LFB3
- 494 00e6 02000000 		.4byte	.LFE3-.LFB3
- 495 00ea 01       		.uleb128 0x1
- 496 00eb 9C       		.byte	0x9c
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvLQdPF.s 			page 17
+ 440 0067 32010000 		.4byte	.LASF8
+ 441 006b 03       		.uleb128 0x3
+ 442 006c 08       		.byte	0x8
+ 443 006d 07       		.byte	0x7
+ 444 006e B4010000 		.4byte	.LASF9
+ 445 0072 03       		.uleb128 0x3
+ 446 0073 04       		.byte	0x4
+ 447 0074 07       		.byte	0x7
+ 448 0075 02020000 		.4byte	.LASF10
+ 449 0079 03       		.uleb128 0x3
+ 450 007a 01       		.byte	0x1
+ 451 007b 08       		.byte	0x8
+ 452 007c 19020000 		.4byte	.LASF11
+ 453 0080 04       		.uleb128 0x4
+ 454 0081 04       		.byte	0x4
+ 455 0082 86000000 		.4byte	0x86
+ 456 0086 05       		.uleb128 0x5
+ 457 0087 06       		.uleb128 0x6
+ 458 0088 44010000 		.4byte	.LASF12
+ 459 008c 02       		.byte	0x2
+ 460 008d E401     		.2byte	0x1e4
+ 461 008f 48000000 		.4byte	0x48
+ 462 0093 06       		.uleb128 0x6
+ 463 0094 81010000 		.4byte	.LASF13
+ 464 0098 02       		.byte	0x2
+ 465 0099 E601     		.2byte	0x1e6
+ 466 009b 64000000 		.4byte	0x64
+ 467 009f 03       		.uleb128 0x3
+ 468 00a0 04       		.byte	0x4
+ 469 00a1 04       		.byte	0x4
+ 470 00a2 78000000 		.4byte	.LASF14
+ 471 00a6 03       		.uleb128 0x3
+ 472 00a7 08       		.byte	0x8
+ 473 00a8 04       		.byte	0x4
+ 474 00a9 53010000 		.4byte	.LASF15
+ 475 00ad 06       		.uleb128 0x6
+ 476 00ae 2D010000 		.4byte	.LASF16
+ 477 00b2 02       		.byte	0x2
+ 478 00b3 8E02     		.2byte	0x28e
+ 479 00b5 B9000000 		.4byte	0xb9
+ 480 00b9 07       		.uleb128 0x7
+ 481 00ba 87000000 		.4byte	0x87
+ 482 00be 06       		.uleb128 0x6
+ 483 00bf 11000000 		.4byte	.LASF17
+ 484 00c3 02       		.byte	0x2
+ 485 00c4 9002     		.2byte	0x290
+ 486 00c6 CA000000 		.4byte	0xca
+ 487 00ca 07       		.uleb128 0x7
+ 488 00cb 93000000 		.4byte	0x93
+ 489 00cf 06       		.uleb128 0x6
+ 490 00d0 E1010000 		.4byte	.LASF18
+ 491 00d4 02       		.byte	0x2
+ 492 00d5 A002     		.2byte	0x2a0
+ 493 00d7 80000000 		.4byte	0x80
+ 494 00db 08       		.uleb128 0x8
+ 495 00dc 2B000000 		.4byte	.LASF26
+ 496 00e0 01       		.byte	0x1
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccauhsv3.s 			page 17
 
 
- 497 00ec 09       		.uleb128 0x9
- 498 00ed EE010000 		.4byte	.LASF20
- 499 00f1 01       		.byte	0x1
- 500 00f2 C8       		.byte	0xc8
- 501 00f3 00000000 		.4byte	.LFB4
- 502 00f7 0C000000 		.4byte	.LFE4-.LFB4
- 503 00fb 01       		.uleb128 0x1
- 504 00fc 9C       		.byte	0x9c
- 505 00fd 1C010000 		.4byte	0x11c
- 506 0101 0A       		.uleb128 0xa
- 507 0102 AC010000 		.4byte	.LASF22
- 508 0106 01       		.byte	0x1
- 509 0107 C8       		.byte	0xc8
- 510 0108 CF000000 		.4byte	0xcf
- 511 010c 01       		.uleb128 0x1
- 512 010d 50       		.byte	0x50
- 513 010e 0B       		.uleb128 0xb
- 514 010f 1E020000 		.4byte	.LASF19
- 515 0113 01       		.byte	0x1
- 516 0114 CA       		.byte	0xca
- 517 0115 1C010000 		.4byte	0x11c
- 518 0119 01       		.uleb128 0x1
- 519 011a 53       		.byte	0x53
- 520 011b 00       		.byte	0
- 521 011c 04       		.uleb128 0x4
- 522 011d 04       		.byte	0x4
- 523 011e CF000000 		.4byte	0xcf
- 524 0122 0C       		.uleb128 0xc
- 525 0123 17000000 		.4byte	.LASF24
- 526 0127 01       		.byte	0x1
- 527 0128 E0       		.byte	0xe0
- 528 0129 CF000000 		.4byte	0xcf
- 529 012d 00000000 		.4byte	.LFB5
- 530 0131 0C000000 		.4byte	.LFE5-.LFB5
- 531 0135 01       		.uleb128 0x1
- 532 0136 9C       		.byte	0x9c
- 533 0137 49010000 		.4byte	0x149
- 534 013b 0B       		.uleb128 0xb
- 535 013c 1E020000 		.4byte	.LASF19
- 536 0140 01       		.byte	0x1
- 537 0141 E2       		.byte	0xe2
- 538 0142 1C010000 		.4byte	0x11c
- 539 0146 01       		.uleb128 0x1
- 540 0147 53       		.byte	0x53
- 541 0148 00       		.byte	0
- 542 0149 0D       		.uleb128 0xd
- 543 014a 62000000 		.4byte	.LASF21
- 544 014e 01       		.byte	0x1
- 545 014f 0201     		.2byte	0x102
- 546 0151 00000000 		.4byte	.LFB6
- 547 0155 10000000 		.4byte	.LFE6-.LFB6
- 548 0159 01       		.uleb128 0x1
- 549 015a 9C       		.byte	0x9c
- 550 015b 70010000 		.4byte	0x170
- 551 015f 0E       		.uleb128 0xe
- 552 0160 4A010000 		.4byte	.LASF23
- 553 0164 01       		.byte	0x1
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvLQdPF.s 			page 18
+ 497 00e1 A0       		.byte	0xa0
+ 498 00e2 00000000 		.4byte	.LFB3
+ 499 00e6 02000000 		.4byte	.LFE3-.LFB3
+ 500 00ea 01       		.uleb128 0x1
+ 501 00eb 9C       		.byte	0x9c
+ 502 00ec 09       		.uleb128 0x9
+ 503 00ed EE010000 		.4byte	.LASF20
+ 504 00f1 01       		.byte	0x1
+ 505 00f2 C8       		.byte	0xc8
+ 506 00f3 00000000 		.4byte	.LFB4
+ 507 00f7 0C000000 		.4byte	.LFE4-.LFB4
+ 508 00fb 01       		.uleb128 0x1
+ 509 00fc 9C       		.byte	0x9c
+ 510 00fd 1C010000 		.4byte	0x11c
+ 511 0101 0A       		.uleb128 0xa
+ 512 0102 AC010000 		.4byte	.LASF22
+ 513 0106 01       		.byte	0x1
+ 514 0107 C8       		.byte	0xc8
+ 515 0108 CF000000 		.4byte	0xcf
+ 516 010c 01       		.uleb128 0x1
+ 517 010d 50       		.byte	0x50
+ 518 010e 0B       		.uleb128 0xb
+ 519 010f 1E020000 		.4byte	.LASF19
+ 520 0113 01       		.byte	0x1
+ 521 0114 CA       		.byte	0xca
+ 522 0115 1C010000 		.4byte	0x11c
+ 523 0119 01       		.uleb128 0x1
+ 524 011a 53       		.byte	0x53
+ 525 011b 00       		.byte	0
+ 526 011c 04       		.uleb128 0x4
+ 527 011d 04       		.byte	0x4
+ 528 011e CF000000 		.4byte	0xcf
+ 529 0122 0C       		.uleb128 0xc
+ 530 0123 17000000 		.4byte	.LASF24
+ 531 0127 01       		.byte	0x1
+ 532 0128 E0       		.byte	0xe0
+ 533 0129 CF000000 		.4byte	0xcf
+ 534 012d 00000000 		.4byte	.LFB5
+ 535 0131 0C000000 		.4byte	.LFE5-.LFB5
+ 536 0135 01       		.uleb128 0x1
+ 537 0136 9C       		.byte	0x9c
+ 538 0137 49010000 		.4byte	0x149
+ 539 013b 0B       		.uleb128 0xb
+ 540 013c 1E020000 		.4byte	.LASF19
+ 541 0140 01       		.byte	0x1
+ 542 0141 E2       		.byte	0xe2
+ 543 0142 1C010000 		.4byte	0x11c
+ 544 0146 01       		.uleb128 0x1
+ 545 0147 53       		.byte	0x53
+ 546 0148 00       		.byte	0
+ 547 0149 0D       		.uleb128 0xd
+ 548 014a 62000000 		.4byte	.LASF21
+ 549 014e 01       		.byte	0x1
+ 550 014f 0201     		.2byte	0x102
+ 551 0151 00000000 		.4byte	.LFB6
+ 552 0155 10000000 		.4byte	.LFE6-.LFB6
+ 553 0159 01       		.uleb128 0x1
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccauhsv3.s 			page 18
 
 
- 554 0165 0201     		.2byte	0x102
- 555 0167 87000000 		.4byte	0x87
- 556 016b 00000000 		.4byte	.LLST0
- 557 016f 00       		.byte	0
- 558 0170 0F       		.uleb128 0xf
- 559 0171 CB010000 		.4byte	.LASF25
- 560 0175 01       		.byte	0x1
- 561 0176 1801     		.2byte	0x118
- 562 0178 87000000 		.4byte	0x87
- 563 017c 00000000 		.4byte	.LFB7
- 564 0180 0C000000 		.4byte	.LFE7-.LFB7
- 565 0184 01       		.uleb128 0x1
- 566 0185 9C       		.byte	0x9c
- 567 0186 9B010000 		.4byte	0x19b
- 568 018a 10       		.uleb128 0x10
- 569 018b 4A010000 		.4byte	.LASF23
- 570 018f 01       		.byte	0x1
- 571 0190 1A01     		.2byte	0x11a
- 572 0192 87000000 		.4byte	0x87
- 573 0196 21000000 		.4byte	.LLST1
- 574 019a 00       		.byte	0
- 575 019b 11       		.uleb128 0x11
- 576 019c 00000000 		.4byte	.LASF27
- 577 01a0 01       		.byte	0x1
- 578 01a1 3301     		.2byte	0x133
- 579 01a3 00000000 		.4byte	.LFB8
- 580 01a7 0C000000 		.4byte	.LFE8-.LFB8
- 581 01ab 01       		.uleb128 0x1
- 582 01ac 9C       		.byte	0x9c
- 583 01ad 12       		.uleb128 0x12
- 584 01ae 7E000000 		.4byte	.LASF37
- 585 01b2 01       		.byte	0x1
- 586 01b3 4801     		.2byte	0x148
- 587 01b5 87000000 		.4byte	0x87
- 588 01b9 00000000 		.4byte	.LFB9
- 589 01bd 10000000 		.4byte	.LFE9-.LFB9
- 590 01c1 01       		.uleb128 0x1
- 591 01c2 9C       		.byte	0x9c
- 592 01c3 11       		.uleb128 0x11
- 593 01c4 37020000 		.4byte	.LASF28
- 594 01c8 01       		.byte	0x1
- 595 01c9 5D01     		.2byte	0x15d
- 596 01cb 00000000 		.4byte	.LFB10
- 597 01cf 0C000000 		.4byte	.LFE10-.LFB10
- 598 01d3 01       		.uleb128 0x1
- 599 01d4 9C       		.byte	0x9c
- 600 01d5 09       		.uleb128 0x9
- 601 01d6 52000000 		.4byte	.LASF29
- 602 01da 01       		.byte	0x1
- 603 01db 3D       		.byte	0x3d
- 604 01dc 00000000 		.4byte	.LFB0
- 605 01e0 1C000000 		.4byte	.LFE0-.LFB0
- 606 01e4 01       		.uleb128 0x1
- 607 01e5 9C       		.byte	0x9c
- 608 01e6 27020000 		.4byte	0x227
- 609 01ea 13       		.uleb128 0x13
- 610 01eb 06000000 		.4byte	.LVL7
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvLQdPF.s 			page 19
+ 554 015a 9C       		.byte	0x9c
+ 555 015b 70010000 		.4byte	0x170
+ 556 015f 0E       		.uleb128 0xe
+ 557 0160 4A010000 		.4byte	.LASF23
+ 558 0164 01       		.byte	0x1
+ 559 0165 0201     		.2byte	0x102
+ 560 0167 87000000 		.4byte	0x87
+ 561 016b 00000000 		.4byte	.LLST0
+ 562 016f 00       		.byte	0
+ 563 0170 0F       		.uleb128 0xf
+ 564 0171 CB010000 		.4byte	.LASF25
+ 565 0175 01       		.byte	0x1
+ 566 0176 1801     		.2byte	0x118
+ 567 0178 87000000 		.4byte	0x87
+ 568 017c 00000000 		.4byte	.LFB7
+ 569 0180 0C000000 		.4byte	.LFE7-.LFB7
+ 570 0184 01       		.uleb128 0x1
+ 571 0185 9C       		.byte	0x9c
+ 572 0186 9B010000 		.4byte	0x19b
+ 573 018a 10       		.uleb128 0x10
+ 574 018b 4A010000 		.4byte	.LASF23
+ 575 018f 01       		.byte	0x1
+ 576 0190 1A01     		.2byte	0x11a
+ 577 0192 87000000 		.4byte	0x87
+ 578 0196 21000000 		.4byte	.LLST1
+ 579 019a 00       		.byte	0
+ 580 019b 11       		.uleb128 0x11
+ 581 019c 00000000 		.4byte	.LASF27
+ 582 01a0 01       		.byte	0x1
+ 583 01a1 3301     		.2byte	0x133
+ 584 01a3 00000000 		.4byte	.LFB8
+ 585 01a7 0C000000 		.4byte	.LFE8-.LFB8
+ 586 01ab 01       		.uleb128 0x1
+ 587 01ac 9C       		.byte	0x9c
+ 588 01ad 12       		.uleb128 0x12
+ 589 01ae 7E000000 		.4byte	.LASF37
+ 590 01b2 01       		.byte	0x1
+ 591 01b3 4801     		.2byte	0x148
+ 592 01b5 87000000 		.4byte	0x87
+ 593 01b9 00000000 		.4byte	.LFB9
+ 594 01bd 18000000 		.4byte	.LFE9-.LFB9
+ 595 01c1 01       		.uleb128 0x1
+ 596 01c2 9C       		.byte	0x9c
+ 597 01c3 11       		.uleb128 0x11
+ 598 01c4 37020000 		.4byte	.LASF28
+ 599 01c8 01       		.byte	0x1
+ 600 01c9 5D01     		.2byte	0x15d
+ 601 01cb 00000000 		.4byte	.LFB10
+ 602 01cf 0C000000 		.4byte	.LFE10-.LFB10
+ 603 01d3 01       		.uleb128 0x1
+ 604 01d4 9C       		.byte	0x9c
+ 605 01d5 09       		.uleb128 0x9
+ 606 01d6 52000000 		.4byte	.LASF29
+ 607 01da 01       		.byte	0x1
+ 608 01db 3D       		.byte	0x3d
+ 609 01dc 00000000 		.4byte	.LFB0
+ 610 01e0 1C000000 		.4byte	.LFE0-.LFB0
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccauhsv3.s 			page 19
 
 
- 611 01ef C3010000 		.4byte	0x1c3
- 612 01f3 14       		.uleb128 0x14
- 613 01f4 0C000000 		.4byte	.LVL8
- 614 01f8 EC000000 		.4byte	0xec
- 615 01fc 0A020000 		.4byte	0x20a
- 616 0200 15       		.uleb128 0x15
- 617 0201 01       		.uleb128 0x1
- 618 0202 50       		.byte	0x50
- 619 0203 05       		.uleb128 0x5
- 620 0204 03       		.byte	0x3
- 621 0205 00000000 		.4byte	UPDATE_UI_Interrupt
- 622 0209 00       		.byte	0
- 623 020a 14       		.uleb128 0x14
- 624 020b 12000000 		.4byte	.LVL9
- 625 020f 49010000 		.4byte	0x149
- 626 0213 1D020000 		.4byte	0x21d
- 627 0217 15       		.uleb128 0x15
- 628 0218 01       		.uleb128 0x1
- 629 0219 50       		.byte	0x50
- 630 021a 01       		.uleb128 0x1
- 631 021b 37       		.byte	0x37
- 632 021c 00       		.byte	0
- 633 021d 13       		.uleb128 0x13
- 634 021e 16000000 		.4byte	.LVL10
- 635 0222 9B010000 		.4byte	0x19b
- 636 0226 00       		.byte	0
- 637 0227 09       		.uleb128 0x9
- 638 0228 6F010000 		.4byte	.LASF30
- 639 022c 01       		.byte	0x1
- 640 022d 68       		.byte	0x68
- 641 022e 00000000 		.4byte	.LFB1
- 642 0232 1A000000 		.4byte	.LFE1-.LFB1
- 643 0236 01       		.uleb128 0x1
- 644 0237 9C       		.byte	0x9c
- 645 0238 85020000 		.4byte	0x285
- 646 023c 16       		.uleb128 0x16
- 647 023d AC010000 		.4byte	.LASF22
- 648 0241 01       		.byte	0x1
- 649 0242 68       		.byte	0x68
- 650 0243 CF000000 		.4byte	0xcf
- 651 0247 38000000 		.4byte	.LLST2
- 652 024b 13       		.uleb128 0x13
- 653 024c 08000000 		.4byte	.LVL12
- 654 0250 C3010000 		.4byte	0x1c3
- 655 0254 14       		.uleb128 0x14
- 656 0255 0E000000 		.4byte	.LVL13
- 657 0259 EC000000 		.4byte	0xec
- 658 025d 68020000 		.4byte	0x268
- 659 0261 15       		.uleb128 0x15
- 660 0262 01       		.uleb128 0x1
- 661 0263 50       		.byte	0x50
- 662 0264 02       		.uleb128 0x2
- 663 0265 74       		.byte	0x74
- 664 0266 00       		.sleb128 0
- 665 0267 00       		.byte	0
- 666 0268 14       		.uleb128 0x14
- 667 0269 14000000 		.4byte	.LVL14
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvLQdPF.s 			page 20
+ 611 01e4 01       		.uleb128 0x1
+ 612 01e5 9C       		.byte	0x9c
+ 613 01e6 27020000 		.4byte	0x227
+ 614 01ea 13       		.uleb128 0x13
+ 615 01eb 06000000 		.4byte	.LVL7
+ 616 01ef C3010000 		.4byte	0x1c3
+ 617 01f3 14       		.uleb128 0x14
+ 618 01f4 0C000000 		.4byte	.LVL8
+ 619 01f8 EC000000 		.4byte	0xec
+ 620 01fc 0A020000 		.4byte	0x20a
+ 621 0200 15       		.uleb128 0x15
+ 622 0201 01       		.uleb128 0x1
+ 623 0202 50       		.byte	0x50
+ 624 0203 05       		.uleb128 0x5
+ 625 0204 03       		.byte	0x3
+ 626 0205 00000000 		.4byte	UPDATE_UI_Interrupt
+ 627 0209 00       		.byte	0
+ 628 020a 14       		.uleb128 0x14
+ 629 020b 12000000 		.4byte	.LVL9
+ 630 020f 49010000 		.4byte	0x149
+ 631 0213 1D020000 		.4byte	0x21d
+ 632 0217 15       		.uleb128 0x15
+ 633 0218 01       		.uleb128 0x1
+ 634 0219 50       		.byte	0x50
+ 635 021a 01       		.uleb128 0x1
+ 636 021b 37       		.byte	0x37
+ 637 021c 00       		.byte	0
+ 638 021d 13       		.uleb128 0x13
+ 639 021e 16000000 		.4byte	.LVL10
+ 640 0222 9B010000 		.4byte	0x19b
+ 641 0226 00       		.byte	0
+ 642 0227 09       		.uleb128 0x9
+ 643 0228 6F010000 		.4byte	.LASF30
+ 644 022c 01       		.byte	0x1
+ 645 022d 68       		.byte	0x68
+ 646 022e 00000000 		.4byte	.LFB1
+ 647 0232 1A000000 		.4byte	.LFE1-.LFB1
+ 648 0236 01       		.uleb128 0x1
+ 649 0237 9C       		.byte	0x9c
+ 650 0238 85020000 		.4byte	0x285
+ 651 023c 16       		.uleb128 0x16
+ 652 023d AC010000 		.4byte	.LASF22
+ 653 0241 01       		.byte	0x1
+ 654 0242 68       		.byte	0x68
+ 655 0243 CF000000 		.4byte	0xcf
+ 656 0247 38000000 		.4byte	.LLST2
+ 657 024b 13       		.uleb128 0x13
+ 658 024c 08000000 		.4byte	.LVL12
+ 659 0250 C3010000 		.4byte	0x1c3
+ 660 0254 14       		.uleb128 0x14
+ 661 0255 0E000000 		.4byte	.LVL13
+ 662 0259 EC000000 		.4byte	0xec
+ 663 025d 68020000 		.4byte	0x268
+ 664 0261 15       		.uleb128 0x15
+ 665 0262 01       		.uleb128 0x1
+ 666 0263 50       		.byte	0x50
+ 667 0264 02       		.uleb128 0x2
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccauhsv3.s 			page 20
 
 
- 668 026d 49010000 		.4byte	0x149
- 669 0271 7B020000 		.4byte	0x27b
- 670 0275 15       		.uleb128 0x15
- 671 0276 01       		.uleb128 0x1
- 672 0277 50       		.byte	0x50
- 673 0278 01       		.uleb128 0x1
- 674 0279 37       		.byte	0x37
- 675 027a 00       		.byte	0
- 676 027b 13       		.uleb128 0x13
- 677 027c 18000000 		.4byte	.LVL15
- 678 0280 9B010000 		.4byte	0x19b
- 679 0284 00       		.byte	0
- 680 0285 09       		.uleb128 0x9
- 681 0286 DC020000 		.4byte	.LASF31
- 682 028a 01       		.byte	0x1
- 683 028b 86       		.byte	0x86
- 684 028c 00000000 		.4byte	.LFB2
- 685 0290 14000000 		.4byte	.LFE2-.LFB2
- 686 0294 01       		.uleb128 0x1
- 687 0295 9C       		.byte	0x9c
- 688 0296 AD020000 		.4byte	0x2ad
- 689 029a 13       		.uleb128 0x13
- 690 029b 06000000 		.4byte	.LVL16
- 691 029f C3010000 		.4byte	0x1c3
- 692 02a3 13       		.uleb128 0x13
- 693 02a4 0C000000 		.4byte	.LVL17
- 694 02a8 EC000000 		.4byte	0xec
- 695 02ac 00       		.byte	0
- 696 02ad 11       		.uleb128 0x11
- 697 02ae 5A010000 		.4byte	.LASF32
- 698 02b2 01       		.byte	0x1
- 699 02b3 7801     		.2byte	0x178
- 700 02b5 00000000 		.4byte	.LFB11
- 701 02b9 0C000000 		.4byte	.LFE11-.LFB11
- 702 02bd 01       		.uleb128 0x1
- 703 02be 9C       		.byte	0x9c
- 704 02bf 11       		.uleb128 0x11
- 705 02c0 95010000 		.4byte	.LASF33
- 706 02c4 01       		.byte	0x1
- 707 02c5 9101     		.2byte	0x191
- 708 02c7 00000000 		.4byte	.LFB12
- 709 02cb 0C000000 		.4byte	.LFE12-.LFB12
- 710 02cf 01       		.uleb128 0x1
- 711 02d0 9C       		.byte	0x9c
- 712 02d1 00       		.byte	0
- 713              		.section	.debug_abbrev,"",%progbits
- 714              	.Ldebug_abbrev0:
- 715 0000 01       		.uleb128 0x1
- 716 0001 11       		.uleb128 0x11
- 717 0002 01       		.byte	0x1
- 718 0003 25       		.uleb128 0x25
- 719 0004 0E       		.uleb128 0xe
- 720 0005 13       		.uleb128 0x13
- 721 0006 0B       		.uleb128 0xb
- 722 0007 03       		.uleb128 0x3
- 723 0008 0E       		.uleb128 0xe
- 724 0009 1B       		.uleb128 0x1b
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvLQdPF.s 			page 21
+ 668 0265 74       		.byte	0x74
+ 669 0266 00       		.sleb128 0
+ 670 0267 00       		.byte	0
+ 671 0268 14       		.uleb128 0x14
+ 672 0269 14000000 		.4byte	.LVL14
+ 673 026d 49010000 		.4byte	0x149
+ 674 0271 7B020000 		.4byte	0x27b
+ 675 0275 15       		.uleb128 0x15
+ 676 0276 01       		.uleb128 0x1
+ 677 0277 50       		.byte	0x50
+ 678 0278 01       		.uleb128 0x1
+ 679 0279 37       		.byte	0x37
+ 680 027a 00       		.byte	0
+ 681 027b 13       		.uleb128 0x13
+ 682 027c 18000000 		.4byte	.LVL15
+ 683 0280 9B010000 		.4byte	0x19b
+ 684 0284 00       		.byte	0
+ 685 0285 09       		.uleb128 0x9
+ 686 0286 DC020000 		.4byte	.LASF31
+ 687 028a 01       		.byte	0x1
+ 688 028b 86       		.byte	0x86
+ 689 028c 00000000 		.4byte	.LFB2
+ 690 0290 14000000 		.4byte	.LFE2-.LFB2
+ 691 0294 01       		.uleb128 0x1
+ 692 0295 9C       		.byte	0x9c
+ 693 0296 AD020000 		.4byte	0x2ad
+ 694 029a 13       		.uleb128 0x13
+ 695 029b 06000000 		.4byte	.LVL16
+ 696 029f C3010000 		.4byte	0x1c3
+ 697 02a3 13       		.uleb128 0x13
+ 698 02a4 0C000000 		.4byte	.LVL17
+ 699 02a8 EC000000 		.4byte	0xec
+ 700 02ac 00       		.byte	0
+ 701 02ad 11       		.uleb128 0x11
+ 702 02ae 5A010000 		.4byte	.LASF32
+ 703 02b2 01       		.byte	0x1
+ 704 02b3 7801     		.2byte	0x178
+ 705 02b5 00000000 		.4byte	.LFB11
+ 706 02b9 0C000000 		.4byte	.LFE11-.LFB11
+ 707 02bd 01       		.uleb128 0x1
+ 708 02be 9C       		.byte	0x9c
+ 709 02bf 11       		.uleb128 0x11
+ 710 02c0 95010000 		.4byte	.LASF33
+ 711 02c4 01       		.byte	0x1
+ 712 02c5 9101     		.2byte	0x191
+ 713 02c7 00000000 		.4byte	.LFB12
+ 714 02cb 0C000000 		.4byte	.LFE12-.LFB12
+ 715 02cf 01       		.uleb128 0x1
+ 716 02d0 9C       		.byte	0x9c
+ 717 02d1 00       		.byte	0
+ 718              		.section	.debug_abbrev,"",%progbits
+ 719              	.Ldebug_abbrev0:
+ 720 0000 01       		.uleb128 0x1
+ 721 0001 11       		.uleb128 0x11
+ 722 0002 01       		.byte	0x1
+ 723 0003 25       		.uleb128 0x25
+ 724 0004 0E       		.uleb128 0xe
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccauhsv3.s 			page 21
 
 
- 725 000a 0E       		.uleb128 0xe
- 726 000b 55       		.uleb128 0x55
- 727 000c 17       		.uleb128 0x17
- 728 000d 11       		.uleb128 0x11
- 729 000e 01       		.uleb128 0x1
- 730 000f 10       		.uleb128 0x10
- 731 0010 17       		.uleb128 0x17
- 732 0011 00       		.byte	0
- 733 0012 00       		.byte	0
- 734 0013 02       		.uleb128 0x2
- 735 0014 24       		.uleb128 0x24
- 736 0015 00       		.byte	0
- 737 0016 0B       		.uleb128 0xb
- 738 0017 0B       		.uleb128 0xb
- 739 0018 3E       		.uleb128 0x3e
- 740 0019 0B       		.uleb128 0xb
- 741 001a 03       		.uleb128 0x3
- 742 001b 08       		.uleb128 0x8
- 743 001c 00       		.byte	0
- 744 001d 00       		.byte	0
- 745 001e 03       		.uleb128 0x3
- 746 001f 24       		.uleb128 0x24
- 747 0020 00       		.byte	0
- 748 0021 0B       		.uleb128 0xb
- 749 0022 0B       		.uleb128 0xb
- 750 0023 3E       		.uleb128 0x3e
- 751 0024 0B       		.uleb128 0xb
- 752 0025 03       		.uleb128 0x3
- 753 0026 0E       		.uleb128 0xe
- 754 0027 00       		.byte	0
- 755 0028 00       		.byte	0
- 756 0029 04       		.uleb128 0x4
- 757 002a 0F       		.uleb128 0xf
- 758 002b 00       		.byte	0
- 759 002c 0B       		.uleb128 0xb
- 760 002d 0B       		.uleb128 0xb
- 761 002e 49       		.uleb128 0x49
- 762 002f 13       		.uleb128 0x13
- 763 0030 00       		.byte	0
- 764 0031 00       		.byte	0
- 765 0032 05       		.uleb128 0x5
- 766 0033 15       		.uleb128 0x15
- 767 0034 00       		.byte	0
- 768 0035 27       		.uleb128 0x27
- 769 0036 19       		.uleb128 0x19
- 770 0037 00       		.byte	0
- 771 0038 00       		.byte	0
- 772 0039 06       		.uleb128 0x6
- 773 003a 16       		.uleb128 0x16
- 774 003b 00       		.byte	0
- 775 003c 03       		.uleb128 0x3
- 776 003d 0E       		.uleb128 0xe
- 777 003e 3A       		.uleb128 0x3a
- 778 003f 0B       		.uleb128 0xb
- 779 0040 3B       		.uleb128 0x3b
- 780 0041 05       		.uleb128 0x5
- 781 0042 49       		.uleb128 0x49
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvLQdPF.s 			page 22
+ 725 0005 13       		.uleb128 0x13
+ 726 0006 0B       		.uleb128 0xb
+ 727 0007 03       		.uleb128 0x3
+ 728 0008 0E       		.uleb128 0xe
+ 729 0009 1B       		.uleb128 0x1b
+ 730 000a 0E       		.uleb128 0xe
+ 731 000b 55       		.uleb128 0x55
+ 732 000c 17       		.uleb128 0x17
+ 733 000d 11       		.uleb128 0x11
+ 734 000e 01       		.uleb128 0x1
+ 735 000f 10       		.uleb128 0x10
+ 736 0010 17       		.uleb128 0x17
+ 737 0011 00       		.byte	0
+ 738 0012 00       		.byte	0
+ 739 0013 02       		.uleb128 0x2
+ 740 0014 24       		.uleb128 0x24
+ 741 0015 00       		.byte	0
+ 742 0016 0B       		.uleb128 0xb
+ 743 0017 0B       		.uleb128 0xb
+ 744 0018 3E       		.uleb128 0x3e
+ 745 0019 0B       		.uleb128 0xb
+ 746 001a 03       		.uleb128 0x3
+ 747 001b 08       		.uleb128 0x8
+ 748 001c 00       		.byte	0
+ 749 001d 00       		.byte	0
+ 750 001e 03       		.uleb128 0x3
+ 751 001f 24       		.uleb128 0x24
+ 752 0020 00       		.byte	0
+ 753 0021 0B       		.uleb128 0xb
+ 754 0022 0B       		.uleb128 0xb
+ 755 0023 3E       		.uleb128 0x3e
+ 756 0024 0B       		.uleb128 0xb
+ 757 0025 03       		.uleb128 0x3
+ 758 0026 0E       		.uleb128 0xe
+ 759 0027 00       		.byte	0
+ 760 0028 00       		.byte	0
+ 761 0029 04       		.uleb128 0x4
+ 762 002a 0F       		.uleb128 0xf
+ 763 002b 00       		.byte	0
+ 764 002c 0B       		.uleb128 0xb
+ 765 002d 0B       		.uleb128 0xb
+ 766 002e 49       		.uleb128 0x49
+ 767 002f 13       		.uleb128 0x13
+ 768 0030 00       		.byte	0
+ 769 0031 00       		.byte	0
+ 770 0032 05       		.uleb128 0x5
+ 771 0033 15       		.uleb128 0x15
+ 772 0034 00       		.byte	0
+ 773 0035 27       		.uleb128 0x27
+ 774 0036 19       		.uleb128 0x19
+ 775 0037 00       		.byte	0
+ 776 0038 00       		.byte	0
+ 777 0039 06       		.uleb128 0x6
+ 778 003a 16       		.uleb128 0x16
+ 779 003b 00       		.byte	0
+ 780 003c 03       		.uleb128 0x3
+ 781 003d 0E       		.uleb128 0xe
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccauhsv3.s 			page 22
 
 
- 782 0043 13       		.uleb128 0x13
- 783 0044 00       		.byte	0
- 784 0045 00       		.byte	0
- 785 0046 07       		.uleb128 0x7
- 786 0047 35       		.uleb128 0x35
- 787 0048 00       		.byte	0
- 788 0049 49       		.uleb128 0x49
- 789 004a 13       		.uleb128 0x13
- 790 004b 00       		.byte	0
- 791 004c 00       		.byte	0
- 792 004d 08       		.uleb128 0x8
- 793 004e 2E       		.uleb128 0x2e
- 794 004f 00       		.byte	0
- 795 0050 3F       		.uleb128 0x3f
- 796 0051 19       		.uleb128 0x19
- 797 0052 03       		.uleb128 0x3
- 798 0053 0E       		.uleb128 0xe
- 799 0054 3A       		.uleb128 0x3a
- 800 0055 0B       		.uleb128 0xb
- 801 0056 3B       		.uleb128 0x3b
- 802 0057 0B       		.uleb128 0xb
- 803 0058 27       		.uleb128 0x27
- 804 0059 19       		.uleb128 0x19
- 805 005a 11       		.uleb128 0x11
- 806 005b 01       		.uleb128 0x1
- 807 005c 12       		.uleb128 0x12
- 808 005d 06       		.uleb128 0x6
- 809 005e 40       		.uleb128 0x40
- 810 005f 18       		.uleb128 0x18
- 811 0060 9742     		.uleb128 0x2117
- 812 0062 19       		.uleb128 0x19
- 813 0063 00       		.byte	0
- 814 0064 00       		.byte	0
- 815 0065 09       		.uleb128 0x9
- 816 0066 2E       		.uleb128 0x2e
- 817 0067 01       		.byte	0x1
- 818 0068 3F       		.uleb128 0x3f
- 819 0069 19       		.uleb128 0x19
- 820 006a 03       		.uleb128 0x3
- 821 006b 0E       		.uleb128 0xe
- 822 006c 3A       		.uleb128 0x3a
- 823 006d 0B       		.uleb128 0xb
- 824 006e 3B       		.uleb128 0x3b
- 825 006f 0B       		.uleb128 0xb
- 826 0070 27       		.uleb128 0x27
- 827 0071 19       		.uleb128 0x19
- 828 0072 11       		.uleb128 0x11
- 829 0073 01       		.uleb128 0x1
- 830 0074 12       		.uleb128 0x12
- 831 0075 06       		.uleb128 0x6
- 832 0076 40       		.uleb128 0x40
- 833 0077 18       		.uleb128 0x18
- 834 0078 9742     		.uleb128 0x2117
- 835 007a 19       		.uleb128 0x19
- 836 007b 01       		.uleb128 0x1
- 837 007c 13       		.uleb128 0x13
- 838 007d 00       		.byte	0
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvLQdPF.s 			page 23
+ 782 003e 3A       		.uleb128 0x3a
+ 783 003f 0B       		.uleb128 0xb
+ 784 0040 3B       		.uleb128 0x3b
+ 785 0041 05       		.uleb128 0x5
+ 786 0042 49       		.uleb128 0x49
+ 787 0043 13       		.uleb128 0x13
+ 788 0044 00       		.byte	0
+ 789 0045 00       		.byte	0
+ 790 0046 07       		.uleb128 0x7
+ 791 0047 35       		.uleb128 0x35
+ 792 0048 00       		.byte	0
+ 793 0049 49       		.uleb128 0x49
+ 794 004a 13       		.uleb128 0x13
+ 795 004b 00       		.byte	0
+ 796 004c 00       		.byte	0
+ 797 004d 08       		.uleb128 0x8
+ 798 004e 2E       		.uleb128 0x2e
+ 799 004f 00       		.byte	0
+ 800 0050 3F       		.uleb128 0x3f
+ 801 0051 19       		.uleb128 0x19
+ 802 0052 03       		.uleb128 0x3
+ 803 0053 0E       		.uleb128 0xe
+ 804 0054 3A       		.uleb128 0x3a
+ 805 0055 0B       		.uleb128 0xb
+ 806 0056 3B       		.uleb128 0x3b
+ 807 0057 0B       		.uleb128 0xb
+ 808 0058 27       		.uleb128 0x27
+ 809 0059 19       		.uleb128 0x19
+ 810 005a 11       		.uleb128 0x11
+ 811 005b 01       		.uleb128 0x1
+ 812 005c 12       		.uleb128 0x12
+ 813 005d 06       		.uleb128 0x6
+ 814 005e 40       		.uleb128 0x40
+ 815 005f 18       		.uleb128 0x18
+ 816 0060 9742     		.uleb128 0x2117
+ 817 0062 19       		.uleb128 0x19
+ 818 0063 00       		.byte	0
+ 819 0064 00       		.byte	0
+ 820 0065 09       		.uleb128 0x9
+ 821 0066 2E       		.uleb128 0x2e
+ 822 0067 01       		.byte	0x1
+ 823 0068 3F       		.uleb128 0x3f
+ 824 0069 19       		.uleb128 0x19
+ 825 006a 03       		.uleb128 0x3
+ 826 006b 0E       		.uleb128 0xe
+ 827 006c 3A       		.uleb128 0x3a
+ 828 006d 0B       		.uleb128 0xb
+ 829 006e 3B       		.uleb128 0x3b
+ 830 006f 0B       		.uleb128 0xb
+ 831 0070 27       		.uleb128 0x27
+ 832 0071 19       		.uleb128 0x19
+ 833 0072 11       		.uleb128 0x11
+ 834 0073 01       		.uleb128 0x1
+ 835 0074 12       		.uleb128 0x12
+ 836 0075 06       		.uleb128 0x6
+ 837 0076 40       		.uleb128 0x40
+ 838 0077 18       		.uleb128 0x18
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccauhsv3.s 			page 23
 
 
- 839 007e 00       		.byte	0
- 840 007f 0A       		.uleb128 0xa
- 841 0080 05       		.uleb128 0x5
- 842 0081 00       		.byte	0
- 843 0082 03       		.uleb128 0x3
- 844 0083 0E       		.uleb128 0xe
- 845 0084 3A       		.uleb128 0x3a
- 846 0085 0B       		.uleb128 0xb
- 847 0086 3B       		.uleb128 0x3b
- 848 0087 0B       		.uleb128 0xb
- 849 0088 49       		.uleb128 0x49
- 850 0089 13       		.uleb128 0x13
- 851 008a 02       		.uleb128 0x2
- 852 008b 18       		.uleb128 0x18
- 853 008c 00       		.byte	0
- 854 008d 00       		.byte	0
- 855 008e 0B       		.uleb128 0xb
- 856 008f 34       		.uleb128 0x34
- 857 0090 00       		.byte	0
- 858 0091 03       		.uleb128 0x3
- 859 0092 0E       		.uleb128 0xe
- 860 0093 3A       		.uleb128 0x3a
- 861 0094 0B       		.uleb128 0xb
- 862 0095 3B       		.uleb128 0x3b
- 863 0096 0B       		.uleb128 0xb
- 864 0097 49       		.uleb128 0x49
- 865 0098 13       		.uleb128 0x13
- 866 0099 02       		.uleb128 0x2
- 867 009a 18       		.uleb128 0x18
- 868 009b 00       		.byte	0
- 869 009c 00       		.byte	0
- 870 009d 0C       		.uleb128 0xc
- 871 009e 2E       		.uleb128 0x2e
- 872 009f 01       		.byte	0x1
- 873 00a0 3F       		.uleb128 0x3f
- 874 00a1 19       		.uleb128 0x19
- 875 00a2 03       		.uleb128 0x3
- 876 00a3 0E       		.uleb128 0xe
- 877 00a4 3A       		.uleb128 0x3a
- 878 00a5 0B       		.uleb128 0xb
- 879 00a6 3B       		.uleb128 0x3b
- 880 00a7 0B       		.uleb128 0xb
- 881 00a8 27       		.uleb128 0x27
- 882 00a9 19       		.uleb128 0x19
- 883 00aa 49       		.uleb128 0x49
- 884 00ab 13       		.uleb128 0x13
- 885 00ac 11       		.uleb128 0x11
- 886 00ad 01       		.uleb128 0x1
- 887 00ae 12       		.uleb128 0x12
- 888 00af 06       		.uleb128 0x6
- 889 00b0 40       		.uleb128 0x40
- 890 00b1 18       		.uleb128 0x18
- 891 00b2 9742     		.uleb128 0x2117
- 892 00b4 19       		.uleb128 0x19
- 893 00b5 01       		.uleb128 0x1
- 894 00b6 13       		.uleb128 0x13
- 895 00b7 00       		.byte	0
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvLQdPF.s 			page 24
+ 839 0078 9742     		.uleb128 0x2117
+ 840 007a 19       		.uleb128 0x19
+ 841 007b 01       		.uleb128 0x1
+ 842 007c 13       		.uleb128 0x13
+ 843 007d 00       		.byte	0
+ 844 007e 00       		.byte	0
+ 845 007f 0A       		.uleb128 0xa
+ 846 0080 05       		.uleb128 0x5
+ 847 0081 00       		.byte	0
+ 848 0082 03       		.uleb128 0x3
+ 849 0083 0E       		.uleb128 0xe
+ 850 0084 3A       		.uleb128 0x3a
+ 851 0085 0B       		.uleb128 0xb
+ 852 0086 3B       		.uleb128 0x3b
+ 853 0087 0B       		.uleb128 0xb
+ 854 0088 49       		.uleb128 0x49
+ 855 0089 13       		.uleb128 0x13
+ 856 008a 02       		.uleb128 0x2
+ 857 008b 18       		.uleb128 0x18
+ 858 008c 00       		.byte	0
+ 859 008d 00       		.byte	0
+ 860 008e 0B       		.uleb128 0xb
+ 861 008f 34       		.uleb128 0x34
+ 862 0090 00       		.byte	0
+ 863 0091 03       		.uleb128 0x3
+ 864 0092 0E       		.uleb128 0xe
+ 865 0093 3A       		.uleb128 0x3a
+ 866 0094 0B       		.uleb128 0xb
+ 867 0095 3B       		.uleb128 0x3b
+ 868 0096 0B       		.uleb128 0xb
+ 869 0097 49       		.uleb128 0x49
+ 870 0098 13       		.uleb128 0x13
+ 871 0099 02       		.uleb128 0x2
+ 872 009a 18       		.uleb128 0x18
+ 873 009b 00       		.byte	0
+ 874 009c 00       		.byte	0
+ 875 009d 0C       		.uleb128 0xc
+ 876 009e 2E       		.uleb128 0x2e
+ 877 009f 01       		.byte	0x1
+ 878 00a0 3F       		.uleb128 0x3f
+ 879 00a1 19       		.uleb128 0x19
+ 880 00a2 03       		.uleb128 0x3
+ 881 00a3 0E       		.uleb128 0xe
+ 882 00a4 3A       		.uleb128 0x3a
+ 883 00a5 0B       		.uleb128 0xb
+ 884 00a6 3B       		.uleb128 0x3b
+ 885 00a7 0B       		.uleb128 0xb
+ 886 00a8 27       		.uleb128 0x27
+ 887 00a9 19       		.uleb128 0x19
+ 888 00aa 49       		.uleb128 0x49
+ 889 00ab 13       		.uleb128 0x13
+ 890 00ac 11       		.uleb128 0x11
+ 891 00ad 01       		.uleb128 0x1
+ 892 00ae 12       		.uleb128 0x12
+ 893 00af 06       		.uleb128 0x6
+ 894 00b0 40       		.uleb128 0x40
+ 895 00b1 18       		.uleb128 0x18
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccauhsv3.s 			page 24
 
 
- 896 00b8 00       		.byte	0
- 897 00b9 0D       		.uleb128 0xd
- 898 00ba 2E       		.uleb128 0x2e
- 899 00bb 01       		.byte	0x1
- 900 00bc 3F       		.uleb128 0x3f
- 901 00bd 19       		.uleb128 0x19
- 902 00be 03       		.uleb128 0x3
- 903 00bf 0E       		.uleb128 0xe
- 904 00c0 3A       		.uleb128 0x3a
- 905 00c1 0B       		.uleb128 0xb
- 906 00c2 3B       		.uleb128 0x3b
- 907 00c3 05       		.uleb128 0x5
- 908 00c4 27       		.uleb128 0x27
- 909 00c5 19       		.uleb128 0x19
- 910 00c6 11       		.uleb128 0x11
- 911 00c7 01       		.uleb128 0x1
- 912 00c8 12       		.uleb128 0x12
- 913 00c9 06       		.uleb128 0x6
- 914 00ca 40       		.uleb128 0x40
- 915 00cb 18       		.uleb128 0x18
- 916 00cc 9742     		.uleb128 0x2117
- 917 00ce 19       		.uleb128 0x19
- 918 00cf 01       		.uleb128 0x1
- 919 00d0 13       		.uleb128 0x13
- 920 00d1 00       		.byte	0
- 921 00d2 00       		.byte	0
- 922 00d3 0E       		.uleb128 0xe
- 923 00d4 05       		.uleb128 0x5
- 924 00d5 00       		.byte	0
- 925 00d6 03       		.uleb128 0x3
- 926 00d7 0E       		.uleb128 0xe
- 927 00d8 3A       		.uleb128 0x3a
- 928 00d9 0B       		.uleb128 0xb
- 929 00da 3B       		.uleb128 0x3b
- 930 00db 05       		.uleb128 0x5
- 931 00dc 49       		.uleb128 0x49
- 932 00dd 13       		.uleb128 0x13
- 933 00de 02       		.uleb128 0x2
- 934 00df 17       		.uleb128 0x17
- 935 00e0 00       		.byte	0
- 936 00e1 00       		.byte	0
- 937 00e2 0F       		.uleb128 0xf
- 938 00e3 2E       		.uleb128 0x2e
- 939 00e4 01       		.byte	0x1
- 940 00e5 3F       		.uleb128 0x3f
- 941 00e6 19       		.uleb128 0x19
- 942 00e7 03       		.uleb128 0x3
- 943 00e8 0E       		.uleb128 0xe
- 944 00e9 3A       		.uleb128 0x3a
- 945 00ea 0B       		.uleb128 0xb
- 946 00eb 3B       		.uleb128 0x3b
- 947 00ec 05       		.uleb128 0x5
- 948 00ed 27       		.uleb128 0x27
- 949 00ee 19       		.uleb128 0x19
- 950 00ef 49       		.uleb128 0x49
- 951 00f0 13       		.uleb128 0x13
- 952 00f1 11       		.uleb128 0x11
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvLQdPF.s 			page 25
+ 896 00b2 9742     		.uleb128 0x2117
+ 897 00b4 19       		.uleb128 0x19
+ 898 00b5 01       		.uleb128 0x1
+ 899 00b6 13       		.uleb128 0x13
+ 900 00b7 00       		.byte	0
+ 901 00b8 00       		.byte	0
+ 902 00b9 0D       		.uleb128 0xd
+ 903 00ba 2E       		.uleb128 0x2e
+ 904 00bb 01       		.byte	0x1
+ 905 00bc 3F       		.uleb128 0x3f
+ 906 00bd 19       		.uleb128 0x19
+ 907 00be 03       		.uleb128 0x3
+ 908 00bf 0E       		.uleb128 0xe
+ 909 00c0 3A       		.uleb128 0x3a
+ 910 00c1 0B       		.uleb128 0xb
+ 911 00c2 3B       		.uleb128 0x3b
+ 912 00c3 05       		.uleb128 0x5
+ 913 00c4 27       		.uleb128 0x27
+ 914 00c5 19       		.uleb128 0x19
+ 915 00c6 11       		.uleb128 0x11
+ 916 00c7 01       		.uleb128 0x1
+ 917 00c8 12       		.uleb128 0x12
+ 918 00c9 06       		.uleb128 0x6
+ 919 00ca 40       		.uleb128 0x40
+ 920 00cb 18       		.uleb128 0x18
+ 921 00cc 9742     		.uleb128 0x2117
+ 922 00ce 19       		.uleb128 0x19
+ 923 00cf 01       		.uleb128 0x1
+ 924 00d0 13       		.uleb128 0x13
+ 925 00d1 00       		.byte	0
+ 926 00d2 00       		.byte	0
+ 927 00d3 0E       		.uleb128 0xe
+ 928 00d4 05       		.uleb128 0x5
+ 929 00d5 00       		.byte	0
+ 930 00d6 03       		.uleb128 0x3
+ 931 00d7 0E       		.uleb128 0xe
+ 932 00d8 3A       		.uleb128 0x3a
+ 933 00d9 0B       		.uleb128 0xb
+ 934 00da 3B       		.uleb128 0x3b
+ 935 00db 05       		.uleb128 0x5
+ 936 00dc 49       		.uleb128 0x49
+ 937 00dd 13       		.uleb128 0x13
+ 938 00de 02       		.uleb128 0x2
+ 939 00df 17       		.uleb128 0x17
+ 940 00e0 00       		.byte	0
+ 941 00e1 00       		.byte	0
+ 942 00e2 0F       		.uleb128 0xf
+ 943 00e3 2E       		.uleb128 0x2e
+ 944 00e4 01       		.byte	0x1
+ 945 00e5 3F       		.uleb128 0x3f
+ 946 00e6 19       		.uleb128 0x19
+ 947 00e7 03       		.uleb128 0x3
+ 948 00e8 0E       		.uleb128 0xe
+ 949 00e9 3A       		.uleb128 0x3a
+ 950 00ea 0B       		.uleb128 0xb
+ 951 00eb 3B       		.uleb128 0x3b
+ 952 00ec 05       		.uleb128 0x5
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccauhsv3.s 			page 25
 
 
- 953 00f2 01       		.uleb128 0x1
- 954 00f3 12       		.uleb128 0x12
- 955 00f4 06       		.uleb128 0x6
- 956 00f5 40       		.uleb128 0x40
- 957 00f6 18       		.uleb128 0x18
- 958 00f7 9742     		.uleb128 0x2117
- 959 00f9 19       		.uleb128 0x19
- 960 00fa 01       		.uleb128 0x1
- 961 00fb 13       		.uleb128 0x13
- 962 00fc 00       		.byte	0
- 963 00fd 00       		.byte	0
- 964 00fe 10       		.uleb128 0x10
- 965 00ff 34       		.uleb128 0x34
- 966 0100 00       		.byte	0
- 967 0101 03       		.uleb128 0x3
- 968 0102 0E       		.uleb128 0xe
- 969 0103 3A       		.uleb128 0x3a
- 970 0104 0B       		.uleb128 0xb
- 971 0105 3B       		.uleb128 0x3b
- 972 0106 05       		.uleb128 0x5
- 973 0107 49       		.uleb128 0x49
- 974 0108 13       		.uleb128 0x13
- 975 0109 02       		.uleb128 0x2
- 976 010a 17       		.uleb128 0x17
- 977 010b 00       		.byte	0
- 978 010c 00       		.byte	0
- 979 010d 11       		.uleb128 0x11
- 980 010e 2E       		.uleb128 0x2e
- 981 010f 00       		.byte	0
- 982 0110 3F       		.uleb128 0x3f
- 983 0111 19       		.uleb128 0x19
- 984 0112 03       		.uleb128 0x3
- 985 0113 0E       		.uleb128 0xe
- 986 0114 3A       		.uleb128 0x3a
- 987 0115 0B       		.uleb128 0xb
- 988 0116 3B       		.uleb128 0x3b
- 989 0117 05       		.uleb128 0x5
- 990 0118 27       		.uleb128 0x27
- 991 0119 19       		.uleb128 0x19
- 992 011a 11       		.uleb128 0x11
- 993 011b 01       		.uleb128 0x1
- 994 011c 12       		.uleb128 0x12
- 995 011d 06       		.uleb128 0x6
- 996 011e 40       		.uleb128 0x40
- 997 011f 18       		.uleb128 0x18
- 998 0120 9742     		.uleb128 0x2117
- 999 0122 19       		.uleb128 0x19
- 1000 0123 00       		.byte	0
- 1001 0124 00       		.byte	0
- 1002 0125 12       		.uleb128 0x12
- 1003 0126 2E       		.uleb128 0x2e
- 1004 0127 00       		.byte	0
- 1005 0128 3F       		.uleb128 0x3f
- 1006 0129 19       		.uleb128 0x19
- 1007 012a 03       		.uleb128 0x3
- 1008 012b 0E       		.uleb128 0xe
- 1009 012c 3A       		.uleb128 0x3a
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvLQdPF.s 			page 26
+ 953 00ed 27       		.uleb128 0x27
+ 954 00ee 19       		.uleb128 0x19
+ 955 00ef 49       		.uleb128 0x49
+ 956 00f0 13       		.uleb128 0x13
+ 957 00f1 11       		.uleb128 0x11
+ 958 00f2 01       		.uleb128 0x1
+ 959 00f3 12       		.uleb128 0x12
+ 960 00f4 06       		.uleb128 0x6
+ 961 00f5 40       		.uleb128 0x40
+ 962 00f6 18       		.uleb128 0x18
+ 963 00f7 9742     		.uleb128 0x2117
+ 964 00f9 19       		.uleb128 0x19
+ 965 00fa 01       		.uleb128 0x1
+ 966 00fb 13       		.uleb128 0x13
+ 967 00fc 00       		.byte	0
+ 968 00fd 00       		.byte	0
+ 969 00fe 10       		.uleb128 0x10
+ 970 00ff 34       		.uleb128 0x34
+ 971 0100 00       		.byte	0
+ 972 0101 03       		.uleb128 0x3
+ 973 0102 0E       		.uleb128 0xe
+ 974 0103 3A       		.uleb128 0x3a
+ 975 0104 0B       		.uleb128 0xb
+ 976 0105 3B       		.uleb128 0x3b
+ 977 0106 05       		.uleb128 0x5
+ 978 0107 49       		.uleb128 0x49
+ 979 0108 13       		.uleb128 0x13
+ 980 0109 02       		.uleb128 0x2
+ 981 010a 17       		.uleb128 0x17
+ 982 010b 00       		.byte	0
+ 983 010c 00       		.byte	0
+ 984 010d 11       		.uleb128 0x11
+ 985 010e 2E       		.uleb128 0x2e
+ 986 010f 00       		.byte	0
+ 987 0110 3F       		.uleb128 0x3f
+ 988 0111 19       		.uleb128 0x19
+ 989 0112 03       		.uleb128 0x3
+ 990 0113 0E       		.uleb128 0xe
+ 991 0114 3A       		.uleb128 0x3a
+ 992 0115 0B       		.uleb128 0xb
+ 993 0116 3B       		.uleb128 0x3b
+ 994 0117 05       		.uleb128 0x5
+ 995 0118 27       		.uleb128 0x27
+ 996 0119 19       		.uleb128 0x19
+ 997 011a 11       		.uleb128 0x11
+ 998 011b 01       		.uleb128 0x1
+ 999 011c 12       		.uleb128 0x12
+ 1000 011d 06       		.uleb128 0x6
+ 1001 011e 40       		.uleb128 0x40
+ 1002 011f 18       		.uleb128 0x18
+ 1003 0120 9742     		.uleb128 0x2117
+ 1004 0122 19       		.uleb128 0x19
+ 1005 0123 00       		.byte	0
+ 1006 0124 00       		.byte	0
+ 1007 0125 12       		.uleb128 0x12
+ 1008 0126 2E       		.uleb128 0x2e
+ 1009 0127 00       		.byte	0
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccauhsv3.s 			page 26
 
 
- 1010 012d 0B       		.uleb128 0xb
- 1011 012e 3B       		.uleb128 0x3b
- 1012 012f 05       		.uleb128 0x5
- 1013 0130 27       		.uleb128 0x27
- 1014 0131 19       		.uleb128 0x19
- 1015 0132 49       		.uleb128 0x49
- 1016 0133 13       		.uleb128 0x13
- 1017 0134 11       		.uleb128 0x11
- 1018 0135 01       		.uleb128 0x1
- 1019 0136 12       		.uleb128 0x12
- 1020 0137 06       		.uleb128 0x6
- 1021 0138 40       		.uleb128 0x40
- 1022 0139 18       		.uleb128 0x18
- 1023 013a 9742     		.uleb128 0x2117
- 1024 013c 19       		.uleb128 0x19
- 1025 013d 00       		.byte	0
- 1026 013e 00       		.byte	0
- 1027 013f 13       		.uleb128 0x13
- 1028 0140 898201   		.uleb128 0x4109
- 1029 0143 00       		.byte	0
- 1030 0144 11       		.uleb128 0x11
- 1031 0145 01       		.uleb128 0x1
- 1032 0146 31       		.uleb128 0x31
- 1033 0147 13       		.uleb128 0x13
- 1034 0148 00       		.byte	0
- 1035 0149 00       		.byte	0
- 1036 014a 14       		.uleb128 0x14
- 1037 014b 898201   		.uleb128 0x4109
- 1038 014e 01       		.byte	0x1
- 1039 014f 11       		.uleb128 0x11
- 1040 0150 01       		.uleb128 0x1
- 1041 0151 31       		.uleb128 0x31
- 1042 0152 13       		.uleb128 0x13
- 1043 0153 01       		.uleb128 0x1
- 1044 0154 13       		.uleb128 0x13
- 1045 0155 00       		.byte	0
- 1046 0156 00       		.byte	0
- 1047 0157 15       		.uleb128 0x15
- 1048 0158 8A8201   		.uleb128 0x410a
- 1049 015b 00       		.byte	0
- 1050 015c 02       		.uleb128 0x2
- 1051 015d 18       		.uleb128 0x18
- 1052 015e 9142     		.uleb128 0x2111
- 1053 0160 18       		.uleb128 0x18
- 1054 0161 00       		.byte	0
- 1055 0162 00       		.byte	0
- 1056 0163 16       		.uleb128 0x16
- 1057 0164 05       		.uleb128 0x5
- 1058 0165 00       		.byte	0
- 1059 0166 03       		.uleb128 0x3
- 1060 0167 0E       		.uleb128 0xe
- 1061 0168 3A       		.uleb128 0x3a
- 1062 0169 0B       		.uleb128 0xb
- 1063 016a 3B       		.uleb128 0x3b
- 1064 016b 0B       		.uleb128 0xb
- 1065 016c 49       		.uleb128 0x49
- 1066 016d 13       		.uleb128 0x13
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvLQdPF.s 			page 27
+ 1010 0128 3F       		.uleb128 0x3f
+ 1011 0129 19       		.uleb128 0x19
+ 1012 012a 03       		.uleb128 0x3
+ 1013 012b 0E       		.uleb128 0xe
+ 1014 012c 3A       		.uleb128 0x3a
+ 1015 012d 0B       		.uleb128 0xb
+ 1016 012e 3B       		.uleb128 0x3b
+ 1017 012f 05       		.uleb128 0x5
+ 1018 0130 27       		.uleb128 0x27
+ 1019 0131 19       		.uleb128 0x19
+ 1020 0132 49       		.uleb128 0x49
+ 1021 0133 13       		.uleb128 0x13
+ 1022 0134 11       		.uleb128 0x11
+ 1023 0135 01       		.uleb128 0x1
+ 1024 0136 12       		.uleb128 0x12
+ 1025 0137 06       		.uleb128 0x6
+ 1026 0138 40       		.uleb128 0x40
+ 1027 0139 18       		.uleb128 0x18
+ 1028 013a 9742     		.uleb128 0x2117
+ 1029 013c 19       		.uleb128 0x19
+ 1030 013d 00       		.byte	0
+ 1031 013e 00       		.byte	0
+ 1032 013f 13       		.uleb128 0x13
+ 1033 0140 898201   		.uleb128 0x4109
+ 1034 0143 00       		.byte	0
+ 1035 0144 11       		.uleb128 0x11
+ 1036 0145 01       		.uleb128 0x1
+ 1037 0146 31       		.uleb128 0x31
+ 1038 0147 13       		.uleb128 0x13
+ 1039 0148 00       		.byte	0
+ 1040 0149 00       		.byte	0
+ 1041 014a 14       		.uleb128 0x14
+ 1042 014b 898201   		.uleb128 0x4109
+ 1043 014e 01       		.byte	0x1
+ 1044 014f 11       		.uleb128 0x11
+ 1045 0150 01       		.uleb128 0x1
+ 1046 0151 31       		.uleb128 0x31
+ 1047 0152 13       		.uleb128 0x13
+ 1048 0153 01       		.uleb128 0x1
+ 1049 0154 13       		.uleb128 0x13
+ 1050 0155 00       		.byte	0
+ 1051 0156 00       		.byte	0
+ 1052 0157 15       		.uleb128 0x15
+ 1053 0158 8A8201   		.uleb128 0x410a
+ 1054 015b 00       		.byte	0
+ 1055 015c 02       		.uleb128 0x2
+ 1056 015d 18       		.uleb128 0x18
+ 1057 015e 9142     		.uleb128 0x2111
+ 1058 0160 18       		.uleb128 0x18
+ 1059 0161 00       		.byte	0
+ 1060 0162 00       		.byte	0
+ 1061 0163 16       		.uleb128 0x16
+ 1062 0164 05       		.uleb128 0x5
+ 1063 0165 00       		.byte	0
+ 1064 0166 03       		.uleb128 0x3
+ 1065 0167 0E       		.uleb128 0xe
+ 1066 0168 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccauhsv3.s 			page 27
 
 
- 1067 016e 02       		.uleb128 0x2
- 1068 016f 17       		.uleb128 0x17
- 1069 0170 00       		.byte	0
- 1070 0171 00       		.byte	0
- 1071 0172 00       		.byte	0
- 1072              		.section	.debug_loc,"",%progbits
- 1073              	.Ldebug_loc0:
- 1074              	.LLST0:
- 1075 0000 00000000 		.4byte	.LVL3
- 1076 0004 02000000 		.4byte	.LVL4
- 1077 0008 0100     		.2byte	0x1
- 1078 000a 50       		.byte	0x50
- 1079 000b 02000000 		.4byte	.LVL4
- 1080 000f 10000000 		.4byte	.LFE6
- 1081 0013 0400     		.2byte	0x4
- 1082 0015 F3       		.byte	0xf3
- 1083 0016 01       		.uleb128 0x1
- 1084 0017 50       		.byte	0x50
- 1085 0018 9F       		.byte	0x9f
- 1086 0019 00000000 		.4byte	0
- 1087 001d 00000000 		.4byte	0
- 1088              	.LLST1:
- 1089 0021 04000000 		.4byte	.LVL5
- 1090 0025 06000000 		.4byte	.LVL6
- 1091 0029 0500     		.2byte	0x5
- 1092 002b 70       		.byte	0x70
- 1093 002c 00       		.sleb128 0
- 1094 002d 35       		.byte	0x35
- 1095 002e 25       		.byte	0x25
- 1096 002f 9F       		.byte	0x9f
- 1097 0030 00000000 		.4byte	0
- 1098 0034 00000000 		.4byte	0
- 1099              	.LLST2:
- 1100 0038 00000000 		.4byte	.LVL11
- 1101 003c 07000000 		.4byte	.LVL12-1
- 1102 0040 0100     		.2byte	0x1
- 1103 0042 50       		.byte	0x50
- 1104 0043 07000000 		.4byte	.LVL12-1
- 1105 0047 1A000000 		.4byte	.LFE1
- 1106 004b 0100     		.2byte	0x1
- 1107 004d 54       		.byte	0x54
- 1108 004e 00000000 		.4byte	0
- 1109 0052 00000000 		.4byte	0
- 1110              		.section	.debug_aranges,"",%progbits
- 1111 0000 7C000000 		.4byte	0x7c
- 1112 0004 0200     		.2byte	0x2
- 1113 0006 00000000 		.4byte	.Ldebug_info0
- 1114 000a 04       		.byte	0x4
- 1115 000b 00       		.byte	0
- 1116 000c 0000     		.2byte	0
- 1117 000e 0000     		.2byte	0
- 1118 0010 00000000 		.4byte	.LFB3
- 1119 0014 02000000 		.4byte	.LFE3-.LFB3
- 1120 0018 00000000 		.4byte	.LFB4
- 1121 001c 0C000000 		.4byte	.LFE4-.LFB4
- 1122 0020 00000000 		.4byte	.LFB5
- 1123 0024 0C000000 		.4byte	.LFE5-.LFB5
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvLQdPF.s 			page 28
+ 1067 0169 0B       		.uleb128 0xb
+ 1068 016a 3B       		.uleb128 0x3b
+ 1069 016b 0B       		.uleb128 0xb
+ 1070 016c 49       		.uleb128 0x49
+ 1071 016d 13       		.uleb128 0x13
+ 1072 016e 02       		.uleb128 0x2
+ 1073 016f 17       		.uleb128 0x17
+ 1074 0170 00       		.byte	0
+ 1075 0171 00       		.byte	0
+ 1076 0172 00       		.byte	0
+ 1077              		.section	.debug_loc,"",%progbits
+ 1078              	.Ldebug_loc0:
+ 1079              	.LLST0:
+ 1080 0000 00000000 		.4byte	.LVL3
+ 1081 0004 02000000 		.4byte	.LVL4
+ 1082 0008 0100     		.2byte	0x1
+ 1083 000a 50       		.byte	0x50
+ 1084 000b 02000000 		.4byte	.LVL4
+ 1085 000f 10000000 		.4byte	.LFE6
+ 1086 0013 0400     		.2byte	0x4
+ 1087 0015 F3       		.byte	0xf3
+ 1088 0016 01       		.uleb128 0x1
+ 1089 0017 50       		.byte	0x50
+ 1090 0018 9F       		.byte	0x9f
+ 1091 0019 00000000 		.4byte	0
+ 1092 001d 00000000 		.4byte	0
+ 1093              	.LLST1:
+ 1094 0021 04000000 		.4byte	.LVL5
+ 1095 0025 06000000 		.4byte	.LVL6
+ 1096 0029 0500     		.2byte	0x5
+ 1097 002b 70       		.byte	0x70
+ 1098 002c 00       		.sleb128 0
+ 1099 002d 35       		.byte	0x35
+ 1100 002e 25       		.byte	0x25
+ 1101 002f 9F       		.byte	0x9f
+ 1102 0030 00000000 		.4byte	0
+ 1103 0034 00000000 		.4byte	0
+ 1104              	.LLST2:
+ 1105 0038 00000000 		.4byte	.LVL11
+ 1106 003c 07000000 		.4byte	.LVL12-1
+ 1107 0040 0100     		.2byte	0x1
+ 1108 0042 50       		.byte	0x50
+ 1109 0043 07000000 		.4byte	.LVL12-1
+ 1110 0047 1A000000 		.4byte	.LFE1
+ 1111 004b 0100     		.2byte	0x1
+ 1112 004d 54       		.byte	0x54
+ 1113 004e 00000000 		.4byte	0
+ 1114 0052 00000000 		.4byte	0
+ 1115              		.section	.debug_aranges,"",%progbits
+ 1116 0000 7C000000 		.4byte	0x7c
+ 1117 0004 0200     		.2byte	0x2
+ 1118 0006 00000000 		.4byte	.Ldebug_info0
+ 1119 000a 04       		.byte	0x4
+ 1120 000b 00       		.byte	0
+ 1121 000c 0000     		.2byte	0
+ 1122 000e 0000     		.2byte	0
+ 1123 0010 00000000 		.4byte	.LFB3
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccauhsv3.s 			page 28
 
 
- 1124 0028 00000000 		.4byte	.LFB6
- 1125 002c 10000000 		.4byte	.LFE6-.LFB6
- 1126 0030 00000000 		.4byte	.LFB7
- 1127 0034 0C000000 		.4byte	.LFE7-.LFB7
- 1128 0038 00000000 		.4byte	.LFB8
- 1129 003c 0C000000 		.4byte	.LFE8-.LFB8
- 1130 0040 00000000 		.4byte	.LFB9
- 1131 0044 10000000 		.4byte	.LFE9-.LFB9
- 1132 0048 00000000 		.4byte	.LFB10
- 1133 004c 0C000000 		.4byte	.LFE10-.LFB10
- 1134 0050 00000000 		.4byte	.LFB0
- 1135 0054 1C000000 		.4byte	.LFE0-.LFB0
- 1136 0058 00000000 		.4byte	.LFB1
- 1137 005c 1A000000 		.4byte	.LFE1-.LFB1
- 1138 0060 00000000 		.4byte	.LFB2
- 1139 0064 14000000 		.4byte	.LFE2-.LFB2
- 1140 0068 00000000 		.4byte	.LFB11
- 1141 006c 0C000000 		.4byte	.LFE11-.LFB11
- 1142 0070 00000000 		.4byte	.LFB12
- 1143 0074 0C000000 		.4byte	.LFE12-.LFB12
- 1144 0078 00000000 		.4byte	0
- 1145 007c 00000000 		.4byte	0
- 1146              		.section	.debug_ranges,"",%progbits
- 1147              	.Ldebug_ranges0:
- 1148 0000 00000000 		.4byte	.LFB3
- 1149 0004 02000000 		.4byte	.LFE3
- 1150 0008 00000000 		.4byte	.LFB4
- 1151 000c 0C000000 		.4byte	.LFE4
- 1152 0010 00000000 		.4byte	.LFB5
- 1153 0014 0C000000 		.4byte	.LFE5
- 1154 0018 00000000 		.4byte	.LFB6
- 1155 001c 10000000 		.4byte	.LFE6
- 1156 0020 00000000 		.4byte	.LFB7
- 1157 0024 0C000000 		.4byte	.LFE7
- 1158 0028 00000000 		.4byte	.LFB8
- 1159 002c 0C000000 		.4byte	.LFE8
- 1160 0030 00000000 		.4byte	.LFB9
- 1161 0034 10000000 		.4byte	.LFE9
- 1162 0038 00000000 		.4byte	.LFB10
- 1163 003c 0C000000 		.4byte	.LFE10
- 1164 0040 00000000 		.4byte	.LFB0
- 1165 0044 1C000000 		.4byte	.LFE0
- 1166 0048 00000000 		.4byte	.LFB1
- 1167 004c 1A000000 		.4byte	.LFE1
- 1168 0050 00000000 		.4byte	.LFB2
- 1169 0054 14000000 		.4byte	.LFE2
- 1170 0058 00000000 		.4byte	.LFB11
- 1171 005c 0C000000 		.4byte	.LFE11
- 1172 0060 00000000 		.4byte	.LFB12
- 1173 0064 0C000000 		.4byte	.LFE12
- 1174 0068 00000000 		.4byte	0
- 1175 006c 00000000 		.4byte	0
- 1176              		.section	.debug_line,"",%progbits
- 1177              	.Ldebug_line0:
- 1178 0000 32010000 		.section	.debug_str,"MS",%progbits,1
- 1178      02004600 
- 1178      00000201 
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvLQdPF.s 			page 29
+ 1124 0014 02000000 		.4byte	.LFE3-.LFB3
+ 1125 0018 00000000 		.4byte	.LFB4
+ 1126 001c 0C000000 		.4byte	.LFE4-.LFB4
+ 1127 0020 00000000 		.4byte	.LFB5
+ 1128 0024 0C000000 		.4byte	.LFE5-.LFB5
+ 1129 0028 00000000 		.4byte	.LFB6
+ 1130 002c 10000000 		.4byte	.LFE6-.LFB6
+ 1131 0030 00000000 		.4byte	.LFB7
+ 1132 0034 0C000000 		.4byte	.LFE7-.LFB7
+ 1133 0038 00000000 		.4byte	.LFB8
+ 1134 003c 0C000000 		.4byte	.LFE8-.LFB8
+ 1135 0040 00000000 		.4byte	.LFB9
+ 1136 0044 18000000 		.4byte	.LFE9-.LFB9
+ 1137 0048 00000000 		.4byte	.LFB10
+ 1138 004c 0C000000 		.4byte	.LFE10-.LFB10
+ 1139 0050 00000000 		.4byte	.LFB0
+ 1140 0054 1C000000 		.4byte	.LFE0-.LFB0
+ 1141 0058 00000000 		.4byte	.LFB1
+ 1142 005c 1A000000 		.4byte	.LFE1-.LFB1
+ 1143 0060 00000000 		.4byte	.LFB2
+ 1144 0064 14000000 		.4byte	.LFE2-.LFB2
+ 1145 0068 00000000 		.4byte	.LFB11
+ 1146 006c 0C000000 		.4byte	.LFE11-.LFB11
+ 1147 0070 00000000 		.4byte	.LFB12
+ 1148 0074 0C000000 		.4byte	.LFE12-.LFB12
+ 1149 0078 00000000 		.4byte	0
+ 1150 007c 00000000 		.4byte	0
+ 1151              		.section	.debug_ranges,"",%progbits
+ 1152              	.Ldebug_ranges0:
+ 1153 0000 00000000 		.4byte	.LFB3
+ 1154 0004 02000000 		.4byte	.LFE3
+ 1155 0008 00000000 		.4byte	.LFB4
+ 1156 000c 0C000000 		.4byte	.LFE4
+ 1157 0010 00000000 		.4byte	.LFB5
+ 1158 0014 0C000000 		.4byte	.LFE5
+ 1159 0018 00000000 		.4byte	.LFB6
+ 1160 001c 10000000 		.4byte	.LFE6
+ 1161 0020 00000000 		.4byte	.LFB7
+ 1162 0024 0C000000 		.4byte	.LFE7
+ 1163 0028 00000000 		.4byte	.LFB8
+ 1164 002c 0C000000 		.4byte	.LFE8
+ 1165 0030 00000000 		.4byte	.LFB9
+ 1166 0034 18000000 		.4byte	.LFE9
+ 1167 0038 00000000 		.4byte	.LFB10
+ 1168 003c 0C000000 		.4byte	.LFE10
+ 1169 0040 00000000 		.4byte	.LFB0
+ 1170 0044 1C000000 		.4byte	.LFE0
+ 1171 0048 00000000 		.4byte	.LFB1
+ 1172 004c 1A000000 		.4byte	.LFE1
+ 1173 0050 00000000 		.4byte	.LFB2
+ 1174 0054 14000000 		.4byte	.LFE2
+ 1175 0058 00000000 		.4byte	.LFB11
+ 1176 005c 0C000000 		.4byte	.LFE11
+ 1177 0060 00000000 		.4byte	.LFB12
+ 1178 0064 0C000000 		.4byte	.LFE12
+ 1179 0068 00000000 		.4byte	0
+ 1180 006c 00000000 		.4byte	0
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccauhsv3.s 			page 29
 
 
- 1178      FB0E0D00 
- 1178      01010101 
- 1179              	.LASF27:
- 1180 0000 55504441 		.ascii	"UPDATE_UI_Enable\000"
- 1180      54455F55 
- 1180      495F456E 
- 1180      61626C65 
- 1180      00
- 1181              	.LASF17:
- 1182 0011 72656733 		.ascii	"reg32\000"
- 1182      3200
- 1183              	.LASF24:
- 1184 0017 55504441 		.ascii	"UPDATE_UI_GetVector\000"
- 1184      54455F55 
- 1184      495F4765 
- 1184      74566563 
- 1184      746F7200 
- 1185              	.LASF26:
- 1186 002b 55504441 		.ascii	"UPDATE_UI_Interrupt\000"
- 1186      54455F55 
- 1186      495F496E 
- 1186      74657272 
- 1186      75707400 
- 1187              	.LASF6:
- 1188 003f 73686F72 		.ascii	"short unsigned int\000"
- 1188      7420756E 
- 1188      7369676E 
- 1188      65642069 
- 1188      6E7400
- 1189              	.LASF29:
- 1190 0052 55504441 		.ascii	"UPDATE_UI_Start\000"
- 1190      54455F55 
- 1190      495F5374 
- 1190      61727400 
- 1191              	.LASF21:
- 1192 0062 55504441 		.ascii	"UPDATE_UI_SetPriority\000"
- 1192      54455F55 
- 1192      495F5365 
- 1192      74507269 
- 1192      6F726974 
- 1193              	.LASF14:
- 1194 0078 666C6F61 		.ascii	"float\000"
- 1194      7400
- 1195              	.LASF37:
- 1196 007e 55504441 		.ascii	"UPDATE_UI_GetState\000"
- 1196      54455F55 
- 1196      495F4765 
- 1196      74537461 
- 1196      746500
- 1197              	.LASF4:
- 1198 0091 756E7369 		.ascii	"unsigned char\000"
- 1198      676E6564 
- 1198      20636861 
- 1198      7200
- 1199              	.LASF34:
- 1200 009f 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
- 1200      43313120 
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvLQdPF.s 			page 30
+ 1181              		.section	.debug_line,"",%progbits
+ 1182              	.Ldebug_line0:
+ 1183 0000 32010000 		.section	.debug_str,"MS",%progbits,1
+ 1183      02004600 
+ 1183      00000201 
+ 1183      FB0E0D00 
+ 1183      01010101 
+ 1184              	.LASF27:
+ 1185 0000 55504441 		.ascii	"UPDATE_UI_Enable\000"
+ 1185      54455F55 
+ 1185      495F456E 
+ 1185      61626C65 
+ 1185      00
+ 1186              	.LASF17:
+ 1187 0011 72656733 		.ascii	"reg32\000"
+ 1187      3200
+ 1188              	.LASF24:
+ 1189 0017 55504441 		.ascii	"UPDATE_UI_GetVector\000"
+ 1189      54455F55 
+ 1189      495F4765 
+ 1189      74566563 
+ 1189      746F7200 
+ 1190              	.LASF26:
+ 1191 002b 55504441 		.ascii	"UPDATE_UI_Interrupt\000"
+ 1191      54455F55 
+ 1191      495F496E 
+ 1191      74657272 
+ 1191      75707400 
+ 1192              	.LASF6:
+ 1193 003f 73686F72 		.ascii	"short unsigned int\000"
+ 1193      7420756E 
+ 1193      7369676E 
+ 1193      65642069 
+ 1193      6E7400
+ 1194              	.LASF29:
+ 1195 0052 55504441 		.ascii	"UPDATE_UI_Start\000"
+ 1195      54455F55 
+ 1195      495F5374 
+ 1195      61727400 
+ 1196              	.LASF21:
+ 1197 0062 55504441 		.ascii	"UPDATE_UI_SetPriority\000"
+ 1197      54455F55 
+ 1197      495F5365 
+ 1197      74507269 
+ 1197      6F726974 
+ 1198              	.LASF14:
+ 1199 0078 666C6F61 		.ascii	"float\000"
+ 1199      7400
+ 1200              	.LASF37:
+ 1201 007e 55504441 		.ascii	"UPDATE_UI_GetState\000"
+ 1201      54455F55 
+ 1201      495F4765 
+ 1201      74537461 
+ 1201      746500
+ 1202              	.LASF4:
+ 1203 0091 756E7369 		.ascii	"unsigned char\000"
+ 1203      676E6564 
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccauhsv3.s 			page 30
 
 
- 1200      352E342E 
- 1200      31203230 
- 1200      31363036 
- 1201 00d2 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
- 1201      20726576 
- 1201      6973696F 
- 1201      6E203233 
- 1201      37373135 
- 1202 0105 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
- 1202      66756E63 
- 1202      74696F6E 
- 1202      2D736563 
- 1202      74696F6E 
- 1203              	.LASF16:
- 1204 012d 72656738 		.ascii	"reg8\000"
- 1204      00
- 1205              	.LASF8:
- 1206 0132 6C6F6E67 		.ascii	"long unsigned int\000"
- 1206      20756E73 
- 1206      69676E65 
- 1206      6420696E 
- 1206      7400
- 1207              	.LASF12:
- 1208 0144 75696E74 		.ascii	"uint8\000"
- 1208      3800
- 1209              	.LASF23:
- 1210 014a 7072696F 		.ascii	"priority\000"
- 1210      72697479 
- 1210      00
- 1211              	.LASF15:
- 1212 0153 646F7562 		.ascii	"double\000"
- 1212      6C6500
- 1213              	.LASF32:
- 1214 015a 55504441 		.ascii	"UPDATE_UI_SetPending\000"
- 1214      54455F55 
- 1214      495F5365 
- 1214      7450656E 
- 1214      64696E67 
- 1215              	.LASF30:
- 1216 016f 55504441 		.ascii	"UPDATE_UI_StartEx\000"
- 1216      54455F55 
- 1216      495F5374 
- 1216      61727445 
- 1216      7800
- 1217              	.LASF13:
- 1218 0181 75696E74 		.ascii	"uint32\000"
- 1218      333200
- 1219              	.LASF0:
- 1220 0188 756E7369 		.ascii	"unsigned int\000"
- 1220      676E6564 
- 1220      20696E74 
- 1220      00
- 1221              	.LASF33:
- 1222 0195 55504441 		.ascii	"UPDATE_UI_ClearPending\000"
- 1222      54455F55 
- 1222      495F436C 
- 1222      65617250 
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvLQdPF.s 			page 31
+ 1203      20636861 
+ 1203      7200
+ 1204              	.LASF34:
+ 1205 009f 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1205      43313120 
+ 1205      352E342E 
+ 1205      31203230 
+ 1205      31363036 
+ 1206 00d2 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 1206      20726576 
+ 1206      6973696F 
+ 1206      6E203233 
+ 1206      37373135 
+ 1207 0105 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1207      66756E63 
+ 1207      74696F6E 
+ 1207      2D736563 
+ 1207      74696F6E 
+ 1208              	.LASF16:
+ 1209 012d 72656738 		.ascii	"reg8\000"
+ 1209      00
+ 1210              	.LASF8:
+ 1211 0132 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1211      20756E73 
+ 1211      69676E65 
+ 1211      6420696E 
+ 1211      7400
+ 1212              	.LASF12:
+ 1213 0144 75696E74 		.ascii	"uint8\000"
+ 1213      3800
+ 1214              	.LASF23:
+ 1215 014a 7072696F 		.ascii	"priority\000"
+ 1215      72697479 
+ 1215      00
+ 1216              	.LASF15:
+ 1217 0153 646F7562 		.ascii	"double\000"
+ 1217      6C6500
+ 1218              	.LASF32:
+ 1219 015a 55504441 		.ascii	"UPDATE_UI_SetPending\000"
+ 1219      54455F55 
+ 1219      495F5365 
+ 1219      7450656E 
+ 1219      64696E67 
+ 1220              	.LASF30:
+ 1221 016f 55504441 		.ascii	"UPDATE_UI_StartEx\000"
+ 1221      54455F55 
+ 1221      495F5374 
+ 1221      61727445 
+ 1221      7800
+ 1222              	.LASF13:
+ 1223 0181 75696E74 		.ascii	"uint32\000"
+ 1223      333200
+ 1224              	.LASF0:
+ 1225 0188 756E7369 		.ascii	"unsigned int\000"
+ 1225      676E6564 
+ 1225      20696E74 
+ 1225      00
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccauhsv3.s 			page 31
 
 
- 1222      656E6469 
- 1223              	.LASF22:
- 1224 01ac 61646472 		.ascii	"address\000"
- 1224      65737300 
- 1225              	.LASF9:
- 1226 01b4 6C6F6E67 		.ascii	"long long unsigned int\000"
- 1226      206C6F6E 
- 1226      6720756E 
- 1226      7369676E 
- 1226      65642069 
- 1227              	.LASF25:
- 1228 01cb 55504441 		.ascii	"UPDATE_UI_GetPriority\000"
- 1228      54455F55 
- 1228      495F4765 
- 1228      74507269 
- 1228      6F726974 
- 1229              	.LASF18:
- 1230 01e1 63796973 		.ascii	"cyisraddress\000"
- 1230      72616464 
- 1230      72657373 
- 1230      00
- 1231              	.LASF20:
- 1232 01ee 55504441 		.ascii	"UPDATE_UI_SetVector\000"
- 1232      54455F55 
- 1232      495F5365 
- 1232      74566563 
- 1232      746F7200 
- 1233              	.LASF10:
- 1234 0202 73697A65 		.ascii	"sizetype\000"
- 1234      74797065 
- 1234      00
- 1235              	.LASF1:
- 1236 020b 6C6F6E67 		.ascii	"long long int\000"
- 1236      206C6F6E 
- 1236      6720696E 
- 1236      7400
- 1237              	.LASF11:
- 1238 0219 63686172 		.ascii	"char\000"
- 1238      00
- 1239              	.LASF19:
- 1240 021e 72616D56 		.ascii	"ramVectorTable\000"
- 1240      6563746F 
- 1240      72546162 
- 1240      6C6500
- 1241              	.LASF5:
- 1242 022d 73686F72 		.ascii	"short int\000"
- 1242      7420696E 
- 1242      7400
- 1243              	.LASF28:
- 1244 0237 55504441 		.ascii	"UPDATE_UI_Disable\000"
- 1244      54455F55 
- 1244      495F4469 
- 1244      7361626C 
- 1244      6500
- 1245              	.LASF35:
- 1246 0249 47656E65 		.ascii	"Generated_Source\\PSoC5\\UPDATE_UI.c\000"
- 1246      72617465 
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccvLQdPF.s 			page 32
+ 1226              	.LASF33:
+ 1227 0195 55504441 		.ascii	"UPDATE_UI_ClearPending\000"
+ 1227      54455F55 
+ 1227      495F436C 
+ 1227      65617250 
+ 1227      656E6469 
+ 1228              	.LASF22:
+ 1229 01ac 61646472 		.ascii	"address\000"
+ 1229      65737300 
+ 1230              	.LASF9:
+ 1231 01b4 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1231      206C6F6E 
+ 1231      6720756E 
+ 1231      7369676E 
+ 1231      65642069 
+ 1232              	.LASF25:
+ 1233 01cb 55504441 		.ascii	"UPDATE_UI_GetPriority\000"
+ 1233      54455F55 
+ 1233      495F4765 
+ 1233      74507269 
+ 1233      6F726974 
+ 1234              	.LASF18:
+ 1235 01e1 63796973 		.ascii	"cyisraddress\000"
+ 1235      72616464 
+ 1235      72657373 
+ 1235      00
+ 1236              	.LASF20:
+ 1237 01ee 55504441 		.ascii	"UPDATE_UI_SetVector\000"
+ 1237      54455F55 
+ 1237      495F5365 
+ 1237      74566563 
+ 1237      746F7200 
+ 1238              	.LASF10:
+ 1239 0202 73697A65 		.ascii	"sizetype\000"
+ 1239      74797065 
+ 1239      00
+ 1240              	.LASF1:
+ 1241 020b 6C6F6E67 		.ascii	"long long int\000"
+ 1241      206C6F6E 
+ 1241      6720696E 
+ 1241      7400
+ 1242              	.LASF11:
+ 1243 0219 63686172 		.ascii	"char\000"
+ 1243      00
+ 1244              	.LASF19:
+ 1245 021e 72616D56 		.ascii	"ramVectorTable\000"
+ 1245      6563746F 
+ 1245      72546162 
+ 1245      6C6500
+ 1246              	.LASF5:
+ 1247 022d 73686F72 		.ascii	"short int\000"
+ 1247      7420696E 
+ 1247      7400
+ 1248              	.LASF28:
+ 1249 0237 55504441 		.ascii	"UPDATE_UI_Disable\000"
+ 1249      54455F55 
+ 1249      495F4469 
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccauhsv3.s 			page 32
 
 
- 1246      645F536F 
- 1246      75726365 
- 1246      5C50536F 
- 1247              	.LASF7:
- 1248 026c 6C6F6E67 		.ascii	"long int\000"
- 1248      20696E74 
- 1248      00
- 1249              	.LASF36:
- 1250 0275 433A5C55 		.ascii	"C:\\Users\\Caleb Cotter\\Documents\\GitHub\\3HC\\3H"
- 1250      73657273 
- 1250      5C43616C 
- 1250      65622043 
- 1250      6F747465 
- 1251 02a2 435F4669 		.ascii	"C_Firmware\\3HC_Firmware_0_1.cydsn\000"
- 1251      726D7761 
- 1251      72655C33 
- 1251      48435F46 
- 1251      69726D77 
- 1252              	.LASF2:
- 1253 02c4 6C6F6E67 		.ascii	"long double\000"
- 1253      20646F75 
- 1253      626C6500 
- 1254              	.LASF3:
- 1255 02d0 7369676E 		.ascii	"signed char\000"
- 1255      65642063 
- 1255      68617200 
- 1256              	.LASF31:
- 1257 02dc 55504441 		.ascii	"UPDATE_UI_Stop\000"
- 1257      54455F55 
- 1257      495F5374 
- 1257      6F7000
- 1258              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
+ 1249      7361626C 
+ 1249      6500
+ 1250              	.LASF35:
+ 1251 0249 47656E65 		.ascii	"Generated_Source\\PSoC5\\UPDATE_UI.c\000"
+ 1251      72617465 
+ 1251      645F536F 
+ 1251      75726365 
+ 1251      5C50536F 
+ 1252              	.LASF7:
+ 1253 026c 6C6F6E67 		.ascii	"long int\000"
+ 1253      20696E74 
+ 1253      00
+ 1254              	.LASF36:
+ 1255 0275 433A5C55 		.ascii	"C:\\Users\\Caleb Cotter\\Documents\\GitHub\\3HC\\3H"
+ 1255      73657273 
+ 1255      5C43616C 
+ 1255      65622043 
+ 1255      6F747465 
+ 1256 02a2 435F4669 		.ascii	"C_Firmware\\3HC_Firmware_0_1.cydsn\000"
+ 1256      726D7761 
+ 1256      72655C33 
+ 1256      48435F46 
+ 1256      69726D77 
+ 1257              	.LASF2:
+ 1258 02c4 6C6F6E67 		.ascii	"long double\000"
+ 1258      20646F75 
+ 1258      626C6500 
+ 1259              	.LASF3:
+ 1260 02d0 7369676E 		.ascii	"signed char\000"
+ 1260      65642063 
+ 1260      68617200 
+ 1261              	.LASF31:
+ 1262 02dc 55504441 		.ascii	"UPDATE_UI_Stop\000"
+ 1262      54455F55 
+ 1262      495F5374 
+ 1262      6F7000
+ 1263              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

@@ -40,13 +40,13 @@
           <File BuildType="BUILD" Toolchain="">I2C.c</File>
           <File BuildType="BUILD" Toolchain="">MPU9250.c</File>
           <File BuildType="BUILD" Toolchain="">NMEA0183.c</File>
-          <File BuildType="BUILD" Toolchain="">HHC.c</File>
+          <File BuildType="BUILD" Toolchain="">matrixmath3.c</File>
           <File BuildType="BUILD" Toolchain="">cyapicallbacks.h</File>
           <File BuildType="BUILD" Toolchain="">I2C.h</File>
           <File BuildType="BUILD" Toolchain="">MPU9250.h</File>
           <File BuildType="BUILD" Toolchain="">NMEA0183.h</File>
-          <File BuildType="BUILD" Toolchain="">HHC.h</File>
           <File BuildType="BUILD" Toolchain="">config.h</File>
+          <File BuildType="BUILD" Toolchain="">matrixmath3.h</File>
         </Files>
       </Folder>
       <Folder BuildType="STRICT" Path="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\Generated_Source\PSoC5">
@@ -124,8 +124,6 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\cycodeshareimport.scat</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\UPDATE_UI.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\UPDATE_UI.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\timer_clock.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\timer_clock.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\UpdateTimer_UI.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\UpdateTimer_UI.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\UpdateTimer_UI_PM.c</File>
@@ -260,6 +258,17 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\AMux.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ADC_SAMPLECURRSENSOR.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ADC_SAMPLECURRSENSOR.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\UI_CLK.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\UI_CLK.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\PID_CLK.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\PID_CLK.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\PID_Timer.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\PID_Timer.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\PID_Timer_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\PID_ISR.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\PID_ISR.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\BUTTON_RISING_EDGE.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\BUTTON_RISING_EDGE.h</File>
         </Files>
       </Folder>
       <Folder BuildType="STRICT" Path="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\Export\ARM_GCC_Generic">

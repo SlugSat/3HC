@@ -2,7 +2,7 @@
 --	Conversion of 3HC_Firmware_0_1.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Tue Mar 03 23:55:02 2020
+--	Tue Mar 10 18:19:14 2020
 --
 
 USE cypress.cypress.all;
@@ -707,14 +707,14 @@ SIGNAL \X_PWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_2\ : bit;
 SIGNAL \X_PWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_1\ : bit;
 SIGNAL \X_PWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_0\ : bit;
 SIGNAL \X_PWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:b_0\ : bit;
-SIGNAL Net_408 : bit;
+SIGNAL Net_409 : bit;
 SIGNAL Net_101 : bit;
 SIGNAL Net_98 : bit;
 SIGNAL \X_PWM:Net_113\ : bit;
 SIGNAL \X_PWM:Net_107\ : bit;
 SIGNAL \X_PWM:Net_114\ : bit;
 SIGNAL tmpOE__ENC_BTN_net_0 : bit;
-SIGNAL tmpFB_0__ENC_BTN_net_0 : bit;
+SIGNAL Net_426 : bit;
 SIGNAL tmpIO_0__ENC_BTN_net_0 : bit;
 TERMINAL tmpSIOVREF__ENC_BTN_net_0 : bit;
 SIGNAL tmpINTERRUPT_0__ENC_BTN_net_0 : bit;
@@ -828,7 +828,6 @@ SIGNAL \Output_Enable:control_2\ : bit;
 SIGNAL \Output_Enable:control_1\ : bit;
 SIGNAL \Output_Enable:control_0\ : bit;
 SIGNAL tmpOE__X_PWM_OUT_net_0 : bit;
-SIGNAL Net_409 : bit;
 SIGNAL tmpFB_0__X_PWM_OUT_net_0 : bit;
 SIGNAL tmpIO_0__X_PWM_OUT_net_0 : bit;
 TERMINAL tmpSIOVREF__X_PWM_OUT_net_0 : bit;
@@ -1869,6 +1868,16 @@ SIGNAL tmpFB_0__ENC_B_net_0 : bit;
 SIGNAL tmpIO_0__ENC_B_net_0 : bit;
 TERMINAL tmpSIOVREF__ENC_B_net_0 : bit;
 SIGNAL tmpINTERRUPT_0__ENC_B_net_0 : bit;
+SIGNAL Net_410 : bit;
+SIGNAL Net_412 : bit;
+SIGNAL \PID_Timer:Net_260\ : bit;
+SIGNAL \PID_Timer:Net_266\ : bit;
+SIGNAL \PID_Timer:Net_51\ : bit;
+SIGNAL \PID_Timer:Net_261\ : bit;
+SIGNAL \PID_Timer:Net_57\ : bit;
+SIGNAL Net_413 : bit;
+SIGNAL Net_418 : bit;
+SIGNAL \PID_Timer:Net_102\ : bit;
 SIGNAL \QuadDec:Net_1251\\D\ : bit;
 SIGNAL \QuadDec:Cnt16:CounterUDB:prevCapture\\D\ : bit;
 SIGNAL \QuadDec:Cnt16:CounterUDB:overflow_reg_i\\D\ : bit;
@@ -2052,8 +2061,6 @@ Net_199 <= ((Net_348 and Net_198));
 \Z_PWM:PWMUDB:status_2\ <= ((\Z_PWM:PWMUDB:runmode_enable\ and \Z_PWM:PWMUDB:tc_i\));
 
 \Z_PWM:PWMUDB:pwm_i\ <= ((\Z_PWM:PWMUDB:runmode_enable\ and \Z_PWM:PWMUDB:cmp1_less\));
-
-Net_409 <= ((Net_408 and Net_348));
 
 \LCD:LCDPort\:cy_psoc3_pins_v1_10
 	GENERIC MAP(id=>"bd781cc8-ef16-4ded-b16e-c4b4de833612/ed092b9b-d398-4703-be89-cebf998501f6",
@@ -2528,7 +2535,7 @@ UPDATE_UI:cy_isr_v1_0
 	GENERIC MAP(int_type=>"10",
 		is_nmi=>'0')
 	PORT MAP(int_signal=>Net_27);
-timer_clock:cy_clock_v1_0
+UI_CLK:cy_clock_v1_0
 	GENERIC MAP(cy_registers=>"",
 		id=>"c0fb34bd-1044-4931-9788-16b01ce89812",
 		source_clock_id=>"",
@@ -2891,7 +2898,7 @@ ENC_BTN:cy_psoc3_pins_v1_10
 		input_buffer_sel=>"00")
 	PORT MAP(oe=>(one),
 		y=>(zero),
-		fb=>(tmpFB_0__ENC_BTN_net_0),
+		fb=>Net_426,
 		analog=>(open),
 		io=>(tmpIO_0__ENC_BTN_net_0),
 		siovref=>(tmpSIOVREF__ENC_BTN_net_0),
@@ -4820,6 +4827,34 @@ ENC_B:cy_psoc3_pins_v1_10
 		out_clock_en=>one,
 		out_reset=>zero,
 		interrupt=>tmpINTERRUPT_0__ENC_B_net_0);
+PID_CLK:cy_clock_v1_0
+	GENERIC MAP(cy_registers=>"",
+		id=>"ff6200cb-63fc-4e98-8888-a31b6783febe",
+		source_clock_id=>"315365C3-2E3E-4f04-84A2-BB564A173261",
+		divisor=>0,
+		period=>"10000000000",
+		is_direct=>'0',
+		is_digital=>'1')
+	PORT MAP(clock_out=>Net_410,
+		dig_domain_out=>open);
+\PID_Timer:TimerHW\:cy_psoc3_timer_v1_0
+	GENERIC MAP(cy_registers=>"")
+	PORT MAP(clock=>Net_410,
+		kill=>zero,
+		enable=>one,
+		capture=>zero,
+		timer_reset=>zero,
+		tc=>Net_418,
+		compare=>\PID_Timer:Net_261\,
+		interrupt=>\PID_Timer:Net_57\);
+PID_ISR:cy_isr_v1_0
+	GENERIC MAP(int_type=>"10",
+		is_nmi=>'0')
+	PORT MAP(int_signal=>Net_418);
+BUTTON_RISING_EDGE:cy_isr_v1_0
+	GENERIC MAP(int_type=>"00",
+		is_nmi=>'0')
+	PORT MAP(int_signal=>Net_426);
 \QuadDec:Net_1251\:cy_dff
 	PORT MAP(d=>\QuadDec:Net_1251\\D\,
 		clk=>\QuadDec:bQuadDec:sync_clock\,
@@ -4947,7 +4982,7 @@ ENC_B:cy_psoc3_pins_v1_10
 \X_PWM:PWMUDB:pwm_i_reg\:cy_dff
 	PORT MAP(d=>\X_PWM:PWMUDB:pwm_i\,
 		clk=>\X_PWM:PWMUDB:ClockOutFromEnBlock\,
-		q=>Net_408);
+		q=>Net_409);
 \X_PWM:PWMUDB:pwm1_i_reg\:cy_dff
 	PORT MAP(d=>zero,
 		clk=>\X_PWM:PWMUDB:ClockOutFromEnBlock\,

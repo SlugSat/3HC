@@ -18,12 +18,16 @@
 
 #ifndef NEMA0183_H
 #define NEMA0183_H
+    
+#include "project.h"
+#include <stdio.h>
+#include <stdint.h>
+    
+#define MAX_MSG_LENGTH 64
+    
+int NMEA0183_DecodeMsg(char * msg);
 
-void NMEA0183_Init();
-
-int NMEA0183_DecodeMsg(char * message);
-
-int NMEA0183_EncodeMsg(char * message);
+int NMEA0183_EncodeMsg(uint8 * msg, char * id, char * payload);
 
 #endif
 /* [] END OF FILE */

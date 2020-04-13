@@ -226,7 +226,7 @@ void Y_PWM_RestoreConfig(void) ;
 /***************************************
 *         Initialization Values
 **************************************/
-#define Y_PWM_INIT_PERIOD_VALUE          (1023u)
+#define Y_PWM_INIT_PERIOD_VALUE          (4096u)
 #define Y_PWM_INIT_COMPARE_VALUE1        (512u)
 #define Y_PWM_INIT_COMPARE_VALUE2        (128u)
 #define Y_PWM_INIT_INTERRUPTS_MODE       (uint8)(((uint8)(0u <<   \

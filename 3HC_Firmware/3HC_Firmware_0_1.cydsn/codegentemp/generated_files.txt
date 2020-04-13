@@ -34,8 +34,8 @@
   <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\QUAD_B.h" value="HEADER;;;;;QUAD_B" />
   <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\UPDATE_UI.c" value="SOURCE_C;CortexM3;;;;UPDATE_UI" />
   <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\UPDATE_UI.h" value="HEADER;;;;;UPDATE_UI" />
-  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\timer_clock.c" value="SOURCE_C;CortexM3;;;;timer_clock" />
-  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\timer_clock.h" value="HEADER;;;;;timer_clock" />
+  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\UI_CLK.c" value="SOURCE_C;CortexM3;;;;UI_CLK" />
+  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\UI_CLK.h" value="HEADER;;;;;UI_CLK" />
   <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\UpdateTimer_UI.c" value="SOURCE_C;CortexM3;;;;UpdateTimer_UI" />
   <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\UpdateTimer_UI.h" value="HEADER;;;;;UpdateTimer_UI" />
   <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\UpdateTimer_UI_PM.c" value="SOURCE_C;CortexM3;;;;UpdateTimer_UI" />
@@ -153,6 +153,15 @@
   <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\ENC_B_aliases.h" value="HEADER;;;;;ENC_B" />
   <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\ENC_B.c" value="SOURCE_C;CortexM3;;;;ENC_B" />
   <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\ENC_B.h" value="HEADER;;;;;ENC_B" />
+  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\PID_CLK.c" value="SOURCE_C;CortexM3;;;;PID_CLK" />
+  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\PID_CLK.h" value="HEADER;;;;;PID_CLK" />
+  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\PID_Timer.c" value="SOURCE_C;CortexM3;;;;PID_Timer" />
+  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\PID_Timer.h" value="HEADER;;;;;PID_Timer" />
+  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\PID_Timer_PM.c" value="SOURCE_C;CortexM3;;;;PID_Timer" />
+  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\PID_ISR.c" value="SOURCE_C;CortexM3;;;;PID_ISR" />
+  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\PID_ISR.h" value="HEADER;;;;;PID_ISR" />
+  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\BUTTON_RISING_EDGE.c" value="SOURCE_C;CortexM3;;;;BUTTON_RISING_EDGE" />
+  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\BUTTON_RISING_EDGE.h" value="HEADER;;;;;BUTTON_RISING_EDGE" />
   <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\LCD_LCDPort_aliases.h" value="HEADER;;;;;LCD_LCDPort" />
   <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\LCD_LCDPort.c" value="SOURCE_C;CortexM3;;;;LCD_LCDPort" />
   <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\LCD_LCDPort.h" value="HEADER;;;;;LCD_LCDPort" />

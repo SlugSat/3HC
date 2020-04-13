@@ -1,0 +1,1974 @@
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccrLKGel.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"PID_Timer.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.PID_Timer_Enable,"ax",%progbits
+  20              		.align	2
+  21              		.global	PID_Timer_Enable
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	PID_Timer_Enable, %function
+  25              	PID_Timer_Enable:
+  26              	.LFB1:
+  27              		.file 1 "Generated_Source\\PSoC5\\PID_Timer.c"
+   1:Generated_Source\PSoC5/PID_Timer.c **** /*******************************************************************************
+   2:Generated_Source\PSoC5/PID_Timer.c **** * File Name: PID_Timer.c
+   3:Generated_Source\PSoC5/PID_Timer.c **** * Version 2.80
+   4:Generated_Source\PSoC5/PID_Timer.c **** *
+   5:Generated_Source\PSoC5/PID_Timer.c **** * Description:
+   6:Generated_Source\PSoC5/PID_Timer.c **** *  The Timer component consists of a 8, 16, 24 or 32-bit timer with
+   7:Generated_Source\PSoC5/PID_Timer.c **** *  a selectable period between 2 and 2^Width - 1.  The timer may free run
+   8:Generated_Source\PSoC5/PID_Timer.c **** *  or be used as a capture timer as well.  The capture can be initiated
+   9:Generated_Source\PSoC5/PID_Timer.c **** *  by a positive or negative edge signal as well as via software.
+  10:Generated_Source\PSoC5/PID_Timer.c **** *  A trigger input can be programmed to enable the timer on rising edge
+  11:Generated_Source\PSoC5/PID_Timer.c **** *  falling edge, either edge or continous run.
+  12:Generated_Source\PSoC5/PID_Timer.c **** *  Interrupts may be generated due to a terminal count condition
+  13:Generated_Source\PSoC5/PID_Timer.c **** *  or a capture event.
+  14:Generated_Source\PSoC5/PID_Timer.c **** *
+  15:Generated_Source\PSoC5/PID_Timer.c **** * Note:
+  16:Generated_Source\PSoC5/PID_Timer.c **** *
+  17:Generated_Source\PSoC5/PID_Timer.c **** ********************************************************************************
+  18:Generated_Source\PSoC5/PID_Timer.c **** * Copyright 2008-2017, Cypress Semiconductor Corporation.  All rights reserved.
+  19:Generated_Source\PSoC5/PID_Timer.c **** * You may use this file only in accordance with the license, terms, conditions,
+  20:Generated_Source\PSoC5/PID_Timer.c **** * disclaimers, and limitations in the end user license agreement accompanying
+  21:Generated_Source\PSoC5/PID_Timer.c **** * the software package with which this file was provided.
+  22:Generated_Source\PSoC5/PID_Timer.c **** ********************************************************************************/
+  23:Generated_Source\PSoC5/PID_Timer.c **** 
+  24:Generated_Source\PSoC5/PID_Timer.c **** #include "PID_Timer.h"
+  25:Generated_Source\PSoC5/PID_Timer.c **** 
+  26:Generated_Source\PSoC5/PID_Timer.c **** uint8 PID_Timer_initVar = 0u;
+  27:Generated_Source\PSoC5/PID_Timer.c **** 
+  28:Generated_Source\PSoC5/PID_Timer.c **** 
+  29:Generated_Source\PSoC5/PID_Timer.c **** /*******************************************************************************
+  30:Generated_Source\PSoC5/PID_Timer.c **** * Function Name: PID_Timer_Init
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccrLKGel.s 			page 2
+
+
+  31:Generated_Source\PSoC5/PID_Timer.c **** ********************************************************************************
+  32:Generated_Source\PSoC5/PID_Timer.c **** *
+  33:Generated_Source\PSoC5/PID_Timer.c **** * Summary:
+  34:Generated_Source\PSoC5/PID_Timer.c **** *  Initialize to the schematic state
+  35:Generated_Source\PSoC5/PID_Timer.c **** *
+  36:Generated_Source\PSoC5/PID_Timer.c **** * Parameters:
+  37:Generated_Source\PSoC5/PID_Timer.c **** *  void
+  38:Generated_Source\PSoC5/PID_Timer.c **** *
+  39:Generated_Source\PSoC5/PID_Timer.c **** * Return:
+  40:Generated_Source\PSoC5/PID_Timer.c **** *  void
+  41:Generated_Source\PSoC5/PID_Timer.c **** *
+  42:Generated_Source\PSoC5/PID_Timer.c **** *******************************************************************************/
+  43:Generated_Source\PSoC5/PID_Timer.c **** void PID_Timer_Init(void) 
+  44:Generated_Source\PSoC5/PID_Timer.c **** {
+  45:Generated_Source\PSoC5/PID_Timer.c ****     #if(!PID_Timer_UsingFixedFunction)
+  46:Generated_Source\PSoC5/PID_Timer.c ****             /* Interrupt State Backup for Critical Region*/
+  47:Generated_Source\PSoC5/PID_Timer.c ****             uint8 PID_Timer_interruptState;
+  48:Generated_Source\PSoC5/PID_Timer.c ****     #endif /* Interrupt state back up for Fixed Function only */
+  49:Generated_Source\PSoC5/PID_Timer.c **** 
+  50:Generated_Source\PSoC5/PID_Timer.c ****     #if (PID_Timer_UsingFixedFunction)
+  51:Generated_Source\PSoC5/PID_Timer.c ****         /* Clear all bits but the enable bit (if it's already set) for Timer operation */
+  52:Generated_Source\PSoC5/PID_Timer.c ****         PID_Timer_CONTROL &= PID_Timer_CTRL_ENABLE;
+  53:Generated_Source\PSoC5/PID_Timer.c **** 
+  54:Generated_Source\PSoC5/PID_Timer.c ****         /* Clear the mode bits for continuous run mode */
+  55:Generated_Source\PSoC5/PID_Timer.c ****         #if (CY_PSOC5A)
+  56:Generated_Source\PSoC5/PID_Timer.c ****             PID_Timer_CONTROL2 &= ((uint8)(~PID_Timer_CTRL_MODE_MASK));
+  57:Generated_Source\PSoC5/PID_Timer.c ****         #endif /* Clear bits in CONTROL2 only in PSOC5A */
+  58:Generated_Source\PSoC5/PID_Timer.c **** 
+  59:Generated_Source\PSoC5/PID_Timer.c ****         #if (CY_PSOC3 || CY_PSOC5LP)
+  60:Generated_Source\PSoC5/PID_Timer.c ****             PID_Timer_CONTROL3 &= ((uint8)(~PID_Timer_CTRL_MODE_MASK));
+  61:Generated_Source\PSoC5/PID_Timer.c ****         #endif /* CONTROL3 register exists only in PSoC3 OR PSoC5LP */
+  62:Generated_Source\PSoC5/PID_Timer.c **** 
+  63:Generated_Source\PSoC5/PID_Timer.c ****         /* Check if One Shot mode is enabled i.e. RunMode !=0*/
+  64:Generated_Source\PSoC5/PID_Timer.c ****         #if (PID_Timer_RunModeUsed != 0x0u)
+  65:Generated_Source\PSoC5/PID_Timer.c ****             /* Set 3rd bit of Control register to enable one shot mode */
+  66:Generated_Source\PSoC5/PID_Timer.c ****             PID_Timer_CONTROL |= 0x04u;
+  67:Generated_Source\PSoC5/PID_Timer.c ****         #endif /* One Shot enabled only when RunModeUsed is not Continuous*/
+  68:Generated_Source\PSoC5/PID_Timer.c **** 
+  69:Generated_Source\PSoC5/PID_Timer.c ****         #if (PID_Timer_RunModeUsed == 2)
+  70:Generated_Source\PSoC5/PID_Timer.c ****             #if (CY_PSOC5A)
+  71:Generated_Source\PSoC5/PID_Timer.c ****                 /* Set last 2 bits of control2 register if one shot(halt on
+  72:Generated_Source\PSoC5/PID_Timer.c ****                 interrupt) is enabled*/
+  73:Generated_Source\PSoC5/PID_Timer.c ****                 PID_Timer_CONTROL2 |= 0x03u;
+  74:Generated_Source\PSoC5/PID_Timer.c ****             #endif /* Set One-Shot Halt on Interrupt bit in CONTROL2 for PSoC5A */
+  75:Generated_Source\PSoC5/PID_Timer.c **** 
+  76:Generated_Source\PSoC5/PID_Timer.c ****             #if (CY_PSOC3 || CY_PSOC5LP)
+  77:Generated_Source\PSoC5/PID_Timer.c ****                 /* Set last 2 bits of control3 register if one shot(halt on
+  78:Generated_Source\PSoC5/PID_Timer.c ****                 interrupt) is enabled*/
+  79:Generated_Source\PSoC5/PID_Timer.c ****                 PID_Timer_CONTROL3 |= 0x03u;
+  80:Generated_Source\PSoC5/PID_Timer.c ****             #endif /* Set One-Shot Halt on Interrupt bit in CONTROL3 for PSoC3 or PSoC5LP */
+  81:Generated_Source\PSoC5/PID_Timer.c **** 
+  82:Generated_Source\PSoC5/PID_Timer.c ****         #endif /* Remove section if One Shot Halt on Interrupt is not enabled */
+  83:Generated_Source\PSoC5/PID_Timer.c **** 
+  84:Generated_Source\PSoC5/PID_Timer.c ****         #if (PID_Timer_UsingHWEnable != 0)
+  85:Generated_Source\PSoC5/PID_Timer.c ****             #if (CY_PSOC5A)
+  86:Generated_Source\PSoC5/PID_Timer.c ****                 /* Set the default Run Mode of the Timer to Continuous */
+  87:Generated_Source\PSoC5/PID_Timer.c ****                 PID_Timer_CONTROL2 |= PID_Timer_CTRL_MODE_PULSEWIDTH;
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccrLKGel.s 			page 3
+
+
+  88:Generated_Source\PSoC5/PID_Timer.c ****             #endif /* Set Continuous Run Mode in CONTROL2 for PSoC5A */
+  89:Generated_Source\PSoC5/PID_Timer.c **** 
+  90:Generated_Source\PSoC5/PID_Timer.c ****             #if (CY_PSOC3 || CY_PSOC5LP)
+  91:Generated_Source\PSoC5/PID_Timer.c ****                 /* Clear and Set ROD and COD bits of CFG2 register */
+  92:Generated_Source\PSoC5/PID_Timer.c ****                 PID_Timer_CONTROL3 &= ((uint8)(~PID_Timer_CTRL_RCOD_MASK));
+  93:Generated_Source\PSoC5/PID_Timer.c ****                 PID_Timer_CONTROL3 |= PID_Timer_CTRL_RCOD;
+  94:Generated_Source\PSoC5/PID_Timer.c **** 
+  95:Generated_Source\PSoC5/PID_Timer.c ****                 /* Clear and Enable the HW enable bit in CFG2 register */
+  96:Generated_Source\PSoC5/PID_Timer.c ****                 PID_Timer_CONTROL3 &= ((uint8)(~PID_Timer_CTRL_ENBL_MASK));
+  97:Generated_Source\PSoC5/PID_Timer.c ****                 PID_Timer_CONTROL3 |= PID_Timer_CTRL_ENBL;
+  98:Generated_Source\PSoC5/PID_Timer.c **** 
+  99:Generated_Source\PSoC5/PID_Timer.c ****                 /* Set the default Run Mode of the Timer to Continuous */
+ 100:Generated_Source\PSoC5/PID_Timer.c ****                 PID_Timer_CONTROL3 |= PID_Timer_CTRL_MODE_CONTINUOUS;
+ 101:Generated_Source\PSoC5/PID_Timer.c ****             #endif /* Set Continuous Run Mode in CONTROL3 for PSoC3ES3 or PSoC5A */
+ 102:Generated_Source\PSoC5/PID_Timer.c **** 
+ 103:Generated_Source\PSoC5/PID_Timer.c ****         #endif /* Configure Run Mode with hardware enable */
+ 104:Generated_Source\PSoC5/PID_Timer.c **** 
+ 105:Generated_Source\PSoC5/PID_Timer.c ****         /* Clear and Set SYNCTC and SYNCCMP bits of RT1 register */
+ 106:Generated_Source\PSoC5/PID_Timer.c ****         PID_Timer_RT1 &= ((uint8)(~PID_Timer_RT1_MASK));
+ 107:Generated_Source\PSoC5/PID_Timer.c ****         PID_Timer_RT1 |= PID_Timer_SYNC;
+ 108:Generated_Source\PSoC5/PID_Timer.c **** 
+ 109:Generated_Source\PSoC5/PID_Timer.c ****         /*Enable DSI Sync all all inputs of the Timer*/
+ 110:Generated_Source\PSoC5/PID_Timer.c ****         PID_Timer_RT1 &= ((uint8)(~PID_Timer_SYNCDSI_MASK));
+ 111:Generated_Source\PSoC5/PID_Timer.c ****         PID_Timer_RT1 |= PID_Timer_SYNCDSI_EN;
+ 112:Generated_Source\PSoC5/PID_Timer.c **** 
+ 113:Generated_Source\PSoC5/PID_Timer.c ****         /* Set the IRQ to use the status register interrupts */
+ 114:Generated_Source\PSoC5/PID_Timer.c ****         PID_Timer_CONTROL2 |= PID_Timer_CTRL2_IRQ_SEL;
+ 115:Generated_Source\PSoC5/PID_Timer.c ****     #endif /* Configuring registers of fixed function implementation */
+ 116:Generated_Source\PSoC5/PID_Timer.c **** 
+ 117:Generated_Source\PSoC5/PID_Timer.c ****     /* Set Initial values from Configuration */
+ 118:Generated_Source\PSoC5/PID_Timer.c ****     PID_Timer_WritePeriod(PID_Timer_INIT_PERIOD);
+ 119:Generated_Source\PSoC5/PID_Timer.c ****     PID_Timer_WriteCounter(PID_Timer_INIT_PERIOD);
+ 120:Generated_Source\PSoC5/PID_Timer.c **** 
+ 121:Generated_Source\PSoC5/PID_Timer.c ****     #if (PID_Timer_UsingHWCaptureCounter)/* Capture counter is enabled */
+ 122:Generated_Source\PSoC5/PID_Timer.c ****         PID_Timer_CAPTURE_COUNT_CTRL |= PID_Timer_CNTR_ENABLE;
+ 123:Generated_Source\PSoC5/PID_Timer.c ****         PID_Timer_SetCaptureCount(PID_Timer_INIT_CAPTURE_COUNT);
+ 124:Generated_Source\PSoC5/PID_Timer.c ****     #endif /* Configure capture counter value */
+ 125:Generated_Source\PSoC5/PID_Timer.c **** 
+ 126:Generated_Source\PSoC5/PID_Timer.c ****     #if (!PID_Timer_UsingFixedFunction)
+ 127:Generated_Source\PSoC5/PID_Timer.c ****         #if (PID_Timer_SoftwareCaptureMode)
+ 128:Generated_Source\PSoC5/PID_Timer.c ****             PID_Timer_SetCaptureMode(PID_Timer_INIT_CAPTURE_MODE);
+ 129:Generated_Source\PSoC5/PID_Timer.c ****         #endif /* Set Capture Mode for UDB implementation if capture mode is software controlled */
+ 130:Generated_Source\PSoC5/PID_Timer.c **** 
+ 131:Generated_Source\PSoC5/PID_Timer.c ****         #if (PID_Timer_SoftwareTriggerMode)
+ 132:Generated_Source\PSoC5/PID_Timer.c ****             #if (!PID_Timer_UDB_CONTROL_REG_REMOVED)
+ 133:Generated_Source\PSoC5/PID_Timer.c ****                 if (0u == (PID_Timer_CONTROL & PID_Timer__B_TIMER__TM_SOFTWARE))
+ 134:Generated_Source\PSoC5/PID_Timer.c ****                 {
+ 135:Generated_Source\PSoC5/PID_Timer.c ****                     PID_Timer_SetTriggerMode(PID_Timer_INIT_TRIGGER_MODE);
+ 136:Generated_Source\PSoC5/PID_Timer.c ****                 }
+ 137:Generated_Source\PSoC5/PID_Timer.c ****             #endif /* (!PID_Timer_UDB_CONTROL_REG_REMOVED) */
+ 138:Generated_Source\PSoC5/PID_Timer.c ****         #endif /* Set trigger mode for UDB Implementation if trigger mode is software controlled */
+ 139:Generated_Source\PSoC5/PID_Timer.c **** 
+ 140:Generated_Source\PSoC5/PID_Timer.c ****         /* CyEnterCriticalRegion and CyExitCriticalRegion are used to mark following region critica
+ 141:Generated_Source\PSoC5/PID_Timer.c ****         /* Enter Critical Region*/
+ 142:Generated_Source\PSoC5/PID_Timer.c ****         PID_Timer_interruptState = CyEnterCriticalSection();
+ 143:Generated_Source\PSoC5/PID_Timer.c **** 
+ 144:Generated_Source\PSoC5/PID_Timer.c ****         /* Use the interrupt output of the status register for IRQ output */
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccrLKGel.s 			page 4
+
+
+ 145:Generated_Source\PSoC5/PID_Timer.c ****         PID_Timer_STATUS_AUX_CTRL |= PID_Timer_STATUS_ACTL_INT_EN_MASK;
+ 146:Generated_Source\PSoC5/PID_Timer.c **** 
+ 147:Generated_Source\PSoC5/PID_Timer.c ****         /* Exit Critical Region*/
+ 148:Generated_Source\PSoC5/PID_Timer.c ****         CyExitCriticalSection(PID_Timer_interruptState);
+ 149:Generated_Source\PSoC5/PID_Timer.c **** 
+ 150:Generated_Source\PSoC5/PID_Timer.c ****         #if (PID_Timer_EnableTriggerMode)
+ 151:Generated_Source\PSoC5/PID_Timer.c ****             PID_Timer_EnableTrigger();
+ 152:Generated_Source\PSoC5/PID_Timer.c ****         #endif /* Set Trigger enable bit for UDB implementation in the control register*/
+ 153:Generated_Source\PSoC5/PID_Timer.c **** 		
+ 154:Generated_Source\PSoC5/PID_Timer.c **** 		
+ 155:Generated_Source\PSoC5/PID_Timer.c ****         #if (PID_Timer_InterruptOnCaptureCount && !PID_Timer_UDB_CONTROL_REG_REMOVED)
+ 156:Generated_Source\PSoC5/PID_Timer.c ****             PID_Timer_SetInterruptCount(PID_Timer_INIT_INT_CAPTURE_COUNT);
+ 157:Generated_Source\PSoC5/PID_Timer.c ****         #endif /* Set interrupt count in UDB implementation if interrupt count feature is checked.*
+ 158:Generated_Source\PSoC5/PID_Timer.c **** 
+ 159:Generated_Source\PSoC5/PID_Timer.c ****         PID_Timer_ClearFIFO();
+ 160:Generated_Source\PSoC5/PID_Timer.c ****     #endif /* Configure additional features of UDB implementation */
+ 161:Generated_Source\PSoC5/PID_Timer.c **** 
+ 162:Generated_Source\PSoC5/PID_Timer.c ****     PID_Timer_SetInterruptMode(PID_Timer_INIT_INTERRUPT_MODE);
+ 163:Generated_Source\PSoC5/PID_Timer.c **** }
+ 164:Generated_Source\PSoC5/PID_Timer.c **** 
+ 165:Generated_Source\PSoC5/PID_Timer.c **** 
+ 166:Generated_Source\PSoC5/PID_Timer.c **** /*******************************************************************************
+ 167:Generated_Source\PSoC5/PID_Timer.c **** * Function Name: PID_Timer_Enable
+ 168:Generated_Source\PSoC5/PID_Timer.c **** ********************************************************************************
+ 169:Generated_Source\PSoC5/PID_Timer.c **** *
+ 170:Generated_Source\PSoC5/PID_Timer.c **** * Summary:
+ 171:Generated_Source\PSoC5/PID_Timer.c **** *  Enable the Timer
+ 172:Generated_Source\PSoC5/PID_Timer.c **** *
+ 173:Generated_Source\PSoC5/PID_Timer.c **** * Parameters:
+ 174:Generated_Source\PSoC5/PID_Timer.c **** *  void
+ 175:Generated_Source\PSoC5/PID_Timer.c **** *
+ 176:Generated_Source\PSoC5/PID_Timer.c **** * Return:
+ 177:Generated_Source\PSoC5/PID_Timer.c **** *  void
+ 178:Generated_Source\PSoC5/PID_Timer.c **** *
+ 179:Generated_Source\PSoC5/PID_Timer.c **** *******************************************************************************/
+ 180:Generated_Source\PSoC5/PID_Timer.c **** void PID_Timer_Enable(void) 
+ 181:Generated_Source\PSoC5/PID_Timer.c **** {
+  28              		.loc 1 181 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+ 182:Generated_Source\PSoC5/PID_Timer.c ****     /* Globally Enable the Fixed Function Block chosen */
+ 183:Generated_Source\PSoC5/PID_Timer.c ****     #if (PID_Timer_UsingFixedFunction)
+ 184:Generated_Source\PSoC5/PID_Timer.c ****         PID_Timer_GLOBAL_ENABLE |= PID_Timer_BLOCK_EN_MASK;
+  33              		.loc 1 184 0
+  34 0000 084A     		ldr	r2, .L2
+  35 0002 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  36 0004 43F00103 		orr	r3, r3, #1
+  37 0008 1370     		strb	r3, [r2]
+ 185:Generated_Source\PSoC5/PID_Timer.c ****         PID_Timer_GLOBAL_STBY_ENABLE |= PID_Timer_BLOCK_STBY_EN_MASK;
+  38              		.loc 1 185 0
+  39 000a 1032     		adds	r2, r2, #16
+  40 000c 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  41 000e 43F00103 		orr	r3, r3, #1
+  42 0012 1370     		strb	r3, [r2]
+ 186:Generated_Source\PSoC5/PID_Timer.c ****     #endif /* Set Enable bit for enabling Fixed function timer*/
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccrLKGel.s 			page 5
+
+
+ 187:Generated_Source\PSoC5/PID_Timer.c **** 
+ 188:Generated_Source\PSoC5/PID_Timer.c ****     /* Remove assignment if control register is removed */
+ 189:Generated_Source\PSoC5/PID_Timer.c ****     #if (!PID_Timer_UDB_CONTROL_REG_REMOVED || PID_Timer_UsingFixedFunction)
+ 190:Generated_Source\PSoC5/PID_Timer.c ****         PID_Timer_CONTROL |= PID_Timer_CTRL_ENABLE;
+  43              		.loc 1 190 0
+  44 0014 02F64D32 		addw	r2, r2, #2893
+  45 0018 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  46 001a 43F00103 		orr	r3, r3, #1
+  47 001e 1370     		strb	r3, [r2]
+  48 0020 7047     		bx	lr
+  49              	.L3:
+  50 0022 00BF     		.align	2
+  51              	.L2:
+  52 0024 A3430040 		.word	1073759139
+  53              		.cfi_endproc
+  54              	.LFE1:
+  55              		.size	PID_Timer_Enable, .-PID_Timer_Enable
+  56              		.section	.text.PID_Timer_Stop,"ax",%progbits
+  57              		.align	2
+  58              		.global	PID_Timer_Stop
+  59              		.thumb
+  60              		.thumb_func
+  61              		.type	PID_Timer_Stop, %function
+  62              	PID_Timer_Stop:
+  63              	.LFB3:
+ 191:Generated_Source\PSoC5/PID_Timer.c ****     #endif /* Remove assignment if control register is removed */
+ 192:Generated_Source\PSoC5/PID_Timer.c **** }
+ 193:Generated_Source\PSoC5/PID_Timer.c **** 
+ 194:Generated_Source\PSoC5/PID_Timer.c **** 
+ 195:Generated_Source\PSoC5/PID_Timer.c **** /*******************************************************************************
+ 196:Generated_Source\PSoC5/PID_Timer.c **** * Function Name: PID_Timer_Start
+ 197:Generated_Source\PSoC5/PID_Timer.c **** ********************************************************************************
+ 198:Generated_Source\PSoC5/PID_Timer.c **** *
+ 199:Generated_Source\PSoC5/PID_Timer.c **** * Summary:
+ 200:Generated_Source\PSoC5/PID_Timer.c **** *  The start function initializes the timer with the default values, the
+ 201:Generated_Source\PSoC5/PID_Timer.c **** *  enables the timerto begin counting.  It does not enable interrupts,
+ 202:Generated_Source\PSoC5/PID_Timer.c **** *  the EnableInt command should be called if interrupt generation is required.
+ 203:Generated_Source\PSoC5/PID_Timer.c **** *
+ 204:Generated_Source\PSoC5/PID_Timer.c **** * Parameters:
+ 205:Generated_Source\PSoC5/PID_Timer.c **** *  void
+ 206:Generated_Source\PSoC5/PID_Timer.c **** *
+ 207:Generated_Source\PSoC5/PID_Timer.c **** * Return:
+ 208:Generated_Source\PSoC5/PID_Timer.c **** *  void
+ 209:Generated_Source\PSoC5/PID_Timer.c **** *
+ 210:Generated_Source\PSoC5/PID_Timer.c **** * Global variables:
+ 211:Generated_Source\PSoC5/PID_Timer.c **** *  PID_Timer_initVar: Is modified when this function is called for the
+ 212:Generated_Source\PSoC5/PID_Timer.c **** *   first time. Is used to ensure that initialization happens only once.
+ 213:Generated_Source\PSoC5/PID_Timer.c **** *
+ 214:Generated_Source\PSoC5/PID_Timer.c **** *******************************************************************************/
+ 215:Generated_Source\PSoC5/PID_Timer.c **** void PID_Timer_Start(void) 
+ 216:Generated_Source\PSoC5/PID_Timer.c **** {
+ 217:Generated_Source\PSoC5/PID_Timer.c ****     if(PID_Timer_initVar == 0u)
+ 218:Generated_Source\PSoC5/PID_Timer.c ****     {
+ 219:Generated_Source\PSoC5/PID_Timer.c ****         PID_Timer_Init();
+ 220:Generated_Source\PSoC5/PID_Timer.c **** 
+ 221:Generated_Source\PSoC5/PID_Timer.c ****         PID_Timer_initVar = 1u;   /* Clear this bit for Initialization */
+ 222:Generated_Source\PSoC5/PID_Timer.c ****     }
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccrLKGel.s 			page 6
+
+
+ 223:Generated_Source\PSoC5/PID_Timer.c **** 
+ 224:Generated_Source\PSoC5/PID_Timer.c ****     /* Enable the Timer */
+ 225:Generated_Source\PSoC5/PID_Timer.c ****     PID_Timer_Enable();
+ 226:Generated_Source\PSoC5/PID_Timer.c **** }
+ 227:Generated_Source\PSoC5/PID_Timer.c **** 
+ 228:Generated_Source\PSoC5/PID_Timer.c **** 
+ 229:Generated_Source\PSoC5/PID_Timer.c **** /*******************************************************************************
+ 230:Generated_Source\PSoC5/PID_Timer.c **** * Function Name: PID_Timer_Stop
+ 231:Generated_Source\PSoC5/PID_Timer.c **** ********************************************************************************
+ 232:Generated_Source\PSoC5/PID_Timer.c **** *
+ 233:Generated_Source\PSoC5/PID_Timer.c **** * Summary:
+ 234:Generated_Source\PSoC5/PID_Timer.c **** *  The stop function halts the timer, but does not change any modes or disable
+ 235:Generated_Source\PSoC5/PID_Timer.c **** *  interrupts.
+ 236:Generated_Source\PSoC5/PID_Timer.c **** *
+ 237:Generated_Source\PSoC5/PID_Timer.c **** * Parameters:
+ 238:Generated_Source\PSoC5/PID_Timer.c **** *  void
+ 239:Generated_Source\PSoC5/PID_Timer.c **** *
+ 240:Generated_Source\PSoC5/PID_Timer.c **** * Return:
+ 241:Generated_Source\PSoC5/PID_Timer.c **** *  void
+ 242:Generated_Source\PSoC5/PID_Timer.c **** *
+ 243:Generated_Source\PSoC5/PID_Timer.c **** * Side Effects: If the Enable mode is set to Hardware only then this function
+ 244:Generated_Source\PSoC5/PID_Timer.c **** *               has no effect on the operation of the timer.
+ 245:Generated_Source\PSoC5/PID_Timer.c **** *
+ 246:Generated_Source\PSoC5/PID_Timer.c **** *******************************************************************************/
+ 247:Generated_Source\PSoC5/PID_Timer.c **** void PID_Timer_Stop(void) 
+ 248:Generated_Source\PSoC5/PID_Timer.c **** {
+  64              		.loc 1 248 0
+  65              		.cfi_startproc
+  66              		@ args = 0, pretend = 0, frame = 0
+  67              		@ frame_needed = 0, uses_anonymous_args = 0
+  68              		@ link register save eliminated.
+ 249:Generated_Source\PSoC5/PID_Timer.c ****     /* Disable Timer */
+ 250:Generated_Source\PSoC5/PID_Timer.c ****     #if(!PID_Timer_UDB_CONTROL_REG_REMOVED || PID_Timer_UsingFixedFunction)
+ 251:Generated_Source\PSoC5/PID_Timer.c ****         PID_Timer_CONTROL &= ((uint8)(~PID_Timer_CTRL_ENABLE));
+  69              		.loc 1 251 0
+  70 0000 084A     		ldr	r2, .L5
+  71 0002 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  72 0004 03F0FE03 		and	r3, r3, #254
+  73 0008 1370     		strb	r3, [r2]
+ 252:Generated_Source\PSoC5/PID_Timer.c ****     #endif /* Remove assignment if control register is removed */
+ 253:Generated_Source\PSoC5/PID_Timer.c **** 
+ 254:Generated_Source\PSoC5/PID_Timer.c ****     /* Globally disable the Fixed Function Block chosen */
+ 255:Generated_Source\PSoC5/PID_Timer.c ****     #if (PID_Timer_UsingFixedFunction)
+ 256:Generated_Source\PSoC5/PID_Timer.c ****         PID_Timer_GLOBAL_ENABLE &= ((uint8)(~PID_Timer_BLOCK_EN_MASK));
+  74              		.loc 1 256 0
+  75 000a A2F65D32 		subw	r2, r2, #2909
+  76 000e 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  77 0010 03F0FE03 		and	r3, r3, #254
+  78 0014 1370     		strb	r3, [r2]
+ 257:Generated_Source\PSoC5/PID_Timer.c ****         PID_Timer_GLOBAL_STBY_ENABLE &= ((uint8)(~PID_Timer_BLOCK_STBY_EN_MASK));
+  79              		.loc 1 257 0
+  80 0016 1032     		adds	r2, r2, #16
+  81 0018 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  82 001a 03F0FE03 		and	r3, r3, #254
+  83 001e 1370     		strb	r3, [r2]
+  84 0020 7047     		bx	lr
+  85              	.L6:
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccrLKGel.s 			page 7
+
+
+  86 0022 00BF     		.align	2
+  87              	.L5:
+  88 0024 004F0040 		.word	1073762048
+  89              		.cfi_endproc
+  90              	.LFE3:
+  91              		.size	PID_Timer_Stop, .-PID_Timer_Stop
+  92              		.section	.text.PID_Timer_SetInterruptMode,"ax",%progbits
+  93              		.align	2
+  94              		.global	PID_Timer_SetInterruptMode
+  95              		.thumb
+  96              		.thumb_func
+  97              		.type	PID_Timer_SetInterruptMode, %function
+  98              	PID_Timer_SetInterruptMode:
+  99              	.LFB4:
+ 258:Generated_Source\PSoC5/PID_Timer.c ****     #endif /* Disable global enable for the Timer Fixed function block to stop the Timer*/
+ 259:Generated_Source\PSoC5/PID_Timer.c **** }
+ 260:Generated_Source\PSoC5/PID_Timer.c **** 
+ 261:Generated_Source\PSoC5/PID_Timer.c **** 
+ 262:Generated_Source\PSoC5/PID_Timer.c **** /*******************************************************************************
+ 263:Generated_Source\PSoC5/PID_Timer.c **** * Function Name: PID_Timer_SetInterruptMode
+ 264:Generated_Source\PSoC5/PID_Timer.c **** ********************************************************************************
+ 265:Generated_Source\PSoC5/PID_Timer.c **** *
+ 266:Generated_Source\PSoC5/PID_Timer.c **** * Summary:
+ 267:Generated_Source\PSoC5/PID_Timer.c **** *  This function selects which of the interrupt inputs may cause an interrupt.
+ 268:Generated_Source\PSoC5/PID_Timer.c **** *  The twosources are caputure and terminal.  One, both or neither may
+ 269:Generated_Source\PSoC5/PID_Timer.c **** *  be selected.
+ 270:Generated_Source\PSoC5/PID_Timer.c **** *
+ 271:Generated_Source\PSoC5/PID_Timer.c **** * Parameters:
+ 272:Generated_Source\PSoC5/PID_Timer.c **** *  interruptMode:   This parameter is used to enable interrups on either/or
+ 273:Generated_Source\PSoC5/PID_Timer.c **** *                   terminal count or capture.
+ 274:Generated_Source\PSoC5/PID_Timer.c **** *
+ 275:Generated_Source\PSoC5/PID_Timer.c **** * Return:
+ 276:Generated_Source\PSoC5/PID_Timer.c **** *  void
+ 277:Generated_Source\PSoC5/PID_Timer.c **** *
+ 278:Generated_Source\PSoC5/PID_Timer.c **** *******************************************************************************/
+ 279:Generated_Source\PSoC5/PID_Timer.c **** void PID_Timer_SetInterruptMode(uint8 interruptMode) 
+ 280:Generated_Source\PSoC5/PID_Timer.c **** {
+ 100              		.loc 1 280 0
+ 101              		.cfi_startproc
+ 102              		@ args = 0, pretend = 0, frame = 0
+ 103              		@ frame_needed = 0, uses_anonymous_args = 0
+ 104              		@ link register save eliminated.
+ 105              	.LVL0:
+ 281:Generated_Source\PSoC5/PID_Timer.c ****     PID_Timer_STATUS_MASK = interruptMode;
+ 106              		.loc 1 281 0
+ 107 0000 014B     		ldr	r3, .L8
+ 108 0002 1870     		strb	r0, [r3]
+ 109 0004 7047     		bx	lr
+ 110              	.L9:
+ 111 0006 00BF     		.align	2
+ 112              	.L8:
+ 113 0008 034F0040 		.word	1073762051
+ 114              		.cfi_endproc
+ 115              	.LFE4:
+ 116              		.size	PID_Timer_SetInterruptMode, .-PID_Timer_SetInterruptMode
+ 117              		.section	.text.PID_Timer_SoftwareCapture,"ax",%progbits
+ 118              		.align	2
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccrLKGel.s 			page 8
+
+
+ 119              		.global	PID_Timer_SoftwareCapture
+ 120              		.thumb
+ 121              		.thumb_func
+ 122              		.type	PID_Timer_SoftwareCapture, %function
+ 123              	PID_Timer_SoftwareCapture:
+ 124              	.LFB5:
+ 282:Generated_Source\PSoC5/PID_Timer.c **** }
+ 283:Generated_Source\PSoC5/PID_Timer.c **** 
+ 284:Generated_Source\PSoC5/PID_Timer.c **** 
+ 285:Generated_Source\PSoC5/PID_Timer.c **** /*******************************************************************************
+ 286:Generated_Source\PSoC5/PID_Timer.c **** * Function Name: PID_Timer_SoftwareCapture
+ 287:Generated_Source\PSoC5/PID_Timer.c **** ********************************************************************************
+ 288:Generated_Source\PSoC5/PID_Timer.c **** *
+ 289:Generated_Source\PSoC5/PID_Timer.c **** * Summary:
+ 290:Generated_Source\PSoC5/PID_Timer.c **** *  This function forces a capture independent of the capture signal.
+ 291:Generated_Source\PSoC5/PID_Timer.c **** *
+ 292:Generated_Source\PSoC5/PID_Timer.c **** * Parameters:
+ 293:Generated_Source\PSoC5/PID_Timer.c **** *  void
+ 294:Generated_Source\PSoC5/PID_Timer.c **** *
+ 295:Generated_Source\PSoC5/PID_Timer.c **** * Return:
+ 296:Generated_Source\PSoC5/PID_Timer.c **** *  void
+ 297:Generated_Source\PSoC5/PID_Timer.c **** *
+ 298:Generated_Source\PSoC5/PID_Timer.c **** * Side Effects:
+ 299:Generated_Source\PSoC5/PID_Timer.c **** *  An existing hardware capture could be overwritten.
+ 300:Generated_Source\PSoC5/PID_Timer.c **** *
+ 301:Generated_Source\PSoC5/PID_Timer.c **** *******************************************************************************/
+ 302:Generated_Source\PSoC5/PID_Timer.c **** void PID_Timer_SoftwareCapture(void) 
+ 303:Generated_Source\PSoC5/PID_Timer.c **** {
+ 125              		.loc 1 303 0
+ 126              		.cfi_startproc
+ 127              		@ args = 0, pretend = 0, frame = 0
+ 128              		@ frame_needed = 0, uses_anonymous_args = 0
+ 129              		@ link register save eliminated.
+ 304:Generated_Source\PSoC5/PID_Timer.c ****     /* Generate a software capture by reading the counter register */
+ 305:Generated_Source\PSoC5/PID_Timer.c ****     #if(PID_Timer_UsingFixedFunction)
+ 306:Generated_Source\PSoC5/PID_Timer.c ****         (void)CY_GET_REG16(PID_Timer_COUNTER_LSB_PTR);
+ 130              		.loc 1 306 0
+ 131 0000 014B     		ldr	r3, .L11
+ 132 0002 1B88     		ldrh	r3, [r3]
+ 133 0004 7047     		bx	lr
+ 134              	.L12:
+ 135 0006 00BF     		.align	2
+ 136              	.L11:
+ 137 0008 064F0040 		.word	1073762054
+ 138              		.cfi_endproc
+ 139              	.LFE5:
+ 140              		.size	PID_Timer_SoftwareCapture, .-PID_Timer_SoftwareCapture
+ 141              		.section	.text.PID_Timer_ReadStatusRegister,"ax",%progbits
+ 142              		.align	2
+ 143              		.global	PID_Timer_ReadStatusRegister
+ 144              		.thumb
+ 145              		.thumb_func
+ 146              		.type	PID_Timer_ReadStatusRegister, %function
+ 147              	PID_Timer_ReadStatusRegister:
+ 148              	.LFB6:
+ 307:Generated_Source\PSoC5/PID_Timer.c ****     #else
+ 308:Generated_Source\PSoC5/PID_Timer.c ****         (void)CY_GET_REG8(PID_Timer_COUNTER_LSB_PTR_8BIT);
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccrLKGel.s 			page 9
+
+
+ 309:Generated_Source\PSoC5/PID_Timer.c ****     #endif/* (PID_Timer_UsingFixedFunction) */
+ 310:Generated_Source\PSoC5/PID_Timer.c ****     /* Capture Data is now in the FIFO */
+ 311:Generated_Source\PSoC5/PID_Timer.c **** }
+ 312:Generated_Source\PSoC5/PID_Timer.c **** 
+ 313:Generated_Source\PSoC5/PID_Timer.c **** 
+ 314:Generated_Source\PSoC5/PID_Timer.c **** /*******************************************************************************
+ 315:Generated_Source\PSoC5/PID_Timer.c **** * Function Name: PID_Timer_ReadStatusRegister
+ 316:Generated_Source\PSoC5/PID_Timer.c **** ********************************************************************************
+ 317:Generated_Source\PSoC5/PID_Timer.c **** *
+ 318:Generated_Source\PSoC5/PID_Timer.c **** * Summary:
+ 319:Generated_Source\PSoC5/PID_Timer.c **** *  Reads the status register and returns it's state. This function should use
+ 320:Generated_Source\PSoC5/PID_Timer.c **** *  defined types for the bit-field information as the bits in this register may
+ 321:Generated_Source\PSoC5/PID_Timer.c **** *  be permuteable.
+ 322:Generated_Source\PSoC5/PID_Timer.c **** *
+ 323:Generated_Source\PSoC5/PID_Timer.c **** * Parameters:
+ 324:Generated_Source\PSoC5/PID_Timer.c **** *  void
+ 325:Generated_Source\PSoC5/PID_Timer.c **** *
+ 326:Generated_Source\PSoC5/PID_Timer.c **** * Return:
+ 327:Generated_Source\PSoC5/PID_Timer.c **** *  The contents of the status register
+ 328:Generated_Source\PSoC5/PID_Timer.c **** *
+ 329:Generated_Source\PSoC5/PID_Timer.c **** * Side Effects:
+ 330:Generated_Source\PSoC5/PID_Timer.c **** *  Status register bits may be clear on read.
+ 331:Generated_Source\PSoC5/PID_Timer.c **** *
+ 332:Generated_Source\PSoC5/PID_Timer.c **** *******************************************************************************/
+ 333:Generated_Source\PSoC5/PID_Timer.c **** uint8   PID_Timer_ReadStatusRegister(void) 
+ 334:Generated_Source\PSoC5/PID_Timer.c **** {
+ 149              		.loc 1 334 0
+ 150              		.cfi_startproc
+ 151              		@ args = 0, pretend = 0, frame = 0
+ 152              		@ frame_needed = 0, uses_anonymous_args = 0
+ 153              		@ link register save eliminated.
+ 335:Generated_Source\PSoC5/PID_Timer.c ****     return (PID_Timer_STATUS);
+ 154              		.loc 1 335 0
+ 155 0000 014B     		ldr	r3, .L14
+ 156 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 336:Generated_Source\PSoC5/PID_Timer.c **** }
+ 157              		.loc 1 336 0
+ 158 0004 7047     		bx	lr
+ 159              	.L15:
+ 160 0006 00BF     		.align	2
+ 161              	.L14:
+ 162 0008 034F0040 		.word	1073762051
+ 163              		.cfi_endproc
+ 164              	.LFE6:
+ 165              		.size	PID_Timer_ReadStatusRegister, .-PID_Timer_ReadStatusRegister
+ 166              		.section	.text.PID_Timer_ReadControlRegister,"ax",%progbits
+ 167              		.align	2
+ 168              		.global	PID_Timer_ReadControlRegister
+ 169              		.thumb
+ 170              		.thumb_func
+ 171              		.type	PID_Timer_ReadControlRegister, %function
+ 172              	PID_Timer_ReadControlRegister:
+ 173              	.LFB7:
+ 337:Generated_Source\PSoC5/PID_Timer.c **** 
+ 338:Generated_Source\PSoC5/PID_Timer.c **** 
+ 339:Generated_Source\PSoC5/PID_Timer.c **** #if (!PID_Timer_UDB_CONTROL_REG_REMOVED) /* Remove API if control register is unused */
+ 340:Generated_Source\PSoC5/PID_Timer.c **** 
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccrLKGel.s 			page 10
+
+
+ 341:Generated_Source\PSoC5/PID_Timer.c **** 
+ 342:Generated_Source\PSoC5/PID_Timer.c **** /*******************************************************************************
+ 343:Generated_Source\PSoC5/PID_Timer.c **** * Function Name: PID_Timer_ReadControlRegister
+ 344:Generated_Source\PSoC5/PID_Timer.c **** ********************************************************************************
+ 345:Generated_Source\PSoC5/PID_Timer.c **** *
+ 346:Generated_Source\PSoC5/PID_Timer.c **** * Summary:
+ 347:Generated_Source\PSoC5/PID_Timer.c **** *  Reads the control register and returns it's value.
+ 348:Generated_Source\PSoC5/PID_Timer.c **** *
+ 349:Generated_Source\PSoC5/PID_Timer.c **** * Parameters:
+ 350:Generated_Source\PSoC5/PID_Timer.c **** *  void
+ 351:Generated_Source\PSoC5/PID_Timer.c **** *
+ 352:Generated_Source\PSoC5/PID_Timer.c **** * Return:
+ 353:Generated_Source\PSoC5/PID_Timer.c **** *  The contents of the control register
+ 354:Generated_Source\PSoC5/PID_Timer.c **** *
+ 355:Generated_Source\PSoC5/PID_Timer.c **** *******************************************************************************/
+ 356:Generated_Source\PSoC5/PID_Timer.c **** uint8 PID_Timer_ReadControlRegister(void) 
+ 357:Generated_Source\PSoC5/PID_Timer.c **** {
+ 174              		.loc 1 357 0
+ 175              		.cfi_startproc
+ 176              		@ args = 0, pretend = 0, frame = 0
+ 177              		@ frame_needed = 0, uses_anonymous_args = 0
+ 178              		@ link register save eliminated.
+ 358:Generated_Source\PSoC5/PID_Timer.c ****     #if (!PID_Timer_UDB_CONTROL_REG_REMOVED) 
+ 359:Generated_Source\PSoC5/PID_Timer.c ****         return ((uint8)PID_Timer_CONTROL);
+ 179              		.loc 1 359 0
+ 180 0000 014B     		ldr	r3, .L17
+ 181 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 360:Generated_Source\PSoC5/PID_Timer.c ****     #else
+ 361:Generated_Source\PSoC5/PID_Timer.c ****         return (0);
+ 362:Generated_Source\PSoC5/PID_Timer.c ****     #endif /* (!PID_Timer_UDB_CONTROL_REG_REMOVED) */
+ 363:Generated_Source\PSoC5/PID_Timer.c **** }
+ 182              		.loc 1 363 0
+ 183 0004 7047     		bx	lr
+ 184              	.L18:
+ 185 0006 00BF     		.align	2
+ 186              	.L17:
+ 187 0008 004F0040 		.word	1073762048
+ 188              		.cfi_endproc
+ 189              	.LFE7:
+ 190              		.size	PID_Timer_ReadControlRegister, .-PID_Timer_ReadControlRegister
+ 191              		.section	.text.PID_Timer_WriteControlRegister,"ax",%progbits
+ 192              		.align	2
+ 193              		.global	PID_Timer_WriteControlRegister
+ 194              		.thumb
+ 195              		.thumb_func
+ 196              		.type	PID_Timer_WriteControlRegister, %function
+ 197              	PID_Timer_WriteControlRegister:
+ 198              	.LFB8:
+ 364:Generated_Source\PSoC5/PID_Timer.c **** 
+ 365:Generated_Source\PSoC5/PID_Timer.c **** 
+ 366:Generated_Source\PSoC5/PID_Timer.c **** /*******************************************************************************
+ 367:Generated_Source\PSoC5/PID_Timer.c **** * Function Name: PID_Timer_WriteControlRegister
+ 368:Generated_Source\PSoC5/PID_Timer.c **** ********************************************************************************
+ 369:Generated_Source\PSoC5/PID_Timer.c **** *
+ 370:Generated_Source\PSoC5/PID_Timer.c **** * Summary:
+ 371:Generated_Source\PSoC5/PID_Timer.c **** *  Sets the bit-field of the control register.
+ 372:Generated_Source\PSoC5/PID_Timer.c **** *
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccrLKGel.s 			page 11
+
+
+ 373:Generated_Source\PSoC5/PID_Timer.c **** * Parameters:
+ 374:Generated_Source\PSoC5/PID_Timer.c **** *  control: The contents of the control register
+ 375:Generated_Source\PSoC5/PID_Timer.c **** *
+ 376:Generated_Source\PSoC5/PID_Timer.c **** * Return:
+ 377:Generated_Source\PSoC5/PID_Timer.c **** *
+ 378:Generated_Source\PSoC5/PID_Timer.c **** *******************************************************************************/
+ 379:Generated_Source\PSoC5/PID_Timer.c **** void PID_Timer_WriteControlRegister(uint8 control) 
+ 380:Generated_Source\PSoC5/PID_Timer.c **** {
+ 199              		.loc 1 380 0
+ 200              		.cfi_startproc
+ 201              		@ args = 0, pretend = 0, frame = 0
+ 202              		@ frame_needed = 0, uses_anonymous_args = 0
+ 203              		@ link register save eliminated.
+ 204              	.LVL1:
+ 381:Generated_Source\PSoC5/PID_Timer.c ****     #if (!PID_Timer_UDB_CONTROL_REG_REMOVED) 
+ 382:Generated_Source\PSoC5/PID_Timer.c ****         PID_Timer_CONTROL = control;
+ 205              		.loc 1 382 0
+ 206 0000 014B     		ldr	r3, .L20
+ 207 0002 1870     		strb	r0, [r3]
+ 208 0004 7047     		bx	lr
+ 209              	.L21:
+ 210 0006 00BF     		.align	2
+ 211              	.L20:
+ 212 0008 004F0040 		.word	1073762048
+ 213              		.cfi_endproc
+ 214              	.LFE8:
+ 215              		.size	PID_Timer_WriteControlRegister, .-PID_Timer_WriteControlRegister
+ 216              		.section	.text.PID_Timer_ReadPeriod,"ax",%progbits
+ 217              		.align	2
+ 218              		.global	PID_Timer_ReadPeriod
+ 219              		.thumb
+ 220              		.thumb_func
+ 221              		.type	PID_Timer_ReadPeriod, %function
+ 222              	PID_Timer_ReadPeriod:
+ 223              	.LFB9:
+ 383:Generated_Source\PSoC5/PID_Timer.c ****     #else
+ 384:Generated_Source\PSoC5/PID_Timer.c ****         control = 0u;
+ 385:Generated_Source\PSoC5/PID_Timer.c ****     #endif /* (!PID_Timer_UDB_CONTROL_REG_REMOVED) */
+ 386:Generated_Source\PSoC5/PID_Timer.c **** }
+ 387:Generated_Source\PSoC5/PID_Timer.c **** 
+ 388:Generated_Source\PSoC5/PID_Timer.c **** #endif /* Remove API if control register is unused */
+ 389:Generated_Source\PSoC5/PID_Timer.c **** 
+ 390:Generated_Source\PSoC5/PID_Timer.c **** 
+ 391:Generated_Source\PSoC5/PID_Timer.c **** /*******************************************************************************
+ 392:Generated_Source\PSoC5/PID_Timer.c **** * Function Name: PID_Timer_ReadPeriod
+ 393:Generated_Source\PSoC5/PID_Timer.c **** ********************************************************************************
+ 394:Generated_Source\PSoC5/PID_Timer.c **** *
+ 395:Generated_Source\PSoC5/PID_Timer.c **** * Summary:
+ 396:Generated_Source\PSoC5/PID_Timer.c **** *  This function returns the current value of the Period.
+ 397:Generated_Source\PSoC5/PID_Timer.c **** *
+ 398:Generated_Source\PSoC5/PID_Timer.c **** * Parameters:
+ 399:Generated_Source\PSoC5/PID_Timer.c **** *  void
+ 400:Generated_Source\PSoC5/PID_Timer.c **** *
+ 401:Generated_Source\PSoC5/PID_Timer.c **** * Return:
+ 402:Generated_Source\PSoC5/PID_Timer.c **** *  The present value of the counter.
+ 403:Generated_Source\PSoC5/PID_Timer.c **** *
+ 404:Generated_Source\PSoC5/PID_Timer.c **** *******************************************************************************/
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccrLKGel.s 			page 12
+
+
+ 405:Generated_Source\PSoC5/PID_Timer.c **** uint8 PID_Timer_ReadPeriod(void) 
+ 406:Generated_Source\PSoC5/PID_Timer.c **** {
+ 224              		.loc 1 406 0
+ 225              		.cfi_startproc
+ 226              		@ args = 0, pretend = 0, frame = 0
+ 227              		@ frame_needed = 0, uses_anonymous_args = 0
+ 228              		@ link register save eliminated.
+ 407:Generated_Source\PSoC5/PID_Timer.c ****    #if(PID_Timer_UsingFixedFunction)
+ 408:Generated_Source\PSoC5/PID_Timer.c ****        return ((uint8)CY_GET_REG16(PID_Timer_PERIOD_LSB_PTR));
+ 229              		.loc 1 408 0
+ 230 0000 014B     		ldr	r3, .L23
+ 231 0002 1888     		ldrh	r0, [r3]
+ 409:Generated_Source\PSoC5/PID_Timer.c ****    #else
+ 410:Generated_Source\PSoC5/PID_Timer.c ****        return (CY_GET_REG8(PID_Timer_PERIOD_LSB_PTR));
+ 411:Generated_Source\PSoC5/PID_Timer.c ****    #endif /* (PID_Timer_UsingFixedFunction) */
+ 412:Generated_Source\PSoC5/PID_Timer.c **** }
+ 232              		.loc 1 412 0
+ 233 0004 C0B2     		uxtb	r0, r0
+ 234 0006 7047     		bx	lr
+ 235              	.L24:
+ 236              		.align	2
+ 237              	.L23:
+ 238 0008 044F0040 		.word	1073762052
+ 239              		.cfi_endproc
+ 240              	.LFE9:
+ 241              		.size	PID_Timer_ReadPeriod, .-PID_Timer_ReadPeriod
+ 242              		.section	.text.PID_Timer_WritePeriod,"ax",%progbits
+ 243              		.align	2
+ 244              		.global	PID_Timer_WritePeriod
+ 245              		.thumb
+ 246              		.thumb_func
+ 247              		.type	PID_Timer_WritePeriod, %function
+ 248              	PID_Timer_WritePeriod:
+ 249              	.LFB10:
+ 413:Generated_Source\PSoC5/PID_Timer.c **** 
+ 414:Generated_Source\PSoC5/PID_Timer.c **** 
+ 415:Generated_Source\PSoC5/PID_Timer.c **** /*******************************************************************************
+ 416:Generated_Source\PSoC5/PID_Timer.c **** * Function Name: PID_Timer_WritePeriod
+ 417:Generated_Source\PSoC5/PID_Timer.c **** ********************************************************************************
+ 418:Generated_Source\PSoC5/PID_Timer.c **** *
+ 419:Generated_Source\PSoC5/PID_Timer.c **** * Summary:
+ 420:Generated_Source\PSoC5/PID_Timer.c **** *  This function is used to change the period of the counter.  The new period
+ 421:Generated_Source\PSoC5/PID_Timer.c **** *  will be loaded the next time terminal count is detected.
+ 422:Generated_Source\PSoC5/PID_Timer.c **** *
+ 423:Generated_Source\PSoC5/PID_Timer.c **** * Parameters:
+ 424:Generated_Source\PSoC5/PID_Timer.c **** *  period: This value may be between 1 and (2^Resolution)-1.  A value of 0 will
+ 425:Generated_Source\PSoC5/PID_Timer.c **** *          result in the counter remaining at zero.
+ 426:Generated_Source\PSoC5/PID_Timer.c **** *
+ 427:Generated_Source\PSoC5/PID_Timer.c **** * Return:
+ 428:Generated_Source\PSoC5/PID_Timer.c **** *  void
+ 429:Generated_Source\PSoC5/PID_Timer.c **** *
+ 430:Generated_Source\PSoC5/PID_Timer.c **** *******************************************************************************/
+ 431:Generated_Source\PSoC5/PID_Timer.c **** void PID_Timer_WritePeriod(uint8 period) 
+ 432:Generated_Source\PSoC5/PID_Timer.c **** {
+ 250              		.loc 1 432 0
+ 251              		.cfi_startproc
+ 252              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccrLKGel.s 			page 13
+
+
+ 253              		@ frame_needed = 0, uses_anonymous_args = 0
+ 254              		@ link register save eliminated.
+ 255              	.LVL2:
+ 433:Generated_Source\PSoC5/PID_Timer.c ****     #if(PID_Timer_UsingFixedFunction)
+ 434:Generated_Source\PSoC5/PID_Timer.c ****         uint16 period_temp = (uint16)period;
+ 435:Generated_Source\PSoC5/PID_Timer.c ****         CY_SET_REG16(PID_Timer_PERIOD_LSB_PTR, period_temp);
+ 256              		.loc 1 435 0
+ 257 0000 014B     		ldr	r3, .L26
+ 258 0002 1880     		strh	r0, [r3]	@ movhi
+ 259 0004 7047     		bx	lr
+ 260              	.L27:
+ 261 0006 00BF     		.align	2
+ 262              	.L26:
+ 263 0008 044F0040 		.word	1073762052
+ 264              		.cfi_endproc
+ 265              	.LFE10:
+ 266              		.size	PID_Timer_WritePeriod, .-PID_Timer_WritePeriod
+ 267              		.section	.text.PID_Timer_ReadCapture,"ax",%progbits
+ 268              		.align	2
+ 269              		.global	PID_Timer_ReadCapture
+ 270              		.thumb
+ 271              		.thumb_func
+ 272              		.type	PID_Timer_ReadCapture, %function
+ 273              	PID_Timer_ReadCapture:
+ 274              	.LFB11:
+ 436:Generated_Source\PSoC5/PID_Timer.c ****     #else
+ 437:Generated_Source\PSoC5/PID_Timer.c ****         CY_SET_REG8(PID_Timer_PERIOD_LSB_PTR, period);
+ 438:Generated_Source\PSoC5/PID_Timer.c ****     #endif /*Write Period value with appropriate resolution suffix depending on UDB or fixed functi
+ 439:Generated_Source\PSoC5/PID_Timer.c **** }
+ 440:Generated_Source\PSoC5/PID_Timer.c **** 
+ 441:Generated_Source\PSoC5/PID_Timer.c **** 
+ 442:Generated_Source\PSoC5/PID_Timer.c **** /*******************************************************************************
+ 443:Generated_Source\PSoC5/PID_Timer.c **** * Function Name: PID_Timer_ReadCapture
+ 444:Generated_Source\PSoC5/PID_Timer.c **** ********************************************************************************
+ 445:Generated_Source\PSoC5/PID_Timer.c **** *
+ 446:Generated_Source\PSoC5/PID_Timer.c **** * Summary:
+ 447:Generated_Source\PSoC5/PID_Timer.c **** *  This function returns the last value captured.
+ 448:Generated_Source\PSoC5/PID_Timer.c **** *
+ 449:Generated_Source\PSoC5/PID_Timer.c **** * Parameters:
+ 450:Generated_Source\PSoC5/PID_Timer.c **** *  void
+ 451:Generated_Source\PSoC5/PID_Timer.c **** *
+ 452:Generated_Source\PSoC5/PID_Timer.c **** * Return:
+ 453:Generated_Source\PSoC5/PID_Timer.c **** *  Present Capture value.
+ 454:Generated_Source\PSoC5/PID_Timer.c **** *
+ 455:Generated_Source\PSoC5/PID_Timer.c **** *******************************************************************************/
+ 456:Generated_Source\PSoC5/PID_Timer.c **** uint8 PID_Timer_ReadCapture(void) 
+ 457:Generated_Source\PSoC5/PID_Timer.c **** {
+ 275              		.loc 1 457 0
+ 276              		.cfi_startproc
+ 277              		@ args = 0, pretend = 0, frame = 0
+ 278              		@ frame_needed = 0, uses_anonymous_args = 0
+ 279              		@ link register save eliminated.
+ 458:Generated_Source\PSoC5/PID_Timer.c ****    #if(PID_Timer_UsingFixedFunction)
+ 459:Generated_Source\PSoC5/PID_Timer.c ****        return ((uint8)CY_GET_REG16(PID_Timer_CAPTURE_LSB_PTR));
+ 280              		.loc 1 459 0
+ 281 0000 014B     		ldr	r3, .L29
+ 282 0002 1888     		ldrh	r0, [r3]
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccrLKGel.s 			page 14
+
+
+ 460:Generated_Source\PSoC5/PID_Timer.c ****    #else
+ 461:Generated_Source\PSoC5/PID_Timer.c ****        return (CY_GET_REG8(PID_Timer_CAPTURE_LSB_PTR));
+ 462:Generated_Source\PSoC5/PID_Timer.c ****    #endif /* (PID_Timer_UsingFixedFunction) */
+ 463:Generated_Source\PSoC5/PID_Timer.c **** }
+ 283              		.loc 1 463 0
+ 284 0004 C0B2     		uxtb	r0, r0
+ 285 0006 7047     		bx	lr
+ 286              	.L30:
+ 287              		.align	2
+ 288              	.L29:
+ 289 0008 084F0040 		.word	1073762056
+ 290              		.cfi_endproc
+ 291              	.LFE11:
+ 292              		.size	PID_Timer_ReadCapture, .-PID_Timer_ReadCapture
+ 293              		.section	.text.PID_Timer_WriteCounter,"ax",%progbits
+ 294              		.align	2
+ 295              		.global	PID_Timer_WriteCounter
+ 296              		.thumb
+ 297              		.thumb_func
+ 298              		.type	PID_Timer_WriteCounter, %function
+ 299              	PID_Timer_WriteCounter:
+ 300              	.LFB12:
+ 464:Generated_Source\PSoC5/PID_Timer.c **** 
+ 465:Generated_Source\PSoC5/PID_Timer.c **** 
+ 466:Generated_Source\PSoC5/PID_Timer.c **** /*******************************************************************************
+ 467:Generated_Source\PSoC5/PID_Timer.c **** * Function Name: PID_Timer_WriteCounter
+ 468:Generated_Source\PSoC5/PID_Timer.c **** ********************************************************************************
+ 469:Generated_Source\PSoC5/PID_Timer.c **** *
+ 470:Generated_Source\PSoC5/PID_Timer.c **** * Summary:
+ 471:Generated_Source\PSoC5/PID_Timer.c **** *  This funtion is used to set the counter to a specific value
+ 472:Generated_Source\PSoC5/PID_Timer.c **** *
+ 473:Generated_Source\PSoC5/PID_Timer.c **** * Parameters:
+ 474:Generated_Source\PSoC5/PID_Timer.c **** *  counter:  New counter value.
+ 475:Generated_Source\PSoC5/PID_Timer.c **** *
+ 476:Generated_Source\PSoC5/PID_Timer.c **** * Return:
+ 477:Generated_Source\PSoC5/PID_Timer.c **** *  void
+ 478:Generated_Source\PSoC5/PID_Timer.c **** *
+ 479:Generated_Source\PSoC5/PID_Timer.c **** *******************************************************************************/
+ 480:Generated_Source\PSoC5/PID_Timer.c **** void PID_Timer_WriteCounter(uint8 counter) 
+ 481:Generated_Source\PSoC5/PID_Timer.c **** {
+ 301              		.loc 1 481 0
+ 302              		.cfi_startproc
+ 303              		@ args = 0, pretend = 0, frame = 0
+ 304              		@ frame_needed = 0, uses_anonymous_args = 0
+ 305              		@ link register save eliminated.
+ 306              	.LVL3:
+ 482:Generated_Source\PSoC5/PID_Timer.c ****    #if(PID_Timer_UsingFixedFunction)
+ 483:Generated_Source\PSoC5/PID_Timer.c ****         /* This functionality is removed until a FixedFunction HW update to
+ 484:Generated_Source\PSoC5/PID_Timer.c ****          * allow this register to be written
+ 485:Generated_Source\PSoC5/PID_Timer.c ****          */
+ 486:Generated_Source\PSoC5/PID_Timer.c ****         CY_SET_REG16(PID_Timer_COUNTER_LSB_PTR, (uint16)counter);
+ 307              		.loc 1 486 0
+ 308 0000 014B     		ldr	r3, .L32
+ 309 0002 1880     		strh	r0, [r3]	@ movhi
+ 310 0004 7047     		bx	lr
+ 311              	.L33:
+ 312 0006 00BF     		.align	2
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccrLKGel.s 			page 15
+
+
+ 313              	.L32:
+ 314 0008 064F0040 		.word	1073762054
+ 315              		.cfi_endproc
+ 316              	.LFE12:
+ 317              		.size	PID_Timer_WriteCounter, .-PID_Timer_WriteCounter
+ 318              		.section	.text.PID_Timer_Init,"ax",%progbits
+ 319              		.align	2
+ 320              		.global	PID_Timer_Init
+ 321              		.thumb
+ 322              		.thumb_func
+ 323              		.type	PID_Timer_Init, %function
+ 324              	PID_Timer_Init:
+ 325              	.LFB0:
+  44:Generated_Source\PSoC5/PID_Timer.c ****     #if(!PID_Timer_UsingFixedFunction)
+ 326              		.loc 1 44 0
+ 327              		.cfi_startproc
+ 328              		@ args = 0, pretend = 0, frame = 0
+ 329              		@ frame_needed = 0, uses_anonymous_args = 0
+ 330 0000 08B5     		push	{r3, lr}
+ 331              		.cfi_def_cfa_offset 8
+ 332              		.cfi_offset 3, -8
+ 333              		.cfi_offset 14, -4
+  52:Generated_Source\PSoC5/PID_Timer.c **** 
+ 334              		.loc 1 52 0
+ 335 0002 154A     		ldr	r2, .L36
+ 336 0004 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 337 0006 03F00103 		and	r3, r3, #1
+ 338 000a 1370     		strb	r3, [r2]
+  60:Generated_Source\PSoC5/PID_Timer.c ****         #endif /* CONTROL3 register exists only in PSoC3 OR PSoC5LP */
+ 339              		.loc 1 60 0
+ 340 000c 0232     		adds	r2, r2, #2
+ 341 000e 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 342 0010 03F0FC03 		and	r3, r3, #252
+ 343 0014 1370     		strb	r3, [r2]
+ 106:Generated_Source\PSoC5/PID_Timer.c ****         PID_Timer_RT1 |= PID_Timer_SYNC;
+ 344              		.loc 1 106 0
+ 345 0016 114B     		ldr	r3, .L36+4
+ 346 0018 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 347 001a 02F0CF02 		and	r2, r2, #207
+ 348 001e 1A70     		strb	r2, [r3]
+ 107:Generated_Source\PSoC5/PID_Timer.c **** 
+ 349              		.loc 1 107 0
+ 350 0020 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 351 0022 42F03002 		orr	r2, r2, #48
+ 352 0026 1A70     		strb	r2, [r3]
+ 110:Generated_Source\PSoC5/PID_Timer.c ****         PID_Timer_RT1 |= PID_Timer_SYNCDSI_EN;
+ 353              		.loc 1 110 0
+ 354 0028 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 355 002a 02F0F002 		and	r2, r2, #240
+ 356 002e 1A70     		strb	r2, [r3]
+ 111:Generated_Source\PSoC5/PID_Timer.c **** 
+ 357              		.loc 1 111 0
+ 358 0030 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 359 0032 42F00F02 		orr	r2, r2, #15
+ 360 0036 1A70     		strb	r2, [r3]
+ 114:Generated_Source\PSoC5/PID_Timer.c ****     #endif /* Configuring registers of fixed function implementation */
+ 361              		.loc 1 114 0
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccrLKGel.s 			page 16
+
+
+ 362 0038 094A     		ldr	r2, .L36+8
+ 363 003a 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 364 003c 43F00103 		orr	r3, r3, #1
+ 365 0040 1370     		strb	r3, [r2]
+ 118:Generated_Source\PSoC5/PID_Timer.c ****     PID_Timer_WriteCounter(PID_Timer_INIT_PERIOD);
+ 366              		.loc 1 118 0
+ 367 0042 6320     		movs	r0, #99
+ 368 0044 FFF7FEFF 		bl	PID_Timer_WritePeriod
+ 369              	.LVL4:
+ 119:Generated_Source\PSoC5/PID_Timer.c **** 
+ 370              		.loc 1 119 0
+ 371 0048 6320     		movs	r0, #99
+ 372 004a FFF7FEFF 		bl	PID_Timer_WriteCounter
+ 373              	.LVL5:
+ 162:Generated_Source\PSoC5/PID_Timer.c **** }
+ 374              		.loc 1 162 0
+ 375 004e 0020     		movs	r0, #0
+ 376 0050 FFF7FEFF 		bl	PID_Timer_SetInterruptMode
+ 377              	.LVL6:
+ 378 0054 08BD     		pop	{r3, pc}
+ 379              	.L37:
+ 380 0056 00BF     		.align	2
+ 381              	.L36:
+ 382 0058 004F0040 		.word	1073762048
+ 383 005c 0B4F0040 		.word	1073762059
+ 384 0060 014F0040 		.word	1073762049
+ 385              		.cfi_endproc
+ 386              	.LFE0:
+ 387              		.size	PID_Timer_Init, .-PID_Timer_Init
+ 388              		.section	.text.PID_Timer_Start,"ax",%progbits
+ 389              		.align	2
+ 390              		.global	PID_Timer_Start
+ 391              		.thumb
+ 392              		.thumb_func
+ 393              		.type	PID_Timer_Start, %function
+ 394              	PID_Timer_Start:
+ 395              	.LFB2:
+ 216:Generated_Source\PSoC5/PID_Timer.c ****     if(PID_Timer_initVar == 0u)
+ 396              		.loc 1 216 0
+ 397              		.cfi_startproc
+ 398              		@ args = 0, pretend = 0, frame = 0
+ 399              		@ frame_needed = 0, uses_anonymous_args = 0
+ 400 0000 08B5     		push	{r3, lr}
+ 401              		.cfi_def_cfa_offset 8
+ 402              		.cfi_offset 3, -8
+ 403              		.cfi_offset 14, -4
+ 217:Generated_Source\PSoC5/PID_Timer.c ****     {
+ 404              		.loc 1 217 0
+ 405 0002 054B     		ldr	r3, .L41
+ 406 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 407 0006 23B9     		cbnz	r3, .L39
+ 219:Generated_Source\PSoC5/PID_Timer.c **** 
+ 408              		.loc 1 219 0
+ 409 0008 FFF7FEFF 		bl	PID_Timer_Init
+ 410              	.LVL7:
+ 221:Generated_Source\PSoC5/PID_Timer.c ****     }
+ 411              		.loc 1 221 0
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccrLKGel.s 			page 17
+
+
+ 412 000c 0122     		movs	r2, #1
+ 413 000e 024B     		ldr	r3, .L41
+ 414 0010 1A70     		strb	r2, [r3]
+ 415              	.L39:
+ 225:Generated_Source\PSoC5/PID_Timer.c **** }
+ 416              		.loc 1 225 0
+ 417 0012 FFF7FEFF 		bl	PID_Timer_Enable
+ 418              	.LVL8:
+ 419 0016 08BD     		pop	{r3, pc}
+ 420              	.L42:
+ 421              		.align	2
+ 422              	.L41:
+ 423 0018 00000000 		.word	.LANCHOR0
+ 424              		.cfi_endproc
+ 425              	.LFE2:
+ 426              		.size	PID_Timer_Start, .-PID_Timer_Start
+ 427              		.section	.text.PID_Timer_ReadCounter,"ax",%progbits
+ 428              		.align	2
+ 429              		.global	PID_Timer_ReadCounter
+ 430              		.thumb
+ 431              		.thumb_func
+ 432              		.type	PID_Timer_ReadCounter, %function
+ 433              	PID_Timer_ReadCounter:
+ 434              	.LFB13:
+ 487:Generated_Source\PSoC5/PID_Timer.c ****         
+ 488:Generated_Source\PSoC5/PID_Timer.c ****     #else
+ 489:Generated_Source\PSoC5/PID_Timer.c ****         CY_SET_REG8(PID_Timer_COUNTER_LSB_PTR, counter);
+ 490:Generated_Source\PSoC5/PID_Timer.c ****     #endif /* Set Write Counter only for the UDB implementation (Write Counter not available in fix
+ 491:Generated_Source\PSoC5/PID_Timer.c **** }
+ 492:Generated_Source\PSoC5/PID_Timer.c **** 
+ 493:Generated_Source\PSoC5/PID_Timer.c **** 
+ 494:Generated_Source\PSoC5/PID_Timer.c **** /*******************************************************************************
+ 495:Generated_Source\PSoC5/PID_Timer.c **** * Function Name: PID_Timer_ReadCounter
+ 496:Generated_Source\PSoC5/PID_Timer.c **** ********************************************************************************
+ 497:Generated_Source\PSoC5/PID_Timer.c **** *
+ 498:Generated_Source\PSoC5/PID_Timer.c **** * Summary:
+ 499:Generated_Source\PSoC5/PID_Timer.c **** *  This function returns the current counter value.
+ 500:Generated_Source\PSoC5/PID_Timer.c **** *
+ 501:Generated_Source\PSoC5/PID_Timer.c **** * Parameters:
+ 502:Generated_Source\PSoC5/PID_Timer.c **** *  void
+ 503:Generated_Source\PSoC5/PID_Timer.c **** *
+ 504:Generated_Source\PSoC5/PID_Timer.c **** * Return:
+ 505:Generated_Source\PSoC5/PID_Timer.c **** *  Present compare value.
+ 506:Generated_Source\PSoC5/PID_Timer.c **** *
+ 507:Generated_Source\PSoC5/PID_Timer.c **** *******************************************************************************/
+ 508:Generated_Source\PSoC5/PID_Timer.c **** uint8 PID_Timer_ReadCounter(void) 
+ 509:Generated_Source\PSoC5/PID_Timer.c **** {
+ 435              		.loc 1 509 0
+ 436              		.cfi_startproc
+ 437              		@ args = 0, pretend = 0, frame = 0
+ 438              		@ frame_needed = 0, uses_anonymous_args = 0
+ 439              		@ link register save eliminated.
+ 510:Generated_Source\PSoC5/PID_Timer.c ****     /* Force capture by reading Accumulator */
+ 511:Generated_Source\PSoC5/PID_Timer.c ****     /* Must first do a software capture to be able to read the counter */
+ 512:Generated_Source\PSoC5/PID_Timer.c ****     /* It is up to the user code to make sure there isn't already captured data in the FIFO */
+ 513:Generated_Source\PSoC5/PID_Timer.c ****     #if(PID_Timer_UsingFixedFunction)
+ 514:Generated_Source\PSoC5/PID_Timer.c ****         (void)CY_GET_REG16(PID_Timer_COUNTER_LSB_PTR);
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccrLKGel.s 			page 18
+
+
+ 440              		.loc 1 514 0
+ 441 0000 024B     		ldr	r3, .L44
+ 442 0002 1B88     		ldrh	r3, [r3]
+ 515:Generated_Source\PSoC5/PID_Timer.c ****     #else
+ 516:Generated_Source\PSoC5/PID_Timer.c ****         (void)CY_GET_REG8(PID_Timer_COUNTER_LSB_PTR_8BIT);
+ 517:Generated_Source\PSoC5/PID_Timer.c ****     #endif/* (PID_Timer_UsingFixedFunction) */
+ 518:Generated_Source\PSoC5/PID_Timer.c **** 
+ 519:Generated_Source\PSoC5/PID_Timer.c ****     /* Read the data from the FIFO (or capture register for Fixed Function)*/
+ 520:Generated_Source\PSoC5/PID_Timer.c ****     #if(PID_Timer_UsingFixedFunction)
+ 521:Generated_Source\PSoC5/PID_Timer.c ****         return ((uint8)CY_GET_REG16(PID_Timer_CAPTURE_LSB_PTR));
+ 443              		.loc 1 521 0
+ 444 0004 024B     		ldr	r3, .L44+4
+ 445 0006 1888     		ldrh	r0, [r3]
+ 522:Generated_Source\PSoC5/PID_Timer.c ****     #else
+ 523:Generated_Source\PSoC5/PID_Timer.c ****         return (CY_GET_REG8(PID_Timer_CAPTURE_LSB_PTR));
+ 524:Generated_Source\PSoC5/PID_Timer.c ****     #endif /* (PID_Timer_UsingFixedFunction) */
+ 525:Generated_Source\PSoC5/PID_Timer.c **** }
+ 446              		.loc 1 525 0
+ 447 0008 C0B2     		uxtb	r0, r0
+ 448 000a 7047     		bx	lr
+ 449              	.L45:
+ 450              		.align	2
+ 451              	.L44:
+ 452 000c 064F0040 		.word	1073762054
+ 453 0010 084F0040 		.word	1073762056
+ 454              		.cfi_endproc
+ 455              	.LFE13:
+ 456              		.size	PID_Timer_ReadCounter, .-PID_Timer_ReadCounter
+ 457              		.global	PID_Timer_initVar
+ 458              		.bss
+ 459              		.set	.LANCHOR0,. + 0
+ 460              		.type	PID_Timer_initVar, %object
+ 461              		.size	PID_Timer_initVar, 1
+ 462              	PID_Timer_initVar:
+ 463 0000 00       		.space	1
+ 464              		.text
+ 465              	.Letext0:
+ 466              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
+ 467              		.section	.debug_info,"",%progbits
+ 468              	.Ldebug_info0:
+ 469 0000 8F020000 		.4byte	0x28f
+ 470 0004 0400     		.2byte	0x4
+ 471 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 472 000a 04       		.byte	0x4
+ 473 000b 01       		.uleb128 0x1
+ 474 000c D3000000 		.4byte	.LASF36
+ 475 0010 0C       		.byte	0xc
+ 476 0011 0B000000 		.4byte	.LASF37
+ 477 0015 49020000 		.4byte	.LASF38
+ 478 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 479 001d 00000000 		.4byte	0
+ 480 0021 00000000 		.4byte	.Ldebug_line0
+ 481 0025 02       		.uleb128 0x2
+ 482 0026 01       		.byte	0x1
+ 483 0027 06       		.byte	0x6
+ 484 0028 27030000 		.4byte	.LASF0
+ 485 002c 02       		.uleb128 0x2
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccrLKGel.s 			page 19
+
+
+ 486 002d 01       		.byte	0x1
+ 487 002e 08       		.byte	0x8
+ 488 002f C7010000 		.4byte	.LASF1
+ 489 0033 02       		.uleb128 0x2
+ 490 0034 02       		.byte	0x2
+ 491 0035 05       		.byte	0x5
+ 492 0036 EE020000 		.4byte	.LASF2
+ 493 003a 02       		.uleb128 0x2
+ 494 003b 02       		.byte	0x2
+ 495 003c 07       		.byte	0x7
+ 496 003d 35000000 		.4byte	.LASF3
+ 497 0041 02       		.uleb128 0x2
+ 498 0042 04       		.byte	0x4
+ 499 0043 05       		.byte	0x5
+ 500 0044 F8020000 		.4byte	.LASF4
+ 501 0048 02       		.uleb128 0x2
+ 502 0049 04       		.byte	0x4
+ 503 004a 07       		.byte	0x7
+ 504 004b 66010000 		.4byte	.LASF5
+ 505 004f 02       		.uleb128 0x2
+ 506 0050 08       		.byte	0x8
+ 507 0051 05       		.byte	0x5
+ 508 0052 BC020000 		.4byte	.LASF6
+ 509 0056 02       		.uleb128 0x2
+ 510 0057 08       		.byte	0x8
+ 511 0058 07       		.byte	0x7
+ 512 0059 15020000 		.4byte	.LASF7
+ 513 005d 03       		.uleb128 0x3
+ 514 005e 04       		.byte	0x4
+ 515 005f 05       		.byte	0x5
+ 516 0060 696E7400 		.ascii	"int\000"
+ 517 0064 02       		.uleb128 0x2
+ 518 0065 04       		.byte	0x4
+ 519 0066 07       		.byte	0x7
+ 520 0067 F9010000 		.4byte	.LASF8
+ 521 006b 04       		.uleb128 0x4
+ 522 006c 78010000 		.4byte	.LASF9
+ 523 0070 02       		.byte	0x2
+ 524 0071 E401     		.2byte	0x1e4
+ 525 0073 2C000000 		.4byte	0x2c
+ 526 0077 04       		.uleb128 0x4
+ 527 0078 F2010000 		.4byte	.LASF10
+ 528 007c 02       		.byte	0x2
+ 529 007d E501     		.2byte	0x1e5
+ 530 007f 3A000000 		.4byte	0x3a
+ 531 0083 02       		.uleb128 0x2
+ 532 0084 04       		.byte	0x4
+ 533 0085 04       		.byte	0x4
+ 534 0086 7D000000 		.4byte	.LASF11
+ 535 008a 02       		.uleb128 0x2
+ 536 008b 08       		.byte	0x8
+ 537 008c 04       		.byte	0x4
+ 538 008d D5010000 		.4byte	.LASF12
+ 539 0091 02       		.uleb128 0x2
+ 540 0092 01       		.byte	0x1
+ 541 0093 08       		.byte	0x8
+ 542 0094 06000000 		.4byte	.LASF13
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccrLKGel.s 			page 20
+
+
+ 543 0098 04       		.uleb128 0x4
+ 544 0099 61010000 		.4byte	.LASF14
+ 545 009d 02       		.byte	0x2
+ 546 009e 8E02     		.2byte	0x28e
+ 547 00a0 A4000000 		.4byte	0xa4
+ 548 00a4 05       		.uleb128 0x5
+ 549 00a5 6B000000 		.4byte	0x6b
+ 550 00a9 04       		.uleb128 0x4
+ 551 00aa 00000000 		.4byte	.LASF15
+ 552 00ae 02       		.byte	0x2
+ 553 00af 8F02     		.2byte	0x28f
+ 554 00b1 B5000000 		.4byte	0xb5
+ 555 00b5 05       		.uleb128 0x5
+ 556 00b6 77000000 		.4byte	0x77
+ 557 00ba 02       		.uleb128 0x2
+ 558 00bb 08       		.byte	0x8
+ 559 00bc 04       		.byte	0x4
+ 560 00bd 1B030000 		.4byte	.LASF16
+ 561 00c1 02       		.uleb128 0x2
+ 562 00c2 04       		.byte	0x4
+ 563 00c3 07       		.byte	0x7
+ 564 00c4 98020000 		.4byte	.LASF17
+ 565 00c8 06       		.uleb128 0x6
+ 566 00c9 2C020000 		.4byte	.LASF18
+ 567 00cd 01       		.byte	0x1
+ 568 00ce B4       		.byte	0xb4
+ 569 00cf 00000000 		.4byte	.LFB1
+ 570 00d3 28000000 		.4byte	.LFE1-.LFB1
+ 571 00d7 01       		.uleb128 0x1
+ 572 00d8 9C       		.byte	0x9c
+ 573 00d9 06       		.uleb128 0x6
+ 574 00da 33030000 		.4byte	.LASF19
+ 575 00de 01       		.byte	0x1
+ 576 00df F7       		.byte	0xf7
+ 577 00e0 00000000 		.4byte	.LFB3
+ 578 00e4 28000000 		.4byte	.LFE3-.LFB3
+ 579 00e8 01       		.uleb128 0x1
+ 580 00e9 9C       		.byte	0x9c
+ 581 00ea 07       		.uleb128 0x7
+ 582 00eb A1020000 		.4byte	.LASF23
+ 583 00ef 01       		.byte	0x1
+ 584 00f0 1701     		.2byte	0x117
+ 585 00f2 00000000 		.4byte	.LFB4
+ 586 00f6 0C000000 		.4byte	.LFE4-.LFB4
+ 587 00fa 01       		.uleb128 0x1
+ 588 00fb 9C       		.byte	0x9c
+ 589 00fc 0F010000 		.4byte	0x10f
+ 590 0100 08       		.uleb128 0x8
+ 591 0101 CA020000 		.4byte	.LASF25
+ 592 0105 01       		.byte	0x1
+ 593 0106 1701     		.2byte	0x117
+ 594 0108 6B000000 		.4byte	0x6b
+ 595 010c 01       		.uleb128 0x1
+ 596 010d 50       		.byte	0x50
+ 597 010e 00       		.byte	0
+ 598 010f 09       		.uleb128 0x9
+ 599 0110 01030000 		.4byte	.LASF20
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccrLKGel.s 			page 21
+
+
+ 600 0114 01       		.byte	0x1
+ 601 0115 2E01     		.2byte	0x12e
+ 602 0117 00000000 		.4byte	.LFB5
+ 603 011b 0C000000 		.4byte	.LFE5-.LFB5
+ 604 011f 01       		.uleb128 0x1
+ 605 0120 9C       		.byte	0x9c
+ 606 0121 0A       		.uleb128 0xa
+ 607 0122 8B000000 		.4byte	.LASF21
+ 608 0126 01       		.byte	0x1
+ 609 0127 4D01     		.2byte	0x14d
+ 610 0129 6B000000 		.4byte	0x6b
+ 611 012d 00000000 		.4byte	.LFB6
+ 612 0131 0C000000 		.4byte	.LFE6-.LFB6
+ 613 0135 01       		.uleb128 0x1
+ 614 0136 9C       		.byte	0x9c
+ 615 0137 0A       		.uleb128 0xa
+ 616 0138 5F000000 		.4byte	.LASF22
+ 617 013c 01       		.byte	0x1
+ 618 013d 6401     		.2byte	0x164
+ 619 013f 6B000000 		.4byte	0x6b
+ 620 0143 00000000 		.4byte	.LFB7
+ 621 0147 0C000000 		.4byte	.LFE7-.LFB7
+ 622 014b 01       		.uleb128 0x1
+ 623 014c 9C       		.byte	0x9c
+ 624 014d 07       		.uleb128 0x7
+ 625 014e 86010000 		.4byte	.LASF24
+ 626 0152 01       		.byte	0x1
+ 627 0153 7B01     		.2byte	0x17b
+ 628 0155 00000000 		.4byte	.LFB8
+ 629 0159 0C000000 		.4byte	.LFE8-.LFB8
+ 630 015d 01       		.uleb128 0x1
+ 631 015e 9C       		.byte	0x9c
+ 632 015f 72010000 		.4byte	0x172
+ 633 0163 08       		.uleb128 0x8
+ 634 0164 7E010000 		.4byte	.LASF26
+ 635 0168 01       		.byte	0x1
+ 636 0169 7B01     		.2byte	0x17b
+ 637 016b 6B000000 		.4byte	0x6b
+ 638 016f 01       		.uleb128 0x1
+ 639 0170 50       		.byte	0x50
+ 640 0171 00       		.byte	0
+ 641 0172 0A       		.uleb128 0xa
+ 642 0173 A8000000 		.4byte	.LASF27
+ 643 0177 01       		.byte	0x1
+ 644 0178 9501     		.2byte	0x195
+ 645 017a 6B000000 		.4byte	0x6b
+ 646 017e 00000000 		.4byte	.LFB9
+ 647 0182 0C000000 		.4byte	.LFE9-.LFB9
+ 648 0186 01       		.uleb128 0x1
+ 649 0187 9C       		.byte	0x9c
+ 650 0188 07       		.uleb128 0x7
+ 651 0189 D8020000 		.4byte	.LASF28
+ 652 018d 01       		.byte	0x1
+ 653 018e AF01     		.2byte	0x1af
+ 654 0190 00000000 		.4byte	.LFB10
+ 655 0194 0C000000 		.4byte	.LFE10-.LFB10
+ 656 0198 01       		.uleb128 0x1
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccrLKGel.s 			page 22
+
+
+ 657 0199 9C       		.byte	0x9c
+ 658 019a BB010000 		.4byte	0x1bb
+ 659 019e 08       		.uleb128 0x8
+ 660 019f 2E000000 		.4byte	.LASF29
+ 661 01a3 01       		.byte	0x1
+ 662 01a4 AF01     		.2byte	0x1af
+ 663 01a6 6B000000 		.4byte	0x6b
+ 664 01aa 01       		.uleb128 0x1
+ 665 01ab 50       		.byte	0x50
+ 666 01ac 0B       		.uleb128 0xb
+ 667 01ad 3D020000 		.4byte	.LASF39
+ 668 01b1 01       		.byte	0x1
+ 669 01b2 B201     		.2byte	0x1b2
+ 670 01b4 77000000 		.4byte	0x77
+ 671 01b8 01       		.uleb128 0x1
+ 672 01b9 50       		.byte	0x50
+ 673 01ba 00       		.byte	0
+ 674 01bb 0A       		.uleb128 0xa
+ 675 01bc BD000000 		.4byte	.LASF30
+ 676 01c0 01       		.byte	0x1
+ 677 01c1 C801     		.2byte	0x1c8
+ 678 01c3 6B000000 		.4byte	0x6b
+ 679 01c7 00000000 		.4byte	.LFB11
+ 680 01cb 0C000000 		.4byte	.LFE11-.LFB11
+ 681 01cf 01       		.uleb128 0x1
+ 682 01d0 9C       		.byte	0x9c
+ 683 01d1 07       		.uleb128 0x7
+ 684 01d2 48000000 		.4byte	.LASF31
+ 685 01d6 01       		.byte	0x1
+ 686 01d7 E001     		.2byte	0x1e0
+ 687 01d9 00000000 		.4byte	.LFB12
+ 688 01dd 0C000000 		.4byte	.LFE12-.LFB12
+ 689 01e1 01       		.uleb128 0x1
+ 690 01e2 9C       		.byte	0x9c
+ 691 01e3 F6010000 		.4byte	0x1f6
+ 692 01e7 08       		.uleb128 0x8
+ 693 01e8 83000000 		.4byte	.LASF32
+ 694 01ec 01       		.byte	0x1
+ 695 01ed E001     		.2byte	0x1e0
+ 696 01ef 6B000000 		.4byte	0x6b
+ 697 01f3 01       		.uleb128 0x1
+ 698 01f4 50       		.byte	0x50
+ 699 01f5 00       		.byte	0
+ 700 01f6 0C       		.uleb128 0xc
+ 701 01f7 06020000 		.4byte	.LASF33
+ 702 01fb 01       		.byte	0x1
+ 703 01fc 2B       		.byte	0x2b
+ 704 01fd 00000000 		.4byte	.LFB0
+ 705 0201 64000000 		.4byte	.LFE0-.LFB0
+ 706 0205 01       		.uleb128 0x1
+ 707 0206 9C       		.byte	0x9c
+ 708 0207 43020000 		.4byte	0x243
+ 709 020b 0D       		.uleb128 0xd
+ 710 020c 48000000 		.4byte	.LVL4
+ 711 0210 88010000 		.4byte	0x188
+ 712 0214 1F020000 		.4byte	0x21f
+ 713 0218 0E       		.uleb128 0xe
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccrLKGel.s 			page 23
+
+
+ 714 0219 01       		.uleb128 0x1
+ 715 021a 50       		.byte	0x50
+ 716 021b 02       		.uleb128 0x2
+ 717 021c 08       		.byte	0x8
+ 718 021d 63       		.byte	0x63
+ 719 021e 00       		.byte	0
+ 720 021f 0D       		.uleb128 0xd
+ 721 0220 4E000000 		.4byte	.LVL5
+ 722 0224 D1010000 		.4byte	0x1d1
+ 723 0228 33020000 		.4byte	0x233
+ 724 022c 0E       		.uleb128 0xe
+ 725 022d 01       		.uleb128 0x1
+ 726 022e 50       		.byte	0x50
+ 727 022f 02       		.uleb128 0x2
+ 728 0230 08       		.byte	0x8
+ 729 0231 63       		.byte	0x63
+ 730 0232 00       		.byte	0
+ 731 0233 0F       		.uleb128 0xf
+ 732 0234 54000000 		.4byte	.LVL6
+ 733 0238 EA000000 		.4byte	0xea
+ 734 023c 0E       		.uleb128 0xe
+ 735 023d 01       		.uleb128 0x1
+ 736 023e 50       		.byte	0x50
+ 737 023f 01       		.uleb128 0x1
+ 738 0240 30       		.byte	0x30
+ 739 0241 00       		.byte	0
+ 740 0242 00       		.byte	0
+ 741 0243 0C       		.uleb128 0xc
+ 742 0244 A5010000 		.4byte	.LASF34
+ 743 0248 01       		.byte	0x1
+ 744 0249 D7       		.byte	0xd7
+ 745 024a 00000000 		.4byte	.LFB2
+ 746 024e 1C000000 		.4byte	.LFE2-.LFB2
+ 747 0252 01       		.uleb128 0x1
+ 748 0253 9C       		.byte	0x9c
+ 749 0254 6B020000 		.4byte	0x26b
+ 750 0258 10       		.uleb128 0x10
+ 751 0259 0C000000 		.4byte	.LVL7
+ 752 025d F6010000 		.4byte	0x1f6
+ 753 0261 10       		.uleb128 0x10
+ 754 0262 16000000 		.4byte	.LVL8
+ 755 0266 C8000000 		.4byte	0xc8
+ 756 026a 00       		.byte	0
+ 757 026b 0A       		.uleb128 0xa
+ 758 026c DC010000 		.4byte	.LASF35
+ 759 0270 01       		.byte	0x1
+ 760 0271 FC01     		.2byte	0x1fc
+ 761 0273 6B000000 		.4byte	0x6b
+ 762 0277 00000000 		.4byte	.LFB13
+ 763 027b 14000000 		.4byte	.LFE13-.LFB13
+ 764 027f 01       		.uleb128 0x1
+ 765 0280 9C       		.byte	0x9c
+ 766 0281 11       		.uleb128 0x11
+ 767 0282 B5010000 		.4byte	.LASF40
+ 768 0286 01       		.byte	0x1
+ 769 0287 1A       		.byte	0x1a
+ 770 0288 6B000000 		.4byte	0x6b
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccrLKGel.s 			page 24
+
+
+ 771 028c 05       		.uleb128 0x5
+ 772 028d 03       		.byte	0x3
+ 773 028e 00000000 		.4byte	PID_Timer_initVar
+ 774 0292 00       		.byte	0
+ 775              		.section	.debug_abbrev,"",%progbits
+ 776              	.Ldebug_abbrev0:
+ 777 0000 01       		.uleb128 0x1
+ 778 0001 11       		.uleb128 0x11
+ 779 0002 01       		.byte	0x1
+ 780 0003 25       		.uleb128 0x25
+ 781 0004 0E       		.uleb128 0xe
+ 782 0005 13       		.uleb128 0x13
+ 783 0006 0B       		.uleb128 0xb
+ 784 0007 03       		.uleb128 0x3
+ 785 0008 0E       		.uleb128 0xe
+ 786 0009 1B       		.uleb128 0x1b
+ 787 000a 0E       		.uleb128 0xe
+ 788 000b 55       		.uleb128 0x55
+ 789 000c 17       		.uleb128 0x17
+ 790 000d 11       		.uleb128 0x11
+ 791 000e 01       		.uleb128 0x1
+ 792 000f 10       		.uleb128 0x10
+ 793 0010 17       		.uleb128 0x17
+ 794 0011 00       		.byte	0
+ 795 0012 00       		.byte	0
+ 796 0013 02       		.uleb128 0x2
+ 797 0014 24       		.uleb128 0x24
+ 798 0015 00       		.byte	0
+ 799 0016 0B       		.uleb128 0xb
+ 800 0017 0B       		.uleb128 0xb
+ 801 0018 3E       		.uleb128 0x3e
+ 802 0019 0B       		.uleb128 0xb
+ 803 001a 03       		.uleb128 0x3
+ 804 001b 0E       		.uleb128 0xe
+ 805 001c 00       		.byte	0
+ 806 001d 00       		.byte	0
+ 807 001e 03       		.uleb128 0x3
+ 808 001f 24       		.uleb128 0x24
+ 809 0020 00       		.byte	0
+ 810 0021 0B       		.uleb128 0xb
+ 811 0022 0B       		.uleb128 0xb
+ 812 0023 3E       		.uleb128 0x3e
+ 813 0024 0B       		.uleb128 0xb
+ 814 0025 03       		.uleb128 0x3
+ 815 0026 08       		.uleb128 0x8
+ 816 0027 00       		.byte	0
+ 817 0028 00       		.byte	0
+ 818 0029 04       		.uleb128 0x4
+ 819 002a 16       		.uleb128 0x16
+ 820 002b 00       		.byte	0
+ 821 002c 03       		.uleb128 0x3
+ 822 002d 0E       		.uleb128 0xe
+ 823 002e 3A       		.uleb128 0x3a
+ 824 002f 0B       		.uleb128 0xb
+ 825 0030 3B       		.uleb128 0x3b
+ 826 0031 05       		.uleb128 0x5
+ 827 0032 49       		.uleb128 0x49
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccrLKGel.s 			page 25
+
+
+ 828 0033 13       		.uleb128 0x13
+ 829 0034 00       		.byte	0
+ 830 0035 00       		.byte	0
+ 831 0036 05       		.uleb128 0x5
+ 832 0037 35       		.uleb128 0x35
+ 833 0038 00       		.byte	0
+ 834 0039 49       		.uleb128 0x49
+ 835 003a 13       		.uleb128 0x13
+ 836 003b 00       		.byte	0
+ 837 003c 00       		.byte	0
+ 838 003d 06       		.uleb128 0x6
+ 839 003e 2E       		.uleb128 0x2e
+ 840 003f 00       		.byte	0
+ 841 0040 3F       		.uleb128 0x3f
+ 842 0041 19       		.uleb128 0x19
+ 843 0042 03       		.uleb128 0x3
+ 844 0043 0E       		.uleb128 0xe
+ 845 0044 3A       		.uleb128 0x3a
+ 846 0045 0B       		.uleb128 0xb
+ 847 0046 3B       		.uleb128 0x3b
+ 848 0047 0B       		.uleb128 0xb
+ 849 0048 27       		.uleb128 0x27
+ 850 0049 19       		.uleb128 0x19
+ 851 004a 11       		.uleb128 0x11
+ 852 004b 01       		.uleb128 0x1
+ 853 004c 12       		.uleb128 0x12
+ 854 004d 06       		.uleb128 0x6
+ 855 004e 40       		.uleb128 0x40
+ 856 004f 18       		.uleb128 0x18
+ 857 0050 9742     		.uleb128 0x2117
+ 858 0052 19       		.uleb128 0x19
+ 859 0053 00       		.byte	0
+ 860 0054 00       		.byte	0
+ 861 0055 07       		.uleb128 0x7
+ 862 0056 2E       		.uleb128 0x2e
+ 863 0057 01       		.byte	0x1
+ 864 0058 3F       		.uleb128 0x3f
+ 865 0059 19       		.uleb128 0x19
+ 866 005a 03       		.uleb128 0x3
+ 867 005b 0E       		.uleb128 0xe
+ 868 005c 3A       		.uleb128 0x3a
+ 869 005d 0B       		.uleb128 0xb
+ 870 005e 3B       		.uleb128 0x3b
+ 871 005f 05       		.uleb128 0x5
+ 872 0060 27       		.uleb128 0x27
+ 873 0061 19       		.uleb128 0x19
+ 874 0062 11       		.uleb128 0x11
+ 875 0063 01       		.uleb128 0x1
+ 876 0064 12       		.uleb128 0x12
+ 877 0065 06       		.uleb128 0x6
+ 878 0066 40       		.uleb128 0x40
+ 879 0067 18       		.uleb128 0x18
+ 880 0068 9742     		.uleb128 0x2117
+ 881 006a 19       		.uleb128 0x19
+ 882 006b 01       		.uleb128 0x1
+ 883 006c 13       		.uleb128 0x13
+ 884 006d 00       		.byte	0
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccrLKGel.s 			page 26
+
+
+ 885 006e 00       		.byte	0
+ 886 006f 08       		.uleb128 0x8
+ 887 0070 05       		.uleb128 0x5
+ 888 0071 00       		.byte	0
+ 889 0072 03       		.uleb128 0x3
+ 890 0073 0E       		.uleb128 0xe
+ 891 0074 3A       		.uleb128 0x3a
+ 892 0075 0B       		.uleb128 0xb
+ 893 0076 3B       		.uleb128 0x3b
+ 894 0077 05       		.uleb128 0x5
+ 895 0078 49       		.uleb128 0x49
+ 896 0079 13       		.uleb128 0x13
+ 897 007a 02       		.uleb128 0x2
+ 898 007b 18       		.uleb128 0x18
+ 899 007c 00       		.byte	0
+ 900 007d 00       		.byte	0
+ 901 007e 09       		.uleb128 0x9
+ 902 007f 2E       		.uleb128 0x2e
+ 903 0080 00       		.byte	0
+ 904 0081 3F       		.uleb128 0x3f
+ 905 0082 19       		.uleb128 0x19
+ 906 0083 03       		.uleb128 0x3
+ 907 0084 0E       		.uleb128 0xe
+ 908 0085 3A       		.uleb128 0x3a
+ 909 0086 0B       		.uleb128 0xb
+ 910 0087 3B       		.uleb128 0x3b
+ 911 0088 05       		.uleb128 0x5
+ 912 0089 27       		.uleb128 0x27
+ 913 008a 19       		.uleb128 0x19
+ 914 008b 11       		.uleb128 0x11
+ 915 008c 01       		.uleb128 0x1
+ 916 008d 12       		.uleb128 0x12
+ 917 008e 06       		.uleb128 0x6
+ 918 008f 40       		.uleb128 0x40
+ 919 0090 18       		.uleb128 0x18
+ 920 0091 9742     		.uleb128 0x2117
+ 921 0093 19       		.uleb128 0x19
+ 922 0094 00       		.byte	0
+ 923 0095 00       		.byte	0
+ 924 0096 0A       		.uleb128 0xa
+ 925 0097 2E       		.uleb128 0x2e
+ 926 0098 00       		.byte	0
+ 927 0099 3F       		.uleb128 0x3f
+ 928 009a 19       		.uleb128 0x19
+ 929 009b 03       		.uleb128 0x3
+ 930 009c 0E       		.uleb128 0xe
+ 931 009d 3A       		.uleb128 0x3a
+ 932 009e 0B       		.uleb128 0xb
+ 933 009f 3B       		.uleb128 0x3b
+ 934 00a0 05       		.uleb128 0x5
+ 935 00a1 27       		.uleb128 0x27
+ 936 00a2 19       		.uleb128 0x19
+ 937 00a3 49       		.uleb128 0x49
+ 938 00a4 13       		.uleb128 0x13
+ 939 00a5 11       		.uleb128 0x11
+ 940 00a6 01       		.uleb128 0x1
+ 941 00a7 12       		.uleb128 0x12
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccrLKGel.s 			page 27
+
+
+ 942 00a8 06       		.uleb128 0x6
+ 943 00a9 40       		.uleb128 0x40
+ 944 00aa 18       		.uleb128 0x18
+ 945 00ab 9742     		.uleb128 0x2117
+ 946 00ad 19       		.uleb128 0x19
+ 947 00ae 00       		.byte	0
+ 948 00af 00       		.byte	0
+ 949 00b0 0B       		.uleb128 0xb
+ 950 00b1 34       		.uleb128 0x34
+ 951 00b2 00       		.byte	0
+ 952 00b3 03       		.uleb128 0x3
+ 953 00b4 0E       		.uleb128 0xe
+ 954 00b5 3A       		.uleb128 0x3a
+ 955 00b6 0B       		.uleb128 0xb
+ 956 00b7 3B       		.uleb128 0x3b
+ 957 00b8 05       		.uleb128 0x5
+ 958 00b9 49       		.uleb128 0x49
+ 959 00ba 13       		.uleb128 0x13
+ 960 00bb 02       		.uleb128 0x2
+ 961 00bc 18       		.uleb128 0x18
+ 962 00bd 00       		.byte	0
+ 963 00be 00       		.byte	0
+ 964 00bf 0C       		.uleb128 0xc
+ 965 00c0 2E       		.uleb128 0x2e
+ 966 00c1 01       		.byte	0x1
+ 967 00c2 3F       		.uleb128 0x3f
+ 968 00c3 19       		.uleb128 0x19
+ 969 00c4 03       		.uleb128 0x3
+ 970 00c5 0E       		.uleb128 0xe
+ 971 00c6 3A       		.uleb128 0x3a
+ 972 00c7 0B       		.uleb128 0xb
+ 973 00c8 3B       		.uleb128 0x3b
+ 974 00c9 0B       		.uleb128 0xb
+ 975 00ca 27       		.uleb128 0x27
+ 976 00cb 19       		.uleb128 0x19
+ 977 00cc 11       		.uleb128 0x11
+ 978 00cd 01       		.uleb128 0x1
+ 979 00ce 12       		.uleb128 0x12
+ 980 00cf 06       		.uleb128 0x6
+ 981 00d0 40       		.uleb128 0x40
+ 982 00d1 18       		.uleb128 0x18
+ 983 00d2 9742     		.uleb128 0x2117
+ 984 00d4 19       		.uleb128 0x19
+ 985 00d5 01       		.uleb128 0x1
+ 986 00d6 13       		.uleb128 0x13
+ 987 00d7 00       		.byte	0
+ 988 00d8 00       		.byte	0
+ 989 00d9 0D       		.uleb128 0xd
+ 990 00da 898201   		.uleb128 0x4109
+ 991 00dd 01       		.byte	0x1
+ 992 00de 11       		.uleb128 0x11
+ 993 00df 01       		.uleb128 0x1
+ 994 00e0 31       		.uleb128 0x31
+ 995 00e1 13       		.uleb128 0x13
+ 996 00e2 01       		.uleb128 0x1
+ 997 00e3 13       		.uleb128 0x13
+ 998 00e4 00       		.byte	0
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccrLKGel.s 			page 28
+
+
+ 999 00e5 00       		.byte	0
+ 1000 00e6 0E       		.uleb128 0xe
+ 1001 00e7 8A8201   		.uleb128 0x410a
+ 1002 00ea 00       		.byte	0
+ 1003 00eb 02       		.uleb128 0x2
+ 1004 00ec 18       		.uleb128 0x18
+ 1005 00ed 9142     		.uleb128 0x2111
+ 1006 00ef 18       		.uleb128 0x18
+ 1007 00f0 00       		.byte	0
+ 1008 00f1 00       		.byte	0
+ 1009 00f2 0F       		.uleb128 0xf
+ 1010 00f3 898201   		.uleb128 0x4109
+ 1011 00f6 01       		.byte	0x1
+ 1012 00f7 11       		.uleb128 0x11
+ 1013 00f8 01       		.uleb128 0x1
+ 1014 00f9 31       		.uleb128 0x31
+ 1015 00fa 13       		.uleb128 0x13
+ 1016 00fb 00       		.byte	0
+ 1017 00fc 00       		.byte	0
+ 1018 00fd 10       		.uleb128 0x10
+ 1019 00fe 898201   		.uleb128 0x4109
+ 1020 0101 00       		.byte	0
+ 1021 0102 11       		.uleb128 0x11
+ 1022 0103 01       		.uleb128 0x1
+ 1023 0104 31       		.uleb128 0x31
+ 1024 0105 13       		.uleb128 0x13
+ 1025 0106 00       		.byte	0
+ 1026 0107 00       		.byte	0
+ 1027 0108 11       		.uleb128 0x11
+ 1028 0109 34       		.uleb128 0x34
+ 1029 010a 00       		.byte	0
+ 1030 010b 03       		.uleb128 0x3
+ 1031 010c 0E       		.uleb128 0xe
+ 1032 010d 3A       		.uleb128 0x3a
+ 1033 010e 0B       		.uleb128 0xb
+ 1034 010f 3B       		.uleb128 0x3b
+ 1035 0110 0B       		.uleb128 0xb
+ 1036 0111 49       		.uleb128 0x49
+ 1037 0112 13       		.uleb128 0x13
+ 1038 0113 3F       		.uleb128 0x3f
+ 1039 0114 19       		.uleb128 0x19
+ 1040 0115 02       		.uleb128 0x2
+ 1041 0116 18       		.uleb128 0x18
+ 1042 0117 00       		.byte	0
+ 1043 0118 00       		.byte	0
+ 1044 0119 00       		.byte	0
+ 1045              		.section	.debug_aranges,"",%progbits
+ 1046 0000 84000000 		.4byte	0x84
+ 1047 0004 0200     		.2byte	0x2
+ 1048 0006 00000000 		.4byte	.Ldebug_info0
+ 1049 000a 04       		.byte	0x4
+ 1050 000b 00       		.byte	0
+ 1051 000c 0000     		.2byte	0
+ 1052 000e 0000     		.2byte	0
+ 1053 0010 00000000 		.4byte	.LFB1
+ 1054 0014 28000000 		.4byte	.LFE1-.LFB1
+ 1055 0018 00000000 		.4byte	.LFB3
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccrLKGel.s 			page 29
+
+
+ 1056 001c 28000000 		.4byte	.LFE3-.LFB3
+ 1057 0020 00000000 		.4byte	.LFB4
+ 1058 0024 0C000000 		.4byte	.LFE4-.LFB4
+ 1059 0028 00000000 		.4byte	.LFB5
+ 1060 002c 0C000000 		.4byte	.LFE5-.LFB5
+ 1061 0030 00000000 		.4byte	.LFB6
+ 1062 0034 0C000000 		.4byte	.LFE6-.LFB6
+ 1063 0038 00000000 		.4byte	.LFB7
+ 1064 003c 0C000000 		.4byte	.LFE7-.LFB7
+ 1065 0040 00000000 		.4byte	.LFB8
+ 1066 0044 0C000000 		.4byte	.LFE8-.LFB8
+ 1067 0048 00000000 		.4byte	.LFB9
+ 1068 004c 0C000000 		.4byte	.LFE9-.LFB9
+ 1069 0050 00000000 		.4byte	.LFB10
+ 1070 0054 0C000000 		.4byte	.LFE10-.LFB10
+ 1071 0058 00000000 		.4byte	.LFB11
+ 1072 005c 0C000000 		.4byte	.LFE11-.LFB11
+ 1073 0060 00000000 		.4byte	.LFB12
+ 1074 0064 0C000000 		.4byte	.LFE12-.LFB12
+ 1075 0068 00000000 		.4byte	.LFB0
+ 1076 006c 64000000 		.4byte	.LFE0-.LFB0
+ 1077 0070 00000000 		.4byte	.LFB2
+ 1078 0074 1C000000 		.4byte	.LFE2-.LFB2
+ 1079 0078 00000000 		.4byte	.LFB13
+ 1080 007c 14000000 		.4byte	.LFE13-.LFB13
+ 1081 0080 00000000 		.4byte	0
+ 1082 0084 00000000 		.4byte	0
+ 1083              		.section	.debug_ranges,"",%progbits
+ 1084              	.Ldebug_ranges0:
+ 1085 0000 00000000 		.4byte	.LFB1
+ 1086 0004 28000000 		.4byte	.LFE1
+ 1087 0008 00000000 		.4byte	.LFB3
+ 1088 000c 28000000 		.4byte	.LFE3
+ 1089 0010 00000000 		.4byte	.LFB4
+ 1090 0014 0C000000 		.4byte	.LFE4
+ 1091 0018 00000000 		.4byte	.LFB5
+ 1092 001c 0C000000 		.4byte	.LFE5
+ 1093 0020 00000000 		.4byte	.LFB6
+ 1094 0024 0C000000 		.4byte	.LFE6
+ 1095 0028 00000000 		.4byte	.LFB7
+ 1096 002c 0C000000 		.4byte	.LFE7
+ 1097 0030 00000000 		.4byte	.LFB8
+ 1098 0034 0C000000 		.4byte	.LFE8
+ 1099 0038 00000000 		.4byte	.LFB9
+ 1100 003c 0C000000 		.4byte	.LFE9
+ 1101 0040 00000000 		.4byte	.LFB10
+ 1102 0044 0C000000 		.4byte	.LFE10
+ 1103 0048 00000000 		.4byte	.LFB11
+ 1104 004c 0C000000 		.4byte	.LFE11
+ 1105 0050 00000000 		.4byte	.LFB12
+ 1106 0054 0C000000 		.4byte	.LFE12
+ 1107 0058 00000000 		.4byte	.LFB0
+ 1108 005c 64000000 		.4byte	.LFE0
+ 1109 0060 00000000 		.4byte	.LFB2
+ 1110 0064 1C000000 		.4byte	.LFE2
+ 1111 0068 00000000 		.4byte	.LFB13
+ 1112 006c 14000000 		.4byte	.LFE13
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccrLKGel.s 			page 30
+
+
+ 1113 0070 00000000 		.4byte	0
+ 1114 0074 00000000 		.4byte	0
+ 1115              		.section	.debug_line,"",%progbits
+ 1116              	.Ldebug_line0:
+ 1117 0000 53010000 		.section	.debug_str,"MS",%progbits,1
+ 1117      02004600 
+ 1117      00000201 
+ 1117      FB0E0D00 
+ 1117      01010101 
+ 1118              	.LASF15:
+ 1119 0000 72656731 		.ascii	"reg16\000"
+ 1119      3600
+ 1120              	.LASF13:
+ 1121 0006 63686172 		.ascii	"char\000"
+ 1121      00
+ 1122              	.LASF37:
+ 1123 000b 47656E65 		.ascii	"Generated_Source\\PSoC5\\PID_Timer.c\000"
+ 1123      72617465 
+ 1123      645F536F 
+ 1123      75726365 
+ 1123      5C50536F 
+ 1124              	.LASF29:
+ 1125 002e 70657269 		.ascii	"period\000"
+ 1125      6F6400
+ 1126              	.LASF3:
+ 1127 0035 73686F72 		.ascii	"short unsigned int\000"
+ 1127      7420756E 
+ 1127      7369676E 
+ 1127      65642069 
+ 1127      6E7400
+ 1128              	.LASF31:
+ 1129 0048 5049445F 		.ascii	"PID_Timer_WriteCounter\000"
+ 1129      54696D65 
+ 1129      725F5772 
+ 1129      69746543 
+ 1129      6F756E74 
+ 1130              	.LASF22:
+ 1131 005f 5049445F 		.ascii	"PID_Timer_ReadControlRegister\000"
+ 1131      54696D65 
+ 1131      725F5265 
+ 1131      6164436F 
+ 1131      6E74726F 
+ 1132              	.LASF11:
+ 1133 007d 666C6F61 		.ascii	"float\000"
+ 1133      7400
+ 1134              	.LASF32:
+ 1135 0083 636F756E 		.ascii	"counter\000"
+ 1135      74657200 
+ 1136              	.LASF21:
+ 1137 008b 5049445F 		.ascii	"PID_Timer_ReadStatusRegister\000"
+ 1137      54696D65 
+ 1137      725F5265 
+ 1137      61645374 
+ 1137      61747573 
+ 1138              	.LASF27:
+ 1139 00a8 5049445F 		.ascii	"PID_Timer_ReadPeriod\000"
+ 1139      54696D65 
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccrLKGel.s 			page 31
+
+
+ 1139      725F5265 
+ 1139      61645065 
+ 1139      72696F64 
+ 1140              	.LASF30:
+ 1141 00bd 5049445F 		.ascii	"PID_Timer_ReadCapture\000"
+ 1141      54696D65 
+ 1141      725F5265 
+ 1141      61644361 
+ 1141      70747572 
+ 1142              	.LASF36:
+ 1143 00d3 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1143      43313120 
+ 1143      352E342E 
+ 1143      31203230 
+ 1143      31363036 
+ 1144 0106 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 1144      20726576 
+ 1144      6973696F 
+ 1144      6E203233 
+ 1144      37373135 
+ 1145 0139 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1145      66756E63 
+ 1145      74696F6E 
+ 1145      2D736563 
+ 1145      74696F6E 
+ 1146              	.LASF14:
+ 1147 0161 72656738 		.ascii	"reg8\000"
+ 1147      00
+ 1148              	.LASF5:
+ 1149 0166 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1149      20756E73 
+ 1149      69676E65 
+ 1149      6420696E 
+ 1149      7400
+ 1150              	.LASF9:
+ 1151 0178 75696E74 		.ascii	"uint8\000"
+ 1151      3800
+ 1152              	.LASF26:
+ 1153 017e 636F6E74 		.ascii	"control\000"
+ 1153      726F6C00 
+ 1154              	.LASF24:
+ 1155 0186 5049445F 		.ascii	"PID_Timer_WriteControlRegister\000"
+ 1155      54696D65 
+ 1155      725F5772 
+ 1155      69746543 
+ 1155      6F6E7472 
+ 1156              	.LASF34:
+ 1157 01a5 5049445F 		.ascii	"PID_Timer_Start\000"
+ 1157      54696D65 
+ 1157      725F5374 
+ 1157      61727400 
+ 1158              	.LASF40:
+ 1159 01b5 5049445F 		.ascii	"PID_Timer_initVar\000"
+ 1159      54696D65 
+ 1159      725F696E 
+ 1159      69745661 
+ 1159      7200
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccrLKGel.s 			page 32
+
+
+ 1160              	.LASF1:
+ 1161 01c7 756E7369 		.ascii	"unsigned char\000"
+ 1161      676E6564 
+ 1161      20636861 
+ 1161      7200
+ 1162              	.LASF12:
+ 1163 01d5 646F7562 		.ascii	"double\000"
+ 1163      6C6500
+ 1164              	.LASF35:
+ 1165 01dc 5049445F 		.ascii	"PID_Timer_ReadCounter\000"
+ 1165      54696D65 
+ 1165      725F5265 
+ 1165      6164436F 
+ 1165      756E7465 
+ 1166              	.LASF10:
+ 1167 01f2 75696E74 		.ascii	"uint16\000"
+ 1167      313600
+ 1168              	.LASF8:
+ 1169 01f9 756E7369 		.ascii	"unsigned int\000"
+ 1169      676E6564 
+ 1169      20696E74 
+ 1169      00
+ 1170              	.LASF33:
+ 1171 0206 5049445F 		.ascii	"PID_Timer_Init\000"
+ 1171      54696D65 
+ 1171      725F496E 
+ 1171      697400
+ 1172              	.LASF7:
+ 1173 0215 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1173      206C6F6E 
+ 1173      6720756E 
+ 1173      7369676E 
+ 1173      65642069 
+ 1174              	.LASF18:
+ 1175 022c 5049445F 		.ascii	"PID_Timer_Enable\000"
+ 1175      54696D65 
+ 1175      725F456E 
+ 1175      61626C65 
+ 1175      00
+ 1176              	.LASF39:
+ 1177 023d 70657269 		.ascii	"period_temp\000"
+ 1177      6F645F74 
+ 1177      656D7000 
+ 1178              	.LASF38:
+ 1179 0249 433A5C55 		.ascii	"C:\\Users\\Caleb Cotter\\Documents\\GitHub\\3HC\\3H"
+ 1179      73657273 
+ 1179      5C43616C 
+ 1179      65622043 
+ 1179      6F747465 
+ 1180 0276 435F4669 		.ascii	"C_Firmware\\3HC_Firmware_0_1.cydsn\000"
+ 1180      726D7761 
+ 1180      72655C33 
+ 1180      48435F46 
+ 1180      69726D77 
+ 1181              	.LASF17:
+ 1182 0298 73697A65 		.ascii	"sizetype\000"
+ 1182      74797065 
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\ccrLKGel.s 			page 33
+
+
+ 1182      00
+ 1183              	.LASF23:
+ 1184 02a1 5049445F 		.ascii	"PID_Timer_SetInterruptMode\000"
+ 1184      54696D65 
+ 1184      725F5365 
+ 1184      74496E74 
+ 1184      65727275 
+ 1185              	.LASF6:
+ 1186 02bc 6C6F6E67 		.ascii	"long long int\000"
+ 1186      206C6F6E 
+ 1186      6720696E 
+ 1186      7400
+ 1187              	.LASF25:
+ 1188 02ca 696E7465 		.ascii	"interruptMode\000"
+ 1188      72727570 
+ 1188      744D6F64 
+ 1188      6500
+ 1189              	.LASF28:
+ 1190 02d8 5049445F 		.ascii	"PID_Timer_WritePeriod\000"
+ 1190      54696D65 
+ 1190      725F5772 
+ 1190      69746550 
+ 1190      6572696F 
+ 1191              	.LASF2:
+ 1192 02ee 73686F72 		.ascii	"short int\000"
+ 1192      7420696E 
+ 1192      7400
+ 1193              	.LASF4:
+ 1194 02f8 6C6F6E67 		.ascii	"long int\000"
+ 1194      20696E74 
+ 1194      00
+ 1195              	.LASF20:
+ 1196 0301 5049445F 		.ascii	"PID_Timer_SoftwareCapture\000"
+ 1196      54696D65 
+ 1196      725F536F 
+ 1196      66747761 
+ 1196      72654361 
+ 1197              	.LASF16:
+ 1198 031b 6C6F6E67 		.ascii	"long double\000"
+ 1198      20646F75 
+ 1198      626C6500 
+ 1199              	.LASF0:
+ 1200 0327 7369676E 		.ascii	"signed char\000"
+ 1200      65642063 
+ 1200      68617200 
+ 1201              	.LASF19:
+ 1202 0333 5049445F 		.ascii	"PID_Timer_Stop\000"
+ 1202      54696D65 
+ 1202      725F5374 
+ 1202      6F7000
+ 1203              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
