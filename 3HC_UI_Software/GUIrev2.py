@@ -1,6 +1,8 @@
-#created by Nick Jannuzzi 2/21/20
-#GUI layout for 3 axis HHC user interface
-#created using PyQt5 to communicate with PSoC 5LP microcontroller
+#created by Nick Jannuzzi 3/31/20
+#GUI layout for 3 axis HHC user interface revision 2
+#Controls the HHC along with the solar vector simulator
+#also contains instruction manual for the system itself in the SOP tab
+#created using PyQt5 to communicate with PSoC 5LP microcontroller using python wrapper for libusb
 
 
 from PyQt5.QtWidgets import *
@@ -8,9 +10,9 @@ from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from USB import * 
 import pyqtgraph as pg
-
-
-#($string[0] == '-') ? '-'.ltrim(substr($string, 1), '0') : ltrim($string, '0')
+import webbrowser
+import NMEA_0183
+# import pygame
 
 
 class App(QMainWindow):
@@ -19,12 +21,11 @@ class App(QMainWindow):
 
 		#test variables
 		
-
-
-		#dummy arrays
-		self.arr1 = []
-		self.arr2 = []
-
+		# pygame.init()
+		# effect = pygame.mixer.Sound("intro.wav")
+		# effect.play()
+		#array to contain USB parameters
+		self.USBparam = []
 
 		#current sensor readings
 		self.XI = 0
@@ -36,7 +37,6 @@ class App(QMainWindow):
 		self.setGeometry(0,0,500,1000)
 		self.table_widget = MyTableWidget(self)
 		self.setCentralWidget(self.table_widget)
-
 		self.show()
 
 
@@ -52,11 +52,15 @@ class MyTableWidget(QWidget):
 		self.tab1 = QWidget()
 		self.tab2 = QWidget()
 		self.tab3 = QWidget()
+		self.tab4 = QWidget()
 		# self.tabs.resize(400,400)
+
+
+		#variables-----------------------------------------------
 		self.x = 0
 		self.y = 0
 		self.z = 0
-
+		self.test = 0
 
 		#setpoint values
 		self.XSP = 0.0
@@ -75,30 +79,53 @@ class MyTableWidget(QWidget):
 		self.XI = 0
 		self.YI = 0
 		self.ZI = 0
+		self.test = 0
+		#end of variable declarations-----------------------------
+
+
+		#initializes tab UI for each tab
 		self.tab1UI()
 		self.tab2UI()
 		self.tab3UI()
+		self.tab4UI()
 
+
+		#Qtimers for periodic value updating
 		#update null offset timer
 		self.NullTimer = QTimer()
-		self.NullTimer.setInterval(100)
+		self.NullTimer.setInterval(10)
 		self.NullTimer.timeout.connect(self.updatenulloffsets)
 		self.NullTimer.start()
 
 
 		#update current sensors' readings timer
 		self.ITimer = QTimer()
-		self.ITimer.setInterval(2000)
+		self.ITimer.setInterval(20)
 		self.ITimer.timeout.connect(self.updateIread)
 		self.ITimer.start()		
 
+
+
+		self.USBTimer = QTimer()
+		self.USBTimer.setInterval(10)
+		self.USBTimer.timeout.connect(self.updateUSBParam)
+		self.USBTimer.start()
+
 		self.tabs.addTab(self.tab1,"HHC")
-		self.tabs.addTab(self.tab2,"Solar Vectors")
-		self.tabs.addTab(self.tab3,"SOP")
+		self.tabs.addTab(self.tab2,"HHC Field Vector Graphs")
+		self.tabs.addTab(self.tab3,"Solar Vectors")
+		self.tabs.addTab(self.tab4,"SOP and Useful Links")
         # Add tabs to widget
 		self.layout.addWidget(self.tabs)
 		self.setLayout(self.layout)
 
+
+		# init USB
+		self.USB = USB()
+		#check if USb is connected
+		if self.USB.verify() == True:
+			print("USB connection verified")
+		self.USB.writeUSB("\n")	
 
 	def SetpointsEntered(self):
 		#handles 0 case due to unexpected functionality enocuntered
@@ -154,12 +181,20 @@ class MyTableWidget(QWidget):
 			SPInvalid.exec_()	
 
 
+	def updateUSBParam(self):
+		self.test = self.USB.readUSB()
+		self.test = self.test.replace("\n","")
+		self.USB.writeUSB(str(self.XSP))	
+
+
 	#updates the null offset values
 	def updatenulloffsets(self):
 		#a = self.GUIUSB.read()
 		self.x += 1
 		self.y += 1
 		self.z += 1
+		# self.test = self.USB.readUSB()
+		# self.test = self.test.replace("\n","")
 		self.XNULLreadout.setText('%s' % self.x)
 		self.YNULLreadout.setText('%s' % self.y)
 		self.ZNULLreadout.setText('%s' % self.z)	
@@ -169,11 +204,38 @@ class MyTableWidget(QWidget):
 		self.XI += 1
 		self.YI += 1
 		self.ZI += 1
-		self.XIreadout.setText('%s Amps' % self.XI)
+		self.XIreadout.setText(self.test)
 		self.YIreadout.setText('%s Amps' % self.YI)
 		self.ZIreadout.setText('%s Amps' % self.ZI)	
 
 
+	def exitpressed(self):
+		self.USB.writeUSB("$RST,*FF\n")
+		self.close()		
+
+	def tab4buttonpressed(self):
+		webbrowser.open('https://docs.google.com/forms/d/e/1FAIpQLSfV1I_m_XHpySkWWFHY50TkHchBT7OENFbcBqAayC7Oqqf6HQ/formResponse')	
+
+
+	def HHCbuttonpressed(self):
+		webbrowser.open('https://en.wikipedia.org/wiki/Helmholtz_coil')
+
+
+	def WMMbuttonpressed(self):
+		webbrowser.open('https://www.ngdc.noaa.gov/geomag/WMM/')
+
+
+	def USBbuttonpressed(self):		
+		# self.test = self.USB.read()
+		self.USB.writeUSB(str(self.x))
+		# l = len("hi")
+		print("Received: " + str(self.USB.readUSB())) # receive the echo
+
+
+
+
+
+	#tab 1 layout: control system for the HHC
 	def tab1UI(self):
 
 
@@ -293,6 +355,12 @@ class MyTableWidget(QWidget):
 		self.tab1.credits2.addStretch(2)
 
 
+		#close app button
+		self.tab1.close = QHBoxLayout()
+		self.exitbutton = QPushButton('Click this to exit the UI',self)
+		self.exitbutton.clicked.connect(self.exitpressed)
+		self.tab1.close.addWidget(self.exitbutton)
+		self.tab1.close.addStretch(2)
 
 
 		#vertically arranges hboxes
@@ -322,6 +390,9 @@ class MyTableWidget(QWidget):
 		self.tab1.vlayout.addLayout(self.tab1.hlayout3c)
 		self.tab1.vlayout.addStretch(1)
 
+		self.tab1.vlayout.addLayout(self.tab1.close)
+		self.tab1.vlayout.addStretch(1)
+
 		#credits
 		self.tab1.vlayout.addLayout(self.tab1.credits)
 		self.tab1.vlayout.addLayout(self.tab1.credits2)
@@ -337,6 +408,7 @@ class MyTableWidget(QWidget):
 
 
 
+
 	def tab2UI(self):
 		pass
 	
@@ -348,6 +420,53 @@ class MyTableWidget(QWidget):
 
 	def tab3UI(self):
 		pass
+
+
+
+	def tab4UI(self):
+		self.tab4.vlayout = QVBoxLayout()
+
+		self.SOPLabel = QLabel('Click the following link to view the SOP and User manual',self)
+		self.SOPLabel.setAlignment(Qt.AlignCenter)
+		self.button = QPushButton('HHC SOP and User Manual',self)
+
+		self.HHCLabel = QLabel('Basic Info on Helmholtz Coils',self)
+		self.HHCLabel.setAlignment(Qt.AlignCenter)
+		self.HHCbutton = QPushButton('Helmholtz Coil info',self)
+
+		self.WMMLabel = QLabel('World Magnetic Model Website',self)
+		self.WMMLabel.setAlignment(Qt.AlignCenter)
+		self.WMMbutton = QPushButton('World Magnetic Model (WMM)',self)
+
+
+		self.Label = QLabel('USB test',self)
+		self.Label.setAlignment(Qt.AlignCenter)
+		self.USBbutton = QPushButton('USB test',self)
+
+
+
+
+		self.button.clicked.connect(self.tab4buttonpressed)
+		self.HHCbutton.clicked.connect(self.HHCbuttonpressed)
+		self.WMMbutton.clicked.connect(self.WMMbuttonpressed)
+		self.USBbutton.clicked.connect(self.USBbuttonpressed)
+
+
+
+
+
+
+
+		self.tab4.vlayout.addWidget(self.SOPLabel)
+		self.tab4.vlayout.addWidget(self.button)
+		self.tab4.vlayout.addWidget(self.HHCLabel)
+		self.tab4.vlayout.addWidget(self.HHCbutton)
+		self.tab4.vlayout.addWidget(self.WMMLabel)
+		self.tab4.vlayout.addWidget(self.WMMbutton)
+		self.tab4.vlayout.addWidget(self.Label)
+		self.tab4.vlayout.addWidget(self.USBbutton)
+		self.tab4.vlayout.addStretch(2)
+		self.tab4.setLayout(self.tab4.vlayout)
 
 
 

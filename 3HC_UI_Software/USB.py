@@ -1,25 +1,31 @@
 import usb.core
 import usb.util
 import sys
+import array
 #created by Nick Jannuzzi 3/3/20
 		
 
 #implements the USB class for allowing USB transfer
 class USB:
 	def __init__(self):
-		self.OUT = 0
-		self.IN = 0
+		self.OUT = None
+		self.IN = None
+		self.dev = None
 	#find our device
-		dev = usb.core.find(idVendor = 0x4b4, idProduct=0x80)
+		self.dev = usb.core.find(idVendor = 0x4b4, idProduct=0x80)
+		#print(self.dev)
+		if self.dev is None:
+			print("USB error:It appears the HHC is not connected or turned on. Please plug the power supply in or turn it on if it is already plugged in. ")
+			sys.exit(1)
 		#EPEEN = endpoints()
 		#found?
-		if dev is None:
+		if self.dev is None:
 			raise ValueError('Device not found')
 
 
 
-		dev.set_configuration()
-		cfg = dev.get_active_configuration()
+		self.dev.set_configuration()
+		cfg = self.dev.get_active_configuration()
 		intf = cfg[(0,0)]
 		epOut = usb.util.find_descriptor(
 			intf, 
@@ -47,26 +53,15 @@ class USB:
 
 
 
-	def read(self):
-		OUTE = self.OUT
-		rawdog = (OUTE.read(64).tostring())
-		#print(rawdog.decode())
-		print(type(rawdog))
-		wrapped = rawdog.decode()
-		print(type(wrapped))
+	def readUSB(self):
+		wrapped = self.IN.read(64).tobytes().decode()
 		return wrapped
-		#dataraw = (self.read(i).tostring())
 		
 
-		'''print(type(dataraw))
-		data = dataraw.decode()
-		print(data)
-		print(type(data))
-		return data'''
 
-
-	def write(writing):	
-		endpoints.IN.write(writing) # send it
+	def writeUSB(self,writing):	
+		#print("Sent: "+str(writing))
+		self.OUT.write(writing) # send it
 
 
 
