@@ -168,7 +168,7 @@ void UpdateTimer_UI_Wakeup(void)        ;
 *    Initialial Parameter Constants
 ***************************************/
 
-#define UpdateTimer_UI_INIT_PERIOD             99u
+#define UpdateTimer_UI_INIT_PERIOD             199u
 #define UpdateTimer_UI_INIT_CAPTURE_MODE       ((uint8)((uint8)0u << UpdateTimer_UI_CTRL_CAP_MODE_SHIFT))
 #define UpdateTimer_UI_INIT_TRIGGER_MODE       ((uint8)((uint8)0u << UpdateTimer_UI_CTRL_TRIG_MODE_SHIFT))
 #if (UpdateTimer_UI_UsingFixedFunction)

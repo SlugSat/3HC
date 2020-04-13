@@ -226,7 +226,7 @@ void Z_PWM_RestoreConfig(void) ;
 /***************************************
 *         Initialization Values
 **************************************/
-#define Z_PWM_INIT_PERIOD_VALUE          (1023u)
+#define Z_PWM_INIT_PERIOD_VALUE          (4096u)
 #define Z_PWM_INIT_COMPARE_VALUE1        (512u)
 #define Z_PWM_INIT_COMPARE_VALUE2        (128u)
 #define Z_PWM_INIT_INTERRUPTS_MODE       (uint8)(((uint8)(0u <<   \
