@@ -11,7 +11,7 @@ from PyQt5.QtGui import *
 from USB import * 
 import pyqtgraph as pg
 import webbrowser
-import NMEA_0183
+import NMEA_0183 as NMEA
 # import pygame
 
 
@@ -24,8 +24,6 @@ class App(QMainWindow):
 		# pygame.init()
 		# effect = pygame.mixer.Sound("intro.wav")
 		# effect.play()
-		#array to contain USB parameters
-		self.USBparam = []
 
 		#current sensor readings
 		self.XI = 0
@@ -127,6 +125,13 @@ class MyTableWidget(QWidget):
 			print("USB connection verified")
 		self.USB.writeUSB("\n")	
 
+
+	#processes NMEA messages and sends data to its appropriate variable
+	def Process_NMEA(self,NMEA_list):
+		pass
+
+
+
 	def SetpointsEntered(self):
 		#handles 0 case due to unexpected functionality enocuntered
 		if(self.XSPoint.text() == ""):
@@ -170,6 +175,15 @@ class MyTableWidget(QWidget):
 				self.ZS.setText('Z Setpoint (Current Value: %s)' % 0)
 			else:	
 				self.zflag = True
+
+
+		self.XSPE = NMEA.Encode('SETX',str(self.XSP))
+		NMEA.Decode(self.XSPE)
+		self.YSPE = NMEA.Encode('SETY',str(self.YSP))
+		self.ZSPE = NMEA.Encode('SETZ',str(self.ZSP))	
+		self.USB.writeUSB(self.XSPE)	
+		self.USB.writeUSB(self.YSPE)	
+		self.USB.writeUSB(self.ZSPE)			
 		# pg.plot([self.XSP],[self.YSP])		
 			#invalid input popup
 		if(self.xflag or self.yflag or self.zflag):
@@ -182,9 +196,10 @@ class MyTableWidget(QWidget):
 
 
 	def updateUSBParam(self):
+		
 		self.test = self.USB.readUSB()
 		self.test = self.test.replace("\n","")
-		self.USB.writeUSB(str(self.XSP))	
+		# self.USB.writeUSB(str(self.XSP))	
 
 
 	#updates the null offset values
