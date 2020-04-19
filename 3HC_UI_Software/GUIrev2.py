@@ -1,8 +1,21 @@
-#created by Nick Jannuzzi 3/31/20
-#GUI layout for 3 axis HHC user interface revision 2
-#Controls the HHC along with the solar vector simulator
-#also contains instruction manual for the system itself in the SOP tab
-#created using PyQt5 to communicate with PSoC 5LP microcontroller using python wrapper for libusb
+# /* ========================================
+#  * FILE:   GUIrev2.py
+#  * AUTHOR: Nick Jannuzzi
+#  *
+#  * CREATED ON March 30, 2020, 5:07 PM
+#  *
+#  * ========================================
+#  *
+#  * Copyright SLUGSAT, 2020
+#  * All Rights Reserved
+#  * UNPUBLISHED, LICENSED SOFTWARE.
+#  *
+#  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+#  * WHICH IS THE PROPERTY OF SLUGSAT.
+#  *
+#  * ========================================
+# */
+
 
 
 from PyQt5.QtWidgets import *
@@ -12,24 +25,11 @@ from USB import *
 import pyqtgraph as pg
 import webbrowser
 import NMEA_0183 as NMEA
-# import pygame
 
 
 class App(QMainWindow):
 	def __init__(self):
 		super().__init__()
-
-		#test variables
-		
-		# pygame.init()
-		# effect = pygame.mixer.Sound("intro.wav")
-		# effect.play()
-
-		#current sensor readings
-		self.XI = 0
-		self.YI = 0
-		self.ZI = 0
-		#self.initUI()
 		self.title = "SlugSat 3-Axis HHC/SVS Control Interface Rev. 2"
 		self.setWindowTitle(self.title)
 		self.setGeometry(0,0,500,1000)
@@ -61,11 +61,11 @@ class MyTableWidget(QWidget):
 		self.test = 0
 
 		#setpoint values
-		self.XSP = 0.0
-		self.YSP = 0.0
-		self.ZSP = 0.0
+		self.XSET = 0.0
+		self.YSET = 0.0
+		self.ZSET = 0.0
 
-		#flags for invalid setpoints
+		#flags for invalid setpoint input
 		self.xflag = False
 		self.yflag = False
 		self.zflag = False
@@ -74,10 +74,17 @@ class MyTableWidget(QWidget):
 		self.XNOFF = 0
 		self.YNOFF = 0
 		self.ZNOFF = 0
-		self.XI = 0
-		self.YI = 0
-		self.ZI = 0
+
+		#Current Sensor
+		self.XCUR = 0
+		self.YCUR = 0
+		self.ZCUR = 0
+
+
+		#other
 		self.test = 0
+
+
 		#end of variable declarations-----------------------------
 
 
@@ -93,21 +100,21 @@ class MyTableWidget(QWidget):
 		self.NullTimer = QTimer()
 		self.NullTimer.setInterval(10)
 		self.NullTimer.timeout.connect(self.updatenulloffsets)
-		self.NullTimer.start()
+		
 
 
 		#update current sensors' readings timer
 		self.ITimer = QTimer()
-		self.ITimer.setInterval(20)
+		self.ITimer.setInterval(50)
 		self.ITimer.timeout.connect(self.updateIread)
-		self.ITimer.start()		
+		
 
 
 
 		self.USBTimer = QTimer()
 		self.USBTimer.setInterval(10)
 		self.USBTimer.timeout.connect(self.updateUSBParam)
-		self.USBTimer.start()
+		
 
 		self.tabs.addTab(self.tab1,"HHC")
 		self.tabs.addTab(self.tab2,"HHC Field Vector Graphs")
@@ -119,71 +126,104 @@ class MyTableWidget(QWidget):
 
 
 		# init USB
-		self.USB = USB()
+		self.USB = USBprimary()
 		#check if USb is connected
 		if self.USB.verify() == True:
 			print("USB connection verified")
 		self.USB.writeUSB("\n")	
+		self.NullTimer.start()
+		self.ITimer.start()	
+		self.USBTimer.start()
 
 
 	#processes NMEA messages and sends data to its appropriate variable
 	def Process_NMEA(self,NMEA_list):
-		pass
+		#store list elements into variables for comparisons
+		ID = NMEA_list[0]
+		Payload = NMEA_list[1]
+		# if(ID == 'ERR'):
+		# 	pass
+		if(ID == "XCUR"):
+			self.XCUR = Payload
+			pass
+		if(ID == "YCUR"):
+			self.YCUR = Payload
+			pass
+		if(ID == "ZCUR"):	
+			self.ZCUR = Payload
+			pass
+		if(ID == "XMAG"):
+			pass
+		if(ID == "YMAG"):
+			pass
+		if(ID == "ZMAG"):
+			pass
+		if(ID == "XSET"):
+			pass
+		if(ID == "YSET"):
+			pass
+		if(ID == "ZSET"):
+			pass					
 
 
 
 	def SetpointsEntered(self):
 		#handles 0 case due to unexpected functionality enocuntered
 		if(self.XSPoint.text() == ""):
-			self.XSP = 0.0
+			self.XSET = 0.0
 		else:
-		 	self.XSP = float(self.XSPoint.text())
+		 	self.XSET = float(self.XSPoint.text())
 		if(self.YSPoint.text() == ""): 
-			self.YSP = 0.0
+			self.YSET = 0.0
 		else:
-			self.YSP = float(self.YSPoint.text())
+			self.YSET = float(self.YSPoint.text())
 		if(self.ZSPoint.text() == ""):
-			self.ZSP =0.0
+			self.ZSET =0.0
 		else:
-			 self.ZSP = float(self.ZSPoint.text())
+			 self.ZSET = float(self.ZSPoint.text())
 		self.UpdateSetpoints()	
 
 #updates current values dispaly for setpoints	
 	def UpdateSetpoints(self):
 		#makes sure we have a valid input
+
 		#X
-		if(self.XSP and self.XSPoint.hasAcceptableInput()):
-			self.XS.setText('X Setpoint (Current Value: %s)' % self.XSP)
+		if(self.XSET and self.XSPoint.hasAcceptableInput()):
+			self.XS.setText('X Setpoint (Current Value: %s)' % self.XSET)
 		else:
-			if(self.XSP == 0):
+			if(self.XSET == 0):
 				self.XS.setText('X Setpoint (Current Value: %s)' % 0)
 			else:	
 				self.xflag = True
 		#Y
-		if(self.YSP and self.YSPoint.hasAcceptableInput()):	
-			self.YS.setText('Y Setpoint (Current Value: %s)' % self.YSP)
+		if(self.YSET and self.YSPoint.hasAcceptableInput()):	
+			self.YS.setText('Y Setpoint (Current Value: %s)' % self.YSET)
 		else:	
-			if(self.YSP == 0):
+			if(self.YSET == 0):
 				self.YS.setText('X Setpoint (Current Value: %s)' % 0)
 			else:	
 				self.yflag = True
 		#Z
-		if(self.ZSP and self.ZSPoint.hasAcceptableInput()):
-			self.ZS.setText('Z Setpoint (Current Value: %s)' % self.ZSP)
+		if(self.ZSET and self.ZSPoint.hasAcceptableInput()):
+			self.ZS.setText('Z Setpoint (Current Value: %s)' % self.ZSET)
 		else:	
-			if(self.ZSP == 0):
+			if(self.ZSET == 0):
 				self.ZS.setText('Z Setpoint (Current Value: %s)' % 0)
 			else:	
 				self.zflag = True
 
+		#encodes NMEA messages
+		self.XSETE = NMEA.Encode('SETX',str(self.XSET))
+		self.YSETE = NMEA.Encode('SETY',str(self.YSET))
+		self.ZSETE = NMEA.Encode('SETZ',str(self.ZSET))	
 
-		self.XSPE = NMEA.Encode('SETX',str(self.XSP))
-		NMEA.Decode(self.XSPE)
-		self.YSPE = NMEA.Encode('SETY',str(self.YSP))
-		self.ZSPE = NMEA.Encode('SETZ',str(self.ZSP))	
-		self.USB.writeUSB(self.XSPE)	
-		self.USB.writeUSB(self.YSPE)	
-		self.USB.writeUSB(self.ZSPE)			
+
+		# NMEA.Decode(self.XSETE)
+
+		#send USB messages
+		self.USB.writeUSB(self.XSETE)	
+		self.USB.writeUSB(self.YSETE)	
+		self.USB.writeUSB(self.ZSETE)			
 		# pg.plot([self.XSP],[self.YSP])		
 			#invalid input popup
 		if(self.xflag or self.yflag or self.zflag):
@@ -216,12 +256,25 @@ class MyTableWidget(QWidget):
 
 
 	def updateIread(self):
-		self.XI += 1
-		self.YI += 1
-		self.ZI += 1
-		self.XIreadout.setText(self.test)
-		self.YIreadout.setText('%s Amps' % self.YI)
-		self.ZIreadout.setText('%s Amps' % self.ZI)	
+		# self.XCUR += 1
+		# self.YCUR += 1
+		# self.ZCUR += 1
+		self.USB.writeUSB(NMEA.Encode('READ',"XCUR"))
+		CNMEA = NMEA.Decode(self.USB.readUSB())
+		self.Process_NMEA(CNMEA)
+
+
+		self.USB.writeUSB(NMEA.Encode('READ',"YCUR"))
+		CNMEA2 = NMEA.Decode(self.USB.readUSB())
+		self.Process_NMEA(CNMEA2)
+
+		self.USB.writeUSB(NMEA.Encode('READ',"ZCUR"))
+		CNMEA3 = NMEA.Decode(self.USB.readUSB())
+		self.Process_NMEA(CNMEA3)
+		# print(CNMEA)
+		self.XIreadout.setText('%s Amps' % self.XCUR)
+		self.YIreadout.setText('%s Amps' % self.YCUR)
+		self.ZIreadout.setText('%s Amps' % self.ZCUR)	
 
 
 	def exitpressed(self):
@@ -240,17 +293,17 @@ class MyTableWidget(QWidget):
 		webbrowser.open('https://www.ngdc.noaa.gov/geomag/WMM/')
 
 
-	def USBbuttonpressed(self):		
-		# self.test = self.USB.read()
-		self.USB.writeUSB(str(self.x))
-		# l = len("hi")
-		print("Received: " + str(self.USB.readUSB())) # receive the echo
+	# def USBbuttonpressed(self):		
+	# 	# self.test = self.USB.read()
+	# 	self.USB.writeUSB(str(self.x))
+	# 	# l = len("hi")
+	# 	print("Received: " + str(self.USB.readUSB())) # receive the echo
 
 
 
 
 
-	#tab 1 layout: control system for the HHC
+	#Tab1: HHC control interface
 	def tab1UI(self):
 
 
@@ -278,7 +331,7 @@ class MyTableWidget(QWidget):
 		self.XSPoint =  QLineEdit(self)
 		self.XSPoint.setValidator(QDoubleValidator(-200.0, 200.0, 3))
 		self.tab1.hlayout.addWidget(self.XSPoint)
-		self.XS = QLabel('X Setpoint (Current Value: %d)' % self.XSP,self)
+		self.XS = QLabel('X Setpoint (Current Value: %d)' % self.XSET,self)
 		self.tab1.hlayout.addWidget(self.XS)
 		self.tab1.hlayout.addStretch(1)
 
@@ -303,7 +356,7 @@ class MyTableWidget(QWidget):
 		self.YSPoint =  QLineEdit(self)
 		self.YSPoint.setValidator(QDoubleValidator(-200.0, 200.0, 3))
 		self.tab1.hlayout2.addWidget(self.YSPoint)
-		self.YS = QLabel('Y Setpoint (Current Value: %d)' % self.YSP,self)
+		self.YS = QLabel('Y Setpoint (Current Value: %d)' % self.YSET,self)
 		self.tab1.hlayout2.addWidget(self.YS)
 		self.tab1.hlayout2.addStretch(1)
 
@@ -329,7 +382,7 @@ class MyTableWidget(QWidget):
 		self.ZSPoint =  QLineEdit(self)
 		self.ZSPoint.setValidator(QDoubleValidator(-200.0, 200.0, 3))
 		self.tab1.hlayout3.addWidget(self.ZSPoint)
-		self.ZS = QLabel('Z Setpoint (Current Value: %d)' % self.ZSP,self)
+		self.ZS = QLabel('Z Setpoint (Current Value: %d)' % self.ZSET,self)
 		self.tab1.hlayout3.addWidget(self.ZS)
 		self.tab1.hlayout3.addStretch(1)
 
@@ -405,6 +458,7 @@ class MyTableWidget(QWidget):
 		self.tab1.vlayout.addLayout(self.tab1.hlayout3c)
 		self.tab1.vlayout.addStretch(1)
 
+		#exit button
 		self.tab1.vlayout.addLayout(self.tab1.close)
 		self.tab1.vlayout.addStretch(1)
 
@@ -423,7 +477,7 @@ class MyTableWidget(QWidget):
 
 
 
-
+	#Tab 2: HHC plotting (pH)
 	def tab2UI(self):
 		pass
 	
@@ -432,12 +486,12 @@ class MyTableWidget(QWidget):
 	
 
 
-
+	#tab3: SVS control interface (pH)
 	def tab3UI(self):
 		pass
 
 
-
+	#tab4: SOP/User Manual and Useful Links
 	def tab4UI(self):
 		self.tab4.vlayout = QVBoxLayout()
 
@@ -454,9 +508,9 @@ class MyTableWidget(QWidget):
 		self.WMMbutton = QPushButton('World Magnetic Model (WMM)',self)
 
 
-		self.Label = QLabel('USB test',self)
-		self.Label.setAlignment(Qt.AlignCenter)
-		self.USBbutton = QPushButton('USB test',self)
+		# self.Label = QLabel('USB test',self)
+		# self.Label.setAlignment(Qt.AlignCenter)
+		# self.USBbutton = QPushButton('USB test',self)
 
 
 
@@ -464,7 +518,7 @@ class MyTableWidget(QWidget):
 		self.button.clicked.connect(self.tab4buttonpressed)
 		self.HHCbutton.clicked.connect(self.HHCbuttonpressed)
 		self.WMMbutton.clicked.connect(self.WMMbuttonpressed)
-		self.USBbutton.clicked.connect(self.USBbuttonpressed)
+		# self.USBbutton.clicked.connect(self.USBbuttonpressed)
 
 
 
@@ -478,12 +532,10 @@ class MyTableWidget(QWidget):
 		self.tab4.vlayout.addWidget(self.HHCbutton)
 		self.tab4.vlayout.addWidget(self.WMMLabel)
 		self.tab4.vlayout.addWidget(self.WMMbutton)
-		self.tab4.vlayout.addWidget(self.Label)
-		self.tab4.vlayout.addWidget(self.USBbutton)
+		# self.tab4.vlayout.addWidget(self.Label)
+		# self.tab4.vlayout.addWidget(self.USBbutton)
 		self.tab4.vlayout.addStretch(2)
 		self.tab4.setLayout(self.tab4.vlayout)
-
-
 
 
 
