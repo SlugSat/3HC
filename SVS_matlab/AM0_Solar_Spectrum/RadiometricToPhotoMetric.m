@@ -37,7 +37,7 @@ hold off
 %xlabel('Wavelength (\mum)'); 
 %ylabel('Spectral Irradiance (W/m^2 -\mum )');
 figure(2);
-[l]=combine(LED_W_B,LED_W_Y);
+[l]=addSpectrum(LED_W_B,LED_W_Y);
 plot(l(:,1),l(:,2));
 %nexttile
 %loglog(wavelength,irradiance);
@@ -48,3 +48,9 @@ plot(l(:,1),l(:,2));
 %title('log-log Plot of Spectral Irradiance @ AM0');
 %xlabel('Wavelength (\mum)'); 
 %ylabel('Spectral Irradiance (W/m^2 -\mum )');
+figure (3);
+testing = interp1(Solar_Reference(:,1),Solar_Reference(:,2),LED_W(:,1));
+plot(LED_W(:,1),testing);
+hold on
+plot(colorSpectrum(:,1),colorSpectrum(:,2));
+hold off

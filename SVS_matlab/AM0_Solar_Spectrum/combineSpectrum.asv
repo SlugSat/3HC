@@ -1,0 +1,15 @@
+function [spectrum] = combineSpectrum( source1, source2, ,num1, num2)
+    size1=size(source1);
+    size2=size(source2);
+    spectrum = [source1;
+   
+    1_2_band = source1 (source1(:,1)>source2(1,1) & source1(:,1)<source2(end,1),1);
+    2_interp=interp1(source2(:,1),source2(:,2),1_2_band, 'spine');
+    spectrum(spectrum(:,1)>=1_2_band(1) & spectrum(:,1)<=1_2_band(end) ,2) = spectrum(spectrum(:,1)>=1_2_band(1) & spectrum(:,1)<=1_2_band(end) ,2) + num.*2_interp;
+    if size(2)>size(1)   
+        spectrum = [ source1(source1(:,1)<source2(1,1),:); spectrum];
+        spectrum = [spectrum; source1(source1(:,1)>source2(end,1),:)];
+        
+    end
+
+end
