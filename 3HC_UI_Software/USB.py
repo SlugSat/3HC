@@ -44,11 +44,14 @@ class USBprimary:
 
 		if self.IN is not None and self.OUT is not None:
 			return True
+		else: 
+			return False	
 
 
 	#read IN endpoint from device and processes it so we 
 	def readUSB(self):
-		wrapped = self.IN.read(64).tobytes().decode()
+		wrapped = self.IN.read(64, 10000).tobytes().decode()
+		# print(wrapped)
 		return wrapped
 		
 
@@ -57,7 +60,10 @@ class USBprimary:
 		#print("Sent: "+str(writing))
 		self.OUT.write(writing) # send it
 
-
+	#terminate USB	
+	def EndUSB(self):
+		self.In = None
+		self.Out = None
 
 #setup for a secondary USB device, to be used exclusively by the Solar Vector Simulation Module of the HHC
 class USBsecondary:
@@ -99,17 +105,19 @@ class USBsecondary:
 		if self.IN is not None and self.OUT is not None:
 			return True
 
-
 	#read IN endpoint from device and processes it so we 
 	def readUSB(self):
-		wrapped = self.IN.read(64).tobytes().decode()
+		wrapped = self.IN.read(64, 10000).tobytes().decode()
+		print(wrapped)
 		return wrapped
 		
 
 
 	def writeUSB(self,writing):	
 		#print("Sent: "+str(writing))
-		self.OUT.write(writing) # send it	
+		self.OUT.write(writing) # send it
+
+
 
 
 	

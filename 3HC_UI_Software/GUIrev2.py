@@ -22,10 +22,19 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from USB import * 
-import pyqtgraph as pg
+# from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg
+# from matplotlib.figure import Figure
+# import matplotlib.pyplot as plt
 import webbrowser
 import NMEA_0183 as NMEA
 
+
+class MplCanvas(FigureCanvasQTAgg):
+
+	def __init__(self, parent=None, width=5, height=4, dpi=100):
+		fig = Figure(figsize=(width, height), dpi=dpi)
+		self.axes = fig.add_subplot(111)
+		super(MplCanvas, self).__init__(fig)
 
 class App(QMainWindow):
 	def __init__(self):
@@ -50,7 +59,7 @@ class MyTableWidget(QWidget):
 		self.tab1 = QWidget()
 		self.tab2 = QWidget()
 		self.tab3 = QWidget()
-		self.tab4 = QWidget()
+		# self.tab4 = QWidget()
 		# self.tabs.resize(400,400)
 
 
@@ -64,6 +73,16 @@ class MyTableWidget(QWidget):
 		self.XSET = 0.0
 		self.YSET = 0.0
 		self.ZSET = 0.0
+
+
+		self.XMAG = 0
+		self.YMAG = 0
+		self.ZMAG = 0
+		self.XL = [0,0,0,0,0,0,0,0,0,0]
+		self.YL = [0,0,0,0,0,0,0,0,0,0]
+		self.ZL = [0,0,0,0,0,0,0,0,0,0]
+
+
 
 		#flags for invalid setpoint input
 		self.xflag = False
@@ -83,7 +102,13 @@ class MyTableWidget(QWidget):
 
 		#other
 		self.test = 0
+		#make this 1 to stop USB with changing mode
+		self.disableUSB = 0
+		self.mode = not(self.disableUSB)
+		#this changes when system is changed from ARMED to IDLE
+		#1 = AMRED, 0 = IDLE
 
+		self.stopUSB = 0
 
 		#end of variable declarations-----------------------------
 
@@ -92,48 +117,51 @@ class MyTableWidget(QWidget):
 		self.tab1UI()
 		self.tab2UI()
 		self.tab3UI()
-		self.tab4UI()
+		# self.tab4UI()
 
 
 		#Qtimers for periodic value updating
 		#update null offset timer
 		self.NullTimer = QTimer()
-		self.NullTimer.setInterval(10)
+		self.NullTimer.setInterval(70)
 		self.NullTimer.timeout.connect(self.updatenulloffsets)
 		
 
 
 		#update current sensors' readings timer
 		self.ITimer = QTimer()
-		self.ITimer.setInterval(50)
+		self.ITimer.setInterval(70)
 		self.ITimer.timeout.connect(self.updateIread)
 		
 
 
 
-		self.USBTimer = QTimer()
-		self.USBTimer.setInterval(10)
-		self.USBTimer.timeout.connect(self.updateUSBParam)
+		# self.PlotTimer = QTimer()
+		# self.PlotTimer.setInterval(200)
+		# self.PlotTimer.timeout.connect(self.updateFieldVectorArrays)
 		
-
+		self.NullTimer.start()
+		self.ITimer.start()	
+		# self.PlotTimer.start()
 		self.tabs.addTab(self.tab1,"HHC")
-		self.tabs.addTab(self.tab2,"HHC Field Vector Graphs")
-		self.tabs.addTab(self.tab3,"Solar Vectors")
-		self.tabs.addTab(self.tab4,"SOP and Useful Links")
+		# self.tabs.addTab(self.tab2,"HHC Field Vector Graphs")
+		self.tabs.addTab(self.tab2,"Solar Vectors")
+		self.tabs.addTab(self.tab3,"SOP and Useful Links")
         # Add tabs to widget
 		self.layout.addWidget(self.tabs)
 		self.setLayout(self.layout)
 
 
 		# init USB
-		self.USB = USBprimary()
-		#check if USb is connected
-		if self.USB.verify() == True:
-			print("USB connection verified")
-		self.USB.writeUSB("\n")	
-		self.NullTimer.start()
-		self.ITimer.start()	
-		self.USBTimer.start()
+		if(self.disableUSB == 0 and self.stopUSB == 0):
+			self.USB = USBprimary()
+			#check if USb is connected
+			if self.USB.verify() == True:
+				print("USB connection verified")
+			self.USB.writeUSB("\n")
+			# self.USB.writeUSB(NMEA.Encode("ARMED","1"))
+
+
 
 
 	#processes NMEA messages and sends data to its appropriate variable
@@ -141,30 +169,53 @@ class MyTableWidget(QWidget):
 		#store list elements into variables for comparisons
 		ID = NMEA_list[0]
 		Payload = NMEA_list[1]
+
 		# if(ID == 'ERR'):
 		# 	pass
 		if(ID == "XCUR"):
-			self.XCUR = Payload
+			self.XCUR = float("%.5g" % float(Payload))
 			pass
 		if(ID == "YCUR"):
-			self.YCUR = Payload
+			self.YCUR = float("%.5g" % float(Payload))
 			pass
 		if(ID == "ZCUR"):	
-			self.ZCUR = Payload
+			self.ZCUR = float("%.5g" % float(Payload))
 			pass
 		if(ID == "XMAG"):
+			self.XMAG = float("%.1g" % float(Payload))
 			pass
 		if(ID == "YMAG"):
+			self.YMAG = float("%.1g" % float(Payload))
 			pass
 		if(ID == "ZMAG"):
+			self.ZMAG = float("%.1g" % float(Payload))
 			pass
 		if(ID == "XSET"):
+			self.XSET = float("%.3g" % float(Payload))
 			pass
 		if(ID == "YSET"):
+			self.YSET = float("%.3g" % float(Payload))
 			pass
 		if(ID == "ZSET"):
-			pass					
+			self.ZSET = float("%.3g" % float(Payload))
+			pass
+		if(ID == 'XNULL'):
+			self.XNOFF = float("%.1g" % float(Payload))
+			pass
+		
+		if(ID =='YNULL'):
+			self.YNOFF = float("%.1g" % float(Payload))
+			pass
 
+		if(ID =='ZNULL'):		
+			self.ZNOFF = float("%.1g" % float(Payload))
+			pass				
+		if(ID == "FAULT"):
+			self.WTF = QMessageBox()
+			self.WTF.setWindowTitle("HHC Fault Detected")
+			self.WTF.setIcon(QMessageBox.Warning)
+			self.WTF.setText("HHC Fault Occurred: PH")
+			self.WTF.exec_()
 
 
 	def SetpointsEntered(self):
@@ -220,10 +271,13 @@ class MyTableWidget(QWidget):
 
 		# NMEA.Decode(self.XSETE)
 
-		#send USB messages
-		self.USB.writeUSB(self.XSETE)	
-		self.USB.writeUSB(self.YSETE)	
-		self.USB.writeUSB(self.ZSETE)			
+		# #send USB messages
+		if(self.disableUSB == 0 and self.stopUSB == 1):
+			self.USB.writeUSB(self.XSETE)	
+			self.USB.writeUSB(self.YSETE)	
+			self.USB.writeUSB(self.ZSETE)	
+			# self.USB.writeUSB(NMEA.Encode("READ","FAULT"))
+		
 		# pg.plot([self.XSP],[self.YSP])		
 			#invalid input popup
 		if(self.xflag or self.yflag or self.zflag):
@@ -235,51 +289,100 @@ class MyTableWidget(QWidget):
 			SPInvalid.exec_()	
 
 
-	def updateUSBParam(self):
-		
-		self.test = self.USB.readUSB()
-		self.test = self.test.replace("\n","")
-		# self.USB.writeUSB(str(self.XSP))	
+	# def updateFieldVectorArrays(self):
+	# 	self.XL.append(self.XCUR)
+	# 	self.YL.append(self.YCUR)
+	# 	self.ZL.append(self.ZCUR)
+	# 	if(len(self.XL) > 10):
+	# 		self.XL.pop(0)
+	# 	if(len(self.YL) > 10):
+	# 		self.YL.pop(0)
+	# 	if(len(self.ZL) > 10):
+	# 		self.ZL.pop(0)	
+	# 	# print("X"+str(self.XL))
+	# 	# print("Y"+str(self.YL))	
+	# 	# print("Z"+str(self.ZL))	
+	# 	# self.sc.cla()
+	# 	# plt.cla(self.sc2)
+	# 	# plt.cla(self.sc3)
 
+
+	# 	self.sc.axes.plot([0,1,2,3,4,5,6,7,8,9], self.XL)
+	# 	self.sc2.axes.plot([0,1,2,3,4,5,6,7,8,9], self.YL)
+	# 	self.sc3.axes.plot([0,1,2,3,4,5,6,7,8,9], self.ZL)
+	# 	# self.tab2.vlayout.addWidget(self.sc)
+	# 	# self.tab2.vlayout.addWidget(self.sc2)	
+
+	# 	# self.tab2.vlayout.addWidget(self.sc3)	
+
+			
+
+		
 
 	#updates the null offset values
 	def updatenulloffsets(self):
-		#a = self.GUIUSB.read()
-		self.x += 1
-		self.y += 1
-		self.z += 1
-		# self.test = self.USB.readUSB()
-		# self.test = self.test.replace("\n","")
-		self.XNULLreadout.setText('%s' % self.x)
-		self.YNULLreadout.setText('%s' % self.y)
-		self.ZNULLreadout.setText('%s' % self.z)	
+		if(self.disableUSB == 0 and self.stopUSB == 0):
+			self.USB.writeUSB(NMEA.Encode('READ',"XNULL"))
+			NNMEA = NMEA.Decode(self.USB.readUSB())
+			self.Process_NMEA(NNMEA)
+
+
+			self.USB.writeUSB(NMEA.Encode('READ',"YNULL"))
+			NNMEA2 = NMEA.Decode(self.USB.readUSB())
+			self.Process_NMEA(NNMEA2)
+
+			self.USB.writeUSB(NMEA.Encode('READ',"ZNULL"))
+			NNMEA3 = NMEA.Decode(self.USB.readUSB())
+			self.Process_NMEA(NNMEA3)
+		self.XNULLreadout.setText('%s' % self.XNOFF)
+		self.YNULLreadout.setText('%s' % self.YNOFF)
+		self.ZNULLreadout.setText('%s' % self.ZNOFF)	
 
 
 	def updateIread(self):
-		# self.XCUR += 1
-		# self.YCUR += 1
-		# self.ZCUR += 1
-		self.USB.writeUSB(NMEA.Encode('READ',"XCUR"))
-		CNMEA = NMEA.Decode(self.USB.readUSB())
-		self.Process_NMEA(CNMEA)
+		if(self.disableUSB == 0 and self.stopUSB == 0):
+			self.USB.writeUSB(NMEA.Encode('READ',"XCUR"))
+			CNMEA = NMEA.Decode(self.USB.readUSB())
+			self.Process_NMEA(CNMEA)
 
 
-		self.USB.writeUSB(NMEA.Encode('READ',"YCUR"))
-		CNMEA2 = NMEA.Decode(self.USB.readUSB())
-		self.Process_NMEA(CNMEA2)
+			self.USB.writeUSB(NMEA.Encode('READ',"YCUR"))
+			CNMEA2 = NMEA.Decode(self.USB.readUSB())
+			self.Process_NMEA(CNMEA2)
 
-		self.USB.writeUSB(NMEA.Encode('READ',"ZCUR"))
-		CNMEA3 = NMEA.Decode(self.USB.readUSB())
-		self.Process_NMEA(CNMEA3)
-		# print(CNMEA)
-		self.XIreadout.setText('%s Amps' % self.XCUR)
-		self.YIreadout.setText('%s Amps' % self.YCUR)
-		self.ZIreadout.setText('%s Amps' % self.ZCUR)	
+			self.USB.writeUSB(NMEA.Encode('READ',"ZCUR"))
+			CNMEA3 = NMEA.Decode(self.USB.readUSB())
+			self.Process_NMEA(CNMEA3)
+		self.XIreadout.setText(str(self.XCUR))
+		self.YIreadout.setText(str(self.YCUR))
+		self.ZIreadout.setText(str(self.ZCUR))	
 
 
 	def exitpressed(self):
-		self.USB.writeUSB("$RST,*FF\n")
-		self.close()		
+		if(self.disable == 0):
+			self.USB.writeUSB("$RST,*FF\n")
+			self.close()		
+
+	def modechange(self):
+		if(self.mode == 0):
+			self.LED.resize(80, 80)
+			self.LED.setStyleSheet("border: 1px solid black; background-color: green; border-radius: 40px;")
+			self.LED.setText('       Armed         ')
+			self.stopUSB = 0
+			if(self.disableUSB == 0):
+				self.USB.writeUSB(NMEA.Encode("ARMED","1"))
+			self.mode = 1
+
+		elif(self.mode == 1):
+			self.LED.resize(80, 80)
+			self.LED.setStyleSheet("border: 1px solid black; background-color: red; border-radius: 40px;")
+			self.LED.setText('        Idle         ')
+			if(self.disableUSB == 0):
+				self.USB.writeUSB(NMEA.Encode("IDLE","0"))
+			self.stopUSB = 1
+			self.mode = 0
+
+
 
 	def tab4buttonpressed(self):
 		webbrowser.open('https://docs.google.com/forms/d/e/1FAIpQLSfV1I_m_XHpySkWWFHY50TkHchBT7OENFbcBqAayC7Oqqf6HQ/formResponse')	
@@ -293,11 +396,6 @@ class MyTableWidget(QWidget):
 		webbrowser.open('https://www.ngdc.noaa.gov/geomag/WMM/')
 
 
-	# def USBbuttonpressed(self):		
-	# 	# self.test = self.USB.read()
-	# 	self.USB.writeUSB(str(self.x))
-	# 	# l = len("hi")
-	# 	print("Received: " + str(self.USB.readUSB())) # receive the echo
 
 
 
@@ -321,7 +419,7 @@ class MyTableWidget(QWidget):
 		self.tab1.no.addWidget(self.calLabel)
 		self.tab1.I = QHBoxLayout()
 	
-		self.ILabel = QLabel('Current Sensor Readouts',self)
+		self.ILabel = QLabel('Current Sensor Readouts (Amps)',self)
 		self.ILabel.setFont(QFont('Arial', 20))
 		self.tab1.I.addWidget(self.ILabel)
 
@@ -347,7 +445,7 @@ class MyTableWidget(QWidget):
 		self.tab1.hlayout1c = QHBoxLayout()
 		self.XILabel = QLabel('X:',self)
 		self.tab1.hlayout1c.addWidget(self.XILabel)
-		self.XIreadout = QLabel('%d Amps'% 0,self)
+		self.XIreadout = QLabel('%d'% 0,self)
 		self.tab1.hlayout1c.addWidget(self.XIreadout)
 		self.tab1.hlayout1c.addStretch(2)
 
@@ -372,7 +470,7 @@ class MyTableWidget(QWidget):
 		self.tab1.hlayout2c = QHBoxLayout()
 		self.YILabel = QLabel('Y:',self)
 		self.tab1.hlayout2c.addWidget(self.YILabel)
-		self.YIreadout = QLabel('%d Amps'% 0,self)
+		self.YIreadout = QLabel('%d'% 0,self)
 		self.tab1.hlayout2c.addWidget(self.YIreadout)
 		self.tab1.hlayout2c.addStretch(2)		
 
@@ -398,7 +496,7 @@ class MyTableWidget(QWidget):
 		self.tab1.hlayout3c = QHBoxLayout()
 		self.ZILabel = QLabel('Z:',self)
 		self.tab1.hlayout3c.addWidget(self.ZILabel)
-		self.ZIreadout = QLabel('%d Amps'% 0,self)
+		self.ZIreadout = QLabel('%d'% 0,self)
 		self.tab1.hlayout3c.addWidget(self.ZIreadout)
 		self.tab1.hlayout3c.addStretch(2)	
 
@@ -423,12 +521,38 @@ class MyTableWidget(QWidget):
 		self.tab1.credits2.addStretch(2)
 
 
-		#close app button
-		self.tab1.close = QHBoxLayout()
-		self.exitbutton = QPushButton('Click this to exit the UI',self)
-		self.exitbutton.clicked.connect(self.exitpressed)
-		self.tab1.close.addWidget(self.exitbutton)
-		self.tab1.close.addStretch(2)
+		#3HC mode button
+		self.tab1.mode = QHBoxLayout()
+		self.mbut = QPushButton('3HC mode',self)
+		self.LED = QLabel()
+		if(self.mode == 1):
+			# self.LED.resize(80, 80)
+			self.LED.resize(80, 80)
+			self.LED.setStyleSheet("border: 1px solid black; background-color: green; border-radius: 40px;")
+			self.LED.setText('       Armed         ')
+			self.stopUSB = 0
+			# if(self.disableUSB == 0):
+			# 	self.USB.writeUSB(NMEA.Encode("ARMED","1"))
+
+			
+		else:
+			# self.LED.resize(80, 80)
+			self.LED.resize(80, 80)
+			self.LED.setStyleSheet("border: 1px solid black; background-color: red; border-radius: 40px;")
+			self.LED.setText('        Idle         ')
+			self.stopUSB = 1
+
+			# if(self.disableUSB == 0):
+			# 	self.USB.writeUSB(NMEA.Encode("IDLE","0"))
+
+
+
+			# self.LED.resize(80, 80)
+			# self.LED.setStyleSheet("border: 3px solid red;border-radius:40px")
+		self.mbut.clicked.connect(self.modechange)
+		self.tab1.mode.addWidget(self.mbut)
+		self.tab1.mode.addWidget(self.LED)
+		self.tab1.mode.addStretch(2)
 
 
 		#vertically arranges hboxes
@@ -459,42 +583,48 @@ class MyTableWidget(QWidget):
 		self.tab1.vlayout.addStretch(1)
 
 		#exit button
-		self.tab1.vlayout.addLayout(self.tab1.close)
+		self.tab1.vlayout.addLayout(self.tab1.mode)
 		self.tab1.vlayout.addStretch(1)
 
 		#credits
 		self.tab1.vlayout.addLayout(self.tab1.credits)
 		self.tab1.vlayout.addLayout(self.tab1.credits2)
 		self.tab1.vlayout.addStretch(1)
-
-
-
-
-
-		
-
 		self.tab1.setLayout(self.tab1.vlayout)
 
 
 
 	#Tab 2: HHC plotting (pH)
-	def tab2UI(self):
-		pass
-	
+	# def tab2UI(self):
+	# 	self.tab2.vlayout = QVBoxLayout()
+	# 	self.sc = MplCanvas(self, width=5, height=4, dpi=100)
+	# 	# self.sc.axes.plot([0,1,2,3,4,5,6,7,8,9], self.XL)
+
+	# 	self.sc2 = MplCanvas(self, width=5, height=4, dpi=100)
+	# 	# self.sc2.axes.plot([0,1,2,3,4,5,6,7,8,9], self.YL)
+
+	# 	self.sc3 = MplCanvas(self, width=5, height=4, dpi=100)
+	# 	# self.sc3.axes.plot([0,1,2,3,4,5,6,7,8,9], self.ZL)
+	# 	# self.tab2.setCentralWidget(self.sc)
+	# 	self.tab2.vlayout.addWidget(self.sc)
+	# 	self.tab2.vlayout.addWidget(self.sc2)	
+
+	# 	self.tab2.vlayout.addWidget(self.sc3)	
+
+	# 	# self.tab2.vlayout.addLayout(self.sc)
+	# 	self.tab2.setLayout(self.tab2.vlayout)
 
 
-	
 
 
 	#tab3: SVS control interface (pH)
-	def tab3UI(self):
+	def tab2UI(self):
 		pass
 
 
 	#tab4: SOP/User Manual and Useful Links
-	def tab4UI(self):
-		self.tab4.vlayout = QVBoxLayout()
-
+	def tab3UI(self):
+		self.tab3.vlayout = QVBoxLayout()
 		self.SOPLabel = QLabel('Click the following link to view the SOP and User manual',self)
 		self.SOPLabel.setAlignment(Qt.AlignCenter)
 		self.button = QPushButton('HHC SOP and User Manual',self)
@@ -506,36 +636,21 @@ class MyTableWidget(QWidget):
 		self.WMMLabel = QLabel('World Magnetic Model Website',self)
 		self.WMMLabel.setAlignment(Qt.AlignCenter)
 		self.WMMbutton = QPushButton('World Magnetic Model (WMM)',self)
-
-
-		# self.Label = QLabel('USB test',self)
-		# self.Label.setAlignment(Qt.AlignCenter)
-		# self.USBbutton = QPushButton('USB test',self)
-
-
-
-
 		self.button.clicked.connect(self.tab4buttonpressed)
 		self.HHCbutton.clicked.connect(self.HHCbuttonpressed)
 		self.WMMbutton.clicked.connect(self.WMMbuttonpressed)
 		# self.USBbutton.clicked.connect(self.USBbuttonpressed)
 
-
-
-
-
-
-
-		self.tab4.vlayout.addWidget(self.SOPLabel)
-		self.tab4.vlayout.addWidget(self.button)
-		self.tab4.vlayout.addWidget(self.HHCLabel)
-		self.tab4.vlayout.addWidget(self.HHCbutton)
-		self.tab4.vlayout.addWidget(self.WMMLabel)
-		self.tab4.vlayout.addWidget(self.WMMbutton)
+		self.tab3.vlayout.addWidget(self.SOPLabel)
+		self.tab3.vlayout.addWidget(self.button)
+		self.tab3.vlayout.addWidget(self.HHCLabel)
+		self.tab3.vlayout.addWidget(self.HHCbutton)
+		self.tab3.vlayout.addWidget(self.WMMLabel)
+		self.tab3.vlayout.addWidget(self.WMMbutton)
 		# self.tab4.vlayout.addWidget(self.Label)
 		# self.tab4.vlayout.addWidget(self.USBbutton)
-		self.tab4.vlayout.addStretch(2)
-		self.tab4.setLayout(self.tab4.vlayout)
+		self.tab3.vlayout.addStretch(2)
+		self.tab3.setLayout(self.tab3.vlayout)
 
 
 

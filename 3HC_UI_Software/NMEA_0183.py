@@ -41,11 +41,16 @@ def Decode(string):
 	# print("Before:",string)
 	msg = re.split('[$ , * \n]',string)
 	#trims some leading and trailing $ and \n 
+	# print("BeforeTrim:",msg)
+	# if(len(msg) == 0):
+	# 	msg = ["ERR"]
+	# 	return msg	
+	msg.pop(0)
+	msg.pop(-1)
 	# print("AfterTrim:",msg)
-	# msgid.pop(-1)
-	msgid = msg[1]
-	payload = msg[2]
-	chk = int(msg[-2],16)
+	msgid = msg[0]
+	payload = msg[1]
+	chk = int(msg[-1],16)
 
 
 	#checksum comparison determines if the message is valid or not
@@ -53,9 +58,9 @@ def Decode(string):
 	# print(Checksum(str(msgid) + ',' + str(payload)))
 	if(chk != Checksum(str(msgid) + ',' + str(payload))):
 		# print("Checksum error, expected checksum did not match received checksum\n")
-		msg = ["ERR", 0, 0]
+		msg = ["ERR"]
 		return msg	
-	return msg[1:3]
+	return msg
 
 
 
