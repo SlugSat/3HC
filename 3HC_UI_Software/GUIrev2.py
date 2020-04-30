@@ -29,12 +29,12 @@ import webbrowser
 import NMEA_0183 as NMEA
 
 
-class MplCanvas(FigureCanvasQTAgg):
+# class MplCanvas(FigureCanvasQTAgg):
 
-	def __init__(self, parent=None, width=5, height=4, dpi=100):
-		fig = Figure(figsize=(width, height), dpi=dpi)
-		self.axes = fig.add_subplot(111)
-		super(MplCanvas, self).__init__(fig)
+# 	def __init__(self, parent=None, width=5, height=4, dpi=100):
+# 		fig = Figure(figsize=(width, height), dpi=dpi)
+# 		self.axes = fig.add_subplot(111)
+# 		super(MplCanvas, self).__init__(fig)
 
 class App(QMainWindow):
 	def __init__(self):
@@ -61,7 +61,7 @@ class MyTableWidget(QWidget):
 		self.tab3 = QWidget()
 		# self.tab4 = QWidget()
 		# self.tabs.resize(400,400)
-
+		self.USB = None
 
 		#variables-----------------------------------------------
 		self.x = 0
@@ -104,11 +104,11 @@ class MyTableWidget(QWidget):
 		self.test = 0
 		#make this 1 to stop USB with changing mode
 		self.disableUSB = 0
-		self.mode = not(self.disableUSB)
+		self.mode = 0
 		#this changes when system is changed from ARMED to IDLE
 		#1 = AMRED, 0 = IDLE
 
-		self.stopUSB = 0
+		self.stopUSB = 1
 
 		#end of variable declarations-----------------------------
 
@@ -159,7 +159,7 @@ class MyTableWidget(QWidget):
 			if self.USB.verify() == True:
 				print("USB connection verified")
 			self.USB.writeUSB("\n")
-			# self.USB.writeUSB(NMEA.Encode("ARMED","1"))
+			self.USB.writeUSB(NMEA.Encode("ARMED","1"))
 
 
 
@@ -369,6 +369,8 @@ class MyTableWidget(QWidget):
 			self.LED.setStyleSheet("border: 1px solid black; background-color: green; border-radius: 40px;")
 			self.LED.setText('       Armed         ')
 			self.stopUSB = 0
+			if(self.USB == None):
+				self.USB = USBprimary()
 			if(self.disableUSB == 0):
 				self.USB.writeUSB(NMEA.Encode("ARMED","1"))
 			self.mode = 1
