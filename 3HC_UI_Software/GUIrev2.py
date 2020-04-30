@@ -1,6 +1,6 @@
 # /* ========================================
 #  * FILE:   GUIrev2.py
-#  * AUTHOR: Nick Jannuzzi
+#  * AUTHOR: Nick Jannuzzi/Caleb Cotter
 #  *
 #  * CREATED ON March 30, 2020, 5:07 PM
 #  *
@@ -75,12 +75,13 @@ class MyTableWidget(QWidget):
 		self.ZSET = 0.0
 
 
+		#magnetometer data and arrays
 		self.XMAG = 0
 		self.YMAG = 0
 		self.ZMAG = 0
-		self.XL = [0,0,0,0,0,0,0,0,0,0]
-		self.YL = [0,0,0,0,0,0,0,0,0,0]
-		self.ZL = [0,0,0,0,0,0,0,0,0,0]
+		# self.XL = [0,0,0,0,0,0,0,0,0,0]
+		# self.YL = [0,0,0,0,0,0,0,0,0,0]
+		# self.ZL = [0,0,0,0,0,0,0,0,0,0]
 
 
 
@@ -104,11 +105,13 @@ class MyTableWidget(QWidget):
 		self.test = 0
 		#make this 1 to stop USB with changing mode
 		self.disableUSB = 0
-		self.mode = 0
+		self.mode = 1
 		#this changes when system is changed from ARMED to IDLE
 		#1 = AMRED, 0 = IDLE
 
-		self.stopUSB = 1
+
+		#self.mode should always be !self.stopUSB
+		self.stopUSB = 0
 
 		#end of variable declarations-----------------------------
 
@@ -153,11 +156,11 @@ class MyTableWidget(QWidget):
 
 
 		# init USB
-		if(self.disableUSB == 0 and self.stopUSB == 0):
-			self.USB = USBprimary()
+		self.USB = USBprimary()
 			#check if USb is connected
-			if self.USB.verify() == True:
-				print("USB connection verified")
+		if self.USB.verify() == True:
+			print("USB connection verified")
+		if(self.disableUSB == 0 and self.stopUSB == 0):
 			self.USB.writeUSB("\n")
 			self.USB.writeUSB(NMEA.Encode("ARMED","1"))
 
@@ -321,7 +324,7 @@ class MyTableWidget(QWidget):
 
 	#updates the null offset values
 	def updatenulloffsets(self):
-		if(self.disableUSB == 0 and self.stopUSB == 0):
+		if(self.disableUSB == 0 and self.mode == 1):
 			self.USB.writeUSB(NMEA.Encode('READ',"XNULL"))
 			NNMEA = NMEA.Decode(self.USB.readUSB())
 			self.Process_NMEA(NNMEA)
@@ -340,7 +343,7 @@ class MyTableWidget(QWidget):
 
 
 	def updateIread(self):
-		if(self.disableUSB == 0 and self.stopUSB == 0):
+		if(self.disableUSB == 0 and self.mode == 1):
 			self.USB.writeUSB(NMEA.Encode('READ',"XCUR"))
 			CNMEA = NMEA.Decode(self.USB.readUSB())
 			self.Process_NMEA(CNMEA)
@@ -369,10 +372,13 @@ class MyTableWidget(QWidget):
 			self.LED.setStyleSheet("border: 1px solid black; background-color: green; border-radius: 40px;")
 			self.LED.setText('       Armed         ')
 			self.stopUSB = 0
-			if(self.USB == None):
-				self.USB = USBprimary()
 			if(self.disableUSB == 0):
-				self.USB.writeUSB(NMEA.Encode("ARMED","1"))
+				if(self.USB == None):
+					self.USB = USBprimary()
+					self.USB.writeUSB(NMEA.Encode("ARMED","1"))
+
+				if(self.USB == 1):
+					self.USB.writeUSB(NMEA.Encode("ARMED","1"))
 			self.mode = 1
 
 		elif(self.mode == 1):
