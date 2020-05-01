@@ -104,8 +104,8 @@ class MyTableWidget(QWidget):
 		#other
 		self.test = 0
 		#make this 1 to stop USB with changing mode
-		self.disableUSB = 0
-		self.mode = 1
+		self.disableUSB = 1
+		self.mode = 0
 		#this changes when system is changed from ARMED to IDLE
 		#1 = AMRED, 0 = IDLE
 
@@ -156,13 +156,18 @@ class MyTableWidget(QWidget):
 
 
 		# init USB
-		self.USB = USBprimary()
+		if(self.disableUSB == 0):
+			self.USB = USBprimary()
 			#check if USb is connected
-		if self.USB.verify() == True:
-			print("USB connection verified")
-		if(self.disableUSB == 0 and self.stopUSB == 0):
+			if(self.USB.verify() == True):
+				print("USB connection verified")
+		if(self.disableUSB == 0 and mode == 1):
 			self.USB.writeUSB("\n")
 			self.USB.writeUSB(NMEA.Encode("ARMED","1"))
+		if(self.disableUSB == 0 and mode == 0):
+			self.USB.writeUSB("\n")
+			self.USB.writeUSB(NMEA.Encode("IDLE","0"))
+
 
 
 
