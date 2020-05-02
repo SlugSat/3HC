@@ -50,7 +50,7 @@ class USBprimary:
 
 	#read IN endpoint from device and processes it so we 
 	def readUSB(self):
-		wrapped = self.IN.read(64, 10000).tobytes().decode()
+		wrapped = self.IN.read(64,1000).tobytes().decode()
 		print("Received:" +str(wrapped))
 		return wrapped
 		
@@ -58,7 +58,7 @@ class USBprimary:
 
 	def writeUSB(self,writing):	
 		print("Sent: "+str(writing))
-		self.OUT.write(writing) # send it
+		self.OUT.write(writing,1000) # send it
 
 	#terminate USB	
 	def EndUSB(self):
@@ -108,7 +108,7 @@ class USBsecondary:
 	#read IN endpoint from device and processes it so we 
 	def readUSB(self):
 		wrapped = self.IN.read(64, 10000).tobytes().decode()
-		print(wrapped)
+		# print(wrapped)
 		return wrapped
 		
 

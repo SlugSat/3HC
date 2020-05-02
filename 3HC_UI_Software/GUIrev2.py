@@ -104,7 +104,7 @@ class MyTableWidget(QWidget):
 		#other
 		self.test = 0
 		#make this 1 to stop USB with changing mode
-		self.disableUSB = 1
+		self.disableUSB = 0
 		self.mode = 0
 		#this changes when system is changed from ARMED to IDLE
 		#1 = AMRED, 0 = IDLE
@@ -125,16 +125,16 @@ class MyTableWidget(QWidget):
 
 		#Qtimers for periodic value updating
 		#update null offset timer
-		self.NullTimer = QTimer()
-		self.NullTimer.setInterval(70)
-		self.NullTimer.timeout.connect(self.updatenulloffsets)
+		self.DataTimer = QTimer()
+		self.DataTimer.setInterval(100)
+		self.DataTimer.timeout.connect(self.pulldata)
 		
 
 
 		#update current sensors' readings timer
-		self.ITimer = QTimer()
-		self.ITimer.setInterval(70)
-		self.ITimer.timeout.connect(self.updateIread)
+		# self.ITimer = QTimer()
+		# self.ITimer.setInterval(100)
+		# self.ITimer.timeout.connect(self.updateIread)
 		
 
 
@@ -143,8 +143,8 @@ class MyTableWidget(QWidget):
 		# self.PlotTimer.setInterval(200)
 		# self.PlotTimer.timeout.connect(self.updateFieldVectorArrays)
 		
-		self.NullTimer.start()
-		self.ITimer.start()	
+		self.DataTimer.start()
+		# self.ITimer.start()	
 		# self.PlotTimer.start()
 		self.tabs.addTab(self.tab1,"HHC")
 		# self.tabs.addTab(self.tab2,"HHC Field Vector Graphs")
@@ -161,10 +161,10 @@ class MyTableWidget(QWidget):
 			#check if USb is connected
 			if(self.USB.verify() == True):
 				print("USB connection verified")
-		if(self.disableUSB == 0 and mode == 1):
+		if(self.disableUSB == 0 and self.mode == 1):
 			self.USB.writeUSB("\n")
 			self.USB.writeUSB(NMEA.Encode("ARMED","1"))
-		if(self.disableUSB == 0 and mode == 0):
+		if(self.disableUSB == 0 and self.mode == 0):
 			self.USB.writeUSB("\n")
 			self.USB.writeUSB(NMEA.Encode("IDLE","0"))
 
@@ -181,49 +181,60 @@ class MyTableWidget(QWidget):
 		# if(ID == 'ERR'):
 		# 	pass
 		if(ID == "XCUR"):
-			self.XCUR = float("%.5g" % float(Payload))
-			pass
+			self.XCUR = float("%.3g" % float(Payload))
+			self.XIreadout.setText(str(self.XCUR))
+
 		if(ID == "YCUR"):
-			self.YCUR = float("%.5g" % float(Payload))
-			pass
+			self.YCUR = float("%.3g" % float(Payload))
+			self.YIreadout.setText(str(self.YCUR))
+
 		if(ID == "ZCUR"):	
-			self.ZCUR = float("%.5g" % float(Payload))
-			pass
+			self.ZCUR = float("%.3g" % float(Payload))
+			self.ZIreadout.setText(str(self.ZCUR))	
+
 		if(ID == "XMAG"):
 			self.XMAG = float("%.1g" % float(Payload))
-			pass
+
 		if(ID == "YMAG"):
 			self.YMAG = float("%.1g" % float(Payload))
-			pass
+
 		if(ID == "ZMAG"):
 			self.ZMAG = float("%.1g" % float(Payload))
-			pass
+
 		if(ID == "XSET"):
 			self.XSET = float("%.3g" % float(Payload))
-			pass
+			print("X:" + Payload)
+
 		if(ID == "YSET"):
 			self.YSET = float("%.3g" % float(Payload))
-			pass
+			print("Y:" + Payload)
+		
+
 		if(ID == "ZSET"):
 			self.ZSET = float("%.3g" % float(Payload))
-			pass
+			print("Z:" + Payload)
+
 		if(ID == 'XNULL'):
 			self.XNOFF = float("%.1g" % float(Payload))
-			pass
+			self.XNULLreadout.setText('%s' % self.XNOFF)
+
 		
 		if(ID =='YNULL'):
 			self.YNOFF = float("%.1g" % float(Payload))
-			pass
+			self.YNULLreadout.setText('%s' % self.YNOFF)
+
+
 
 		if(ID =='ZNULL'):		
 			self.ZNOFF = float("%.1g" % float(Payload))
-			pass				
-		if(ID == "FAULT"):
-			self.WTF = QMessageBox()
-			self.WTF.setWindowTitle("HHC Fault Detected")
-			self.WTF.setIcon(QMessageBox.Warning)
-			self.WTF.setText("HHC Fault Occurred: PH")
-			self.WTF.exec_()
+			self.ZNULLreadout.setText('%s' % self.ZNOFF)	
+				
+		# if(ID == "FAULT"):
+		# 	self.WTF = QMessageBox()
+		# 	self.WTF.setWindowTitle("HHC Fault Detected")
+		# 	self.WTF.setIcon(QMessageBox.Warning)
+		# 	self.WTF.setText("HHC Fault Occurred: PH")
+		# 	self.WTF.exec_()
 
 
 	def SetpointsEntered(self):
@@ -271,6 +282,15 @@ class MyTableWidget(QWidget):
 			else:	
 				self.zflag = True
 
+		#invalid input popup		
+		if(self.xflag or self.yflag or self.zflag):
+			SPInvalid = QMessageBox()
+			SPInvalid.setText('Invalid input(s) for one or more axis setpoints; valid range is -200 to 200 with 3 decimal place maximum precision for each setpoint')
+			self.xflag = False
+			self.yflag = False
+			self.zflag = False
+			SPInvalid.exec_()
+
 		#encodes NMEA messages
 		self.XSETE = NMEA.Encode('SETX',str(self.XSET))
 		self.YSETE = NMEA.Encode('SETY',str(self.YSET))
@@ -283,71 +303,13 @@ class MyTableWidget(QWidget):
 		if(self.disableUSB == 0 and self.stopUSB == 1):
 			self.USB.writeUSB(self.XSETE)	
 			self.USB.writeUSB(self.YSETE)	
-			self.USB.writeUSB(self.ZSETE)	
-			# self.USB.writeUSB(NMEA.Encode("READ","FAULT"))
-		
-		# pg.plot([self.XSP],[self.YSP])		
-			#invalid input popup
-		if(self.xflag or self.yflag or self.zflag):
-			SPInvalid = QMessageBox()
-			SPInvalid.setText('Invalid input(s) for one or more axis setpoints; valid range is -200 to 200 with 3 decimal place maximum precision for each setpoint')
-			self.xflag = False
-			self.yflag = False
-			self.zflag = False
-			SPInvalid.exec_()	
+			self.USB.writeUSB(self.ZSETE)		
+	
+	
 
 
-	# def updateFieldVectorArrays(self):
-	# 	self.XL.append(self.XCUR)
-	# 	self.YL.append(self.YCUR)
-	# 	self.ZL.append(self.ZCUR)
-	# 	if(len(self.XL) > 10):
-	# 		self.XL.pop(0)
-	# 	if(len(self.YL) > 10):
-	# 		self.YL.pop(0)
-	# 	if(len(self.ZL) > 10):
-	# 		self.ZL.pop(0)	
-	# 	# print("X"+str(self.XL))
-	# 	# print("Y"+str(self.YL))	
-	# 	# print("Z"+str(self.ZL))	
-	# 	# self.sc.cla()
-	# 	# plt.cla(self.sc2)
-	# 	# plt.cla(self.sc3)
 
-
-	# 	self.sc.axes.plot([0,1,2,3,4,5,6,7,8,9], self.XL)
-	# 	self.sc2.axes.plot([0,1,2,3,4,5,6,7,8,9], self.YL)
-	# 	self.sc3.axes.plot([0,1,2,3,4,5,6,7,8,9], self.ZL)
-	# 	# self.tab2.vlayout.addWidget(self.sc)
-	# 	# self.tab2.vlayout.addWidget(self.sc2)	
-
-	# 	# self.tab2.vlayout.addWidget(self.sc3)	
-
-			
-
-		
-
-	#updates the null offset values
-	def updatenulloffsets(self):
-		if(self.disableUSB == 0 and self.mode == 1):
-			self.USB.writeUSB(NMEA.Encode('READ',"XNULL"))
-			NNMEA = NMEA.Decode(self.USB.readUSB())
-			self.Process_NMEA(NNMEA)
-
-
-			self.USB.writeUSB(NMEA.Encode('READ',"YNULL"))
-			NNMEA2 = NMEA.Decode(self.USB.readUSB())
-			self.Process_NMEA(NNMEA2)
-
-			self.USB.writeUSB(NMEA.Encode('READ',"ZNULL"))
-			NNMEA3 = NMEA.Decode(self.USB.readUSB())
-			self.Process_NMEA(NNMEA3)
-		self.XNULLreadout.setText('%s' % self.XNOFF)
-		self.YNULLreadout.setText('%s' % self.YNOFF)
-		self.ZNULLreadout.setText('%s' % self.ZNOFF)	
-
-
-	def updateIread(self):
+	def pulldata(self):
 		if(self.disableUSB == 0 and self.mode == 1):
 			self.USB.writeUSB(NMEA.Encode('READ',"XCUR"))
 			CNMEA = NMEA.Decode(self.USB.readUSB())
@@ -361,29 +323,40 @@ class MyTableWidget(QWidget):
 			self.USB.writeUSB(NMEA.Encode('READ',"ZCUR"))
 			CNMEA3 = NMEA.Decode(self.USB.readUSB())
 			self.Process_NMEA(CNMEA3)
-		self.XIreadout.setText(str(self.XCUR))
-		self.YIreadout.setText(str(self.YCUR))
-		self.ZIreadout.setText(str(self.ZCUR))	
+
+			self.USB.writeUSB(NMEA.Encode('READ',"XNULL"))
+			NNMEA = NMEA.Decode(self.USB.readUSB())
+			self.Process_NMEA(NNMEA)
 
 
-	def exitpressed(self):
-		if(self.disable == 0):
-			self.USB.writeUSB("$RST,*FF\n")
-			self.close()		
+			self.USB.writeUSB(NMEA.Encode('READ',"YNULL"))
+			NNMEA2 = NMEA.Decode(self.USB.readUSB())
+			self.Process_NMEA(NNMEA2)
+
+			self.USB.writeUSB(NMEA.Encode('READ',"ZNULL"))
+			NNMEA3 = NMEA.Decode(self.USB.readUSB())
+			self.Process_NMEA(NNMEA3)
+
+
+
+	# def exitpressed(self):
+	# 	if(self.disable == 0):
+	# 		self.USB.writeUSB("$RST,*FF\n")
+	# 		self.close()		
 
 	def modechange(self):
 		if(self.mode == 0):
 			self.LED.resize(80, 80)
 			self.LED.setStyleSheet("border: 1px solid black; background-color: green; border-radius: 40px;")
 			self.LED.setText('       Armed         ')
-			self.stopUSB = 0
 			if(self.disableUSB == 0):
-				if(self.USB == None):
+				if(self.USB.verify() == False):
 					self.USB = USBprimary()
 					self.USB.writeUSB(NMEA.Encode("ARMED","1"))
 
-				if(self.USB == 1):
+				elif(self.USB.verify() == True):
 					self.USB.writeUSB(NMEA.Encode("ARMED","1"))
+			self.stopUSB = 0
 			self.mode = 1
 
 		elif(self.mode == 1):
@@ -440,7 +413,7 @@ class MyTableWidget(QWidget):
 		#X Setpoint
 		self.tab1.hlayout = QHBoxLayout()
 		self.XSPoint =  QLineEdit(self)
-		self.XSPoint.setValidator(QDoubleValidator(-200.0, 200.0, 3))
+		self.XSPoint.setValidator(QDoubleValidator(-4096.0, 4096.0, 3))
 		self.tab1.hlayout.addWidget(self.XSPoint)
 		self.XS = QLabel('X Setpoint (Current Value: %d)' % self.XSET,self)
 		self.tab1.hlayout.addWidget(self.XS)
@@ -465,7 +438,7 @@ class MyTableWidget(QWidget):
 		#Y Setpoint
 		self.tab1.hlayout2 = QHBoxLayout()
 		self.YSPoint =  QLineEdit(self)
-		self.YSPoint.setValidator(QDoubleValidator(-200.0, 200.0, 3))
+		self.YSPoint.setValidator(QDoubleValidator(-4096.0, 4096.0, 3))
 		self.tab1.hlayout2.addWidget(self.YSPoint)
 		self.YS = QLabel('Y Setpoint (Current Value: %d)' % self.YSET,self)
 		self.tab1.hlayout2.addWidget(self.YS)
@@ -491,7 +464,7 @@ class MyTableWidget(QWidget):
 		#Z Setpoint
 		self.tab1.hlayout3 = QHBoxLayout()
 		self.ZSPoint =  QLineEdit(self)
-		self.ZSPoint.setValidator(QDoubleValidator(-200.0, 200.0, 3))
+		self.ZSPoint.setValidator(QDoubleValidator(-4096.0, 4096.0, 3))
 		self.tab1.hlayout3.addWidget(self.ZSPoint)
 		self.ZS = QLabel('Z Setpoint (Current Value: %d)' % self.ZSET,self)
 		self.tab1.hlayout3.addWidget(self.ZS)
