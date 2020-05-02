@@ -22,21 +22,12 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from USB import * 
-# from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg
-# from matplotlib.figure import Figure
-# import matplotlib.pyplot as plt
 import webbrowser
 import NMEA_0183 as NMEA
 
 
-# class MplCanvas(FigureCanvasQTAgg):
-
-# 	def __init__(self, parent=None, width=5, height=4, dpi=100):
-# 		fig = Figure(figsize=(width, height), dpi=dpi)
-# 		self.axes = fig.add_subplot(111)
-# 		super(MplCanvas, self).__init__(fig)
-
 class App(QMainWindow):
+	#init function setsup the whole thing
 	def __init__(self):
 		super().__init__()
 		self.title = "SlugSat 3-Axis HHC/SVS Control Interface Rev. 2"
@@ -46,9 +37,6 @@ class App(QMainWindow):
 		self.setCentralWidget(self.table_widget)
 		self.show()
 
-
-
-		
 
 class MyTableWidget(QWidget):
     
@@ -61,7 +49,7 @@ class MyTableWidget(QWidget):
 		self.tab3 = QWidget()
 		# self.tab4 = QWidget()
 		# self.tabs.resize(400,400)
-		self.USB = None
+		# self.USB = None
 
 		#variables-----------------------------------------------
 		self.x = 0
@@ -104,14 +92,12 @@ class MyTableWidget(QWidget):
 		#other
 		self.test = 0
 		#make this 1 to stop USB with changing mode
-		self.disableUSB = 0
+		self.disableUSB = 1
 		self.mode = 0
 		#this changes when system is changed from ARMED to IDLE
 		#1 = AMRED, 0 = IDLE
 
 
-		#self.mode should always be !self.stopUSB
-		self.stopUSB = 0
 
 		#end of variable declarations-----------------------------
 
@@ -124,26 +110,14 @@ class MyTableWidget(QWidget):
 
 
 		#Qtimers for periodic value updating
-		#update null offset timer
+		#timer pulls data on 1/10 second interval
 		self.DataTimer = QTimer()
 		self.DataTimer.setInterval(100)
 		self.DataTimer.timeout.connect(self.pulldata)
 		
 
-
-		#update current sensors' readings timer
-		# self.ITimer = QTimer()
-		# self.ITimer.setInterval(100)
-		# self.ITimer.timeout.connect(self.updateIread)
-		
-
-
-
-		# self.PlotTimer = QTimer()
-		# self.PlotTimer.setInterval(200)
-		# self.PlotTimer.timeout.connect(self.updateFieldVectorArrays)
-		
-		self.DataTimer.start()
+		if(self.disableUSB == 0 and self.mode == 1):
+			self.DataTimer.start()
 		# self.ITimer.start()	
 		# self.PlotTimer.start()
 		self.tabs.addTab(self.tab1,"HHC")
@@ -181,15 +155,15 @@ class MyTableWidget(QWidget):
 		# if(ID == 'ERR'):
 		# 	pass
 		if(ID == "XCUR"):
-			self.XCUR = float("%.3g" % float(Payload))
+			self.XCUR = float("%.4g" % float(Payload))
 			self.XIreadout.setText(str(self.XCUR))
 
 		if(ID == "YCUR"):
-			self.YCUR = float("%.3g" % float(Payload))
+			self.YCUR = float("%.4g" % float(Payload))
 			self.YIreadout.setText(str(self.YCUR))
 
 		if(ID == "ZCUR"):	
-			self.ZCUR = float("%.3g" % float(Payload))
+			self.ZCUR = float("%.4g" % float(Payload))
 			self.ZIreadout.setText(str(self.ZCUR))	
 
 		if(ID == "XMAG"):
@@ -203,16 +177,16 @@ class MyTableWidget(QWidget):
 
 		if(ID == "XSET"):
 			self.XSET = float("%.3g" % float(Payload))
-			print("X:" + Payload)
+			# print("X:" + Payload)
 
 		if(ID == "YSET"):
 			self.YSET = float("%.3g" % float(Payload))
-			print("Y:" + Payload)
+			# print("Y:" + Payload)
 		
 
 		if(ID == "ZSET"):
 			self.ZSET = float("%.3g" % float(Payload))
-			print("Z:" + Payload)
+			# print("Z:" + Payload)
 
 		if(ID == 'XNULL'):
 			self.XNOFF = float("%.1g" % float(Payload))
@@ -300,7 +274,7 @@ class MyTableWidget(QWidget):
 		# NMEA.Decode(self.XSETE)
 
 		# #send USB messages
-		if(self.disableUSB == 0 and self.stopUSB == 1):
+		if(self.disableUSB == 0 and self.mode == 1):
 			self.USB.writeUSB(self.XSETE)	
 			self.USB.writeUSB(self.YSETE)	
 			self.USB.writeUSB(self.ZSETE)		
@@ -338,12 +312,6 @@ class MyTableWidget(QWidget):
 			self.Process_NMEA(NNMEA3)
 
 
-
-	# def exitpressed(self):
-	# 	if(self.disable == 0):
-	# 		self.USB.writeUSB("$RST,*FF\n")
-	# 		self.close()		
-
 	def modechange(self):
 		if(self.mode == 0):
 			self.LED.resize(80, 80)
@@ -356,8 +324,9 @@ class MyTableWidget(QWidget):
 
 				elif(self.USB.verify() == True):
 					self.USB.writeUSB(NMEA.Encode("ARMED","1"))
-			self.stopUSB = 0
+				self.DataTimer.start()
 			self.mode = 1
+
 
 		elif(self.mode == 1):
 			self.LED.resize(80, 80)
@@ -365,8 +334,9 @@ class MyTableWidget(QWidget):
 			self.LED.setText('        Idle         ')
 			if(self.disableUSB == 0):
 				self.USB.writeUSB(NMEA.Encode("IDLE","0"))
-			self.stopUSB = 1
+				self.DataTimer.stop()
 			self.mode = 0
+
 
 
 
@@ -413,7 +383,7 @@ class MyTableWidget(QWidget):
 		#X Setpoint
 		self.tab1.hlayout = QHBoxLayout()
 		self.XSPoint =  QLineEdit(self)
-		self.XSPoint.setValidator(QDoubleValidator(-4096.0, 4096.0, 3))
+		self.XSPoint.setValidator(QDoubleValidator(-200.0, 200.0, 3))
 		self.tab1.hlayout.addWidget(self.XSPoint)
 		self.XS = QLabel('X Setpoint (Current Value: %d)' % self.XSET,self)
 		self.tab1.hlayout.addWidget(self.XS)
@@ -438,7 +408,7 @@ class MyTableWidget(QWidget):
 		#Y Setpoint
 		self.tab1.hlayout2 = QHBoxLayout()
 		self.YSPoint =  QLineEdit(self)
-		self.YSPoint.setValidator(QDoubleValidator(-4096.0, 4096.0, 3))
+		self.YSPoint.setValidator(QDoubleValidator(-200.0, 200.0, 3))
 		self.tab1.hlayout2.addWidget(self.YSPoint)
 		self.YS = QLabel('Y Setpoint (Current Value: %d)' % self.YSET,self)
 		self.tab1.hlayout2.addWidget(self.YS)
@@ -464,7 +434,7 @@ class MyTableWidget(QWidget):
 		#Z Setpoint
 		self.tab1.hlayout3 = QHBoxLayout()
 		self.ZSPoint =  QLineEdit(self)
-		self.ZSPoint.setValidator(QDoubleValidator(-4096.0, 4096.0, 3))
+		self.ZSPoint.setValidator(QDoubleValidator(-200.0, 200.0, 3))
 		self.tab1.hlayout3.addWidget(self.ZSPoint)
 		self.ZS = QLabel('Z Setpoint (Current Value: %d)' % self.ZSET,self)
 		self.tab1.hlayout3.addWidget(self.ZS)
@@ -577,30 +547,6 @@ class MyTableWidget(QWidget):
 		self.tab1.vlayout.addLayout(self.tab1.credits2)
 		self.tab1.vlayout.addStretch(1)
 		self.tab1.setLayout(self.tab1.vlayout)
-
-
-
-	#Tab 2: HHC plotting (pH)
-	# def tab2UI(self):
-	# 	self.tab2.vlayout = QVBoxLayout()
-	# 	self.sc = MplCanvas(self, width=5, height=4, dpi=100)
-	# 	# self.sc.axes.plot([0,1,2,3,4,5,6,7,8,9], self.XL)
-
-	# 	self.sc2 = MplCanvas(self, width=5, height=4, dpi=100)
-	# 	# self.sc2.axes.plot([0,1,2,3,4,5,6,7,8,9], self.YL)
-
-	# 	self.sc3 = MplCanvas(self, width=5, height=4, dpi=100)
-	# 	# self.sc3.axes.plot([0,1,2,3,4,5,6,7,8,9], self.ZL)
-	# 	# self.tab2.setCentralWidget(self.sc)
-	# 	self.tab2.vlayout.addWidget(self.sc)
-	# 	self.tab2.vlayout.addWidget(self.sc2)	
-
-	# 	self.tab2.vlayout.addWidget(self.sc3)	
-
-	# 	# self.tab2.vlayout.addLayout(self.sc)
-	# 	self.tab2.setLayout(self.tab2.vlayout)
-
-
 
 
 	#tab3: SVS control interface (pH)

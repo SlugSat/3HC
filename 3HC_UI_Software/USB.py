@@ -1,3 +1,21 @@
+# /* ========================================
+#  * FILE:   USB.py
+#  * AUTHOR: Nick Jannuzzi
+#  *
+#  * CREATED ON April 5, 2020
+#  *
+#  * ========================================
+#  *
+#  * Copyright SLUGSAT, 2020
+#  * All Rights Reserved
+#  * UNPUBLISHED, LICENSED SOFTWARE.
+#  *
+#  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+#  * WHICH IS THE PROPERTY OF SLUGSAT.
+#  *
+#  * ========================================
+# */
+
 import usb.core
 import usb.util
 import sys
@@ -50,15 +68,15 @@ class USBprimary:
 
 	#read IN endpoint from device and processes it so we 
 	def readUSB(self):
-		wrapped = self.IN.read(64,1000).tobytes().decode()
-		print("Received:" +str(wrapped))
+		wrapped = self.IN.read(64,10000).tobytes().decode()
+		# print("Received:" +str(wrapped))
 		return wrapped
 		
 
 
 	def writeUSB(self,writing):	
-		print("Sent: "+str(writing))
-		self.OUT.write(writing,1000) # send it
+		# print("Sent: "+str(writing))
+		self.OUT.write(writing,10000) # send it
 
 	#terminate USB	
 	def EndUSB(self):
