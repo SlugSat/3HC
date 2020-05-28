@@ -92,7 +92,7 @@ class MyTableWidget(QWidget):
 		#other
 		self.test = 0
 		#make this 1 to stop USB with changing mode
-		self.disableUSB = 1
+		self.disableUSB = 0
 		self.mode = 0
 		#this changes when system is changed from ARMED to IDLE
 		#1 = AMRED, 0 = IDLE
