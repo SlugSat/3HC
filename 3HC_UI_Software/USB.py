@@ -1,25 +1,103 @@
+# /* ========================================
+#  * FILE:   USB.py
+#  * AUTHOR: Nick Jannuzzi
+#  *
+#  * CREATED ON April 5, 2020
+#  *
+#  * ========================================
+#  *
+#  * Copyright SLUGSAT, 2020
+#  * All Rights Reserved
+#  * UNPUBLISHED, LICENSED SOFTWARE.
+#  *
+#  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+#  * WHICH IS THE PROPERTY OF SLUGSAT.
+#  *
+#  * ========================================
+# */
+
 import usb.core
 import usb.util
 import sys
+import array
 #created by Nick Jannuzzi 3/3/20
 		
 
-#implements the USB class for allowing USB transfer
-class USB:
+#implements the USB class for allowing USB transfer (Primary USB connection for usage with HHC and STS)
+class USBprimary:
 	def __init__(self):
-		self.OUT = 0
-		self.IN = 0
+		self.OUT = None
+		self.IN = None
+		self.dev = None
 	#find our device
-		dev = usb.core.find(idVendor = 0x4b4, idProduct=0x80)
-		#EPEEN = endpoints()
-		#found?
-		if dev is None:
-			raise ValueError('Device not found')
+		self.dev = usb.core.find(idVendor = 0x4b4, idProduct=0x80)
+		#check is we found a device
+		if self.dev is None:
+			print("USB Device error: Device 1 not found: It appears the HHC is not connected or turned on. Please plug the power supply in or turn it on if it is already plugged in. ")
+			sys.exit(1)
+			
+		self.dev.set_configuration()
+		cfg = self.dev.get_active_configuration()
+		intf = cfg[(0,0)]
+		epOut = usb.util.find_descriptor(
+			intf, 
+			custom_match = \
+			lambda e: \
+				usb.util.endpoint_direction(e.bEndpointAddress) == \
+		        usb.util.ENDPOINT_OUT)	
+		self.OUT = epOut	
+
+		epIn = usb.util.find_descriptor(
+			intf,
+			custom_match= \
+			lambda e: \
+				usb.util.endpoint_direction(e.bEndpointAddress) == \
+				usb.util.ENDPOINT_IN)
+		self.IN = epIn	
+		#check endpoints, return true if both are found
+		
+
+	#verifies that we connected because and __init__ method cannot return something 	
+	def verify(self):
+
+		if self.IN is not None and self.OUT is not None:
+			return True
+		else: 
+			return False	
 
 
+	#read IN endpoint from device and processes it so we 
+	def readUSB(self):
+		wrapped = self.IN.read(64,10000).tobytes().decode()
+		# print("Received:" +str(wrapped))
+		return wrapped
+		
 
-		dev.set_configuration()
-		cfg = dev.get_active_configuration()
+
+	def writeUSB(self,writing):	
+		# print("Sent: "+str(writing))
+		self.OUT.write(writing,10000) # send it
+
+	#terminate USB	
+	def EndUSB(self):
+		self.IN = None
+		self.OUT = None
+
+#setup for a secondary USB device, to be used exclusively by the Solar Vector Simulation Module of the HHC
+class USBsecondary:
+	def __init__(self):
+		self.OUT = None
+		self.IN = None
+		self.dev = None
+	#find our device
+		self.dev = usb.core.find(idVendor = 0x4b4, idProduct=0x80)
+		#check is we found a device
+		if self.dev is None:
+			print("USB Device error: Device 2 not found: It appears the HHC is not connected or turned on. Please plug the power supply in or turn it on if it is already plugged in. ")
+			sys.exit(1)
+			
+		self.dev.set_configuration()
+		cfg = self.dev.get_active_configuration()
 		intf = cfg[(0,0)]
 		epOut = usb.util.find_descriptor(
 			intf, 
@@ -45,28 +123,17 @@ class USB:
 		if self.IN is not None and self.OUT is not None:
 			return True
 
-
-
-	def read(self):
-		OUTE = self.OUT
-		rawdog = (OUTE.read(64).tostring())
-		#print(rawdog.decode())
-		print(type(rawdog))
-		wrapped = rawdog.decode()
-		print(type(wrapped))
+	#read IN endpoint from device and processes it so we 
+	def readUSB(self):
+		wrapped = self.IN.read(64, 10000).tobytes().decode()
+		# print(wrapped)
 		return wrapped
-		#dataraw = (self.read(i).tostring())
 		
 
-		'''print(type(dataraw))
-		data = dataraw.decode()
-		print(data)
-		print(type(data))
-		return data'''
 
-
-	def write(writing):	
-		endpoints.IN.write(writing) # send it
+	def writeUSB(self,writing):	
+		# print("Sent: "+str(writing))
+		self.OUT.write(writing) # send it
 
 
 

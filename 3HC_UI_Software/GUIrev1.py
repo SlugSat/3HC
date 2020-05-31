@@ -7,7 +7,7 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from USB import * 
-
+import pyqtgraph as pg
 
 
 #($string[0] == '-') ? '-'.ltrim(substr($string, 1), '0') : ltrim($string, '0')
@@ -25,9 +25,9 @@ class MainWindow(QMainWindow):
 
 
 		#setpoint values
-		self.XSP = 1
-		self.YSP = 2 
-		self.ZSP = 3
+		self.XSP = 0.0
+		self.YSP = 0.0
+		self.ZSP = 0.0
 
 		#flags for invalid setpoints
 		self.xflag = False
@@ -40,6 +40,10 @@ class MainWindow(QMainWindow):
 		self.ZNOFF = 0
 
 
+		#dummy arrays
+		self.arr1 = []
+		self.arr2 = []
+
 
 		#current sensor readings
 		self.XI = 0
@@ -47,11 +51,11 @@ class MainWindow(QMainWindow):
 		self.ZI = 0
 
 		#connect our USB device(PSoC)
-		self.GUIUSB = USB()
-		self.GUIUSB.verify()
+		#self.GUIUSB = USB()
+		#self.GUIUSB.verify()
 		#initialize layout of UI
 		self.initUI()
-		
+		#pg.plot([self.x],[self.y])		
 
 
 
@@ -186,6 +190,22 @@ class MainWindow(QMainWindow):
 		self.CurrentReadoutLabel.setFont(QFont('Arial', 20))
 
 
+		self.XILabel = QLabel('X',self)
+		self.XILabel.move(600,550)
+		self.XIreadout = QLabel('%d'% 0,self)
+		self.XIreadout.move(650,550)
+
+		self.YILabel = QLabel('Y',self)
+		self.YILabel.move(700,550)
+		self.YIreadout = QLabel('%d'% 0,self)
+		self.YIreadout.move(750,550)
+
+		self.ZILabel = QLabel('Z',self)
+		self.ZILabel.move(800,550)
+		self.ZIreadout = QLabel('%d'% 0,self)
+		self.ZIreadout.move(850,550)
+
+
 		#help button
 		self.Helpbutton = QPushButton('WTF is Going On?', self)
 		self.Helpbutton.move(20,800)
@@ -195,7 +215,7 @@ class MainWindow(QMainWindow):
 
 		#update null offset timer
 		self.NullTimer = QTimer()
-		self.NullTimer.setInterval(2000)
+		self.NullTimer.setInterval(100)
 		self.NullTimer.timeout.connect(self.updatenulloffsets)
 		self.NullTimer.start()
 
@@ -207,11 +227,7 @@ class MainWindow(QMainWindow):
 		self.ITimer.start()
 	#pulls setpoints from text entries and updates setpoint display
 	def SetpointsEntered(self):
-		#print("Set Setpoints Clicked")
-		# self.XSPoint.setValidator(QDoubleValidator(-200.0, 200.0, 3))
-		# self.YSPoint.setValidator(QDoubleValidator(-200.0, 200.0, 3))
-		# self.ZSPoint.setValidator(QDoubleValidator(-200.0, 200.0, 3))
-		
+		#handles 0 case due to unexpected functionality enocuntered
 		if(self.XSPoint.text() == ""):
 			self.XSP = 0.0
 		else:
@@ -230,14 +246,13 @@ class MainWindow(QMainWindow):
 
 #updates current values dispaly for setpoints	
 	def UpdateSetpoints(self):
-
 		#makes sure we have a valid input
 		#X
 		if(self.XSP and self.XSPoint.hasAcceptableInput()):
 			self.XS.setText('X Setpoint (Current Value: %s)' % self.XSP)
 		else:
 			if(self.XSP == 0):
-				self.XS.setText('X Setpoint (Current Value: %s)' % 0.0)
+				self.XS.setText('X Setpoint (Current Value: %s)' % 0)
 			else:	
 				self.xflag = True
 		#Y
@@ -245,7 +260,7 @@ class MainWindow(QMainWindow):
 			self.YS.setText('Y Setpoint (Current Value: %s)' % self.YSP)
 		else:	
 			if(self.YSP == 0):
-				self.YS.setText('X Setpoint (Current Value: %s)' % 0.0)
+				self.YS.setText('X Setpoint (Current Value: %s)' % 0)
 			else:	
 				self.yflag = True
 		#Z
@@ -253,10 +268,10 @@ class MainWindow(QMainWindow):
 			self.ZS.setText('Z Setpoint (Current Value: %s)' % self.ZSP)
 		else:	
 			if(self.ZSP == 0):
-				self.ZS.setText('X Setpoint (Current Value: %s)' % 0.0)
+				self.ZS.setText('Z Setpoint (Current Value: %s)' % 0)
 			else:	
 				self.zflag = True
-
+		pg.plot([self.XSP],[self.YSP])		
 			#invalid input popup
 		if(self.xflag or self.yflag or self.zflag):
 			SPInvalid = QMessageBox()
@@ -295,13 +310,18 @@ class MainWindow(QMainWindow):
 		self.x += 1
 		self.y += 1
 		self.z += 1
-		self.XNULLreadout.setText('%s' % self.GUIUSB.read())
+		self.XNULLreadout.setText('%s' % self.x)
 		self.YNULLreadout.setText('%s' % self.y)
 		self.ZNULLreadout.setText('%s' % self.z)	
 
 
 	def updateIread(self):
-		pass
+		self.XI += 1
+		self.YI += 1
+		self.ZI += 1
+		self.XIreadout.setText('%s' % self.XI)
+		self.YIreadout.setText('%s' % self.YI)
+		self.ZIreadout.setText('%s' % self.ZI)	
 
 
 #Actually runs the GUI (Main loop)
