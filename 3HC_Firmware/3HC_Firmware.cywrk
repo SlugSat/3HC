@@ -8,7 +8,7 @@
 <files />
 <projects>
 <v>.\3HC_Firmware_0_1.cydsn\3HC_Firmware_0_1.cyprj</v>
-<v>.\USBFS_Bulk_Wraparound.cydsn\USBFS_Bulk_Wraparound.cyprj</v>
+<v>..\..\STS\Firmware\STS_Firmware.cydsn\STS_Firmware.cyprj</v>
 </projects>
 <workspace_id v="acbcef36-a9d0-482f-9e51-b78a07149399" />
 <WriteAppVersionLastSavedWith v="4.2.0.641" />

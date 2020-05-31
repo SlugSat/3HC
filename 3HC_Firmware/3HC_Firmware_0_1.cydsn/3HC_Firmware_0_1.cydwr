@@ -380,6 +380,7 @@
       <Data key="c5cb5126-69ee-4392-ab2d-65b68ffc8289" value="ENC_BTN" />
       <Data key="d251b638-14f3-487f-b32b-2660487b214a" value="X_DIR_OUT" />
       <Data key="e851a3b9-efb8-48be-bbb8-b303b216c393" value="X_PWM_OUT" />
+      <Data key="ebeaced1-35f0-4a2f-b4ff-561c8df2f77e/dea208d9-07b0-438b-a5e0-ac5d207f2658/16a808f6-2e13-45b9-bce0-b001c8655113" value="ADC_SAR_Seq_1_SAR_Bypass" />
     </Group>
   </Group>
   <Group key="EEPROM">
@@ -3468,7 +3469,7 @@
   <Group key="Pin2">
     <Group key="1f7f8b08-37b1-4180-8cde-b2596481278e">
       <Group key="0">
-        <Data key="Port Format" value="1,4" />
+        <Data key="Port Format" value="1,6" />
       </Group>
     </Group>
     <Group key="02f2cf2c-2c7a-49df-9246-7a3435c21be3">
@@ -3493,12 +3494,12 @@
     </Group>
     <Group key="35cc6518-760f-4917-994a-e88a0ef05cf2">
       <Group key="0">
-        <Data key="Port Format" value="3,5" />
+        <Data key="Port Format" value="3,7" />
       </Group>
     </Group>
     <Group key="57ffefd5-d889-4140-a764-d75a1261b605">
       <Group key="0">
-        <Data key="Port Format" value="1,6" />
+        <Data key="Port Format" value="1,4" />
       </Group>
     </Group>
     <Group key="204ba264-8818-4b1b-85b1-dd96bb3ec78d">
@@ -3518,7 +3519,7 @@
     </Group>
     <Group key="3313f5ef-acf1-41cd-a479-0ce67316d71b">
       <Group key="0">
-        <Data key="Port Format" value="0,0" />
+        <Data key="Port Format" value="0,2" />
       </Group>
     </Group>
     <Group key="8105b217-47fe-4563-9d4b-042e60516074">
@@ -3601,12 +3602,12 @@
     </Group>
     <Group key="d251b638-14f3-487f-b32b-2660487b214a">
       <Group key="0">
-        <Data key="Port Format" value="0,2" />
+        <Data key="Port Format" value="0,0" />
       </Group>
     </Group>
     <Group key="e851a3b9-efb8-48be-bbb8-b303b216c393">
       <Group key="0">
-        <Data key="Port Format" value="3,7" />
+        <Data key="Port Format" value="3,5" />
       </Group>
     </Group>
     <Group key="UnAssigned Pins" />

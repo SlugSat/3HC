@@ -2,7 +2,7 @@
 --	Conversion of 3HC_Firmware_0_1.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Tue Mar 10 18:19:14 2020
+--	Sun May 31 02:10:02 2020
 --
 
 USE cypress.cypress.all;
@@ -801,39 +801,11 @@ SIGNAL \USBFS:Net_1916\ : bit;
 SIGNAL \USBFS:dma_complete_7\ : bit;
 SIGNAL \USBFS:Net_1915\ : bit;
 SIGNAL Net_325 : bit;
-SIGNAL \Output_Enable:clk\ : bit;
-SIGNAL \Output_Enable:rst\ : bit;
-SIGNAL Net_348 : bit;
-SIGNAL \Output_Enable:control_out_0\ : bit;
-SIGNAL Net_118 : bit;
-SIGNAL \Output_Enable:control_out_1\ : bit;
-SIGNAL Net_119 : bit;
-SIGNAL \Output_Enable:control_out_2\ : bit;
-SIGNAL Net_120 : bit;
-SIGNAL \Output_Enable:control_out_3\ : bit;
-SIGNAL Net_122 : bit;
-SIGNAL \Output_Enable:control_out_4\ : bit;
-SIGNAL Net_123 : bit;
-SIGNAL \Output_Enable:control_out_5\ : bit;
-SIGNAL Net_124 : bit;
-SIGNAL \Output_Enable:control_out_6\ : bit;
-SIGNAL Net_125 : bit;
-SIGNAL \Output_Enable:control_out_7\ : bit;
-SIGNAL \Output_Enable:control_7\ : bit;
-SIGNAL \Output_Enable:control_6\ : bit;
-SIGNAL \Output_Enable:control_5\ : bit;
-SIGNAL \Output_Enable:control_4\ : bit;
-SIGNAL \Output_Enable:control_3\ : bit;
-SIGNAL \Output_Enable:control_2\ : bit;
-SIGNAL \Output_Enable:control_1\ : bit;
-SIGNAL \Output_Enable:control_0\ : bit;
 SIGNAL tmpOE__X_PWM_OUT_net_0 : bit;
 SIGNAL tmpFB_0__X_PWM_OUT_net_0 : bit;
 SIGNAL tmpIO_0__X_PWM_OUT_net_0 : bit;
 TERMINAL tmpSIOVREF__X_PWM_OUT_net_0 : bit;
 SIGNAL tmpINTERRUPT_0__X_PWM_OUT_net_0 : bit;
-SIGNAL Net_131 : bit;
-SIGNAL Net_115 : bit;
 SIGNAL \Y_PWM:PWMUDB:km_run\ : bit;
 SIGNAL \Y_PWM:PWMUDB:min_kill_reg\ : bit;
 SIGNAL \Y_PWM:PWMUDB:ClockOutFromEnBlock\ : bit;
@@ -1251,6 +1223,7 @@ SIGNAL \Y_PWM:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_2\ : bit;
 SIGNAL \Y_PWM:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_1\ : bit;
 SIGNAL \Y_PWM:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_0\ : bit;
 SIGNAL \Y_PWM:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:b_0\ : bit;
+SIGNAL Net_115 : bit;
 SIGNAL Net_270 : bit;
 SIGNAL Net_267 : bit;
 SIGNAL \Y_PWM:Net_113\ : bit;
@@ -1261,8 +1234,6 @@ SIGNAL tmpFB_0__Y_PWM_OUT_net_0 : bit;
 SIGNAL tmpIO_0__Y_PWM_OUT_net_0 : bit;
 TERMINAL tmpSIOVREF__Y_PWM_OUT_net_0 : bit;
 SIGNAL tmpINTERRUPT_0__Y_PWM_OUT_net_0 : bit;
-SIGNAL Net_199 : bit;
-SIGNAL Net_198 : bit;
 SIGNAL \Z_PWM:PWMUDB:km_run\ : bit;
 SIGNAL \Z_PWM:PWMUDB:min_kill_reg\ : bit;
 SIGNAL \Z_PWM:PWMUDB:ClockOutFromEnBlock\ : bit;
@@ -1680,6 +1651,7 @@ SIGNAL \Z_PWM:PWMUDB:MODULE_3:g2:a0:g1:z1:s0:g1:u0:c_2\ : bit;
 SIGNAL \Z_PWM:PWMUDB:MODULE_3:g2:a0:g1:z1:s0:g1:u0:c_1\ : bit;
 SIGNAL \Z_PWM:PWMUDB:MODULE_3:g2:a0:g1:z1:s0:g1:u0:c_0\ : bit;
 SIGNAL \Z_PWM:PWMUDB:MODULE_3:g2:a0:g1:z1:s0:g1:u0:b_0\ : bit;
+SIGNAL Net_198 : bit;
 SIGNAL Net_296 : bit;
 SIGNAL Net_293 : bit;
 SIGNAL \Z_PWM:Net_113\ : bit;
@@ -2028,8 +2000,6 @@ one <=  ('1') ;
 
 \X_PWM:PWMUDB:pwm_i\ <= ((\X_PWM:PWMUDB:runmode_enable\ and \X_PWM:PWMUDB:cmp1_less\));
 
-Net_131 <= ((Net_348 and Net_115));
-
 \Y_PWM:PWMUDB:sc_kill_tmp\\D\ <= (not \Y_PWM:PWMUDB:tc_i\);
 
 \Y_PWM:PWMUDB:dith_count_1\\D\ <= ((not \Y_PWM:PWMUDB:dith_count_1\ and \Y_PWM:PWMUDB:tc_i\ and \Y_PWM:PWMUDB:dith_count_0\)
@@ -2044,8 +2014,6 @@ Net_131 <= ((Net_348 and Net_115));
 \Y_PWM:PWMUDB:status_2\ <= ((\Y_PWM:PWMUDB:runmode_enable\ and \Y_PWM:PWMUDB:tc_i\));
 
 \Y_PWM:PWMUDB:pwm_i\ <= ((\Y_PWM:PWMUDB:runmode_enable\ and \Y_PWM:PWMUDB:cmp1_less\));
-
-Net_199 <= ((Net_348 and Net_198));
 
 \Z_PWM:PWMUDB:sc_kill_tmp\\D\ <= (not \Z_PWM:PWMUDB:tc_i\);
 
@@ -3211,16 +3179,6 @@ ADC_SAMPLECURRSENSOR:cy_isr_v1_0
 	GENERIC MAP(int_type=>"10",
 		is_nmi=>'0')
 	PORT MAP(int_signal=>Net_325);
-\Output_Enable:Sync:ctrl_reg\:cy_psoc3_control
-	GENERIC MAP(cy_init_value=>"00000000",
-		cy_force_order=>'1',
-		cy_ctrl_mode_1=>"00000000",
-		cy_ctrl_mode_0=>"00000000",
-		cy_ext_reset=>'0')
-	PORT MAP(reset=>zero,
-		clock=>zero,
-		control=>(\Output_Enable:control_7\, \Output_Enable:control_6\, \Output_Enable:control_5\, \Output_Enable:control_4\,
-			\Output_Enable:control_3\, \Output_Enable:control_2\, \Output_Enable:control_1\, Net_348));
 X_PWM_OUT:cy_psoc3_pins_v1_10
 	GENERIC MAP(id=>"e851a3b9-efb8-48be-bbb8-b303b216c393",
 		drive_mode=>"110",
@@ -3553,7 +3511,7 @@ Y_PWM_OUT:cy_psoc3_pins_v1_10
 		ovt_hyst_trim=>"0",
 		input_buffer_sel=>"00")
 	PORT MAP(oe=>(one),
-		y=>Net_131,
+		y=>Net_115,
 		fb=>(tmpFB_0__Y_PWM_OUT_net_0),
 		analog=>(open),
 		io=>(tmpIO_0__Y_PWM_OUT_net_0),
@@ -3828,7 +3786,7 @@ Z_PWM_OUT:cy_psoc3_pins_v1_10
 		ovt_hyst_trim=>"0",
 		input_buffer_sel=>"00")
 	PORT MAP(oe=>(one),
-		y=>Net_199,
+		y=>Net_198,
 		fb=>(tmpFB_0__Z_PWM_OUT_net_0),
 		analog=>(open),
 		io=>(tmpIO_0__Z_PWM_OUT_net_0),

@@ -24,8 +24,11 @@
 #include <stdint.h>
     
 #define MAX_MSG_LENGTH 64
+#define MAX_ID_LENGTH 8
+#define MAX_PAYLOAD_LENGTH 53
+#define CHECKSUM_LENGTH 2
     
-int NMEA0183_DecodeMsg(char * msg);
+int NMEA0183_DecodeMsg(uint8 * msg, char * id, char * payload);
 
 int NMEA0183_EncodeMsg(uint8 * msg, char * id, char * payload);
 

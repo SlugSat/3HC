@@ -1,8 +1,7 @@
-C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\3HC_Firmware_0_1.cyprj|227bc750-f70a-44eb-8157-0ad5ac211335
-C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|2f29f6ff-52ca-4ca5-ba31-14de7ece8400
-C:\Users\Caleb Cotter\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|33b02759-9252-4794-90d1-edaf0f79104c
-C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|c5ba9db5-fca1-4ff9-a266-4d0bcc76fdc9
-C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|3185df4a-2aa7-4148-9ad8-07693749eb58
-C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|bc93fad1-33f9-4b7e-bb8e-a7a23a915a29
-C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\USBFS_Bulk_Wraparound.cydsn\USBFS_Bulk_Wraparound.cyprj|86b3da05-1fb6-4c1a-a809-dcfbd5a2023c
-C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyReferenceLibrary\CyReferenceLibrary.cylib\CyReferenceLibrary.cyprj|06fb8fc6-13d9-454d-ad05-a9e6f40bec19
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|72a62706-3781-4d02-9740-fb125414056d
+C:\Users\Caleb Cotter\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|c6e91078-061d-43f9-a85d-16e42719ecbe
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|ea1c31ab-be99-46e2-a0ab-ae5264f47f0a
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|4d5d04ba-2399-4dcb-9541-8547f3ba6adf
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|a562804a-f523-4d6c-be0f-65c261530b24
+C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\3HC_Firmware_0_1.cyprj|8c82b82a-f1d3-4ed2-9558-f3594326eeb3
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyReferenceLibrary\CyReferenceLibrary.cylib\CyReferenceLibrary.cyprj|ae890b0e-e1c2-4d06-ba13-8b1b036ec086
