@@ -69,6 +69,7 @@ class USBprimary:
 	#read IN endpoint from device and processes it so we 
 	def readUSB(self):
 		#pyusb returns array of bytes so this converts it to something we can use
+		#conditionals catch errors and allow us to react to them
 		if(self.IN != None):
 			try:
 				wrapped = self.IN.read(64,10).tobytes().decode()
@@ -91,11 +92,12 @@ class USBprimary:
 		if(self.OUT != None):
 			self.OUT.write(writing,10) # send it
 
+	#resets device without disconnecting it completely
 	def resetUSB(self):
 		self.dev.reset()
-		
 
-	#terminate USB	
+
+	#terminate USB connection and reset device	
 	def EndUSB(self):
 		self.IN = None
 		self.OUT = None

@@ -130,12 +130,7 @@ class MyTableWidget(QWidget):
 			#check if USb is connected
 			if(self.USB.verify() == True):
 				print("USB connection verified")
-		# if(self.disableUSB == 0 and self.mode == 1):
-		# 	self.USB.writeUSB("\n")
-		# 	self.USB.writeUSB(NMEA.Encode("ARMED","1"))
-		# if(self.disableUSB == 0 and self.mode == 0):
-		# 	self.USB.writeUSB("\n")
-		# 	self.USB.writeUSB(NMEA.Encode("IDLE","0"))
+
 
 
 
@@ -143,16 +138,12 @@ class MyTableWidget(QWidget):
 
 	#processes NMEA messages and sends data to its appropriate variable
 	def Process_NMEA(self,NMEA_list):
-		#store list elements into variables for comparisons
+		#bad data pauses USB until reset occurs, then continues
 		if(NMEA_list == None):
-			self.modechange()
-			
-			self.USB.resetUSB()
-			# if(self.USB.verify() == False):
-			print("Error Encountered, Switching to Idle")
-			# self.USB = USBprimary()
-			# self.modechange()							
+			print("Error Encountered: Bad Data. Resetting device; this will pause data feed briefly!")			
+			self.USB.resetUSB()						
 			return 
+		#store list elements into variables for comparisons	
 		ID = NMEA_list[0]
 		Payload = NMEA_list[1]
 		# print(ID)
@@ -338,7 +329,7 @@ class MyTableWidget(QWidget):
 			self.Process_NMEA(NNMEA3)
 
 
-
+	#handles swapping from IDLE to ARMED and USB handling
 	def modechange(self):
 		#IDLE->ARMED
 		if(self.mode == 0):
