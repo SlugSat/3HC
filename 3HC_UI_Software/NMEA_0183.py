@@ -41,29 +41,31 @@ def Checksum(string):
 #decodes NMEA_0183 Messages and returns a list containing the separated id, payload and checksum
 def Decode(string):
 	# print("Before:",string)
-	msg = re.split('[$ , * \n]',string)
-	#trims some leading and trailing $ and \n 
-	msg.pop(0)
-	msg.pop(-1)
+	if(string != None):
+		msg = re.split('[$ , * \n]',string)
+		#trims some leading and trailing $ and \n 
+		msg.pop(0)
+		msg.pop(-1)
 
-	#current sensor had weird hex padding, so this will trim anything else that we don't want
-	if(len(msg) > 3):
-		while(len(msg) > 3):
-			msg.pop(-1)	
-	# print("AfterTrim:",msg)
+		#current sensor had weird hex padding, so this will trim anything else that we don't want
+		if(len(msg) > 3):
+			while(len(msg) > 3):
+				msg.pop(-1)	
+		# print("AfterTrim:",msg)
 
-	#save ID, payload and checksum into single variables from tuple
-	msgid = msg[0]
-	payload = msg[1]
-	chk = int(msg[-1],16)
+		#save ID, payload and checksum into single variables from tuple
+		msgid = msg[0]
+		payload = msg[1]
+		chk = int(msg[-1],16)
 
 
-	#checksum comparison determines if the message is valid or not
-	if(chk != Checksum(str(msgid) + ',' + str(payload))):
-		# print("Checksum error, expected checksum did not match received checksum\n")
-		msg = ["ERR"]
-		return msg	
-	return msg
+		#checksum comparison determines if the message is valid or not
+		if(chk != Checksum(str(msgid) + ',' + str(payload))):
+			#if they don't match, we have a bad message
+			msg = ["ERR"]
+			return msg	
+		return msg
+		
 
 
 

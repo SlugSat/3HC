@@ -25,6 +25,7 @@ from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from USB import * 
 import webbrowser
+import time
 import NMEA_0183 as NMEA
 
 
@@ -49,9 +50,7 @@ class MyTableWidget(QWidget):
 		self.tab1 = QWidget()
 		self.tab2 = QWidget()
 		self.tab3 = QWidget()
-		# self.tab4 = QWidget()
-		# self.tabs.resize(400,400)
-		# self.USB = None
+
 
 		#variables-----------------------------------------------
 		self.x = 0
@@ -145,8 +144,17 @@ class MyTableWidget(QWidget):
 	#processes NMEA messages and sends data to its appropriate variable
 	def Process_NMEA(self,NMEA_list):
 		#store list elements into variables for comparisons
+		if(NMEA_list == None):
+			self.modechange()
+			self.USB.EndUSB()
+			if(self.USB.verify() == False):
+				print("USB connection terminated")
+			self.USB = USBprimary()
+			self.modechange()							
+			return 
 		ID = NMEA_list[0]
 		Payload = NMEA_list[1]
+		# print(ID)
 
 		#basically a simple checker to route NMEA_0183 messages to their designated UI elements
 		if(ID == "XCUR"):
@@ -174,19 +182,41 @@ class MyTableWidget(QWidget):
 
 		if(ID == "XSET"):
 			self.XSET2 = float("%.3g" % float(Payload))
+			#compares received setpoint with one set on UI end
+			#overwrites UI one if PSoC one is different
 			if(self.XSET2 != self.XSET):
-				self.XSET =self.XSET2
+				self.XSET = self.XSET2
+				if(self.XSET == 0):
+					self.XS.setText('X Setpoint (Current Value: %s)' % 0)
+				else:					
+					self.XS.setText('X Setpoint (Current Value: %s)' % self.XSET)
+
 
 		if(ID == "YSET"):
 			self.YSET2 = float("%.3g" % float(Payload))
+			#compares received setpoint with one set on UI end
+			#overwrites UI one if PSoC one is different
 			if(self.YSET2 != self.YSET):
 				self.YSET =self.YSET2
+				if(self.YSET == 0):
+					self.YS.setText('Y Setpoint (Current Value: %s)' % 0)
+				else:	
+					self.YS.setText('Y Setpoint (Current Value: %s)' % self.YSET)
+
 		
 
 		if(ID == "ZSET"):
 			self.ZSET2 = float("%.3g" % float(Payload))
+			#compares received setpoint with one set on UI end
+			#overwrites UI one if PSoC one is different
 			if(self.ZSET2 != self.ZSET):
 				self.ZSET =self.ZSET2
+				if(self.ZSET == 0):
+					self.ZS.setText('Z Setpoint (Current Value: %s)' % 0)
+				else:	
+					self.ZS.setText('Z Setpoint (Current Value: %s)' % self.ZSET)
+
+
 
 		# if(ID == 'XNULL'):
 		# 	self.XNOFF = float("%.1g" % float(Payload))
@@ -278,10 +308,7 @@ class MyTableWidget(QWidget):
 
 
 	def pulldata(self):
-		if(self.USB.verify() == False):
-			self.modechange()
-			# self.EndUSB()
-			pass;
+		#reads all data sequentially and processes
 		if(self.disableUSB == 0 and self.mode == 1):
 			self.USB.writeUSB(NMEA.Encode('READ',"XCUR"))
 			CNMEA = NMEA.Decode(self.USB.readUSB())
@@ -308,6 +335,7 @@ class MyTableWidget(QWidget):
 			self.USB.writeUSB(NMEA.Encode('READ',"ZMAG"))
 			NNMEA3 = NMEA.Decode(self.USB.readUSB())
 			self.Process_NMEA(NNMEA3)
+
 
 
 	def modechange(self):
@@ -368,7 +396,7 @@ class MyTableWidget(QWidget):
 
 
 		self.tab1.no = QHBoxLayout()
-		self.calLabel = QLabel('HHC Null Offsets',self)
+		self.calLabel = QLabel('3HC Magnetometer Readings (Microteslas)',self)
 		self.calLabel.setFont(QFont('Arial', 20))
 		self.tab1.no.addWidget(self.calLabel)
 		self.tab1.I = QHBoxLayout()
@@ -464,7 +492,7 @@ class MyTableWidget(QWidget):
 
 		#credits
 		self.tab1.credits = QHBoxLayout()
-		self.creditlabel = QLabel('Created by Nicholas Jannuzzi for usage with the SlugSat 3-Axis HHC (April 2020)',self)
+		self.creditlabel = QLabel('Created by Nick Jannuzzi for usage with the SlugSat 3-Axis HHC (April 2020)',self)
 		self.creditlabel.setFont(QFont('Arial', 12))
 		self.tab1.credits.addWidget(self.creditlabel)
 		self.tab1.credits.addStretch(2)
@@ -480,29 +508,18 @@ class MyTableWidget(QWidget):
 		self.mbut = QPushButton('3HC mode',self)
 		self.LED = QLabel()
 		if(self.mode == 1):
-			# self.LED.resize(80, 80)
+			#IDLE->ARMED
 			self.LED.resize(80, 80)
 			self.LED.setStyleSheet("border: 1px solid black; background-color: green; border-radius: 40px;")
 			self.LED.setText('       Armed         ')
 			self.stopUSB = 0
-			# if(self.disableUSB == 0):
-			# 	self.USB.writeUSB(NMEA.Encode("ARMED","1"))
-
-			
 		else:
-			# self.LED.resize(80, 80)
+			#ARMED->IDLE
 			self.LED.resize(80, 80)
 			self.LED.setStyleSheet("border: 1px solid black; background-color: red; border-radius: 40px;")
 			self.LED.setText('        Idle         ')
 			self.stopUSB = 1
 
-			# if(self.disableUSB == 0):
-			# 	self.USB.writeUSB(NMEA.Encode("IDLE","0"))
-
-
-
-			# self.LED.resize(80, 80)
-			# self.LED.setStyleSheet("border: 3px solid red;border-radius:40px")
 		self.mbut.clicked.connect(self.modechange)
 		self.tab1.mode.addWidget(self.mbut)
 		self.tab1.mode.addWidget(self.LED)
@@ -583,8 +600,7 @@ class MyTableWidget(QWidget):
 		self.tab3.setLayout(self.tab3.vlayout)
 
 
-
-#Actually runs the GUI (Main loop)
+#Actually runs the GUI (Main loop), don't put anything else in here
 if __name__=='__main__':
 	app = QApplication(sys.argv)
 	mainWindow = App()

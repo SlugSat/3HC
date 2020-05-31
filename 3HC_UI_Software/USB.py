@@ -69,15 +69,27 @@ class USBprimary:
 	#read IN endpoint from device and processes it so we 
 	def readUSB(self):
 		#pyusb returns array of bytes so this converts it to something we can use
-		wrapped = self.IN.read(64,10000).tobytes().decode()
-		# print("Received:" +str(wrapped))
-		return wrapped
+		if(self.IN != None):
+			try:
+				wrapped = self.IN.read(64,10).tobytes().decode()
+				print(wrapped)
+			except usb.core.USBError as e:
+				wrapped = None
+				print(wrapped)
+
+				# if e.args == ('Operation timed out',):
+					# continue
+					
+			# print("Received:" +str(wrapped))
+			return wrapped
 		
 
 
 	def writeUSB(self,writing):	
 		# print("Sent: "+str(writing))
-		self.OUT.write(writing,10000) # send it
+		# print(writing)
+		if(self.OUT != None):
+			self.OUT.write(writing,10) # send it
 
 	#terminate USB	
 	def EndUSB(self):
@@ -131,7 +143,7 @@ class USBsecondary:
 
 	#read IN endpoint from device and processes it so we 
 	def readUSB(self):
-		wrapped = self.IN.read(64, 10000).tobytes().decode()
+		wrapped = self.IN.read(64, 1000).tobytes().decode()
 		# print(wrapped)
 		return wrapped
 		
