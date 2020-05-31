@@ -64,9 +64,9 @@ class MyTableWidget(QWidget):
 
 
 		#magnetometer data and arrays
-		self.XMAG = 0
-		self.YMAG = 0
-		self.ZMAG = 0
+		self.XMAG = 0.0
+		self.YMAG = 0.0
+		self.ZMAG = 0.0
 		# self.XL = [0,0,0,0,0,0,0,0,0,0]
 		# self.YL = [0,0,0,0,0,0,0,0,0,0]
 		# self.ZL = [0,0,0,0,0,0,0,0,0,0]
@@ -92,7 +92,7 @@ class MyTableWidget(QWidget):
 		#other
 		self.test = 0
 		#make this 1 to stop USB with changing mode
-		self.disableUSB = 1
+		self.disableUSB = 0
 		self.mode = 0
 		#this changes when system is changed from ARMED to IDLE
 		#1 = AMRED, 0 = IDLE
@@ -167,13 +167,15 @@ class MyTableWidget(QWidget):
 			self.ZIreadout.setText(str(self.ZCUR))	
 
 		if(ID == "XMAG"):
-			self.XMAG = float("%.1g" % float(Payload))
+			self.XMAG = float("%.3g" % float(Payload))
+			self.XNULLreadout.setText(str(self.XMAG))
 
 		if(ID == "YMAG"):
-			self.YMAG = float("%.1g" % float(Payload))
-
+			self.YMAG = float("%.3g" % float(Payload))
+			self.YNULLreadout.setText(str(self.YMAG))
 		if(ID == "ZMAG"):
-			self.ZMAG = float("%.1g" % float(Payload))
+			self.ZMAG = float("%.3g" % float(Payload))
+			self.ZNULLreadout.setText(str(self.ZMAG))
 
 		if(ID == "XSET"):
 			self.XSET = float("%.3g" % float(Payload))
@@ -184,24 +186,24 @@ class MyTableWidget(QWidget):
 			# print("Y:" + Payload)
 		
 
-		if(ID == "ZSET"):
-			self.ZSET = float("%.3g" % float(Payload))
-			# print("Z:" + Payload)
+		# if(ID == "ZSET"):
+		# 	self.ZSET = float("%.3g" % float(Payload))
+		# 	# print("Z:" + Payload)
 
-		if(ID == 'XNULL'):
-			self.XNOFF = float("%.1g" % float(Payload))
-			self.XNULLreadout.setText('%s' % self.XNOFF)
+		# if(ID == 'XNULL'):
+		# 	self.XNOFF = float("%.1g" % float(Payload))
+		# 	self.XNULLreadout.setText('%s' % self.XNOFF)
 
 		
-		if(ID =='YNULL'):
-			self.YNOFF = float("%.1g" % float(Payload))
-			self.YNULLreadout.setText('%s' % self.YNOFF)
+		# if(ID =='YNULL'):
+		# 	self.YNOFF = float("%.1g" % float(Payload))
+		# 	self.YNULLreadout.setText('%s' % self.YNOFF)
 
 
 
-		if(ID =='ZNULL'):		
-			self.ZNOFF = float("%.1g" % float(Payload))
-			self.ZNULLreadout.setText('%s' % self.ZNOFF)	
+		# if(ID =='ZNULL'):		
+		# 	self.ZNOFF = float("%.1g" % float(Payload))
+		# 	self.ZNULLreadout.setText('%s' % self.ZNOFF)	
 				
 		# if(ID == "FAULT"):
 		# 	self.WTF = QMessageBox()
@@ -284,6 +286,10 @@ class MyTableWidget(QWidget):
 
 
 	def pulldata(self):
+		if(self.USB.IN == None):
+			self.modechange()
+			self.EndUSB()
+			pass;
 		if(self.disableUSB == 0 and self.mode == 1):
 			self.USB.writeUSB(NMEA.Encode('READ',"XCUR"))
 			CNMEA = NMEA.Decode(self.USB.readUSB())
@@ -298,16 +304,16 @@ class MyTableWidget(QWidget):
 			CNMEA3 = NMEA.Decode(self.USB.readUSB())
 			self.Process_NMEA(CNMEA3)
 
-			self.USB.writeUSB(NMEA.Encode('READ',"XNULL"))
+			self.USB.writeUSB(NMEA.Encode('READ',"XMAG"))
 			NNMEA = NMEA.Decode(self.USB.readUSB())
 			self.Process_NMEA(NNMEA)
 
 
-			self.USB.writeUSB(NMEA.Encode('READ',"YNULL"))
+			self.USB.writeUSB(NMEA.Encode('READ',"YMAG"))
 			NNMEA2 = NMEA.Decode(self.USB.readUSB())
 			self.Process_NMEA(NNMEA2)
 
-			self.USB.writeUSB(NMEA.Encode('READ',"ZNULL"))
+			self.USB.writeUSB(NMEA.Encode('READ',"ZMAG"))
 			NNMEA3 = NMEA.Decode(self.USB.readUSB())
 			self.Process_NMEA(NNMEA3)
 

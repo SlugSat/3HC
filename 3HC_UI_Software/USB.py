@@ -80,8 +80,8 @@ class USBprimary:
 
 	#terminate USB	
 	def EndUSB(self):
-		self.In = None
-		self.Out = None
+		self.IN = None
+		self.OUT = None
 
 #setup for a secondary USB device, to be used exclusively by the Solar Vector Simulation Module of the HHC
 class USBsecondary:

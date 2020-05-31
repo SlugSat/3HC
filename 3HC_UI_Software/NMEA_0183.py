@@ -47,19 +47,22 @@ def Decode(string):
 	# 	return msg	
 	msg.pop(0)
 	msg.pop(-1)
-	# print("AfterTrim:",msg)
+	if(len(msg) > 3):
+		msg.pop(-1)
+
+	print("AfterTrim:",msg)
 	msgid = msg[0]
 	payload = msg[1]
-	chk = int(msg[-1],16)
+	# chk = int(msg[-1],16)
 
 
-	#checksum comparison determines if the message is valid or not
-	# print(chk)
-	# print(Checksum(str(msgid) + ',' + str(payload)))
-	if(chk != Checksum(str(msgid) + ',' + str(payload))):
-		# print("Checksum error, expected checksum did not match received checksum\n")
-		msg = ["ERR"]
-		return msg	
+	# #checksum comparison determines if the message is valid or not
+	# # print(chk)
+	# # print(Checksum(str(msgid) + ',' + str(payload)))
+	# if(chk != Checksum(str(msgid) + ',' + str(payload))):
+	# 	# print("Checksum error, expected checksum did not match received checksum\n")
+	# 	msg = ["ERR"]
+	# 	return msg	
 	return msg
 
 
