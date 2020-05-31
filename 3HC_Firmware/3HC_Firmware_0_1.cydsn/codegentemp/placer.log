@@ -6,7 +6,7 @@
 
 #Build Date:         Dec  5 2017 15:35:27
 
-#File Generated:     Mar 10 2020 18:19:16
+#File Generated:     May 31 2020 02:10:03
 
 #Purpose:            
 
@@ -44,16 +44,16 @@ Phase 2
 Phase 3
 
 Design Statistics after Packing
-    Number of Combinational MCs 	:	14
+    Number of Combinational MCs 	:	12
     Number of Sequential MCs    	:	31
     Number of DPs               	:	8
-    Number of Controls          	:	8
+    Number of Controls          	:	7
     Number of Status            	:	5
     Number of SyncCells         	:	0
     Number of count7cells       	:	0
 
 Device Utilization Summary after Packing
-    Macrocells                  :	45/192
+    Macrocells                  :	43/192
     UDBS                        :	11/24
     IOs                         :	29/72
 
@@ -100,7 +100,7 @@ Clock: \ADC:DSM\/dec_clock  | Frequency: N/A       | Target:   0.1 MHz
                      End of Clock Summary
 ######################################################################
 
-D2088: Phase 6, elapsed time : 0.1 (sec)
+D2088: Phase 6, elapsed time : 0.0 (sec)
 
 Phase 7
 ######################################################################
@@ -126,20 +126,20 @@ Clock: \ADC:DSM\/dec_clock  | Frequency: N/A       | Target:   0.1 MHz
 ======================================================================
                      End of Clock Summary
 ######################################################################
-D2088: Phase 7, elapsed time : 0.6 (sec)
+D2088: Phase 7, elapsed time : 0.7 (sec)
 
 Final Design Statistics
-    Number of Combinational MCs 	:	14
+    Number of Combinational MCs 	:	12
     Number of Sequential MCs    	:	31
     Number of DPs               	:	8
-    Number of Controls          	:	8
+    Number of Controls          	:	7
     Number of Status            	:	5
     Number of SyncCells         	:	0
     Number of count7cells       	:	0
     Number of IOs       	:	29
 
 Device Utilization Summary
-    Macrocells                  :	45/192
+    Macrocells                  :	43/192
     IOs                         :	29/72
 
 

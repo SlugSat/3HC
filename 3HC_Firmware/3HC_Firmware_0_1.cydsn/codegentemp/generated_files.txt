@@ -84,9 +84,6 @@
   <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\USBFS_msc.h" value="HEADER;;;;;USBFS" />
   <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\ADC_SAMPLECURRSENSOR.c" value="SOURCE_C;CortexM3;;;;ADC_SAMPLECURRSENSOR" />
   <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\ADC_SAMPLECURRSENSOR.h" value="HEADER;;;;;ADC_SAMPLECURRSENSOR" />
-  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\Output_Enable.h" value="HEADER;;;;;Output_Enable" />
-  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\Output_Enable.c" value="SOURCE_C;CortexM3;;;;Output_Enable" />
-  <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\Output_Enable_PM.c" value="SOURCE_C;CortexM3;;;;Output_Enable" />
   <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\X_PWM_OUT_aliases.h" value="HEADER;;;;;X_PWM_OUT" />
   <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\X_PWM_OUT.c" value="SOURCE_C;CortexM3;;;;X_PWM_OUT" />
   <file name="C:\Users\Caleb Cotter\Documents\GitHub\3HC\3HC_Firmware\3HC_Firmware_0_1.cydsn\codegentemp\X_PWM_OUT.h" value="HEADER;;;;;X_PWM_OUT" />

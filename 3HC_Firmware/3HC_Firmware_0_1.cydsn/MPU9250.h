@@ -1,4 +1,4 @@
-/* 
+ /* 
  * File:   MPU9250.h
  * Author: Max
  * Modified by: Caleb Cotter

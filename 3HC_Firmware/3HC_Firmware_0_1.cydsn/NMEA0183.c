@@ -55,20 +55,47 @@ uint8_t AsciiToInt(char letter) {
  * Public Functions                                                           *  
  ******************************************************************************/
 
-void NMEA0183_Init();
+int NMEA0183_DecodeMsg(uint8 * msg, char * id, char * payload){
+    // Input Checking
+    if(msg == NULL || id == NULL || payload == NULL){
+        return -1;
+    }
+    
+    // Local Variables
+    uint8_t temp[MAX_MSG_LENGTH];
+    uint8_t checksum;
 
-int NMEA0183_DecodeMsg(char * message);
+    // Get Message Components
+    if(sscanf((char *) msg,"$%[^,],%[^*]*%02X", id, payload, (unsigned int *) &checksum) != 3){
+        return -1;
+    }
+    
+    // Validate Checksum
+    sprintf((char *) temp,"%s,%s",id,payload);
+    if(checksum != StringChecksum((char *)temp)){
+        sprintf(id,"ERR");
+        return -1;
+    }
+    
+    return 0;
+}
 
 int NMEA0183_EncodeMsg(uint8 * msg, char * id, char * payload){
-    char temp[MAX_MSG_LENGTH];
+    // Input Checking
+    if(msg == NULL || id == NULL || payload == NULL){
+        return -1;
+    }
+    
+    // Local Variables
+    uint8_t temp[MAX_MSG_LENGTH];
     uint8_t checksum;
     
     // Build Message and Calc Checksum
-    sprintf(temp,"%s,%s", id, payload);
-    checksum = StringChecksum(temp);
+    sprintf((char *) temp,"%s,%s", id, payload);
+    checksum = StringChecksum((char *)temp);
     
     // Add Checksum to Message
-    sprintf(msg,"$%s*%2x\n",temp,checksum);
+    sprintf((char *)msg,"$%s*%02X\n",temp,checksum);
     
     return 0;
 }

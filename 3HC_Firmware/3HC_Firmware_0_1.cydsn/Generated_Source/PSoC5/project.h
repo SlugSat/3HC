@@ -47,7 +47,6 @@
 #include "USBFS_cydmac.h"
 #include "USBFS_msc.h"
 #include "ADC_SAMPLECURRSENSOR.h"
-#include "Output_Enable.h"
 #include "X_PWM_OUT_aliases.h"
 #include "X_PWM_OUT.h"
 #include "Y_PWM.h"

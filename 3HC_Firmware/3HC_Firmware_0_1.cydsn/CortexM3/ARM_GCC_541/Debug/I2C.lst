@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cclQeyMO.s 			page 1
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc27EeNw.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cclQeyMO.s 			page 1
   42              		.size	I2C_Init, .-I2C_Init
   43              		.section	.text.I2C_ReadRegister,"ax",%progbits
   44              		.align	2
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cclQeyMO.s 			page 2
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc27EeNw.s 			page 2
 
 
   45              		.global	I2C_ReadRegister
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cclQeyMO.s 			page 1
   31:I2C.c         ****         /* Check if the master status is error free */
   32:I2C.c         ****         if(status == I2C_Module_MSTR_NO_ERROR)
   82              		.loc 1 32 0
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cclQeyMO.s 			page 3
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc27EeNw.s 			page 3
 
 
   83 001c 30B9     		cbnz	r0, .L6
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cclQeyMO.s 			page 1
  123 0000 70B5     		push	{r4, r5, r6, lr}
  124              		.cfi_def_cfa_offset 16
  125              		.cfi_offset 4, -16
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cclQeyMO.s 			page 4
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc27EeNw.s 			page 4
 
 
  126              		.cfi_offset 5, -12
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cclQeyMO.s 			page 1
  164              		.thumb
  165              		.thumb_func
  166              		.type	I2C_ReadInt, %function
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cclQeyMO.s 			page 5
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc27EeNw.s 			page 5
 
 
  167              	I2C_ReadInt:
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cclQeyMO.s 			page 1
  201              		.loc 1 81 0
  202 001e 58B9     		cbnz	r0, .L16
   82:I2C.c         ****         {
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cclQeyMO.s 			page 6
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc27EeNw.s 			page 6
 
 
   83:I2C.c         ****             /* Load the read buffer with the data read from slave, followed by ACK */
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cclQeyMO.s 			page 1
   94:I2C.c         ****     } else {
   95:I2C.c         ****         returnVal = ((lowerByte << 8) | upperByte);
  242              		.loc 1 95 0
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cclQeyMO.s 			page 7
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc27EeNw.s 			page 7
 
 
  243 0048 44EA0520 		orr	r0, r4, r5, lsl #8
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cclQeyMO.s 			page 1
  294 004f 8C020000 		.4byte	.LASF4
  295 0053 02       		.uleb128 0x2
  296 0054 04       		.byte	0x4
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cclQeyMO.s 			page 8
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc27EeNw.s 			page 8
 
 
  297 0055 07       		.byte	0x7
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cclQeyMO.s 			page 1
  351 00be 1E030000 		.4byte	0x31e
  352 00c2 00       		.byte	0
  353 00c3 07       		.uleb128 0x7
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cclQeyMO.s 			page 9
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc27EeNw.s 			page 9
 
 
  354 00c4 79010000 		.4byte	.LASF20
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cclQeyMO.s 			page 1
  408 013f 01       		.uleb128 0x1
  409 0140 50       		.byte	0x50
  410 0141 02       		.uleb128 0x2
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cclQeyMO.s 			page 10
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc27EeNw.s 			page 10
 
 
  411 0142 75       		.byte	0x75
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cclQeyMO.s 			page 1
  465 01ae CE000000 		.4byte	.LLST5
  466 01b2 08       		.uleb128 0x8
  467 01b3 95000000 		.4byte	.LASF22
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cclQeyMO.s 			page 11
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc27EeNw.s 			page 11
 
 
  468 01b7 01       		.byte	0x1
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cclQeyMO.s 			page 1
  522 0229 9C       		.byte	0x9c
  523 022a 0D030000 		.4byte	0x30d
  524 022e 08       		.uleb128 0x8
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cclQeyMO.s 			page 12
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc27EeNw.s 			page 12
 
 
  525 022f 81020000 		.4byte	.LASF16
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cclQeyMO.s 			page 1
  579 02ad 01       		.uleb128 0x1
  580 02ae 30       		.byte	0x30
  581 02af 00       		.byte	0
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cclQeyMO.s 			page 13
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc27EeNw.s 			page 13
 
 
  582 02b0 0A       		.uleb128 0xa
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cclQeyMO.s 			page 1
  636 0313 1207     		.2byte	0x712
  637 0315 19030000 		.4byte	0x319
  638 0319 0D       		.uleb128 0xd
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cclQeyMO.s 			page 14
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc27EeNw.s 			page 14
 
 
  639 031a 76000000 		.4byte	0x76
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cclQeyMO.s 			page 1
  693 0014 24       		.uleb128 0x24
  694 0015 00       		.byte	0
  695 0016 0B       		.uleb128 0xb
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cclQeyMO.s 			page 15
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc27EeNw.s 			page 15
 
 
  696 0017 0B       		.uleb128 0xb
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cclQeyMO.s 			page 1
  750 004e 06       		.uleb128 0x6
  751 004f 898201   		.uleb128 0x4109
  752 0052 00       		.byte	0
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cclQeyMO.s 			page 16
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc27EeNw.s 			page 16
 
 
  753 0053 11       		.uleb128 0x11
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cclQeyMO.s 			page 1
  807 008a 0B       		.uleb128 0xb
  808 008b 3B       		.uleb128 0x3b
  809 008c 0B       		.uleb128 0xb
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cclQeyMO.s 			page 17
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc27EeNw.s 			page 17
 
 
  810 008d 49       		.uleb128 0x49
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cclQeyMO.s 			page 1
  864 00c8 19       		.uleb128 0x19
  865 00c9 3C       		.uleb128 0x3c
  866 00ca 19       		.uleb128 0x19
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cclQeyMO.s 			page 18
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc27EeNw.s 			page 18
 
 
  867 00cb 6E       		.uleb128 0x6e
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cclQeyMO.s 			page 1
  921 0063 50       		.byte	0x50
  922 0064 28000000 		.4byte	.LVL11
  923 0068 2E000000 		.4byte	.LVL12
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cclQeyMO.s 			page 19
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc27EeNw.s 			page 19
 
 
  924 006c 0100     		.2byte	0x1
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cclQeyMO.s 			page 1
  978 00ef 00000000 		.4byte	.LVL14
  979 00f3 0B000000 		.4byte	.LVL17-1
  980 00f7 0100     		.2byte	0x1
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cclQeyMO.s 			page 20
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc27EeNw.s 			page 20
 
 
  981 00f9 52       		.byte	0x52
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cclQeyMO.s 			page 1
  1035              	.LLST10:
  1036 017c 00000000 		.4byte	.LVL23
  1037 0180 0D000000 		.4byte	.LVL26-1
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cclQeyMO.s 			page 21
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc27EeNw.s 			page 21
 
 
  1038 0184 0100     		.2byte	0x1
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cclQeyMO.s 			page 1
  1092 020c 30000000 		.4byte	.LVL34
  1093 0210 0200     		.2byte	0x2
  1094 0212 30       		.byte	0x30
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cclQeyMO.s 			page 22
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc27EeNw.s 			page 22
 
 
  1095 0213 9F       		.byte	0x9f
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cclQeyMO.s 			page 1
  1149 001c 4E000000 		.4byte	.LFE66
  1150 0020 00000000 		.4byte	0
  1151 0024 00000000 		.4byte	0
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cclQeyMO.s 			page 23
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc27EeNw.s 			page 23
 
 
  1152              		.section	.debug_line,"",%progbits
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cclQeyMO.s 			page 1
  1176      00
  1177              	.LASF1:
  1178 009a 756E7369 		.ascii	"unsigned char\000"
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cclQeyMO.s 			page 24
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc27EeNw.s 			page 24
 
 
  1178      676E6564 
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cclQeyMO.s 			page 1
  1197              	.LASF35:
  1198 0197 4932432E 		.ascii	"I2C.c\000"
  1198      6300
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cclQeyMO.s 			page 25
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc27EeNw.s 			page 25
 
 
  1199              	.LASF7:
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cclQeyMO.s 			page 1
  1221      6C655F4D 
  1221      61737465 
  1221      72526561 
-ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cclQeyMO.s 			page 26
+ARM GAS  C:\Users\CALEBC~1\AppData\Local\Temp\cc27EeNw.s 			page 26
 
 
  1222              	.LASF2:
