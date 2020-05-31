@@ -72,10 +72,10 @@ class USBprimary:
 		if(self.IN != None):
 			try:
 				wrapped = self.IN.read(64,10).tobytes().decode()
-				print(wrapped)
+				# print(wrapped)
 			except usb.core.USBError as e:
 				wrapped = None
-				print(wrapped)
+				# print(wrapped)
 
 				# if e.args == ('Operation timed out',):
 					# continue
@@ -91,10 +91,15 @@ class USBprimary:
 		if(self.OUT != None):
 			self.OUT.write(writing,10) # send it
 
+	def resetUSB(self):
+		self.dev.reset()
+		
+
 	#terminate USB	
 	def EndUSB(self):
 		self.IN = None
 		self.OUT = None
+		self.dev.reset()
 
 
 

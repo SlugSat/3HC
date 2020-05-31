@@ -130,12 +130,12 @@ class MyTableWidget(QWidget):
 			#check if USb is connected
 			if(self.USB.verify() == True):
 				print("USB connection verified")
-		if(self.disableUSB == 0 and self.mode == 1):
-			self.USB.writeUSB("\n")
-			self.USB.writeUSB(NMEA.Encode("ARMED","1"))
-		if(self.disableUSB == 0 and self.mode == 0):
-			self.USB.writeUSB("\n")
-			self.USB.writeUSB(NMEA.Encode("IDLE","0"))
+		# if(self.disableUSB == 0 and self.mode == 1):
+		# 	self.USB.writeUSB("\n")
+		# 	self.USB.writeUSB(NMEA.Encode("ARMED","1"))
+		# if(self.disableUSB == 0 and self.mode == 0):
+		# 	self.USB.writeUSB("\n")
+		# 	self.USB.writeUSB(NMEA.Encode("IDLE","0"))
 
 
 
@@ -146,11 +146,12 @@ class MyTableWidget(QWidget):
 		#store list elements into variables for comparisons
 		if(NMEA_list == None):
 			self.modechange()
-			self.USB.EndUSB()
-			if(self.USB.verify() == False):
-				print("USB connection terminated")
-			self.USB = USBprimary()
-			self.modechange()							
+			
+			self.USB.resetUSB()
+			# if(self.USB.verify() == False):
+			print("Error Encountered, Switching to Idle")
+			# self.USB = USBprimary()
+			# self.modechange()							
 			return 
 		ID = NMEA_list[0]
 		Payload = NMEA_list[1]
@@ -339,14 +340,17 @@ class MyTableWidget(QWidget):
 
 
 	def modechange(self):
+		#IDLE->ARMED
 		if(self.mode == 0):
 			self.LED.resize(80, 80)
 			self.LED.setStyleSheet("border: 1px solid black; background-color: green; border-radius: 40px;")
 			self.LED.setText('       Armed         ')
 			if(self.disableUSB == 0):
+				#if we havent setup USB, do it here
 				if(self.USB.verify() == False):
 					self.USB = USBprimary()
-					self.USB.writeUSB(NMEA.Encode("ARMED","1"))
+					if(self.USB != None):
+						self.USB.writeUSB(NMEA.Encode("ARMED","1"))
 
 				elif(self.USB.verify() == True):
 					self.USB.writeUSB(NMEA.Encode("ARMED","1"))
