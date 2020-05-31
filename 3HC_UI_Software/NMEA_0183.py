@@ -1,5 +1,5 @@
 # /* ========================================
-#  * FILE:   NMEA0183.py
+#  * FILE:   NMEA_0183.py
 #  * AUTHOR: Nick Jannuzzi
 #  *
 #  * CREATED ON April 13, 2020, 4:10 PM
@@ -15,6 +15,8 @@
 #  *
 #  * ========================================
 # */
+
+
 
 import re
 #encodes a message and payload using NMEA_0183 GPS protocol
@@ -41,28 +43,26 @@ def Decode(string):
 	# print("Before:",string)
 	msg = re.split('[$ , * \n]',string)
 	#trims some leading and trailing $ and \n 
-	# print("BeforeTrim:",msg)
-	# if(len(msg) == 0):
-	# 	msg = ["ERR"]
-	# 	return msg	
 	msg.pop(0)
 	msg.pop(-1)
-	if(len(msg) > 3):
-		msg.pop(-1)
 
-	print("AfterTrim:",msg)
+	#current sensor had weird hex padding, so this will trim anything else that we don't want
+	if(len(msg) > 3):
+		while(len(msg) > 3):
+			msg.pop(-1)	
+	# print("AfterTrim:",msg)
+
+	#save ID, payload and checksum into single variables from tuple
 	msgid = msg[0]
 	payload = msg[1]
-	# chk = int(msg[-1],16)
+	chk = int(msg[-1],16)
 
 
-	# #checksum comparison determines if the message is valid or not
-	# # print(chk)
-	# # print(Checksum(str(msgid) + ',' + str(payload)))
-	# if(chk != Checksum(str(msgid) + ',' + str(payload))):
-	# 	# print("Checksum error, expected checksum did not match received checksum\n")
-	# 	msg = ["ERR"]
-	# 	return msg	
+	#checksum comparison determines if the message is valid or not
+	if(chk != Checksum(str(msgid) + ',' + str(payload))):
+		# print("Checksum error, expected checksum did not match received checksum\n")
+		msg = ["ERR"]
+		return msg	
 	return msg
 
 

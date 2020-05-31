@@ -17,6 +17,8 @@
 # */
 
 
+#requirements for install: PyUSB, PyQt5
+#additional libraries necessary: NMEA_0183.py, USB.py
 
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
@@ -63,15 +65,10 @@ class MyTableWidget(QWidget):
 		self.ZSET = 0.0
 
 
-		#magnetometer data and arrays
+		#magnetometer data
 		self.XMAG = 0.0
 		self.YMAG = 0.0
 		self.ZMAG = 0.0
-		# self.XL = [0,0,0,0,0,0,0,0,0,0]
-		# self.YL = [0,0,0,0,0,0,0,0,0,0]
-		# self.ZL = [0,0,0,0,0,0,0,0,0,0]
-
-
 
 		#flags for invalid setpoint input
 		self.xflag = False
@@ -102,7 +99,7 @@ class MyTableWidget(QWidget):
 		#end of variable declarations-----------------------------
 
 
-		#initializes tab UI for each tab
+		#initializes UI layout for each tab
 		self.tab1UI()
 		self.tab2UI()
 		self.tab3UI()
@@ -115,13 +112,12 @@ class MyTableWidget(QWidget):
 		self.DataTimer.setInterval(100)
 		self.DataTimer.timeout.connect(self.pulldata)
 		
-
+		#start timers for USB read/write if USB is enabled
 		if(self.disableUSB == 0 and self.mode == 1):
 			self.DataTimer.start()
-		# self.ITimer.start()	
-		# self.PlotTimer.start()
+		#define tabe names	
 		self.tabs.addTab(self.tab1,"HHC")
-		# self.tabs.addTab(self.tab2,"HHC Field Vector Graphs")
+		#tab 2 is a future work
 		self.tabs.addTab(self.tab2,"Solar Vectors")
 		self.tabs.addTab(self.tab3,"SOP and Useful Links")
         # Add tabs to widget
@@ -152,8 +148,7 @@ class MyTableWidget(QWidget):
 		ID = NMEA_list[0]
 		Payload = NMEA_list[1]
 
-		# if(ID == 'ERR'):
-		# 	pass
+		#basically a simple checker to route NMEA_0183 messages to their designated UI elements
 		if(ID == "XCUR"):
 			self.XCUR = float("%.4g" % float(Payload))
 			self.XIreadout.setText(str(self.XCUR))
@@ -178,17 +173,20 @@ class MyTableWidget(QWidget):
 			self.ZNULLreadout.setText(str(self.ZMAG))
 
 		if(ID == "XSET"):
-			self.XSET = float("%.3g" % float(Payload))
-			# print("X:" + Payload)
+			self.XSET2 = float("%.3g" % float(Payload))
+			if(self.XSET2 != self.XSET):
+				self.XSET =self.XSET2
 
 		if(ID == "YSET"):
-			self.YSET = float("%.3g" % float(Payload))
-			# print("Y:" + Payload)
+			self.YSET2 = float("%.3g" % float(Payload))
+			if(self.YSET2 != self.YSET):
+				self.YSET =self.YSET2
 		
 
-		# if(ID == "ZSET"):
-		# 	self.ZSET = float("%.3g" % float(Payload))
-		# 	# print("Z:" + Payload)
+		if(ID == "ZSET"):
+			self.ZSET2 = float("%.3g" % float(Payload))
+			if(self.ZSET2 != self.ZSET):
+				self.ZSET =self.ZSET2
 
 		# if(ID == 'XNULL'):
 		# 	self.XNOFF = float("%.1g" % float(Payload))
@@ -205,12 +203,6 @@ class MyTableWidget(QWidget):
 		# 	self.ZNOFF = float("%.1g" % float(Payload))
 		# 	self.ZNULLreadout.setText('%s' % self.ZNOFF)	
 				
-		# if(ID == "FAULT"):
-		# 	self.WTF = QMessageBox()
-		# 	self.WTF.setWindowTitle("HHC Fault Detected")
-		# 	self.WTF.setIcon(QMessageBox.Warning)
-		# 	self.WTF.setText("HHC Fault Occurred: PH")
-		# 	self.WTF.exec_()
 
 
 	def SetpointsEntered(self):
@@ -286,9 +278,9 @@ class MyTableWidget(QWidget):
 
 
 	def pulldata(self):
-		if(self.USB.IN == None):
+		if(self.USB.verify() == False):
 			self.modechange()
-			self.EndUSB()
+			# self.EndUSB()
 			pass;
 		if(self.disableUSB == 0 and self.mode == 1):
 			self.USB.writeUSB(NMEA.Encode('READ',"XCUR"))

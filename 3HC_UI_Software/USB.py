@@ -2,7 +2,7 @@
 #  * FILE:   USB.py
 #  * AUTHOR: Nick Jannuzzi
 #  *
-#  * CREATED ON April 5, 2020
+#  * CREATED ON March 3, 2020
 #  *
 #  * ========================================
 #  *
@@ -20,10 +20,10 @@ import usb.core
 import usb.util
 import sys
 import array
-#created by Nick Jannuzzi 3/3/20
+
 		
 
-#implements the USB class for allowing USB transfer (Primary USB connection for usage with HHC and STS)
+#implements the USB class for allowing USB transfer (Primary USB connection for usage with 3HC)
 class USBprimary:
 	def __init__(self):
 		self.OUT = None
@@ -31,7 +31,7 @@ class USBprimary:
 		self.dev = None
 	#find our device
 		self.dev = usb.core.find(idVendor = 0x4b4, idProduct=0x80)
-		#check is we found a device
+		#check if we found a device
 		if self.dev is None:
 			print("USB Device error: Device 1 not found: It appears the HHC is not connected or turned on. Please plug the power supply in or turn it on if it is already plugged in. ")
 			sys.exit(1)
@@ -57,7 +57,7 @@ class USBprimary:
 		#check endpoints, return true if both are found
 		
 
-	#verifies that we connected because and __init__ method cannot return something 	
+	#verifies that we connected because __init__ method cannot return something 	
 	def verify(self):
 
 		if self.IN is not None and self.OUT is not None:
@@ -68,6 +68,7 @@ class USBprimary:
 
 	#read IN endpoint from device and processes it so we 
 	def readUSB(self):
+		#pyusb returns array of bytes so this converts it to something we can use
 		wrapped = self.IN.read(64,10000).tobytes().decode()
 		# print("Received:" +str(wrapped))
 		return wrapped
@@ -83,7 +84,12 @@ class USBprimary:
 		self.IN = None
 		self.OUT = None
 
+
+
+
+
 #setup for a secondary USB device, to be used exclusively by the Solar Vector Simulation Module of the HHC
+#to configure properly, idVendor and idProduct will need to be set to match the microncontroller used
 class USBsecondary:
 	def __init__(self):
 		self.OUT = None
@@ -117,7 +123,7 @@ class USBsecondary:
 		#check endpoints, return true if both are found
 		
 
-	#verifies that we connected because and __init__ method cannot return something 	
+	#verifies that we connected because __init__ method cannot return something 	
 	def verify(self):
 
 		if self.IN is not None and self.OUT is not None:
