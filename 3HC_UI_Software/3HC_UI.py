@@ -93,6 +93,8 @@ class MyTableWidget(QWidget):
 		#this changes when system is changed from ARMED to IDLE
 		#1 = AMRED, 0 = IDLE
 
+		#Calibration status, 0 = uncalibrated, 1 = in process, 2 = dcalibrated
+		self.calstatus = 0
 
 
 		#end of variable declarations-----------------------------
@@ -110,7 +112,9 @@ class MyTableWidget(QWidget):
 		self.DataTimer = QTimer()
 		self.DataTimer.setInterval(100)
 		self.DataTimer.timeout.connect(self.pulldata)
-		
+		self.CalibrationTimer = QTimer()
+		self.CalibrationTimer.setInterval(5000)
+		self.CalibrationTimer.timeout.connect(self.doneCalibrating)
 		#start timers for USB read/write if USB is enabled
 		if(self.disableUSB == 0 and self.mode == 1):
 			self.DataTimer.start()
@@ -163,14 +167,14 @@ class MyTableWidget(QWidget):
 
 		if(ID == "XMAG"):
 			self.XMAG = float("%.3g" % float(Payload))
-			self.XNULLreadout.setText(str(self.XMAG))
+			self.XMAGreadout.setText(str(self.XMAG))
 
 		if(ID == "YMAG"):
 			self.YMAG = float("%.3g" % float(Payload))
-			self.YNULLreadout.setText(str(self.YMAG))
+			self.YMAGreadout.setText(str(self.YMAG))
 		if(ID == "ZMAG"):
 			self.ZMAG = float("%.3g" % float(Payload))
-			self.ZNULLreadout.setText(str(self.ZMAG))
+			self.ZMAGreadout.setText(str(self.ZMAG))
 
 		if(ID == "XSET"):
 			self.XSET2 = float("%.3g" % float(Payload))
@@ -209,23 +213,8 @@ class MyTableWidget(QWidget):
 					self.ZS.setText('Z Setpoint (Current Value: %s)' % self.ZSET)
 
 
-
-		# if(ID == 'XNULL'):
-		# 	self.XNOFF = float("%.1g" % float(Payload))
-		# 	self.XNULLreadout.setText('%s' % self.XNOFF)
-
-		
-		# if(ID =='YNULL'):
-		# 	self.YNOFF = float("%.1g" % float(Payload))
-		# 	self.YNULLreadout.setText('%s' % self.YNOFF)
-
-
-
-		# if(ID =='ZNULL'):		
-		# 	self.ZNOFF = float("%.1g" % float(Payload))
-		# 	self.ZNULLreadout.setText('%s' % self.ZNOFF)	
-				
-
+	def Calibration_Process(self, NMEA_Input):
+			pass
 
 	def SetpointsEntered(self):
 		#handles 0 case due to unexpected functionality enocuntered
@@ -329,10 +318,18 @@ class MyTableWidget(QWidget):
 			self.Process_NMEA(NNMEA3)
 
 
+	def doneCalibrating(self):
+		self.CalLED.resize(80, 80)
+		self.CalLED.setStyleSheet("border: 1px solid black; background-color: green; border-radius: 40px;")
+		self.CalLED.setText('       Calibrated         ')
+		self.calstatus = 2
+
+
+
 	#handles swapping from IDLE to ARMED and USB handling
 	def modechange(self):
 		#IDLE->ARMED
-		if(self.mode == 0):
+		if(self.mode == 0 and self.calstatus == 2):
 			self.LED.resize(80, 80)
 			self.LED.setStyleSheet("border: 1px solid black; background-color: green; border-radius: 40px;")
 			self.LED.setText('       Armed         ')
@@ -349,7 +346,7 @@ class MyTableWidget(QWidget):
 			self.mode = 1
 
 
-		elif(self.mode == 1):
+		elif(self.mode == 1 and self.calstatus == 2):
 			self.LED.resize(80, 80)
 			self.LED.setStyleSheet("border: 1px solid black; background-color: red; border-radius: 40px;")
 			self.LED.setText('        Idle         ')
@@ -358,6 +355,12 @@ class MyTableWidget(QWidget):
 				self.DataTimer.stop()
 			self.mode = 0
 
+	def calibrate3HC(self):
+		self.calstatus = 1
+		self.CalLED.resize(80, 80)
+		self.CalLED.setStyleSheet("border: 1px solid black; background-color: yellow; border-radius: 40px;")
+		self.CalLED.setText('       Calibrating           ')
+		self.CalibrationTimer.start()
 
 
 
@@ -384,18 +387,21 @@ class MyTableWidget(QWidget):
 
 		#setpoint label
 		self.tab1.sp = QHBoxLayout()
-		self.spLabel = QLabel('HHC Axis Setpoints',self)
+		self.spLabel = QLabel('HHC Axis Setpoints (Microteslas)',self)
 		self.spLabel.setFont(QFont('Arial', 20))
 		self.tab1.sp.addWidget(self.spLabel)
 
+		self.tab1.null = QHBoxLayout()
+		self.NullLabel = QLabel('3HC NULL Offsets (Microteslas)',self)
+		self.NullLabel.setFont(QFont('Arial', 20))
+		self.tab1.null.addWidget(self.NullLabel)
 
+		self.tab1.mag = QHBoxLayout()
+		self.MagLabel = QLabel('3HC Magnetometer Readings (Microteslas)',self)
+		self.MagLabel.setFont(QFont('Arial', 20))
+		self.tab1.mag.addWidget(self.MagLabel)
 
-		self.tab1.no = QHBoxLayout()
-		self.calLabel = QLabel('3HC Magnetometer Readings (Microteslas)',self)
-		self.calLabel.setFont(QFont('Arial', 20))
-		self.tab1.no.addWidget(self.calLabel)
 		self.tab1.I = QHBoxLayout()
-	
 		self.ILabel = QLabel('Current Sensor Readouts (Amps)',self)
 		self.ILabel.setFont(QFont('Arial', 20))
 		self.tab1.I.addWidget(self.ILabel)
@@ -410,12 +416,25 @@ class MyTableWidget(QWidget):
 		self.tab1.hlayout.addWidget(self.XS)
 		self.tab1.hlayout.addStretch(1)
 
-		#X Null Offset
-		self.tab1.hlayout1b = QHBoxLayout()
+
+		#X NULL offset
+		self.tab1.hlayoutN = QHBoxLayout()
 		self.XNULLLabel = QLabel('X:',self)
-		self.tab1.hlayout1b.addWidget(self.XNULLLabel)
+		self.tab1.hlayoutN.addWidget(self.XNULLLabel)
 		self.XNULLreadout = QLabel('%d'% 0,self)
-		self.tab1.hlayout1b.addWidget(self.XNULLreadout)
+		self.tab1.hlayoutN.addWidget(self.XNULLreadout)
+		self.tab1.hlayoutN.addStretch(2)
+
+
+
+
+
+		#X Magnetic field
+		self.tab1.hlayout1b = QHBoxLayout()
+		self.XMAGLabel = QLabel('X:',self)
+		self.tab1.hlayout1b.addWidget(self.XMAGLabel)
+		self.XMAGreadout = QLabel('%d'% 0,self)
+		self.tab1.hlayout1b.addWidget(self.XMAGreadout)
 		self.tab1.hlayout1b.addStretch(2)
 
 		#X-axis current sensor
@@ -435,12 +454,21 @@ class MyTableWidget(QWidget):
 		self.tab1.hlayout2.addWidget(self.YS)
 		self.tab1.hlayout2.addStretch(1)
 
-		#Y Null Offset
-		self.tab1.hlayout2b = QHBoxLayout()
+
+		#Y NULL offset
+		self.tab1.hlayoutN2 = QHBoxLayout()
 		self.YNULLLabel = QLabel('Y:',self)
-		self.tab1.hlayout2b.addWidget(self.YNULLLabel)
+		self.tab1.hlayoutN2.addWidget(self.YNULLLabel)
 		self.YNULLreadout = QLabel('%d'% 0,self)
-		self.tab1.hlayout2b.addWidget(self.YNULLreadout)
+		self.tab1.hlayoutN2.addWidget(self.YNULLreadout)
+		self.tab1.hlayoutN2.addStretch(2)
+
+		#Y Magnetic field
+		self.tab1.hlayout2b = QHBoxLayout()
+		self.YMAGLabel = QLabel('Y:',self)
+		self.tab1.hlayout2b.addWidget(self.YMAGLabel)
+		self.YMAGreadout = QLabel('%d'% 0,self)
+		self.tab1.hlayout2b.addWidget(self.YMAGreadout)
 		self.tab1.hlayout2b.addStretch(2)
 
 		#Y-axis current readout
@@ -461,12 +489,22 @@ class MyTableWidget(QWidget):
 		self.tab1.hlayout3.addWidget(self.ZS)
 		self.tab1.hlayout3.addStretch(1)
 
-		#Z Null Offset
-		self.tab1.hlayout3b = QHBoxLayout()
+
+		#Z NULL offsets
+		self.tab1.hlayoutN3 = QHBoxLayout()
 		self.ZNULLLabel = QLabel('Z:',self)
-		self.tab1.hlayout3b.addWidget(self.ZNULLLabel)
+		self.tab1.hlayoutN3.addWidget(self.ZNULLLabel)
 		self.ZNULLreadout = QLabel('%d'% 0,self)
-		self.tab1.hlayout3b.addWidget(self.ZNULLreadout)
+		self.tab1.hlayoutN3.addWidget(self.ZNULLreadout)
+		self.tab1.hlayoutN3.addStretch(2)
+
+
+		#Z Magnetic field
+		self.tab1.hlayout3b = QHBoxLayout()
+		self.ZMAGLabel = QLabel('Z:',self)
+		self.tab1.hlayout3b.addWidget(self.ZMAGLabel)
+		self.ZMAGreadout = QLabel('%d'% 0,self)
+		self.tab1.hlayout3b.addWidget(self.ZMAGreadout)
 		self.tab1.hlayout3b.addStretch(2)
 
 		#Z-axis Current readout
@@ -501,7 +539,10 @@ class MyTableWidget(QWidget):
 		#3HC mode button
 		self.tab1.mode = QHBoxLayout()
 		self.mbut = QPushButton('3HC mode',self)
+		self.calbut = QPushButton('Calibrate',self)
+
 		self.LED = QLabel()
+		
 		if(self.mode == 1):
 			#IDLE->ARMED
 			self.LED.resize(80, 80)
@@ -515,9 +556,24 @@ class MyTableWidget(QWidget):
 			self.LED.setText('        Idle         ')
 			self.stopUSB = 1
 
+
+
+		self.CalLED = QLabel()
+		if(self.calstatus == 0):	
+			self.CalLED.resize(80, 80)
+			self.CalLED.setStyleSheet("border: 1px solid black; background-color: red; border-radius: 40px;")
+			self.CalLED.setText('       Not Calibrated        ')
+
+
 		self.mbut.clicked.connect(self.modechange)
+		self.calbut.clicked.connect(self.calibrate3HC)
+
 		self.tab1.mode.addWidget(self.mbut)
 		self.tab1.mode.addWidget(self.LED)
+		self.tab1.mode.addWidget(self.calbut)
+		self.tab1.mode.addWidget(self.CalLED)
+
+
 		self.tab1.mode.addStretch(2)
 
 
@@ -533,8 +589,16 @@ class MyTableWidget(QWidget):
 		self.tab1.vlayout.addStretch(1)
 
 
-		#null
-		self.tab1.vlayout.addLayout(self.tab1.no)
+		#null offsets
+		self.tab1.vlayout.addLayout(self.tab1.null)
+		self.tab1.vlayout.addLayout(self.tab1.hlayoutN)
+		self.tab1.vlayout.addLayout(self.tab1.hlayoutN2)
+		self.tab1.vlayout.addLayout(self.tab1.hlayoutN3)
+		# self.tab1.vlayout.addLayout(self.tab1.hlayout4)
+		self.tab1.vlayout.addStretch(1)
+
+		#magnetic field
+		self.tab1.vlayout.addLayout(self.tab1.mag)
 		self.tab1.vlayout.addLayout(self.tab1.hlayout1b)
 		self.tab1.vlayout.addLayout(self.tab1.hlayout2b)
 		self.tab1.vlayout.addLayout(self.tab1.hlayout3b)
@@ -548,7 +612,7 @@ class MyTableWidget(QWidget):
 		self.tab1.vlayout.addLayout(self.tab1.hlayout3c)
 		self.tab1.vlayout.addStretch(1)
 
-		#exit button
+		#mode button
 		self.tab1.vlayout.addLayout(self.tab1.mode)
 		self.tab1.vlayout.addStretch(1)
 
