@@ -17,7 +17,7 @@
 # */
 
 
-#requirements for install: PyUSB, PyQt5
+#requirements for install: PyUSB 1.0.2, PyQt5 5.14.2
 #additional libraries necessary: NMEA_0183.py, USB.py
 
 from PyQt5.QtWidgets import *
@@ -30,7 +30,7 @@ import NMEA_0183 as NMEA
 
 
 class App(QMainWindow):
-	#init function setsup the whole thing
+	#init function sets up the whole thing
 	def __init__(self):
 		super().__init__()
 		self.title = "SlugSat 3-Axis HHC/SVS Control Interface Rev. 2.5"
@@ -86,6 +86,16 @@ class MyTableWidget(QWidget):
 		self.XCUR = 0
 		self.YCUR = 0
 		self.ZCUR = 0
+
+
+		# #boundaries for setpoints
+		# self.XUP = 0
+		# self.XLOW = 0
+		# self.YUP = 0
+		# self.YLOW = 0
+		# self.ZUP = 0
+		# self.ZLOW = 0
+
 
 
 		#other
@@ -287,13 +297,18 @@ class MyTableWidget(QWidget):
 		#invalid input popup		
 		if(self.xflag or self.yflag or self.zflag):
 			SPInvalid = QMessageBox()
-			SPInvalid.setText('Invalid input(s) for one or more axis setpoints; valid range is -150 to 150 with 3 decimal place maximum precision for each setpoint')
+			SPInvalid.setText('Invalid input(s) for one or more axis setpoints; valid range is +/-150+axis null offset with 3 decimal place maximum precision for each setpoint')
 			self.xflag = False
 			self.yflag = False
 			self.zflag = False
 			SPInvalid.exec_()
 
-		#encodes NMEA messages
+		#encodes NMEA messages, subtracting NULL offset for each axis
+		self.XSET -= round(self.XNOFF,3)
+		self.YSET -= round(self.YNOFF,3)
+		self.ZSET -= round(self.ZNOFF,3)
+
+
 		self.XSETE = NMEA.Encode('SETX',str(self.XSET))
 		self.YSETE = NMEA.Encode('SETY',str(self.YSET))
 		self.ZSETE = NMEA.Encode('SETZ',str(self.ZSET))	
@@ -377,39 +392,66 @@ class MyTableWidget(QWidget):
 
 	#runs calibration scheme on 3HC
 	def calibrate3HC(self):
-		if(self.calstatus != 2):
-			self.calstatus = 1
-			#take 10 data samples for each axis of the magnetometer, then take the average on each axis
-			for x in range(0,10):
-				self.USB.writeUSB(NMEA.Encode('READ',"XMAG"))
-				xcal = NMEA.Decode(self.USB.readUSB())
-				self.Calibration_Process(xcal)
+		# if(self.calstatus != 0):
+		self.XSETE = NMEA.Encode('SETX',0)
+		self.YSETE = NMEA.Encode('SETY',0)
+		self.ZSETE = NMEA.Encode('SETZ',0)	
+		#clear setpoints
+		self.USB.writeUSB(self.XSETE)	
+		self.USB.writeUSB(self.YSETE)	
+		self.USB.writeUSB(self.ZSETE)	
+		#reset stored calibration values
+		xcal = 0
+		ycal = 0
+		zcal = 0
+		self.XCAL = 0
+		self.YCAL = 0
+		self.ZCAL = 0
 
-				self.USB.writeUSB(NMEA.Encode('READ',"YMAG"))
-				ycal = NMEA.Decode(self.USB.readUSB())
-				self.Calibration_Process(ycal)
-				# print('Y' + str(ycal))
 
-				self.USB.writeUSB(NMEA.Encode('READ',"ZMAG"))
-				zcal = NMEA.Decode(self.USB.readUSB())
-				self.Calibration_Process(zcal)
-	
-				time.sleep(0.05)
-			time.sleep(2)	
-			# print('X: ' + str(self.XCAL/10))
-			# print('Y: ' + str(self.YCAL/10))
-			# print('Z: ' + str(self.ZCAL/10))
-			self.XNOFF = self.XCAL/10
-			self.YNOFF = self.YCAL/10
-			self.ZNOFF = self.ZCAL/10
-			self.tab1.hlayoutN.addWidget(self.XNULLreadout)
-			self.tab1.hlayoutN2.addWidget(self.YNULLreadout)
-			self.tab1.hlayoutN3.addWidget(self.ZNULLLabel)
+		self.calstatus = 1
+		#take 20 data samples for each axis of the magnetometer, then take the average on each axis
+		for x in range(0,20):
+			self.USB.writeUSB(NMEA.Encode('READ',"XMAG"))
+			xcal = NMEA.Decode(self.USB.readUSB())
+			self.Calibration_Process(xcal)
 
-			self.calstatus = 2
-			self.CalLED.resize(80, 80)
-			self.CalLED.setStyleSheet("border: 1px solid black; background-color: green; border-radius: 40px;")
-			self.CalLED.setText('       Calibrated            ')
+			self.USB.writeUSB(NMEA.Encode('READ',"YMAG"))
+			ycal = NMEA.Decode(self.USB.readUSB())
+			self.Calibration_Process(ycal)
+			# print('Y' + str(ycal))
+
+			self.USB.writeUSB(NMEA.Encode('READ',"ZMAG"))
+			zcal = NMEA.Decode(self.USB.readUSB())
+			self.Calibration_Process(zcal)
+
+			time.sleep(0.03)
+		#sleep gives better user interface experience	
+		time.sleep(2)
+		#finish taking average	
+		self.XNOFF = self.XCAL/20
+		self.YNOFF = self.YCAL/20
+		self.ZNOFF = self.ZCAL/20
+		self.XNULLreadout.setText('%f'% self.XNOFF)
+		self.YNULLreadout.setText('%f'% self.YNOFF)
+		self.ZNULLreadout.setText('%f'% self.ZNOFF)
+		#adjusts setpoint input ranges to account for null offset
+		self.XSPoint.setValidator(QDoubleValidator(-150.0+self.XNOFF, 150.0+self.XNOFF, 3))
+
+		self.YSPoint.setValidator(QDoubleValidator(-150.0+self.YNOFF, 150.0+self.YNOFF, 3))
+
+		self.ZSPoint.setValidator(QDoubleValidator(-150.0+self.ZNOFF, 150.0+self.ZNOFF, 3))
+
+		#enable user to arm 3HC 
+		self.calstatus = 2
+		#update LED
+		self.CalLED.resize(80, 80)
+		self.CalLED.setStyleSheet("border: 1px solid black; background-color: green; border-radius: 40px;")
+		self.CalLED.setText('       Calibrated            ')
+
+	#links for tab3
+
+
 
 	def tab4buttonpressed(self):
 		webbrowser.open('https://docs.google.com/forms/d/e/1FAIpQLSfV1I_m_XHpySkWWFHY50TkHchBT7OENFbcBqAayC7Oqqf6HQ/formResponse')	
@@ -457,7 +499,7 @@ class MyTableWidget(QWidget):
 		#X Setpoint
 		self.tab1.hlayout = QHBoxLayout()
 		self.XSPoint =  QLineEdit(self)
-		self.XSPoint.setValidator(QDoubleValidator(-150.0, 150.0, 3))
+		self.XSPoint.setValidator(QDoubleValidator(-150.0+self.XNOFF, 150.0+self.XNOFF, 3))
 		self.tab1.hlayout.addWidget(self.XSPoint)
 		self.XS = QLabel('X Setpoint (Current Value: %d)' % self.XSET,self)
 		self.tab1.hlayout.addWidget(self.XS)
@@ -495,7 +537,7 @@ class MyTableWidget(QWidget):
 		#Y Setpoint
 		self.tab1.hlayout2 = QHBoxLayout()
 		self.YSPoint =  QLineEdit(self)
-		self.YSPoint.setValidator(QDoubleValidator(-150.0, 150.0, 3))
+		self.YSPoint.setValidator(QDoubleValidator(-150.0+self.YNOFF, 150.0+self.YNOFF, 3))
 		self.tab1.hlayout2.addWidget(self.YSPoint)
 		self.YS = QLabel('Y Setpoint (Current Value: %d)' % self.YSET,self)
 		self.tab1.hlayout2.addWidget(self.YS)
@@ -530,7 +572,7 @@ class MyTableWidget(QWidget):
 		#Z Setpoint
 		self.tab1.hlayout3 = QHBoxLayout()
 		self.ZSPoint =  QLineEdit(self)
-		self.ZSPoint.setValidator(QDoubleValidator(-150.0, 150.0, 3))
+		self.ZSPoint.setValidator(QDoubleValidator(-150.0+self.ZNOFF, 150.0+self.ZNOFF, 3))
 		self.tab1.hlayout3.addWidget(self.ZSPoint)
 		self.ZS = QLabel('Z Setpoint (Current Value: %d)' % self.ZSET,self)
 		self.tab1.hlayout3.addWidget(self.ZS)
