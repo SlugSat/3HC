@@ -33,7 +33,7 @@ class App(QMainWindow):
 	#init function setsup the whole thing
 	def __init__(self):
 		super().__init__()
-		self.title = "SlugSat 3-Axis HHC/SVS Control Interface Rev. 2"
+		self.title = "SlugSat 3-Axis HHC/SVS Control Interface Rev. 2.5"
 		self.setWindowTitle(self.title)
 		self.setGeometry(0,0,500,1000)
 		self.table_widget = MyTableWidget(self)
@@ -63,6 +63,9 @@ class MyTableWidget(QWidget):
 		self.YSET = 0.0
 		self.ZSET = 0.0
 
+		self.XCAL = 0
+		self.YCAL = 0
+		self.ZCAL = 0
 
 		#magnetometer data
 		self.XMAG = 0.0
@@ -355,14 +358,28 @@ class MyTableWidget(QWidget):
 				self.DataTimer.stop()
 			self.mode = 0
 
+
+	#runs calibration scheme on 3HC
 	def calibrate3HC(self):
 		self.calstatus = 1
 		self.CalLED.resize(80, 80)
 		self.CalLED.setStyleSheet("border: 1px solid black; background-color: yellow; border-radius: 40px;")
 		self.CalLED.setText('       Calibrating           ')
-		self.CalibrationTimer.start()
-
-
+		# self.CalibrationTimer.start()
+		for x in range(0,10):
+			self.USB.writeUSB(NMEA.Encode('READ',"XMAG"))
+			xcal = NMEA.Decode(self.USB.readUSB())
+			print(xcal)
+			self.USB.writeUSB(NMEA.Encode('READ',"YMAG"))
+			ycal = NMEA.Decode(self.USB.readUSB())
+			print(ycal)
+			self.USB.writeUSB(NMEA.Encode('READ',"ZMAG"))
+			zcal = NMEA.Decode(self.USB.readUSB())
+			print(zcal)
+		self.CalLED.resize(80, 80)
+		self.CalLED.setStyleSheet("border: 1px solid black; background-color: green; border-radius: 40px;")
+		self.CalLED.setText('       Calibrated            ')
+		self.calstatus = 2
 
 	def tab4buttonpressed(self):
 		webbrowser.open('https://docs.google.com/forms/d/e/1FAIpQLSfV1I_m_XHpySkWWFHY50TkHchBT7OENFbcBqAayC7Oqqf6HQ/formResponse')	

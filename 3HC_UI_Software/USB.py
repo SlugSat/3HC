@@ -72,7 +72,7 @@ class USBprimary:
 		#conditionals catch errors and allow us to react to them
 		if(self.IN != None):
 			try:
-				wrapped = self.IN.read(64,10).tobytes().decode()
+				wrapped = self.IN.read(64,1000).tobytes().decode()
 				# print(wrapped)
 			except usb.core.USBError as e:
 				wrapped = None
@@ -90,7 +90,7 @@ class USBprimary:
 		# print("Sent: "+str(writing))
 		# print(writing)
 		if(self.OUT != None):
-			self.OUT.write(writing,10) # send it
+			self.OUT.write(writing,1000) # send it
 
 	#resets device without disconnecting it completely
 	def resetUSB(self):
