@@ -175,6 +175,7 @@ class MyTableWidget(QWidget):
 		if(ID == "YMAG"):
 			self.YMAG = float("%.3g" % float(Payload))
 			self.YMAGreadout.setText(str(self.YMAG))
+
 		if(ID == "ZMAG"):
 			self.ZMAG = float("%.3g" % float(Payload))
 			self.ZMAGreadout.setText(str(self.ZMAG))
@@ -216,8 +217,27 @@ class MyTableWidget(QWidget):
 					self.ZS.setText('Z Setpoint (Current Value: %s)' % self.ZSET)
 
 
-	def Calibration_Process(self, NMEA_Input):
-			pass
+	def Calibration_Process(self, NMEA_list):
+		ID = NMEA_list[0]
+		Payload = NMEA_list[1]
+		if(ID == "XMAG"):
+			self.XCAL += float(Payload)
+
+
+		if(ID == "YMAG"):
+			self.YCAL += float(Payload)
+
+
+		if(ID == "ZMAG"):
+			self.ZCAL += float(Payload)
+
+
+	def doneCalibrating(self):
+		self.CalLED.resize(80, 80)
+		self.CalLED.setStyleSheet("border: 1px solid black; background-color: green; border-radius: 40px;")
+		self.CalLED.setText('       Calibrated         ')
+		self.calstatus = 2
+
 
 	def SetpointsEntered(self):
 		#handles 0 case due to unexpected functionality enocuntered
@@ -267,7 +287,7 @@ class MyTableWidget(QWidget):
 		#invalid input popup		
 		if(self.xflag or self.yflag or self.zflag):
 			SPInvalid = QMessageBox()
-			SPInvalid.setText('Invalid input(s) for one or more axis setpoints; valid range is -200 to 200 with 3 decimal place maximum precision for each setpoint')
+			SPInvalid.setText('Invalid input(s) for one or more axis setpoints; valid range is -150 to 150 with 3 decimal place maximum precision for each setpoint')
 			self.xflag = False
 			self.yflag = False
 			self.zflag = False
@@ -321,11 +341,7 @@ class MyTableWidget(QWidget):
 			self.Process_NMEA(NNMEA3)
 
 
-	def doneCalibrating(self):
-		self.CalLED.resize(80, 80)
-		self.CalLED.setStyleSheet("border: 1px solid black; background-color: green; border-radius: 40px;")
-		self.CalLED.setText('       Calibrated         ')
-		self.calstatus = 2
+
 
 
 
@@ -361,25 +377,39 @@ class MyTableWidget(QWidget):
 
 	#runs calibration scheme on 3HC
 	def calibrate3HC(self):
-		self.calstatus = 1
-		self.CalLED.resize(80, 80)
-		self.CalLED.setStyleSheet("border: 1px solid black; background-color: yellow; border-radius: 40px;")
-		self.CalLED.setText('       Calibrating           ')
-		# self.CalibrationTimer.start()
-		for x in range(0,10):
-			self.USB.writeUSB(NMEA.Encode('READ',"XMAG"))
-			xcal = NMEA.Decode(self.USB.readUSB())
-			print(xcal)
-			self.USB.writeUSB(NMEA.Encode('READ',"YMAG"))
-			ycal = NMEA.Decode(self.USB.readUSB())
-			print(ycal)
-			self.USB.writeUSB(NMEA.Encode('READ',"ZMAG"))
-			zcal = NMEA.Decode(self.USB.readUSB())
-			print(zcal)
-		self.CalLED.resize(80, 80)
-		self.CalLED.setStyleSheet("border: 1px solid black; background-color: green; border-radius: 40px;")
-		self.CalLED.setText('       Calibrated            ')
-		self.calstatus = 2
+		if(self.calstatus != 2):
+			self.calstatus = 1
+			#take 10 data samples for each axis of the magnetometer, then take the average on each axis
+			for x in range(0,10):
+				self.USB.writeUSB(NMEA.Encode('READ',"XMAG"))
+				xcal = NMEA.Decode(self.USB.readUSB())
+				self.Calibration_Process(xcal)
+
+				self.USB.writeUSB(NMEA.Encode('READ',"YMAG"))
+				ycal = NMEA.Decode(self.USB.readUSB())
+				self.Calibration_Process(ycal)
+				# print('Y' + str(ycal))
+
+				self.USB.writeUSB(NMEA.Encode('READ',"ZMAG"))
+				zcal = NMEA.Decode(self.USB.readUSB())
+				self.Calibration_Process(zcal)
+	
+				time.sleep(0.05)
+			time.sleep(2)	
+			# print('X: ' + str(self.XCAL/10))
+			# print('Y: ' + str(self.YCAL/10))
+			# print('Z: ' + str(self.ZCAL/10))
+			self.XNOFF = self.XCAL/10
+			self.YNOFF = self.YCAL/10
+			self.ZNOFF = self.ZCAL/10
+			self.tab1.hlayoutN.addWidget(self.XNULLreadout)
+			self.tab1.hlayoutN2.addWidget(self.YNULLreadout)
+			self.tab1.hlayoutN3.addWidget(self.ZNULLLabel)
+
+			self.calstatus = 2
+			self.CalLED.resize(80, 80)
+			self.CalLED.setStyleSheet("border: 1px solid black; background-color: green; border-radius: 40px;")
+			self.CalLED.setText('       Calibrated            ')
 
 	def tab4buttonpressed(self):
 		webbrowser.open('https://docs.google.com/forms/d/e/1FAIpQLSfV1I_m_XHpySkWWFHY50TkHchBT7OENFbcBqAayC7Oqqf6HQ/formResponse')	
@@ -427,7 +457,7 @@ class MyTableWidget(QWidget):
 		#X Setpoint
 		self.tab1.hlayout = QHBoxLayout()
 		self.XSPoint =  QLineEdit(self)
-		self.XSPoint.setValidator(QDoubleValidator(-200.0, 200.0, 3))
+		self.XSPoint.setValidator(QDoubleValidator(-150.0, 150.0, 3))
 		self.tab1.hlayout.addWidget(self.XSPoint)
 		self.XS = QLabel('X Setpoint (Current Value: %d)' % self.XSET,self)
 		self.tab1.hlayout.addWidget(self.XS)
@@ -465,7 +495,7 @@ class MyTableWidget(QWidget):
 		#Y Setpoint
 		self.tab1.hlayout2 = QHBoxLayout()
 		self.YSPoint =  QLineEdit(self)
-		self.YSPoint.setValidator(QDoubleValidator(-200.0, 200.0, 3))
+		self.YSPoint.setValidator(QDoubleValidator(-150.0, 150.0, 3))
 		self.tab1.hlayout2.addWidget(self.YSPoint)
 		self.YS = QLabel('Y Setpoint (Current Value: %d)' % self.YSET,self)
 		self.tab1.hlayout2.addWidget(self.YS)
@@ -500,7 +530,7 @@ class MyTableWidget(QWidget):
 		#Z Setpoint
 		self.tab1.hlayout3 = QHBoxLayout()
 		self.ZSPoint =  QLineEdit(self)
-		self.ZSPoint.setValidator(QDoubleValidator(-200.0, 200.0, 3))
+		self.ZSPoint.setValidator(QDoubleValidator(-150.0, 150.0, 3))
 		self.tab1.hlayout3.addWidget(self.ZSPoint)
 		self.ZS = QLabel('Z Setpoint (Current Value: %d)' % self.ZSET,self)
 		self.tab1.hlayout3.addWidget(self.ZS)
@@ -575,12 +605,13 @@ class MyTableWidget(QWidget):
 
 
 
-		self.CalLED = QLabel()
-		if(self.calstatus == 0):	
-			self.CalLED.resize(80, 80)
-			self.CalLED.setStyleSheet("border: 1px solid black; background-color: red; border-radius: 40px;")
-			self.CalLED.setText('       Not Calibrated        ')
+		self.CalLED = QLabel()	
+		self.CalLED.resize(80, 80)
+		self.CalLED.setStyleSheet("border: 1px solid black; background-color: red; border-radius: 40px;")
+		self.CalLED.setText('       Not Calibrated        ')
+			
 
+	
 
 		self.mbut.clicked.connect(self.modechange)
 		self.calbut.clicked.connect(self.calibrate3HC)
