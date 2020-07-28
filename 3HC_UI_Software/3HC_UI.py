@@ -42,7 +42,7 @@ class App(QMainWindow):
 
 
 class MyTableWidget(QWidget):
-    
+    #init handles setting up the Qt widget class and all the necessary variables needed
 	def __init__(self, parent):
 		super(QWidget, self).__init__(parent)
 		self.layout = QVBoxLayout(self)
@@ -87,20 +87,9 @@ class MyTableWidget(QWidget):
 		self.YCUR = 0
 		self.ZCUR = 0
 
-
-		# #boundaries for setpoints
-		# self.XUP = 0
-		# self.XLOW = 0
-		# self.YUP = 0
-		# self.YLOW = 0
-		# self.ZUP = 0
-		# self.ZLOW = 0
-
-
-
 		#other
 		self.test = 0
-		#make this 1 to stop USB with changing mode
+		#make this 1 to stop USB with changing mode, good for when you can't actually connect to the cage but want to see the UI
 		self.disableUSB = 0
 		self.mode = 0
 		#this changes when system is changed from ARMED to IDLE
@@ -120,8 +109,11 @@ class MyTableWidget(QWidget):
 		# self.tab4UI()
 
 
-		#Qtimers for periodic value updating
-		#timer pulls data on 1/10 second interval
+
+		#Qt runs application in a while loop inside main
+		#timers allow periodic sampling without blocking the main loop
+		#changing the interval of the time changes how often the linked function is called
+		#all functions are called upon timeout of the set interval
 		self.DataTimer = QTimer()
 		self.DataTimer.setInterval(100)
 		self.DataTimer.timeout.connect(self.pulldata)
@@ -141,7 +133,7 @@ class MyTableWidget(QWidget):
 		self.setLayout(self.layout)
 
 
-		# init USB
+		# init USB handles setting up the USB connection class item
 		if(self.disableUSB == 0):
 			self.USB = USBprimary()
 			#check if USb is connected
@@ -154,6 +146,8 @@ class MyTableWidget(QWidget):
 
 
 	#processes NMEA messages and sends data to its appropriate variable
+	#NMEA protocol allows us to feed all messages into a single chain of conditionals for processing
+	#this will update all internal readouts and variables
 	def Process_NMEA(self,NMEA_list):
 		#bad data pauses USB until reset occurs, then continues
 		if(NMEA_list == None):
@@ -227,21 +221,23 @@ class MyTableWidget(QWidget):
 					self.ZS.setText('Z Setpoint (Current Value: %s)' % self.ZSET)
 
 
+
+	#Calibration process to compensate for local magnetic field
+	#Gathers a series of magnetic field readings on each axis, then averages them and stores internally as the offset
 	def Calibration_Process(self, NMEA_list):
 		ID = NMEA_list[0]
 		Payload = NMEA_list[1]
+		#X-Axis
 		if(ID == "XMAG"):
 			self.XCAL += float(Payload)
-
-
+		#Y-Axis
 		if(ID == "YMAG"):
 			self.YCAL += float(Payload)
-
-
+		#Z-Axis
 		if(ID == "ZMAG"):
 			self.ZCAL += float(Payload)
 
-
+	#Switches the UI once calibration is done, allows arming of the 3HC 
 	def doneCalibrating(self):
 		self.CalLED.resize(80, 80)
 		self.CalLED.setStyleSheet("border: 1px solid black; background-color: green; border-radius: 40px;")
@@ -249,6 +245,7 @@ class MyTableWidget(QWidget):
 		self.calstatus = 2
 
 
+	#Helper function to catch edge cases on inputs for the setpoints
 	def SetpointsEntered(self):
 		#handles 0 case due to unexpected functionality enocuntered
 		if(self.XSPoint.text() == ""):
@@ -265,7 +262,7 @@ class MyTableWidget(QWidget):
 			 self.ZSET = float(self.ZSPoint.text())
 		self.UpdateSetpoints()	
 
-#updates current values dispaly for setpoints	
+	#updates current values displayed for setpoints	on the UI
 	def UpdateSetpoints(self):
 		#makes sure we have a valid input
 
@@ -303,20 +300,17 @@ class MyTableWidget(QWidget):
 			self.zflag = False
 			SPInvalid.exec_()
 
-		#encodes NMEA messages, subtracting NULL offset for each axis
+		#rounds the setpoint to 3 decimal places
 		self.XSET -= round(self.XNOFF,3)
 		self.YSET -= round(self.YNOFF,3)
 		self.ZSET -= round(self.ZNOFF,3)
 
-
+		#encodes NMEA messages, subtracting NULL offset for each axis		
 		self.XSETE = NMEA.Encode('SETX',str(self.XSET))
 		self.YSETE = NMEA.Encode('SETY',str(self.YSET))
 		self.ZSETE = NMEA.Encode('SETZ',str(self.ZSET))	
 
-
-		# NMEA.Decode(self.XSETE)
-
-		# #send USB messages
+		# #send USB messages across USB endpoint
 		if(self.disableUSB == 0 and self.mode == 1):
 			self.USB.writeUSB(self.XSETE)	
 			self.USB.writeUSB(self.YSETE)	
@@ -325,7 +319,7 @@ class MyTableWidget(QWidget):
 	
 
 
-
+	#pulls data from the firmware of the 3HC, passes into the processing function for decoding and routing
 	def pulldata(self):
 		#reads all data sequentially and processes
 		if(self.disableUSB == 0 and self.mode == 1):
@@ -449,7 +443,7 @@ class MyTableWidget(QWidget):
 		self.CalLED.setStyleSheet("border: 1px solid black; background-color: green; border-radius: 40px;")
 		self.CalLED.setText('       Calibrated            ')
 
-	#links for tab3
+
 
 
 
@@ -471,6 +465,7 @@ class MyTableWidget(QWidget):
 
 
 	#Tab1: HHC control interface
+	#graphical display for visual part of the UI
 	def tab1UI(self):
 
 
@@ -714,6 +709,8 @@ class MyTableWidget(QWidget):
 
 
 	#tab3: SVS control interface (pH)
+	#this will need to be added once the solar vector simulator is complete and ready to be integrated with the 3HC
+	#We had also discussed keeping them as separate systems, which would allow us to remove this part
 	def tab2UI(self):
 		pass
 
@@ -750,6 +747,7 @@ class MyTableWidget(QWidget):
 
 
 #Actually runs the GUI (Main loop), don't put anything else in here
+#Don't put anything else inside this while loop 
 if __name__=='__main__':
 	app = QApplication(sys.argv)
 	mainWindow = App()
